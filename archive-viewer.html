@@ -279,7 +279,9 @@
       // Extract date from filename for display
       const dateMatch = filename.match(/papers-(\d{4}-\d{2}-\d{2})\.json/)
       if (dateMatch) {
-        const date = new Date(dateMatch[1])
+        // Parse date as local date to avoid timezone conversion issues
+        const [year, month, day] = dateMatch[1].split('-').map(Number)
+        const date = new Date(year, month - 1, day)
         subtitle.textContent = `Archived on ${date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`
       }
 
