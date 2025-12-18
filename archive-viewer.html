@@ -289,6 +289,13 @@
         return Array.from(new Set(xs))
       }
 
+      function stripHtml(html) {
+        // Create a temporary div to strip HTML tags
+        const tmp = document.createElement('div')
+        tmp.innerHTML = html
+        return tmp.textContent || tmp.innerText || ''
+      }
+
       function render(items) {
         grid.innerHTML = ''
         empty.hidden = items.length !== 0
@@ -338,7 +345,8 @@
           // Abstract
           const abstract = document.createElement('div')
           abstract.className = 'abstract'
-          abstract.textContent = paper.abstract || ''
+          // Strip HTML tags from abstract (some sources include HTML in RSS feeds)
+          abstract.textContent = stripHtml(paper.abstract || '')
 
           // Links
           const links = document.createElement('div')
