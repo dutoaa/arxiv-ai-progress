@@ -308,8 +308,8 @@
       const source = document.querySelector('#source')
 
       const base = import.meta?.env?.BASE_URL || document.baseURI
-      const url = new URL('./papers.json', base).toString()
-      const infographicsUrl = new URL('./infographics/index.json', base).toString()
+      const url = new URL('../papers.json', base).toString()
+      const infographicsUrl = new URL('../infographics/index.json', base).toString()
       let infographicsMap = {}
 
       function uniq(xs) {
@@ -331,7 +331,7 @@
 
           // Load all infographic files
           for (const file of files) {
-            const fileUrl = new URL(`../infographics/${file}`, base).toString()
+            const fileUrl = new URL(`./infographics/${file}`, base).toString()
             try {
               const fileResp = await fetch(fileUrl, { cache: 'no-store' })
               const infographic = await fileResp.json()
