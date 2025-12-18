@@ -1,24 +1,24 @@
 {
-  "key_insight": "A network-aware self-supervised learning method learns compact, biologically meaningful representations of neuronal activity dynamics, enabling high-content, label-free screening that identifies genetic modifiers across diverse neural interventions.",
-  "problem_solved": "Scales phenotypic screening of complex, time-varying neuronal activity without large labeled datasets or handcrafted features, overcoming heterogeneity and sensitivity issues in detecting subtle genetic effects on network dynamics.",
+  "key_insight": "A network-aware self-supervised learning method learns rich representations of time-varying neuronal activity that enable high-content, scalable phenotypic screening to identify genetic modifiers of neuronal dynamics. This approach captures single-cell temporal patterns in the context of network interactions without requiring large labeled datasets.",
+  "problem_solved": "Bridges the gap between complex, time-resolved neuronal activity data and scalable discovery of genetic perturbations by eliminating heavy label-dependence and explicitly accounting for network context, enabling sensitive detection of phenotypic effects on dynamic activity patterns.",
   "method": [
-    "Incorporate network/connectivity priors into self-supervised representation learning to respect cell–cell relationships while modeling temporal activity.",
-    "Design temporal and graph-based pretext tasks that force embeddings to capture dynamic phenotypes across interventions.",
-    "Deploy a scalable pipeline that maps perturbations to embedding space, clusters phenotypes, and ranks candidate genetic modifiers for follow-up."
+    "Design self-supervised pretext tasks that exploit temporal structure of calcium/electrophysiology traces and relationships among neurons to learn embeddings without labels.",
+    "Incorporate network-aware priors (neuron-to-neuron connectivity or co-activity) so learned representations reflect both single-cell dynamics and local circuit context.",
+    "Use the learned embeddings for downstream high-throughput screening to cluster phenotypes and detect genetic modifiers (compare perturbation vs control, prioritize hits)."
   ],
-  "impact": "Provides ML practitioners with a label-efficient approach to discover functional phenotypes and perturbation effects from time-series networked data, improving transferability and interpretability for high-throughput biological screens.",
+  "impact": "Provides a practical blueprint for applying self-supervised and graph-aware representation learning to biological time series, reducing annotation needs and increasing throughput and sensitivity for discovery tasks—relevant to ML practitioners working on biomedical signals, spatio-temporal data, and causal screening.",
   "visual_elements": [
-    "Model schematic: nodes = neurons, edges = network priors, showing temporal SSL objectives feeding into an embedding space.",
-    "Embedding plot (UMAP/t-SNE) colored by perturbation/phenotype to show cluster separation and hit detection.",
-    "Time-series/heatmap panels comparing neuronal activity traces before and after key genetic perturbations.",
-    "End-to-end pipeline flowchart: data acquisition → network-aware SSL → phenotypic embedding → hit ranking/validation."
+    "Pipeline schematic: data (activity traces + network) → network-aware self-supervised model → embeddings → hit detection",
+    "UMAP/t-SNE of learned embeddings colored by genotype/perturbation to show phenotype separation",
+    "Heatmap or raster plots of representative neuronal activity traces before/after a genetic perturbation",
+    "Bar/ROC chart comparing hit discovery sensitivity and false positive rate vs baseline (supervised or non-network methods)"
   ],
   "hashtags": [
     "#SelfSupervisedLearning",
     "#Neuroscience",
+    "#PhenotypicScreening",
     "#RepresentationLearning",
-    "#HighContentScreening",
-    "#FunctionalGenomics"
+    "#AIforBiology"
   ],
   "paper_id": "2025-12-17-nature-network_aware_self_supervised_learning_enables_high_content_phenotypic_screening",
   "paper_title": "Network-aware self-supervised learning enables high-content phenotypic screening for genetic modifiers of neuronal activity dynamics",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01156-x"
     }
   ],
-  "generated_at": "2025-12-18T22:19:49.405554"
+  "generated_at": "2025-12-18T22:36:13.045663"
 }

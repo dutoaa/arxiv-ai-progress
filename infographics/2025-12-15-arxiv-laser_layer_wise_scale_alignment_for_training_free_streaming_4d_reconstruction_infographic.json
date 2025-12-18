@@ -1,0 +1,35 @@
+{
+  "key_insight": "LASER shows that you can convert high-quality offline feed-forward 4D reconstruction models into streaming-capable systems without retraining by aligning layer-wise activation scales, enabling causal inference with greatly reduced memory.",
+  "problem_solved": "Offline feed-forward reconstructions (e.g., VGGT, π^3) achieve great quality but require quadratic memory across time, preventing streaming on long/real-time videos and forcing expensive retraining for streaming alternatives.",
+  "method": [
+    "Training-free conversion: take a pretrained feed-forward 4D model and adapt it for streaming at inference time without weight updates.",
+    "Layer-wise scale alignment: adjust per-layer activation scales/statistics across temporal windows so features remain stable and causal when processed incrementally.",
+    "Memory-efficient buffering & temporal aggregation: reuse aligned layer outputs and maintain lightweight buffers to achieve near-linear memory cost while preserving reconstruction quality."
+  ],
+  "impact": "Enables practitioners to deploy state-of-the-art offline reconstruction models in streaming/real-time pipelines without retraining or large memory overhead, lowering deployment cost and accelerating real-world applications (AR/robotics/live capture).",
+  "visual_elements": [
+    "Pipeline diagram: left = pretrained offline model, middle = LASER layer-wise alignment module, right = streaming inference output (frames over time).",
+    "Memory chart: quadratic memory vs. LASER's near-linear memory curve for longer sequences (log-scale).",
+    "Before/after frames: side-by-side reconstructions from offline model (batched) vs. LASER-streamed output showing preserved quality.",
+    "Schematic of layer-wise scale alignment: feature maps with scale/mean adjustments and a small buffer indicating causal reuse."
+  ],
+  "hashtags": [
+    "#LASER",
+    "#4DReconstruction",
+    "#StreamingInference",
+    "#TrainingFree",
+    "#EfficientAI"
+  ],
+  "paper_id": "2025-12-15-arxiv-laser_layer_wise_scale_alignment_for_training_free_streaming_4d_reconstruction",
+  "paper_title": "LASER: Layer-wise Scale Alignment for Training-Free Streaming 4D Reconstruction",
+  "paper_category": "Model",
+  "paper_date": "2025-12-15",
+  "paper_authors": "Tianye Ding, Yiming Xie, Yiqing Liang, Moitreya Chatterjee, Pedro Miraldo",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.13680v1"
+    }
+  ],
+  "generated_at": "2025-12-18T22:37:17.106101"
+}

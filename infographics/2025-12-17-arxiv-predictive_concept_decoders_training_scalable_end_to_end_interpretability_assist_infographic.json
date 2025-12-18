@@ -1,24 +1,24 @@
 {
-  "key_insight": "Turn interpretability into a supervised prediction problem: train lightweight ‘‘Predictive Concept Decoders’’ that map internal activations to model behavior, enabling scalable, end-to-end learned explanations instead of hand-designed hypothesis tests.",
-  "problem_solved": "Internal activation space is high-dimensional and structured in ways that make manual hypothesis generation and testing slow, brittle, and hard to scale; this work automates and scales the extraction of meaningful, behavior-predictive concepts from activations.",
+  "key_insight": "Train end-to-end interpretability assistants—Predictive Concept Decoders (PCDs)—that learn to predict model behavior directly from internal activations, replacing hand-designed hypothesis testers with scalable learned predictors for more faithful explanations.",
+  "problem_solved": "Interpreting high-dimensional internal activations is hard and current scalable approaches rely on manual agents that don’t generalize; this paper provides a learned, scalable method to map activations to meaningful, testable explanations of model behavior.",
   "method": [
-    "Attach small concept decoders to internal layers and train them end-to-end to predict the model's behavior (outputs, intermediate decisions, or human-labeled concepts) from activations.",
-    "Use a predictive objective (fidelity to model behavior) rather than hand-crafted probes, allowing decoders to discover concepts that are both interpretable and behaviorally relevant.",
-    "Apply the approach across layers/models to produce a library of scalable interpretability assistants for hypothesis generation, debugging, and audits."
+    "Introduce Predictive Concept Decoders (PCDs): lightweight models trained to predict model outputs or concept labels from internal activations.",
+    "Optimize an end-to-end objective that rewards faithful prediction of model behavior, enabling the assistant to propose, refine, and validate concepts automatically.",
+    "Deploy PCDs across layers or modules to localize concepts in activation space and assemble explanations at scale."
   ],
-  "impact": "Provides practitioners a scalable, trainable toolkit for faithful explanations that speed debugging, model audits, and safety analyses by surfacing concepts directly tied to model behavior rather than relying on ad-hoc probes.",
+  "impact": "Provides practitioners a scalable, automated tool for faithful internal model explanations, useful for debugging, auditing, and alignment work without heavy manual hypothesis engineering.",
   "visual_elements": [
-    "Schematic: neural network with small decoder modules tapping activations and outputting predicted behaviors (showing end-to-end training arrow).",
-    "Flowchart: training pipeline from activations → decoder → predictive loss (fidelity) → updated decoder weights.",
-    "Comparison chart: fidelity/utility of learned decoders vs. hand-designed probes or baseline interpretability methods.",
-    "Concept map or t-SNE: clusters of activation-space concepts discovered by decoders with example inputs/labels."
+    "Pipeline diagram: base model -> internal activations -> PCDs -> predicted behavior/explanations",
+    "Activation-space visualization (e.g., t-SNE/UMAP) colored by predicted concepts to show localization",
+    "Bar/line chart comparing hand-designed agents vs learned PCD assistants on scalability and faithfulness metrics",
+    "Example assistant UI mockup showing concept labels, supporting activations, and predicted behavioral effects"
   ],
   "hashtags": [
+    "#PredictiveConceptDecoders",
     "#Interpretability",
     "#ExplainableAI",
-    "#PredictiveConceptDecoders",
-    "#ModelDebugging",
-    "#XAI"
+    "#NeuralNetworks",
+    "#AIResearch"
   ],
   "paper_id": "2025-12-17-arxiv-predictive_concept_decoders_training_scalable_end_to_end_interpretability_assist",
   "paper_title": "Predictive Concept Decoders: Training Scalable End-to-End Interpretability Assistants",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15712v1"
     }
   ],
-  "generated_at": "2025-12-18T22:18:18.658838"
+  "generated_at": "2025-12-18T22:34:06.381849"
 }

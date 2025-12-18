@@ -1,24 +1,24 @@
 {
-  "key_insight": "Resampling Forcing is a teacher-free, self-resampling training scheme that closes the train–test gap in autoregressive video diffusion models, enabling stable end-to-end training from scratch and at scale.",
-  "problem_solved": "Autoregressive video diffusion models suffer from exposure bias due to a train–test mismatch (training on ground-truth context but generating from model predictions). Prior fixes use separate teacher models or online discriminators; this paper removes that dependency with an integrated, teacher-free solution.",
+  "key_insight": "Train autoregressive video diffusion models end-to-end without a separate teacher by using a self-resampling scheme that exposes the model to its own predicted frames during training, eliminating exposure bias from train-test mismatch.",
+  "problem_solved": "Autoregressive video diffusion models suffer from exposure bias because they are trained on ground-truth conditioning but must condition on their own predictions at test time; prior fixes require an extra teacher model or online discriminator, increasing complexity and resource cost.",
   "method": [
-    "Self-resampling during training: randomly replace conditioning frames with the model's own noisy/reconstructed predictions to mimic test-time autoregressive inputs.",
-    "Resampling Forcing objective: incorporate resampled contexts into the diffusion loss so the model learns to recover from its own mistakes without a teacher/discriminator.",
-    "Scalable end-to-end setup: apply the scheme across long video sequences and train autoregressive diffusion models from scratch without auxiliary supervision."
+    "Self-Resampling: during training, sample the model's own past-frame predictions and re-insert them into the conditioning context so the model learns to correct its own errors.",
+    "Resampling Forcing Framework: a teacher-free, end-to-end training protocol that schedules and integrates resampled predictions into the loss to bridge the train-test distribution gap.",
+    "Scalable Autoregressive Training: compatible with large-scale autoregressive video diffusion architectures, enabling training from scratch without bidirectional teachers or discriminators."
   ],
-  "impact": "Makes autoregressive video diffusion models more robust and simpler to train by eliminating external teacher models or discriminators, improving realism and reliability of long-horizon video prediction and simulation. Practitioners get a scalable, end-to-end recipe for reducing exposure bias.",
+  "impact": "Simplifies and stabilizes training of autoregressive video diffusion models, improving robustness to compounding errors while reducing dependency on additional teacher models—useful for practitioners building scalable generative video systems.",
   "visual_elements": [
-    "Side-by-side diagram: training (ground-truth conditioning) vs. test (autoregressive prediction) showing the exposure bias gap.",
-    "Flowchart of Resampling Forcing: how self-resampling inserts model predictions into conditioning frames and feeds them back into the diffusion loss.",
-    "Metric bar/line chart: performance comparison (e.g., fidelity/consistency) of baseline autoregressive diffusion with teacher/discriminator vs. Resampling Forcing.",
-    "Sequence illustration: example video frames showing progressive resampling and recovery of errors during generation."
+    "Schematic of autoregressive video generation pipeline showing ground-truth conditioning vs. self-resampled conditioning (before/after)",
+    "Illustration of exposure bias: training on ground-truth frames but testing on model predictions, with arrows showing distribution shift",
+    "Flowchart of Resampling Forcing: sample → inject predictions → compute loss → update model, annotated with scheduling/curriculum",
+    "Performance chart comparing sample quality or error accumulation over time for baseline (teacher/discriminator) vs. self-resampling"
   ],
   "hashtags": [
     "#VideoDiffusion",
-    "#AutoregressiveModels",
-    "#SelfResampling",
+    "#AutoregressiveAI",
     "#ExposureBias",
-    "#GenerativeAI"
+    "#SelfResampling",
+    "#EndToEndTraining"
   ],
   "paper_id": "2025-12-17-arxiv-end_to_end_training_for_autoregressive_video_diffusion_via_self_resampling",
   "paper_title": "End-to-End Training for Autoregressive Video Diffusion via Self-Resampling",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15702v1"
     }
   ],
-  "generated_at": "2025-12-18T22:17:22.929848"
+  "generated_at": "2025-12-18T22:33:06.945497"
 }
