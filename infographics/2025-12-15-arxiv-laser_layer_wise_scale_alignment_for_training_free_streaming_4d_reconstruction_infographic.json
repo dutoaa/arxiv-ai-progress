@@ -1,24 +1,24 @@
 {
-  "key_insight": "LASER shows that you can convert high-quality offline feed-forward 4D reconstruction models into streaming-capable systems without retraining by aligning layer-wise activation scales, enabling causal inference with greatly reduced memory.",
-  "problem_solved": "Offline feed-forward reconstructions (e.g., VGGT, π^3) achieve great quality but require quadratic memory across time, preventing streaming on long/real-time videos and forcing expensive retraining for streaming alternatives.",
+  "key_insight": "LASER is a training-free conversion framework that enables high-quality feed‑forward 4D reconstruction models to run in streaming (causal) mode by aligning layer-wise feature scales, removing the quadratic memory bottleneck without retraining.",
+  "problem_solved": "Offline feed-forward reconstructions (e.g., VGGT, π3) cannot handle streaming video due to quadratic memory growth and require costly retraining for causal variants; LASER lets practitioners deploy these strong offline models on streaming inputs efficiently while preserving geometric priors.",
   "method": [
-    "Training-free conversion: take a pretrained feed-forward 4D model and adapt it for streaming at inference time without weight updates.",
-    "Layer-wise scale alignment: adjust per-layer activation scales/statistics across temporal windows so features remain stable and causal when processed incrementally.",
-    "Memory-efficient buffering & temporal aggregation: reuse aligned layer outputs and maintain lightweight buffers to achieve near-linear memory cost while preserving reconstruction quality."
+    "Layer-wise scale alignment: match and rescale intermediate multi-scale feature statistics so features remain stable across temporal chunks for causal processing.",
+    "Training-free conversion: wrap existing feed‑forward reconstruction networks with the alignment mechanism and lightweight buffering to produce streaming outputs without modifying model weights.",
+    "Memory-efficient streaming: replace quadratic global attention/memory with aligned, local causal propagation to achieve linear (or near-constant) memory while maintaining reconstruction fidelity."
   ],
-  "impact": "Enables practitioners to deploy state-of-the-art offline reconstruction models in streaming/real-time pipelines without retraining or large memory overhead, lowering deployment cost and accelerating real-world applications (AR/robotics/live capture).",
+  "impact": "Practitioners can convert state-of-the-art offline 4D reconstruction models into real-time, streaming systems without retraining—reducing memory and compute costs while keeping high geometric accuracy, enabling deployment on resource‑constrained or latency‑sensitive applications.",
   "visual_elements": [
-    "Pipeline diagram: left = pretrained offline model, middle = LASER layer-wise alignment module, right = streaming inference output (frames over time).",
-    "Memory chart: quadratic memory vs. LASER's near-linear memory curve for longer sequences (log-scale).",
-    "Before/after frames: side-by-side reconstructions from offline model (batched) vs. LASER-streamed output showing preserved quality.",
-    "Schematic of layer-wise scale alignment: feature maps with scale/mean adjustments and a small buffer indicating causal reuse."
+    "Pipeline diagram: before (offline model, full-frame quadratic memory) vs after (LASER-converted streaming pipeline with layer-scale alignment and causal buffers).",
+    "Memory vs frames plot: quadratic memory curve for offline baseline vs linear/flat curve for LASER across increasing video length.",
+    "Feature-map alignment illustration: multi-scale feature maps from consecutive frames showing scale/residual alignment and stabilized activations.",
+    "Qualitative timeline: successive reconstructed frames/meshes showing consistent geometry and low latency compared to retrained streaming baselines."
   ],
   "hashtags": [
-    "#LASER",
     "#4DReconstruction",
-    "#StreamingInference",
+    "#StreamingAI",
     "#TrainingFree",
-    "#EfficientAI"
+    "#EfficientInference",
+    "#ComputerVision"
   ],
   "paper_id": "2025-12-15-arxiv-laser_layer_wise_scale_alignment_for_training_free_streaming_4d_reconstruction",
   "paper_title": "LASER: Layer-wise Scale Alignment for Training-Free Streaming 4D Reconstruction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.13680v1"
     }
   ],
-  "generated_at": "2025-12-18T22:37:17.106101"
+  "generated_at": "2025-12-18T23:22:59.355553"
 }

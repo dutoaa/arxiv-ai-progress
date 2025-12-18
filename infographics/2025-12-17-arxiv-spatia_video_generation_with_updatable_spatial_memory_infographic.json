@@ -1,23 +1,23 @@
 {
-  "key_insight": "Spatia keeps a persistent 3D point-cloud as spatial memory and iteratively generates short video clips conditioned on — and updating — that memory via visual SLAM, yielding much better long-term spatial and temporal consistency.",
-  "problem_solved": "Current video generators lose coherence over long sequences because they lack an explicit, updatable scene representation to preserve static geometry and align temporal dynamics.",
+  "key_insight": "Spatia preserves a persistent 3D scene point-cloud as spatial memory and uses it to condition iterative clip generation, continuously updating that memory via visual SLAM to achieve much stronger long-term spatial and temporal consistency in generated video.",
+  "problem_solved": "Existing video generation models fail to maintain consistent geometry, appearance, and object placement over long sequences because video is dense and high-dimensional; Spatia addresses this by explicitly storing and updating scene-level 3D memory.",
   "method": [
-    "Maintain a persistent 3D scene point-cloud as spatial memory to represent static geometry.",
-    "Generate video clips conditioned on the spatial memory with an explicit dynamic–static disentanglement.",
-    "Continuously update the spatial memory using visual SLAM from generated/viewed frames to propagate consistency across clips."
+    "Maintain a persistent 3D point-cloud spatial memory representing scene geometry and appearance.",
+    "Iteratively generate short video clips conditioned on the spatial memory with explicit dynamic–static disentanglement (separating moving objects from static scene).",
+    "Continuously update the spatial memory using visual SLAM from produced/observed frames so future clips remain consistent with accumulated scene structure."
   ],
-  "impact": "Enables more coherent, long-horizon video synthesis — useful for robotics, AR/VR, simulation, and any application needing consistent scene geometry across time. Decouples static scene representation from temporal dynamics to scale generation quality.",
+  "impact": "Provides a practical framework for generating longer, scene-consistent videos useful for simulation, content creation, and robotics; enables models to reason about persistent 3D structure rather than only frame-by-frame signals.",
   "visual_elements": [
-    "Pipeline loop diagram: Spatial memory → Clip generator → Frames → Visual SLAM → Memory update",
-    "Side-by-side comparison of long-sequence outputs: baseline vs Spatia (showing improved spatial/temporal coherence)",
-    "3D point-cloud visualization overlayed with RGB frames to show persistent scene memory",
-    "Timeline/clip-stitching illustration showing iterative clip generation and memory propagation"
+    "Pipeline diagram: spatial memory (3D point cloud) → clip generator → SLAM updater loop",
+    "Before/after frame sequence showing drift/inconsistency vs Spatia’s consistent object placement",
+    "3D point-cloud overlay on video frames to illustrate persistent scene memory",
+    "Small chart or icon set comparing temporal/ spatial consistency (conceptual) between baseline and Spatia"
   ],
   "hashtags": [
-    "#Spatia",
     "#VideoGeneration",
     "#SpatialMemory",
     "#VisualSLAM",
+    "#3DComputerVision",
     "#GenerativeAI"
   ],
   "paper_id": "2025-12-17-arxiv-spatia_video_generation_with_updatable_spatial_memory",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15716v1"
     }
   ],
-  "generated_at": "2025-12-18T22:54:28.566962"
+  "generated_at": "2025-12-18T23:20:37.953618"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Resampling Forcing introduces a teacher-free self-resampling scheme that lets autoregressive video diffusion models be trained end-to-end from scratch, directly addressing exposure bias without relying on bidirectional teachers or discriminators.",
-  "problem_solved": "Autoregressive video diffusion models suffer from exposure bias due to train-test mismatch; prior fixes require an external teacher model or online discriminator, complicating training and scaling.",
+  "key_insight": "Resampling Forcing introduces a teacher-free self-resampling training scheme that lets autoregressive video diffusion models be trained end-to-end from scratch, eliminating exposure bias without relying on bidirectional teachers or online discriminators.",
+  "problem_solved": "Addresses exposure bias from the train–test mismatch in autoregressive video diffusion models, and removes the need for post-training teacher models or discriminators that complicate large-scale training.",
   "method": [
-    "Resampling Forcing framework: during training, the model periodically resamples its own predictions to create realistic autoregressive inputs, simulating test-time conditions.",
-    "Self-resampling scheme: replace future ground-truth conditioning with model-sampled frames/latents at training time to expose the model to its own errors and learn corrective behavior.",
-    "End-to-end optimization: no bidirectional teacher or discriminator needed, enabling scalable training from scratch using standard loss/optimizer pipelines."
+    "Self-resampling: during training the model samples and feeds back its own predicted frames to mimic test-time autoregressive rollout (teacher-free).",
+    "Integrate resampled rollouts into the training objective so gradients flow through realistic generation trajectories, enabling end-to-end optimization from scratch.",
+    "Replace external teacher/discriminator workflows with a scalable internal resampling mechanism compatible with large autoregressive video diffusion pipelines."
   ],
-  "impact": "Makes autoregressive video diffusion models more robust and easier to train at scale by removing dependence on auxiliary teacher/discriminator components, improving long-range coherence and simplifying deployment for generative video tasks.",
+  "impact": "Simplifies and stabilizes training of autoregressive video diffusion models, improving generation robustness while reducing engineering and compute overhead from teacher/discriminator-based solutions.",
   "visual_elements": [
-    "Flow diagram of the training loop: ground-truth conditioning vs. self-resampled conditioning to highlight where resampling is applied",
-    "Before/after bar chart: exposure-bias metric and sample quality (e.g., FVD) comparing baseline, teacher-based, and Resampling Forcing",
-    "Sequence panel: example video frames showing improved long-term consistency with self-resampling",
-    "Icon cluster: 'no teacher' badge, scalability/compute icon, autoregressive timeline"
+    "Train vs Test mismatch diagram: ground-truth teacher feed vs self-resampling autoregressive rollout highlighting exposure bias",
+    "Pipeline flowchart: autoregressive video diffusion model with a self-resampling feedback loop and end-to-end backpropagation",
+    "Performance chart: quality/robustness (e.g., FVD or similar) comparing Resampling Forcing, teacher-based, and baseline models",
+    "Icons: 'teacher-free' badge, scalability/GPU icon, and an animation frame sequence to denote video generation"
   ],
   "hashtags": [
     "#VideoDiffusion",
     "#AutoregressiveModels",
-    "#SelfResampling",
+    "#GenerativeAI",
     "#ExposureBias",
-    "#EndToEndTraining"
+    "#SelfResampling"
   ],
   "paper_id": "2025-12-17-arxiv-end_to_end_training_for_autoregressive_video_diffusion_via_self_resampling",
   "paper_title": "End-to-End Training for Autoregressive Video Diffusion via Self-Resampling",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15702v1"
     }
   ],
-  "generated_at": "2025-12-18T22:52:50.857237"
+  "generated_at": "2025-12-18T23:19:06.899879"
 }

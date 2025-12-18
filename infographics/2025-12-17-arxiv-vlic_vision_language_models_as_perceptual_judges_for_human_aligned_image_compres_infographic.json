@@ -1,24 +1,24 @@
 {
-  "key_insight": "Pretrained vision-language models (VLMs) can serve as accurate perceptual judges by replicating human binary preference judgments, enabling human-aligned image compression without large psychophysical training sets.",
-  "problem_solved": "Traditional distortion metrics (e.g., MSE) and bespoke perceptual networks often fail to match human preferences; collecting and training on large-scale human judgments is expensive and slow. This work provides a scalable alternative for perceptual evaluation and loss.",
+  "key_insight": "State-of-the-art vision-language models can predict human binary perceptual preferences for compressed images and be used as effective perceptual judges or losses to align image compression with human judgment.",
+  "problem_solved": "Bridges the gap between cheap pixel-wise objectives (e.g., MSE) and costly human psycho-visual evaluations by providing a scalable model-based proxy for human perceptual preference in image compression.",
   "method": [
-    "Use off-the-shelf VLMs to compare original vs. compressed images and predict binary human preference signals.",
-    "Convert VLM preference outputs into a perceptual evaluation metric (and optionally a differentiable loss) for training or selecting compression models.",
-    "Calibrate VLM outputs to align with human binary judgments so the model can be used as a reliable proxy judge."
+    "Use pretrained VLMs to score/compare original vs. compressed images (zero-shot or lightly calibrated) as proxy human preference judgments.",
+    "Convert VLM preference outputs into a training signal or differentiable perceptual loss to optimize compression models.",
+    "Validate alignment by comparing VLM judgments, traditional metrics (MSE/SSIM), and human studies across benchmarks."
   ],
-  "impact": "This approach offers a scalable, plug-in perceptual judge that lets practitioners optimize compressors for human-perceived quality without costly psychophysical labeling, improving perceived quality at comparable bitrates and speeding development cycles.",
+  "impact": "Enables development of compression systems that better match human perception without expensive large-scale psychophysical data collection; practitioners can plug VLM-based judges into training and evaluation pipelines for more human-aligned outputs.",
   "visual_elements": [
-    "Pipeline diagram: original image → compressor → compressed image → VLM comparator → binary human-like judgment",
-    "Scatter/line plot: bitrate vs. perceived quality comparing MSE-optimized, perceptual-loss-optimized, and VLM-aligned compression",
-    "Agreement bar chart: percent agreement between VLM judgments and human raters across conditions",
-    "Icon set: human judge, VLM (brain+vision+language), compression (file/bitrate), and a checkmark indicating alignment"
+    "Pipeline diagram: image -> compressor -> compressed image -> VLM judge -> loss -> compressor update",
+    "Bar/heatmap comparing agreement rates: Human vs VLM vs MSE/SSIM across datasets",
+    "Side-by-side image pairs with labels showing human preference and VLM prediction (illustrative examples)",
+    "Icon set showing benefits: lower annotation cost, faster evaluation, improved perceptual quality"
   ],
   "hashtags": [
+    "#VisionLanguage",
     "#ImageCompression",
-    "#VisionLanguageModels",
     "#PerceptualLoss",
     "#HumanAlignedAI",
-    "#VLIC"
+    "#VLM"
   ],
   "paper_id": "2025-12-17-arxiv-vlic_vision_language_models_as_perceptual_judges_for_human_aligned_image_compres",
   "paper_title": "VLIC: Vision-Language Models As Perceptual Judges for Human-Aligned Image Compression",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15701v1"
     }
   ],
-  "generated_at": "2025-12-18T22:52:36.663533"
+  "generated_at": "2025-12-18T23:18:53.695897"
 }

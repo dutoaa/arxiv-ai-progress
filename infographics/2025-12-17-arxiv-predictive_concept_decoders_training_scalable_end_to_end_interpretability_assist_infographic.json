@@ -1,24 +1,24 @@
 {
-  "key_insight": "Train small \"interpretability assistants\" end-to-end to decode high-level concepts from internal activations and directly predict model behavior, producing more faithful and scalable explanations than hand-designed probing agents.",
-  "problem_solved": "Maps complex, high-dimensional internal activation space to human-understandable concepts and model-level behaviors without relying on brittle, manually engineered hypothesis-testing procedures.",
+  "key_insight": "Train small end-to-end “interpretability assistants” (Predictive Concept Decoders) to map internal activations to human-understandable concepts that accurately predict model behavior, replacing slow hand-designed hypothesis testing with scalable learned probes.",
+  "problem_solved": "Internal activation spaces are high-dimensional and hard to interpret; existing scalable methods rely on manually designed agents and probes that don’t generalize or scale. This work makes internal explanations faithful and automatable by turning interpretability into a predictive learning objective.",
   "method": [
-    "Attach lightweight concept decoders to model activations and train them end-to-end with a predictive objective to explain downstream model behavior.",
-    "Optimize decoders to both recover human-interpretable concept signals and to accurately predict model outputs/decisions, forcing explanations to be behaviorally relevant and faithful.",
-    "Design the assistant to be scalable and modular so it can be applied across layers, units, and large models without bespoke human intervention."
+    "Learn concept decoders end-to-end that take model activations as input and output concept scores that predict the model’s downstream behavior or outputs.",
+    "Optimize a fidelity/predictive objective so the decoders capture activation structure directly relevant to model decisions (not just correlational features).",
+    "Use the trained assistants to generate, test, and visualize interpretable hypotheses at scale, enabling automated probing across layers, units, and tasks."
   ],
-  "impact": "Provides practitioners a practical, scalable tool to extract behaviorally faithful concept explanations directly from activations, improving debugging, auditing, and model understanding at scale.",
+  "impact": "Provides a practical, scalable route to faithful internal explanations that practitioners can use for debugging, monitoring, and alignment work. Reduces reliance on hand-crafted probes and speeds up discovery of meaningful internal representations.",
   "visual_elements": [
-    "Schematic: base model layers -> attached predictive concept decoders -> predicted behavior vs. ground-truth behavior",
-    "Before/After comparison chart: hand-designed probes (low fidelity/scalability) vs. learned assistants (higher fidelity/scalability)",
-    "Heatmap or activation map showing decoded concept strengths across layers for a representative input",
-    "Flowchart of training objective showing loss terms: concept fidelity + behavior-prediction accuracy"
+    "Schematic diagram: base model → activation map → predictive concept decoder → predicted behavior, annotated to show training loop",
+    "Bar/line chart comparing fidelity and scalability: learned assistants vs hand-designed agents across tasks and model sizes",
+    "Activation manifold visualization with concept vectors or heatmaps showing which concepts explain specific outputs",
+    "Dashboard mockup: per-layer concept activations + predicted vs actual outputs for rapid inspection"
   ],
   "hashtags": [
     "#Interpretability",
     "#ExplainableAI",
     "#ConceptDecoders",
-    "#ModelTransparency",
-    "#AIResearch"
+    "#ModelInspection",
+    "#AITransparency"
   ],
   "paper_id": "2025-12-17-arxiv-predictive_concept_decoders_training_scalable_end_to_end_interpretability_assist",
   "paper_title": "Predictive Concept Decoders: Training Scalable End-to-End Interpretability Assistants",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15712v1"
     }
   ],
-  "generated_at": "2025-12-18T22:53:44.684488"
+  "generated_at": "2025-12-18T23:20:05.022278"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "eMOSAIC combines multimodal drug/protein data with per-sample out-of-distribution (OOD) uncertainty estimates to substantially improve binding-affinity predictions across multiple targets, enabling safer, more reliable polypharmacology assessment.",
-  "problem_solved": "Existing affinity predictors struggle with compounds that act on multiple targets and fail silently on out-of-distribution examples; this work addresses reliable prediction plus calibrated, individual uncertainty for each compound–target pair.",
+  "key_insight": "eMOSAIC combines multimodal molecular and protein information with per-sample out-of-distribution (OOD) uncertainty estimates to substantially improve binding affinity prediction for compounds that act on multiple targets (polypharmacology). This lets models flag unreliable predictions and prioritize trustworthy candidate-target pairs.",
+  "problem_solved": "Accurate binding affinity prediction for polypharmacology is hampered by multimodal inputs and out-of-distribution examples; the paper addresses unreliable predictions by providing individual uncertainty quantification to detect and mitigate OOD failures.",
   "method": [
-    "Multimodal input fusion: integrates molecular representations (structures/SMILES), protein features (sequence/structure), and assay/context data into a unified model.",
-    "Per-sample OOD-aware uncertainty quantification: produces calibrated uncertainty scores for each prediction to flag unreliable/novel compound–target pairs.",
-    "Architecture & training: a joint model (eMOSAIC) that learns cross-modal interactions while optimizing for both accuracy and uncertainty calibration to improve generalization in polypharmacology settings."
+    "Integrate multimodal representations (chemical features, protein descriptors/structures, and contextual assay metadata) into a unified prediction model.",
+    "Produce calibrated, per-sample uncertainty estimates that identify OOD compound–protein pairs and adjust or reject low-confidence affinity predictions.",
+    "Use uncertainty-aware decision rules to improve ranking and selection of polypharmacological candidates (reducing false positives and guiding experiments)."
   ],
-  "impact": "Provides AI/ML practitioners in drug discovery a practical framework to make risk-aware affinity predictions, prioritize experiments, and reduce costly failures by explicitly surfacing when model outputs are uncertain or out-of-distribution.",
+  "impact": "Provides AI/ML practitioners a practical pipeline to make binding affinity models more reliable and actionable in drug discovery, enabling safer prioritization of multitarget compounds and reducing wasted experimental effort.",
   "visual_elements": [
-    "Pipeline diagram showing multimodal inputs (compound, protein, assay) feeding into eMOSAIC and producing affinity + per-sample uncertainty output",
-    "Heatmap matrix of compounds vs. targets annotated by predicted affinity and uncertainty (high uncertainty highlighted)",
-    "Calibration/coverage plots comparing OOD detection and calibration before vs. after eMOSAIC",
-    "Network graph illustrating polypharmacology (one drug linked to multiple proteins) with confidence-weighted edges"
+    "Schematic showing multimodal inputs (compound structure, protein sequence/structure, assay context) converging into the eMOSAIC model",
+    "Scatter or calibration plots comparing predicted affinity vs true affinity with uncertainty bands and OOD-highlighted points",
+    "Heatmap/network of a compound vs multiple protein affinities annotated with per-pair uncertainty (to visualize polypharmacology and confidence)",
+    "Bar chart or ROC showing improved selection/recall of true binders when using uncertainty-aware filtering vs baseline"
   ],
   "hashtags": [
     "#DrugDiscovery",
     "#UncertaintyQuantification",
-    "#MultimodalAI",
     "#Polypharmacology",
+    "#MultimodalAI",
     "#BindingAffinity"
   ],
   "paper_id": "2025-12-18-nature-multimodal_out_of_distribution_individual_uncertainty_quantification_enhances_bi",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01151-2"
     }
   ],
-  "generated_at": "2025-12-18T22:56:20.781112"
+  "generated_at": "2025-12-18T23:21:19.637336"
 }
