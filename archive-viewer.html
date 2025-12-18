@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#030014" />
-    <title>AI Research Papers - Weekly Top 20</title>
+    <title>Archived Papers - AI Research Papers</title>
     <style>
       :root {
         --bg: #030014;
@@ -54,6 +54,18 @@
         font-size: 14px;
         line-height: 1.6;
         margin-top: 6px;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-top: 8px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
       }
 
       .controls {
@@ -189,74 +201,16 @@
         color: var(--accent);
       }
 
-      .infographic {
-        margin-top: 16px;
-        padding: 14px;
-        border-radius: 12px;
-        background: rgba(167, 139, 250, 0.06);
-        border: 1px solid rgba(167, 139, 250, 0.15);
-      }
-
-      .infographic-toggle {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--accent);
-        user-select: none;
-      }
-
-      .infographic-toggle:hover {
-        text-decoration: underline;
-      }
-
-      .infographic-content {
-        margin-top: 12px;
-        display: none;
-      }
-
-      .infographic-content.expanded {
-        display: block;
-      }
-
-      .infographic h4 {
-        font-size: 13px;
-        font-weight: 650;
-        margin-top: 12px;
-        margin-bottom: 6px;
-        color: var(--text);
-      }
-
-      .infographic h4:first-child {
-        margin-top: 0;
-      }
-
-      .infographic p {
-        font-size: 13px;
-        line-height: 1.6;
-        color: var(--muted);
-      }
-
-      .infographic ul {
-        margin: 6px 0;
-        padding-left: 20px;
-        font-size: 13px;
-        line-height: 1.6;
-        color: var(--muted);
-      }
-
-      .infographic .hashtags {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-top: 8px;
-      }
-
-      .infographic .hashtag {
+      .archive-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: rgba(251, 191, 36, 0.15);
+        border: 1px solid rgba(251, 191, 36, 0.3);
+        color: rgba(251, 191, 36, 0.92);
         font-size: 12px;
-        color: var(--accent);
+        font-weight: 600;
+        margin-left: 8px;
       }
 
       @media (max-width: 768px) {
@@ -274,8 +228,9 @@
     <div class="wrap">
       <header>
         <div>
-          <h1>🔬 AI Research Papers - Weekly Top 20</h1>
-          <p class="subtitle">Latest AI research from arXiv, Nature, Science, and more</p>
+          <h1>🔬 AI Research Papers<span class="archive-badge">ARCHIVED</span></h1>
+          <p class="subtitle" id="subtitle">Historical snapshot of AI research papers</p>
+          <a href="archives.html" class="back-link">← Back to archives</a>
         </div>
 
         <div class="controls">
@@ -286,14 +241,13 @@
           <select id="source">
             <option value="all">All sources</option>
           </select>
-          <a href="archives.html" style="font-size: 14px; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); text-decoration: none;">📚 Archives</a>
         </div>
       </header>
 
       <div id="empty" class="empty" hidden>
         <div style="font-weight: 650">No papers found.</div>
         <div class="subtitle" style="margin-top: 6px">
-          Run the collection and generation scripts to populate the database.
+          The archive file could not be loaded or is empty.
         </div>
       </div>
 
@@ -306,121 +260,31 @@
       const q = document.querySelector('#q')
       const cat = document.querySelector('#cat')
       const source = document.querySelector('#source')
+      const subtitle = document.querySelector('#subtitle')
 
       const base = import.meta?.env?.BASE_URL || document.baseURI
-      const url = new URL('./papers.json', base).toString()
-      const infographicsUrl = new URL('./infographics/index.json', base).toString()
-      let infographicsMap = {}
+
+      // Get filename from URL query parameter
+      const params = new URLSearchParams(window.location.search)
+      const filename = params.get('file')
+
+      if (!filename) {
+        empty.hidden = false
+        subtitle.textContent = 'No archive file specified'
+        throw new Error('No file parameter specified')
+      }
+
+      const url = new URL(`../archives/${filename}`, base).toString()
+
+      // Extract date from filename for display
+      const dateMatch = filename.match(/papers-(\d{4}-\d{2}-\d{2})\.json/)
+      if (dateMatch) {
+        const date = new Date(dateMatch[1])
+        subtitle.textContent = `Archived on ${date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`
+      }
 
       function uniq(xs) {
         return Array.from(new Set(xs))
-      }
-
-      async function loadInfographics() {
-        try {
-          const resp = await fetch(infographicsUrl, { cache: 'no-store' })
-          const data = await resp.json()
-          const files = data.infographics || []
-
-          // Load all infographic files
-          for (const file of files) {
-            const fileUrl = new URL(`../infographics/${file}`, base).toString()
-            try {
-              const fileResp = await fetch(fileUrl, { cache: 'no-store' })
-              const infographic = await fileResp.json()
-              if (infographic.paper_id) {
-                infographicsMap[infographic.paper_id] = infographic
-              }
-            } catch (e) {
-              console.warn(`Failed to load infographic: ${file}`, e)
-            }
-          }
-        } catch (e) {
-          console.warn('Failed to load infographics index', e)
-        }
-      }
-
-      function createInfographicSection(infographic) {
-        const section = document.createElement('div')
-        section.className = 'infographic'
-
-        // Toggle header
-        const toggle = document.createElement('div')
-        toggle.className = 'infographic-toggle'
-        toggle.innerHTML = '▶ <span>View AI-Generated Summary</span>'
-
-        // Content
-        const content = document.createElement('div')
-        content.className = 'infographic-content'
-
-        // Key Insight
-        if (infographic.key_insight) {
-          const h4 = document.createElement('h4')
-          h4.textContent = '💡 Key Insight'
-          content.appendChild(h4)
-          const p = document.createElement('p')
-          p.textContent = infographic.key_insight
-          content.appendChild(p)
-        }
-
-        // Problem Solved
-        if (infographic.problem_solved) {
-          const h4 = document.createElement('h4')
-          h4.textContent = '🎯 Problem Solved'
-          content.appendChild(h4)
-          const p = document.createElement('p')
-          p.textContent = infographic.problem_solved
-          content.appendChild(p)
-        }
-
-        // Method
-        if (infographic.method && Array.isArray(infographic.method) && infographic.method.length) {
-          const h4 = document.createElement('h4')
-          h4.textContent = '⚙️ Method'
-          content.appendChild(h4)
-          const ul = document.createElement('ul')
-          for (const item of infographic.method) {
-            const li = document.createElement('li')
-            li.textContent = item
-            ul.appendChild(li)
-          }
-          content.appendChild(ul)
-        }
-
-        // Impact
-        if (infographic.impact) {
-          const h4 = document.createElement('h4')
-          h4.textContent = '🚀 Impact'
-          content.appendChild(h4)
-          const p = document.createElement('p')
-          p.textContent = infographic.impact
-          content.appendChild(p)
-        }
-
-        // Hashtags
-        if (infographic.hashtags && Array.isArray(infographic.hashtags) && infographic.hashtags.length) {
-          const hashtagsDiv = document.createElement('div')
-          hashtagsDiv.className = 'hashtags'
-          for (const tag of infographic.hashtags) {
-            const span = document.createElement('span')
-            span.className = 'hashtag'
-            span.textContent = tag
-            hashtagsDiv.appendChild(span)
-          }
-          content.appendChild(hashtagsDiv)
-        }
-
-        // Toggle functionality
-        toggle.addEventListener('click', () => {
-          const isExpanded = content.classList.toggle('expanded')
-          toggle.innerHTML = isExpanded
-            ? '▼ <span>Hide AI-Generated Summary</span>'
-            : '▶ <span>View AI-Generated Summary</span>'
-        })
-
-        section.appendChild(toggle)
-        section.appendChild(content)
-        return section
       }
 
       function render(items) {
@@ -495,13 +359,6 @@
           if (paper.abstract) card.appendChild(abstract)
           if (links.children.length) card.appendChild(links)
 
-          // Add infographic if available
-          const infographic = infographicsMap[paper.id]
-          if (infographic) {
-            const infographicSection = createInfographicSection(infographic)
-            card.appendChild(infographicSection)
-          }
-
           grid.appendChild(card)
         }
       }
@@ -529,9 +386,6 @@
 
       async function main() {
         try {
-          // Load infographics first
-          await loadInfographics()
-
           const resp = await fetch(url, { cache: 'no-store' })
           const json = await resp.json()
           const all = Array.isArray(json) ? json : []

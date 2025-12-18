@@ -1,0 +1,35 @@
+{
+  "key_insight": "DREX dynamically regroup s in-flight tokens/requests so that Early-Exit LLMs can exit some samples early without stalling the whole batch, preserving throughput while recovering the per-token latency and quality benefits of early exits.",
+  "problem_solved": "Conventional batching assumes all requests in a batch progress synchronously, which prevents effective use of Early-Exit models — either wasting computation by holding fast examples, or lowering output quality by forcing premature exits.",
+  "method": [
+    "Run-time dynamic rebatching: continuously form new micro-batches from requests that are ready to proceed or exit, rather than treating the original batch as a fixed unit.",
+    "Latency–quality-aware scheduler: decide when to rebatch vs. wait using a policy that trades small scheduling overheads for large computation savings and preserved output quality.",
+    "Efficient execution primitives: token-level packing and async GPU execution to amortize rebatching overhead and keep hardware utilization high."
+  ],
+  "impact": "Practitioners can deploy Early-Exit LLMs with much better real-world latency and compute efficiency without sacrificing accuracy, enabling cost-effective, low-latency inference on production hardware.",
+  "visual_elements": [
+    "Layer pipeline diagram showing tokens flowing through model layers with conditional early exits and arrows illustrating dynamic regrouping into new micro-batches.",
+    "Latency vs. throughput bar/line chart comparing static batching, forced-exit baseline, and DREX (showing lower per-token latency with retained throughput).",
+    "Scheduler timeline / swimlane that visualizes arrival times, exit readiness, and dynamic rebatching events across GPUs.",
+    "Icon set: GPU utilization gauge, quality/accuracy shield, and stopwatch for latency to quickly convey benefits."
+  ],
+  "hashtags": [
+    "#EarlyExit",
+    "#DynamicBatching",
+    "#LLMInference",
+    "#DREX",
+    "#EfficientAI"
+  ],
+  "paper_id": "2025-12-17-arxiv-dynamic_rebatching_for_efficient_early_exit_inference_with_drex",
+  "paper_title": "Dynamic Rebatching for Efficient Early-Exit Inference with DREX",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2025-12-17",
+  "paper_authors": "Xuting Liu, Daniel Alexander, Siva Kesava Reddy Kakarla, Behnaz Arzani, Vincent Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.15705v1"
+    }
+  ],
+  "generated_at": "2025-12-18T22:17:38.258382"
+}

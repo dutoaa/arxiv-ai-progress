@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030014" />
+    <title>Archives - AI Research Papers</title>
+    <style>
+      :root {
+        --bg: #030014;
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(148, 163, 184, 0.92);
+        --border: rgba(255, 255, 255, 0.12);
+        --glass: rgba(255, 255, 255, 0.06);
+        --accent: #a78bfa;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #030014 56%, #020012 100%);
+        color: var(--text);
+        padding: 36px 18px 80px;
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 10px 0 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      h1 {
+        font-size: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 6px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 12px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      .content {
+        margin-top: 24px;
+      }
+
+      .archive-list {
+        display: grid;
+        gap: 16px;
+      }
+
+      .archive-card {
+        padding: 18px;
+        border-radius: 18px;
+        background: var(--glass);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .archive-info h3 {
+        font-size: 16px;
+        font-weight: 650;
+        margin-bottom: 6px;
+      }
+
+      .archive-meta {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .archive-actions {
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .btn:hover {
+        background: rgba(167, 139, 250, 0.15);
+        border-color: rgba(167, 139, 250, 0.3);
+      }
+
+      .empty {
+        margin-top: 24px;
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        text-align: center;
+      }
+
+      .loading {
+        text-align: center;
+        color: var(--muted);
+        margin-top: 24px;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 20px;
+        }
+
+        .archive-card {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .archive-actions {
+          width: 100%;
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>📚 Archives</h1>
+        <p class="subtitle">Historical snapshots of AI research papers collections</p>
+        <a href="index.html" class="back-link">← Back to latest papers</a>
+      </header>
+
+      <div class="content">
+        <div id="loading" class="loading">Loading archives...</div>
+        <div id="empty" class="empty" hidden>
+          <div style="font-weight: 650">No archives found.</div>
+          <div class="subtitle" style="margin-top: 6px">
+            Archives will be created automatically as new papers are collected.
+          </div>
+        </div>
+        <div id="archive-list" class="archive-list" hidden></div>
+      </div>
+    </div>
+
+    <script type="module">
+      const loading = document.querySelector('#loading')
+      const empty = document.querySelector('#empty')
+      const archiveList = document.querySelector('#archive-list')
+
+      const base = import.meta?.env?.BASE_URL || document.baseURI
+      const indexUrl = new URL('./archives/index.json', base).toString()
+
+      function formatDate(dateStr) {
+        try {
+          const date = new Date(dateStr)
+          return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+        } catch {
+          return dateStr
+        }
+      }
+
+      function render(archives) {
+        loading.hidden = true
+
+        if (!archives || archives.length === 0) {
+          empty.hidden = false
+          return
+        }
+
+        archiveList.hidden = false
+
+        for (const archive of archives) {
+          const card = document.createElement('div')
+          card.className = 'archive-card'
+
+          // Info section
+          const info = document.createElement('div')
+          info.className = 'archive-info'
+
+          const title = document.createElement('h3')
+          title.textContent = formatDate(archive.date)
+
+          const meta = document.createElement('div')
+          meta.className = 'archive-meta'
+          meta.textContent = `${archive.paper_count} papers`
+
+          info.appendChild(title)
+          info.appendChild(meta)
+
+          // Actions section
+          const actions = document.createElement('div')
+          actions.className = 'archive-actions'
+
+          const viewBtn = document.createElement('a')
+          viewBtn.className = 'btn'
+          viewBtn.href = `archive-viewer.html?file=${archive.filename}`
+          viewBtn.textContent = '📄 View Papers'
+
+          const downloadBtn = document.createElement('a')
+          downloadBtn.className = 'btn'
+          downloadBtn.href = `../archives/${archive.filename}`
+          downloadBtn.download = archive.filename
+          downloadBtn.textContent = '⬇️ Download JSON'
+
+          actions.appendChild(viewBtn)
+          actions.appendChild(downloadBtn)
+
+          card.appendChild(info)
+          card.appendChild(actions)
+          archiveList.appendChild(card)
+        }
+      }
+
+      async function main() {
+        try {
+          const resp = await fetch(indexUrl, { cache: 'no-store' })
+          const data = await resp.json()
+          const archives = data.archives || []
+
+          render(archives)
+        } catch (e) {
+          console.error('Failed to load archives:', e)
+          loading.hidden = true
+          empty.hidden = false
+        }
+      }
+
+      main()
+    </script>
+  </body>
+</html>
