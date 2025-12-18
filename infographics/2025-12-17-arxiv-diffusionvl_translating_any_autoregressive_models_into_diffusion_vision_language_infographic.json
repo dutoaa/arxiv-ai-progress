@@ -1,24 +1,24 @@
 {
-  "key_insight": "DiffusionVL provides a model‑agnostic way to translate pretrained autoregressive (AR) models into diffusion-based vision–language models, combining AR capability with diffusion decoding advantages to close the performance gap between paradigms.",
-  "problem_solved": "Diffusion VLMs lag behind mainstream AR-based multimodal models because base diffusion language models lack capability; this work enables reuse of powerful AR models so diffusion VLMs can achieve competitive performance without training large diffusion LMs from scratch.",
+  "key_insight": "A practical method to convert pretrained autoregressive (AR) language models into diffusion-based vision-language models, unlocking diffusion decoding advantages while reusing strong AR capabilities. This bridges the performance gap between dVLMs and mainstream AR-based VLMs without training diffusion LMs from scratch.",
+  "problem_solved": "dVLMs lag behind AR-based VLMs because base diffusion language models lack capability; the paper addresses how to leverage existing powerful AR models to build competitive diffusion vision-language models.",
   "method": [
-    "Model‑agnostic conversion: introduce a translator/adapter layer to map pretrained AR model representations into a diffusion VLM latent/conditioning space so existing AR weights can be reused.",
-    "Parameter‑efficient alignment: use lightweight adapters and targeted fine‑tuning instead of full retraining to preserve AR capabilities while enabling diffusion decoding.",
-    "Cross‑paradigm training: align behaviors via denoising objectives and cross‑model distillation so the converted diffusion VLM matches AR model quality while gaining diffusion advantages."
+    "Translate AR model knowledge into a diffusion decoder via weight transfer and targeted adapters/distillation so the AR semantics are preserved in a diffusion framework.",
+    "Align multimodal latents by integrating a visual encoder with cross-attention and joint training to map image features into the diffusion text latent space.",
+    "Optimize with diffusion-specific objectives and guidance (noise scheduling, classifier-free guidance) to maintain AR performance while enabling parallel/diverse diffusion decoding."
   ],
-  "impact": "Practitioners can rapidly deploy diffusion VLMs that inherit the strengths of mature AR models, lowering compute and data costs for building high‑quality multimodal generators and unlocking diffusion benefits (e.g., diverse and flexible decoding) in production.",
+  "impact": "Enables practitioners to reuse strong pretrained AR LMs for diffusion VLMs, making diffusion-based multimodal models more competitive and practical — offering parallel decoding, greater output diversity, and simpler model reuse.",
   "visual_elements": [
-    "Pipeline diagram: AR model → translator/adapter → diffusion VLM, showing reused weights and lightweight tuning steps.",
-    "Bar chart: performance comparison (AR baseline vs. base diffusion vs. converted DiffusionVL) on key multimodal tasks.",
-    "Module schematic: close‑up of adapter/translator architecture with arrows showing information flow and training signals (denoising + distillation).",
-    "Qualitative gallery: side‑by‑side examples of generated captions/visual outputs before and after conversion to illustrate improved quality/diversity."
+    "Architecture diagram showing AR model → adapter/distillation → diffusion decoder with visual encoder and cross-attention",
+    "Pipeline flowchart: pretrain AR model → translation step → diffusion VLM inference (parallel sampling)",
+    "Bar chart comparing performance (accuracy/score) of baseline dVLM, translated dVLM, and AR VLM",
+    "Sample outputs grid showing diversity/quality differences between AR and translated diffusion sampling"
   ],
   "hashtags": [
     "#DiffusionModels",
     "#VisionLanguage",
-    "#MultimodalAI",
     "#ModelConversion",
-    "#EfficientAI"
+    "#MultimodalAI",
+    "#AIResearch"
   ],
   "paper_id": "2025-12-17-arxiv-diffusionvl_translating_any_autoregressive_models_into_diffusion_vision_language",
   "paper_title": "DiffusionVL: Translating Any Autoregressive Models into Diffusion Vision Language Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15713v1"
     }
   ],
-  "generated_at": "2025-12-18T22:34:22.308956"
+  "generated_at": "2025-12-18T22:54:05.210405"
 }

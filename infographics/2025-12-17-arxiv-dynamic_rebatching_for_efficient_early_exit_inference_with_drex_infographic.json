@@ -1,23 +1,23 @@
 {
-  "key_insight": "DREX dynamically regroup batches at inference time so tokens/requests that are ready to exit early do so without forcing the whole batch to wait or degrade quality — unlocking the efficiency of Early-Exit LLMs while preserving accuracy.",
-  "problem_solved": "Traditional batching frameworks assume synchronous exits and either block EE opportunities or force premature exits, causing wasted compute, higher latency, or lower output quality for Early-Exit LLMs.",
+  "key_insight": "DREX dynamically regroup batches at inference time so tokens/requests that are ready to exit can leave early without stalling others, improving GPU utilization and lowering latency while preserving output quality.",
+  "problem_solved": "Traditional static batching is incompatible with Early-Exit LLMs because requests exit at different layers; existing fixes either waste compute by forcing late exits or hurt quality by forcing premature exits.",
   "method": [
-    "Continuously monitor per-token/request exit readiness and extract exit candidates as they become available.",
-    "Form new micro-batches for remaining layers by rebatching only the unfinished tokens/requests, using a low-overhead scheduler to balance throughput and latency.",
-    "Integrate with existing hardware batching stacks to minimize reshuffling overhead while preserving model accuracy (no forced early terminations)."
+    "Monitor per-token/request exit readiness (e.g., confidence scores) during layer-by-layer inference and mark candidates for exit.",
+    "Dynamically split and reassemble micro-batches on-the-fly so ready items exit immediately while others continue through deeper layers, maximizing hardware utilization.",
+    "Lightweight scheduler that balances throughput vs. latency targets and enforces quality thresholds to avoid premature exits."
   ],
-  "impact": "DREX increases utilization and reduces end-to-end latency and compute cost for EE-enabled LLM inference, making real-world deployment of early-exit models more practical for latency-sensitive and cost-constrained services.",
+  "impact": "Enables practical deployment of Early-Exit LLMs by reducing average latency and increasing throughput without degrading accuracy, yielding cost and energy savings for real-time and large-scale inference.",
   "visual_elements": [
-    "Pipeline diagram showing tokens entering an LLM with multiple exit branches and DREX pulling out exits mid-pipeline",
-    "Animated sequence or flowchart illustrating dynamic rebatching: tokens leave batch -> new micro-batches formed -> remaining tokens continue",
-    "Bar chart comparing throughput, average latency, and compute (FLOPs or GPU time) for baseline batching vs. DREX",
-    "Icon set: small clock for latency, stacked chips for compute/utilization, shield for accuracy preservation"
+    "Pipeline diagram showing tokens entering a layered model and individual tokens exiting at different depths with arrows that regroup into new micro-batches (Dynamic Rebatching loop).",
+    "Before vs After bar/line chart comparing latency, throughput, and compute (FLOPs) for standard batching, naive EE batching, and DREX.",
+    "Flowchart of the DREX scheduler: detect ready-to-exit → split batch → dispatch exits → continue deeper for remaining items.",
+    "Icon set: stacked model layers, stopwatch (latency), GPU utilization meter, shield/checkmark (quality preserved)."
   ],
   "hashtags": [
     "#EarlyExit",
-    "#DynamicRebatching",
     "#LLMInference",
-    "#EfficientAI",
+    "#DynamicBatching",
+    "#ModelServing",
     "#DREX"
   ],
   "paper_id": "2025-12-17-arxiv-dynamic_rebatching_for_efficient_early_exit_inference_with_drex",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15705v1"
     }
   ],
-  "generated_at": "2025-12-18T22:33:17.270056"
+  "generated_at": "2025-12-18T22:53:03.654526"
 }

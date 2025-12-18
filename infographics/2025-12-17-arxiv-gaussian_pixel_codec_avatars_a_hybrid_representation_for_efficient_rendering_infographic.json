@@ -1,24 +1,24 @@
 {
-  "key_insight": "A hybrid 3D representation—combining a compact triangle mesh for surfaces with anisotropic 3D Gaussians for fine, volumetric detail—yields photoreal head avatars that are both memory- and runtime-efficient enough for mobile rendering.",
-  "problem_solved": "How to produce photorealistic, multi-view-derived head avatars that preserve fine detail (hair, soft occlusions, view-dependent effects) while meeting tight memory, bandwidth, and real-time rendering constraints on mobile devices.",
+  "key_insight": "Combining a compact triangle mesh for smooth surface regions with anisotropic 3D Gaussians for detailed, view-dependent appearance yields photorealistic head avatars that are both memory- and compute-efficient enough for mobile rendering.",
+  "problem_solved": "How to produce high-quality, photorealistic head avatars from multi-view images while keeping memory use and runtime low enough for real-time rendering on mobile devices.",
   "method": [
-    "Hybrid representation: use a low-cost triangle mesh to model primary surface geometry (e.g., skin) and anisotropic 3D Gaussians to represent volumetric, view-dependent, and fine-detail regions.",
-    "Fit the hybrid model from multi-view images (reconstruction + optimization) and compress the result into a compact codec-like avatar.",
-    "Mobile-optimized rendering pipeline (efficient rasterization/splatting, LOD and quantization) to achieve real-time, low-memory playback while preserving photorealism."
+    "Hybrid representation: use a lightweight triangle mesh to represent large smooth surfaces (e.g., skin) and anisotropic 3D Gaussians to capture fine details and view-dependent effects.",
+    "Fit the hybrid model from multi-view image captures to retain photorealism with far fewer primitives than purely point- or Gaussian-based models.",
+    "Optimize rendering and data layout for mobile — reducing memory footprint and enabling interactive frame rates with efficient blending of Gaussians and mesh rasterization."
   ],
-  "impact": "Enables deployment of high-quality, interactive head avatars on resource-constrained devices (AR/VR, telepresence, mobile apps), lowering memory and compute barriers for photoreal 3D experiences.",
+  "impact": "GPiCA enables deployment of high-fidelity avatars on resource-constrained devices, lowering the barrier for realistic virtual humans in mobile AR/VR, telepresence, and on-device personalization workflows.",
   "visual_elements": [
-    "Side-by-side rendering showing decomposition: triangle mesh overlay + 3D Gaussian blobs visualized on a head model.",
-    "Pipeline diagram: multi-view images → hybrid fitting/compression → mobile-optimized renderer.",
-    "Performance chart: memory footprint and latency vs. visual quality comparing GPiCA to mesh-only and point-based baselines.",
-    "Before/after gallery: photoreal output frames rendered on mobile vs. ground-truth photos."
+    "Side-by-side comparison: standard mesh-only vs Gaussian-only vs GPiCA (hybrid) showing quality vs memory usage.",
+    "Pipeline diagram: multi-view capture → hybrid fitting → compact model → mobile renderer (frame ≈ realtime).",
+    "Illustration of hybrid primitive: mesh overlayed with anisotropic 3D Gaussian blobs showing how each covers different facial regions.",
+    "Bar chart: memory footprint and frame-rate (mobile) for GPiCA vs baseline methods."
   ],
   "hashtags": [
-    "#AvatarRendering",
     "#NeuralRendering",
-    "#3DReconstruction",
+    "#Avatars",
     "#MobileAI",
-    "#GraphicsCompression"
+    "#3DGraphics",
+    "#EfficientRendering"
   ],
   "paper_id": "2025-12-17-arxiv-gaussian_pixel_codec_avatars_a_hybrid_representation_for_efficient_rendering",
   "paper_title": "Gaussian Pixel Codec Avatars: A Hybrid Representation for Efficient Rendering",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15711v1"
     }
   ],
-  "generated_at": "2025-12-18T22:33:51.115320"
+  "generated_at": "2025-12-18T22:53:32.570487"
 }

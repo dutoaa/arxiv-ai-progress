@@ -1,23 +1,23 @@
 {
-  "key_insight": "Train end-to-end interpretability assistants—Predictive Concept Decoders (PCDs)—that learn to predict model behavior directly from internal activations, replacing hand-designed hypothesis testers with scalable learned predictors for more faithful explanations.",
-  "problem_solved": "Interpreting high-dimensional internal activations is hard and current scalable approaches rely on manual agents that don’t generalize; this paper provides a learned, scalable method to map activations to meaningful, testable explanations of model behavior.",
+  "key_insight": "Train small \"interpretability assistants\" end-to-end to decode high-level concepts from internal activations and directly predict model behavior, producing more faithful and scalable explanations than hand-designed probing agents.",
+  "problem_solved": "Maps complex, high-dimensional internal activation space to human-understandable concepts and model-level behaviors without relying on brittle, manually engineered hypothesis-testing procedures.",
   "method": [
-    "Introduce Predictive Concept Decoders (PCDs): lightweight models trained to predict model outputs or concept labels from internal activations.",
-    "Optimize an end-to-end objective that rewards faithful prediction of model behavior, enabling the assistant to propose, refine, and validate concepts automatically.",
-    "Deploy PCDs across layers or modules to localize concepts in activation space and assemble explanations at scale."
+    "Attach lightweight concept decoders to model activations and train them end-to-end with a predictive objective to explain downstream model behavior.",
+    "Optimize decoders to both recover human-interpretable concept signals and to accurately predict model outputs/decisions, forcing explanations to be behaviorally relevant and faithful.",
+    "Design the assistant to be scalable and modular so it can be applied across layers, units, and large models without bespoke human intervention."
   ],
-  "impact": "Provides practitioners a scalable, automated tool for faithful internal model explanations, useful for debugging, auditing, and alignment work without heavy manual hypothesis engineering.",
+  "impact": "Provides practitioners a practical, scalable tool to extract behaviorally faithful concept explanations directly from activations, improving debugging, auditing, and model understanding at scale.",
   "visual_elements": [
-    "Pipeline diagram: base model -> internal activations -> PCDs -> predicted behavior/explanations",
-    "Activation-space visualization (e.g., t-SNE/UMAP) colored by predicted concepts to show localization",
-    "Bar/line chart comparing hand-designed agents vs learned PCD assistants on scalability and faithfulness metrics",
-    "Example assistant UI mockup showing concept labels, supporting activations, and predicted behavioral effects"
+    "Schematic: base model layers -> attached predictive concept decoders -> predicted behavior vs. ground-truth behavior",
+    "Before/After comparison chart: hand-designed probes (low fidelity/scalability) vs. learned assistants (higher fidelity/scalability)",
+    "Heatmap or activation map showing decoded concept strengths across layers for a representative input",
+    "Flowchart of training objective showing loss terms: concept fidelity + behavior-prediction accuracy"
   ],
   "hashtags": [
-    "#PredictiveConceptDecoders",
     "#Interpretability",
     "#ExplainableAI",
-    "#NeuralNetworks",
+    "#ConceptDecoders",
+    "#ModelTransparency",
     "#AIResearch"
   ],
   "paper_id": "2025-12-17-arxiv-predictive_concept_decoders_training_scalable_end_to_end_interpretability_assist",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15712v1"
     }
   ],
-  "generated_at": "2025-12-18T22:34:06.381849"
+  "generated_at": "2025-12-18T22:53:44.684488"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "Train autoregressive video diffusion models end-to-end without a separate teacher by using a self-resampling scheme that exposes the model to its own predicted frames during training, eliminating exposure bias from train-test mismatch.",
-  "problem_solved": "Autoregressive video diffusion models suffer from exposure bias because they are trained on ground-truth conditioning but must condition on their own predictions at test time; prior fixes require an extra teacher model or online discriminator, increasing complexity and resource cost.",
+  "key_insight": "Resampling Forcing introduces a teacher-free self-resampling scheme that lets autoregressive video diffusion models be trained end-to-end from scratch, directly addressing exposure bias without relying on bidirectional teachers or discriminators.",
+  "problem_solved": "Autoregressive video diffusion models suffer from exposure bias due to train-test mismatch; prior fixes require an external teacher model or online discriminator, complicating training and scaling.",
   "method": [
-    "Self-Resampling: during training, sample the model's own past-frame predictions and re-insert them into the conditioning context so the model learns to correct its own errors.",
-    "Resampling Forcing Framework: a teacher-free, end-to-end training protocol that schedules and integrates resampled predictions into the loss to bridge the train-test distribution gap.",
-    "Scalable Autoregressive Training: compatible with large-scale autoregressive video diffusion architectures, enabling training from scratch without bidirectional teachers or discriminators."
+    "Resampling Forcing framework: during training, the model periodically resamples its own predictions to create realistic autoregressive inputs, simulating test-time conditions.",
+    "Self-resampling scheme: replace future ground-truth conditioning with model-sampled frames/latents at training time to expose the model to its own errors and learn corrective behavior.",
+    "End-to-end optimization: no bidirectional teacher or discriminator needed, enabling scalable training from scratch using standard loss/optimizer pipelines."
   ],
-  "impact": "Simplifies and stabilizes training of autoregressive video diffusion models, improving robustness to compounding errors while reducing dependency on additional teacher models—useful for practitioners building scalable generative video systems.",
+  "impact": "Makes autoregressive video diffusion models more robust and easier to train at scale by removing dependence on auxiliary teacher/discriminator components, improving long-range coherence and simplifying deployment for generative video tasks.",
   "visual_elements": [
-    "Schematic of autoregressive video generation pipeline showing ground-truth conditioning vs. self-resampled conditioning (before/after)",
-    "Illustration of exposure bias: training on ground-truth frames but testing on model predictions, with arrows showing distribution shift",
-    "Flowchart of Resampling Forcing: sample → inject predictions → compute loss → update model, annotated with scheduling/curriculum",
-    "Performance chart comparing sample quality or error accumulation over time for baseline (teacher/discriminator) vs. self-resampling"
+    "Flow diagram of the training loop: ground-truth conditioning vs. self-resampled conditioning to highlight where resampling is applied",
+    "Before/after bar chart: exposure-bias metric and sample quality (e.g., FVD) comparing baseline, teacher-based, and Resampling Forcing",
+    "Sequence panel: example video frames showing improved long-term consistency with self-resampling",
+    "Icon cluster: 'no teacher' badge, scalability/compute icon, autoregressive timeline"
   ],
   "hashtags": [
     "#VideoDiffusion",
-    "#AutoregressiveAI",
-    "#ExposureBias",
+    "#AutoregressiveModels",
     "#SelfResampling",
+    "#ExposureBias",
     "#EndToEndTraining"
   ],
   "paper_id": "2025-12-17-arxiv-end_to_end_training_for_autoregressive_video_diffusion_via_self_resampling",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15702v1"
     }
   ],
-  "generated_at": "2025-12-18T22:33:06.945497"
+  "generated_at": "2025-12-18T22:52:50.857237"
 }
