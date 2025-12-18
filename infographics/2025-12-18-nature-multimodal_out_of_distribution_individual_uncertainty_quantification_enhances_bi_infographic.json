@@ -1,23 +1,23 @@
 {
-  "key_insight": "eMOSAIC combines multimodal molecular and protein information with per-sample out-of-distribution (OOD) uncertainty estimates to substantially improve binding affinity prediction for compounds that act on multiple targets (polypharmacology). This lets models flag unreliable predictions and prioritize trustworthy candidate-target pairs.",
-  "problem_solved": "Accurate binding affinity prediction for polypharmacology is hampered by multimodal inputs and out-of-distribution examples; the paper addresses unreliable predictions by providing individual uncertainty quantification to detect and mitigate OOD failures.",
+  "key_insight": "eMOSAIC combines multimodal molecular and protein information with per‑prediction out‑of‑distribution (OOD) aware uncertainty estimates to produce more reliable binding affinity predictions across multiple targets, improving trust in polypharmacology predictions.",
+  "problem_solved": "Reduces unreliable affinity predictions and poor generalization in polypharmacology by detecting OOD inputs and providing individual uncertainty scores so practitioners can identify low‑confidence predictions before costly experiments.",
   "method": [
-    "Integrate multimodal representations (chemical features, protein descriptors/structures, and contextual assay metadata) into a unified prediction model.",
-    "Produce calibrated, per-sample uncertainty estimates that identify OOD compound–protein pairs and adjust or reject low-confidence affinity predictions.",
-    "Use uncertainty-aware decision rules to improve ranking and selection of polypharmacological candidates (reducing false positives and guiding experiments)."
+    "Fuse multimodal representations of compounds and targets (e.g., molecular graphs, sequences/structural features, experimental covariates) into a joint prediction model.",
+    "Produce individual uncertainty estimates and OOD flags for each prediction to calibrate confidence and selectively downweight or flag risky predictions.",
+    "Evaluate on cross‑target/polypharmacology benchmarks to show improved calibration, robustness, and actionable accuracy compared to baselines."
   ],
-  "impact": "Provides AI/ML practitioners a practical pipeline to make binding affinity models more reliable and actionable in drug discovery, enabling safer prioritization of multitarget compounds and reducing wasted experimental effort.",
+  "impact": "Provides ML practitioners a practical framework for safer, more interpretable affinity prediction in drug discovery, enabling better decision making and reduced experimental waste by flagging low‑confidence, OOD predictions.",
   "visual_elements": [
-    "Schematic showing multimodal inputs (compound structure, protein sequence/structure, assay context) converging into the eMOSAIC model",
-    "Scatter or calibration plots comparing predicted affinity vs true affinity with uncertainty bands and OOD-highlighted points",
-    "Heatmap/network of a compound vs multiple protein affinities annotated with per-pair uncertainty (to visualize polypharmacology and confidence)",
-    "Bar chart or ROC showing improved selection/recall of true binders when using uncertainty-aware filtering vs baseline"
+    "Pipeline diagram: multimodal inputs (compound, protein, metadata) → eMOSAIC model → affinity + uncertainty + OOD flag",
+    "Calibration plot: predicted vs observed affinities showing improved calibration with uncertainty",
+    "Comparison chart: performance and error bars for baseline vs eMOSAIC across multiple targets (polypharmacology)",
+    "Icon set: molecule + protein with confidence badges (high/low) to visualize per‑prediction trust"
   ],
   "hashtags": [
     "#DrugDiscovery",
     "#UncertaintyQuantification",
-    "#Polypharmacology",
     "#MultimodalAI",
+    "#Polypharmacology",
     "#BindingAffinity"
   ],
   "paper_id": "2025-12-18-nature-multimodal_out_of_distribution_individual_uncertainty_quantification_enhances_bi",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01151-2"
     }
   ],
-  "generated_at": "2025-12-18T23:21:19.637336"
+  "generated_at": "2025-12-18T23:41:45.094540"
 }

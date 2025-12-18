@@ -1,24 +1,24 @@
 {
-  "key_insight": "Train small end-to-end “interpretability assistants” (Predictive Concept Decoders) to map internal activations to human-understandable concepts that accurately predict model behavior, replacing slow hand-designed hypothesis testing with scalable learned probes.",
-  "problem_solved": "Internal activation spaces are high-dimensional and hard to interpret; existing scalable methods rely on manually designed agents and probes that don’t generalize or scale. This work makes internal explanations faithful and automatable by turning interpretability into a predictive learning objective.",
+  "key_insight": "Train small, learned \"predictive concept decoders\" end-to-end to map internal activations to concept-like signals that predict a model's behavior, enabling scalable, more faithful interpretability than hand-designed hypothesis testers.",
+  "problem_solved": "Interpreting complex neural activation spaces is hard and existing scalable approaches rely on hand-designed agents that don't generalize well or scale to many concepts/behaviors.",
   "method": [
-    "Learn concept decoders end-to-end that take model activations as input and output concept scores that predict the model’s downstream behavior or outputs.",
-    "Optimize a fidelity/predictive objective so the decoders capture activation structure directly relevant to model decisions (not just correlational features).",
-    "Use the trained assistants to generate, test, and visualize interpretable hypotheses at scale, enabling automated probing across layers, units, and tasks."
+    "Attach learned concept decoders to internal activations and train them end-to-end to predict downstream model behavior (outputs, decisions, or intermediate behaviors).",
+    "Optimize decoders for predictive fidelity to the model rather than manual probe design, letting the system discover useful activation–concept mappings automatically.",
+    "Use this predictive objective to scale interpretability assistants across many concepts, layers, and inputs while retaining faithful explanations."
   ],
-  "impact": "Provides a practical, scalable route to faithful internal explanations that practitioners can use for debugging, monitoring, and alignment work. Reduces reliance on hand-crafted probes and speeds up discovery of meaningful internal representations.",
+  "impact": "Provides practitioners a scalable way to extract faithful, actionable explanations from model internals for debugging, monitoring, and alignment. Makes concept-level probes practical at production scale without extensive hand-engineering.",
   "visual_elements": [
-    "Schematic diagram: base model → activation map → predictive concept decoder → predicted behavior, annotated to show training loop",
-    "Bar/line chart comparing fidelity and scalability: learned assistants vs hand-designed agents across tasks and model sizes",
-    "Activation manifold visualization with concept vectors or heatmaps showing which concepts explain specific outputs",
-    "Dashboard mockup: per-layer concept activations + predicted vs actual outputs for rapid inspection"
+    "Architecture diagram: base model + inserted Predictive Concept Decoders -> predicted behavior vs. ground-truth output",
+    "Activation-space visualization (e.g., t-SNE/UMAP) colored by discovered concepts to show separation and concept localization",
+    "Flowchart of training objective: input -> activations -> decoders -> predicted behavior -> loss against model behavior",
+    "Evaluation charts: fidelity (prediction vs. true behavior), concept sparsity/coverage, and scalability (number of concepts vs. performance)"
   ],
   "hashtags": [
     "#Interpretability",
     "#ExplainableAI",
-    "#ConceptDecoders",
-    "#ModelInspection",
-    "#AITransparency"
+    "#ConceptBottlenecks",
+    "#ModelDebugging",
+    "#ScalableAI"
   ],
   "paper_id": "2025-12-17-arxiv-predictive_concept_decoders_training_scalable_end_to_end_interpretability_assist",
   "paper_title": "Predictive Concept Decoders: Training Scalable End-to-End Interpretability Assistants",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15712v1"
     }
   ],
-  "generated_at": "2025-12-18T23:20:05.022278"
+  "generated_at": "2025-12-18T23:40:22.379380"
 }

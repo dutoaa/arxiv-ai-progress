@@ -1,24 +1,24 @@
 {
-  "key_insight": "MemFlow introduces a flowing, adaptive memory that dynamically selects and compresses the most relevant historical cues for each upcoming video chunk, enabling consistent long-range narratives without fixed, lossy summarization strategies.",
-  "problem_solved": "Maintains content consistency in long-context streaming video generation by addressing the limitations of static memory-compression strategies that cannot adapt to different per-chunk historical cues.",
+  "key_insight": "MemFlow replaces fixed, one-size-fits-all memory compression with a flowing, content-adaptive memory that selectively retains and updates historical cues per upcoming video chunk, enabling consistent long-range video narratives with lower cost.",
+  "problem_solved": "Addresses the difficulty of maintaining content consistency across long streaming video contexts where predetermined memory-compression strategies fail to preserve the varied historical cues different future chunks require.",
   "method": [
-    "Adaptive memory flow: before generating each new chunk, retrieve and compress only the historical frames/cues most relevant to that chunk.",
-    "Learnable flow/update mechanism: continuously refine and propagate memory representations to balance fidelity and efficiency over long sequences.",
-    "Chunk-conditioned grounding: use cross-attention between the current generation target and selected memory to preserve narrative consistency while pruning irrelevant history."
+    "Adaptive memory flow: dynamically select and route relevant historical frames/features conditioned on the next chunks to generate, rather than applying a fixed compression policy.",
+    "Content-aware retention/compression: compress or expand stored representations based on their predicted relevance to upcoming generation, keeping high-fidelity cues when needed.",
+    "Streaming-efficient updates: incrementally update the memory in a lightweight manner to support long-context generation with reduced compute and memory footprints."
   ],
-  "impact": "Enables more coherent, long-form streaming video generation with lower memory and compute overhead, making scalable, consistent video narrative models more practical for real-world AI applications.",
+  "impact": "Makes long-form and streaming video generation more consistent and scalable, benefiting practitioners building real-time synthesis, long narrative generation, and memory-augmented generative models. It reduces the trade-off between temporal fidelity and efficiency.",
   "visual_elements": [
-    "Pipeline diagram showing streaming input → adaptive memory retrieval/compression → chunk generation → memory update (flow arrows).",
-    "Before vs after comparison: fixed compression vs MemFlow measured on consistency and memory usage (bar chart).",
-    "Timeline visualization: which historical frames are kept/trimmed per chunk (highlighted frames along a timeline).",
-    "Illustration of cross-attention between current chunk and selected memory cues (attention heatmap over frames)."
+    "Pipeline diagram showing incoming frames → adaptive memory module (select/retain/compress) → generator, highlighting the 'flow' of memory.",
+    "Side-by-side frame sequence comparison (fixed-memory vs MemFlow) to illustrate improved temporal consistency.",
+    "Timeline heatmap showing memory relevance scores over long context (which frames are retained/discarded) to visualize adaptive retention.",
+    "Bar chart comparing memory usage / latency / coherence metrics between MemFlow and baseline fixed-strategy methods."
   ],
   "hashtags": [
-    "#MemFlow",
-    "#AdaptiveMemory",
     "#VideoGeneration",
-    "#LongRangeConsistency",
-    "#StreamingAI"
+    "#MemoryAugmentedAI",
+    "#LongContext",
+    "#StreamingAI",
+    "#ComputerVision"
   ],
   "paper_id": "2025-12-16-arxiv-memflow_flowing_adaptive_memory_for_consistent_and_efficient_long_video_narrativ",
   "paper_title": "MemFlow: Flowing Adaptive Memory for Consistent and Efficient Long Video Narratives",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.14699v1"
     }
   ],
-  "generated_at": "2025-12-18T23:22:26.398193"
+  "generated_at": "2025-12-18T23:42:53.322506"
 }
