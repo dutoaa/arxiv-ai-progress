@@ -189,6 +189,76 @@
         color: var(--accent);
       }
 
+      .infographic {
+        margin-top: 16px;
+        padding: 14px;
+        border-radius: 12px;
+        background: rgba(167, 139, 250, 0.06);
+        border: 1px solid rgba(167, 139, 250, 0.15);
+      }
+
+      .infographic-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--accent);
+        user-select: none;
+      }
+
+      .infographic-toggle:hover {
+        text-decoration: underline;
+      }
+
+      .infographic-content {
+        margin-top: 12px;
+        display: none;
+      }
+
+      .infographic-content.expanded {
+        display: block;
+      }
+
+      .infographic h4 {
+        font-size: 13px;
+        font-weight: 650;
+        margin-top: 12px;
+        margin-bottom: 6px;
+        color: var(--text);
+      }
+
+      .infographic h4:first-child {
+        margin-top: 0;
+      }
+
+      .infographic p {
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .infographic ul {
+        margin: 6px 0;
+        padding-left: 20px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .infographic .hashtags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+
+      .infographic .hashtag {
+        font-size: 12px;
+        color: var(--accent);
+      }
+
       @media (max-width: 768px) {
         h1 {
           font-size: 20px;
@@ -216,6 +286,7 @@
           <select id="source">
             <option value="all">All sources</option>
           </select>
+          <a href="archives.html" style="font-size: 14px; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); text-decoration: none;">📚 Archives</a>
         </div>
       </header>
 
@@ -238,9 +309,118 @@
 
       const base = import.meta?.env?.BASE_URL || document.baseURI
       const url = new URL('./papers.json', base).toString()
+      const infographicsUrl = new URL('../infographics/index.json', base).toString()
+      let infographicsMap = {}
 
       function uniq(xs) {
         return Array.from(new Set(xs))
+      }
+
+      async function loadInfographics() {
+        try {
+          const resp = await fetch(infographicsUrl, { cache: 'no-store' })
+          const data = await resp.json()
+          const files = data.infographics || []
+
+          // Load all infographic files
+          for (const file of files) {
+            const fileUrl = new URL(`../infographics/${file}`, base).toString()
+            try {
+              const fileResp = await fetch(fileUrl, { cache: 'no-store' })
+              const infographic = await fileResp.json()
+              if (infographic.paper_id) {
+                infographicsMap[infographic.paper_id] = infographic
+              }
+            } catch (e) {
+              console.warn(`Failed to load infographic: ${file}`, e)
+            }
+          }
+        } catch (e) {
+          console.warn('Failed to load infographics index', e)
+        }
+      }
+
+      function createInfographicSection(infographic) {
+        const section = document.createElement('div')
+        section.className = 'infographic'
+
+        // Toggle header
+        const toggle = document.createElement('div')
+        toggle.className = 'infographic-toggle'
+        toggle.innerHTML = '▶ <span>View AI-Generated Summary</span>'
+
+        // Content
+        const content = document.createElement('div')
+        content.className = 'infographic-content'
+
+        // Key Insight
+        if (infographic.key_insight) {
+          const h4 = document.createElement('h4')
+          h4.textContent = '💡 Key Insight'
+          content.appendChild(h4)
+          const p = document.createElement('p')
+          p.textContent = infographic.key_insight
+          content.appendChild(p)
+        }
+
+        // Problem Solved
+        if (infographic.problem_solved) {
+          const h4 = document.createElement('h4')
+          h4.textContent = '🎯 Problem Solved'
+          content.appendChild(h4)
+          const p = document.createElement('p')
+          p.textContent = infographic.problem_solved
+          content.appendChild(p)
+        }
+
+        // Method
+        if (infographic.method && Array.isArray(infographic.method) && infographic.method.length) {
+          const h4 = document.createElement('h4')
+          h4.textContent = '⚙️ Method'
+          content.appendChild(h4)
+          const ul = document.createElement('ul')
+          for (const item of infographic.method) {
+            const li = document.createElement('li')
+            li.textContent = item
+            ul.appendChild(li)
+          }
+          content.appendChild(ul)
+        }
+
+        // Impact
+        if (infographic.impact) {
+          const h4 = document.createElement('h4')
+          h4.textContent = '🚀 Impact'
+          content.appendChild(h4)
+          const p = document.createElement('p')
+          p.textContent = infographic.impact
+          content.appendChild(p)
+        }
+
+        // Hashtags
+        if (infographic.hashtags && Array.isArray(infographic.hashtags) && infographic.hashtags.length) {
+          const hashtagsDiv = document.createElement('div')
+          hashtagsDiv.className = 'hashtags'
+          for (const tag of infographic.hashtags) {
+            const span = document.createElement('span')
+            span.className = 'hashtag'
+            span.textContent = tag
+            hashtagsDiv.appendChild(span)
+          }
+          content.appendChild(hashtagsDiv)
+        }
+
+        // Toggle functionality
+        toggle.addEventListener('click', () => {
+          const isExpanded = content.classList.toggle('expanded')
+          toggle.innerHTML = isExpanded
+            ? '▼ <span>Hide AI-Generated Summary</span>'
+            : '▶ <span>View AI-Generated Summary</span>'
+        })
+
+        section.appendChild(toggle)
+        section.appendChild(content)
+        return section
       }
 
       function render(items) {
@@ -315,6 +495,13 @@
           if (paper.abstract) card.appendChild(abstract)
           if (links.children.length) card.appendChild(links)
 
+          // Add infographic if available
+          const infographic = infographicsMap[paper.id]
+          if (infographic) {
+            const infographicSection = createInfographicSection(infographic)
+            card.appendChild(infographicSection)
+          }
+
           grid.appendChild(card)
         }
       }
@@ -342,6 +529,9 @@
 
       async function main() {
         try {
+          // Load infographics first
+          await loadInfographics()
+
           const resp = await fetch(url, { cache: 'no-store' })
           const json = await resp.json()
           const all = Array.isArray(json) ? json : []
