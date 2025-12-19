@@ -1,24 +1,24 @@
 {
-  "key_insight": "EasyV2V shows that high-quality, instruction-based video editing can be achieved by carefully designing the data pipeline and simple control mechanisms—composing existing expert models and fast inverses to generate diverse, consistent video edit pairs.",
-  "problem_solved": "Bridges the gap between image and video editing by addressing temporal consistency, controllability, and generalization for instruction-driven video edits without requiring large specialized video edit datasets.",
+  "key_insight": "EasyV2V shows that high-quality, instruction-based video editing can be achieved by cheaply synthesizing diverse video edit pairs from existing expert models and by lifting image edit supervision into videos using shared affine motion and single-frame signals.",
+  "problem_solved": "Addresses the difficulty of producing temporally consistent, controllable, and generalizable video edits given limited video-paired training data.",
   "method": [
-    "Data synthesis: compose existing expert models with fast inverse transforms to build diverse video edit pairs at scale.",
-    "Lift image edits to videos: use single-frame supervision and pseudo video pairs (with shared affine motion cues) to convert image edit examples into temporally coherent video training data.",
-    "Simple instruction-based framework: study design choices across data, architecture, and control to produce a lightweight, generalizable video editing system (EasyV2V)."
+    "Data synthesis: compose off-the-shelf expert models with fast inverses to generate diverse video edit pairs for training.",
+    "Image-to-video lift: convert image edit pairs into pseudo video pairs via single-frame supervision and shared affine motion to impose temporal coherence.",
+    "Simple instruction-driven architecture: train a lightweight editing model conditioned on user instructions to achieve controllable, consistent edits across frames."
   ],
-  "impact": "Provides a practical route for practitioners to train robust, instruction-driven video editors using mostly existing image-edit resources and lightweight video augmentation—improving consistency and control without massive new video datasets.",
+  "impact": "Enables practitioners to build robust, instruction-conditioned video editing systems with far less curated video data and simpler pipelines, accelerating development of practical video editing tools.",
   "visual_elements": [
-    "Pipeline diagram showing composition of expert models → fast inverses → generated video edit pairs",
-    "Before/after frame sequence illustrating temporal consistency across edited frames",
-    "Schematic comparing single-frame supervision vs. full-video supervision (data efficiency gains)",
-    "Chart of qualitative/quantitative gains (consistency, fidelity, instruction-following) against baseline methods"
+    "Pipeline diagram showing (a) expert composition → synthesized video pairs → training loop → instruction-conditioned editor",
+    "Before/after frame sequence (short video strip) illustrating temporal consistency of edits",
+    "Illustration of image-to-video lift: single-frame supervision + shared affine motion creating pseudo video pairs",
+    "Bar/line chart comparing consistency and fidelity metrics versus baseline video-editing methods"
   ],
   "hashtags": [
-    "#EasyV2V",
     "#VideoEditing",
+    "#InstructionTuning",
     "#GenerativeAI",
-    "#InstructionLearning",
-    "#DataAugmentation"
+    "#DiffusionModels",
+    "#Multimodal"
   ],
   "paper_id": "2025-12-18-arxiv-easyv2v_a_high_quality_instruction_based_video_editing_framework",
   "paper_title": "EasyV2V: A High-quality Instruction-based Video Editing Framework",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.16920v1"
     }
   ],
-  "generated_at": "2025-12-19T03:54:36.152855"
+  "generated_at": "2025-12-19T06:21:39.963189"
 }

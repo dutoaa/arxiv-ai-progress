@@ -1,22 +1,22 @@
 {
-  "key_insight": "A panoramic metric depth foundation model trained on a large, mixed dataset (public + synthetic UE5 + text-to-image + web panoramas) with a three-stage pseudo-labeling/data-in-the-loop strategy achieves robust, metric depth estimation across diverse scene distances and domains.",
-  "problem_solved": "Existing depth models struggle to produce accurate, metric depth for full 360° panoramas across both near and far scene distances and suffer from domain gaps between indoor/outdoor and synthetic/real data.",
+  "key_insight": "A panoramic metric-depth foundation model can generalize across a wide range of scene distances by training on a carefully curated, multi-source dataset and a staged pseudo-supervision pipeline that reduces synthetic/real and indoor/outdoor domain gaps.",
+  "problem_solved": "Panoramic depth estimation lacks large, diverse metric-depth training data and struggles to produce accurate, scale-aware depths across indoor and outdoor scenes; this work addresses dataset scarcity and domain mismatch to enable robust panoramic metric depth prediction.",
   "method": [
-    "Data-in-the-loop construction: combine public datasets, high-quality UE5 synthetic panoramas, text-to-image generated scenes, and real web panoramas to build a large and diverse training corpus.",
-    "Three-stage pseudo-labeling pipeline: progressively generate and refine pseudo depth supervision to reduce domain gaps between indoor/outdoor and synthetic/real sources.",
-    "Train a panoramic metric depth foundation model on the curated mixed data to generalize depth prediction across scales and domains."
+    "Data-in-the-loop construction: combine public panoramic depth datasets, high-fidelity UE5 synthetic panoramas, text-to-image synthetic panoramas, and real web panoramas to form a large, diverse training corpus.",
+    "Three-stage pseudo-supervision pipeline: staged training and pseudo-labeling strategies to align synthetic and real domains and to calibrate metric scale across near and far scene distances.",
+    "Foundation-model design for panoramas: a scale-aware panoramic encoder + depth head trained to output metric depth maps that generalize across diverse scene distances (indoor/outdoor)."
   ],
-  "impact": "Provides practitioners a scalable approach to obtain reliable metric depth from panoramas for applications like AR/VR, robotics, mapping and 3D scene understanding; reduces reliance on scarce real panoramic depth annotations.",
+  "impact": "Provides a practical foundation model and dataset strategy that lets practitioners obtain reliable, scale-aware depth from panoramas for robotics, AR/VR, mapping, and large-scale scene understanding without per-scene calibration.",
   "visual_elements": [
-    "Dataset composition pie chart showing proportions: public / UE5 synthetic / text-to-image / web panoramas",
-    "Pipeline diagram of the three-stage pseudo-labeling and data-in-the-loop workflow",
-    "Before/after qualitative depth map comparisons across near and far regions for indoor and outdoor panoramas",
-    "Bar chart or radar plot comparing generalization metrics (accuracy across distances/domains) vs baseline models"
+    "Dataset composition diagram (stacked bars or pie) showing proportions: public data, UE5 synthetic, text-to-image synthetic, and real web panoramas.",
+    "Pipeline flowchart illustrating the three-stage pseudo-supervision/training stages and how domain gaps are reduced.",
+    "Before/after panoramic depth maps (RGB panorama → predicted metric depth) across near and far scenes to show scale accuracy.",
+    "Benchmark chart comparing error vs. distance (near/mid/far) to highlight generalization across scene distances."
   ],
   "hashtags": [
     "#PanoramicDepth",
     "#DepthEstimation",
-    "#FoundationModel",
+    "#FoundationModels",
     "#SyntheticData",
     "#DomainAdaptation"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.16913v1"
     }
   ],
-  "generated_at": "2025-12-19T03:53:20.335765"
+  "generated_at": "2025-12-19T06:20:32.902380"
 }

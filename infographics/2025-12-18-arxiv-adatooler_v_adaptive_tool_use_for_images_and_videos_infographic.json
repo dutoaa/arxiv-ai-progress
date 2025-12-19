@@ -1,24 +1,24 @@
 {
-  "key_insight": "AdaTooler-V adaptively decides when to invoke vision tools for images and videos, avoiding unnecessary tool calls and thereby improving accuracy and inference efficiency.",
-  "problem_solved": "Addresses blind tool-use in open-source multimodal LLMs, where models call vision tools even when they are unnecessary—causing higher latency, compute cost, and degraded performance.",
+  "key_insight": "AdaTooler-V enables multimodal LLMs to decide when to call vision tools for images and videos, avoiding unnecessary tool invocations to cut inference overhead and improve end-task performance.",
+  "problem_solved": "Open-source MLLMs often exhibit blind tool-use—invoking vision tools even when not needed—leading to higher latency, compute cost, and degraded performance; this paper solves adaptive, necessity-aware tool invocation for visual tasks.",
   "method": [
-    "Introduce a lightweight adaptive decision module (gating/classifier) that predicts whether a visual query requires external vision-tool invocation before executing it.",
-    "Integrate the decision module into multimodal interleaved chain-of-thought interactions so the model only calls vision tools for queries that benefit from explicit visual reasoning.",
-    "Train with cost-aware and performance-aware objectives (e.g., penalties for unnecessary calls and supervision from annotated decisions) to balance accuracy and inference overhead."
+    "A lightweight decision/gating module that predicts whether a given visual query requires external vision-tool access (images or video frames).",
+    "Interleaved multimodal chain-of-thought with conditional tool invocation: the model uses internal multimodal reasoning by default and calls vision tools only when the gate indicates utility.",
+    "Cost-aware training/objective that balances task accuracy and tool-usage overhead, evaluated across image and video benchmarks to demonstrate reduced calls and maintained or improved accuracy."
   ],
-  "impact": "Reduces inference cost and latency while improving downstream task performance for MLLMs working with images and videos—making deployment more practical and scalable for real-world applications.",
+  "impact": "Makes multimodal LLMs more computationally efficient and practically deployable for image/video tasks by reducing unnecessary tool calls, lowering latency and cost while preserving or enhancing task performance.",
   "visual_elements": [
-    "Flowchart showing per-query decision: text/video input → adaptive gate → (no tool) or (invoke vision tool) → final answer",
-    "Bar chart comparing metrics (accuracy, latency, tool-invocation rate) between baseline (blind tool-use) and AdaTooler-V",
-    "Side-by-side example: two prompts (one that needs vision tool, one that doesn't) showing different model behaviors and outputs",
-    "Icon set representing images, videos, decision gate, and cost (compute/latency) for quick visual cues"
+    "Pipeline flowchart showing: input (image/video) → gating decision → (No tool) internal reasoning OR (Yes tool) vision-tool invocation → final answer.",
+    "Bar chart comparing average inference time, number of tool calls, and accuracy for AdaTooler-V vs baseline blind-tool models.",
+    "Before/after example: a visual question solved without tool vs with tool (annotated screenshots) to illustrate when tool-use is helpful.",
+    "Timeline/heatmap for a video task showing selective frame-level tool invocations vs continuous tool usage."
   ],
   "hashtags": [
-    "#MultimodalLLM",
-    "#AdaptiveToolUse",
-    "#EfficientAI",
-    "#VisionModels",
-    "#AIInference"
+    "#MultimodalAI",
+    "#EfficientML",
+    "#VisionTools",
+    "#AdaptiveInference",
+    "#VideoUnderstanding"
   ],
   "paper_id": "2025-12-18-arxiv-adatooler_v_adaptive_tool_use_for_images_and_videos",
   "paper_title": "AdaTooler-V: Adaptive Tool-Use for Images and Videos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.16918v1"
     }
   ],
-  "generated_at": "2025-12-19T03:53:59.962613"
+  "generated_at": "2025-12-19T06:21:06.350149"
 }

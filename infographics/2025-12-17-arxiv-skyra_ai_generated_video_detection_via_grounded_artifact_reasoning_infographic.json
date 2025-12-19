@@ -1,24 +1,24 @@
 {
-  "key_insight": "Skyra is a multimodal LLM that does more than binary detection: it identifies human‑perceivable visual artifacts in AI‑generated videos and produces grounded, human‑readable evidence (artifact types, locations, timestamps) to explain its decisions.",
-  "problem_solved": "Existing AI‑generated video detectors largely give only binary labels and lack interpretable, actionable explanations or artifact localization, hindering human verification and forensic workflows.",
+  "key_insight": "Skyra uses a multimodal LLM to detect AI-generated videos by identifying and reasoning about human-perceivable visual artifacts, producing both a detection decision and grounded, human-readable explanations.",
+  "problem_solved": "Existing video detectors mostly give binary labels without localized, interpretable evidence; Skyra fills the gap by providing artifact-based, explainable detection that humans can inspect and verify.",
   "method": [
-    "Train/fine‑tune a multimodal large language model to recognize and describe visual artifacts in video frames and aggregate evidence over time.",
-    "Produce grounded outputs: artifact type labels, localized regions/timestamps, and natural‑language rationales that link visual cues to a generation hypothesis.",
-    "Combine frame‑level visual feature analysis with temporal reasoning to form a concise, evidence‑backed verdict rather than an opaque score."
+    "Train/fine-tune a multimodal large language model to recognize and name visual artifacts (e.g., temporal flicker, lip-sync errors, inconsistent textures) from frame sequences and short clips.",
+    "Perform grounded artifact reasoning: localize artifacts in space/time, aggregate evidence across frames, and produce natural-language explanations that cite specific frames/regions as proof.",
+    "Combine artifact taxonomy, temporal consistency checks, and confidence scoring to produce a final detection verdict along with interpretable, frame-level evidence."
   ],
-  "impact": "Skyra enables explainable, evidence‑based detection of AI‑generated videos, improving trust, human review efficiency, and deployment in forensic or moderation systems. Practitioners can integrate artifact explanations to prioritize investigations and meet transparency requirements.",
+  "impact": "Skyra enables more trustworthy, actionable AI-generated video detection for practitioners and forensic analysts by turning opaque binary decisions into verifiable, human-understandable evidence — improving auditability and intervention workflows.",
   "visual_elements": [
-    "Pipeline diagram: input video → frame analysis → artifact detection/localization → temporal aggregation → explainable report",
-    "Annotated frame examples: side‑by‑side real vs. AI‑generated frames with highlighted artifact regions and short textual rationales",
-    "Timeline visualization: timestamps where artifacts appear and confidence scores over time",
-    "Sample output card: compact human‑readable verdict showing artifact types, bounding boxes, timestamps, and a one‑sentence explanation"
+    "Pipeline diagram: input video → frame extractor → artifact recognizer (MLLM) → evidence aggregator → verdict + explanation",
+    "Annotated example frames: original vs. generated with highlighted artifacts (boxes/arrows) and short textual explanations",
+    "Bar chart/table: detection accuracy vs. baseline binary classifiers and an explanation-quality metric",
+    "Timeline visualization: temporal aggregation of artifact confidence across frames to show how evidence accumulates"
   ],
   "hashtags": [
-    "#AIForensics",
-    "#DeepfakeDetection",
-    "#ExplainableAI",
+    "#Deepfakes",
     "#MultimodalLLM",
-    "#VideoSecurity"
+    "#ExplainableAI",
+    "#AIForensics",
+    "#VideoDetection"
   ],
   "paper_id": "2025-12-17-arxiv-skyra_ai_generated_video_detection_via_grounded_artifact_reasoning",
   "paper_title": "Skyra: AI-Generated Video Detection via Grounded Artifact Reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15693v1"
     }
   ],
-  "generated_at": "2025-12-19T03:56:22.898704"
+  "generated_at": "2025-12-19T06:23:28.199641"
 }

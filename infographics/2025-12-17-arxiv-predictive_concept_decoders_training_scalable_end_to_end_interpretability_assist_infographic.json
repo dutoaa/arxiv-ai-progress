@@ -1,24 +1,24 @@
 {
-  "key_insight": "Turn interpretability into a supervised learning problem: train small auxiliary models (Predictive Concept Decoders) end-to-end to predict a model's behavior from its internal activations, yielding more scalable and faithful explanations than hand-designed agents.",
-  "problem_solved": "Interpreting high-dimensional neural activations is hard and current scalable approaches rely on manual, probe-and-test agents that don't generalize; this paper automates and scales that process by training interpretable assistants to directly predict model behavior from activations.",
+  "key_insight": "Train small end-to-end \"interpretability assistants\" (Predictive Concept Decoders) that decode model activations into human-interpretable concepts which directly predict the model's behavior, producing more scalable and faithful explanations than hand-designed hypothesis testers.",
+  "problem_solved": "Scaling faithful interpretation of complex internal activations: replaces slow, manual hypothesis-generation and testing with a learnable, end-to-end objective that links activation space to actual model behavior.",
   "method": [
-    "Train Predictive Concept Decoders (PCDs) end-to-end to map internal activations to model outputs or human-understandable concepts, using the model's behavior as the supervision signal.",
-    "Optimize decoders for accurate prediction of the target model's behavior to prioritize faithfulness over hand-crafted heuristics.",
-    "Use learned concept mappings to generate explanations, test hypotheses, and scale interpretability across models and layers."
+    "Introduce Predictive Concept Decoders (PCDs) that map internal activations to concept scores used to predict the model's outputs/behavior.",
+    "Train PCDs end-to-end with an objective that aligns concept predictions with the model's behavior (fidelity to outputs and behaviorally-relevant metrics).",
+    "Use the learned decoders for scalable analysis, faithfulness evaluation, and targeted interventions/attribution on the base model."
   ],
-  "impact": "Provides a practical, scalable way for practitioners to extract faithful, testable explanations from internal activations—useful for debugging, auditing, and aligning large models without bespoke interpretability pipelines.",
+  "impact": "Provides practitioners a scalable, trainable tool to extract behaviorally-faithful concepts from internal activations, improving debugging, transparency, and the ability to perform meaningful interventions on large models.",
   "visual_elements": [
-    "Pipeline diagram: model activations → PCDs → predicted behaviors / concepts (show end-to-end training loop)",
-    "Before vs After comparison: hand-designed agent workflow vs learned PCD workflow (emphasize scalability)",
-    "Activation-to-concept heatmap or attention overlay showing which neurons/features map to predicted concepts",
-    "Bar/line chart of faithfulness (prediction accuracy) and scalability metrics across layers or model sizes"
+    "Pipeline diagram: base model → internal activations → Predictive Concept Decoder → predicted behavior/output",
+    "Bar/line chart comparing fidelity (predictive accuracy of behavior) of PCDs vs hand-designed interpretability agents",
+    "Concept activation heatmaps over inputs showing which concepts drive specific model outputs",
+    "Intervention schematic visualizing concept-level intervention and its effect on model behavior"
   ],
   "hashtags": [
     "#Interpretability",
     "#ExplainableAI",
-    "#ModelUnderstanding",
     "#PredictiveConceptDecoders",
-    "#AITransparency"
+    "#ConceptBottleneck",
+    "#ModelTransparency"
   ],
   "paper_id": "2025-12-17-arxiv-predictive_concept_decoders_training_scalable_end_to_end_interpretability_assist",
   "paper_title": "Predictive Concept Decoders: Training Scalable End-to-End Interpretability Assistants",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15712v1"
     }
   ],
-  "generated_at": "2025-12-19T03:56:14.405572"
+  "generated_at": "2025-12-19T06:23:17.557187"
 }

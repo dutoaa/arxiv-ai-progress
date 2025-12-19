@@ -1,24 +1,24 @@
 {
-  "key_insight": "GateFusion introduces a Hierarchical Gated Fusion Decoder that enables fine-grained, multi-scale interaction between pretrained audio and visual encoders, improving frame-level active speaker detection beyond conventional late-fusion methods.",
-  "problem_solved": "Late fusion of audio and visual features misses fine-grained cross-modal cues needed to robustly identify who is speaking in unconstrained video; GateFusion addresses this by learning gated, hierarchical interactions between modalities.",
+  "key_insight": "GateFusion introduces a Hierarchical Gated Fusion Decoder (HiGat) that enables fine-grained, multi-level audio–visual interaction between strong pretrained unimodal encoders, improving active speaker detection where late fusion fails.",
+  "problem_solved": "Addresses the failure of late fusion to capture detailed cross-modal correlations, especially under noisy or unconstrained video/audio conditions, by selectively integrating complementary signals across hierarchy levels.",
   "method": [
-    "Start with strong pretrained unimodal encoders for audio and visual streams to extract rich features.",
-    "Use a Hierarchical Gated Fusion Decoder (HiGat) that applies gated attention/interaction at multiple temporal and spatial scales to fuse modalities progressively.",
-    "Train the fusion decoder (lightweight, plug-and-play) to produce frame-level active speaker predictions, enabling fine-grained cross-modal alignment and noise-robust decisions."
+    "Use strong pretrained visual and audio encoders to extract robust unimodal features.",
+    "Apply a Hierarchical Gated Fusion Decoder (HiGat) that progressively fuses audio and visual features at multiple levels with learned gates to emphasize informative signals and suppress noise.",
+    "Produce frame-wise active-speaker predictions leveraging cross-modal attention and gating for fine-grained temporal and spatial alignment."
   ],
-  "impact": "Provides a practical, modular fusion strategy that improves robustness and interpretability for multimodal ASD systems and can be dropped into existing pipelines that use pretrained encoders.",
+  "impact": "Provides a practical, plug-and-play fusion module that boosts ASD accuracy and robustness in real-world videos, enabling practitioners to leverage pretrained encoders while improving cross-modal alignment and interpretability.",
   "visual_elements": [
-    "Architecture diagram: left audio and visual encoders feeding into a multi-level HiGat module with gated connections and final prediction head.",
-    "Temporal sequence visualization: video frames with per-frame speaker prediction overlay to show fine-grained detection.",
-    "Gate activation heatmaps: example showing where and when each modality is trusted (audio vs. visual) across time.",
-    "Performance comparison bar chart: GateFusion vs. late-fusion baseline (accuracy/robustness) without detailed numbers—illustrate relative gains qualitatively."
+    "Architecture diagram showing pretrained audio & visual encoders feeding into the multi-level HiGat decoder with gating blocks",
+    "Flow illustration of a gate: how audio/visual contributions are weighted and combined across hierarchy levels",
+    "Before/after performance chart (e.g., precision/recall or mAP) comparing late fusion vs. GateFusion on benchmark datasets",
+    "Example frames with audio waveform and per-frame predicted active-speaker overlay to show qualitative improvements"
   ],
   "hashtags": [
     "#ActiveSpeakerDetection",
     "#Multimodal",
-    "#CrossModalFusion",
-    "#DeepLearning",
-    "#ComputerVision"
+    "#GatedFusion",
+    "#AudioVisual",
+    "#AIResearch"
   ],
   "paper_id": "2025-12-17-arxiv-gatefusion_hierarchical_gated_cross_modal_fusion_for_active_speaker_detection",
   "paper_title": "GateFusion: Hierarchical Gated Cross-Modal Fusion for Active Speaker Detection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15707v1"
     }
   ],
-  "generated_at": "2025-12-19T03:56:04.206896"
+  "generated_at": "2025-12-19T06:23:06.127484"
 }

@@ -1,17 +1,17 @@
 {
-  "key_insight": "eMOSAIC combines multimodal molecular and protein information with per-sample out-of-distribution (OOD) uncertainty estimation to substantially improve binding affinity predictions for compounds that act on multiple targets.",
-  "problem_solved": "Predicting binding affinities in polypharmacology is hard because models face diverse chemical–protein contexts and fail silently on OOD examples; this work addresses unreliable predictions and lack of calibrated, individual uncertainty estimates for each compound–target pair.",
+  "key_insight": "eMOSAIC combines multimodal input representations with per-instance, per-modality out-of-distribution (OOD) uncertainty estimates to substantially improve binding-affinity predictions for compounds that act on multiple proteins (polypharmacology).",
+  "problem_solved": "Predictive models for binding affinity struggle with samples outside training distributions and with compounds that interact with many targets; they lack calibrated, modality-specific uncertainty estimates needed to prioritize reliable predictions in drug discovery.",
   "method": [
-    "Multimodal representation: fuse chemical (small-molecule) and protein (sequence/structure) features to capture interaction context.",
-    "OOD-aware individual uncertainty quantification: estimate per-sample predictive uncertainty to identify when predictions may be unreliable or out-of-distribution.",
-    "Model/validation pipeline: integrate calibrated uncertainty into affinity prediction scoring and benchmark against standard baselines across polypharmacological test sets."
+    "Fuse multimodal data (molecular structures, protein sequences/structures, and experimental bioactivity/context) into a joint representation for affinity prediction.",
+    "Compute individual OOD and aleatoric/epistemic uncertainty estimates per modality and per sample, then aggregate these to produce calibrated confidence scores.",
+    "Use uncertainty-aware training and evaluation (OOD detection + calibration) to downweight or flag low-confidence predictions, improving real-world decision-making for polypharmacology tasks."
   ],
-  "impact": "Provides practitioners with more trustworthy affinity predictions and actionable uncertainty signals for screening and lead prioritization, improving decision-making and reducing costly experimental follow-ups in drug discovery.",
+  "impact": "Provides AI/ML practitioners a practical way to obtain trustworthy affinity predictions and actionable confidence estimates, enabling better prioritization of experiments and safer candidate selection in drug discovery pipelines.",
   "visual_elements": [
-    "Pipeline diagram: multimodal inputs (molecule + protein) → eMOSAIC model → affinity prediction + per-sample uncertainty",
-    "Scatter plot: predicted vs. true affinities with points colored/sized by predicted uncertainty to highlight OOD failures",
-    "Bar/line chart: performance and calibration improvement vs. baselines (RMSE, AUPR, calibration error)",
-    "Network schematic: example polypharmacology map showing one compound connecting to multiple targets with confidence annotations"
+    "Schematic: multimodal inputs (molecule, protein, assay/context) → eMOSAIC model → per-modality uncertainty outputs + final affinity prediction",
+    "Calibration/OOD plot: reliability diagrams or ROC for OOD detection comparing eMOSAIC vs baselines",
+    "Network/heatmap: drug-target polypharmacology map with prediction confidence overlay to show high-confidence multi-target predictions",
+    "Bar chart: performance gains (RMSE, AUPR, calibration error) and reduction of false positives on OOD examples"
   ],
   "hashtags": [
     "#DrugDiscovery",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01151-2"
     }
   ],
-  "generated_at": "2025-12-19T03:55:25.228923"
+  "generated_at": "2025-12-19T06:22:24.188997"
 }

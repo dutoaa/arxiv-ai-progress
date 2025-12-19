@@ -1,23 +1,23 @@
 {
-  "key_insight": "StereoPilot replaces the fragile multi-stage Depth–Warp–Inpaint pipeline with a single, unified model that leverages generative priors to produce high-quality stereo views from monocular video, handling occlusions and format conversions more robustly and efficiently.",
-  "problem_solved": "Addresses error propagation, depth ambiguity, occlusion filling failures, and format inconsistency (parallel vs converged stereo) in automatic monocular-to-stereo conversion.",
+  "key_insight": "StereoPilot replaces brittle multi-stage Depth→Warp→Inpaint pipelines with a unified, generative-prior–driven model that directly synthesizes stereo views, reducing error propagation and handling different stereo formats in one framework.",
+  "problem_solved": "Automatic monocular-to-stereo conversion suffers from cascading errors, depth ambiguity, and incompatibility between parallel and converged stereo formats; this paper addresses those limitations to produce higher-quality, consistent stereo videos efficiently.",
   "method": [
-    "Train a unified converter that conditions on a monocular frame plus geometry cues and uses generative priors to synthesize the complementary view in one stage, avoiding sequential D→W→I errors.",
-    "Incorporate geometry-aware modules (disparity/epipolar constraints) and a format adapter to support both parallel and converged stereo layouts.",
-    "Leverage generative priors for realistic appearance, robust occlusion hallucination, and compact/efficient inference compared to multi-step pipelines."
+    "Train a single end-to-end model that leverages generative priors to infer plausible complementary views instead of relying on explicit depth estimation and sequential warping/inpainting.",
+    "Enforce geometric and stereo-consistency losses and incorporate a lightweight format-adapter to handle both parallel and converged stereo configurations without separate pipelines.",
+    "Optimize for efficiency (inference-time and parameter cost) so the method is practical for real-world video and VR/3D content pipelines."
   ],
-  "impact": "Simplifies and stabilizes monocular-to-stereo conversion, making high-quality stereo content generation more accessible for VR/3D production and enabling practitioners to integrate stereo synthesis into real-time or resource-constrained pipelines.",
+  "impact": "Makes high-quality stereo video generation more reliable and accessible, lowering barriers for 3D content production in VR, cinema, and AR, and providing a robust baseline for future view-synthesis research.",
   "visual_elements": [
-    "Side-by-side pipeline diagram: legacy DWI stages vs StereoPilot single-stage flow (input → geometry module + generative prior → stereo pair).",
-    "Before/after image pair: monocular input, conventional DWI output (artifacts), StereoPilot output (clean stereo and occlusion handling).",
-    "Schematic showing format adapter: parallel vs converged stereo geometry with disparity arrows and epipolar lines.",
-    "Block diagram of model components: geometry encoder, generative prior core, occlusion/warp module, and fast inference/latency icon."
+    "Side-by-side pipeline comparison: classic DWI multi-stage flow vs. StereoPilot unified model (fewer blocks, no error propagation arrows).",
+    "Architecture sketch: input monocular frame → generative-prior module → stereo adapter → left/right outputs, with annotations for consistency losses.",
+    "Before/after qualitative triplet: monocular input, DWI output (common artifacts), StereoPilot output (improved depth and fewer holes).",
+    "Bar chart or scatter plot summarizing improvements: visual quality metrics, artifact reduction, and inference latency (relative comparison)."
   ],
   "hashtags": [
-    "#StereoPilot",
-    "#3DVision",
+    "#StereoConversion",
+    "#ViewSynthesis",
     "#GenerativeAI",
-    "#MonocularToStereo",
+    "#3DVideo",
     "#ComputerVision"
   ],
   "paper_id": "2025-12-18-arxiv-stereopilot_learning_unified_and_efficient_stereo_conversion_via_generative_prio",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.16915v1"
     }
   ],
-  "generated_at": "2025-12-19T03:53:31.843638"
+  "generated_at": "2025-12-19T06:20:42.724093"
 }
