@@ -1,24 +1,24 @@
 {
-  "key_insight": "Skyra is a specialized multimodal large language model that detects AI-generated videos by identifying human-perceivable visual artifacts and using them as grounded, human-interpretable evidence, moving beyond simple binary labels.",
-  "problem_solved": "Most existing AI-video detectors only output binary judgments and offer no human-understandable rationale; Skyra addresses the need for reliable, explainable detection that provides concrete visual evidence.",
+  "key_insight": "Skyra is a multimodal LLM that does more than binary detection: it identifies human‑perceivable visual artifacts in AI‑generated videos and produces grounded, human‑readable evidence (artifact types, locations, timestamps) to explain its decisions.",
+  "problem_solved": "Existing AI‑generated video detectors largely give only binary labels and lack interpretable, actionable explanations or artifact localization, hindering human verification and forensic workflows.",
   "method": [
-    "Specialize an MLLM to analyze video frames and short temporal windows for human-perceivable artifacts (e.g., texture inconsistencies, temporal flicker, geometry or lighting anomalies).",
-    "Ground detection in concrete artifacts by producing annotated evidence (frames, timestamps, artifact labels) plus natural-language explanations that justify the decision.",
-    "Combine visual feature extraction with language reasoning to produce multimodal outputs usable for forensic inspection and human verification."
+    "Train/fine‑tune a multimodal large language model to recognize and describe visual artifacts in video frames and aggregate evidence over time.",
+    "Produce grounded outputs: artifact type labels, localized regions/timestamps, and natural‑language rationales that link visual cues to a generation hypothesis.",
+    "Combine frame‑level visual feature analysis with temporal reasoning to form a concise, evidence‑backed verdict rather than an opaque score."
   ],
-  "impact": "Skyra enables practitioners, analysts, and regulators to not only flag suspected AI-generated videos but to inspect and trust the rationale via concrete artifact evidence—improving auditability, triage, and downstream forensic workflows.",
+  "impact": "Skyra enables explainable, evidence‑based detection of AI‑generated videos, improving trust, human review efficiency, and deployment in forensic or moderation systems. Practitioners can integrate artifact explanations to prioritize investigations and meet transparency requirements.",
   "visual_elements": [
-    "Pipeline diagram: video input → frame/temporal extractor → artifact detector → explanation generator.",
-    "Side-by-side example frames: original vs. AI-generated with highlighted artifact regions (e.g., inconsistent eyes, warped edges, flicker).",
-    "Timeline bar: timestamps with artifact severity markers and clickable evidence cards.",
-    "Example explanation card: annotated frame + concise natural-language rationale and artifact labels."
+    "Pipeline diagram: input video → frame analysis → artifact detection/localization → temporal aggregation → explainable report",
+    "Annotated frame examples: side‑by‑side real vs. AI‑generated frames with highlighted artifact regions and short textual rationales",
+    "Timeline visualization: timestamps where artifacts appear and confidence scores over time",
+    "Sample output card: compact human‑readable verdict showing artifact types, bounding boxes, timestamps, and a one‑sentence explanation"
   ],
   "hashtags": [
-    "#Deepfakes",
-    "#VideoForensics",
-    "#MultimodalLLM",
+    "#AIForensics",
+    "#DeepfakeDetection",
     "#ExplainableAI",
-    "#MediaAuthenticity"
+    "#MultimodalLLM",
+    "#VideoSecurity"
   ],
   "paper_id": "2025-12-17-arxiv-skyra_ai_generated_video_detection_via_grounded_artifact_reasoning",
   "paper_title": "Skyra: AI-Generated Video Detection via Grounded Artifact Reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15693v1"
     }
   ],
-  "generated_at": "2025-12-18T22:52:03.301710"
+  "generated_at": "2025-12-19T03:56:22.898704"
 }

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Co-training an LLM reasoner with an LLM-based discriminator via on-policy adversarial reinforcement learning guides models to produce more stepwise-valid chains-of-thought, reducing process errors (e.g., wrong calculations or superficially plausible but invalid steps).",
+  "problem_solved": "Addresses brittle and error-prone reasoning in LLMs by targeting intermediate step quality rather than only final-answer accuracy, reducing incorrect calculations, faulty logic, and plausible-sounding but invalid reasoning steps.",
+  "method": [
+    "On-policy joint training: co-evolve a generator (reasoner) and an LLM-based discriminator in an adversarial RL loop so the reasoner learns to produce stepwise-valid chains-of-thought.",
+    "Adversarial reward shaping: discriminator critiques intermediate steps and supplies fine-grained rewards/penalties to steer the reasoner away from invalid or shallow reasoning.",
+    "Compute-efficient review schedule: selectively sample and review reasoning steps to keep training compute manageable while preserving a strong training signal."
+  ],
+  "impact": "Makes LLM reasoning more reliable and interpretable for tasks like math, code, and logical problem solving by improving stepwise correctness and reducing hallucinations. Offers practitioners a targeted RL-based fine-tuning method that prioritizes process quality over only endpoint metrics.",
+  "visual_elements": [
+    "Pipeline diagram showing the adversarial loop: Reasoner → Generated chain-of-thought → Discriminator critique → Reward → RL update to Reasoner.",
+    "Side-by-side before/after chain-of-thought example with erroneous steps highlighted and corrected post-training.",
+    "Stepwise reward heatmap or bar chart showing discriminator scores per reasoning step to illustrate where errors are penalized.",
+    "Compute vs. performance plot illustrating benefits of the compute-efficient review schedule (less review cost for similar or better reasoning gains)."
+  ],
+  "hashtags": [
+    "#LLM",
+    "#AdversarialRL",
+    "#ChainOfThought",
+    "#Reasoning",
+    "#AIResearch"
+  ],
+  "paper_id": "2025-12-18-arxiv-generative_adversarial_reasoner_enhancing_llm_reasoning_with_adversarial_reinfor",
+  "paper_title": "Generative Adversarial Reasoner: Enhancing LLM Reasoning with Adversarial Reinforcement Learning",
+  "paper_category": "Model",
+  "paper_date": "2025-12-18",
+  "paper_authors": "Qihao Liu, Luoxin Ye, Wufei Ma, Yu-Cheng Chou, Alan Yuille",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.16917v1"
+    }
+  ],
+  "generated_at": "2025-12-19T03:53:46.622485"
+}

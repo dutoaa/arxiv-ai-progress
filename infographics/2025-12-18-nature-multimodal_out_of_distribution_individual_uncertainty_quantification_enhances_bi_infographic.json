@@ -1,24 +1,24 @@
 {
-  "key_insight": "eMOSAIC combines multimodal molecular and protein representations with per-sample, out-of-distribution-aware uncertainty estimates to produce more accurate and trustworthy binding affinity predictions across multiple targets (polypharmacology).",
-  "problem_solved": "Affinity models often fail to generalize to new compounds or targets and lack calibrated, individual prediction uncertainty—making it hard to know which predictions to trust when prioritizing compounds for multi-target effects.",
+  "key_insight": "eMOSAIC combines multimodal molecular and protein information with per-sample out-of-distribution (OOD) uncertainty estimation to substantially improve binding affinity predictions for compounds that act on multiple targets.",
+  "problem_solved": "Predicting binding affinities in polypharmacology is hard because models face diverse chemical–protein contexts and fail silently on OOD examples; this work addresses unreliable predictions and lack of calibrated, individual uncertainty estimates for each compound–target pair.",
   "method": [
-    "Multimodal encoding of compound and protein information to capture interaction-relevant features.",
-    "Per-sample OOD-aware uncertainty estimation that flags predictions likely to be unreliable on novel compound–target pairs.",
-    "Fusion of representations and uncertainty calibration to produce affinity scores with actionable confidence for polypharmacology prioritization."
+    "Multimodal representation: fuse chemical (small-molecule) and protein (sequence/structure) features to capture interaction context.",
+    "OOD-aware individual uncertainty quantification: estimate per-sample predictive uncertainty to identify when predictions may be unreliable or out-of-distribution.",
+    "Model/validation pipeline: integrate calibrated uncertainty into affinity prediction scoring and benchmark against standard baselines across polypharmacological test sets."
   ],
-  "impact": "Provides AI/ML practitioners a practical approach to build affinity predictors that are both more accurate and better-calibrated for deployment—improving hit selection and reducing risk in drug discovery workflows. The framework is a useful template for OOD-aware multimodal prediction in other domains.",
+  "impact": "Provides practitioners with more trustworthy affinity predictions and actionable uncertainty signals for screening and lead prioritization, improving decision-making and reducing costly experimental follow-ups in drug discovery.",
   "visual_elements": [
-    "Pipeline diagram showing multimodal encoders (compound, protein) → fusion → affinity prediction + per-sample uncertainty output",
-    "Calibration plot: predicted uncertainty versus true error (showing improved calibration for eMOSAIC)",
-    "Scatter or density plot separating in-distribution vs out-of-distribution predictions with uncertainty color-coding",
-    "Case-study schematic: one compound connected to multiple protein targets with affinity scores and confidence badges to illustrate polypharmacology"
+    "Pipeline diagram: multimodal inputs (molecule + protein) → eMOSAIC model → affinity prediction + per-sample uncertainty",
+    "Scatter plot: predicted vs. true affinities with points colored/sized by predicted uncertainty to highlight OOD failures",
+    "Bar/line chart: performance and calibration improvement vs. baselines (RMSE, AUPR, calibration error)",
+    "Network schematic: example polypharmacology map showing one compound connecting to multiple targets with confidence annotations"
   ],
   "hashtags": [
     "#DrugDiscovery",
     "#UncertaintyQuantification",
     "#MultimodalAI",
     "#Polypharmacology",
-    "#ComputationalBiology"
+    "#BindingAffinity"
   ],
   "paper_id": "2025-12-18-nature-multimodal_out_of_distribution_individual_uncertainty_quantification_enhances_bi",
   "paper_title": "Multimodal out-of-distribution individual uncertainty quantification enhances binding affinity prediction for polypharmacology",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01151-2"
     }
   ],
-  "generated_at": "2025-12-18T23:58:36.379843"
+  "generated_at": "2025-12-19T03:55:25.228923"
 }
