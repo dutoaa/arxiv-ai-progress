@@ -1,24 +1,24 @@
 {
-  "key_insight": "MemFlow replaces fixed, one-size-fits-all memory compression with a flowing, content-adaptive memory that selectively retains and updates historical cues per upcoming video chunk, enabling consistent long-range video narratives with lower cost.",
-  "problem_solved": "Addresses the difficulty of maintaining content consistency across long streaming video contexts where predetermined memory-compression strategies fail to preserve the varied historical cues different future chunks require.",
+  "key_insight": "MemFlow introduces a flowing, adaptive memory mechanism that dynamically selects, compresses, and routes historical cues tailored to each upcoming video chunk, enabling consistent and efficient long-stream video narrative generation.",
+  "problem_solved": "Maintains content consistency across long streaming video contexts by replacing static, one-size-fits-all memory compression strategies with per-chunk adaptive memory retrieval and updates.",
   "method": [
-    "Adaptive memory flow: dynamically select and route relevant historical frames/features conditioned on the next chunks to generate, rather than applying a fixed compression policy.",
-    "Content-aware retention/compression: compress or expand stored representations based on their predicted relevance to upcoming generation, keeping high-fidelity cues when needed.",
-    "Streaming-efficient updates: incrementally update the memory in a lightweight manner to support long-context generation with reduced compute and memory footprints."
+    "Adaptive memory flow: a module that dynamically routes relevant historical cues to the generator for each to-be-generated chunk instead of using fixed compression rules.",
+    "Content-aware compression & retrieval: learned, task-conditioned compression and attention-based retrieval that preserve salient temporal details while reducing memory footprint.",
+    "Lightweight streaming updates: efficient incremental memory updates to support long narratives with lower compute and less drift over time."
   ],
-  "impact": "Makes long-form and streaming video generation more consistent and scalable, benefiting practitioners building real-time synthesis, long narrative generation, and memory-augmented generative models. It reduces the trade-off between temporal fidelity and efficiency.",
+  "impact": "Makes long-video generation more coherent and scalable, reducing narrative drift and computational cost—useful for streaming video synthesis, long-form story generation, and real-time applications where maintaining temporal consistency is critical.",
   "visual_elements": [
-    "Pipeline diagram showing incoming frames → adaptive memory module (select/retain/compress) → generator, highlighting the 'flow' of memory.",
-    "Side-by-side frame sequence comparison (fixed-memory vs MemFlow) to illustrate improved temporal consistency.",
-    "Timeline heatmap showing memory relevance scores over long context (which frames are retained/discarded) to visualize adaptive retention.",
-    "Bar chart comparing memory usage / latency / coherence metrics between MemFlow and baseline fixed-strategy methods."
+    "Pipeline diagram: input frames → adaptive MemFlow memory module (select/compress/route) → chunk generator, highlighting per-chunk routing decisions.",
+    "Memory flow animation: arrows showing historical cues flowing into memory, being compressed, and selectively fed to different future chunks.",
+    "Comparison chart: narrative consistency (e.g., fidelity/identity preservation) and compute/memory usage for MemFlow vs fixed-memory baselines.",
+    "Timeline visualization: long video timeline with annotations showing reduced drift and preserved details across distant frames when using MemFlow."
   ],
   "hashtags": [
+    "#MemFlow",
     "#VideoGeneration",
-    "#MemoryAugmentedAI",
-    "#LongContext",
-    "#StreamingAI",
-    "#ComputerVision"
+    "#MemoryNetworks",
+    "#LongContextAI",
+    "#StreamingAI"
   ],
   "paper_id": "2025-12-16-arxiv-memflow_flowing_adaptive_memory_for_consistent_and_efficient_long_video_narrativ",
   "paper_title": "MemFlow: Flowing Adaptive Memory for Consistent and Efficient Long Video Narratives",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.14699v1"
     }
   ],
-  "generated_at": "2025-12-18T23:42:53.322506"
+  "generated_at": "2025-12-18T23:59:49.414964"
 }

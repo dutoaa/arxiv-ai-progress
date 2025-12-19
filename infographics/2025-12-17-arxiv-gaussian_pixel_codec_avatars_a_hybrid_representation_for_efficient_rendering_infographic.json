@@ -1,24 +1,24 @@
 {
-  "key_insight": "A hybrid representation that combines a lightweight triangle mesh with anisotropic 3D Gaussians enables photorealistic head avatars that are both memory- and render-efficient enough for mobile devices.",
-  "problem_solved": "How to achieve high-fidelity, view-consistent head avatars from multi-view images while keeping memory use and rendering cost low enough for real-time/mobile deployment.",
+  "key_insight": "GPiCA introduces a compact hybrid representation that combines a triangle mesh for smooth surface regions with anisotropic 3D Gaussians for fine, view-dependent detail, enabling photorealistic head avatars that render efficiently on mobile devices.",
+  "problem_solved": "How to produce and render photorealistic, multi-view-derived head avatars in real time on resource-constrained devices without huge memory or compute costs.",
   "method": [
-    "Build a compact triangle mesh to represent smooth surface regions (e.g., skin) and place anisotropic 3D Gaussians to capture fine, view-dependent and volumetric detail (e.g., hair, eyelashes, complex shading).",
-    "Fit the hybrid representation to multi-view imagery, optimizing Gaussian parameters and mesh appearance to reproduce photorealistic renderings.",
-    "Render efficiently on mobile by leveraging the mesh for rasterization and the Gaussians for compact splatting/blending, minimizing memory and compute overhead."
+    "Reconstruct a triangle mesh for large, smooth facial surfaces and fit anisotropic 3D Gaussians to capture fine-scale, view-dependent appearance (hair, eyes, speculars, soft geometry).",
+    "Jointly optimize geometry and Gaussian attributes from multi-view images, then use a hybrid renderer that rasterizes the mesh and blends Gaussian primitives for detailed shading.",
+    "Design the representation and rendering pipeline for low memory footprint and GPU-friendly execution suitable for mobile real-time rendering."
   ],
-  "impact": "GPiCA makes it practical to run photorealistic avatar rendering on resource-constrained devices, enabling real-time telepresence, AR/VR avatars, and lightweight 3D content pipelines for ML and graphics applications.",
+  "impact": "GPiCA enables high-quality, real-time avatar rendering on mobile/edge devices, lowering barriers for AR/VR, telepresence, and interactive applications by balancing photorealism with practical memory and performance constraints.",
   "visual_elements": [
-    "Side-by-side visual comparison: ground-truth photo vs GPiCA render to show photorealism.",
-    "Hybrid representation diagram: mesh regions highlighted plus colored anisotropic Gaussian blobs showing where each component contributes.",
-    "Pipeline flowchart: multi-view input → fitting/optimization → hybrid model → mobile-optimized renderer.",
-    "Performance chart: memory footprint and runtime (FPS) vs visual quality for GPiCA and baseline approaches on mobile hardware."
+    "Side-by-side schematic of the hybrid representation: triangle mesh overlayed with colored anisotropic 3D Gaussians highlighting different roles.",
+    "Pipeline flowchart from multi-view capture → joint optimization → hybrid rendering, annotated with compute/memory advantages.",
+    "Comparison grid showing visual quality vs. rendering time/memory for GPiCA versus mesh-only and Gaussian-only baselines.",
+    "Zoomed detail panels (hair, eyes, specular highlights) demonstrating how Gaussians capture fine, view-dependent effects."
   ],
   "hashtags": [
-    "#Avatar",
     "#NeuralRendering",
-    "#3DVision",
+    "#3DAvatars",
+    "#HybridRepresentation",
     "#MobileAI",
-    "#ComputerGraphics"
+    "#ComputerVision"
   ],
   "paper_id": "2025-12-17-arxiv-gaussian_pixel_codec_avatars_a_hybrid_representation_for_efficient_rendering",
   "paper_title": "Gaussian Pixel Codec Avatars: A Hybrid Representation for Efficient Rendering",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15711v1"
     }
   ],
-  "generated_at": "2025-12-18T23:40:09.772150"
+  "generated_at": "2025-12-18T23:57:00.806465"
 }

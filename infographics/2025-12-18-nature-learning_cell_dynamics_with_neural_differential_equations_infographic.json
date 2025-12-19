@@ -1,17 +1,17 @@
 {
-  "key_insight": "A generative framework using neural stochastic differential equations learns state-dependent drift and diffusion to accurately model and simulate cell-state dynamics, enabling realistic in silico perturbation studies of development and disease.",
-  "problem_solved": "Existing models struggle to capture stochastic, state-dependent variability in cellular trajectories and to generate realistic counterfactuals; this work provides a principled continuous-time generative model that addresses both fidelity and perturbation prediction.",
+  "key_insight": "Neural stochastic differential equations that learn state-dependent drift and diffusion can accurately model continuous-time, noisy cell dynamics and generate realistic trajectories, enabling simulation of developmental and disease perturbations. This generative approach outperforms prior methods on single-cell temporal modeling.",
+  "problem_solved": "Existing models struggle to represent continuous, stochastic cell-state trajectories and to simulate realistic responses to perturbations; this paper provides a flexible, interpretable generative model that captures state-dependent noise and drift.",
   "method": [
-    "Model cell dynamics as neural stochastic differential equations (SDEs) where both drift and diffusion are parameterized by neural networks conditioned on state.",
-    "Fit the model to single-cell (time-series or snapshot-derived) data to learn state-dependent stochastic rules for transitions.",
-    "Use the trained generative SDE to simulate trajectories and perform in silico perturbation experiments to predict developmental or disease responses."
+    "Parametrize cell dynamics as neural stochastic differential equations (neural SDEs) that learn state-dependent drift (deterministic flow) and diffusion (noise magnitude) functions.",
+    "Train the model end-to-end on single-cell time-series or snapshot datasets to match observed trajectory distributions and latent dynamics.",
+    "Use the learned generative SDE to sample realistic trajectories and perform counterfactual/perturbation simulations (e.g., gene knockouts or treatment effects)."
   ],
-  "impact": "Provides AI/ML practitioners a scalable, probabilistic continuous-time approach for modeling complex stochastic systems, improving generative fidelity and enabling counterfactual/perturbation analyses applicable beyond biology (e.g., finance, physics, engineering).",
+  "impact": "Provides AI/ML practitioners with a principled continuous-time generative framework for noisy, heterogeneous biological dynamics—useful for improved simulation, hypothesis testing, and synthetic data generation in computational biology and beyond.",
   "visual_elements": [
-    "Schematic of a neural SDE: state -> drift network + diffusion network -> stochastic trajectory sampler",
-    "Side-by-side trajectory plots: ground-truth single-cell trajectories vs. model-generated trajectories and baselines",
-    "Perturbation diagram: how targeted changes shift predicted developmental/disease trajectories (before/after)",
-    "Pipeline flowchart: data input → neural SDE training → simulation & perturbation → validation metrics"
+    "Schematic of a neural SDE: vector field (drift) arrows + shaded noise cone (diffusion) learned by neural nets",
+    "Trajectory plots: overlay of observed single-cell states and generated continuous-time stochastic trajectories",
+    "Perturbation panel: before/after simulation showing predicted effect of a genetic or drug perturbation",
+    "Bar/line chart comparing predictive/generative performance against baseline methods"
   ],
   "hashtags": [
     "#NeuralSDEs",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01150-3"
     }
   ],
-  "generated_at": "2025-12-18T23:42:38.649150"
+  "generated_at": "2025-12-18T23:59:35.377667"
 }

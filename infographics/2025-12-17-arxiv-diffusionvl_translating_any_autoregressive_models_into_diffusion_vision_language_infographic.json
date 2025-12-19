@@ -1,23 +1,23 @@
 {
-  "key_insight": "DiffusionVL provides a practical recipe to turn strong autoregressive (AR) language models into diffusion-based vision–language models (dVLMs), closing the performance gap by leveraging AR capabilities within a diffusion decoding paradigm.",
-  "problem_solved": "Bridges the capability gap where diffusion vision–language models underperform mainstream AR-based models by enabling reuse of powerful existing AR models in a diffusion framework.",
+  "key_insight": "A practical recipe to convert existing autoregressive (AR) language models into diffusion-based vision-language models (dVLMs), enabling diffusion-style decoding while leveraging the capabilities of strong AR backbones.",
+  "problem_solved": "Diffusion vision-language models lag behind mainstream AR-based VLMs because base diffusion language models lack comparable capabilities; this work addresses how to build competitive dVLMs by reusing powerful pretrained AR models instead of training new diffusion LMs from scratch.",
   "method": [
-    "Introduce a translation pipeline that maps an AR model's outputs/conditioning into a diffusion-compatible latent space so the AR model can act as a teacher or backbone for a dVLM.",
-    "Use targeted distillation and alignment objectives to transfer generation quality and multimodal grounding from the AR model to the diffusion decoder while preserving diffusion decoding benefits.",
-    "Adopt modular adapters that connect vision encoders and AR-derived language modules to a diffusion denoiser, enabling plug-and-play conversion across different AR architectures."
+    "Introduce a translation/interface that maps pretrained AR model behavior into a diffusion-compatible component, allowing the AR backbone to be used inside a diffusion generation loop.",
+    "Train lightweight adapters or distill from AR outputs into a diffusion score model so the system preserves AR knowledge while supporting diffusion denoising and conditional image-to-text/text-to-image workflows.",
+    "Combine diffusion decoding advantages (e.g., flexible parallel generation, robustness) with AR model strengths via joint conditioning and inference strategies tailored for multimodal tasks."
   ],
-  "impact": "Makes it feasible for researchers and engineers to combine the strengths of mature AR language models with diffusion-style decoding, unlocking better multimodal generation quality, controllability, and easier reuse of existing pretrained models.",
+  "impact": "Enables practitioners to rapidly build high-performing diffusion VLMs by repurposing existing AR models, unlocking diffusion decoding benefits (robustness, parallelism, flexible conditioning) without sacrificing language and multimodal capabilities.",
   "visual_elements": [
-    "Pipeline diagram: AR model → translator/adapters → diffusion denoiser, showing data flow and training objectives (distillation/alignment).",
-    "Before vs after bar chart: performance gap between baseline dVLM and DiffusionVL-converted model on key multimodal metrics.",
-    "Architecture schematic: modular components (vision encoder, AR backbone, adapter, diffusion module) with callouts for where distillation occurs.",
-    "Qualitative examples: input image + generated captions or multimodal outputs from AR baseline vs DiffusionVL conversion side-by-side."
+    "Architecture diagram: AR model + translator/adapters feeding into a diffusion denoising loop (show data flow and conditioning).",
+    "Before vs After bar chart: performance gap between native diffusion VLMs and translated AR→diffusion VLMs.",
+    "Decoding pipeline illustration: comparison of autoregressive sequential decoding vs diffusion denoising (parallel steps).",
+    "Icon set: AR model, diffusion process (noisy-to-clean), adapter module, multimodal input (image + text)."
   ],
   "hashtags": [
     "#DiffusionModels",
     "#VisionLanguage",
-    "#MultimodalAI",
     "#ModelTranslation",
+    "#MultimodalAI",
     "#AIResearch"
   ],
   "paper_id": "2025-12-17-arxiv-diffusionvl_translating_any_autoregressive_models_into_diffusion_vision_language",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15713v1"
     }
   ],
-  "generated_at": "2025-12-18T23:40:35.369135"
+  "generated_at": "2025-12-18T23:57:23.344214"
 }
