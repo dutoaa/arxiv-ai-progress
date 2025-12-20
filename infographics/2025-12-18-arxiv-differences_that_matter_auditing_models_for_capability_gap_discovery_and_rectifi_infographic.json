@@ -1,24 +1,24 @@
 {
-  "key_insight": "AuditDM trains an MLLM as an automated auditor that actively crafts challenging questions and counterfactual images to surface where multimodal models disagree, enabling systematic discovery and targeted repair of capability gaps.",
-  "problem_solved": "Conventional MLLM evaluations are opaque and miss important, model-specific failure modes; AuditDM addresses the need for interpretable, automated discovery of meaningful capability gaps across models.",
+  "key_insight": "AuditDM trains an MLLM as an automated auditor (via reinforcement learning) that generates challenging questions and counterfactual images to maximally expose differences between models, then uses those divergences to guide targeted fixes.",
+  "problem_solved": "Conventional evaluation of multimodal LLMs is often opaque and misses important capability gaps; AuditDM actively discovers interpretable failure modes by forcing models to disagree so practitioners can diagnose and fix them.",
   "method": [
-    "Fine-tune an MLLM as an auditor using reinforcement learning to generate adversarial queries and counterfactual images that maximize disagreement among target models.",
-    "Aggregate disagreement signals to identify, cluster, and prioritize distinct failure modes across models.",
-    "Perform targeted rectification (e.g., focused fine-tuning, curated data augmentation, or prompt/policy updates) guided by the auditor's discoveries to close capability gaps."
+    "Fine-tune an MLLM as an auditor with reinforcement learning to generate hard prompts and counterfactual images that aim to maximize disagreement among target models.",
+    "Measure and cluster inter-model divergences to surface distinct failure modes and produce interpretable examples that highlight where models differ.",
+    "Use discovered disagreements to drive rectification (e.g., targeted data augmentation or model fine-tuning) that closes capability gaps."
   ],
-  "impact": "Provides practitioners a practical, interpretable loop for finding and fixing model blind spots—improving robustness, guiding targeted dataset curation, and making model comparisons more actionable.",
+  "impact": "Provides a scalable, interpretable way to audit and improve multimodal models—enabling targeted debugging, safer deployment, and more robust model comparison beyond scalar benchmarks.",
   "visual_elements": [
-    "Pipeline diagram: Auditor training (RL) → adversarial Q/image generation → disagreement scoring → rectification loop.",
-    "Divergence heatmap or matrix showing pairwise disagreement intensity across models and categories.",
-    "Before/after examples: original vs. auditor-generated counterfactual images with model responses highlighting the failure mode and corrected output after rectification.",
-    "Bar chart showing reduction in disagreement or improvement on identified failure-mode benchmarks after targeted fixes."
+    "Pipeline flowchart: Auditor (MLLM + RL) → generates prompts/images → multiple target models → disagreement detection → rectification loop",
+    "Disagreement heatmap/table: per-task or per-example agreement scores across models highlighting hotspots",
+    "Before/after examples: original image and auditor-generated counterfactual with model responses showing divergence and corrected behavior after rectification",
+    "Bar chart: reduction in disagreement or error rates pre- and post-rectification for each target model"
   ],
   "hashtags": [
-    "#MultimodalLLMs",
+    "#MultimodalLLM",
     "#ModelAuditing",
-    "#FailureModes",
-    "#ReinforcementLearning",
-    "#RobustAI"
+    "#Robustness",
+    "#Counterfactuals",
+    "#ReinforcementLearning"
   ],
   "paper_id": "2025-12-18-arxiv-differences_that_matter_auditing_models_for_capability_gap_discovery_and_rectifi",
   "paper_title": "Differences That Matter: Auditing Models for Capability Gap Discovery and Rectification",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.16921v1"
     }
   ],
-  "generated_at": "2025-12-19T06:21:17.432112"
+  "generated_at": "2025-12-20T06:19:56.740159"
 }

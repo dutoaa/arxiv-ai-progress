@@ -1,23 +1,23 @@
 {
-  "key_insight": "Spiking neural networks can directly solve finite element method (FEM) linear systems using event-driven neural dynamics, offering a brain-inspired alternative that cuts energy consumption and rethinks numerical simulation.",
-  "problem_solved": "FEM simulations produce large sparse linear systems that are computationally and energy intensive on conventional hardware; the paper provides a low-energy, hardware-friendly solver based on spiking dynamics.",
+  "key_insight": "Spiking neural networks can be used as event-driven solvers for finite element method (FEM) problems by encoding FEM linear systems into spiking dynamics, achieving accurate PDE solutions with substantially lower energy use on neuromorphic hardware.",
+  "problem_solved": "Traditional FEM solvers are computationally and energy intensive for large-scale or real-time simulations; this paper addresses the gap between numerical simulation needs and energy-efficient, parallel neuromorphic hardware.",
   "method": [
-    "Map FEM discretized linear systems onto spiking network parameters (membrane potentials, synaptic weights) so network dynamics converge to the solution.",
-    "Use event-driven, asynchronous spike processing to exploit sparsity and reduce energy compared with dense, clocked numerical solvers.",
-    "Demonstrate accuracy, convergence and energy advantages, and outline implementation paths on neuromorphic hardware."
+    "Encode FEM matrices, boundary conditions and inputs into synaptic weights, input currents and neuron parameters so that spiking dynamics implement the FEM linear system.",
+    "Run an event-driven iterative solver where spike activity / membrane potentials converge to the PDE solution; decode solution from steady-state firing rates or voltages.",
+    "Validate on benchmark PDEs and compare accuracy, convergence and energy consumption against conventional CPU/GPU solvers and demonstrate benefits on neuromorphic platforms."
   ],
-  "impact": "Enables energy-efficient, scalable FEM solvers that integrate with neuromorphic hardware and scientific-ML workflows, lowering cost and enabling larger or real-time physics simulations for AI practitioners.",
+  "impact": "Enables low-power, real-time or embedded scientific simulation by marrying numerical PDE methods with neuromorphic computing—beneficial for AI practitioners building physics-aware models, edge simulators, or energy-constrained scientific workflows.",
   "visual_elements": [
-    "Schematic: FEM mesh → sparse matrix → equivalent spiking network mapping (nodes ↔ neurons, edges ↔ synapses).",
-    "Bar chart: energy and runtime comparison (CPU/GPU solver vs spiking network / neuromorphic hardware).",
-    "Line plot: solution error or residual vs time/number of spikes showing convergence behavior.",
-    "Icon set: mesh, neuron/spike, low-power chip to convey method and hardware applicability."
+    "Diagram mapping an FEM mesh to a spiking neural network (nodes→neurons, stiffness matrix→synapses)",
+    "Bar chart comparing energy and runtime: CPU vs GPU vs neuromorphic hardware",
+    "Convergence plot (residual or L2 error vs time/iterations) with accompanying spike raster inset",
+    "Pipeline flowchart: encode FEM → run spiking solver → decode solution"
   ],
   "hashtags": [
     "#SpikingNeuralNetworks",
     "#FiniteElementMethod",
     "#NeuromorphicComputing",
-    "#ScientificML",
+    "#ScientificAI",
     "#EnergyEfficientAI"
   ],
   "paper_id": "2025-12-17-nature-solving_finite_element_methods_with_spiking_networks",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01158-9"
     }
   ],
-  "generated_at": "2025-12-19T06:22:14.149876"
+  "generated_at": "2025-12-20T06:20:59.354963"
 }

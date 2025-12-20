@@ -1,24 +1,24 @@
 {
-  "key_insight": "GateFusion introduces a Hierarchical Gated Fusion Decoder (HiGat) that enables fine-grained, multi-level audio–visual interaction between strong pretrained unimodal encoders, improving active speaker detection where late fusion fails.",
-  "problem_solved": "Addresses the failure of late fusion to capture detailed cross-modal correlations, especially under noisy or unconstrained video/audio conditions, by selectively integrating complementary signals across hierarchy levels.",
+  "key_insight": "GateFusion bridges strong pretrained audio and visual encoders with a Hierarchical Gated Fusion Decoder (HiGat) to capture fine-grained, multi-level cross-modal interactions that late fusion misses.",
+  "problem_solved": "Active Speaker Detection (ASD) models that fuse modalities late often miss detailed audio–visual correlations, reducing robustness in unconstrained, noisy, or multi-speaker scenarios.",
   "method": [
-    "Use strong pretrained visual and audio encoders to extract robust unimodal features.",
-    "Apply a Hierarchical Gated Fusion Decoder (HiGat) that progressively fuses audio and visual features at multiple levels with learned gates to emphasize informative signals and suppress noise.",
-    "Produce frame-wise active-speaker predictions leveraging cross-modal attention and gating for fine-grained temporal and spatial alignment."
+    "Use strong pretrained unimodal encoders for audio and visual streams to extract rich modality-specific features.",
+    "Introduce a Hierarchical Gated Fusion Decoder (HiGat) that performs gated cross-modal interactions at multiple representation levels to selectively combine complementary cues.",
+    "Predict per-frame active speaker labels using the fused hierarchical representation, improving alignment between speaking voice and visible mouth motion."
   ],
-  "impact": "Provides a practical, plug-and-play fusion module that boosts ASD accuracy and robustness in real-world videos, enabling practitioners to leverage pretrained encoders while improving cross-modal alignment and interpretability.",
+  "impact": "Provides a practical multimodal fusion strategy that boosts robustness and fine-grained alignment for ASD, and can be plugged into systems that already use pretrained encoders to improve performance in real-world videos.",
   "visual_elements": [
-    "Architecture diagram showing pretrained audio & visual encoders feeding into the multi-level HiGat decoder with gating blocks",
-    "Flow illustration of a gate: how audio/visual contributions are weighted and combined across hierarchy levels",
-    "Before/after performance chart (e.g., precision/recall or mAP) comparing late fusion vs. GateFusion on benchmark datasets",
-    "Example frames with audio waveform and per-frame predicted active-speaker overlay to show qualitative improvements"
+    "Architecture diagram: two pretrained encoders (audio, visual) feeding into a hierarchical stack of gated fusion blocks (HiGat) with arrows showing gated information flow.",
+    "Temporal frame sequence: video frames with overlaid speaker labels and audio waveform to illustrate per-frame detection.",
+    "Gate activation heatmaps: side-by-side visualizations showing where gates attend to audio vs visual cues across layers and time.",
+    "Performance comparison chart: bar or line chart comparing GateFusion vs late-fusion baselines on robustness metrics (e.g., noisy, overlapping speech)."
   ],
   "hashtags": [
     "#ActiveSpeakerDetection",
-    "#Multimodal",
-    "#GatedFusion",
-    "#AudioVisual",
-    "#AIResearch"
+    "#MultimodalFusion",
+    "#GateFusion",
+    "#AudioVisualAI",
+    "#HiGat"
   ],
   "paper_id": "2025-12-17-arxiv-gatefusion_hierarchical_gated_cross_modal_fusion_for_active_speaker_detection",
   "paper_title": "GateFusion: Hierarchical Gated Cross-Modal Fusion for Active Speaker Detection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15707v1"
     }
   ],
-  "generated_at": "2025-12-19T06:23:06.127484"
+  "generated_at": "2025-12-20T06:22:20.207109"
 }

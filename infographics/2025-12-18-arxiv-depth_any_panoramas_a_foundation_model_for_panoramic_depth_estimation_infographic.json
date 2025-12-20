@@ -1,24 +1,24 @@
 {
-  "key_insight": "A panoramic metric-depth foundation model can generalize across a wide range of scene distances by training on a carefully curated, multi-source dataset and a staged pseudo-supervision pipeline that reduces synthetic/real and indoor/outdoor domain gaps.",
-  "problem_solved": "Panoramic depth estimation lacks large, diverse metric-depth training data and struggles to produce accurate, scale-aware depths across indoor and outdoor scenes; this work addresses dataset scarcity and domain mismatch to enable robust panoramic metric depth prediction.",
+  "key_insight": "A single panoramic metric-depth foundation model trained on a large, mixed dataset (real, high‑quality synthetic, and text‑to‑image panoramas) plus a three‑stage pseudo‑labeling strategy generalizes across diverse scene distances and reduces indoor/outdoor and synthetic/real domain gaps.",
+  "problem_solved": "How to obtain reliable metric depth from panoramic images across wide distance ranges and varied domains given limited dense ground truth and large domain shifts between indoor/outdoor and synthetic/real data.",
   "method": [
-    "Data-in-the-loop construction: combine public panoramic depth datasets, high-fidelity UE5 synthetic panoramas, text-to-image synthetic panoramas, and real web panoramas to form a large, diverse training corpus.",
-    "Three-stage pseudo-supervision pipeline: staged training and pseudo-labeling strategies to align synthetic and real domains and to calibrate metric scale across near and far scene distances.",
-    "Foundation-model design for panoramas: a scale-aware panoramic encoder + depth head trained to output metric depth maps that generalize across diverse scene distances (indoor/outdoor)."
+    "Construct a large-scale, heterogeneous panorama dataset by merging public benchmarks, UE5 high-fidelity synthetic scenes, text-to-image generated panoramas, and web-collected real panoramas.",
+    "Apply a three-stage pseudo-labeling / curriculum training pipeline to progressively produce and refine metric depth supervision that bridges indoor/outdoor and synthetic/real gaps.",
+    "Design a panorama-aware training framework with metric-consistent objectives (multi-scale supervision and distance-aware losses) to produce a foundation model that generalizes across scene distances."
   ],
-  "impact": "Provides a practical foundation model and dataset strategy that lets practitioners obtain reliable, scale-aware depth from panoramas for robotics, AR/VR, mapping, and large-scale scene understanding without per-scene calibration.",
+  "impact": "Delivers a robust, general-purpose panoramic depth model that lowers dependence on dense ground truth and improves depth prediction across near and far ranges—useful for robotics, AR/VR, autonomous navigation, and large-scale scene understanding.",
   "visual_elements": [
-    "Dataset composition diagram (stacked bars or pie) showing proportions: public data, UE5 synthetic, text-to-image synthetic, and real web panoramas.",
-    "Pipeline flowchart illustrating the three-stage pseudo-supervision/training stages and how domain gaps are reduced.",
-    "Before/after panoramic depth maps (RGB panorama → predicted metric depth) across near and far scenes to show scale accuracy.",
-    "Benchmark chart comparing error vs. distance (near/mid/far) to highlight generalization across scene distances."
+    "Dataset composition pie chart (public vs UE5 synthetic vs text-to-image vs web real)",
+    "Pipeline diagram of the three-stage pseudo-labeling / curriculum training flow (data → pseudo labels → refinement → model)",
+    "Qualitative comparison grid showing RGB panoramas and predicted metric depth maps across near/far scenes",
+    "Error-vs-distance plot or domain-gap bar chart showing performance improvements across indoor/outdoor and synthetic/real splits"
   ],
   "hashtags": [
     "#PanoramicDepth",
     "#DepthEstimation",
-    "#FoundationModels",
+    "#FoundationModel",
     "#SyntheticData",
-    "#DomainAdaptation"
+    "#ComputerVision"
   ],
   "paper_id": "2025-12-18-arxiv-depth_any_panoramas_a_foundation_model_for_panoramic_depth_estimation",
   "paper_title": "Depth Any Panoramas: A Foundation Model for Panoramic Depth Estimation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.16913v1"
     }
   ],
-  "generated_at": "2025-12-19T06:20:32.902380"
+  "generated_at": "2025-12-20T06:18:57.401877"
 }

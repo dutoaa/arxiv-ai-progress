@@ -1,23 +1,23 @@
 {
-  "key_insight": "AdaTooler-V enables multimodal LLMs to decide when to call vision tools for images and videos, avoiding unnecessary tool invocations to cut inference overhead and improve end-task performance.",
-  "problem_solved": "Open-source MLLMs often exhibit blind tool-use—invoking vision tools even when not needed—leading to higher latency, compute cost, and degraded performance; this paper solves adaptive, necessity-aware tool invocation for visual tasks.",
+  "key_insight": "AdaTooler-V adaptively decides whether to invoke vision tools for image and video queries, avoiding unnecessary tool calls and thereby reducing inference overhead while maintaining or improving task performance.",
+  "problem_solved": "Open-source multimodal LLMs often use vision tools indiscriminately (blind tool-use), which increases latency, compute cost, and can hurt accuracy. This work targets selective, instance-level tool invocation to make multimodal reasoning efficient and effective.",
   "method": [
-    "A lightweight decision/gating module that predicts whether a given visual query requires external vision-tool access (images or video frames).",
-    "Interleaved multimodal chain-of-thought with conditional tool invocation: the model uses internal multimodal reasoning by default and calls vision tools only when the gate indicates utility.",
-    "Cost-aware training/objective that balances task accuracy and tool-usage overhead, evaluated across image and video benchmarks to demonstrate reduced calls and maintained or improved accuracy."
+    "Learned gating/policy module that predicts, per query, whether a vision tool (image/video) is necessary before invoking expensive visual processing.",
+    "Integration with multimodal interleaved chain-of-thought and vision tool interactions so the model can either answer directly or call tools and continue reasoning when needed.",
+    "Cost-aware training objective and evaluation to balance accuracy vs. number of tool calls, demonstrating lower latency and resource use with equal or better accuracy on image/video tasks."
   ],
-  "impact": "Makes multimodal LLMs more computationally efficient and practically deployable for image/video tasks by reducing unnecessary tool calls, lowering latency and cost while preserving or enhancing task performance.",
+  "impact": "Enables more efficient, scalable multimodal LLM deployments by cutting unnecessary vision tool invocations — reducing latency and compute expense without sacrificing performance, especially important in real-world image/video applications.",
   "visual_elements": [
-    "Pipeline flowchart showing: input (image/video) → gating decision → (No tool) internal reasoning OR (Yes tool) vision-tool invocation → final answer.",
-    "Bar chart comparing average inference time, number of tool calls, and accuracy for AdaTooler-V vs baseline blind-tool models.",
-    "Before/after example: a visual question solved without tool vs with tool (annotated screenshots) to illustrate when tool-use is helpful.",
-    "Timeline/heatmap for a video task showing selective frame-level tool invocations vs continuous tool usage."
+    "Decision flowchart: input -> gating policy -> (answer directly) or (call vision tool + CoT) -> output",
+    "Bar chart comparing % tool calls and accuracy for baseline vs. AdaTooler-V",
+    "Latency/cost vs. accuracy plot showing trade-off improvements",
+    "Icons/illustrations for image, video, toolbox (vision tools), and speed/efficiency"
   ],
   "hashtags": [
-    "#MultimodalAI",
-    "#EfficientML",
+    "#MultimodalLLM",
+    "#EfficientInference",
     "#VisionTools",
-    "#AdaptiveInference",
+    "#AdaptiveAI",
     "#VideoUnderstanding"
   ],
   "paper_id": "2025-12-18-arxiv-adatooler_v_adaptive_tool_use_for_images_and_videos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.16918v1"
     }
   ],
-  "generated_at": "2025-12-19T06:21:06.350149"
+  "generated_at": "2025-12-20T06:19:46.116701"
 }
