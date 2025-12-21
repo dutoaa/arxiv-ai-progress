@@ -1,24 +1,24 @@
 {
-  "key_insight": "GateFusion bridges strong pretrained audio and visual encoders with a Hierarchical Gated Fusion Decoder (HiGat) to capture fine-grained, multi-level cross-modal interactions that late fusion misses.",
-  "problem_solved": "Active Speaker Detection (ASD) models that fuse modalities late often miss detailed audio–visual correlations, reducing robustness in unconstrained, noisy, or multi-speaker scenarios.",
+  "key_insight": "GateFusion replaces brittle late fusion with a hierarchical gated decoder that enables fine-grained, layer-wise cross-modal interactions between strong pretrained audio and visual encoders, improving robustness of frame-level active speaker detection.",
+  "problem_solved": "Existing ASD systems using late fusion fail to capture detailed audio–visual interactions across scales and layers, reducing accuracy in unconstrained, noisy, or multi-speaker scenarios.",
   "method": [
-    "Use strong pretrained unimodal encoders for audio and visual streams to extract rich modality-specific features.",
-    "Introduce a Hierarchical Gated Fusion Decoder (HiGat) that performs gated cross-modal interactions at multiple representation levels to selectively combine complementary cues.",
-    "Predict per-frame active speaker labels using the fused hierarchical representation, improving alignment between speaking voice and visible mouth motion."
+    "Leverage strong pretrained unimodal encoders for audio and visual streams to extract rich features.",
+    "Introduce a Hierarchical Gated Fusion Decoder (HiGat) that applies gating and cross-attention across multiple levels/timescales to selectively combine modalities.",
+    "Use the fused representations for frame-level active speaker classification, preserving fine-grained temporal and spatial cues missed by late fusion."
   ],
-  "impact": "Provides a practical multimodal fusion strategy that boosts robustness and fine-grained alignment for ASD, and can be plugged into systems that already use pretrained encoders to improve performance in real-world videos.",
+  "impact": "GateFusion offers practitioners a modular way to fuse pretrained encoders that better models cross-modal dependencies, yielding more robust ASD in real-world video/audio settings and a template for other multimodal tasks.",
   "visual_elements": [
-    "Architecture diagram: two pretrained encoders (audio, visual) feeding into a hierarchical stack of gated fusion blocks (HiGat) with arrows showing gated information flow.",
-    "Temporal frame sequence: video frames with overlaid speaker labels and audio waveform to illustrate per-frame detection.",
-    "Gate activation heatmaps: side-by-side visualizations showing where gates attend to audio vs visual cues across layers and time.",
-    "Performance comparison chart: bar or line chart comparing GateFusion vs late-fusion baselines on robustness metrics (e.g., noisy, overlapping speech)."
+    "Architecture diagram: parallel pretrained audio and visual encoders feeding into the Hierarchical Gated Fusion Decoder with gated connections illustrated by adjustable valves.",
+    "Gating detail inset: close-up showing how gating weights modulate cross-modal feature flow across layers/time.",
+    "Performance schematic: conceptual comparison (late fusion vs GateFusion) showing improved interaction capture and robustness (no raw numbers).",
+    "Qualitative examples: video frames with audio waveform and detected active-speaker heatmap/overlay to show practical outputs."
   ],
   "hashtags": [
     "#ActiveSpeakerDetection",
-    "#MultimodalFusion",
-    "#GateFusion",
-    "#AudioVisualAI",
-    "#HiGat"
+    "#Multimodal",
+    "#GatedFusion",
+    "#CrossModal",
+    "#AudioVisual"
   ],
   "paper_id": "2025-12-17-arxiv-gatefusion_hierarchical_gated_cross_modal_fusion_for_active_speaker_detection",
   "paper_title": "GateFusion: Hierarchical Gated Cross-Modal Fusion for Active Speaker Detection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15707v1"
     }
   ],
-  "generated_at": "2025-12-20T06:22:20.207109"
+  "generated_at": "2025-12-21T06:22:10.066260"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "StereoPilot replaces the brittle multi‑stage Depth–Warp–Inpaint (DWI) pipeline with a unified, efficient model that uses learned generative priors to directly convert monocular video into stereo pairs, reducing error propagation and handling different stereo formats in one pass.",
-  "problem_solved": "Automates high‑quality monocular→stereo conversion by addressing DWI shortcomings: cascading errors across stages, depth ambiguity in single views, occlusion/inpainting failures, and inconsistency between parallel and converged stereo formats.",
+  "key_insight": "StereoPilot replaces the brittle multi-stage Depth→Warp→Inpaint pipeline with a single, unified model that leverages generative priors to synthesize consistent stereo pairs directly from a monocular input, handling depth ambiguity and format conversions in one step.",
+  "problem_solved": "Automates high-quality monocular-to-stereo conversion while avoiding error propagation, depth ambiguity, and the need to separately handle parallel vs converged stereo formats inherent to traditional DWI pipelines.",
   "method": [
-    "End-to-end stereo conversion model that conditions monocular input on pretrained generative priors to guide view synthesis and plausible occlusion filling.",
-    "Joint depth-aware representation and cross-view consistency losses to resolve depth ambiguity and enforce coherent stereo geometry for both parallel and converged formats.",
-    "Efficient architecture and format-aware warping/conditioning that collapse multiple DWI stages into a single unified pipeline, reducing error accumulation and inference overhead."
+    "Train a unified, end-to-end model that conditions on a single RGB frame and a target stereo configuration to generate the matching stereo view(s) using learned generative priors.",
+    "Incorporate disparity-aware losses and confidence/uncertainty modelling to resolve depth ambiguity and reduce artifacts without explicit multi-stage warping and inpainting.",
+    "Design for efficiency via shared latent representations and lightweight refinement modules so the model produces high-quality stereo frames with low latency."
   ],
-  "impact": "Provides a practical, robust tool for scaling 3D content creation — lowering cost and complexity for VR/AR, 3D cinema, and stereo datasets while simplifying integration for ML practitioners and production pipelines.",
+  "impact": "Makes scalable, high-quality stereo content generation practical for VR/3D pipelines and production workflows; practitioners can integrate a single, robust model to convert large video collections into stereo formats with fewer failures and lower manual cost.",
   "visual_elements": [
-    "Side-by-side pipeline diagram: traditional DWI (Depth → Warp → Inpaint) vs StereoPilot (single unified model with generative prior).",
-    "Architecture sketch: monocular input → generative prior conditioning → joint depth & stereo output, with loss icons for cross-view consistency and occlusion handling.",
-    "Before/after examples: monocular frame, DWI result (artifacts), StereoPilot result (consistent stereo pair) with disparity maps.",
-    "Small infographic showing compatibility with parallel and converged stereo formats (two camera geometry icons and an arrow to unified output)."
+    "Side-by-side pipeline diagram: traditional multi-stage DWI (depth→warp→inpaint) vs StereoPilot single-stage generative model",
+    "Before/after stereo pair examples with overlaid disparity/confidence heatmaps to show improved consistency and fewer holes/artifacts",
+    "Format-conditional iconography: toggle showing conversion between parallel and converged stereo outputs",
+    "Quality vs. latency chart comparing StereoPilot to DWI baselines (fewer artifacts at lower latency)"
   ],
   "hashtags": [
     "#StereoConversion",
-    "#ViewSynthesis",
-    "#GenerativeModels",
-    "#ComputerVision",
-    "#VR"
+    "#GenerativeAI",
+    "#MonocularToStereo",
+    "#3DVideo",
+    "#ComputerVision"
   ],
   "paper_id": "2025-12-18-arxiv-stereopilot_learning_unified_and_efficient_stereo_conversion_via_generative_prio",
   "paper_title": "StereoPilot: Learning Unified and Efficient Stereo Conversion via Generative Priors",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.16915v1"
     }
   ],
-  "generated_at": "2025-12-20T06:19:12.628914"
+  "generated_at": "2025-12-21T06:19:07.685000"
 }

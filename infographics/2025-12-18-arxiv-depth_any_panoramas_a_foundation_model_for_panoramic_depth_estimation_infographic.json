@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single panoramic metric-depth foundation model trained on a large, mixed dataset (real, high‑quality synthetic, and text‑to‑image panoramas) plus a three‑stage pseudo‑labeling strategy generalizes across diverse scene distances and reduces indoor/outdoor and synthetic/real domain gaps.",
-  "problem_solved": "How to obtain reliable metric depth from panoramic images across wide distance ranges and varied domains given limited dense ground truth and large domain shifts between indoor/outdoor and synthetic/real data.",
+  "key_insight": "A panoramic metric-depth foundation model trained on a large, mixed dataset (real + synthetic + web) and a data-in-the-loop pipeline can generalize across diverse scene distances and domains for accurate panoramic depth estimation.",
+  "problem_solved": "Bridges domain and scale gaps in panoramic depth estimation so a single model can produce reliable metric depth across indoor/outdoor scenes and near/far ranges without per-dataset specialization.",
   "method": [
-    "Construct a large-scale, heterogeneous panorama dataset by merging public benchmarks, UE5 high-fidelity synthetic scenes, text-to-image generated panoramas, and web-collected real panoramas.",
-    "Apply a three-stage pseudo-labeling / curriculum training pipeline to progressively produce and refine metric depth supervision that bridges indoor/outdoor and synthetic/real gaps.",
-    "Design a panorama-aware training framework with metric-consistent objectives (multi-scale supervision and distance-aware losses) to produce a foundation model that generalizes across scene distances."
+    "Assemble a large-scale, mixed dataset by combining public datasets, high-quality UE5 simulator data, text-to-image synthetic panoramas, and real web panoramas.",
+    "Apply a three-stage pseudo supervision / domain-reduction pipeline (data-in-the-loop) to reduce synthetic/real and indoor/outdoor domain gaps during training.",
+    "Train a panoramic-capable foundation model that outputs metric depth for equirectangular panoramas with multi-scale supervision to improve generalization across scene distances."
   ],
-  "impact": "Delivers a robust, general-purpose panoramic depth model that lowers dependence on dense ground truth and improves depth prediction across near and far ranges—useful for robotics, AR/VR, autonomous navigation, and large-scale scene understanding.",
+  "impact": "Provides practitioners a robust, general-purpose panoramic depth model and data-construction strategy that reduces the need for scene-specific labeling—beneficial for AR/VR, robotics, mapping, and large-scale 3D scene understanding.",
   "visual_elements": [
-    "Dataset composition pie chart (public vs UE5 synthetic vs text-to-image vs web real)",
-    "Pipeline diagram of the three-stage pseudo-labeling / curriculum training flow (data → pseudo labels → refinement → model)",
-    "Qualitative comparison grid showing RGB panoramas and predicted metric depth maps across near/far scenes",
-    "Error-vs-distance plot or domain-gap bar chart showing performance improvements across indoor/outdoor and synthetic/real splits"
+    "Data-source collage: icons/tiles showing public datasets, UE5 simulator, text-to-image generation, and web panoramas feeding into a single dataset.",
+    "Pipeline diagram: three-stage pseudo supervision / domain-adaptation flow (e.g., synth → pseudo-label → refine → train).",
+    "Before/after qualitative map: side-by-side panoramic RGB and predicted metric depth for indoor and outdoor scenes across near/far distances.",
+    "Performance chart: evaluation metrics showing improved generalization across datasets and distance ranges (bar or line plot)."
   ],
   "hashtags": [
     "#PanoramicDepth",
     "#DepthEstimation",
     "#FoundationModel",
     "#SyntheticData",
-    "#ComputerVision"
+    "#DomainAdaptation"
   ],
   "paper_id": "2025-12-18-arxiv-depth_any_panoramas_a_foundation_model_for_panoramic_depth_estimation",
   "paper_title": "Depth Any Panoramas: A Foundation Model for Panoramic Depth Estimation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.16913v1"
     }
   ],
-  "generated_at": "2025-12-20T06:18:57.401877"
+  "generated_at": "2025-12-21T06:18:51.360443"
 }
