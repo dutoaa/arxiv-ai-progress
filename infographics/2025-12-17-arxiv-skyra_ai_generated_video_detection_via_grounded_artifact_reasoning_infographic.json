@@ -1,20 +1,20 @@
 {
-  "key_insight": "Skyra is a multimodal large language model that detects human-perceivable visual artifacts in AI-generated videos and produces grounded, human-readable evidence instead of only a binary real/fake label.",
-  "problem_solved": "Existing AI-generated video detectors focus on binary classification and lack explainability, making them hard for humans to trust or act on. Skyra fills this gap by localizing artifacts in space and time and providing interpretable artifact-level reasoning as evidence.",
+  "key_insight": "Skyra is a multimodal large language model that detects AI-generated videos by spotting human-perceivable visual artifacts and uses those artifacts as grounded, human-readable evidence rather than only producing a binary label.",
+  "problem_solved": "Existing AI-generated video detectors give binary outputs with little interpretability; Skyra addresses the need for reliable detection plus grounded explanations that humans and practitioners can inspect and trust.",
   "method": [
-    "Specialized MLLM ingests video frames (and optionally audio/metadata) to reason across visual and temporal cues.",
-    "Automatic artifact identification: model outputs artifact types/locations (e.g., inconsistent lighting, warped geometry, temporal jitter) with spatio-temporal grounding.",
-    "Generates natural-language explanations and visual overlays (heatmaps/bboxes/timestamped cues) as human-interpretable evidence for each detection."
+    "Train a specialized MLLM to recognize and name visual artifacts (e.g., temporal flicker, inconsistent shadows, texture glitches) across video frames and localize them spatially and temporally.",
+    "Aggregate artifact detections into grounded evidence and perform reasoning to produce a detection decision accompanied by human-readable explanations and visual highlights.",
+    "Leverage multimodal inputs (frame sequences, optical-flow or temporal features, and auxiliary metadata) and curated annotations to align model outputs with human-perceivable artifacts."
   ],
-  "impact": "Skyra improves trust and utility of AI-generated video detection by turning opaque binary decisions into actionable, explainable evidence for forensic analysts and practitioners. This enables better human–AI collaboration for moderation, audit, and legal workflows.",
+  "impact": "Skyra improves trust and usability of video forensics by giving practitioners actionable, interpretable evidence—enabling better triage, human review, and downstream policy or legal actions instead of opaque automated flags.",
   "visual_elements": [
-    "End-to-end pipeline diagram: video input → frame sampling → MLLM artifact reasoning → explanation + overlays",
-    "Before/after frame examples with artifact overlays (heatmaps, bounding boxes) and short textual explanations",
-    "Spatio-temporal timeline visualization showing when and where artifacts appear across a clip",
-    "Bar or radar chart comparing binary-only detectors vs. Skyra on explainability metrics (evidence clarity, localization accuracy, user trust)"
+    "Pipeline diagram: video input → artifact detector (frame & temporal) → evidence aggregator → interpretable verdict",
+    "Before/after frame pairs with highlighted artifact heatmaps (e.g., flicker zones, texture seams) to show localization",
+    "Artifact taxonomy infographic listing common artifact types with short descriptions and example thumbnails",
+    "Flowchart showing how grounded evidence supports a final detection decision and human-readable explanation"
   ],
   "hashtags": [
-    "#Deepfakes",
+    "#DeepfakeDetection",
     "#MultimodalAI",
     "#ExplainableAI",
     "#VideoForensics",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.15693v1"
     }
   ],
-  "generated_at": "2025-12-21T06:22:37.108682"
+  "generated_at": "2025-12-22T06:24:53.792897"
 }

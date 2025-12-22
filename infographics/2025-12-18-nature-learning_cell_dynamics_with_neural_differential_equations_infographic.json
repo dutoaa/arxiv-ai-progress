@@ -1,24 +1,24 @@
 {
-  "key_insight": "A neural stochastic differential equation (SDE) framework that learns state-dependent drift and diffusion can accurately generate and predict continuous-time cell state dynamics, outperforming prior methods and enabling in silico perturbation studies of development and disease.",
-  "problem_solved": "Existing models struggle to capture the continuous, stochastic, and state-dependent nature of single-cell dynamics and to produce realistic perturbation simulations from snapshot or time-series single-cell data.",
+  "key_insight": "Neural stochastic differential equations that learn state-dependent drift and diffusion can generatively model single-cell dynamics, producing more accurate trajectories and enabling realistic in silico perturbation studies.",
+  "problem_solved": "How to fit and simulate complex, stochastic cell-state dynamics (including state-dependent noise) from single-cell data to predict developmental trajectories and responses to perturbations.",
   "method": [
-    "Parametrize drift and diffusion functions with neural networks to form a generative neural SDE that evolves cell states in continuous time.",
-    "Train the model on single-cell measurements (snapshots/time series) using likelihood-based / variational techniques while accounting for measurement noise.",
-    "Use the learned state-dependent noise and dynamics to simulate interventions and predict downstream effects (in silico perturbations)."
+    "Parameterize drift and diffusion as neural networks inside a stochastic differential equation (neural SDE) to capture state-dependent dynamics and noise.",
+    "Train the generative neural SDE on single-cell time-course and snapshot data via likelihood-based/inference techniques to match observed distributions of cell states.",
+    "Use the learned SDE to simulate trajectories and perform counterfactual/perturbation experiments by modifying drift/diffusion terms."
   ],
-  "impact": "Provides ML practitioners a flexible, interpretable generative model for continuous-time stochastic systems, improving predictive accuracy for biological time series and enabling principled simulation of interventions transferable to other domains with noisy temporal data.",
+  "impact": "Provides AI/ML practitioners a scalable generative framework for realistic dynamical modeling with uncertainty, improving prediction of developmental processes and enabling principled in silico perturbation and causal analyses.",
   "visual_elements": [
-    "Schematic of a neural SDE: neural nets outputting drift and diffusion feeding into a stochastic integrator to produce cell trajectories.",
-    "Overlay of real vs. generated cell trajectories in state space showing improved fit versus baseline methods.",
-    "Before/after perturbation simulation in latent space illustrating predicted trajectory shifts under an intervention.",
-    "Bar or scatter chart comparing quantitative performance metrics (likelihood, forecasting error) across methods."
+    "Schematic of the neural SDE pipeline: encoder → learned drift/diffusion neural nets → SDE integrator → simulated cell trajectories",
+    "Trajectory plot on a cell-state manifold comparing ground truth, neural SDE reconstructions, and baseline methods",
+    "Vector field / heatmap showing learned drift and diffusion magnitudes across the state space",
+    "Before/after perturbation panel illustrating counterfactual trajectory simulations under an applied perturbation"
   ],
   "hashtags": [
-    "#NeuralSDE",
+    "#NeuralSDEs",
     "#SingleCell",
     "#GenerativeModels",
-    "#ContinuousTime",
-    "#ComputationalBiology"
+    "#ComputationalBiology",
+    "#CausalInference"
   ],
   "paper_id": "2025-12-18-nature-learning_cell_dynamics_with_neural_differential_equations",
   "paper_title": "Learning cell dynamics with neural differential equations",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01150-3"
     }
   ],
-  "generated_at": "2025-12-21T06:21:58.746350"
+  "generated_at": "2025-12-22T06:24:44.495450"
 }

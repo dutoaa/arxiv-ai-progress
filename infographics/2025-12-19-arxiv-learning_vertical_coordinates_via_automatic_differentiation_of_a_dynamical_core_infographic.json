@@ -1,0 +1,35 @@
+{
+  "key_insight": "Parametric terrain-following vertical coordinates can be made learnable and optimized end-to-end by backpropagating through a weather model's dynamical core using automatic differentiation, removing the need for hand-tuned decay scales.",
+  "problem_solved": "Reduces grid-imprinted spurious horizontal and vertical motions caused by distorted coordinate layers over steep topography, replacing heuristic, fixed-scale coordinate formulations (e.g., hybrid/SLEVE) with data-optimized coordinates.",
+  "method": [
+    "Define a differentiable, parametric family of vertical coordinate transforms with a small set of learnable parameters or functions.",
+    "Run the atmospheric dynamical core forward and compute a physics-aware loss (e.g., measures of spurious motion, forecast error, stability), then use automatic differentiation through the core to obtain gradients w.r.t. coordinate parameters.",
+    "Optimize parameters end-to-end (with constraints/regularization to preserve monotonicity and numerical stability) and evaluate against standard coordinate formulations."
+  ],
+  "impact": "Shows how differentiable physics can be used to learn numerical discretizations and model coordinate choices, enabling automated, data-driven tuning of modeling components that were previously hand-crafted—reducing manual effort and improving forecast fidelity over complex terrain.",
+  "visual_elements": [
+    "Before/after schematic: terrain cross-section with standard terrain-following grid (distorted layers) vs learned coordinate layers (smoothed, less slanted).",
+    "Pipeline flowchart: parametric coordinate → dynamical core (forward) → loss computation → automatic differentiation → parameter update.",
+    "Bar/line chart: quantitative comparison of spurious motion metrics or forecast error for baseline (Hybrid/SLEVE) vs learned coordinates across representative topography cases.",
+    "Icon set: mountain + distorted grid, gear/graph representing optimization, and AD/gradient symbol to emphasize differentiable physics."
+  ],
+  "hashtags": [
+    "#DifferentiablePhysics",
+    "#AutomaticDifferentiation",
+    "#NumericalWeatherPrediction",
+    "#GeoscienceML",
+    "#LearnedCoordinates"
+  ],
+  "paper_id": "2025-12-19-arxiv-learning_vertical_coordinates_via_automatic_differentiation_of_a_dynamical_core",
+  "paper_title": "Learning vertical coordinates via automatic differentiation of a dynamical core",
+  "paper_category": "Evaluation",
+  "paper_date": "2025-12-19",
+  "paper_authors": "Tim Whittaker, Seth Taylor, Elsa Cardoso-Bihlo, Alejandro Di Luca, Alex Bihlo",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.17877v1"
+    }
+  ],
+  "generated_at": "2025-12-22T06:22:33.756881"
+}

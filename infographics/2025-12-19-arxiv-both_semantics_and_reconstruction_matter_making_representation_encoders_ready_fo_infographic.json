@@ -1,0 +1,35 @@
+{
+  "key_insight": "Representation encoders can be made suitable latents for text-to-image diffusion if they are trained to preserve both semantic structure and pixel-level reconstructability — enforcing compactness and reconstruction together yields robust generative and editing performance.",
+  "problem_solved": "Bridges the gap between discriminative high‑dimensional features (good for understanding) and the low‑level VAE latents (good for generation), solving instability and poor reconstruction when using representation features as diffusion latents.",
+  "method": [
+    "Introduce dual objectives for encoder outputs: a compactness/regularization term to make the feature space diffusion-friendly, plus a reconstruction loss (or lightweight decoder) to ensure pixel recoverability.",
+    "Adapt the diffusion training to operate on the regularized representation space and/or learn a small adapter/mapper between representation features and generative latents, preserving semantic fidelity for editing and conditioning.",
+    "Empirically validate with text-to-image generation and editing tasks, showing improved realism, semantic alignment, and controllable edits compared to using raw discriminative features."
+  ],
+  "impact": "Enables practitioners to reuse powerful pretrained representation encoders for high-quality text-to-image generation and semantically consistent image editing without sacrificing reconstructability — reducing the need to train separate VAEs and improving interoperability between perception and generation.",
+  "visual_elements": [
+    "Side-by-side before/after generation examples: (raw representation → artifacts) vs (regularized+reconstructable representation → high-fidelity image)",
+    "Architecture diagram: encoder + compactness regularizer + decoder/adapter + diffusion model flow",
+    "t-SNE or UMAP of latent spaces showing scattered discriminative features vs compact regularized features",
+    "Editing pipeline example: text prompt edit + latent manipulation → consistent edited image (with arrows and simple captions)"
+  ],
+  "hashtags": [
+    "#LatentDiffusion",
+    "#RepresentationLearning",
+    "#TextToImage",
+    "#ImageEditing",
+    "#GenerativeAI"
+  ],
+  "paper_id": "2025-12-19-arxiv-both_semantics_and_reconstruction_matter_making_representation_encoders_ready_fo",
+  "paper_title": "Both Semantics and Reconstruction Matter: Making Representation Encoders Ready for Text-to-Image Generation and Editing",
+  "paper_category": "Model",
+  "paper_date": "2025-12-19",
+  "paper_authors": "Shilong Zhang, He Zhang, Zhifei Zhang, Chongjian Ge, Shuchen Xue",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.17909v1"
+    }
+  ],
+  "generated_at": "2025-12-22T06:23:44.348853"
+}
