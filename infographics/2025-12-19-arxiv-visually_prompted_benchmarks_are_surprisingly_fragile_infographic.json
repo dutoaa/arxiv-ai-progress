@@ -1,24 +1,24 @@
 {
-  "key_insight": "Visually prompted benchmarks that mark coordinates directly on images (e.g., BLINK-style prompts) can give a misleading view of model vision capabilities: small, semantically irrelevant changes to the visual prompt cause large performance drops, revealing fragility in current VLM evaluations.",
-  "problem_solved": "Evaluates whether visual prompting truly isolates visual understanding from textual priors, and reveals that common benchmark designs can be brittle and overestimate model competence.",
+  "key_insight": "Benchmarks that use visual prompting (e.g., explicit coordinate markers) can give misleadingly strong results because VLMs are surprisingly fragile to small, seemingly irrelevant changes in those visual prompts. Minor alterations to marker appearance or placement cause large performance drops.",
+  "problem_solved": "Identifies and diagnoses a key evaluation gap: determining whether VLMs truly analyze visual content or instead exploit prompt artifacts and textual priors in visually-prompted benchmarks.",
   "method": [
-    "Systematic stress tests of visually prompted benchmarks: apply controlled perturbations to the visual prompt (marker style, position jitter, occlusion, distractors).",
-    "Cross-model evaluation to measure performance sensitivity and identify failure modes where visual cues—not visual reasoning—drive answers.",
-    "Quantitative analysis of performance degradation and recommendations for more robust benchmark design and reporting."
+    "Benchmark analysis: evaluate multiple VLMs on existing visually-prompted datasets (e.g., BLINK) to establish baseline behavior.",
+    "Systematic perturbations: modify visual prompt cues (marker style, color, size, occlusion, displacement, removal) and measure resulting performance degradation.",
+    "Failure-mode attribution: quantify how much model answers rely on prompt artifacts vs. genuine image understanding and characterize common brittleness patterns."
   ],
-  "impact": "Highlights that many VLM evaluation results may reflect sensitivity to prompt artifacts rather than genuine visual reasoning; practitioners should adopt harder, more robust benchmarks and report sensitivity analyses to get a truthful picture of model capabilities.",
+  "impact": "Reveals that common visual-prompt benchmarks may overestimate VLM visual reasoning, motivating more robust benchmark design and careful interpretation of model capabilities for researchers and practitioners.",
   "visual_elements": [
-    "Side-by-side image examples showing original vs. perturbed visual prompts (different marker shapes, occlusions) with model answers and correctness labels.",
-    "Bar chart or line plot showing accuracy drop across perturbation types and magnitudes for several VLMs.",
-    "Heatmap or sensitivity matrix mapping models × perturbation types to failure severity.",
-    "Pipeline diagram illustrating the evaluation protocol: dataset → visual prompt perturbation → model inference → robustness metrics."
+    "Side-by-side image pair showing original marked image vs. perturbed marker (color/shape/shift) with large accuracy delta annotation",
+    "Bar chart of accuracy drop per perturbation type (marker color, size, occlusion, removal, shift)",
+    "Flow diagram of the evaluation pipeline: dataset → perturbation → model suite → failure analysis",
+    "Icon set summarizing failure modes: 'spurious cue reliance', 'sensitivity to marker style', 'occlusion vulnerability', 'textual prior leakage'"
   ],
   "hashtags": [
     "#VisionLanguageModels",
     "#Benchmarking",
     "#Robustness",
     "#VLMs",
-    "#Evaluation"
+    "#ModelEvaluation"
   ],
   "paper_id": "2025-12-19-arxiv-visually_prompted_benchmarks_are_surprisingly_fragile",
   "paper_title": "Visually Prompted Benchmarks Are Surprisingly Fragile",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.17875v1"
     }
   ],
-  "generated_at": "2025-12-22T06:22:14.337130"
+  "generated_at": "2025-12-23T06:25:06.180878"
 }

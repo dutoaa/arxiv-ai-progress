@@ -1,24 +1,24 @@
 {
-  "key_insight": "Parametric terrain-following vertical coordinates can be made learnable and optimized end-to-end by backpropagating through a weather model's dynamical core using automatic differentiation, removing the need for hand-tuned decay scales.",
-  "problem_solved": "Reduces grid-imprinted spurious horizontal and vertical motions caused by distorted coordinate layers over steep topography, replacing heuristic, fixed-scale coordinate formulations (e.g., hybrid/SLEVE) with data-optimized coordinates.",
+  "key_insight": "Terrain-following vertical coordinates can be made learnable and optimized end-to-end by differentiating through the atmospheric dynamical core, letting the model discover coordinate shapes that reduce grid-imprinted spurious motions instead of relying on fixed, hand-tuned decay scales.",
+  "problem_solved": "Conventional terrain-following coordinates (hybrid, SLEVE, etc.) use analytic decay functions with heuristic scale parameters that are tuned by hand and can imprint distorted grid layers onto the solution, producing spurious horizontal and vertical motion over steep topography. The paper addresses automated discovery of coordinate definitions that minimize these errors.",
   "method": [
-    "Define a differentiable, parametric family of vertical coordinate transforms with a small set of learnable parameters or functions.",
-    "Run the atmospheric dynamical core forward and compute a physics-aware loss (e.g., measures of spurious motion, forecast error, stability), then use automatic differentiation through the core to obtain gradients w.r.t. coordinate parameters.",
-    "Optimize parameters end-to-end (with constraints/regularization to preserve monotonicity and numerical stability) and evaluate against standard coordinate formulations."
+    "Define a parametric family of vertical coordinate transforms (e.g., parameterized decay functions or spatially-varying scale maps) with learnable parameters.",
+    "Make the dynamical core differentiable and compute gradients of a chosen objective (e.g., metrics of spurious motion or forecast error) with respect to the coordinate parameters via automatic differentiation.",
+    "Optimize parameters end-to-end with regularization and physical constraints so learned coordinates reduce grid imprinting while preserving stability and conservation properties."
   ],
-  "impact": "Shows how differentiable physics can be used to learn numerical discretizations and model coordinate choices, enabling automated, data-driven tuning of modeling components that were previously hand-crafted—reducing manual effort and improving forecast fidelity over complex terrain.",
+  "impact": "Automating vertical-coordinate design reduces manual tuning, improves solution quality over complex terrain, and enables integrating coordinate optimization into data-driven or hybrid modeling workflows — accelerating development and improving accuracy for NWP and climate simulations.",
   "visual_elements": [
-    "Before/after schematic: terrain cross-section with standard terrain-following grid (distorted layers) vs learned coordinate layers (smoothed, less slanted).",
-    "Pipeline flowchart: parametric coordinate → dynamical core (forward) → loss computation → automatic differentiation → parameter update.",
-    "Bar/line chart: quantitative comparison of spurious motion metrics or forecast error for baseline (Hybrid/SLEVE) vs learned coordinates across representative topography cases.",
-    "Icon set: mountain + distorted grid, gear/graph representing optimization, and AD/gradient symbol to emphasize differentiable physics."
+    "Before/after schematic of vertical grid layers over steep topography: hand-tuned distorted layers vs. learned smoother layers",
+    "Side-by-side flow-field comparison (velocity/vertical motion) showing reduced spurious signals with learned coordinates",
+    "Training loop diagram: parametric transform → differentiable dynamical core → loss → autodiff gradients → parameter update",
+    "Plot of learned decay/scale functions or spatial parameter maps vs. traditional analytic profiles"
   ],
   "hashtags": [
-    "#DifferentiablePhysics",
-    "#AutomaticDifferentiation",
+    "#DifferentiableModeling",
     "#NumericalWeatherPrediction",
-    "#GeoscienceML",
-    "#LearnedCoordinates"
+    "#AutomaticDifferentiation",
+    "#GeoscienceAI",
+    "#AdaptiveCoordinates"
   ],
   "paper_id": "2025-12-19-arxiv-learning_vertical_coordinates_via_automatic_differentiation_of_a_dynamical_core",
   "paper_title": "Learning vertical coordinates via automatic differentiation of a dynamical core",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.17877v1"
     }
   ],
-  "generated_at": "2025-12-22T06:22:33.756881"
+  "generated_at": "2025-12-23T06:25:20.637805"
 }
