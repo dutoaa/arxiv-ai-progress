@@ -1,0 +1,35 @@
+{
+  "key_insight": "Pre-trained video Diffusion Transformers (DiTs) contain rich spatiotemporal representations that can be repurposed as robust feature and matching engines for point tracking, yielding far better temporal coherence than shallow convolutional backbones.",
+  "problem_solved": "Point tracking across video frames is brittle under occlusion, motion blur, and appearance changes because prior methods use framewise shallow CNN features that lack temporal context and produce unreliable matching costs.",
+  "method": [
+    "Treat a video DiT pre-trained on large-scale videos as a spatiotemporal feature extractor to produce temporally-aware descriptors for points.",
+    "Compute matching costs using DiT representations (and attention maps) instead of independent per-frame CNN features; optionally add lightweight adapters or fine-tuning for the tracking head.",
+    "Integrate the DiT-based matching into a standard point-tracking pipeline (correspondence search, temporal smoothing / reweighting) to produce robust tracks."
+  ],
+  "impact": "Provides a simple, high-impact way to boost point-tracking robustness and temporal coherence by leveraging existing video diffusion transformer models, reducing reliance on bespoke architectures or heavy task-specific supervision. This benefits downstream tasks like 4D reconstruction, robotics, and video editing.",
+  "visual_elements": [
+    "Side-by-side schematic: ResNet (framewise) vs DiT (spatiotemporal attention) to show where temporal context is gained",
+    "Pipeline flowchart: video input → DiT feature maps/attention → correspondence matcher → tracked points",
+    "Qualitative comparison strip: example frames showing stable tracks with DiT vs failures with CNN baseline (occlusion/motion blur cases)",
+    "Bar/line chart: tracking accuracy/robustness metrics comparing DiT-based method to common baselines"
+  ],
+  "hashtags": [
+    "#VideoDiffusion",
+    "#Transformers",
+    "#PointTracking",
+    "#ComputerVision",
+    "#4DReconstruction"
+  ],
+  "paper_id": "2025-12-23-arxiv-repurposing_video_diffusion_transformers_for_robust_point_tracking",
+  "paper_title": "Repurposing Video Diffusion Transformers for Robust Point Tracking",
+  "paper_category": "Model",
+  "paper_date": "2025-12-23",
+  "paper_authors": "Soowon Son, Honggyu An, Chaehyun Kim, Hyunah Ko, Jisu Nam",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.20606v1"
+    }
+  ],
+  "generated_at": "2025-12-24T06:22:27.450850"
+}

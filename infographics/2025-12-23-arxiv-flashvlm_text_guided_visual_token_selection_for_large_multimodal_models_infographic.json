@@ -1,0 +1,35 @@
+{
+  "key_insight": "FlashVLM uses the text query to dynamically select a small subset of visual tokens for a multimodal model, preserving semantic alignment while drastically cutting attention cost.",
+  "problem_solved": "Addresses the high computational cost and redundancy of processing hundreds-to-thousands of visual tokens per image/frame and the instability of query-agnostic or attention-map-based pruning that harms semantic alignment.",
+  "method": [
+    "Text-guided token scorer: a lightweight module computes relevance scores for visual tokens conditioned on the input text/query.",
+    "Dynamic top-k selection: keep only the highest-scoring tokens per query before heavy multimodal attention, reducing quadratic attention complexity.",
+    "Training objectives ensure preserved alignment and accuracy (e.g., supervision or distillation to maintain semantic performance under aggressive pruning)."
+  ],
+  "impact": "Enables significantly lower compute and memory for large VLMs while maintaining accuracy—allowing higher resolution inputs, faster inference, and more practical deployment for real-time or resource-constrained multimodal applications.",
+  "visual_elements": [
+    "Pipeline diagram: text query -> token scoring module -> top-k token selection -> VLM encoder",
+    "Before/After token map: full grid of vision tokens vs. highlighted selected tokens guided by the query",
+    "Compute vs. accuracy plot: attention cost (FLOPs or latency) on x-axis vs. task accuracy on y-axis showing efficiency gain",
+    "Icon set: text query icon, camera/frame icon, speed/compute reduction meter, alignment/accuracy checkmark"
+  ],
+  "hashtags": [
+    "#VisionLanguage",
+    "#ModelEfficiency",
+    "#MultimodalAI",
+    "#SparseAttention",
+    "#AICompression"
+  ],
+  "paper_id": "2025-12-23-arxiv-flashvlm_text_guided_visual_token_selection_for_large_multimodal_models",
+  "paper_title": "FlashVLM: Text-Guided Visual Token Selection for Large Multimodal Models",
+  "paper_category": "Evaluation",
+  "paper_date": "2025-12-23",
+  "paper_authors": "Kaitong Cai, Jusheng Zhang, Jing Yang, Yijia Fan, Pengtao Xie",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.20561v1"
+    }
+  ],
+  "generated_at": "2025-12-24T06:21:07.321478"
+}

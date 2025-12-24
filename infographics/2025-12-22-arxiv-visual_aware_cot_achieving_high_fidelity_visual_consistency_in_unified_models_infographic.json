@@ -1,24 +1,24 @@
 {
-  "key_insight": "Visual-Aware CoT augments Chain-of-Thought with explicit visual-context verification steps, enabling unified models to preserve key visual features across multi-reference multimodal generation and reduce image-grounded hallucinations.",
-  "problem_solved": "Current CoT reasoning focuses on text-prompt consistency and neglects visual-context consistency, causing failures to keep important visual attributes (e.g., object identity, color, count, spatial relations) when generating from multiple reference images.",
+  "key_insight": "Incorporating visual-awareness into the Chain-of-Thought (CoT) process lets unified models reason in a way that preserves and aligns generated text with key visual features from reference images, improving multi-reference visual consistency.",
+  "problem_solved": "Current CoT-guided multi-modal generation optimizes textual consistency with prompts but neglects consistency with visual references, causing failures to maintain important visual attributes across multi-image or multi-reference outputs.",
   "method": [
-    "Embed visual-check steps into the CoT sequence so the model explicitly verifies and references visual attributes from each image during reasoning.",
-    "Fuse cross-modal attention and grounding objectives (e.g., alignment/contrastive losses or visual token supervision) to tie textual reasoning tokens to visual features.",
-    "Iterative multimodal refinement: alternate generation with visual-feedback checks to correct inconsistencies and enforce fidelity across references."
+    "Augment CoT with visual-aware reasoning steps: inject visual grounding cues and image-conditioned prompts into the chain-of-thought so each reasoning step is explicitly tied to visual evidence.",
+    "Align intermediate textual reasoning and visual features via attention regularization or contrastive alignment, enforcing that CoT tokens attend to and preserve key image attributes across steps.",
+    "Optimize with visual-consistency objectives and benchmark on multi-reference tasks to ensure outputs retain salient visual details (e.g., identity, color, spatial relations) across generated content."
   ],
-  "impact": "Improves fidelity and trustworthiness of multimodal unified models, reducing hallucinations and making them more reliable for tasks like image editing, multi-image captioning, and grounded VQA.",
+  "impact": "This approach yields higher-fidelity, image-consistent multi-modal outputs, enabling more reliable VQA, grounded captioning, multi-image editing and other vision-language applications where preserving visual attributes matters.",
   "visual_elements": [
-    "Pipeline diagram: standard CoT vs Visual-Aware CoT showing added visual-check stages and cross-modal alignment.",
-    "Before/After examples: generated outputs with the same prompts and references highlighting preserved vs. lost visual attributes.",
-    "Attention/heatmap overlays: visualizations linking CoT tokens to image regions to show grounding.",
-    "Bar/line chart: quantitative gains on visual-consistency metrics (fidelity, attribute accuracy, hallucination rate) across benchmarks."
+    "Pipeline diagram showing standard CoT vs Visual-Aware CoT (visual cues injected into reasoning steps).",
+    "Before/after example pairs: multi-reference prompt with inconsistent vs visually-consistent outputs highlighting preserved attributes.",
+    "Attention heatmaps or alignment visualization linking CoT tokens to image regions across reasoning steps.",
+    "Bar chart or table comparing visual-consistency metrics (e.g., attribute preservation, accuracy) across baselines and the proposed method."
   ],
   "hashtags": [
+    "#VisualCoT",
     "#MultimodalAI",
-    "#ChainOfThought",
     "#VisionLanguage",
-    "#VisualConsistency",
-    "#UnifiedModels"
+    "#Consistency",
+    "#ChainOfThought"
   ],
   "paper_id": "2025-12-22-arxiv-visual_aware_cot_achieving_high_fidelity_visual_consistency_in_unified_models",
   "paper_title": "Visual-Aware CoT: Achieving High-Fidelity Visual Consistency in Unified Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.19686v1"
     }
   ],
-  "generated_at": "2025-12-23T06:22:56.886168"
+  "generated_at": "2025-12-24T06:24:19.292647"
 }

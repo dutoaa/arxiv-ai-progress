@@ -1,24 +1,24 @@
 {
-  "key_insight": "Integrating scalable physician oversight into an LLM-derived benchmark (MedCalc-Bench) prevents model errors from becoming entrenched as evaluation gold standards, improving the clinical validity of automated risk-score evaluation with minimal clinician time.",
-  "problem_solved": "Model-generated clinical benchmarks can encode systematic LLM or rule-aggregation errors; without scalable human curation, these datasets mislead model evaluation and risk amplifying clinical mistakes.",
+  "key_insight": "Adding scalable physician oversight to an LLM‑generated clinical benchmark corrects systematic model errors and substantially improves the benchmark's clinical validity without requiring full manual reannotation.",
+  "problem_solved": "Addresses the risk of LLM‑produced evaluation datasets becoming entrenched as flawed gold standards by providing a practical, scalable way to audit and correct clinical feature extraction and aggregation errors.",
   "method": [
-    "Hybrid pipeline: retain LLM-based feature extraction and rule-based aggregation but add targeted physician review to verify and correct high-impact outputs.",
-    "Priority sampling: select cases for clinician review using model uncertainty, disagreement signals, and clinical importance to maximize validation efficiency.",
-    "Iterative curation: record adjudications, update benchmark labels, and re-evaluate models to close the loop while tracking inter-rater agreement and audit trails."
+    "Physician‑in‑the‑loop verification targeted to high‑risk or high‑uncertainty cases (sample + model‑flagging) rather than full dataset relabeling.",
+    "Edit‑and‑verify workflow: present extracted features and aggregated risk scores to clinicians for rapid correction, track provenance and consensus, and integrate fixes back into the benchmark.",
+    "Automated triage using model uncertainty/disagreement and lightweight heuristics to prioritize cases that most impact clinical validity and evaluation metrics."
   ],
-  "impact": "Provides a practical way to make large AI evaluation benchmarks clinically trustworthy without full manual curation, improving model development, deployment safety, and downstream patient care.",
+  "impact": "Makes clinical benchmark evaluation more trustworthy for AI/ML work in healthcare, reducing the chance of training or evaluating models against flawed labels and enabling safer deployment and more reliable comparisons.",
   "visual_elements": [
-    "Pipeline flowchart showing LLM extraction → rule aggregation → priority sampler → physician review → updated benchmark",
-    "Bar chart comparing error rates or clinical validity before vs after physician oversight",
-    "Sankey or priority-heat visualization illustrating reviewer effort saved by targeted sampling",
-    "Annotated example case showing original model output, physician correction, and final score"
+    "Pipeline diagram: LLM extraction → automated triage (uncertainty/disagreement) → physician review & edits → updated benchmark (with provenance).",
+    "Before/after bar chart showing reduction in error rate or change in evaluation scores after physician corrections.",
+    "Heatmap or scatterplot illustrating where physician review concentrated (e.g., by risk score, uncertainty, or feature type).",
+    "Icons representing stakeholders: clinician, LLM, dataset, and audit trail/provenance badge."
   ],
   "hashtags": [
     "#ClinicalAI",
+    "#PhysicianInTheLoop",
     "#Benchmarking",
-    "#HumanInTheLoop",
-    "#HealthcareAI",
-    "#LLMValidation"
+    "#MedicalNLP",
+    "#AIValidation"
   ],
   "paper_id": "2025-12-22-arxiv-scalably_enhancing_the_clinical_validity_of_a_task_benchmark_with_physician_over",
   "paper_title": "Scalably Enhancing the Clinical Validity of a Task Benchmark with Physician Oversight",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.19691v1"
     }
   ],
-  "generated_at": "2025-12-23T06:23:20.417985"
+  "generated_at": "2025-12-24T06:24:58.794479"
 }

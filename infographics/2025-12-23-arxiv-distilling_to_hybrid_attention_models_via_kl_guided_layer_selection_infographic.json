@@ -1,0 +1,35 @@
+{
+  "key_insight": "Use layer-wise KL divergence between teacher softmax-attention and candidate linear-attention layers to quickly identify which layers must remain softmax, enabling efficient distillation into hybrid (interleaved softmax + linear) attention models without costly retraining.",
+  "problem_solved": "How to decide which Transformer layers to convert from softmax attention to faster linear-attention variants during distillation, balancing inference efficiency and model quality.",
+  "method": [
+    "Compute a layer importance score using KL divergence between the teacher's softmax-attention distributions and the student's candidate linear-attention distributions.",
+    "Rank layers by KL scores and select a subset to keep as softmax attention (higher KL → keep softmax), converting the rest to linear attention to form a hybrid architecture.",
+    "Perform standard knowledge distillation on the hybrid model (soft targets + task loss) to recover performance while reducing runtime cost."
+  ],
+  "impact": "Provides a simple, low-cost recipe to convert pretrained Transformers into faster hybrid-attention models with minimal quality loss, making efficient LLM deployment more practical for practitioners.",
+  "visual_elements": [
+    "Schematic of a Transformer stack showing retained softmax layers (highlighted) interleaved with converted linear-attention layers.",
+    "Bar chart of per-layer KL importance scores across model depth, with a threshold line indicating chosen softmax layers.",
+    "Accuracy (or perplexity) vs. inference latency/throughput curve comparing original, fully-linear, and KL-guided hybrid models.",
+    "Flowchart of the KL-guided selection + distillation pipeline (compute KL → select layers → convert → distill)"
+  ],
+  "hashtags": [
+    "#ModelDistillation",
+    "#EfficientLLMs",
+    "#HybridAttention",
+    "#ModelCompression",
+    "#KLGuided"
+  ],
+  "paper_id": "2025-12-23-arxiv-distilling_to_hybrid_attention_models_via_kl_guided_layer_selection",
+  "paper_title": "Distilling to Hybrid Attention Models via KL-Guided Layer Selection",
+  "paper_category": "Model",
+  "paper_date": "2025-12-23",
+  "paper_authors": "Yanhong Li, Songlin Yang, Shawn Tan, Mayank Mishra, Rameswar Panda",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.20569v1"
+    }
+  ],
+  "generated_at": "2025-12-24T06:21:36.138825"
+}

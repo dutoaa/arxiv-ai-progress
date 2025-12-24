@@ -1,24 +1,24 @@
 {
-  "key_insight": "VA-π introduces a lightweight post-training variational alignment that directly optimizes autoregressive token generators using pixel-space feedback, closing the gap between token-likelihood training and image reconstruction quality.",
-  "problem_solved": "Autoregressive visual generators are trained to maximize token likelihood while tokenizers are trained to reconstruct pixels, causing a misalignment that yields token sequences decoding into low-quality images without pixel-level supervision.",
+  "key_insight": "VA-π introduces a lightweight post-training variational objective that aligns autoregressive token policies with pixel-space reconstructions, reducing the mismatch between token-likelihood optimization and final image quality.",
+  "problem_solved": "Addresses the misalignment between tokenizers (trained to reconstruct clean images) and autoregressive generators (trained only on token likelihood), which leads to token sequences that decode into low-quality or artifact-prone images without pixel-level supervision.",
   "method": [
-    "Post-training variational policy alignment: treat the AR generator as a policy and align it to the tokenizer+decoder using a principled variational objective in pixel space.",
-    "Monte Carlo / sampling-based evaluation of decoded pixels from generated token sequences, computing a pixel-level loss (or evidence lower bound) and backpropagating updates to the AR model via a policy-gradient or reweighted likelihood estimator.",
-    "Lightweight plug-in design compatible with existing tokenizers and decoders — no need to retrain tokenizer, enabling practical improvements to generation quality after model training."
+    "Formulate a variational policy alignment objective that links the AR token policy to the tokenizer's pixel-space decoder, enabling direct pixel-aware optimization of generation.",
+    "Post-train the AR generator (no tokenizer retraining) by sampling decoded images, computing pixel-level (or perceptual) feedback, and updating the token policy via the variational objective.",
+    "Keep the procedure lightweight and plug-in: preserves existing tokenizers and likelihood-based training while reducing reconstruction artifacts through targeted fine-tuning."
   ],
-  "impact": "Provides a practical technique to improve image fidelity of autoregressive generators with minimal compute and engineering overhead, enabling practitioners to reduce decoding artifacts and better align token-level models with pixel-level goals.",
+  "impact": "Provides a practical, low-cost way to improve visual fidelity of autoregressive image models by directly aligning token generation with pixel outcomes—useful for practitioners deploying AR-based image synthesis who want better decoded image quality without retraining tokenizers.",
   "visual_elements": [
-    "Pipeline diagram contrasting standard AR training (token-likelihood -> decode) vs VA-π loop (sample tokens -> decode to pixels -> pixel loss -> update AR).",
-    "Before/after image grid showing improvements in visual quality from vanilla AR to VA-π fine-tuned outputs.",
-    "Bar/line chart comparing metrics (e.g., FID, PSNR, or human preference) pre- and post-VA-π.",
-    "Icon set: tokenizer, AR model (policy), decoder (pixels), and a variational/policy update arrow to emphasize the feedback loop."
+    "Diagram showing misalignment: tokenizer trained ↔ ground-truth images vs AR generator trained on token likelihood — highlight gap where decoded images degrade",
+    "Pipeline flowchart of VA-π: sample tokens → decode to pixels → compute pixel/perceptual feedback → variational update to AR policy (post-training loop)",
+    "Before/after image pairs demonstrating reduction of decoding artifacts and improved fidelity",
+    "Plot comparing pixel-quality metrics (e.g., FID/LPIPS) and token-likelihood/perplexity before vs after VA-π fine-tuning"
   ],
   "hashtags": [
-    "#GenerativeModels",
     "#Autoregressive",
     "#ImageGeneration",
-    "#VariationalInference",
-    "#ModelAlignment"
+    "#VariationalLearning",
+    "#Tokenization",
+    "#GenerativeModels"
   ],
   "paper_id": "2025-12-22-arxiv-va_variational_policy_alignment_for_pixel_aware_autoregressive_generation",
   "paper_title": "VA-$π$: Variational Policy Alignment for Pixel-Aware Autoregressive Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.19680v1"
     }
   ],
-  "generated_at": "2025-12-23T06:22:07.674927"
+  "generated_at": "2025-12-24T06:24:47.011715"
 }

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Generating videos directly in a compact semantic representation—rather than in dense VAE latents or pixels—exploits temporal redundancy and yields much faster convergence and lower compute for long videos.",
+  "problem_solved": "Addresses slow training convergence and high computational cost of current video generative models that learn and decode dense VAE latents to pixels, especially when scaling to long-duration video generation.",
+  "method": [
+    "Encode videos into a compact semantic space (e.g., mid-level semantic maps/embeddings) that strips pixel-level redundancy while preserving essential scene and motion information.",
+    "Train a generative model to produce temporally coherent semantic trajectories, explicitly modeling redundancy to skip or compress repetitive frames.",
+    "(Optional) Use a lightweight renderer/decoder to map generated semantics back to pixels only when high-fidelity frames are required, reducing end-to-end computation."
+  ],
+  "impact": "SemanticGen enables faster, more scalable video generation: practitioners can train and sample longer videos with lower compute and faster iteration cycles, while improving controllability through semantic-level operations.",
+  "visual_elements": [
+    "Pipeline diagram: input video → semantic encoder → semantic generator (temporal model) → optional renderer → output video",
+    "Bar chart comparing training/inference time and memory (SemanticGen vs VAE-latent approaches) across increasing video lengths",
+    "Illustration of semantic-space vs pixel-space frames showing compressed semantics preserving motion and scene layout",
+    "Animation or timeline showing redundancy compression (key semantic frames + interpolated/reconstructed frames)"
+  ],
+  "hashtags": [
+    "#VideoGeneration",
+    "#SemanticAI",
+    "#EfficientGeneration",
+    "#GenerativeModels",
+    "#LongVideo"
+  ],
+  "paper_id": "2025-12-23-arxiv-semanticgen_video_generation_in_semantic_space",
+  "paper_title": "SemanticGen: Video Generation in Semantic Space",
+  "paper_category": "Model",
+  "paper_date": "2025-12-23",
+  "paper_authors": "Jianhong Bai, Xiaoshi Wu, Xintao Wang, Fu Xiao, Yuanxing Zhang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.20619v1"
+    }
+  ],
+  "generated_at": "2025-12-24T06:23:24.859567"
+}
