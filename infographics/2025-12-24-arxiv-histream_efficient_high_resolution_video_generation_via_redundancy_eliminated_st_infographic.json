@@ -1,0 +1,35 @@
+{
+  "key_insight": "HiStream cuts the huge inference cost of high-resolution video diffusion by eliminating redundant computation: denoise at low resolution, stream the video in chunks, and reuse cached features to cheaply refine to high resolution.",
+  "problem_solved": "High-resolution video generation with diffusion models is computationally and memory intensive (quadratic complexity), making practical inference infeasible for long or high-res videos due to repeated, redundant computations across spatial resolution, temporal frames, and denoising steps.",
+  "method": [
+    "Spatial compression — perform denoising at low resolution first, then refine to high resolution using cached multi-scale features to avoid re-computing heavy high-res convolutions.",
+    "Temporal compression — generate video chunk-by-chunk (streaming) with overlapped context and feature reuse to avoid repeatedly processing the entire temporal sequence.",
+    "Cross-step feature reuse — cache and reuse intermediate denoising features across steps and frames so redundant per-step computations are skipped."
+  ],
+  "impact": "HiStream significantly lowers compute, memory, and latency for high-res video diffusion, enabling practical generation and faster iteration on commodity hardware — useful for video production, editing, and real-time or low-cost deployment.",
+  "visual_elements": [
+    "Pipeline diagram: low-res denoiser → feature cache → high-res refiner (show arrows and reduced compute at each stage).",
+    "Streaming timeline: video split into overlapping chunks with arrows showing feature transfer/reuse between adjacent chunks.",
+    "Bar chart or table: compute/latency and memory comparison (HiStream vs standard diffusion) highlighting percent reduction.",
+    "Feature-cache heatmap or memory map: illustrate which features are reused across spatial/temporal axes and how much computation is avoided."
+  ],
+  "hashtags": [
+    "#HiStream",
+    "#VideoGeneration",
+    "#DiffusionModels",
+    "#EfficientAI",
+    "#HighResolution"
+  ],
+  "paper_id": "2025-12-24-arxiv-histream_efficient_high_resolution_video_generation_via_redundancy_eliminated_st",
+  "paper_title": "HiStream: Efficient High-Resolution Video Generation via Redundancy-Eliminated Streaming",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2025-12-24",
+  "paper_authors": "Haonan Qiu, Shikun Liu, Zijian Zhou, Zhaochong An, Weiming Ren",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.21338v1"
+    }
+  ],
+  "generated_at": "2025-12-25T06:24:23.783648"
+}

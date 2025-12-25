@@ -1,0 +1,35 @@
+{
+  "key_insight": "C2LLM introduces an adaptive Pooling by Multihead Attention (PMA) that turns causal token representations from Qwen-2.5-Coder backbones into rich sequence embeddings, enabling contrastive training to produce significantly better code retrieval than traditional EOS-based pooling.",
+  "problem_solved": "EOS-token pooling and other simplistic aggregation methods create an information bottleneck for sequence embeddings; C2LLM solves this by aggregating information from all tokens while preserving the LLM's pretrained causal representations, improving code search and retrieval quality.",
+  "method": [
+    "Build on Qwen-2.5-Coder backbones in 0.5B and 7B sizes to leverage pretrained causal token representations.",
+    "Insert a Pooling by Multihead Attention (PMA) / adaptive cross-attention pooling module to aggregate information from all tokens into a single sequence embedding.",
+    "Train the resulting sequence embeddings with a contrastive objective to align code and query representations for retrieval tasks."
+  ],
+  "impact": "Provides higher-fidelity code embeddings for retrieval systems, enabling more accurate code search and downstream code intelligence features while leveraging LLM pretraining — useful for practitioners building code search, recommendation, or analysis tools.",
+  "visual_elements": [
+    "Architecture diagram: Qwen backbone → PMA/adaptive cross-attention module → sequence embedding (highlight placement of PMA)",
+    "Token aggregation comparison: side-by-side schematic of EOS pooling vs PMA aggregating all tokens",
+    "Performance bar chart: retrieval metrics (e.g., MRR, Recall@k) comparing C2LLM (0.5B/7B) to EOS-based baselines",
+    "Contrastive training flow: pairs/triplets fed into the model with positives/negatives and resulting embedding space visualization"
+  ],
+  "hashtags": [
+    "#C2LLM",
+    "#CodeRetrieval",
+    "#CodeEmbeddings",
+    "#ContrastiveLearning",
+    "#LLM"
+  ],
+  "paper_id": "2025-12-24-arxiv-c2llm_technical_report_a_new_frontier_in_code_retrieval_via_adaptive_cross_atten",
+  "paper_title": "C2LLM Technical Report: A New Frontier in Code Retrieval via Adaptive Cross-Attention Pooling",
+  "paper_category": "Model",
+  "paper_date": "2025-12-24",
+  "paper_authors": "Jin Qin, Zihan Liao, Ziyin Zhang, Hang Yu, Peng Di",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.21332v1"
+    }
+  ],
+  "generated_at": "2025-12-25T06:22:59.490057"
+}

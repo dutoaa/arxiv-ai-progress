@@ -1,24 +1,24 @@
 {
-  "key_insight": "Reducing the information gap between privileged expert demonstrations and sensor-only student observations (visibility and uncertainty differences) substantially improves closed-loop imitation performance in simulated end-to-end driving.",
-  "problem_solved": "Imitation-learned driving policies trained on privileged expert data fail in closed-loop because experts see and know more (ignore occlusions, have low uncertainty) than student agents that rely on raw sensors, causing a learner–expert asymmetry and poor real-world robustness.",
+  "key_insight": "Reducing the information and uncertainty gap between privileged experts and sensor-based learners substantially improves closed-loop driving robustness; aligning what the expert 'sees' with what the student can observe is key.",
+  "problem_solved": "Imitation learning in driving often fails in closed-loop because privileged expert demonstrations (with perfect visibility and low uncertainty) do not match sensor-limited student observations, causing learned policies to overfit to unattainable cues.",
   "method": [
-    "Quantify and analyze the visibility and uncertainty gaps between privileged experts and sensor-based students in simulation.",
-    "Minimize learner–expert asymmetry by aligning expert demonstrations to student inputs—e.g., introducing occlusions/noise and stochasticity to expert signals and using uncertainty-aware training objectives.",
-    "Evaluate aligned training in closed-loop driving scenarios to show improved robustness compared to standard imitation baselines."
+    "Formalize and measure learner–expert asymmetry arising from visibility and uncertainty differences between privileged experts and sensor-based students.",
+    "Minimize asymmetry during training by degrading or masking expert inputs to match student sensors, adding realistic uncertainty, and using asymmetry-aware training objectives (LEAD).",
+    "Evaluate improvements via closed-loop driving metrics in simulation to verify robustness gains from the asymmetry-reduction interventions."
   ],
-  "impact": "Provides a practical recipe for making simulator-generated expert data more useful for sensor-based end-to-end driving policies—leading to more reliable closed-loop behavior and faster transfer from simulation to realistic deployment.",
+  "impact": "Practitioners get a practical strategy (LEAD) to close the gap between simulator experts and real-world sensors, leading to more robust end-to-end driving policies and better sim-to-real transfer without relying on privileged information at test time.",
   "visual_elements": [
-    "Side-by-side schematic: privileged expert view vs. sensor-only student view (highlighting occlusions and hidden state).",
-    "Pipeline diagram showing 'Simulator expert → Asymmetry reduction (occlusion/noise/uncertainty) → Student training → Closed-loop evaluation'.",
-    "Bar/line chart comparing closed-loop success/failure rates or safety metrics for baseline imitation vs. LEAD-aligned training.",
-    "Heatmap or example frames illustrating where expert knowledge diverges from student perception (e.g., occluded pedestrian/vehicle)."
+    "Side-by-side schematic of expert vs. student observations (larger/clean expert FOV vs. occluded/noisy sensor FOV).",
+    "Before/after bar chart of closed-loop success/failure rates with and without asymmetry minimization.",
+    "Pipeline flowchart showing expert degradation, asymmetry-aware training loop, and deployment on the sensor-only student.",
+    "Heatmap or scatter plot linking amount of asymmetry (visibility/uncertainty) to policy performance."
   ],
   "hashtags": [
-    "#AutonomousDriving",
     "#ImitationLearning",
-    "#Simulation",
+    "#AutonomousDriving",
+    "#Sim2Real",
     "#RobustAI",
-    "#EndToEndDriving"
+    "#LEAD"
   ],
   "paper_id": "2025-12-23-arxiv-lead_minimizing_learner_expert_asymmetry_in_end_to_end_driving",
   "paper_title": "LEAD: Minimizing Learner-Expert Asymmetry in End-to-End Driving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.20563v1"
     }
   ],
-  "generated_at": "2025-12-24T06:21:23.613092"
+  "generated_at": "2025-12-25T06:25:11.604283"
 }

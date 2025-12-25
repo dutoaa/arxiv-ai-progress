@@ -1,0 +1,35 @@
+{
+  "key_insight": "Prune visual tokens using text (prompt) guidance so SAM2 only propagates tokens relevant to the target object across time, drastically reducing compute and memory while retaining segmentation quality.",
+  "problem_solved": "SAM2 processes dense visual tokens for every frame and forwards them through expensive temporal reasoning modules, causing high computational and memory costs and poor scalability (quadratic growth across tokens/time).",
+  "method": [
+    "Compute token relevance using the text prompt and score visual tokens for their importance to the target object.",
+    "Dynamically prune low-relevance tokens before temporal reasoning so only salient tokens are propagated across frames.",
+    "Integrate a lightweight, SAM2-compatible pruning stage to cut FLOPs/memory without substantially degrading segmentation accuracy."
+  ],
+  "impact": "Enables practical, scalable deployment of SAM2 for prompt-driven video object segmentation—reducing latency and hardware requirements so researchers and engineers can run larger or real-time workloads on constrained infrastructure.",
+  "visual_elements": [
+    "Architecture diagram: SAM2 pipeline with a highlighted text-driven token-pruning module inserted before temporal reasoning.",
+    "Before/after token maps on a video frame showing dense tokens vs. pruned salient tokens over the object.",
+    "Bar chart comparing compute (FLOPs), memory, and latency between baseline SAM2 and the pruned version.",
+    "Frame sequence visualization: propagation of only salient tokens across time vs. full-token propagation."
+  ],
+  "hashtags": [
+    "#SAM2",
+    "#TokenPruning",
+    "#VideoSegmentation",
+    "#EfficientAI",
+    "#VisionFoundationModels"
+  ],
+  "paper_id": "2025-12-24-arxiv-fast_sam2_with_text_driven_token_pruning",
+  "paper_title": "Fast SAM2 with Text-Driven Token Pruning",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2025-12-24",
+  "paper_authors": "Avilasha Mandal, Chaoning Zhang, Fachrina Dewi Puspitasari, Xudong Wang, Jiaquan Zhang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2512.21333v1"
+    }
+  ],
+  "generated_at": "2025-12-25T06:23:16.327687"
+}
