@@ -1,24 +1,24 @@
 {
-  "key_insight": "C2LLM introduces an adaptive Pooling by Multihead Attention (PMA) that turns causal token representations from Qwen-2.5-Coder backbones into rich sequence embeddings, enabling contrastive training to produce significantly better code retrieval than traditional EOS-based pooling.",
-  "problem_solved": "EOS-token pooling and other simplistic aggregation methods create an information bottleneck for sequence embeddings; C2LLM solves this by aggregating information from all tokens while preserving the LLM's pretrained causal representations, improving code search and retrieval quality.",
+  "key_insight": "C2LLM introduces a Pooling by Multihead Attention (PMA) module that converts token-level causal representations into a single, information-rich sequence embedding, removing the EOS bottleneck in code retrieval. The approach yields compact contrastive code embeddings in 0.5B and 7B variants built on Qwen-2.5-Coder.",
+  "problem_solved": "Standard EOS or simple pooling loses important token-level information from causal LLM representations, limiting retrieval quality; C2LLM enables aggregation from all tokens so embeddings better capture whole-sequence semantics for code search.",
   "method": [
-    "Build on Qwen-2.5-Coder backbones in 0.5B and 7B sizes to leverage pretrained causal token representations.",
-    "Insert a Pooling by Multihead Attention (PMA) / adaptive cross-attention pooling module to aggregate information from all tokens into a single sequence embedding.",
-    "Train the resulting sequence embeddings with a contrastive objective to align code and query representations for retrieval tasks."
+    "Introduce a PMA module that uses multihead attention to pool token embeddings into a fixed-length sequence embedding while leveraging the LLM's causal representations.",
+    "Train embeddings contrastively so similar code snippets are pulled together and dissimilar ones pushed apart for effective retrieval.",
+    "Release two model sizes (0.5B and 7B) based on Qwen-2.5-Coder backbones to balance efficiency and performance."
   ],
-  "impact": "Provides higher-fidelity code embeddings for retrieval systems, enabling more accurate code search and downstream code intelligence features while leveraging LLM pretraining — useful for practitioners building code search, recommendation, or analysis tools.",
+  "impact": "Provides practitioners with higher-fidelity, retrieval-ready code embeddings that improve code search and downstream tooling without discarding causal token information—scalable options for both lightweight and higher-capacity deployments.",
   "visual_elements": [
-    "Architecture diagram: Qwen backbone → PMA/adaptive cross-attention module → sequence embedding (highlight placement of PMA)",
-    "Token aggregation comparison: side-by-side schematic of EOS pooling vs PMA aggregating all tokens",
-    "Performance bar chart: retrieval metrics (e.g., MRR, Recall@k) comparing C2LLM (0.5B/7B) to EOS-based baselines",
-    "Contrastive training flow: pairs/triplets fed into the model with positives/negatives and resulting embedding space visualization"
+    "Architecture flow: tokens → LLM causal representations → PMA multihead attention → sequence embedding",
+    "Bar/line chart: retrieval accuracy (or MRR) comparing PMA pooling vs EOS/simple pooling",
+    "Attention heatmap: PMA weights across tokens to show where pooling focuses for different code examples",
+    "Model-size infographic: icons comparing 0.5B vs 7B trade-offs (latency, memory, accuracy)"
   ],
   "hashtags": [
-    "#C2LLM",
     "#CodeRetrieval",
-    "#CodeEmbeddings",
     "#ContrastiveLearning",
-    "#LLM"
+    "#CodeEmbeddings",
+    "#LargeLanguageModels",
+    "#AttentionPooling"
   ],
   "paper_id": "2025-12-24-arxiv-c2llm_technical_report_a_new_frontier_in_code_retrieval_via_adaptive_cross_atten",
   "paper_title": "C2LLM Technical Report: A New Frontier in Code Retrieval via Adaptive Cross-Attention Pooling",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21332v1"
     }
   ],
-  "generated_at": "2025-12-25T06:22:59.490057"
+  "generated_at": "2025-12-26T06:22:46.877699"
 }

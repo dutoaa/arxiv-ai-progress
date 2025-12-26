@@ -1,24 +1,24 @@
 {
-  "key_insight": "Use KL-divergence to identify which Transformer layers can be converted from softmax to linear attention, enabling compact hybrid attention models that retain performance while improving inference efficiency.",
-  "problem_solved": "How to efficiently convert pretrained softmax-attention Transformers into hybrid architectures (mixing softmax and linear attention) without expensive re-pretraining, by deciding which layers to replace to minimize accuracy loss.",
+  "key_insight": "Use per-layer KL divergence as a cheap importance score to decide which Transformer layers can be converted from softmax attention to linear attention, enabling distilled hybrid models that keep accuracy while improving inference efficiency.",
+  "problem_solved": "How to choose which attention layers in a pretrained Transformer to convert to cheaper linear-attention variants during distillation without expensive re-pretraining or large accuracy loss.",
   "method": [
-    "Distill a pretrained softmax-attention teacher into candidate hybrid students that interleave softmax and linear attention layers.",
-    "Compute layer-wise KL-guided importance scores (KL between teacher and student distributions/outputs) to rank layers by sensitivity.",
-    "Select and convert low-importance layers to linear attention while keeping high-importance layers as softmax attention, then fine-tune the distilled hybrid model."
+    "Compute a KL-guided importance score per layer (e.g., KL between teacher and candidate-student layer outputs/attention) to rank layers by sensitivity.",
+    "Convert low-importance layers to linear-attention variants while keeping high-importance layers as softmax attention, producing an interleaved hybrid architecture.",
+    "Apply knowledge distillation / fine-tuning on the hybrid model to recover performance with reduced compute and memory at inference."
   ],
-  "impact": "Provides a simple, low-cost recipe to build faster, memory-efficient Transformer variants from existing pretrained models—useful for deploying LLMs with reduced compute and latency while preserving accuracy.",
+  "impact": "Provides a simple, scalable recipe to retrofit pretrained Transformers into faster, lower-memory hybrid attention models with minimal overhead — practical for deploying efficient LLMs without full re-pretraining.",
   "visual_elements": [
-    "Diagram of a Transformer stack showing softmax vs linear attention layers with colors indicating KL-based importance",
-    "Bar chart of layer-wise KL scores used to rank and select layers for conversion",
-    "Tradeoff plot: accuracy (or perplexity) vs latency/compute comparing original, fully-linear, and KL-guided hybrid models",
-    "Flowchart of the distillation pipeline: pretrained teacher → KL scoring → layer selection → hybrid student → fine-tune"
+    "Architecture diagram: original all-softmax Transformer vs hybrid interleaved softmax+linear layers (color-coded layers).",
+    "Per-layer bar chart: KL importance score per layer with a threshold indicating converted vs retained layers.",
+    "Trade-off curve: inference latency / memory vs accuracy (or perplexity) comparing original, fully-linear, and KL-guided hybrid models.",
+    "Flowchart: KL scoring → layer ranking → conversion → distillation/fine-tuning (simple 4-step pipeline)."
   ],
   "hashtags": [
-    "#ModelDistillation",
-    "#EfficientAI",
-    "#Transformers",
-    "#HybridAttention",
-    "#ModelCompression"
+    "#ModelCompression",
+    "#KnowledgeDistillation",
+    "#EfficientLLMs",
+    "#AttentionMechanisms",
+    "#KLGuided"
   ],
   "paper_id": "2025-12-23-arxiv-distilling_to_hybrid_attention_models_via_kl_guided_layer_selection",
   "paper_title": "Distilling to Hybrid Attention Models via KL-Guided Layer Selection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.20569v1"
     }
   ],
-  "generated_at": "2025-12-25T06:24:36.734568"
+  "generated_at": "2025-12-26T06:23:58.656156"
 }

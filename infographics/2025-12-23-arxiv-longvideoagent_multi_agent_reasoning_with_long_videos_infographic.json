@@ -1,22 +1,22 @@
 {
-  "key_insight": "A master LLM coordinates specialized agents to localize question-relevant moments in hour-long videos and extract targeted textual observations, enabling fine-grained, temporally grounded reasoning without relying on lossy global summaries.",
-  "problem_solved": "Current long-video QA systems compress long episodes into coarse summaries or use limited tools, which weakens temporal grounding and misses fine-grained visual/textual cues needed to answer detailed questions over hour-long videos.",
+  "key_insight": "A master LLM coordinates specialized agents — a grounding agent that localizes question-relevant segments and a vision agent that extracts targeted textual observations — enabling precise, fine-grained reasoning over hour‑long videos without relying on lossy summaries.",
+  "problem_solved": "Enables accurate question answering and temporal grounding over long (hour-scale) videos by avoiding compressive summaries and limited toolsets that miss fine-grained visual and temporal cues.",
   "method": [
-    "Master agent (LLM) orchestrates multi-agent reasoning: issues queries, aggregates evidence, and composes final answers.",
-    "Grounding agent locates question-relevant temporal segments on the video timeline (timestamped retrieval) instead of relying on a single compressed summary.",
-    "Vision agent extracts targeted textual observations (scene descriptions, OCR, object/state changes) from localized segments for precise, evidence-backed answers; iterative query–localize–extract loops refine results."
+    "Master LLM orchestrates a multi-agent loop: issues queries, integrates observations, and performs final reasoning.",
+    "Grounding agent performs temporal localization to find short, relevant video segments for each question.",
+    "Vision agent extracts targeted textual observations (captions, OCR, object/attribute detections) from localized clips and returns them to the master for iterative reasoning."
   ],
-  "impact": "Enables more accurate, temporally grounded QA and reasoning over very long videos by preserving fine-grained cues and supporting modular, extensible tool use—beneficial for video analytics, surveillance, education, and multimedia research.",
+  "impact": "Provides a scalable, modular approach for long-video QA that improves temporal grounding, interpretability, and retrieval of fine-grained evidence — useful for building robust multimodal assistants and video analytics pipelines.",
   "visual_elements": [
-    "Pipeline diagram showing Master LLM coordinating Grounding Agent (timeline localization) and Vision Agent (frame/text extraction) with feedback loops.",
-    "Video timeline with highlighted localized segments and timestamps to illustrate precise temporal grounding.",
-    "Before/after comparison: coarse-summary baseline vs. targeted-extraction multi-agent results (accuracy or fidelity illustration).",
-    "Example QA card: question → localized clip thumbnails + extracted textual observations → final LLM answer backed by timestamps."
+    "Architecture diagram showing Master LLM coordinating Grounding Agent and Vision Agent with arrows for query → localization → observation → reasoning",
+    "Video timeline with highlighted localized segments and timestamps to illustrate temporal grounding",
+    "Side-by-side comparison chart: lossy global summary vs targeted extraction (accuracy, temporal precision, evidence richness)",
+    "Example QA flow: question → localized clip → extracted observations (captions/OCR/objects) → final answer"
   ],
   "hashtags": [
     "#LongVideoAgent",
     "#MultimodalLLM",
-    "#VideoUnderstanding",
+    "#VideoQA",
     "#TemporalReasoning",
     "#MultiAgentSystems"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.20618v1"
     }
   ],
-  "generated_at": "2025-12-24T06:23:11.422674"
+  "generated_at": "2025-12-26T06:24:46.112722"
 }

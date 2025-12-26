@@ -1,24 +1,24 @@
 {
-  "key_insight": "AnyAD introduces a single unified anomaly-detection model that handles any subset of available MRI sequences at inference time (including unseen combinations) without retraining, by learning a modality-agnostic latent representation and cross-modal reconstruction.",
-  "problem_solved": "Clinical brain MRI often has missing or variable combinations of sequences, and prior AD models require fixed modality inputs or repeated training for different combinations; AnyAD solves scalable anomaly detection across incomplete multi-sequence MRI data.",
+  "key_insight": "AnyAD is a single unified model that detects anomalies from brain MRI even when one or more common sequences are missing — it generalizes to arbitrary combinations of modalities without retraining.",
+  "problem_solved": "Overcomes the clinical reality of incomplete multi-sequence MRI and the limitation of prior AD models that require fixed modality configurations or repeated training for different modality sets.",
   "method": [
-    "Train a single modality-agnostic encoder–decoder with a shared latent space so any subset of sequences can be encoded and used for reconstruction or cross-modal synthesis.",
-    "Use random modality masking/dropout during training to simulate incomplete inputs and force the model to generalize to unseen modality combinations.",
-    "Compute anomaly scores from reconstruction discrepancies and uncertainty estimates in the shared latent/reconstruction space to detect abnormal regions robustly."
+    "Train a unified any-modality architecture that ingests any subset of MRI sequences and maps them to a shared latent space for anomaly scoring.",
+    "Simulate missing-modality conditions during training (modality dropout / conditional masking) so the model learns to fuse available inputs robustly and to impute or ignore absent channels.",
+    "Produce uncertainty-aware anomaly maps via reconstruction / distributional scoring in the shared latent space, enabling single-model deployment across unseen modality combinations."
   ],
-  "impact": "Provides a practical, deployable AD solution for real-world MRI workflows where sequences are frequently missing, reducing the need for multiple specialized models and enabling consistent anomaly screening across variable clinical inputs.",
+  "impact": "Enables practical, scalable deployment of MRI anomaly detection across heterogeneous clinical protocols, reducing the need for modality-specific models and repeated retraining while maintaining robust detection under missing data.",
   "visual_elements": [
-    "Pipeline diagram: flexible input of any combination of MRI sequences into a single encoder, shared latent space, and cross-modal decoder.",
-    "Illustration of modality dropout during training (icons for T1/T2/FLAIR with random masking) to show robustness to missing data.",
-    "Example MRI slices with overlayed anomaly heatmaps from the model vs. ground truth to show detection quality.",
-    "Bar/line chart comparing performance (AUC or detection rate) across different modality combinations and against single-modality baselines."
+    "Schematic: inputs with varying MRI sequences (T1, T2, FLAIR, etc.) feeding a single AnyAD model and producing an anomaly map — demonstrates 'any-modality' flow.",
+    "Training diagram showing modality dropout / masking and shared latent space learning.",
+    "Performance chart: accuracy/ROC or anomaly-score robustness across many modality-combination scenarios comparing AnyAD vs fixed-config baselines.",
+    "Example overlays: MRI slices with ground-truth (if available) and AnyAD anomaly heatmaps to show localization quality."
   ],
   "hashtags": [
     "#AnomalyDetection",
     "#MedicalImaging",
-    "#MultimodalAI",
+    "#MultiModalAI",
     "#MRI",
-    "#SelfSupervisedLearning"
+    "#MissingData"
   ],
   "paper_id": "2025-12-24-arxiv-anyad_unified_any_modality_anomaly_detection_in_incomplete_multi_sequence_mri",
   "paper_title": "AnyAD: Unified Any-Modality Anomaly Detection in Incomplete Multi-Sequence MRI",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21264v1"
     }
   ],
-  "generated_at": "2025-12-25T06:21:02.369683"
+  "generated_at": "2025-12-26T06:20:57.370828"
 }

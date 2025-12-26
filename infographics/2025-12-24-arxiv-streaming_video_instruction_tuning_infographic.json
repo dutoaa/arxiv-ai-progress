@@ -1,20 +1,20 @@
 {
-  "key_insight": "Streamo is a real-time, instruction-tuned video LLM that generalizes across a wide range of streaming tasks (narration, action/event understanding, temporal grounding, and time-sensitive QA) by training on a large, diverse streaming instruction dataset.",
-  "problem_solved": "Existing online video models are narrow (QA or captioning) or offline; this paper solves the challenge of building a low-latency, versatile streaming video assistant that understands and responds to continuous, time-sensitive visual input.",
+  "key_insight": "Streamo is a real-time streaming video LLM that generalizes across a wide range of time-sensitive video tasks by instruction-tuning on a large streaming video dataset, enabling interactive, low-latency understanding and narration of live video.",
+  "problem_solved": "Existing online video models are narrow (QA or captioning) and struggle with continuous, time-sensitive, multi-task video understanding; Streamo addresses the need for a single streaming-capable model that handles narration, action understanding, event captioning, temporal grounding, and time-sensitive QA.",
   "method": [
-    "Design a streaming-capable video+language model architecture that processes frames incrementally with temporal memory / causal attention to enable real-time responses.",
-    "Instruction-tune the model on a large-scale, diverse dataset (Streamo-Instruct-465K) covering narration, event captioning, temporal grounding, action understanding, and time-sensitive QA.",
-    "Produce task-conditioned outputs and interfaces so the same model can emit live narration, localize events in time, answer time-sensitive questions, and generate captions with low latency."
+    "Construct Streamo-Instruct-465K: a large-scale instruction-following streaming video dataset covering diverse temporal tasks and prompts.",
+    "Train/instruction-tune a streaming-capable video-to-LLM pipeline that processes incoming frames incrementally to produce low-latency, token-level outputs.",
+    "Unify multiple temporal tasks via task-agnostic instruction tuning so the same model can perform narration, grounding, captioning, and QA in real time."
   ],
-  "impact": "Enables practitioners to build interactive, low-latency video assistants for live applications (robotics, surveillance, accessibility, sports analytics) and advances multimodal LLM capabilities by combining streaming processing with large-scale instruction tuning.",
+  "impact": "Streamo simplifies deployment by replacing many task-specific video models with one interactive streaming assistant, enabling real-time applications (robotics, accessibility, AR/VR, live analytics) that require low-latency, multi-task video understanding.",
   "visual_elements": [
-    "Pipeline diagram: live video frames → streaming encoder/temporal memory → LLM → multi-format outputs (narration, captions, temporal grounding).",
-    "Timeline visualization showing event detection/temporal grounding and time-aligned answers/narration.",
-    "Dataset infographic: Streamo-Instruct-465K — number of examples, task breakdown (narration, QA, grounding, captioning).",
-    "Latency/comparison chart: Streamo vs prior online video models across latency, task coverage, and accuracy."
+    "Architecture diagram: streaming video encoder feeding a language model with incremental tokens and outputs (labels: frames → encoder → LLM → responses).",
+    "Timeline / latency visualization: streaming frames on x-axis with corresponding real-time outputs to show low-latency narration and grounding.",
+    "Comparison chart: task coverage and latency of Streamo vs prior online video models (captioning-only, QA-only).",
+    "Example UI mockups: live narration, temporal event grounding (highlighted timestamps), and time-sensitive QA interactions."
   ],
   "hashtags": [
-    "#StreamingVideo",
+    "#StreamingAI",
     "#VideoLLM",
     "#InstructionTuning",
     "#RealTimeAI",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21334v1"
     }
   ],
-  "generated_at": "2025-12-25T06:23:31.319833"
+  "generated_at": "2025-12-26T06:23:09.859690"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Applying Nesterov-style momentum to ray-direction search (ARS-OPT) substantially accelerates convergence for hard-label black-box attacks, cutting the number of queries needed to find minimum-ℓ2 adversarial perturbations.",
-  "problem_solved": "Reduces the prohibitive query complexity and slow convergence of ray-search methods under the hard-label (top-1 only) black-box threat model, making practical evaluation and attack generation more efficient.",
+  "key_insight": "Applying Nesterov-style momentum to ray-direction search (ARS-OPT) accelerates convergence for hard-label black-box attacks, substantially reducing the number of model queries needed to find minimum ℓ2 adversarial perturbations.",
+  "problem_solved": "Reduces the prohibitive query complexity of hard-label black-box attacks by improving the optimization of ray directions that yield minimal ℓ2 perturbations.",
   "method": [
-    "Recast hard-label attack as an optimization over ray directions that minimize the ℓ2 distance to the adversarial region.",
-    "Introduce ARS-OPT, a momentum-based algorithm inspired by Nesterov’s Accelerated Gradient to update ray directions with lookahead momentum and maintain query efficiency.",
-    "Provide theoretical convergence-rate improvements and empirical validation showing fewer queries and faster attainment of near-optimal perturbations versus baselines."
+    "Formulate the attack as a ray-direction optimization: for each candidate direction, perform a line search to find the smallest ℓ2 perturbation that flips the top-1 label.",
+    "Introduce momentum (Nesterov-inspired) updates on the ray direction (ARS-OPT) to accelerate directional convergence and avoid slow zig-zagging in the search space.",
+    "Combine momentum-driven direction updates with query-efficient line-search steps so fewer label queries are required per optimization iteration."
   ],
-  "impact": "Lowers the query budget for reliable hard-label attacks, enabling more practical robustness evaluation and faster black-box testing; the momentum-based recipe can generalize to other gradient-free search problems.",
+  "impact": "Enables much more query-efficient evaluation of model robustness under hard-label constraints, making black-box attack experiments faster and more practical for both attackers and defenders assessing worst-case behavior.",
   "visual_elements": [
-    "Diagram: ray from original image to adversarial boundary showing ℓ2 perturbation and optimal ray direction",
-    "Flowchart: ARS-OPT update step vs vanilla ray-search (highlight momentum/lookahead difference)",
-    "Chart: convergence curves (perturbation size or success rate vs number of queries) comparing ARS-OPT and baselines",
-    "Icon set: top-1 label (hard-label), stopwatch/query counter, momentum arrow to symbolize acceleration"
+    "Schematic: ray from original image through candidate directions showing minimal ℓ2 perturbation at the decision boundary",
+    "Line chart: queries vs. attack success / perturbation size comparing ARS-OPT to baseline methods (steeper convergence for ARS-OPT)",
+    "Flow diagram / pseudocode: steps of ARS-OPT (momentum update → line search → update direction)",
+    "Before/after image pair: original image and minimally perturbed adversarial example with ℓ2 norm annotated"
   ],
   "hashtags": [
-    "#AdversarialML",
-    "#BlackBoxAttacks",
+    "#AdversarialRobustness",
+    "#BlackBoxAttack",
     "#HardLabel",
-    "#Optimization",
-    "#QueryEfficiency"
+    "#QueryEfficiency",
+    "#Optimization"
   ],
   "paper_id": "2025-12-24-arxiv-improving_the_convergence_rate_of_ray_search_optimization_for_query_efficient_ha",
   "paper_title": "Improving the Convergence Rate of Ray Search Optimization for Query-Efficient Hard-Label Attacks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21241v1"
     }
   ],
-  "generated_at": "2025-12-25T06:20:22.271517"
+  "generated_at": "2025-12-26T06:20:08.561533"
 }

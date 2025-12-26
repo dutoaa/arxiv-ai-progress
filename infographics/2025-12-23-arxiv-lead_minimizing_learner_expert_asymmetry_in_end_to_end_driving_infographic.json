@@ -1,24 +1,24 @@
 {
-  "key_insight": "Reducing the information and uncertainty gap between privileged experts and sensor-based learners substantially improves closed-loop driving robustness; aligning what the expert 'sees' with what the student can observe is key.",
-  "problem_solved": "Imitation learning in driving often fails in closed-loop because privileged expert demonstrations (with perfect visibility and low uncertainty) do not match sensor-limited student observations, causing learned policies to overfit to unattainable cues.",
+  "key_insight": "Performance loss in end-to-end driving often comes from a mismatch between privileged expert demonstrations and noisy, occluded sensor inputs available to student policies; reducing this learner–expert asymmetry significantly improves closed-loop robustness.",
+  "problem_solved": "Addresses the gap where imitation-learned driving policies perform well in open-loop evaluation but fail in closed-loop because experts see cleaner, more certain information than the sensor-based student.",
   "method": [
-    "Formalize and measure learner–expert asymmetry arising from visibility and uncertainty differences between privileged experts and sensor-based students.",
-    "Minimize asymmetry during training by degrading or masking expert inputs to match student sensors, adding realistic uncertainty, and using asymmetry-aware training objectives (LEAD).",
-    "Evaluate improvements via closed-loop driving metrics in simulation to verify robustness gains from the asymmetry-reduction interventions."
+    "Quantify and analyze the asymmetry between privileged expert observations and sensor-based learner inputs (visibility, occlusions, uncertainty).",
+    "Introduce practical mitigation strategies to close the gap (e.g., degrade or mask expert inputs to match sensors, augment learner observations, and incorporate uncertainty-aware training/losses).",
+    "Empirically validate that minimizing this asymmetry yields more robust closed-loop driving in simulation benchmarks."
   ],
-  "impact": "Practitioners get a practical strategy (LEAD) to close the gap between simulator experts and real-world sensors, leading to more robust end-to-end driving policies and better sim-to-real transfer without relying on privileged information at test time.",
+  "impact": "Makes imitation learning for autonomous driving more reliable by aligning training signals with real sensor conditions — reducing sim-to-real fragility and improving safety and deployability of learned controllers.",
   "visual_elements": [
-    "Side-by-side schematic of expert vs. student observations (larger/clean expert FOV vs. occluded/noisy sensor FOV).",
-    "Before/after bar chart of closed-loop success/failure rates with and without asymmetry minimization.",
-    "Pipeline flowchart showing expert degradation, asymmetry-aware training loop, and deployment on the sensor-only student.",
-    "Heatmap or scatter plot linking amount of asymmetry (visibility/uncertainty) to policy performance."
+    "Side-by-side visual: expert view (privileged, full visibility) vs. learner view (camera/LiDAR with occlusions) highlighting differences.",
+    "Flow diagram of the method pipeline: measure asymmetry → apply alignment strategies (masking/augmentation/uncertainty) → train student → closed-loop evaluation.",
+    "Bar/line chart showing closed-loop performance (e.g., success rate, collisions) before vs. after asymmetry reduction across scenarios.",
+    "Heatmap or overlay showing uncertainty or visibility regions that cause learner failures and how mitigation reduces them."
   ],
   "hashtags": [
-    "#ImitationLearning",
     "#AutonomousDriving",
+    "#ImitationLearning",
     "#Sim2Real",
-    "#RobustAI",
-    "#LEAD"
+    "#RobustML",
+    "#SafetyCriticalAI"
   ],
   "paper_id": "2025-12-23-arxiv-lead_minimizing_learner_expert_asymmetry_in_end_to_end_driving",
   "paper_title": "LEAD: Minimizing Learner-Expert Asymmetry in End-to-End Driving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.20563v1"
     }
   ],
-  "generated_at": "2025-12-25T06:25:11.604283"
+  "generated_at": "2025-12-26T06:24:14.305834"
 }

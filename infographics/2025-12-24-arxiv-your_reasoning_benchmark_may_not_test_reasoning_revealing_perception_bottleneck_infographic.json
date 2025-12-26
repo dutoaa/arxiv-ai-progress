@@ -1,23 +1,23 @@
 {
-  "key_insight": "What looks like a reasoning failure on abstract benchmarks (ARC, ARC-AGI) is largely a perception failure — a \"perception bottleneck\". When perceptual input is cleaned or replaced by symbolic representations, model reasoning performance improves substantially.",
-  "problem_solved": "Reveals that standard abstract-reasoning benchmarks conflate perceptual decoding and high-level reasoning, causing misattribution of failures to reasoning when they often stem from perception; provides a methodology to disentangle and properly evaluate the two.",
+  "key_insight": "Failures on abstract reasoning benchmarks (e.g., ARC, ARC-AGI) are largely driven by low‑level perception errors rather than core reasoning deficits; when perception is controlled or corrected, model reasoning performance improves markedly.",
+  "problem_solved": "Determines whether poor performance on abstract-reasoning tasks reflects lack of fluid reasoning or a perception bottleneck, and provides diagnostic tools and interventions to separate the two.",
   "method": [
-    "Systematic error analysis of state-of-the-art vision–language models on ARC/ARC-AGI to classify failures as perceptual vs reasoning.",
-    "Controlled experiments that supply models with ground-truth or cleaned symbolic encodings (bypassing perception) and compare results to raw-image inputs.",
-    "Propose diagnostic evaluation protocols / dataset splits that isolate perceptual difficulty from core reasoning tasks so progress can be measured more precisely."
+    "Systematic error analysis of vision-language models on ARC and ARC-AGI to categorize failures into perceptual vs. reasoning mistakes.",
+    "Ablation and oracle experiments that replace model vision outputs with ground-truth symbolic representations (or simplified inputs) to isolate reasoning capability.",
+    "Propose dataset perturbations, evaluation metrics, and perception-focused fixes (e.g., better visual pre-processing or symbolic abstraction) to reveal true reasoning ability."
   ],
-  "impact": "For researchers and practitioners, this reframes where effort should be invested — improving perception/representation and designing disentangled benchmarks yields more meaningful measures of reasoning progress. It guides architecture and evaluation choices so that claimed reasoning advances are not artifacts of easier perception.",
+  "impact": "Re-frames how researchers should interpret reasoning benchmarks: improvements may require fixing perception and evaluation design before attributing errors to reasoning. This guides practitioners to prioritize perceptual modules, benchmark hygiene, and targeted diagnostics.",
   "visual_elements": [
-    "Pipeline diagram showing: Image → Perception (segmentation/encoding) → Symbolic representation → Reasoning, with the 'Perception Bottleneck' highlighted.",
-    "Bar chart comparing model performance on raw images vs. ground-truth symbolic inputs to illustrate the gap attributable to perception.",
-    "Side-by-side example ARC tasks: original input, common perceptual failure (e.g., mis-segmentation), and correct symbolic encoding/solution.",
-    "Schematic of the proposed diagnostic evaluation split (icons for 'perception test' and 'reasoning test') and recommended workflow for model assessment."
+    "Side-by-side task examples showing original input, model prediction failure, and corrected (symbolic/oracle) input with successful reasoning",
+    "Pipeline diagram that separates perception (visual encoder) and reasoning (symbolic/logic module) stages",
+    "Stacked bar chart breaking down failure modes (perception vs reasoning) across models and benchmarks",
+    "Before/after performance chart showing accuracy with raw vision input vs. oracle-corrected input"
   ],
   "hashtags": [
     "#PerceptionBottleneck",
-    "#Benchmarking",
-    "#ARC",
+    "#ReasoningBenchmarks",
     "#VisionLanguage",
+    "#ARC",
     "#AIEvaluation"
   ],
   "paper_id": "2025-12-24-arxiv-your_reasoning_benchmark_may_not_test_reasoning_revealing_perception_bottleneck",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21329v1"
     }
   ],
-  "generated_at": "2025-12-25T06:22:32.781791"
+  "generated_at": "2025-12-26T06:22:16.262176"
 }
