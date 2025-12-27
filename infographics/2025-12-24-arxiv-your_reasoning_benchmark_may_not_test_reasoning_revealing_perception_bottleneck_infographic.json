@@ -1,24 +1,24 @@
 {
-  "key_insight": "Failures on abstract reasoning benchmarks (e.g., ARC, ARC-AGI) are largely driven by low‑level perception errors rather than core reasoning deficits; when perception is controlled or corrected, model reasoning performance improves markedly.",
-  "problem_solved": "Determines whether poor performance on abstract-reasoning tasks reflects lack of fluid reasoning or a perception bottleneck, and provides diagnostic tools and interventions to separate the two.",
+  "key_insight": "What looks like a reasoning failure on abstract-reasoning benchmarks (ARC, ARC-AGI) is largely caused by a perception bottleneck: noisy/ambiguous visual encoding, not core reasoning, explains much of the gap between humans and vision–language models.",
+  "problem_solved": "Clarifies whether low performance on abstract visual reasoning benchmarks reflects deficits in reasoning or in front-end perception/representation, and provides empirical evidence that perception is the primary limiter.",
   "method": [
-    "Systematic error analysis of vision-language models on ARC and ARC-AGI to categorize failures into perceptual vs. reasoning mistakes.",
-    "Ablation and oracle experiments that replace model vision outputs with ground-truth symbolic representations (or simplified inputs) to isolate reasoning capability.",
-    "Propose dataset perturbations, evaluation metrics, and perception-focused fixes (e.g., better visual pre-processing or symbolic abstraction) to reveal true reasoning ability."
+    "Separate perception from reasoning by comparing model performance on raw images versus idealized / oracle symbolic representations.",
+    "Run controlled ablations and diagnostics on VLMs (e.g., replace visual encoder with perfect/cleaned masks or structured tokens) to measure the effect of perceptual noise.",
+    "Evaluate across ARC and ARC-AGI tasks to quantify how much performance improves when perception errors are removed or reduced."
   ],
-  "impact": "Re-frames how researchers should interpret reasoning benchmarks: improvements may require fixing perception and evaluation design before attributing errors to reasoning. This guides practitioners to prioritize perceptual modules, benchmark hygiene, and targeted diagnostics.",
+  "impact": "Helps researchers and practitioners avoid misattributing failures to reasoning, guiding efforts toward better perceptual front-ends, dataset design, and more diagnostic benchmarks that disentangle perception from reasoning.",
   "visual_elements": [
-    "Side-by-side task examples showing original input, model prediction failure, and corrected (symbolic/oracle) input with successful reasoning",
-    "Pipeline diagram that separates perception (visual encoder) and reasoning (symbolic/logic module) stages",
-    "Stacked bar chart breaking down failure modes (perception vs reasoning) across models and benchmarks",
-    "Before/after performance chart showing accuracy with raw vision input vs. oracle-corrected input"
+    "Pipeline diagram showing 'Image → Perception (encoder) → Representation → Reasoning module' with the perception stage highlighted as the bottleneck.",
+    "Bar chart comparing model accuracy on tasks with raw images vs oracle/cleaned representations (large jump when perception is fixed).",
+    "Ablation matrix heatmap showing performance changes when progressively improving or degrading perception components.",
+    "Example ARC task panels: original image, cleaned oracle representation, and the model's outputs to visually illustrate perception errors vs reasoning steps."
   ],
   "hashtags": [
-    "#PerceptionBottleneck",
-    "#ReasoningBenchmarks",
+    "#Benchmarks",
     "#VisionLanguage",
-    "#ARC",
-    "#AIEvaluation"
+    "#PerceptionBottleneck",
+    "#AIAlignment",
+    "#ARC"
   ],
   "paper_id": "2025-12-24-arxiv-your_reasoning_benchmark_may_not_test_reasoning_revealing_perception_bottleneck",
   "paper_title": "Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21329v1"
     }
   ],
-  "generated_at": "2025-12-26T06:22:16.262176"
+  "generated_at": "2025-12-27T06:20:59.283093"
 }

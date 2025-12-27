@@ -1,21 +1,21 @@
 {
-  "key_insight": "TICON is a transformer-based contextualizer that enriches tile embeddings with slide-level information, producing plug-and-play, context-aware representations that improve both local and global histopathology tasks.",
-  "problem_solved": "Standard tile-encoder pipelines extract tiles out of their spatial and slide context, losing crucial neighborhood and global cues needed for accurate interpretation across tasks (diagnosis, segmentation, prognosis). TICON restores that missing slide-level context to each tile embedding.",
+  "key_insight": "TICON uses a transformer to contextualize tile embeddings at the whole-slide level, producing rich, slide-aware representations that improve local and global histopathology tasks. It is designed to plug into any existing tile-encoder pipeline to add context without retraining the encoder.",
+  "problem_solved": "Standard pipelines treat tiles as independent patches, losing critical slide-level context needed for accurate interpretation of local features and for downstream slide-level tasks.",
   "method": [
-    "Transformer-based contextualizer that ingests pretrained tile embeddings and models interactions across tiles to inject local and global slide context.",
-    "Outputs contextualized tile embeddings compatible with downstream models (drop-in module for existing pipelines).",
-    "Design emphasizes capturing neighborhood and slide-level cues so single-tile interpretations benefit from surrounding tissue and global slide patterns."
+    "Take precomputed tile embeddings from any tile encoder and feed them into a transformer-based contextualizer operating at the slide level.",
+    "Model inter-tile relationships and spatial/slide context so each tile embedding becomes slide-aware while remaining compatible with downstream models.",
+    "Produce contextualized tile embeddings that can be used for local tasks (e.g., patch classification, segmentation) and global tasks (e.g., slide classification, prognosis) without modifying the original encoder."
   ],
-  "impact": "Makes tile-level representations more informative and robust for a wide range of computational pathology applications, improving performance and generalization while being easy to integrate into existing workflows.",
+  "impact": "TICON enables plug-and-play contextual representation learning for whole-slide images, improving task performance and generalization in computational pathology while preserving existing encoder investments.",
   "visual_elements": [
-    "Pipeline diagram: WSI → tiled patches → pretrained tile encoder → TICON transformer → contextualized tile embeddings → downstream tasks",
-    "Before vs after comparison: isolated tile embedding vs contextualized embedding with qualitative examples (attention highlights or heatmaps)",
-    "Attention overlay on a whole-slide image showing how TICON aggregates local and global context",
-    "Bar chart summarizing typical performance gains on representative local/global tasks (e.g., classification, segmentation, prognosis)"
+    "Pipeline diagram: WSI → tiled patches → tile encoder → TICON transformer → contextualized embeddings → downstream tasks",
+    "Attention map overlay on a slide showing how TICON re-weights tile importance via context",
+    "Before vs after embedding visualization (e.g., t-SNE/UMAP) comparing context-free and context-aware tile representations",
+    "Bar chart comparing downstream performance (local/global tasks) with and without TICON"
   ],
   "hashtags": [
-    "#ComputationalPathology",
     "#DigitalPathology",
+    "#ComputationalPathology",
     "#Transformers",
     "#RepresentationLearning",
     "#WSI"
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21331v1"
     }
   ],
-  "generated_at": "2025-12-26T06:22:35.410247"
+  "generated_at": "2025-12-27T06:21:13.282722"
 }

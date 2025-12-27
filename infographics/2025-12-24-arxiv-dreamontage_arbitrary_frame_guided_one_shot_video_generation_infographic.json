@@ -1,24 +1,24 @@
 {
-  "key_insight": "DreaMontage enables one-shot, arbitrary-frame-guided video generation by intelligently stitching and conditioning synthesized clips to preserve visual smoothness and temporal coherence, overcoming the jagged results of naive clip concatenation.",
-  "problem_solved": "Existing one-shot video generation approaches rely on simple concatenation of generated clips, which breaks temporal continuity and visual consistency; DreaMontage addresses how to generate smooth, temporally coherent videos from a single exemplar frame or arbitrary guide frames under real-world constraints.",
+  "key_insight": "DreaMontage generates continuous one-shot style videos from arbitrary guiding frames by replacing naive clip concatenation with a learned, frame-conditioned montage process that preserves visual smoothness and temporal coherence.",
+  "problem_solved": "Existing virtual one-shot generation methods stitch clips naively and produce jarring cuts and temporal inconsistencies; this paper addresses how to synthesize smooth, coherent one-shot videos guided by arbitrary frames while keeping the process practical and generalizable.",
   "method": [
-    "Frame-guided conditioning: use an arbitrary input frame as a style/content guide to condition generation of individual segments so all clips share a coherent appearance.",
-    "Temporal alignment & blending module: align motion and semantics across adjacent generated segments and apply learned blending/warping to remove seams and ensure smooth transitions.",
-    "One-shot adaptation pipeline: quickly adapt a generative backbone (e.g., diffusion/latent video model) to the single exemplar for consistent rendering across the full montage."
+    "Frame-conditioned synthesis: condition video generation on one or more arbitrary guide frames to control appearance, composition, and key moments.",
+    "Learned montage/transition module: assemble segments with learned temporal blending and alignment instead of hard concatenation to produce smooth continuous shots.",
+    "Temporal-coherence optimization: use temporal-aware training objectives and consistency constraints to reduce flicker and preserve motion continuity across the generated sequence."
   ],
-  "impact": "Makes high-quality, stylistically consistent one-shot video synthesis practical and scalable for creative production and research; reduces manual post-processing and enables realistic, temporally coherent virtual alternatives to costly live shoots.",
+  "impact": "Provides practitioners with a practical pipeline for producing continuous one-shot style videos from minimal visual guidance, enabling lower-cost virtual production, creative editing tools, and improved data generation for downstream video tasks.",
   "visual_elements": [
-    "Pipeline diagram showing (1) exemplar/frame input → (2) per-segment generation → (3) temporal alignment/blending → (4) final montage",
-    "Before/after comparison: naive concatenation vs DreaMontage output highlighting seam artifacts vs smooth transitions",
-    "Zoomed visualization of the temporal alignment module (optical flow/warping or attention map) demonstrating how frames are blended",
-    "Qualitative grid of generated clips guided by different arbitrary frames to show style preservation and diversity"
+    "Pipeline diagram showing: input guide frame(s) → frame-conditioned generator → montage/transition module → final continuous video",
+    "Side-by-side comparison: naive clip concatenation vs DreaMontage output highlighting smoother transitions",
+    "Temporal-coherence visualization: frame difference or consistency heatmap across time to show reduced flicker",
+    "Qualitative montage gallery: several short one-shot outputs driven by different arbitrary guide frames"
   ],
   "hashtags": [
     "#VideoGeneration",
     "#OneShot",
     "#TemporalCoherence",
     "#GenerativeAI",
-    "#DreaMontage"
+    "#AIMontage"
   ],
   "paper_id": "2025-12-24-arxiv-dreamontage_arbitrary_frame_guided_one_shot_video_generation",
   "paper_title": "DreaMontage: Arbitrary Frame-Guided One-Shot Video Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21252v1"
     }
   ],
-  "generated_at": "2025-12-26T06:20:24.580533"
+  "generated_at": "2025-12-27T06:18:59.409345"
 }

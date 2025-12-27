@@ -1,24 +1,24 @@
 {
-  "key_insight": "Embedding autonomous uncertainty quantification into computational point-of-care sensors lets models output both a diagnosis and a calibrated confidence score, enabling automatic flagging or safe abstention when predictions are unreliable.",
-  "problem_solved": "Neural-network diagnostics for low-cost POC sensors can hallucinate or produce overconfident, erroneous predictions; this work addresses the lack of on-device, actionable uncertainty estimates that reduce misdiagnosis risk in resource-limited settings.",
+  "key_insight": "An autonomous uncertainty-quantification (UQ) layer for computational point-of-care sensors can detect when neural-network diagnoses are unreliable and trigger safe downstream actions, reducing the risk of silent misdiagnosis while remaining lightweight enough for POC deployment.",
+  "problem_solved": "Neural-network based POC diagnostic models can hallucinate or produce overconfident but incorrect predictions; this paper addresses the lack of on-device, automated uncertainty estimation and decision rules that flag unreliable outputs in resource-limited, real-world settings.",
   "method": [
-    "Integrate a lightweight uncertainty-quantification module with the diagnostic neural network to produce calibrated confidence alongside predictions.",
-    "Implement simple, actionable decision rules (e.g., abstain, request retest, escalate to clinician) based on confidence thresholds to triage low-confidence cases.",
-    "Validate the approach on representative POC sensor datasets to show maintained diagnostic accuracy while improving reliability and safety of automated outputs."
+    "Integrate a lightweight, on-device UQ module that produces calibrated predictive uncertainties alongside model outputs (e.g., calibration + approximate Bayesian/ensemble methods optimized for edge compute).",
+    "Combine uncertainty scores with out-of-distribution detection and task-specific thresholds to autonomously trigger fail-safe actions (human review, repeat test, or safe 'inconclusive' label).",
+    "Validate and tune the pipeline under realistic POC noise, sensor variability, and compute/memory constraints to ensure reliability and feasibility for field deployment."
   ],
-  "impact": "Provides a practical pathway for deploying safer, more trustworthy ML diagnostics at the edge—helping practitioners reduce clinical risk, improve triage, and meet higher reliability expectations for medical AI in low-resource settings.",
+  "impact": "Provides a practical route to safer, more trustworthy AI-driven diagnostics at the point of care by enabling models to know and communicate their limits; useful for practitioners building calibrated, deployable ML systems under tight resource constraints.",
   "visual_elements": [
-    "Pipeline diagram: sensor → neural network → output (prediction + uncertainty) → action (accept / abstain / escalate).",
-    "Calibration/reliability plot or confidence histogram showing predicted vs. empirical accuracy.",
-    "Decision-flow schematic illustrating confidence thresholds and resulting clinical actions (accept, retest, refer).",
-    "Icon showing on-device/edge deployment emphasizing low compute and real-time operation."
+    "Pipeline diagram: sensor → neural model → UQ module → decision logic (accept / repeat / escalate)",
+    "Reliability diagram or calibration plot showing predicted confidence vs. empirical accuracy",
+    "Flowchart illustrating autonomous actions triggered by high uncertainty or OOD detection (human review, retest, inconclusive)",
+    "Bar chart comparing compute/latency and memory of baseline model vs. model+UQ to show deployment feasibility"
   ],
   "hashtags": [
-    "#PointOfCare",
     "#UncertaintyQuantification",
-    "#ReliableAI",
-    "#EdgeML",
-    "#AIinHealthcare"
+    "#PointOfCare",
+    "#MedicalAI",
+    "#ModelCalibration",
+    "#EdgeAI"
   ],
   "paper_id": "2025-12-24-arxiv-autonomous_uncertainty_quantification_for_computational_point_of_care_sensors",
   "paper_title": "Autonomous Uncertainty Quantification for Computational Point-of-care Sensors",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21335v1"
     }
   ],
-  "generated_at": "2025-12-26T06:23:21.617494"
+  "generated_at": "2025-12-27T06:22:32.624791"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "ReaSeq enriches sequential recommender models by injecting world knowledge through a reasoning layer, turning brittle ID-only item representations into semantically informed embeddings and enabling capture of beyond-log user interests.",
-  "problem_solved": "Addresses two industrial limitations: sparse, ID-based item representations that hurt interest modeling under data sparsity, and the inability to reason about user interests outside platform logs.",
+  "key_insight": "ReaSeq enriches ID-based sequential recommenders by injecting world knowledge and explicit reasoning into item/user representations, enabling models to infer beyond-log interests and remain robust under sparse interaction data.",
+  "problem_solved": "Overcomes knowledge poverty in ID-only item embeddings and the closed-loop blindness of log-driven recommenders by leveraging external semantic/world knowledge and reasoning to capture latent user interests beyond platform logs.",
   "method": [
-    "Augment item IDs with external world knowledge (product semantics, attributes, text) to create richer representations.",
-    "Apply a reasoning module that propagates and refines knowledge along user interaction sequences to reveal latent interests beyond logs.",
-    "Train the sequential model with objectives that align sequence prediction and knowledge-consistency to improve robustness under sparsity."
+    "Map item IDs to rich semantic representations using external sources (e.g., knowledge graphs or pretrained language models) to recover product/world knowledge.",
+    "Apply a lightweight reasoning module (chain-of-thought / inference over facts) to derive latent user intents and beyond-log interests from enriched item semantics.",
+    "Fuse the reasoned semantic signals with sequential modeling (e.g., session/trajectory encoder) so downstream ranking or next-item prediction uses both interaction patterns and world knowledge."
   ],
-  "impact": "Provides a practical path for recommender systems to become more robust to cold-start and limited logs by leveraging external knowledge; practitioners can boost sequence modeling performance and capture cross-platform or latent interests without relying solely on interaction counts.",
+  "impact": "Makes sequential recommenders more data-efficient and generalizable—better cold-start performance, fewer brittle predictions under sparse logs, and the ability to recommend items aligned with users' off-platform interests.",
   "visual_elements": [
-    "Pipeline diagram: external knowledge retrieval → reasoning module → enriched item embeddings → sequential model",
-    "Before/after illustration: ID-only sparse embedding vs. semantically enriched embedding showing improved interest coverage",
-    "Bar chart: performance gains (e.g., CTR/Recall) under varying data sparsity levels comparing baseline vs. ReaSeq",
-    "Icon set: knowledge graph/text sources, reasoning/logic symbol, user sequence timeline, KPI improvement arrow"
+    "Pipeline diagram: ID inputs → semantic enrichment (KG/LM) → reasoning module → fused sequential encoder → recommendation output",
+    "Before vs after bar chart: improvement in cold-start / sparse-user accuracy or coverage when adding world knowledge",
+    "Schematic of closed-loop blindness vs. beyond-log reasoning: shows missing off-platform interests recovered by reasoning",
+    "Embedding space visualization (t-SNE) showing ID-only vs. knowledge-enriched item clusters"
   ],
   "hashtags": [
     "#RecommenderSystems",
     "#SequentialModeling",
     "#KnowledgeAugmentation",
-    "#RepresentationLearning",
+    "#Reasoning",
     "#ColdStart"
   ],
   "paper_id": "2025-12-24-arxiv-reaseq_unleashing_world_knowledge_via_reasoning_for_sequential_modeling",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21257v1"
     }
   ],
-  "generated_at": "2025-12-26T06:20:44.820255"
+  "generated_at": "2025-12-27T06:19:09.330790"
 }

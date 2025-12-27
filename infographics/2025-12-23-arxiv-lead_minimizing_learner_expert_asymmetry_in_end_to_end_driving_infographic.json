@@ -1,24 +1,24 @@
 {
-  "key_insight": "Performance loss in end-to-end driving often comes from a mismatch between privileged expert demonstrations and noisy, occluded sensor inputs available to student policies; reducing this learner–expert asymmetry significantly improves closed-loop robustness.",
-  "problem_solved": "Addresses the gap where imitation-learned driving policies perform well in open-loop evaluation but fail in closed-loop because experts see cleaner, more certain information than the sensor-based student.",
+  "key_insight": "Closing the observation and uncertainty gap between privileged expert demonstrations and sensor-based student agents — i.e., minimizing learner–expert asymmetry — substantially improves closed‑loop driving performance in simulation.",
+  "problem_solved": "Imitation learning policies trained on privileged expert demonstrations fail to generalize in closed-loop because experts have higher visibility and lower uncertainty than real sensor-based learners; the paper diagnoses this misalignment and shows how reducing it improves robustness.",
   "method": [
-    "Quantify and analyze the asymmetry between privileged expert observations and sensor-based learner inputs (visibility, occlusions, uncertainty).",
-    "Introduce practical mitigation strategies to close the gap (e.g., degrade or mask expert inputs to match sensors, augment learner observations, and incorporate uncertainty-aware training/losses).",
-    "Empirically validate that minimizing this asymmetry yields more robust closed-loop driving in simulation benchmarks."
+    "Systematically quantify sources of learner–expert asymmetry (e.g., visibility/occlusions, state uncertainty) and their impact on closed‑loop imitation performance.",
+    "Introduce the LEAD strategy to reduce asymmetry by aligning expert demonstrations with student observations (e.g., restricting expert visibility and injecting realistic uncertainty/noise) during training.",
+    "Evaluate the approach in simulation with closed‑loop metrics and ablations to demonstrate improved robustness over standard imitation baselines."
   ],
-  "impact": "Makes imitation learning for autonomous driving more reliable by aligning training signals with real sensor conditions — reducing sim-to-real fragility and improving safety and deployability of learned controllers.",
+  "impact": "Practitioners training end‑to‑end driving agents in simulation can get markedly better real‑world style closed‑loop behavior by aligning expert data with the student’s sensory experience, reducing the need for excessive domain randomization or post‑hoc fine‑tuning.",
   "visual_elements": [
-    "Side-by-side visual: expert view (privileged, full visibility) vs. learner view (camera/LiDAR with occlusions) highlighting differences.",
-    "Flow diagram of the method pipeline: measure asymmetry → apply alignment strategies (masking/augmentation/uncertainty) → train student → closed-loop evaluation.",
-    "Bar/line chart showing closed-loop performance (e.g., success rate, collisions) before vs. after asymmetry reduction across scenarios.",
-    "Heatmap or overlay showing uncertainty or visibility regions that cause learner failures and how mitigation reduces them."
+    "Side‑by‑side schematic: privileged expert view vs sensor‑based student view (showing occlusions and unseen actors).",
+    "Bar/line chart: closed‑loop success/failure rates comparing baseline imitation vs LEAD across scenarios.",
+    "Ablation heatmap: contribution of different asymmetry sources (visibility, uncertainty, noise) to performance drop.",
+    "Pipeline diagram: how expert demonstrations are modified/augmented to match student observations during training."
   ],
   "hashtags": [
-    "#AutonomousDriving",
     "#ImitationLearning",
+    "#AutonomousDriving",
     "#Sim2Real",
-    "#RobustML",
-    "#SafetyCriticalAI"
+    "#EndToEndDriving",
+    "#RobustML"
   ],
   "paper_id": "2025-12-23-arxiv-lead_minimizing_learner_expert_asymmetry_in_end_to_end_driving",
   "paper_title": "LEAD: Minimizing Learner-Expert Asymmetry in End-to-End Driving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.20563v1"
     }
   ],
-  "generated_at": "2025-12-26T06:24:14.305834"
+  "generated_at": "2025-12-27T06:23:55.462935"
 }

@@ -1,22 +1,22 @@
 {
-  "key_insight": "AnyAD is a single unified model that detects anomalies from brain MRI even when one or more common sequences are missing — it generalizes to arbitrary combinations of modalities without retraining.",
-  "problem_solved": "Overcomes the clinical reality of incomplete multi-sequence MRI and the limitation of prior AD models that require fixed modality configurations or repeated training for different modality sets.",
+  "key_insight": "AnyAD learns a single, modality-agnostic anomaly detection model that reliably detects brain MRI anomalies from any subset of available sequences, removing the need to train separate models for each modality combination.",
+  "problem_solved": "Clinical MRI workflows often miss one or more sequences and annotated abnormal cases are scarce; existing AD models assume fixed modality inputs or require repeated retraining and so fail to scale to arbitrary, incomplete multi-sequence inputs.",
   "method": [
-    "Train a unified any-modality architecture that ingests any subset of MRI sequences and maps them to a shared latent space for anomaly scoring.",
-    "Simulate missing-modality conditions during training (modality dropout / conditional masking) so the model learns to fuse available inputs robustly and to impute or ignore absent channels.",
-    "Produce uncertainty-aware anomaly maps via reconstruction / distributional scoring in the shared latent space, enabling single-model deployment across unseen modality combinations."
+    "Train a unified representation that accepts variable sets of MRI sequences by simulating missing modalities during training (modality dropout / masked inputs).",
+    "Learn anomaly scoring in the shared latent space (e.g., reconstruction error or latent-density based) so scores are comparable across different input subsets.",
+    "Deploy a single model that performs inference on any combination of available sequences without retraining, enabling robust AD in incomplete multi-sequence MRI."
   ],
-  "impact": "Enables practical, scalable deployment of MRI anomaly detection across heterogeneous clinical protocols, reducing the need for modality-specific models and repeated retraining while maintaining robust detection under missing data.",
+  "impact": "Enables scalable, clinically practical MRI anomaly detection that tolerates missing sequences and reduces repeated model training; lowers deployment burden and improves robustness of ML systems in heterogeneous imaging environments.",
   "visual_elements": [
-    "Schematic: inputs with varying MRI sequences (T1, T2, FLAIR, etc.) feeding a single AnyAD model and producing an anomaly map — demonstrates 'any-modality' flow.",
-    "Training diagram showing modality dropout / masking and shared latent space learning.",
-    "Performance chart: accuracy/ROC or anomaly-score robustness across many modality-combination scenarios comparing AnyAD vs fixed-config baselines.",
-    "Example overlays: MRI slices with ground-truth (if available) and AnyAD anomaly heatmaps to show localization quality."
+    "Pipeline diagram: variable-set MRI inputs → modality-agnostic encoder → anomaly scorer (reconstruction/latent density) → anomaly map/score.",
+    "Illustration of modality dropout: show training with full and partial sequence sets to indicate robustness to missing data.",
+    "Performance chart: AUC/ROC or detection accuracy comparing AnyAD (single model) vs. per-combination baselines across multiple missing-modality scenarios.",
+    "t-SNE or latent-space visualization: normal vs. anomalous sample separation when using mixed modality inputs."
   ],
   "hashtags": [
     "#AnomalyDetection",
     "#MedicalImaging",
-    "#MultiModalAI",
+    "#MultimodalAI",
     "#MRI",
     "#MissingData"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21264v1"
     }
   ],
-  "generated_at": "2025-12-26T06:20:57.370828"
+  "generated_at": "2025-12-27T06:19:26.556518"
 }

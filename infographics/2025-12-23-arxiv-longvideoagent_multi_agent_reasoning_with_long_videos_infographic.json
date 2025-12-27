@@ -1,24 +1,24 @@
 {
-  "key_insight": "A master LLM coordinates specialized agents — a grounding agent that localizes question-relevant segments and a vision agent that extracts targeted textual observations — enabling precise, fine-grained reasoning over hour‑long videos without relying on lossy summaries.",
-  "problem_solved": "Enables accurate question answering and temporal grounding over long (hour-scale) videos by avoiding compressive summaries and limited toolsets that miss fine-grained visual and temporal cues.",
+  "key_insight": "A coordinated multi-agent architecture where a master LLM directs a grounding agent to localize relevant temporal segments and a vision agent to extract targeted textual observations, enabling precise, evidence-backed reasoning over hour-long videos without lossy summarization.",
+  "problem_solved": "Addresses the inability of many long-video QA systems to maintain temporal grounding and fine-grained cues—current methods often compress videos into lossy summaries or use limited toolsets, which weakens answer fidelity for hour-long episodes.",
   "method": [
-    "Master LLM orchestrates a multi-agent loop: issues queries, integrates observations, and performs final reasoning.",
-    "Grounding agent performs temporal localization to find short, relevant video segments for each question.",
-    "Vision agent extracts targeted textual observations (captions, OCR, object/attribute detections) from localized clips and returns them to the master for iterative reasoning."
+    "Master LLM coordinator orchestrates the workflow: interprets the question, issues sub-tasks, and composes the final answer with evidence.",
+    "Grounding agent performs temporal localization to find short, question-relevant segments within long videos (avoids full-video summarization).",
+    "Vision agent extracts targeted textual observations from localized clips (e.g., OCR, object/action captions, scene details) and returns concise evidence for the master to reason over."
   ],
-  "impact": "Provides a scalable, modular approach for long-video QA that improves temporal grounding, interpretability, and retrieval of fine-grained evidence — useful for building robust multimodal assistants and video analytics pipelines.",
+  "impact": "Enables more accurate, temporally grounded QA and interpretable evidence retrieval on hour-long videos, improving reliability for applications like video analytics, media understanding, and automated summarization. Encourages modular multi-agent designs for multimodal LLM toolchains.",
   "visual_elements": [
-    "Architecture diagram showing Master LLM coordinating Grounding Agent and Vision Agent with arrows for query → localization → observation → reasoning",
-    "Video timeline with highlighted localized segments and timestamps to illustrate temporal grounding",
-    "Side-by-side comparison chart: lossy global summary vs targeted extraction (accuracy, temporal precision, evidence richness)",
-    "Example QA flow: question → localized clip → extracted observations (captions/OCR/objects) → final answer"
+    "System architecture diagram showing Master LLM → Grounding Agent (temporal localization) → Vision Agent (textual observation extraction) → Answer composition.",
+    "Horizontal video timeline with highlighted localized segments corresponding to a sample question (visualizes temporal grounding).",
+    "End-to-end example pipeline: question → localized clip thumbnails → extracted text snippets (OCR/captions) → final answer with cited timestamps.",
+    "Comparison chart (bar or line) showing accuracy/temporal grounding vs. baseline summary-based methods."
   ],
   "hashtags": [
     "#LongVideoAgent",
     "#MultimodalLLM",
     "#VideoQA",
-    "#TemporalReasoning",
-    "#MultiAgentSystems"
+    "#MultiAgent",
+    "#TemporalReasoning"
   ],
   "paper_id": "2025-12-23-arxiv-longvideoagent_multi_agent_reasoning_with_long_videos",
   "paper_title": "LongVideoAgent: Multi-Agent Reasoning with Long Videos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.20618v1"
     }
   ],
-  "generated_at": "2025-12-26T06:24:46.112722"
+  "generated_at": "2025-12-27T06:24:11.670319"
 }
