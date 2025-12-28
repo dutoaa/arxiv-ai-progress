@@ -1,24 +1,24 @@
 {
-  "key_insight": "Applying a Nesterov-style momentum to ray-direction search (ARS-OPT) substantially speeds convergence, cutting the number of queries needed to find minimal ℓ2 hard‑label adversarial perturbations.",
-  "problem_solved": "Hard‑label black‑box attacks require many queries because only top‑1 labels are returned; this work reduces query complexity by accelerating the optimization over ray directions that produce minimal perturbations.",
+  "key_insight": "Applying a Nesterov-style momentum scheme to ray-direction search (ARS-OPT) accelerates convergence to the minimal-ℓ2 adversarial ray, cutting the number of label queries needed for hard-label black‑box attacks.",
+  "problem_solved": "Hard-label black‑box attacks require prohibitively many queries because only the top-1 label is available and finding the minimal perturbation direction (ray) is slow; this work reduces query complexity by improving the ray-search optimizer.",
   "method": [
-    "Formulate hard‑label attack as searching for an optimal ray direction whose scaled ℓ2 perturbation first crosses the adversarial decision boundary.",
-    "Introduce ARS‑OPT: a momentum (Nesterov‑inspired) update on ray directions to accelerate convergence of the black‑box search.",
-    "Provide theoretical convergence-rate improvements and validate empirically to demonstrate large query savings versus prior ray‑search baselines."
+    "Introduce ARS-OPT: a momentum-based update on ray directions inspired by Nesterov’s Accelerated Gradient to speed directional search.",
+    "Combine the momentum updates with a query-efficient line/step search along each ray to find the minimal ℓ2 perturbation that crosses the decision boundary.",
+    "Provide theoretical analysis showing an improved convergence rate over vanilla ray-search and validate empirically with reduced queries and higher attack efficiency."
   ],
-  "impact": "Significantly fewer queries make hard‑label attacks more practical for real‑world evaluation and stress‑testing of deployed models, and provide a stronger, more query‑efficient baseline for robustness research.",
+  "impact": "Significantly fewer queries make hard-label attacks more practical for evaluating model robustness and for developing defenses; practitioners get a faster, theoretically grounded tool for black‑box robustness assessment.",
   "visual_elements": [
-    "Geometry diagram: image, ray from original image, shortest ℓ2 perturbation point where ray intersects adversarial region, annotated with direction and magnitude.",
-    "Convergence plot: queries on x‑axis vs ℓ2 distortion (or success rate) on y‑axis comparing ARS‑OPT and baseline methods showing faster drop for ARS‑OPT.",
-    "Algorithm flowchart: iterative loop highlighting momentum (lookahead) step, query-based boundary search, and update of ray direction.",
-    "Bar/stacked chart: average query reduction (%) across datasets and models to summarize empirical gains."
+    "Geometry diagram: benign image, decision boundary, candidate ray directions, and the minimal-ℓ2 adversarial perturbation along a ray.",
+    "Convergence/queries plot: ARS-OPT vs baseline showing iterations or queries on x-axis and distance-to-boundary / success rate on y-axis.",
+    "Algorithm flowchart: momentum update of ray direction + query-efficient line search steps (annotated with where queries are used).",
+    "Icon/metric panel: before vs after comparison showing % query reduction, attack success rate, and typical perturbation norms."
   ],
   "hashtags": [
     "#AdversarialML",
     "#BlackBoxAttacks",
-    "#HardLabel",
+    "#QueryEfficiency",
     "#Optimization",
-    "#QueryEfficiency"
+    "#ModelRobustness"
   ],
   "paper_id": "2025-12-24-arxiv-improving_the_convergence_rate_of_ray_search_optimization_for_query_efficient_ha",
   "paper_title": "Improving the Convergence Rate of Ray Search Optimization for Query-Efficient Hard-Label Attacks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21241v1"
     }
   ],
-  "generated_at": "2025-12-27T06:18:45.847146"
+  "generated_at": "2025-12-28T06:18:57.939900"
 }

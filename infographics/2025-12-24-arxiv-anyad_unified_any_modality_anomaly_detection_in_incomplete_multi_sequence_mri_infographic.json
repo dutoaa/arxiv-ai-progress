@@ -1,24 +1,24 @@
 {
-  "key_insight": "AnyAD learns a single, modality-agnostic anomaly detection model that reliably detects brain MRI anomalies from any subset of available sequences, removing the need to train separate models for each modality combination.",
-  "problem_solved": "Clinical MRI workflows often miss one or more sequences and annotated abnormal cases are scarce; existing AD models assume fixed modality inputs or require repeated retraining and so fail to scale to arbitrary, incomplete multi-sequence inputs.",
+  "key_insight": "AnyAD presents a single unified anomaly-detection model that works with any subset of multi-sequence brain MRI — it handles missing modalities at inference without retraining while maintaining robust anomaly detection.",
+  "problem_solved": "Overcomes clinical challenges of scarce annotated abnormalities and frequently absent MRI sequences by avoiding fixed-modality pipelines and eliminating the need to train separate models for every modality combination.",
   "method": [
-    "Train a unified representation that accepts variable sets of MRI sequences by simulating missing modalities during training (modality dropout / masked inputs).",
-    "Learn anomaly scoring in the shared latent space (e.g., reconstruction error or latent-density based) so scores are comparable across different input subsets.",
-    "Deploy a single model that performs inference on any combination of available sequences without retraining, enabling robust AD in incomplete multi-sequence MRI."
+    "Learn modality-agnostic representations and a shared anomaly scoring mechanism so the same model can ingest any available subset of MRI sequences.",
+    "Train with simulated missing-modality conditions (e.g., modality dropout / cross-modal consistency) and reconstruction/consistency objectives to enable prediction from incomplete inputs.",
+    "Unified inference: compute anomaly scores/maps directly from whatever sequences are present, without modality-specific retraining or ensemble models."
   ],
-  "impact": "Enables scalable, clinically practical MRI anomaly detection that tolerates missing sequences and reduces repeated model training; lowers deployment burden and improves robustness of ML systems in heterogeneous imaging environments.",
+  "impact": "Makes anomaly detection in multi-sequence MRI practical for real clinical settings with variable imaging protocols, improving deployability and reducing annotation/training burden for AI practitioners working on medical imaging.",
   "visual_elements": [
-    "Pipeline diagram: variable-set MRI inputs → modality-agnostic encoder → anomaly scorer (reconstruction/latent density) → anomaly map/score.",
-    "Illustration of modality dropout: show training with full and partial sequence sets to indicate robustness to missing data.",
-    "Performance chart: AUC/ROC or detection accuracy comparing AnyAD (single model) vs. per-combination baselines across multiple missing-modality scenarios.",
-    "t-SNE or latent-space visualization: normal vs. anomalous sample separation when using mixed modality inputs."
+    "Architecture diagram: modality-agnostic encoder + fusion + anomaly scorer, showing that any subset of sequences can be input.",
+    "Modality-availability grid (heatmap) illustrating training/inference across all possible sequence combinations and robustness to missing scans.",
+    "Performance chart (ROC/AUPRC or bar plot) comparing AnyAD vs. fixed-modality baselines under increasing modality dropout rates.",
+    "Clinical pipeline sketch: heterogeneous MRI inputs (some missing) -> AnyAD -> anomaly heatmap and score for triage"
   ],
   "hashtags": [
+    "#AnyModality",
     "#AnomalyDetection",
     "#MedicalImaging",
     "#MultimodalAI",
-    "#MRI",
-    "#MissingData"
+    "#MRI"
   ],
   "paper_id": "2025-12-24-arxiv-anyad_unified_any_modality_anomaly_detection_in_incomplete_multi_sequence_mri",
   "paper_title": "AnyAD: Unified Any-Modality Anomaly Detection in Incomplete Multi-Sequence MRI",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21264v1"
     }
   ],
-  "generated_at": "2025-12-27T06:19:26.556518"
+  "generated_at": "2025-12-28T06:19:43.406186"
 }

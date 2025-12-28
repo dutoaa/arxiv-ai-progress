@@ -1,22 +1,22 @@
 {
-  "key_insight": "An autonomous uncertainty-quantification (UQ) layer for computational point-of-care sensors can detect when neural-network diagnoses are unreliable and trigger safe downstream actions, reducing the risk of silent misdiagnosis while remaining lightweight enough for POC deployment.",
-  "problem_solved": "Neural-network based POC diagnostic models can hallucinate or produce overconfident but incorrect predictions; this paper addresses the lack of on-device, automated uncertainty estimation and decision rules that flag unreliable outputs in resource-limited, real-world settings.",
+  "key_insight": "Integrating autonomous uncertainty quantification with neural diagnostic models for point-of-care sensors enables the system to detect and flag low-confidence predictions in real time, reducing the risk of misdiagnosis and inappropriate automated outputs.",
+  "problem_solved": "Neural-network-based computational POC sensors can produce hallucinations or erroneous outputs without a reliable measure of confidence, creating safety and trust issues when deployed in emergency, remote, or resource-limited settings.",
   "method": [
-    "Integrate a lightweight, on-device UQ module that produces calibrated predictive uncertainties alongside model outputs (e.g., calibration + approximate Bayesian/ensemble methods optimized for edge compute).",
-    "Combine uncertainty scores with out-of-distribution detection and task-specific thresholds to autonomously trigger fail-safe actions (human review, repeat test, or safe 'inconclusive' label).",
-    "Validate and tune the pipeline under realistic POC noise, sensor variability, and compute/memory constraints to ensure reliability and feasibility for field deployment."
+    "Embed lightweight, on-device uncertainty estimators alongside the diagnostic model to produce per-sample confidence scores (e.g., Bayesian approximations, ensembles, or evidential approaches tailored for edge constraints).",
+    "Apply calibration and out-of-distribution detection so predicted probabilities match real-world accuracy and unknown inputs are flagged.",
+    "Use autonomous decision logic that triggers abstention, prompts for human review, or routes results for higher-fidelity testing when uncertainty exceeds configured thresholds."
   ],
-  "impact": "Provides a practical route to safer, more trustworthy AI-driven diagnostics at the point of care by enabling models to know and communicate their limits; useful for practitioners building calibrated, deployable ML systems under tight resource constraints.",
+  "impact": "Provides a practical path for safer, trustworthy POC AI deployments by enabling real-time reliability estimates, improving triage and clinician trust, and supporting regulatory and operational requirements for medical AI at the edge.",
   "visual_elements": [
-    "Pipeline diagram: sensor → neural model → UQ module → decision logic (accept / repeat / escalate)",
-    "Reliability diagram or calibration plot showing predicted confidence vs. empirical accuracy",
-    "Flowchart illustrating autonomous actions triggered by high uncertainty or OOD detection (human review, retest, inconclusive)",
-    "Bar chart comparing compute/latency and memory of baseline model vs. model+UQ to show deployment feasibility"
+    "Pipeline diagram: sensor input → neural model → uncertainty module → decision (accept | flag | escalate).",
+    "Calibration plot: predicted confidence vs. empirical accuracy to show improved calibration after the method.",
+    "Example panel with prediction cards showing high-confidence correct, low-confidence correct, and low-confidence incorrect cases (confidence score badges).",
+    "Decision flowchart illustrating abstain/triage rules and options for on-device vs. centralized review."
   ],
   "hashtags": [
-    "#UncertaintyQuantification",
     "#PointOfCare",
-    "#MedicalAI",
+    "#UncertaintyQuantification",
+    "#AIHealth",
     "#ModelCalibration",
     "#EdgeAI"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21335v1"
     }
   ],
-  "generated_at": "2025-12-27T06:22:32.624791"
+  "generated_at": "2025-12-28T06:21:47.528415"
 }

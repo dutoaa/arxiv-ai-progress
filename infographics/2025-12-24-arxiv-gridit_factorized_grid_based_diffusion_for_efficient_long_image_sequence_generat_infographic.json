@@ -1,24 +1,24 @@
 {
-  "key_insight": "GriDiT factorizes long image-sequence generation into a grid of localized diffusion processes with lightweight cross-grid conditioning, drastically reducing compute and memory while preserving global temporal/spatial coherence.",
-  "problem_solved": "Current methods treat long image sequences as huge stacked tensors, leading to poor scalability, high memory use, and slow sampling; GriDiT addresses efficient, scalable generative modeling for very long image sequences.",
+  "key_insight": "Represent long image sequences as factorized spatial grids instead of single giant stacked tensors, enabling diffusion models to generate much longer sequences with dramatically lower compute and memory while preserving temporal coherence.",
+  "problem_solved": "Current sequence-generation models treat videos/long image streams as huge stacked-frame tensors, causing quadratic memory/compute growth, slow sampling, and poor scalability for long or high-resolution sequences. This work addresses those bottlenecks to make long-sequence generative modeling practical.",
   "method": [
-    "Partition the spatio-temporal volume into a grid of local cells and run factorized diffusion processes per cell instead of operating on a single giant tensor.",
-    "Exchange compact cross-cell conditioning signals (e.g., sparse attention or conditioning channels) to maintain global consistency across the grid.",
-    "Use hierarchical/progressive sampling across grid levels or time windows to enable linear scaling in compute and faster inference for long sequences."
+    "Factorized grid representation: split frames into a regular spatial grid of patches/cells and model each cell with a diffusion process rather than a single large tensor of stacked frames.",
+    "Grid-based diffusion with factorized conditionals: perform denoising locally on grid cells while using lightweight cross-cell communication (hierarchical/global tokens or sparse attention) to maintain spatial and temporal coherence.",
+    "Efficient architecture & sampling: design training and inference strategies that exploit parallelism across grid cells and reduce attention/memory complexity, enabling longer sequences with lower latency and resource use."
   ],
-  "impact": "Makes diffusion-based generation practical for much longer image sequences with lower memory and compute, enabling applications such as long-form video synthesis, animation, and large-scale data augmentation.",
+  "impact": "Makes high-quality generation of long image sequences (long videos, panoramas over time, multi-view simulations) feasible on practical hardware by cutting compute and memory requirements; enables faster experimentation and deployment of long-form generative systems.",
   "visual_elements": [
-    "Grid factorization diagram: full stacked-tensor vs. grid of local cells showing independent diffusion + cross-cell links",
-    "Bar chart comparing memory and runtime of baseline stacked-tensor diffusion vs. GriDiT across increasing sequence lengths",
-    "Pipeline flowchart: input → grid partition → local diffusion modules → cross-conditioning → stitched output",
-    "Qualitative strip of generated long-sequence frames to illustrate temporal coherence and reduced artifacts"
+    "Side-by-side schematic: stacked-frames tensor (baseline) vs. factorized grid representation (GriDiT) to show the conceptual difference.",
+    "Pipeline diagram: grid-based diffusion steps with local denoising blocks and global/global-token communication paths.",
+    "Bar/line chart: memory and inference time vs. sequence length comparing GriDiT to baseline diffusion/video models.",
+    "Qualitative montage: example long-sequence outputs (stitched frames) to demonstrate temporal coherence and extended duration."
   ],
   "hashtags": [
     "#GriDiT",
     "#DiffusionModels",
     "#VideoGeneration",
-    "#EfficientML",
-    "#LongSequenceGeneration"
+    "#EfficientAI",
+    "#LongSequence"
   ],
   "paper_id": "2025-12-24-arxiv-gridit_factorized_grid_based_diffusion_for_efficient_long_image_sequence_generat",
   "paper_title": "GriDiT: Factorized Grid-Based Diffusion for Efficient Long Image Sequence Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21276v1"
     }
   ],
-  "generated_at": "2025-12-27T06:19:43.806415"
+  "generated_at": "2025-12-28T06:19:55.534624"
 }

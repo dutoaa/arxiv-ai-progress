@@ -1,24 +1,24 @@
 {
-  "key_insight": "Text-driven token pruning identifies and removes visual tokens irrelevant to the text prompt before temporal reasoning in SAM2, greatly reducing compute and memory while keeping segmentation quality high.",
-  "problem_solved": "SAM2 pipelines propagate dense visual tokens across time, causing quadratic compute/memory growth and preventing scalable, real-time deployment for prompt-driven video object segmentation.",
+  "key_insight": "Use the text prompt (object description) to score and prune irrelevant visual tokens before temporal reasoning, so SAM2 only processes a compact, task-relevant token set — drastically cutting compute and memory with minimal accuracy loss.",
+  "problem_solved": "SAM2 processes dense visual tokens across time for prompt-driven video/object segmentation, causing high compute and memory costs and poor scalability; the paper reduces wasted computation by removing tokens that are not relevant to the text-guided target.",
   "method": [
-    "Text-guided relevance scoring: compute per-token relevance to the input prompt to rank visual tokens.",
-    "Token pruning and sparse propagation: drop low-relevance tokens and only forward salient tokens into temporal reasoning modules across frames.",
-    "Dynamic control mechanism: adjustable pruning thresholds (or lightweight controllers) to trade off latency and segmentation fidelity."
+    "Text-driven token scoring: compute relevance scores for image tokens conditioned on the text prompt (target description).",
+    "Token pruning before temporal modules: keep top-K or thresholded high-scoring tokens and discard low-relevance tokens from propagation across frames.",
+    "Lightweight integration with SAM2 temporal pipeline to preserve segmentation quality while reducing FLOPs and memory footprint."
   ],
-  "impact": "Significantly lowers FLOPs and memory footprint of SAM2-based video segmentation, enabling faster, more deployable systems for real-time and edge AI applications.",
+  "impact": "Makes SAM2-style promptable video/object segmentation significantly faster and more memory-efficient, enabling practical deployment (real-time, multi-object, or edge devices) with little accuracy tradeoff.",
   "visual_elements": [
-    "Pipeline diagram: image encoder → text-guided token scorer → token pruning → temporal module → segmentation output.",
-    "Before/after frame overlays: token heatmaps showing pruned vs retained tokens on example frames.",
-    "Bar chart: compute (FLOPs) and memory usage of baseline SAM2 vs pruned SAM2.",
-    "Trade-off curve: segmentation accuracy vs fraction of tokens retained (showing steep gains with few tokens)."
+    "Before/After pipeline diagram: full-token propagation vs. text-driven token pruning with fewer tokens passed to temporal modules.",
+    "Token relevance visualization: image overlay showing retained vs. pruned tokens colored by text-driven scores.",
+    "Bar chart: compute (FLOPs), memory, and latency reductions vs. baseline SAM2 alongside small accuracy drop.",
+    "Tradeoff curve: accuracy vs. token budget (top-K) to show sweet spot for practitioners."
   ],
   "hashtags": [
-    "#TokenPruning",
     "#SAM2",
+    "#TokenPruning",
     "#EfficientVision",
     "#VideoSegmentation",
-    "#EdgeAI"
+    "#ModelAcceleration"
   ],
   "paper_id": "2025-12-24-arxiv-fast_sam2_with_text_driven_token_pruning",
   "paper_title": "Fast SAM2 with Text-Driven Token Pruning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21333v1"
     }
   ],
-  "generated_at": "2025-12-27T06:21:49.092015"
+  "generated_at": "2025-12-28T06:21:25.279825"
 }

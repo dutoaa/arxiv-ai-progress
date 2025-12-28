@@ -1,24 +1,24 @@
 {
-  "key_insight": "HiStream makes high-resolution video generation practical by eliminating redundant computation across space and time: denoise at low resolution then refine at high resolution while streaming and caching intermediate features to avoid recomputation.",
-  "problem_solved": "It addresses the quadratic compute and memory bottleneck of diffusion-based high-resolution video generation that makes inference prohibitively slow and resource-intensive.",
+  "key_insight": "HiStream makes high-resolution video generation practical by eliminating redundant computation across space, time, and sampling, using a streaming autoregressive pipeline that denoises cheaply and refines selectively.",
+  "problem_solved": "Diffusion-based high-resolution video generation is infeasible in practice due to quadratic compute and memory costs; HiStream addresses this by reducing redundant work so inference becomes efficient and scalable.",
   "method": [
-    "Spatial compression: perform core denoising at low resolution, then refine to high resolution using cached high‑res feature maps to avoid full high‑res passes.",
-    "Temporal compression: generate video in streaming chunks and reuse cached temporal context/feature representations across adjacent chunks to eliminate redundant frame-level computation.",
-    "Autoregressive, redundancy‑eliminated pipeline: combine the above with lightweight refinement stages and feature caching to reduce overall FLOPs and memory during inference."
+    "Spatial compression: perform denoising at lower resolution then refine to high resolution using cached high‑level features to avoid re-computing shared spatial detail.",
+    "Temporal compression: generate video in streaming chunks with overlap and temporal feature caching so adjacent frames reuse computation rather than reprocessing entire sequences.",
+    "Sampling/computation compression: concentrate expensive high‑res denoising only where needed and reuse denoising trajectories or intermediate features to cut the number of heavy diffusion operations."
   ],
-  "impact": "Enables much more efficient, scalable high-resolution video synthesis—making practical real-time or large-scale inference for digital media and film pipelines while lowering hardware costs and latency for ML practitioners.",
+  "impact": "Enables faster, lower‑cost high‑resolution video synthesis on practical hardware and makes large-scale or real‑time applications of diffusion-based video models more attainable for ML practitioners.",
   "visual_elements": [
-    "Pipeline diagram showing two-stage spatial flow: low-res denoiser → cached features → high-res refinement",
-    "Timeline/chunk diagram illustrating temporal streaming with overlapping cached context reused between chunks",
-    "Bar chart comparing compute (FLOPs), memory, and latency of HiStream vs. baseline diffusion pipeline",
-    "Icon set: cache/memory reuse, low→high resolution arrow, and a fast clock to symbolize speedup"
+    "Pipeline diagram showing Low‑Res Denoiser -> Cached Features -> High‑Res Refinement (spatial compression flow).",
+    "Timeline/streaming graphic illustrating chunked temporal processing with overlapping windows and feature reuse.",
+    "Bar chart comparing compute/time and memory footprints of HiStream vs. standard diffusion baseline.",
+    "Before/after frame strip: low‑res denoised frame, cached features overlay, final high‑res refined frame to show progressive refinement."
   ],
   "hashtags": [
     "#VideoGeneration",
     "#DiffusionModels",
     "#EfficientAI",
     "#HighResolution",
-    "#HiStream"
+    "#StreamingInference"
   ],
   "paper_id": "2025-12-24-arxiv-histream_efficient_high_resolution_video_generation_via_redundancy_eliminated_st",
   "paper_title": "HiStream: Efficient High-Resolution Video Generation via Redundancy-Eliminated Streaming",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21338v1"
     }
   ],
-  "generated_at": "2025-12-27T06:23:26.676332"
+  "generated_at": "2025-12-28T06:22:11.017645"
 }

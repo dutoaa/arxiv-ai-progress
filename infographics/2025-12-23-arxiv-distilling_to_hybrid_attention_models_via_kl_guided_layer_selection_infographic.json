@@ -1,24 +1,24 @@
 {
-  "key_insight": "Use per-layer KL divergence between teacher and student attention distributions to automatically pick which Transformer layers can be converted from softmax to linear attention, enabling compact hybrid attention models that preserve performance while improving inference efficiency.",
-  "problem_solved": "How to efficiently distill pretrained softmax-attention Transformers into hybrid models (interleaving softmax and linear attention) by deciding which layers to convert without expensive trial-and-error or full retraining.",
+  "key_insight": "Use per-layer Kullback–Leibler (KL) divergence between teacher and student attention distributions to identify which Transformer layers can be safely converted to cheap linear-attention, enabling hybrid models that retain performance while reducing inference cost.",
+  "problem_solved": "How to decide which softmax-attention layers in a pretrained Transformer can be replaced by linear-attention variants during distillation without large accuracy loss — i.e., an efficient, effective layer-selection strategy for building hybrid attention models.",
   "method": [
-    "Compute a layerwise importance score using KL divergence between teacher and student attention outputs to measure sensitivity to conversion.",
-    "Rank layers by KL score and convert low-sensitivity layers to linear attention to form a hybrid softmax/linear architecture.",
-    "Distill the hybrid model from the pretrained teacher using standard KD losses, keeping high-sensitivity layers as softmax attention to preserve accuracy."
+    "Compute a KL-based importance score per layer by measuring divergence between teacher and candidate-student attention (or output) distributions.",
+    "Rank layers by KL score and select low-KL layers as conversion candidates to linear attention; keep high-KL layers as softmax attention.",
+    "Distill the teacher into the resulting hybrid architecture to recover performance while gaining inference efficiency (no full pretraining from scratch)."
   ],
-  "impact": "Provides a simple, scalable recipe to create faster, memory-light LLM variants with minimal accuracy loss, letting practitioners trade compute for latency efficiently without pretraining from scratch.",
+  "impact": "Provides a practical, low-cost recipe for compressing large pretrained Transformers into faster hybrid-attention models that maintain accuracy, making deployment of efficient LLMs more accessible to practitioners.",
   "visual_elements": [
-    "Schematic of a Transformer stack showing selected layers converted to linear attention (color-coded softmax vs linear).",
-    "Bar chart of per-layer KL divergence used for ranking and selection (high to low).",
-    "Line/curve showing accuracy vs. inference speed (or FLOPs) for baseline, hybrid variants, and full linear/softmax extremes.",
-    "Side-by-side attention-map heatmaps comparing teacher softmax attention and student linear/converted layers."
+    "Schematic of a Transformer stack showing selected layers converted to linear attention (different colors for softmax vs linear).",
+    "Bar chart of per-layer KL scores used for ranking/selection (low KL → convert).",
+    "Tradeoff curve plotting accuracy vs inference latency (or FLOPs) comparing original, fully linear, and KL-guided hybrid models.",
+    "Example attention-map heatmaps showing preserved attention patterns in kept softmax layers vs approximated patterns in converted layers."
   ],
   "hashtags": [
-    "#ModelCompression",
-    "#KnowledgeDistillation",
+    "#ModelDistillation",
     "#EfficientTransformers",
-    "#HybridAttention",
-    "#LLMEfficiency"
+    "#Attention",
+    "#LLMCompression",
+    "#KLDivergence"
   ],
   "paper_id": "2025-12-23-arxiv-distilling_to_hybrid_attention_models_via_kl_guided_layer_selection",
   "paper_title": "Distilling to Hybrid Attention Models via KL-Guided Layer Selection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.20569v1"
     }
   ],
-  "generated_at": "2025-12-27T06:23:40.773727"
+  "generated_at": "2025-12-28T06:22:22.370425"
 }

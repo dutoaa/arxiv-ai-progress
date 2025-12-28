@@ -1,24 +1,24 @@
 {
-  "key_insight": "Closing the observation and uncertainty gap between privileged expert demonstrations and sensor-based student agents — i.e., minimizing learner–expert asymmetry — substantially improves closed‑loop driving performance in simulation.",
-  "problem_solved": "Imitation learning policies trained on privileged expert demonstrations fail to generalize in closed-loop because experts have higher visibility and lower uncertainty than real sensor-based learners; the paper diagnoses this misalignment and shows how reducing it improves robustness.",
+  "key_insight": "Closing the information gap between privileged expert demonstrations and sensor-limited student observations — by intentionally reducing expert advantages (visibility/uncertainty) or making demonstrations learner-aware — substantially improves closed-loop imitation driving performance in simulation.",
+  "problem_solved": "Imitation-learned end-to-end driving policies trained on privileged expert data fail in closed-loop because experts have higher visibility and lower uncertainty than the sensor-based learners; this paper addresses that learner–expert asymmetry.",
   "method": [
-    "Systematically quantify sources of learner–expert asymmetry (e.g., visibility/occlusions, state uncertainty) and their impact on closed‑loop imitation performance.",
-    "Introduce the LEAD strategy to reduce asymmetry by aligning expert demonstrations with student observations (e.g., restricting expert visibility and injecting realistic uncertainty/noise) during training.",
-    "Evaluate the approach in simulation with closed‑loop metrics and ablations to demonstrate improved robustness over standard imitation baselines."
+    "Quantify the asymmetry between privileged expert state (full visibility, low uncertainty) and student sensor observations.",
+    "Reduce expert advantages via interventions (e.g., masking privileged info, adding occlusions/noise, or generating learner-aware expert targets) so demonstrations match student perceptual limitations.",
+    "Evaluate the impact of asymmetry reduction on closed-loop robustness and driving metrics in simulated scenarios."
   ],
-  "impact": "Practitioners training end‑to‑end driving agents in simulation can get markedly better real‑world style closed‑loop behavior by aligning expert data with the student’s sensory experience, reducing the need for excessive domain randomization or post‑hoc fine‑tuning.",
+  "impact": "By aligning expert demonstrations with what sensor-based learners actually perceive, practitioners can train more robust, realistic imitation policies in simulation that transfer better to closed-loop driving tasks.",
   "visual_elements": [
-    "Side‑by‑side schematic: privileged expert view vs sensor‑based student view (showing occlusions and unseen actors).",
-    "Bar/line chart: closed‑loop success/failure rates comparing baseline imitation vs LEAD across scenarios.",
-    "Ablation heatmap: contribution of different asymmetry sources (visibility, uncertainty, noise) to performance drop.",
-    "Pipeline diagram: how expert demonstrations are modified/augmented to match student observations during training."
+    "Side-by-side diagram: privileged expert view (full scene) vs. student sensor view (occlusions, limited FOV) highlighting missing information.",
+    "Before/after trajectory overlay showing failure modes with asymmetric experts and improved trajectories after asymmetry reduction.",
+    "Bar chart of closed-loop performance metrics (collision rate, lane-keeping, success rate) comparing baseline vs. LEAD interventions.",
+    "Flowchart of the training pipeline: expert data → asymmetry reduction (mask/noise/learner-aware) → student policy training → closed-loop evaluation"
   ],
   "hashtags": [
     "#ImitationLearning",
     "#AutonomousDriving",
     "#Sim2Real",
-    "#EndToEndDriving",
-    "#RobustML"
+    "#RobustML",
+    "#EndToEndLearning"
   ],
   "paper_id": "2025-12-23-arxiv-lead_minimizing_learner_expert_asymmetry_in_end_to_end_driving",
   "paper_title": "LEAD: Minimizing Learner-Expert Asymmetry in End-to-End Driving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.20563v1"
     }
   ],
-  "generated_at": "2025-12-27T06:23:55.462935"
+  "generated_at": "2025-12-28T06:22:46.096546"
 }

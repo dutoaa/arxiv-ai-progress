@@ -1,24 +1,24 @@
 {
-  "key_insight": "C2LLM introduces a Pooling by Multihead Attention (PMA) module that converts token-level causal representations from a Qwen-2.5-Coder backbone into high-quality sequence embeddings, removing the EOS-token bottleneck and enabling stronger contrastive code embeddings in 0.5B and 7B variants.",
-  "problem_solved": "EOS-based pooling and naive averaging underuse the LLM's learned causal token representations, creating an information bottleneck for code retrieval and semantic search; C2LLM addresses this by aggregating information from all tokens while preserving pretrained causal features.",
+  "key_insight": "C2LLM applies an adaptive cross-attention / Pooling by Multihead Attention (PMA) module to convert LLM causal token representations into rich sequence embeddings, aggregating information from all tokens and removing the EOS-based bottleneck. The family includes 0.5B and 7B contrastively trained models built on Qwen-2.5-Coder for improved code retrieval.",
+  "problem_solved": "Standard EOS pooling wastes rich token-level causal representations from pretrained LLMs and limits retrieval quality; C2LLM addresses the information bottleneck by directly pooling across tokens to produce stronger code embeddings for retrieval.",
   "method": [
-    "Build on Qwen-2.5-Coder backbones to retain causal pretraining representations in 0.5B and 7B model sizes.",
-    "Insert a Pooling by Multihead Attention (PMA) module to compute sequence embeddings by attending over all token embeddings instead of relying on EOS or simple pooling.",
-    "Train the models with contrastive objectives to produce retrieval-ready code embeddings that distinguish similar vs. dissimilar code examples."
+    "Use Qwen-2.5-Coder backbones and provide model variants at 0.5B and 7B scales.",
+    "Introduce Pooling by Multihead Attention (PMA) / adaptive cross-attention pooling to aggregate token embeddings into a single sequence embedding that attends to all tokens.",
+    "Train embeddings contrastively so code and query vectors are aligned for retrieval tasks."
   ],
-  "impact": "Practitioners get more discriminative, retrieval-ready code embeddings that improve semantic code search, snippet/clone retrieval, and downstream code understanding tasks, with a drop-in pooling module that leverages existing LLM backbones.",
+  "impact": "Produces denser, more informative code embeddings that improve retrieval accuracy while preserving pretrained LLM knowledge, enabling better code search, recommendation, and downstream code understanding tools. Scales affordably across model sizes for practical deployment.",
   "visual_elements": [
-    "Architecture diagram: Qwen-2.5-Coder backbone -> PMA pooling -> embedding head (showing 0.5B and 7B variants).",
-    "Before vs After illustration: EOS-token pooling (information bottleneck) contrasted with PMA attention pooling across tokens.",
-    "Performance chart: retrieval metrics (e.g., recall@k / MRR) comparing C2LLM vs EOS pooling baselines.",
-    "Attention heatmap over a code snippet showing PMA attending to key tokens (identifiers, API calls, control flow)."
+    "Architecture diagram: Qwen-2.5-Coder backbone → PMA (cross-attention pooling) → sequence embedding",
+    "Token aggregation sketch: compare EOS pooling (single token) vs PMA (attention from pooling token to all tokens)",
+    "Bar/chart: retrieval performance (e.g., recall@k) of C2LLM vs EOS-pooled baselines across 0.5B and 7B",
+    "Flowchart: contrastive training loop for query-code pairs (positive/negative sampling)"
   ],
   "hashtags": [
-    "#CodeEmbeddings",
+    "#CodeRetrieval",
     "#ContrastiveLearning",
-    "#LargeLanguageModels",
-    "#CodeSearch",
-    "#RepresentationLearning"
+    "#CrossAttention",
+    "#CodeEmbeddings",
+    "#LLM"
   ],
   "paper_id": "2025-12-24-arxiv-c2llm_technical_report_a_new_frontier_in_code_retrieval_via_adaptive_cross_atten",
   "paper_title": "C2LLM Technical Report: A New Frontier in Code Retrieval via Adaptive Cross-Attention Pooling",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21332v1"
     }
   ],
-  "generated_at": "2025-12-27T06:21:32.032372"
+  "generated_at": "2025-12-28T06:21:16.154092"
 }
