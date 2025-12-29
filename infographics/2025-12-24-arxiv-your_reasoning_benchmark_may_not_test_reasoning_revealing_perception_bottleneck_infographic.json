@@ -1,24 +1,24 @@
 {
-  "key_insight": "Failures on abstract reasoning benchmarks (e.g., ARC, ARC-AGI) are often driven not by lack of core reasoning ability but by a perception bottleneck — vision and input-encoding errors prevent models from receiving the clean, symbolic inputs needed for reasoning. When perception is improved or replaced by ground-truth intermediate representations, reasoning performance increases markedly.",
-  "problem_solved": "The paper addresses the misattribution of model failures on abstract reasoning tasks: it disentangles whether low performance comes from reasoning itself or from upstream visual/perceptual failures that mask reasoning ability.",
+  "key_insight": "Many failures on abstract reasoning benchmarks (e.g., ARC, ARC-AGI) are driven by a perception bottleneck—models struggle to parse visual inputs—not a lack of high-level reasoning. Fixing perception substantially narrows the gap attributed to reasoning deficits.",
+  "problem_solved": "Clarifies whether low performance on 'fluid' reasoning benchmarks reflects reasoning weakness or upstream perceptual failures, and demonstrates that benchmark design can conflate perception with reasoning.",
   "method": [
-    "Empirical analysis of VLMs on ARC and ARC-AGI tasks to quantify failure modes and error patterns attributed to perception vs reasoning.",
-    "Controlled interventions that replace or augment model perception (e.g., oracle/ground-truth intermediate representations, simplified synthetic inputs) to measure how much reasoning performance improves when perception is perfect or improved.",
-    "Diagnostic metrics and targeted experiments to isolate perception bottlenecks and to recommend benchmark designs that separately evaluate perception and reasoning."
+    "Analyze model errors on ARC-style tasks to separate perceptual mistakes (object detection, attribute extraction, segmentation) from logical inference errors.",
+    "Run controlled interventions: provide perfect or improved perceptual inputs (e.g., symbolic representations, corrected segmentations) and measure downstream reasoning performance.",
+    "Ablation studies and metrics that quantify how much performance gains come from fixing perception vs improving reasoning."
   ],
-  "impact": "Clarifies what current abstract-reasoning benchmarks actually measure and guides practitioners to (1) design evaluations that separate perception from reasoning, and (2) prioritize perceptual improvements or modular pipelines when appropriate, leading to more targeted progress in VLMs and reasoning systems.",
+  "impact": "Researchers and practitioners should re-evaluate benchmark interpretations and prioritize improving perception pipelines and dataset design; doing so leads to more accurate assessments of a model's true reasoning capacity.",
   "visual_elements": [
-    "Pipeline diagram: raw image → perception module (errors highlighted) → symbolic representation → reasoning module → solution, with the 'perception bottleneck' highlighted between image and symbol.",
-    "Bar chart: model performance on tasks with standard inputs vs. with oracle/ground-truth intermediate representations showing performance gain when perception is solved.",
-    "Before/after example panels: original ARC task image next to its cleaned/symbolic representation and the correct output to illustrate how perception defects change difficulty.",
-    "Error breakdown pie/stacked chart: proportion of failures attributed to perception vs. reasoning across evaluated models."
+    "Pipeline diagram separating Perception → Representation → Reasoning, with arrows showing where failures occur",
+    "Side-by-side examples of ARC tasks: original image, model input (with perceptual errors highlighted), and corrected symbolic input",
+    "Bar chart showing model accuracy before and after perceptual fixes to quantify the perception contribution",
+    "Flowchart or checklist for designing benchmarks that isolate reasoning from perception"
   ],
   "hashtags": [
-    "#AIbenchmarks",
-    "#PerceptionBottleneck",
+    "#AIEvaluation",
+    "#Benchmarks",
     "#VisionLanguage",
-    "#AbstractReasoning",
-    "#Evaluation"
+    "#PerceptionBottleneck",
+    "#Reasoning"
   ],
   "paper_id": "2025-12-24-arxiv-your_reasoning_benchmark_may_not_test_reasoning_revealing_perception_bottleneck",
   "paper_title": "Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21329v1"
     }
   ],
-  "generated_at": "2025-12-28T06:20:52.632601"
+  "generated_at": "2025-12-29T06:26:13.047097"
 }
