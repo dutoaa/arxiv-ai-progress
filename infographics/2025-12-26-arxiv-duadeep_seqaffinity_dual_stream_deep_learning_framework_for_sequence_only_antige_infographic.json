@@ -1,24 +1,24 @@
 {
-  "key_insight": "DuaDeep-SeqAffinity accurately predicts antigen–antibody binding affinity using only amino acid sequences via a dual-stream deep learning architecture, removing the need for 3D structural data. This enables fast, scalable affinity estimation directly from sequence information.",
-  "problem_solved": "Overcomes dependency on scarce and costly experimentally determined 3D structures by providing a sequence-only method for affinity prediction between antigens and antibodies.",
+  "key_insight": "DuaDeep-SeqAffinity predicts antigen–antibody binding affinity directly from amino acid sequences using a dual-stream hybrid deep network, eliminating dependence on scarce 3D structural data.",
+  "problem_solved": "Reduces the need for experimentally determined or computationally derived 3D structures for affinity prediction, enabling faster, scalable screening and design from sequence-only inputs.",
   "method": [
-    "Dual-stream encoder: separate neural encoders process antigen and antibody amino-acid sequences to capture domain-specific sequence features.",
-    "Cross-modal fusion: learned interaction module (e.g., cross-attention or concatenation + MLP) integrates encoded representations to model binding-related relationships.",
-    "Regression head: downstream predictor maps fused features to a continuous affinity score, with training leveraging pre-trained protein sequence models and supervised affinity labels."
+    "Dual-stream encoding: separate sequence encoders for antigen and antibody that extract complementary sequence-level features.",
+    "Cross-stream fusion: a hybrid fusion module (e.g., cross-attention/interaction layers) integrates encoded representations to model pairwise interaction signals.",
+    "End-to-end regression: a downstream head maps fused features to a continuous affinity score; training uses affinity-labeled sequence datasets with augmentation and regularization."
   ],
-  "impact": "Provides AI/ML practitioners a practical, scalable alternative to structure-dependent pipelines for antibody discovery, enabling high-throughput virtual screening and rapid hypothesis generation from sequence data alone.",
+  "impact": "Enables rapid, structure-free affinity estimation useful for high-throughput antibody screening, lead prioritization, and sequence-driven design workflows — lowering experimental cost and accelerating ML-driven discovery.",
   "visual_elements": [
-    "Architecture diagram showing two parallel sequence encoders (antigen, antibody) feeding into a fusion module and a regression output",
-    "Sequence-to-affinity pipeline flowchart: raw sequences → encoders → fusion → predicted affinity",
-    "Attention/residue map heatmap highlighting predicted interacting residue regions between antigen and antibody",
-    "Bar or scatter plot comparing predicted vs. measured affinity (for model validation) to illustrate performance and calibration"
+    "Schematic of the dual-stream model: two sequence encoders (antigen, antibody) feeding a fusion module and regression head.",
+    "Pipeline flowchart: raw sequences → encoding → fusion → predicted affinity score (with example inputs/outputs).",
+    "Performance chart: predicted vs measured affinity scatterplot (or bar chart vs baseline methods) to convey accuracy gains.",
+    "Residue-level attention heatmap or importance map over paired sequences to illustrate interpretable interaction hotspots."
   ],
   "hashtags": [
-    "#ProteinML",
-    "#DeepLearning",
+    "#ProteinAI",
     "#AntibodyDesign",
-    "#SequenceBased",
-    "#DrugDiscovery"
+    "#SequenceModeling",
+    "#DeepLearning",
+    "#ComputationalBiology"
   ],
   "paper_id": "2025-12-26-arxiv-duadeep_seqaffinity_dual_stream_deep_learning_framework_for_sequence_only_antige",
   "paper_title": "DuaDeep-SeqAffinity: Dual-Stream Deep Learning Framework for Sequence-Only Antigen-Antibody Affinity Prediction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.22007v1"
     }
   ],
-  "generated_at": "2025-12-29T06:22:57.372917"
+  "generated_at": "2025-12-30T06:23:53.014277"
 }

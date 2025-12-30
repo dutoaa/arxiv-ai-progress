@@ -1,23 +1,23 @@
 {
-  "key_insight": "Introduce a trainable, adversarial parametric editor that 'looks closer' at visual features and edits VLM behavior to reduce hallucinations by weakening harmful linguistic priors and strengthening visual grounding.",
-  "problem_solved": "VLMs often hallucinate—producing text not supported by the image—because they over-rely on language priors and insufficiently integrate visual evidence. This paper addresses the lack of a trainable, controllable mechanism to correct those misalignments without breaking model capabilities.",
+  "key_insight": "Introduce a trainable, adversarial parametric editing framework that directly updates VLM parameters to reduce hallucinated outputs by forcing stronger alignment with visual features rather than relying on linguistic priors.",
+  "problem_solved": "Addresses persistent hallucinations in vision-language models caused by over-reliance on language priors and weak visual-feature integration, replacing brittle heuristic decoding fixes with a learnable model-editing approach.",
   "method": [
-    "Adversarial parametric editor: a small trainable module that applies targeted edits to the VLM’s internal representations to counteract hallucination-inducing signals.",
-    "Adversarial training objective: generate challenging visual–text pairs and optimize the editor to reduce hallucinated outputs while enforcing fidelity to true visual evidence.",
-    "Constrained editing and regularization: preserve original model skills by limiting edit magnitude and using losses that balance hallucination reduction with performance retention."
+    "Adversarial parametric editing: learn compact parameter edits to the VLM that reduce hallucination risk under adversarial prompts or inputs.",
+    "Alignment objective: train edits to increase visual grounding (contrastive/attention-based losses) while penalizing language-prior-driven, visually inconsistent generations.",
+    "Lightweight, targeted updates: apply and evaluate small, controllable parameter deltas so the model retains overall capabilities while mitigating hallucinations."
   ],
-  "impact": "Provides a practical, trainable tool to make VLM outputs more visually faithful and reliable, enabling safer and more accurate multimodal deployment without retraining entire models.",
+  "impact": "Provides a practical, trainable way for practitioners to harden VLMs against hallucinations without wholesale model retraining or brittle decoding hacks, improving reliability for downstream multimodal applications.",
   "visual_elements": [
-    "Pipeline diagram: original VLM -> parametric editor (highlighted) -> edited VLM outputs, showing training loop with adversarial examples.",
-    "Before/after examples: image + two captions (hallucinated vs corrected) to illustrate qualitative improvement.",
-    "Attention/heatmap overlays: show increased grounding on image regions after editing.",
-    "Bar chart or schematic: relative reduction in hallucination frequency (conceptual) and preserved performance on standard tasks."
+    "Before/After examples: side-by-side generated captions showing hallucination vs. corrected output with visual grounding highlights.",
+    "System diagram: flowchart of the adversarial parametric editing loop (input image+prompt → adversary → parameter edit → updated VLM).",
+    "Attention/heatmap overlays: visualization of increased visual feature attention after editing.",
+    "Evaluation charts: bar/line plots comparing hallucination rates and task accuracy across baseline, decoding-calibration, and edited models."
   ],
   "hashtags": [
     "#VisionLanguageModels",
     "#HallucinationMitigation",
-    "#AdversarialEditing",
     "#ModelEditing",
+    "#AdversarialTraining",
     "#MultimodalAI"
   ],
   "paper_id": "2025-12-26-arxiv-look_closer_an_adversarial_parametric_editing_framework_for_hallucination_mitiga",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21999v1"
     }
   ],
-  "generated_at": "2025-12-29T06:22:46.129270"
+  "generated_at": "2025-12-30T06:24:16.339696"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "BiPS converts question-conditioned masked views into bidirectional \"where-to-look\" signals that jointly steer perception and reasoning, letting VLMs attend to fine-grained visual evidence (e.g., chart polylines) more accurately and efficiently.",
-  "problem_solved": "Existing VLM intermediate cues miss fine-grained visual evidence, generalize poorly across domains, and add high inference-time cost; BiPS addresses focused visual grounding and efficiency for multimodal reasoning.",
+  "key_insight": "BiPS converts question-conditioned masked views into bidirectional \"where-to-look\" signals that steer a VLM toward the small, task-relevant visual evidence (and away from distractors), improving fine-grained multimodal reasoning while cutting inference cost.",
+  "problem_solved": "Existing VLM intermediate cues miss fine-grained visual features (e.g., polylines in charts), generalize poorly across domains, and are inference-time expensive; BiPS addresses accurate, efficient, and generalizable visual guidance for reasoning.",
   "method": [
-    "Generate question-conditioned masked views that hide irrelevant pixels while preserving task-relevant fine-grained features.",
-    "Derive bidirectional perceptual signals (perception→reasoning and reasoning→perception) that guide attention to precise visual evidence during reasoning.",
-    "Integrate these signals into VLMs as a lightweight module/latent tokens to improve accuracy on visual reasoning tasks and reduce inference computation."
+    "Generate question-conditioned masked views that reveal candidate visual evidence while suppressing irrelevant regions.",
+    "Produce bidirectional perceptual signals (positive \"look-here\" maps and negative \"ignore-this\" maps) to shape model attention both ways during reasoning.",
+    "Inject these lightweight signals as priors (e.g., attention masks or latent tokens) into the VLM pipeline to improve fine-grained evidence capture and reduce token/computation overhead."
   ],
-  "impact": "Practitioners gain more accurate and interpretable multimodal reasoning with lower inference cost and better cross-domain generalization—particularly valuable for chart/diagram understanding and other fine-grained vision-language tasks.",
+  "impact": "Enables more accurate, interpretable, and compute-efficient multimodal reasoning—particularly for tasks requiring fine visual detail (charts, diagrams)—and improves cross-domain robustness for practitioners deploying VLMs under resource constraints.",
   "visual_elements": [
-    "Pipeline diagram: input image + question → masked view generator → bidirectional signals → VLM reasoning",
-    "Attention overlay examples on charts (highlighting polylines, labels) showing what BiPS selects vs. baseline",
-    "Before/after bar chart comparing accuracy and inference cost (compute latency or FLOPs)",
-    "Schematic showing bidirectional arrows between perception and reasoning modules with example latent tokens"
+    "Pipeline diagram: question → masked view generator → bidirectional attention maps → VLM reasoning",
+    "Before/after example on a chart: raw image vs. BiPS highlights (polylines and markers) showing recovered fine-grained evidence",
+    "Bidirectional heatmaps: positive (where-to-look) and negative (where-not-to-look) overlaid on an image",
+    "Bar chart: accuracy vs. inference cost comparing baseline VLM, tool-injected cues, and BiPS"
   ],
   "hashtags": [
     "#VisionLanguage",
     "#MultimodalAI",
-    "#EfficientAI",
-    "#Interpretability",
+    "#EfficientML",
+    "#ExplainableAI",
     "#ChartUnderstanding"
   ],
   "paper_id": "2025-12-26-arxiv-see_less_see_right_bi_directional_perceptual_shaping_for_multimodal_reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.22120v1"
     }
   ],
-  "generated_at": "2025-12-29T06:25:50.861274"
+  "generated_at": "2025-12-30T06:22:59.371701"
 }
