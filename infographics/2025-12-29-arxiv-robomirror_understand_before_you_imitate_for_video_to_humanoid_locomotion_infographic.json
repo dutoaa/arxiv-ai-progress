@@ -1,24 +1,24 @@
 {
-  "key_insight": "Decouple visual understanding from control: first interpret the semantics and intent in a human locomotion video, then translate that understanding into humanoid control—resulting in more natural, robust video-to-humanoid imitation.",
-  "problem_solved": "Bridges the gap between raw visual observations and control for humanoid locomotion by overcoming semantic sparsity and staged-pipeline errors common in text-to-motion and naive pose-mimicry approaches.",
+  "key_insight": "RoboMirror introduces an explicit visual-understanding stage before imitation, extracting semantic intent from videos and using those semantics to drive humanoid locomotion—shifting from mechanical pose-mimicry to intent-driven control.",
+  "problem_solved": "Bridges the gap between raw video observations and robust humanoid locomotion by overcoming semantic sparsity and staged-pipeline errors in text-based or pose-only imitation methods, enabling learning from in-the-wild videos rather than curated mocap or sparse text commands.",
   "method": [
-    "Perception-first pipeline — a video understanding module extracts semantic cues (gait, terrain, contact patterns, goal/intent) rather than only per-frame poses.",
-    "Control module maps these high-level semantic descriptors to a physics-aware humanoid policy that performs stable locomotion through imitation learning and controller refinement.",
-    "Integrated training and evaluation in simulated physics (with real video supervision) to close the understanding-to-control loop and reduce cascading errors from staged pipelines."
+    "Visual understanding module: parse input video into semantic locomotion intents/affordances (e.g., speed, stepping pattern, obstacles) rather than raw pose sequences.",
+    "Intent-conditioned controller: train a humanoid policy that maps semantic representations to dynamically feasible locomotion actions, closing perception-to-control loop.",
+    "Joint training/transfer: align visual semantics and control via imitation/reinforcement learning to improve robustness and reduce staging errors from separate pipelines."
   ],
-  "impact": "Enables more generalizable, natural humanoid motion from unconstrained video sources without heavy reliance on motion-capture or sparse text prompts. Practitioners in robotics, animation, and embodied AI gain a principled way to convert visual intent into stable locomotion.",
+  "impact": "Enables practitioners to train humanoid controllers from unconstrained video data with more natural, adaptable behaviors; reduces dependence on mocap datasets and brittle text prompts, improving real-world applicability of video-to-motion systems.",
   "visual_elements": [
-    "Pipeline diagram: Video → Semantic extractor (gait/terrain/contacts) → Humanoid control policy",
-    "Side-by-side sequence: source video frames vs. reproduced humanoid motion (before vs after understanding module)",
-    "Attention/heatmap overlays on video showing extracted semantic cues (foot contacts, terrain, motion intent)",
-    "Performance chart: fidelity and robustness comparisons against text-to-motion and pose-mimic baselines"
+    "Pipeline diagram: input video → visual understanding (semantic intents) → intent-conditioned controller → humanoid motion.",
+    "Before/after comparison: side-by-side clips or schematic showing pose-mimicry vs intent-driven locomotion (naturalness, robustness).",
+    "Metric bar chart: improvements on realism, adaptability, and failure rates compared to text-to-motion and video-pose baselines.",
+    "Latent/attention visualization: heatmaps or embeddings showing what the perception module extracts from frames (speed, terrain, obstacles)."
   ],
   "hashtags": [
     "#Robotics",
     "#ImitationLearning",
+    "#ComputerVision",
     "#Humanoid",
-    "#VideoToMotion",
-    "#EmbodiedAI"
+    "#VideoToMotion"
   ],
   "paper_id": "2025-12-29-arxiv-robomirror_understand_before_you_imitate_for_video_to_humanoid_locomotion",
   "paper_title": "RoboMirror: Understand Before You Imitate for Video to Humanoid Locomotion",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.23649v1"
     }
   ],
-  "generated_at": "2025-12-30T06:21:39.980015"
+  "generated_at": "2025-12-31T06:21:56.268811"
 }

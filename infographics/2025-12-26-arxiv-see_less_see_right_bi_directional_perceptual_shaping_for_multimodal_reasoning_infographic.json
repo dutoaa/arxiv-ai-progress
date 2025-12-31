@@ -1,22 +1,22 @@
 {
-  "key_insight": "BiPS converts question-conditioned masked views into bidirectional \"where-to-look\" signals that steer a VLM toward the small, task-relevant visual evidence (and away from distractors), improving fine-grained multimodal reasoning while cutting inference cost.",
-  "problem_solved": "Existing VLM intermediate cues miss fine-grained visual features (e.g., polylines in charts), generalize poorly across domains, and are inference-time expensive; BiPS addresses accurate, efficient, and generalizable visual guidance for reasoning.",
+  "key_insight": "BiPS (Bi-directional Perceptual Shaping) converts question-conditioned masked visual views into two-way \"where-to-look\" signals that both propose relevant regions and suppress distracting details, enabling VLMs to focus on fine-grained visual evidence (e.g., chart polylines) with lower cost and better cross-domain generalization.",
+  "problem_solved": "Current VLM reasoning either injects coarse external visual cues or generates latent tokens that miss fine-grained evidence, generalize poorly across domains, and raise inference-time cost; BiPS addresses focused, efficient attention to subtle visual features.",
   "method": [
-    "Generate question-conditioned masked views that reveal candidate visual evidence while suppressing irrelevant regions.",
-    "Produce bidirectional perceptual signals (positive \"look-here\" maps and negative \"ignore-this\" maps) to shape model attention both ways during reasoning.",
-    "Inject these lightweight signals as priors (e.g., attention masks or latent tokens) into the VLM pipeline to improve fine-grained evidence capture and reduce token/computation overhead."
+    "Generate question-conditioned masked views of the input image to expose candidate visual cues while hiding irrelevant content.",
+    "Produce bidirectional signals: positive cues indicating where to attend and negative cues indicating where to ignore, shaping the model's perceptual attention during reasoning.",
+    "Integrate these signals into the multimodal reasoning pipeline to improve detection of fine-grained evidence, reduce redundant latent tokens, and lower inference cost."
   ],
-  "impact": "Enables more accurate, interpretable, and compute-efficient multimodal reasoning—particularly for tasks requiring fine visual detail (charts, diagrams)—and improves cross-domain robustness for practitioners deploying VLMs under resource constraints.",
+  "impact": "Enables more accurate, efficient multimodal reasoning on tasks requiring fine-grained visual evidence (charts, diagrams, small objects) and improves robustness across domains while reducing inference overhead—valuable for deploying VLMs in resource-constrained or production settings.",
   "visual_elements": [
-    "Pipeline diagram: question → masked view generator → bidirectional attention maps → VLM reasoning",
-    "Before/after example on a chart: raw image vs. BiPS highlights (polylines and markers) showing recovered fine-grained evidence",
-    "Bidirectional heatmaps: positive (where-to-look) and negative (where-not-to-look) overlaid on an image",
-    "Bar chart: accuracy vs. inference cost comparing baseline VLM, tool-injected cues, and BiPS"
+    "Pipeline diagram: input image → question-conditioned masked views → bidirectional signals → VLM reasoning (highlight flow and modules).",
+    "Side-by-side attention maps: baseline vs. BiPS showing focused attention on polylines or small chart elements.",
+    "Before/after examples: query + image with predicted answer and marked fine-grained evidence locations.",
+    "Bar chart comparing inference time, token count, and accuracy across baseline, external-cue, and BiPS approaches."
   ],
   "hashtags": [
     "#VisionLanguage",
     "#MultimodalAI",
-    "#EfficientML",
+    "#EfficientInference",
     "#ExplainableAI",
     "#ChartUnderstanding"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.22120v1"
     }
   ],
-  "generated_at": "2025-12-30T06:22:59.371701"
+  "generated_at": "2025-12-31T06:23:48.167596"
 }

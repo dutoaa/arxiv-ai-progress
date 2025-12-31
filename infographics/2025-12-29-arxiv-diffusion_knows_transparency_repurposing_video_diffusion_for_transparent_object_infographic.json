@@ -1,24 +1,24 @@
 {
-  "key_insight": "Video diffusion models already internalize optical cues of transparency (refraction, reflection, transmission); repurposing their learned temporal and photometric knowledge enables accurate depth and normal estimation for transparent objects.",
-  "problem_solved": "Transparent and reflective objects break assumptions of stereo, ToF and discriminative monocular methods, producing holes and temporally unstable depth/normal estimates; this work recovers reliable geometry for such challenging materials.",
+  "key_insight": "Pretrained video diffusion models have implicitly learned optical rules of transparency (refraction, reflection, transmission); by repurposing these models and training on a synthetic transparent/reflective video corpus, we can recover accurate depth and surface normals for transparent objects.",
+  "problem_solved": "Traditional depth sensors and discriminative monocular models fail on transparent and reflective objects—producing holes, wrong values and temporally unstable estimates—this work tackles reliable depth and normal estimation for transparent/reflective scenes.",
   "method": [
-    "Construct TransPhy3D: a large synthetic video corpus of transparent/reflective scenes (11k+ sequences) to expose models to diverse transparent phenomena.",
-    "Leverage modern video diffusion models' internal representations of transparency — extract or finetune their temporal/photometric priors to predict per-frame depth and surface normals.",
-    "Train a downstream estimator that combines diffusion-derived cues with geometric priors to produce dense, temporally stable depth and normal maps for transparent objects."
+    "Construct TransPhy3D: a large synthetic video corpus of transparent and reflective scenes (≈11k sequences) to expose models to realistic transparent phenomena.",
+    "Repurpose pretrained video diffusion models as geometric priors—extracting or conditioning on internal representations to infer dense depth and surface normals for transparent objects.",
+    "Train/finetune a geometry prediction head with temporal consistency constraints so outputs are dense, accurate and temporally stable across video frames."
   ],
-  "impact": "Provides a practical route to robust geometry estimation for transparent materials using existing generative models and synthetic data, improving perception reliability for robotics, AR/VR, and 3D reconstruction.",
+  "impact": "Makes robust 3D perception of transparent and reflective objects practical for applications like robotics, AR/VR and 3D reconstruction by filling gaps left by stereo/ToF and standard monocular methods, improving accuracy and temporal stability.",
   "visual_elements": [
-    "Before/after comparison: RGB frame, baseline depth (holes/noisy), TransPhy3D depth & normals (dense, stable) side-by-side.",
-    "Pipeline diagram: Video diffusion model → feature extraction → geometry estimator → depth & normal outputs.",
-    "Dataset snapshot: montage of synthetic scenes showing refraction/reflection variations with a small bar chart listing 11k+ sequences and diversity attributes.",
-    "Temporal stability plot: per-frame depth error over a sequence comparing baseline vs. TransPhy3D-based method."
+    "Before/after comparison: input RGB video → baseline depth (holes/artifacts) → TransPhy3D+diffusion depth & normals",
+    "Pipeline diagram: pretrained video diffusion model + TransPhy3D → geometry extraction/finetuning → depth & normal outputs",
+    "Dataset snapshot: montage of synthetic scenes showing refraction/reflection effects and a small chart with dataset size (≈11k sequences)",
+    "Qualitative temporal sequence: frame-by-frame depth/normal consistency on a moving transparent object"
   ],
   "hashtags": [
     "#TransparentObjects",
     "#DepthEstimation",
     "#VideoDiffusion",
-    "#SyntheticData",
-    "#3DComputerVision"
+    "#3DPerception",
+    "#ComputerVision"
   ],
   "paper_id": "2025-12-29-arxiv-diffusion_knows_transparency_repurposing_video_diffusion_for_transparent_object",
   "paper_title": "Diffusion Knows Transparency: Repurposing Video Diffusion for Transparent Object Depth and Normal Estimation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.23705v1"
     }
   ],
-  "generated_at": "2025-12-30T06:22:22.007388"
+  "generated_at": "2025-12-31T06:22:49.320749"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Yume-1.5 delivers text-guided, interactive world generation by combining a compact diffusion backbone, efficient sampling, and a history-aware state representation — enabling realistic, explorable worlds with far lower latency and parameter cost than prior methods.",
-  "problem_solved": "Existing diffusion-based interactive world generators are too large, slow (many inference steps), and accumulate growing historical context, and most lack precise text-conditioned control. Yume-1.5 tackles these bottlenecks to enable real-time, text-controlled generation and interaction.",
+  "key_insight": "Yume-1.5 delivers text-controlled, interactive world generation by combining an efficient diffusion-based generator with compact context management and fast sampling, enabling realistic, explorable scenes in near real-time.",
+  "problem_solved": "Addresses oversized models, long multi-step inference, and unbounded historical context growth in prior interactive world generators, while adding explicit text-conditioned control for generation.",
   "method": [
-    "Compact text-conditioned diffusion backbone: a parameter-efficient model architecture that supports natural-language conditioning for direct text control of content and behaviours.",
-    "Fast sampling and model distillation: techniques to drastically reduce inference steps and runtime while preserving generation quality for interactive use.",
-    "History-aware state encoding: lightweight memory or compressed context mechanism that maintains long-term scene consistency without unbounded context growth."
+    "Efficient diffusion backbone with fast-sampling/distillation to drastically reduce inference steps and latency.",
+    "Compact history encoding (memory compression or recurrent state) to bound context growth and support continuous interactive updates.",
+    "Text-conditioning module that maps user instructions to controllable world edits and generation, enabling fine-grained text-driven interaction."
   ],
-  "impact": "Makes real-time, text-driven world generation practical for applications like games, simulation, and AR by reducing compute, latency, and memory overhead, while preserving rich interactive behaviors and user control.",
+  "impact": "Enables deployable, low-latency text-to-world systems suitable for real-time interactive applications (games, simulations, virtual environments), lowering compute requirements and improving UX for designers and users.",
   "visual_elements": [
-    "Pipeline diagram showing text input → compact diffusion model → fast sampler → history encoder → interactive world output",
-    "Bar chart comparing parameter count and inference latency (Yume-1.5 vs prior methods)",
-    "Before/after sample grid: same text prompt rendered by baseline (slow/large) vs Yume-1.5 (real-time/compact)",
-    "Block diagram highlighting the history/state module and how it keeps scene consistency across interactions"
+    "Architecture diagram: text input → conditioning module → efficient diffusion generator → world state, with a compact memory module shown.",
+    "Latency vs. prior methods chart: inference steps and end-to-end response time comparison highlighting reduced steps/compute.",
+    "Timeline or interaction loop: user text edit → incremental world update → preserve bounded history (memory compression) — illustrating real-time interaction.",
+    "Before/after examples: short sequence showing text instruction and resulting world edit (e.g., 'add river' → updated scene)."
   ],
   "hashtags": [
-    "#GenerativeAI",
     "#DiffusionModels",
-    "#InteractiveWorlds",
-    "#RealTimeAI",
-    "#TextControl"
+    "#InteractiveAI",
+    "#TextToWorld",
+    "#RealTimeGeneration",
+    "#Yume1_5"
   ],
   "paper_id": "2025-12-26-arxiv-yume_1_5_a_text_controlled_interactive_world_generation_model",
   "paper_title": "Yume-1.5: A Text-Controlled Interactive World Generation Model",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.22096v1"
     }
   ],
-  "generated_at": "2025-12-29T06:25:23.149884"
+  "generated_at": "2025-12-31T06:24:50.651951"
 }

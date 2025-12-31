@@ -1,24 +1,24 @@
 {
-  "key_insight": "Stream-DiffVSR enables high-quality, perceptual video super-resolution in streaming/online settings by using a causally conditioned diffusion model with a distilled 4-step denoiser and auto-regressive temporal guidance to avoid future-frame dependency and multi-step latency.",
-  "problem_solved": "Existing diffusion-based VSR methods require future frames and many denoising steps, making them too slow and impractical for latency-sensitive, real-time or streaming applications.",
+  "key_insight": "Stream-DiffVSR makes diffusion-based video super-resolution practical for streaming by combining a causally conditioned diffusion model with a four-step distilled denoiser and an Auto-regressive Temporal Guidance module, enabling high-quality SR using only past frames and very few denoising steps.",
+  "problem_solved": "Overcomes the high latency and future-frame dependency of diffusion VSR methods, enabling online/streamable super-resolution suitable for latency-sensitive applications.",
   "method": [
-    "Causal conditioning: model operates strictly on past frames (no future frames) to support online/streaming use.",
-    "Four-step distilled denoiser: highly accelerated diffusion inference via 4-step distillation for low-latency outputs.",
-    "Auto-regressive Temporal Guidance (ARTG): injects motion-aligned, auto-regressive cues to preserve temporal consistency and improve per-frame perceptual quality."
+    "Causally conditioned diffusion that operates strictly on past frames to enable online/streaming processing.",
+    "Four-step distilled denoiser for fast, low-step inference while retaining diffusion-quality perceptual results.",
+    "Auto-regressive Temporal Guidance (ARTG) that injects motion-aligned cues from previous frames/outputs to preserve temporal consistency without future-frame access."
   ],
-  "impact": "Enables deployment of perceptually strong VSR in real-time/streaming pipelines (e.g., video conferencing, live broadcast, edge devices) by cutting latency and compute while retaining diffusion-quality outputs.",
+  "impact": "Makes diffusion-quality video super-resolution feasible in real-time and edge scenarios (live streaming, video calls, on-device enhancement) by drastically reducing inference time and removing dependence on future frames, lowering the barrier to practical deployment.",
   "visual_elements": [
-    "Pipeline diagram: past frames → ARTG (motion alignment) → 4-step distilled denoiser → enhanced frame (online loop)",
-    "Latency vs. perceptual-quality chart: compare Stream-DiffVSR to prior diffusion and deterministic VSR methods (show large quality gain at low latency)",
-    "Temporal consistency panel: side-by-side frame sequence (original, baseline, Stream-DiffVSR) highlighting motion fidelity and artifact reduction",
-    "Icon row: symbols for ‘no future frames’, ‘4-step speedup’, ‘real-time/streaming’, and ‘high perceptual quality’"
+    "Pipeline diagram: causal input stream → ARTG module → 4-step distilled denoiser → output, with arrows showing no future-frame access",
+    "Latency vs. quality chart: compare Stream-DiffVSR to prior diffusion and deterministic VSR methods (inference steps and perceptual score)",
+    "Before/after frame strip (temporal sequence) highlighting temporal consistency and motion alignment across frames",
+    "Icons/illustrations for applications: live streaming, video call, edge device to emphasize low-latency use cases"
   ],
   "hashtags": [
     "#VideoSuperResolution",
     "#DiffusionModels",
-    "#LowLatency",
+    "#LowLatencyAI",
     "#StreamingAI",
-    "#RealTimeInference"
+    "#RealTimeVSR"
   ],
   "paper_id": "2025-12-29-arxiv-stream_diffvsr_low_latency_streamable_video_super_resolution_via_auto_regressive",
   "paper_title": "Stream-DiffVSR: Low-Latency Streamable Video Super-Resolution via Auto-Regressive Diffusion",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.23709v1"
     }
   ],
-  "generated_at": "2025-12-30T06:22:46.797717"
+  "generated_at": "2025-12-31T06:23:11.464771"
 }

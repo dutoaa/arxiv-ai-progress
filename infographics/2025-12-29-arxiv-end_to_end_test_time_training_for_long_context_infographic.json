@@ -1,23 +1,23 @@
 {
-  "key_insight": "Treat long-context language modeling as a continual learning problem: keep a standard sliding-window Transformer but continue learning at test time via next-token prediction to compress the observed context into model weights, with meta-learned initialization to enable fast adaptation.",
-  "problem_solved": "Overcomes the limits of fixed-length context windows and ad-hoc architecture changes by enabling models to ingest and remember very long contexts through on-the-fly weight updates, improving coherence and retrieval across extended inputs.",
+  "key_insight": "Treat long-context language modeling as a continual learning problem: a standard sliding-window Transformer continues learning at test time via next-token prediction to compress context into its weights, with meta-learning at training time to prepare the model for fast adaptation.",
+  "problem_solved": "Enables models to effectively use arbitrarily long context without designing new attention architectures or blowing up memory/compute, by adapting model weights on-the-fly to absorb context information.",
   "method": [
-    "Use a standard Transformer with sliding-window attention as the backbone (no specialized long-context architecture).",
-    "Perform test-time continual learning: run next-token prediction on the incoming context and update model weights to 'compress' context information into parameters.",
-    "Meta-learn model initialization during training so the model is primed for fast, stable adaptation at test time (end-to-end test-time training pipeline)."
+    "Base model: standard Transformer with sliding-window attention to keep compute and memory bounded.",
+    "Test-time training (TTT): continue training on the provided context via next-token prediction so the model ‘compresses’ context into its parameters.",
+    "Meta-learning at training time: optimize initialization so the model can rapidly and stably adapt during TTT at inference."
   ],
-  "impact": "Practical pathway to scale effective context length without designing new attention architectures—enables existing models to adapt to very long documents, personalized context, and streaming inputs by changing training/inference procedure rather than model structure.",
+  "impact": "Provides a practical, architecture-agnostic path to scale context length and improve inference-time adaptation using existing models and modest compute, useful for long-document understanding and dynamic contexts.",
   "visual_elements": [
-    "Schematic of sliding-window Transformer with arrows showing small test-time weight updates integrating context into parameters.",
-    "Timeline/animation showing continual updates as new tokens arrive (context compression over time).",
-    "Performance comparison chart: accuracy or perplexity vs. context length for baseline vs. test-time-trained model.",
-    "Icon pair: a brain/weights icon + lightning bolt to represent meta-learned fast adaptation at test time."
+    "Two-panel pipeline diagram: (A) meta-training loop optimizing initialization, (B) test-time training loop compressing incoming context into model weights before final prediction.",
+    "Comparison chart: performance vs context length for baseline (no TTT) vs sliding-window + TTT, showing sustained gains at long ranges.",
+    "Schematic showing sliding-window attention with a ‘weight compression’ arrow from context tokens into model parameters (iconic representation of continual learning).",
+    "Timeline/flow graphic showing: incoming long document → sliding-window reads chunks → local TTT updates → final prediction, annotated with compute/memory notes."
   ],
   "hashtags": [
-    "#LongContext",
     "#TestTimeTraining",
-    "#MetaLearning",
+    "#LongContext",
     "#ContinualLearning",
+    "#MetaLearning",
     "#Transformers"
   ],
   "paper_id": "2025-12-29-arxiv-end_to_end_test_time_training_for_long_context",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.23675v1"
     }
   ],
-  "generated_at": "2025-12-30T06:21:52.020150"
+  "generated_at": "2025-12-31T06:22:08.375894"
 }

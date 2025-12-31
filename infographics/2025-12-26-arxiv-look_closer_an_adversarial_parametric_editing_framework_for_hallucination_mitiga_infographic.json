@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce a trainable, adversarial parametric editing framework that directly updates VLM parameters to reduce hallucinated outputs by forcing stronger alignment with visual features rather than relying on linguistic priors.",
-  "problem_solved": "Addresses persistent hallucinations in vision-language models caused by over-reliance on language priors and weak visual-feature integration, replacing brittle heuristic decoding fixes with a learnable model-editing approach.",
+  "key_insight": "Introduce a trainable adversarial parametric editing mechanism that actively adjusts VLM behavior to reduce hallucinations by strengthening visual grounding and weakening misleading linguistic priors.",
+  "problem_solved": "VLMs frequently produce hallucinated text that is inconsistent with the input image because they over-rely on language priors and insufficiently integrate visual features; this paper targets systematic mitigation of those hallucinations with a trainable, model-editing approach.",
   "method": [
-    "Adversarial parametric editing: learn compact parameter edits to the VLM that reduce hallucination risk under adversarial prompts or inputs.",
-    "Alignment objective: train edits to increase visual grounding (contrastive/attention-based losses) while penalizing language-prior-driven, visually inconsistent generations.",
-    "Lightweight, targeted updates: apply and evaluate small, controllable parameter deltas so the model retains overall capabilities while mitigating hallucinations."
+    "Parametric editing module: inject a small, learnable edit into the VLM (weights or adapter-like module) that can be optimized without retraining the whole model.",
+    "Adversarial training: generate adversarial queries or perturbations that expose hallucination tendencies and optimize the edit to reduce incorrect, non-visual predictions.",
+    "Evaluation & calibration: measure hallucination rates before/after the edit using visual-grounding benchmarks and preserve general language/vision performance while reducing hallucinations."
   ],
-  "impact": "Provides a practical, trainable way for practitioners to harden VLMs against hallucinations without wholesale model retraining or brittle decoding hacks, improving reliability for downstream multimodal applications.",
+  "impact": "Provides a practical, trainable way to reduce visual hallucinations in deployed VLMs, improving reliability and safety for vision-language applications without full model retraining.",
   "visual_elements": [
-    "Before/After examples: side-by-side generated captions showing hallucination vs. corrected output with visual grounding highlights.",
-    "System diagram: flowchart of the adversarial parametric editing loop (input image+prompt → adversary → parameter edit → updated VLM).",
-    "Attention/heatmap overlays: visualization of increased visual feature attention after editing.",
-    "Evaluation charts: bar/line plots comparing hallucination rates and task accuracy across baseline, decoding-calibration, and edited models."
+    "Pipeline diagram showing original VLM → parametric edit module → adversarial training loop → corrected outputs",
+    "Before/after examples: image with model captions that show hallucinated vs. corrected text",
+    "Attention/heatmap overlays illustrating improved visual grounding after editing",
+    "Bar chart comparing hallucination rates and standard task accuracy pre- and post-edit"
   ],
   "hashtags": [
     "#VisionLanguageModels",
     "#HallucinationMitigation",
-    "#ModelEditing",
     "#AdversarialTraining",
-    "#MultimodalAI"
+    "#ModelEditing",
+    "#VisualGrounding"
   ],
   "paper_id": "2025-12-26-arxiv-look_closer_an_adversarial_parametric_editing_framework_for_hallucination_mitiga",
   "paper_title": "Look Closer! An Adversarial Parametric Editing Framework for Hallucination Mitigation in VLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.21999v1"
     }
   ],
-  "generated_at": "2025-12-30T06:24:16.339696"
+  "generated_at": "2025-12-31T06:24:39.572454"
 }
