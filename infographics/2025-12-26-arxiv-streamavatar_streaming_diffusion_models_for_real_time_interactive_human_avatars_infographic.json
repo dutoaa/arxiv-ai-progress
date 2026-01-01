@@ -1,24 +1,24 @@
 {
-  "key_insight": "A streaming-friendly diffusion framework enables real-time, interactive full-body human avatars by redesigning diffusion pipelines for causal, low-latency generation without sacrificing visual fidelity.",
-  "problem_solved": "Diffusion-based avatar generation is typically non-causal and computationally heavy, preventing real-time streaming and limiting interactive systems to head-and-shoulder outputs; this work addresses low-latency, streaming-compatible generation and extends control to full-body gestures and motion.",
+  "key_insight": "StreamAvatar adapts diffusion-based avatar generation to a causal, low-latency streaming setting using a two-stage pipeline, enabling real-time, interactive full-body avatars instead of only head-and-shoulder illusions.",
+  "problem_solved": "Bridges the gap between high-quality diffusion avatar models and real-time interactive use by removing non-causal components and reducing computational cost so avatars can stream continuous gestures and body motion with low latency.",
   "method": [
-    "Two-stage architecture: a lightweight streaming front-end for fast temporal conditioning and a higher-fidelity refinement stage that operates incrementally to preserve quality.",
-    "Causal/streaming diffusion modifications: enforce temporal causality and operate on frame chunks or recurrent states to enable online, frame-by-frame generation with bounded latency.",
-    "Efficiency optimizations and control interfaces: model compression, early-exit or progressive refinement strategies plus multimodal control inputs (pose, audio, text) for interactive full-body motion."
+    "Two-stage streaming pipeline: a fast coarse stage that predicts temporally-consistent pose/structure and a refinement stage that generates high-fidelity appearance conditioned on the streamed state.",
+    "Causal/streaming diffusion design: convert non-causal diffusion sampling into an online, frame-by-frame process with temporal conditioning and state caching to avoid reprocessing history.",
+    "Efficiency optimizations for low latency: lightweight decoders, progressive refinement, and scheduling strategies that prioritize immediate frames while refining past frames asynchronously."
   ],
-  "impact": "Enables deployable, low-latency interactive avatars for telepresence, games, and virtual production, lowering compute barriers for real-time digital-human applications and opening diffusion models to streaming use-cases.",
+  "impact": "Enables deployable, real-time interactive digital humans for VR/AR, telepresence, live streaming, and games by making diffusion-quality avatars practical under tight latency and compute budgets.",
   "visual_elements": [
-    "Pipeline diagram showing two-stage streaming architecture: fast causal front-end → incremental high-fidelity refiner",
-    "Latency vs. quality plot comparing non-causal diffusion, streaming diffusion, and lightweight baselines",
-    "Before/after illustration: head-and-shoulder limited avatar vs. full-body interactive avatar producing gestures",
-    "Timeline/sequence visualization showing causal frame-by-frame generation and progressive refinement"
+    "Pipeline diagram showing two stages (coarse temporal predictor ➜ streaming diffusion refiners) with data flow and caching highlighted.",
+    "Latency vs. quality chart comparing non-streaming diffusion, prior real-time methods, and StreamAvatar to show trade-offs.",
+    "Before/after visual: head-and-shoulder-only output versus full-body streaming avatar demonstrating gestures.",
+    "Frame timeline illustrating causal streaming: incoming input, immediate coarse frame, later high-fidelity refinement."
   ],
   "hashtags": [
     "#DiffusionModels",
-    "#RealTimeAI",
-    "#DigitalHumans",
-    "#AvatarTech",
-    "#StreamingAI"
+    "#RealTimeAvatar",
+    "#StreamingAI",
+    "#DigitalHuman",
+    "#InteractiveAvatars"
   ],
   "paper_id": "2025-12-26-arxiv-streamavatar_streaming_diffusion_models_for_real_time_interactive_human_avatars",
   "paper_title": "StreamAvatar: Streaming Diffusion Models for Real-Time Interactive Human Avatars",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.22065v1"
     }
   ],
-  "generated_at": "2025-12-31T06:23:58.170234"
+  "generated_at": "2026-01-01T06:25:39.995180"
 }

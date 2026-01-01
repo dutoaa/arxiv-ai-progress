@@ -1,23 +1,23 @@
 {
-  "key_insight": "BiPS (Bi-directional Perceptual Shaping) converts question-conditioned masked visual views into two-way \"where-to-look\" signals that both propose relevant regions and suppress distracting details, enabling VLMs to focus on fine-grained visual evidence (e.g., chart polylines) with lower cost and better cross-domain generalization.",
-  "problem_solved": "Current VLM reasoning either injects coarse external visual cues or generates latent tokens that miss fine-grained evidence, generalize poorly across domains, and raise inference-time cost; BiPS addresses focused, efficient attention to subtle visual features.",
+  "key_insight": "BiPS converts question-conditioned masked visual views into bidirectional \"where-to-look\" signals that guide a VLM to focus on fine-grained visual evidence (e.g., chart polylines) during reasoning, improving accuracy and efficiency without heavy external tools.",
+  "problem_solved": "Current VLM reasoning either misses fine-grained visual cues, generalizes poorly across domains, or relies on expensive external visual tools; BiPS addresses these by producing compact, task-conditioned perceptual signals that direct attention to the right visual evidence.",
   "method": [
-    "Generate question-conditioned masked views of the input image to expose candidate visual cues while hiding irrelevant content.",
-    "Produce bidirectional signals: positive cues indicating where to attend and negative cues indicating where to ignore, shaping the model's perceptual attention during reasoning.",
-    "Integrate these signals into the multimodal reasoning pipeline to improve detection of fine-grained evidence, reduce redundant latent tokens, and lower inference cost."
+    "Create question-conditioned masked views of the input image to highlight candidate regions and fine-grained structures.",
+    "Generate bidirectional where-to-look signals (e.g., top-down task cues and bottom-up perceptual cues) that indicate which visual tokens/regions matter for the query.",
+    "Fuse these signals into the VLM reasoning loop so the model selectively attends to fine-grained evidence, reducing dependence on external tools and inference overhead."
   ],
-  "impact": "Enables more accurate, efficient multimodal reasoning on tasks requiring fine-grained visual evidence (charts, diagrams, small objects) and improves robustness across domains while reducing inference overhead—valuable for deploying VLMs in resource-constrained or production settings.",
+  "impact": "Makes multimodal reasoning more accurate and computationally efficient on tasks requiring fine visual details (charts, diagrams, small objects), enabling more robust cross-domain deployment of VLMs with lower inference cost.",
   "visual_elements": [
-    "Pipeline diagram: input image → question-conditioned masked views → bidirectional signals → VLM reasoning (highlight flow and modules).",
-    "Side-by-side attention maps: baseline vs. BiPS showing focused attention on polylines or small chart elements.",
-    "Before/after examples: query + image with predicted answer and marked fine-grained evidence locations.",
-    "Bar chart comparing inference time, token count, and accuracy across baseline, external-cue, and BiPS approaches."
+    "Pipeline diagram: masked view generation → bidirectional where-to-look signal computation → VLM fusion and reasoning.",
+    "Before/after example: a chart image with attention/heatmap overlays showing improved focus on polylines or small cues.",
+    "Performance vs. cost chart: accuracy or robustness gains plotted against inference-time/resource usage (BiPS vs. baselines).",
+    "Illustration comparing top-down (question-driven) and bottom-up (perceptual) signals merging into a single attention map."
   ],
   "hashtags": [
     "#VisionLanguage",
     "#MultimodalAI",
-    "#EfficientInference",
-    "#ExplainableAI",
+    "#EfficientAI",
+    "#Interpretability",
     "#ChartUnderstanding"
   ],
   "paper_id": "2025-12-26-arxiv-see_less_see_right_bi_directional_perceptual_shaping_for_multimodal_reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.22120v1"
     }
   ],
-  "generated_at": "2025-12-31T06:23:48.167596"
+  "generated_at": "2026-01-01T06:25:29.422985"
 }
