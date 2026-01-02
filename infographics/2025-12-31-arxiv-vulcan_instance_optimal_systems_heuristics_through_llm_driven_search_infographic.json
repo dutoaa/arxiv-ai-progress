@@ -1,24 +1,24 @@
 {
-  "key_insight": "Use LLMs to synthesize and iteratively search small, deployable heuristics that are tuned to the exact workload and hardware, producing instance‑optimal resource‑management policies automatically.",
-  "problem_solved": "Hand‑designed heuristics for scheduling, caching, and AQM are costly to create and quickly become suboptimal as workloads and hardware change; this work automates producing high‑performing, specialized heuristics for each deployment.",
+  "key_insight": "Large language models can drive a focused search loop that synthesizes instance‑optimal, deployable heuristics tailored to a specific workload and hardware, automating and outperforming manually engineered rules.",
+  "problem_solved": "Eliminates the costly, brittle process of hand‑designing and continuously re‑tuning systems heuristics (scheduling, caching, AQM, etc.) as hardware and workloads change, which often yields suboptimal performance.",
   "method": [
-    "Represent heuristics as compact, executable templates/programs and prompt an LLM to propose candidate heuristics.",
-    "Evaluate candidates empirically on the target workload and hardware (simulate/bench), score them, and use a search loop to refine proposals toward instance‑optimal behavior.",
-    "Constrain synthesis for safety/performance (cost limits, resource bounds) and produce lightweight heuristics suitable for real systems deployment."
+    "Prompt an LLM to generate candidate heuristic implementations (pseudo-code or parameterized policies) conditioned on workload and hardware profiles.",
+    "Evaluate candidates via fast simulation or real measurements and score them by per‑instance performance to find instance‑optimal variants.",
+    "Iteratively refine prompts/solutions using feedback from evaluations until a high‑performing, deployable heuristic is synthesized."
   ],
-  "impact": "AI/ML practitioners get automated, workload‑specific system policies that improve resource efficiency and application performance without manual tuning, shortening deployment cycles and adapting to changing hardware and workloads.",
+  "impact": "Automates heuristic design and tuning, cutting engineering effort and delivering higher throughput/ lower latency for ML training and serving across diverse hardware — making system-level optimizations accessible and reproducible for AI teams.",
   "visual_elements": [
-    "Pipeline diagram: LLM → generate candidate heuristics → run benchmarks on target hardware/workload → score → iterate.",
-    "Bar chart comparing performance (latency/throughput/resource usage) of hand‑tuned heuristic vs. Vulcan's instance‑optimal heuristic across several workloads.",
-    "Heatmap or matrix showing per‑workload/hardware gains (darker = bigger improvement) to illustrate instance specificity.",
-    "Inset showing a short example of a synthesized heuristic (pseudo‑code) and its runtime footprint (bytes/CPU)"
+    "Flowchart of the LLM-driven search loop: profile → LLM generates heuristics → evaluate → feedback → repeat",
+    "Before vs after bar chart showing performance (throughput/latency/resource utilization) comparing hand‑tuned vs Vulcan‑synthesized heuristics",
+    "Heatmap or scatter showing per-instance gains across different workloads and hardware configurations",
+    "Iconic illustration of generated pseudocode turning into deployable code (LLM output → simulator → production)"
   ],
   "hashtags": [
-    "#SystemsAI",
-    "#LLMSynthesis",
+    "#SystemsResearch",
+    "#LLMforSystems",
+    "#AutoTuning",
     "#ResourceManagement",
-    "#InstanceOptimal",
-    "#HeuristicAutomation"
+    "#Heuristics"
   ],
   "paper_id": "2025-12-31-arxiv-vulcan_instance_optimal_systems_heuristics_through_llm_driven_search",
   "paper_title": "Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.25065v1"
     }
   ],
-  "generated_at": "2026-01-01T06:21:37.392484"
+  "generated_at": "2026-01-02T06:22:04.531099"
 }

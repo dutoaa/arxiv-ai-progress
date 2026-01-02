@@ -1,24 +1,24 @@
 {
-  "key_insight": "Edit3r performs instant, feed-forward 3D reconstruction and instruction-guided edits from sparse, unposed, view-inconsistent images—producing photorealistic, view-consistent renders without per-scene optimization or pose estimation.",
-  "problem_solved": "Eliminates costly per-scene optimization and the need for multi-view posed/consistent edited training data, enabling fast 3D edits from real-world sparse and unposed image collections.",
+  "key_insight": "Edit3r is a feed-forward model that produces photorealistic, instruction-aligned 3D scene edits from a handful of unposed, view-inconsistent images in a single pass—no per-scene optimization or camera poses required.",
+  "problem_solved": "How to reconstruct and edit coherent 3D scenes when only sparse, unposed, and view-inconsistent edited images are available, avoiding slow per-scene optimization and pose estimation.",
   "method": [
-    "Single-pass feed-forward model that predicts 3D-aligned edits from unposed, instruction-edited image sets (no pose estimation or per-scene optimization).",
-    "Training strategy that addresses missing multi-view edited supervision by leveraging SAM-based masks, synthetic multi-view augmentations and consistency constraints to teach the model to infer view-consistent 3D edits.",
-    "Direct rendering of edited scenes to produce photorealistic, multi-view consistent outputs suitable for interactive editing."
+    "Feed-forward encoder-decoder that consumes unposed image set + edit instruction and directly predicts a 3D edit and renderable scene representation in one pass.",
+    "Training strategies to overcome lack of multi-view edited supervision (e.g., segmentation-guided consistency, synthetic multi-view augmentation, and consistency/photorealism losses) so predicted edits are view-consistent.",
+    "Render photorealistic multi-view outputs without requiring camera poses or per-scene optimization, enabling instant inference."
   ],
-  "impact": "Makes high-quality 3D scene editing fast and scalable, enabling interactive workflows and broader adoption in content creation, AR/VR, and data-efficient 3D modelling without expensive optimization or capture rigs.",
+  "impact": "Enables fast, scalable 3D scene editing workflows for content creation and vision tasks by removing expensive optimization and pose-recovery steps; useful for real-time applications, AR/VR content pipelines, and rapid prototyping.",
   "visual_elements": [
-    "Pipeline diagram: inputs (sparse unposed edited images + text instruction) → feed-forward Edit3r model → multi-view photorealistic 3D renders.",
-    "Before/after gallery: show view-inconsistent input images vs. Edit3r's view-consistent edited renders from novel viewpoints.",
-    "Training supervision schematic: illustrate SAM-based mask extraction + synthetic multi-view augmentation → consistency loss (to emphasize how supervision is constructed without multi-view edited ground truth).",
-    "Latency comparison bar chart: Edit3r (single pass) vs. per-scene optimization baselines (minutes–hours) to highlight speed advantage."
+    "Pipeline diagram: unposed image set + text instruction -> Edit3r feed-forward network -> edited 3D scene + multi-view renders",
+    "Before / after gallery: sparse input views vs. photorealistic multi-view renders of the edited scene",
+    "Comparison chart: latency and workflow steps (per-scene optimization + pose estimation) vs. Edit3r (single-pass zero-optimization)",
+    "Architecture block: training tricks visual (SAM-guided masks, synthetic multi-view augmentation, consistency losses)"
   ],
   "hashtags": [
+    "#Edit3r",
     "#3DEditing",
     "#NeuralRendering",
     "#ViewSynthesis",
-    "#SAM",
-    "#InteractiveAI"
+    "#RealTime3D"
   ],
   "paper_id": "2025-12-31-arxiv-edit3r_instant_3d_scene_editing_from_sparse_unposed_images",
   "paper_title": "Edit3r: Instant 3D Scene Editing from Sparse Unposed Images",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.25071v1"
     }
   ],
-  "generated_at": "2026-01-01T06:22:35.876111"
+  "generated_at": "2026-01-02T06:23:10.930687"
 }

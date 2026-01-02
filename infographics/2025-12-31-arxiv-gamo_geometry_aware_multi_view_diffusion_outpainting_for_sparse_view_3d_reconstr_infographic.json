@@ -1,24 +1,24 @@
 {
-  "key_insight": "A geometry-aware multi-view diffusion outpainting model generates pose-consistent novel views from very few input images, enabling reliable augmentation that substantially improves sparse-view 3D reconstruction.",
-  "problem_solved": "Overcomes the poor reconstruction quality when only a small number of camera views are available by synthesizing geometrically consistent additional views to fill coverage gaps.",
+  "key_insight": "GaMO uses a geometry-aware multi-view diffusion outpainting model to synthesize novel views that respect camera poses and scene geometry, enabling accurate 3D reconstruction from very sparse input views.",
+  "problem_solved": "Improves 3D reconstruction quality when only a few input images are available by producing geometry-consistent, multi-view augmentations that fill coverage gaps and reduce reconstruction artifacts.",
   "method": [
-    "Geometry-conditioned diffusion outpainting: a diffusion model synthesizes novel image regions and full novel views conditioned on input images, camera poses, and geometric cues (e.g., depth, masks).",
-    "Multi-view consistency enforcement: losses and constraints (epipolar/pose awareness, depth/alignment checks) ensure synthesized views are consistent across viewpoints.",
-    "Augmentation-to-reconstruction pipeline: generated views are fed into standard multi-view reconstruction backbones (e.g., MVS/NeRF) to produce higher-fidelity 3D geometry from sparse inputs."
+    "Geometry-aware diffusion outpainting: condition a diffusion model on sparse input views + camera poses to generate novel, view-consistent images.",
+    "Multi-view geometric constraints: enforce depth/pose/epipolar consistency and multi-view losses to keep synthesized views physically plausible.",
+    "Integration with reconstruction pipeline: augment inputs (or jointly optimize) for downstream MVS/NeRF-style 3D reconstruction to produce higher-fidelity geometry from few views."
   ],
-  "impact": "Enables practitioners to produce high-quality 3D reconstructions from far fewer photos, reducing data collection cost and widening applicability of 3D capture (AR/VR, robotics, cultural heritage). It makes diffusion-based view synthesis practical by explicitly encoding geometry for multi-view consistency.",
+  "impact": "Enables robust 3D scene capture with far fewer photographs, lowering data-collection cost and improving reconstruction reliability for AR/VR, robotics, and 3D content workflows.",
   "visual_elements": [
-    "Pipeline diagram: input sparse views + poses → geometry-aware diffusion outpainting → augmented view set → 3D reconstruction",
-    "Before/after comparison: sparse-view reconstruction vs. reconstruction with synthesized views (orthographic or mesh overlays)",
-    "Geometry consistency overlay: epipolar lines or depth maps showing alignment between real and synthesized views",
-    "Bar/line chart: reconstruction accuracy or completeness vs. number of real views (with and without GaMO augmentation)"
+    "Pipeline diagram: sparse input images + camera poses → GaMO diffusion outpainting → augmented views → 3D reconstruction output",
+    "Before/after comparison: reconstruction from raw sparse views vs. reconstruction after GaMO augmentation",
+    "Geometry consistency illustration: camera frustums, depth maps or epipolar lines showing constrained synthesis",
+    "Performance chart: reconstruction accuracy (e.g., IoU/Chamfer/PSNR) vs. number of input views comparing GaMO and baselines"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#DiffusionModels",
-    "#MultiView",
-    "#GeometryAware",
-    "#ComputerVision"
+    "#ComputerVision",
+    "#SparseViews",
+    "#GeometryAware"
   ],
   "paper_id": "2025-12-31-arxiv-gamo_geometry_aware_multi_view_diffusion_outpainting_for_sparse_view_3d_reconstr",
   "paper_title": "GaMO: Geometry-aware Multi-view Diffusion Outpainting for Sparse-View 3D Reconstruction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.25073v1"
     }
   ],
-  "generated_at": "2026-01-01T06:23:05.237252"
+  "generated_at": "2026-01-02T06:23:53.339629"
 }

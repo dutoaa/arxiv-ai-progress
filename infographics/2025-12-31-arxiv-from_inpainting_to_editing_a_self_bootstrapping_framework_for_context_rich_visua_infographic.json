@@ -1,24 +1,24 @@
 {
-  "key_insight": "Replace mask-based inpainting with a self-bootstrapping editing framework that decouples lip-motion synthesis from content hallucination, enabling context-rich, identity-preserving visual dubbing.",
-  "problem_solved": "Addresses the lack of ideal paired training data (videos differing only in lip motion) that forces models to both hallucinate missing content and synchronize lips, causing visual artifacts, identity drift, and context inconsistency.",
+  "key_insight": "Replace mask-based inpainting with a self-bootstrapping editing framework that learns to modify only lip motion while preserving identity and full visual context, avoiding simultaneous hallucination and synchronization.",
+  "problem_solved": "Addresses the lack of ideal paired training data for audio-driven visual dubbing — current inpainting paradigms force models to both hallucinate missing content and sync lips, causing artifacts, identity drift, and poor temporal consistency.",
   "method": [
-    "Self-bootstrapping data generation: synthesize pseudo-paired examples so the model learns targeted edits rather than full inpainting.",
-    "Editing-first architecture: a conditioned editing module operates on the mouth region while explicitly preserving surrounding context and identity cues.",
-    "Training losses & temporal constraints: combine perceptual/identity-preserving losses and temporal consistency objectives to reduce artifacts and flicker."
+    "Self-bootstrapping data loop: synthesize pseudo paired examples and iteratively refine them to create stronger supervision without requiring perfect real pairs.",
+    "Context-rich editing network: condition on the full frame and audio to edit lip motion only (not re-generate whole regions), decoupling synchronization from content hallucination.",
+    "Multi-objective training: combine lip-sync losses, identity-preservation and perceptual/temporal consistency objectives so edits remain realistic and stable over time."
   ],
-  "impact": "Provides a practical route to higher-quality, identity-faithful visual dubbing without needing perfect paired data — useful for dubbing, film post-production, and multimodal research pipelines where realism and context preservation matter.",
+  "impact": "Produces more realistic, identity-consistent dubbed videos with fewer visual artifacts and better temporal stability, making audio-driven dubbing more practical for film, localization, and content-creation pipelines.",
   "visual_elements": [
-    "Pipeline diagram showing self-bootstrapping loop (synthesize → train → edit) and separation of ‘lip edit’ vs ‘context preservation’ stages",
-    "Before/after frame comparisons highlighting reduced artifacts and preserved identity",
-    "Architecture block diagram illustrating conditioned editing module and loss terms (identity, perceptual, temporal)",
-    "Bar chart or radar plot comparing artifact rate, identity drift, and temporal stability against mask-inpainting baselines"
+    "Pipeline diagram showing: pseudo-pair synthesis → editor training → self-bootstrapping loop",
+    "Before/after side-by-side frames (mask-inpainting vs editing) to highlight reduced artifacts and preserved identity",
+    "Failure-case comparison chart (artifact rate, identity drift) for inpainting vs proposed method",
+    "Small icon set: audio waveform → lip motion overlay → preserved background/context"
   ],
   "hashtags": [
     "#VisualDubbing",
     "#LipSync",
-    "#SelfSupervised",
     "#VideoEditing",
-    "#MultimodalML"
+    "#SelfBootstrapping",
+    "#MultimodalAI"
   ],
   "paper_id": "2025-12-31-arxiv-from_inpainting_to_editing_a_self_bootstrapping_framework_for_context_rich_visua",
   "paper_title": "From Inpainting to Editing: A Self-Bootstrapping Framework for Context-Rich Visual Dubbing",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.25066v1"
     }
   ],
-  "generated_at": "2026-01-01T06:21:50.539976"
+  "generated_at": "2026-01-02T06:22:41.106634"
 }

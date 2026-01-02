@@ -1,23 +1,23 @@
 {
-  "key_insight": "A small, parameter-efficient fine-tuning layer (scPEFT) added to pretrained single-cell language models enables strong generalization to unseen diseases, treatments and cell types without full model re-training. It achieves better cross-condition performance while keeping compute and storage costs low.",
-  "problem_solved": "Full fine-tuning of large single-cell models is computationally expensive and often fails to generalize to novel biological conditions (new diseases, treatments, or rare cell types); scPEFT addresses efficient adaptation and improved out-of-distribution performance.",
+  "key_insight": "A parameter-efficient fine-tuning strategy (scPEFT) lets pre-trained single-cell language models be adapted with only a small number of additional parameters, substantially improving generalization to unseen diseases, treatments and cell types.",
+  "problem_solved": "Large single-cell language models are costly to fine-tune and often fail to generalize to novel biological conditions; scPEFT addresses limited data, compute, and poor out-of-distribution performance in single-cell applications.",
   "method": [
-    "Attach a lightweight, parameter-efficient fine-tuning module to a pretrained single-cell language model so base weights remain frozen or minimally changed.",
-    "Train only the added parameters on task-specific single-cell data (e.g., perturbations, disease labels), enabling rapid adaptation with far fewer trainable weights.",
-    "Evaluate transfer to unseen diseases/treatments/cell types to demonstrate improved accuracy and reduced compute/storage compared with full fine-tuning."
+    "Introduce scPEFT: attach a small set of task-specific, trainable parameters to a frozen pre-trained single-cell LLM so the core model remains unchanged.",
+    "Optimize only these lightweight modules (parameter-efficient updates) to adapt the model to new tasks or cohorts with limited data and compute.",
+    "Evaluate transfer to novel diseases, treatments and cell types, showing improved performance while using far fewer trainable parameters than full fine-tuning."
   ],
-  "impact": "scPEFT lowers the barrier to apply large single-cell models in new biological contexts by cutting compute and storage needs while improving robustness to out-of-distribution conditions — useful for researchers and engineers deploying models across labs and datasets.",
+  "impact": "Enables AI/ML practitioners and computational biologists to cheaply and quickly adapt large single-cell models to new experimental conditions, improving robustness and reducing compute, data and time requirements for deployment in research and clinical workflows.",
   "visual_elements": [
-    "Architecture diagram: base single-cell LLM (frozen) + small scPEFT adapter module highlighted",
-    "Bar chart: performance (accuracy/auROC) comparison — full fine-tune vs scPEFT vs no fine-tune on unseen conditions",
-    "Parameter-efficiency chart: trainable-parameters and compute/time comparison",
-    "Embedding visualization (UMAP/t-SNE): model representations before and after scPEFT showing better separation of unseen cell states"
+    "Architecture diagram: base single-cell LLM (frozen) + small scPEFT modules highlighted to show where parameters are added",
+    "Bar chart: performance (accuracy/metrics) comparing full fine-tuning, scPEFT and no fine-tuning across held-out diseases/treatments/cell types",
+    "Parameter-efficiency plot: trainable-parameter count vs. performance showing scPEFT's sweet spot",
+    "Embedding/UMAP before vs after scPEFT: improved separation/cluster structure for unseen cell types or treatment conditions"
   ],
   "hashtags": [
-    "#scPEFT",
-    "#SingleCellAI",
+    "#SingleCell",
     "#PEFT",
-    "#TransferLearning",
+    "#BioAI",
+    "#LargeLanguageModels",
     "#ComputationalBiology"
   ],
   "paper_id": "2025-12-31-nature-harnessing_the_power_of_single_cell_large_language_models_with_parameter_efficie",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01170-z"
     }
   ],
-  "generated_at": "2026-01-01T06:25:16.051362"
+  "generated_at": "2026-01-02T06:26:42.010693"
 }
