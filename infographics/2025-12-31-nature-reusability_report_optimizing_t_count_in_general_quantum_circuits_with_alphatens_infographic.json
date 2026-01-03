@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single pretrained AlphaTensor-Quantum model can be reused to optimize a wide variety of quantum circuits without retraining, achieving larger T-count reductions than circuit-specific approaches and demonstrating strong generalizability.",
-  "problem_solved": "Efficiently reducing costly T-gate counts across diverse quantum circuits without the need to retrain an optimizer for each new circuit family.",
+  "key_insight": "A single pre-trained AlphaTensor-Quantum model can be reused (without retraining) to optimize a wide variety of quantum circuits, achieving larger T-count reductions and demonstrating broad generalizability and efficiency.",
+  "problem_solved": "High T-counts increase fault-tolerant quantum resource costs and many optimizers are specialized or require retraining for new circuit families; this work addresses the need for a general, reusable optimizer that reduces T-cost across diverse circuits.",
   "method": [
-    "Reuse a pretrained AlphaTensor-Quantum model as a general optimizer instead of training per-circuit models",
-    "Extend the model and mapping pipeline so it can accept and optimize a broad range of circuit structures",
-    "Apply the learned optimization strategies to minimize T-counts across unseen circuit families, evaluating generalization and efficiency"
+    "Apply a pre-trained AlphaTensor-Quantum model directly to new circuit instances to search for T-reducing rewrites and decompositions without retraining.",
+    "Combine model-guided transformations with classical circuit decomposition and local rewrite heuristics to produce lower-T implementations.",
+    "Benchmark across a broad set of circuit families to quantify T-count reductions and validate generalizability and efficiency."
   ],
-  "impact": "This enables faster, more resource-efficient quantum algorithm deployment by cutting expensive T-gates broadly and reduces the engineering cost of maintaining separate optimizers—useful for ML practitioners working on quantum-aware tools and hardware-aware model deployment.",
+  "impact": "Makes quantum circuit optimization more practical and scalable by lowering fault-tolerant resource requirements without repeated model training, enabling faster iteration and reduced hardware cost for quantum ML and algorithm development.",
   "visual_elements": [
-    "Before/after bar chart comparing T-counts for multiple circuit families (showing percent reductions)",
-    "Pipeline diagram: pretrained AlphaTensor-Quantum → circuit encoding → optimization → optimized circuit (no retraining)",
-    "Scatter or heatmap showing generalization: performance (T-count reduction) vs. circuit type/size",
-    "Icons: reusable model, quantum gate (T), clock/efficiency, and scalability"
+    "Before/after bar chart showing T-count reductions across multiple circuit families (percentage and absolute drop).",
+    "Pipeline diagram: pre-trained AlphaTensor-Quantum -> apply to circuit -> model-guided rewrites -> optimized circuit.",
+    "Benchmark heatmap comparing T-count savings per circuit type and runtime overhead.",
+    "Annotated quantum circuit diagram highlighting removed/reduced T gates and transformed subcircuits."
   ],
   "hashtags": [
     "#QuantumComputing",
-    "#QuantumOptimization",
     "#AlphaTensor",
+    "#QuantumOptimization",
     "#TCountReduction",
-    "#ModelReusability"
+    "#QuantumAlgorithms"
   ],
   "paper_id": "2025-12-31-nature-reusability_report_optimizing_t_count_in_general_quantum_circuits_with_alphatens",
   "paper_title": "Reusability report: Optimizing T count in general quantum circuits with AlphaTensor-Quantum",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01166-9"
     }
   ],
-  "generated_at": "2026-01-02T06:25:19.407084"
+  "generated_at": "2026-01-03T06:22:09.895598"
 }

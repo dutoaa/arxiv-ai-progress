@@ -1,24 +1,24 @@
 {
-  "key_insight": "Edit3r is a feed-forward model that produces photorealistic, instruction-aligned 3D scene edits from a handful of unposed, view-inconsistent images in a single pass—no per-scene optimization or camera poses required.",
-  "problem_solved": "How to reconstruct and edit coherent 3D scenes when only sparse, unposed, and view-inconsistent edited images are available, avoiding slow per-scene optimization and pose estimation.",
+  "key_insight": "Edit3r is a feed‑forward model that reconstructs and applies instruction-aligned 3D edits in one pass from sparse, unposed, view‑inconsistent images—no per‑scene optimization or pose estimation required, enabling instant photorealistic renders.",
+  "problem_solved": "Removes the need for slow, per-scene optimization and camera pose estimates when producing multi-view consistent 3D edits from casual, sparse image collections and text/image instructions.",
   "method": [
-    "Feed-forward encoder-decoder that consumes unposed image set + edit instruction and directly predicts a 3D edit and renderable scene representation in one pass.",
-    "Training strategies to overcome lack of multi-view edited supervision (e.g., segmentation-guided consistency, synthetic multi-view augmentation, and consistency/photorealism losses) so predicted edits are view-consistent.",
-    "Render photorealistic multi-view outputs without requiring camera poses or per-scene optimization, enabling instant inference."
+    "A single-pass feed‑forward architecture that directly predicts 3D scene edits conditioned on unposed, view‑inconsistent input images and an edit instruction.",
+    "A training strategy that overcomes lack of multi‑view edited supervision by leveraging priors and consistency-enforcing signals (e.g., segmentation/geometry priors, synthetic view augmentation, and multi-view consistency losses) to learn view-coherent edits.",
+    "A photorealistic rendering module that produces multi-view consistent outputs without per-scene optimization or explicit pose estimation."
   ],
-  "impact": "Enables fast, scalable 3D scene editing workflows for content creation and vision tasks by removing expensive optimization and pose-recovery steps; useful for real-time applications, AR/VR content pipelines, and rapid prototyping.",
+  "impact": "Enables fast, scalable 3D scene editing from casual photo collections and instruction prompts—useful for interactive content creation, AR/VR pipelines, and rapid prototyping where latency and per-scene tuning are bottlenecks.",
   "visual_elements": [
-    "Pipeline diagram: unposed image set + text instruction -> Edit3r feed-forward network -> edited 3D scene + multi-view renders",
-    "Before / after gallery: sparse input views vs. photorealistic multi-view renders of the edited scene",
-    "Comparison chart: latency and workflow steps (per-scene optimization + pose estimation) vs. Edit3r (single-pass zero-optimization)",
-    "Architecture block: training tricks visual (SAM-guided masks, synthetic multi-view augmentation, consistency losses)"
+    "Pipeline diagram: unposed sparse images + instruction -> Edit3r feed‑forward model -> multi-view edited 3D renders",
+    "Before/after renders from multiple views showing view consistency of edits",
+    "Bar chart comparing inference time: Edit3r (single pass) vs per-scene optimization baselines",
+    "Annotated schematic of the training idea: sparse edits → priors / synthetic views → consistency losses"
   ],
   "hashtags": [
     "#Edit3r",
     "#3DEditing",
     "#NeuralRendering",
-    "#ViewSynthesis",
-    "#RealTime3D"
+    "#ZeroShotEditing",
+    "#ComputerVision"
   ],
   "paper_id": "2025-12-31-arxiv-edit3r_instant_3d_scene_editing_from_sparse_unposed_images",
   "paper_title": "Edit3r: Instant 3D Scene Editing from Sparse Unposed Images",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.25071v1"
     }
   ],
-  "generated_at": "2026-01-02T06:23:10.930687"
+  "generated_at": "2026-01-03T06:20:43.696607"
 }

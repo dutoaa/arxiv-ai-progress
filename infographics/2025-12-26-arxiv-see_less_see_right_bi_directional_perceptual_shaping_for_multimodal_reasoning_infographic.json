@@ -1,24 +1,24 @@
 {
-  "key_insight": "BiPS converts question-conditioned masked visual views into bidirectional \"where-to-look\" signals that guide a VLM to focus on fine-grained visual evidence (e.g., chart polylines) during reasoning, improving accuracy and efficiency without heavy external tools.",
-  "problem_solved": "Current VLM reasoning either misses fine-grained visual cues, generalizes poorly across domains, or relies on expensive external visual tools; BiPS addresses these by producing compact, task-conditioned perceptual signals that direct attention to the right visual evidence.",
+  "key_insight": "BiPS converts question-conditioned masked views into bidirectional where-to-look signals that guide both perception and reasoning, enabling VLMs to capture fine-grained visual evidence (e.g., chart polylines) more robustly and efficiently.",
+  "problem_solved": "Addresses VLMs' inability to reliably use fine-grained visual cues, poor cross-domain generalization of intermediate visual hints, and high inference-time cost from external/latent visual toolchains.",
   "method": [
-    "Create question-conditioned masked views of the input image to highlight candidate regions and fine-grained structures.",
-    "Generate bidirectional where-to-look signals (e.g., top-down task cues and bottom-up perceptual cues) that indicate which visual tokens/regions matter for the query.",
-    "Fuse these signals into the VLM reasoning loop so the model selectively attends to fine-grained evidence, reducing dependence on external tools and inference overhead."
+    "Generate question-conditioned masked visual views that focus on candidate regions relevant to the query.",
+    "Produce bidirectional where-to-look signals that shape both the visual encoder (what to perceive) and the reasoning module (what to use), creating tighter perception–reasoning feedback.",
+    "Design a lightweight integration that reduces dependency on heavy external tools or large latent token sets, improving inference efficiency and robustness to domain shifts."
   ],
-  "impact": "Makes multimodal reasoning more accurate and computationally efficient on tasks requiring fine visual details (charts, diagrams, small objects), enabling more robust cross-domain deployment of VLMs with lower inference cost.",
+  "impact": "Enables more accurate and efficient multimodal reasoning by surfacing fine-grained visual evidence and aligning perception with downstream reasoning—useful for chart understanding, VQA, and other vision-language tasks where detail and speed matter.",
   "visual_elements": [
-    "Pipeline diagram: masked view generation → bidirectional where-to-look signal computation → VLM fusion and reasoning.",
-    "Before/after example: a chart image with attention/heatmap overlays showing improved focus on polylines or small cues.",
-    "Performance vs. cost chart: accuracy or robustness gains plotted against inference-time/resource usage (BiPS vs. baselines).",
-    "Illustration comparing top-down (question-driven) and bottom-up (perceptual) signals merging into a single attention map."
+    "Pipeline diagram: question -> masked view generator -> bidirectional where-to-look signals -> perception & reasoning modules",
+    "Before/after comparison on a chart: missed polylines vs. recovered fine-grained evidence highlighted",
+    "Heatmap overlays showing bidirectional attention maps (perception-focused and reasoning-focused) on an image",
+    "Bar chart comparing inference latency and accuracy/robustness across domains (baseline vs. BiPS)"
   ],
   "hashtags": [
     "#VisionLanguage",
     "#MultimodalAI",
+    "#PerceptualShaping",
     "#EfficientAI",
-    "#Interpretability",
-    "#ChartUnderstanding"
+    "#VisualReasoning"
   ],
   "paper_id": "2025-12-26-arxiv-see_less_see_right_bi_directional_perceptual_shaping_for_multimodal_reasoning",
   "paper_title": "See Less, See Right: Bi-directional Perceptual Shaping For Multimodal Reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.22120v1"
     }
   ],
-  "generated_at": "2026-01-01T06:25:29.422985"
+  "generated_at": "2026-01-03T06:23:24.547268"
 }

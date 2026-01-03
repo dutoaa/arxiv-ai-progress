@@ -1,24 +1,24 @@
 {
-  "key_insight": "Predicting intermediate physical states (surface-current maps) with deep generative models, instead of generating device layouts directly, produces a more stable and accurate route for inverse design of tunable and stacked metasurfaces.",
-  "problem_solved": "Direct layout generation is unstable and ambiguous for complex, tunable or multilayer metasurfaces; the paper addresses non-uniqueness, poor robustness, and difficulty imposing physics constraints in inverse design.",
+  "key_insight": "Deep generative models that produce intermediate physical states (surface-current maps) instead of device layouts enable more stable, physically consistent inverse design for tunable and stacked metasurfaces.",
+  "problem_solved": "Directly mapping target electromagnetic responses to metasurface layouts is ill-posed and unstable—especially for tunable and multi-layer designs. The paper stabilizes inverse design by learning a physically meaningful intermediate representation that regularizes solutions and improves robustness and generalization.",
   "method": [
-    "Train a deep generative model to map desired optical/electromagnetic responses to intermediate surface-current maps (a physically meaningful representation).",
-    "Use a secondary translator or constrained optimization to convert predicted surface-current maps into manufacturable layout geometries for single and stacked/tunable metasurfaces.",
-    "Condition or regularize the models with physics constraints (e.g., Maxwell-consistent priors or simulated forward checks) to improve stability and generalization."
+    "Train a conditional deep generative model to produce surface-current maps conditioned on target electromagnetic responses and tuning parameters.",
+    "Use a differentiable forward model or surrogate to map generated surface currents to predicted electromagnetic outputs and (optionally) to convert currents into realizable layout patterns.",
+    "Exploit structured latent priors and interpolation in current-space to enable stable design for stacked/tunable metasurfaces and to resolve non-uniqueness."
   ],
-  "impact": "This approach makes inverse-design workflows more robust, interpretable, and faster to converge; ML practitioners can adopt intermediate physical states to improve stability and impose domain knowledge in other physics-based inverse problems.",
+  "impact": "Provides an ML-friendly recipe for physics-guided inverse design: using intermediate physical states improves stability, interpretability, and sample efficiency, and can be applied to other inverse problems in computational physics and engineering.",
   "visual_elements": [
-    "Pipeline diagram: target spectral response → generative model → surface-current map → layout generator → fabricated metasurface",
-    "Side-by-side comparison chart: stability/accuracy of intermediate-state approach vs direct-layout generation (error bars, failure cases)",
-    "Heatmap/field plot of a surface-current map annotated with corresponding layout and resulting optical response",
-    "Stacked metasurface schematic showing tunable layers and how conditioning variables feed into the model"
+    "Pipeline diagram: target response → generative model (latent) → surface-current map → forward solver → layout/verification.",
+    "Performance comparison chart: stability/accuracy vs direct-layout methods (error bars, failure modes).",
+    "Schematic of a stacked/tunable metasurface with annotated layer-wise currents and control parameters.",
+    "Latent-space visualization: interpolation trajectories showing smooth, physically plausible transitions between designs."
   ],
   "hashtags": [
     "#Metasurfaces",
     "#InverseDesign",
     "#GenerativeModels",
     "#PhysicsInformedML",
-    "#ComputationalOptics"
+    "#ComputationalElectromagnetics"
   ],
   "paper_id": "2025-12-31-nature-learning_intermediate_physical_states_for_inverse_metasurface_design",
   "paper_title": "Learning intermediate physical states for inverse metasurface design",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01167-8"
     }
   ],
-  "generated_at": "2026-01-02T06:24:48.857418"
+  "generated_at": "2026-01-03T06:21:39.050498"
 }

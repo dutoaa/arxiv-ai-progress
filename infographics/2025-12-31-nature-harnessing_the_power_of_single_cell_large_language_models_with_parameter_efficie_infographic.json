@@ -1,24 +1,24 @@
 {
-  "key_insight": "A parameter-efficient fine-tuning strategy (scPEFT) lets pre-trained single-cell language models be adapted with only a small number of additional parameters, substantially improving generalization to unseen diseases, treatments and cell types.",
-  "problem_solved": "Large single-cell language models are costly to fine-tune and often fail to generalize to novel biological conditions; scPEFT addresses limited data, compute, and poor out-of-distribution performance in single-cell applications.",
+  "key_insight": "scPEFT enables parameter-efficient fine-tuning of single-cell language models by adding and training a small number of parameters, substantially improving model generalization to unseen diseases, treatments, and cell types while keeping compute and memory costs low.",
+  "problem_solved": "Pretrained single-cell models struggle to generalize to new biological conditions and require expensive full fine-tuning; scPEFT addresses data scarcity, domain shift and high computational cost for adapting single-cell LLMs.",
   "method": [
-    "Introduce scPEFT: attach a small set of task-specific, trainable parameters to a frozen pre-trained single-cell LLM so the core model remains unchanged.",
-    "Optimize only these lightweight modules (parameter-efficient updates) to adapt the model to new tasks or cohorts with limited data and compute.",
-    "Evaluate transfer to novel diseases, treatments and cell types, showing improved performance while using far fewer trainable parameters than full fine-tuning."
+    "Apply a parameter-efficient fine-tuning strategy to pretrained single-cell language models by introducing lightweight, trainable modules while keeping the backbone largely frozen.",
+    "Train these small modules on limited labeled single-cell datasets so the model learns to generalize to unseen diseases, treatments and cell types with far fewer updated parameters.",
+    "Optimize for biological robustness and low compute overhead to make adaptation feasible on typical research infrastructure."
   ],
-  "impact": "Enables AI/ML practitioners and computational biologists to cheaply and quickly adapt large single-cell models to new experimental conditions, improving robustness and reducing compute, data and time requirements for deployment in research and clinical workflows.",
+  "impact": "Practitioners can adapt large single-cell models to new experimental conditions quickly and affordably, improving downstream analyses and accelerating translational biology without heavy compute or large labeled datasets.",
   "visual_elements": [
-    "Architecture diagram: base single-cell LLM (frozen) + small scPEFT modules highlighted to show where parameters are added",
-    "Bar chart: performance (accuracy/metrics) comparing full fine-tuning, scPEFT and no fine-tuning across held-out diseases/treatments/cell types",
-    "Parameter-efficiency plot: trainable-parameter count vs. performance showing scPEFT's sweet spot",
-    "Embedding/UMAP before vs after scPEFT: improved separation/cluster structure for unseen cell types or treatment conditions"
+    "Schematic of model: frozen backbone + small highlighted adapter modules (scPEFT) showing minimal parameter updates",
+    "Bar chart comparing performance (accuracy/robustness) of scPEFT vs full fine-tuning and no fine-tuning on unseen diseases/treatments/cell types",
+    "Embedding plot (UMAP/t-SNE) showing improved separation of cell states/conditions after scPEFT adaptation",
+    "Resource infographic comparing parameter count, GPU hours, and memory for scPEFT vs full fine-tuning"
   ],
   "hashtags": [
+    "#scPEFT",
     "#SingleCell",
     "#PEFT",
-    "#BioAI",
-    "#LargeLanguageModels",
-    "#ComputationalBiology"
+    "#scRNAseq",
+    "#TransferLearning"
   ],
   "paper_id": "2025-12-31-nature-harnessing_the_power_of_single_cell_large_language_models_with_parameter_efficie",
   "paper_title": "Harnessing the power of single-cell large language models with parameter-efficient fine-tuning using scPEFT",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01170-z"
     }
   ],
-  "generated_at": "2026-01-02T06:26:42.010693"
+  "generated_at": "2026-01-03T06:23:14.108335"
 }

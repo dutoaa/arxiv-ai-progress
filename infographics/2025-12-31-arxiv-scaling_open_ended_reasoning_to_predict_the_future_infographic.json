@@ -1,24 +1,24 @@
 {
-  "key_insight": "Language models can be trained to make open-ended, probabilistic forecasts at scale by synthesizing forecasting questions from daily news and training on that curated dataset while preventing temporal leakage during training and evaluation.",
-  "problem_solved": "Provides a scalable, curated pipeline and dataset for open-ended forecasting, addressing the lack of large training corpora and the risk of future-information leakage in evaluation.",
+  "key_insight": "Large-scale, automated synthesis of open-ended forecasting questions from daily news enables training language models (Qwen3) to reason about uncertain futures while avoiding evaluation leakage.",
+  "problem_solved": "Addresses the lack of scalable, curated training/evaluation data for open-ended forecasting and the risk of future-data leakage when training and testing models on temporal information.",
   "method": [
-    "Automatically synthesize novel forecasting questions from global news to build the OpenForesight dataset.",
-    "Train Qwen3 'thinking' models on the synthesized forecasting tasks to improve open-ended prediction capability.",
-    "Enforce strict temporal safeguards (offline news snapshots / time-based partitioning) to avoid leaking future information into training and evaluation."
+    "Automatically synthesize diverse forecasting questions from global daily news using a careful curation recipe to scale data generation.",
+    "Assemble the OpenForesight dataset and train Qwen3 'thinking' models on these forecasting tasks.",
+    "Prevent leakage by time-locking data (e.g., using offline/news-snapshot splits) during training and evaluation to ensure predictions are genuinely forward-looking."
   ],
-  "impact": "Enables practitioners to develop and reliably evaluate models for decision-making under uncertainty by supplying a scalable dataset and best practices to avoid temporal leakage, improving trustworthiness of forecasted outputs.",
+  "impact": "Provides practitioners a scalable benchmark and training dataset for building and evaluating models that reason about future uncertainty, improving robustness and trustworthiness for high-stakes forecasting.",
   "visual_elements": [
-    "Pipeline diagram: news feed → question synthesis → OpenForesight dataset → Qwen3 training → evaluation",
-    "Timeline graphic showing temporal partitioning/offline snapshot to illustrate anti-leakage safeguards",
-    "Sample QA card: example forecasting question with model prediction and confidence interval",
-    "Bar or area chart comparing dataset scale (OpenForesight) vs typical manually curated forecasting datasets"
+    "Pipeline diagram: News articles → automated question synthesis → OpenForesight dataset → Qwen3 training → time-locked evaluation",
+    "Example prompt + model response card showing an open-ended forecasting question and a probabilistic/qualitative answer",
+    "Bar/line chart comparing model calibration/accuracy with and without time-locking (leakage prevention)",
+    "Icon set: globe (global news), gears (automation), shield (leakage protection), crystal ball (forecasting)"
   ],
   "hashtags": [
     "#Forecasting",
     "#OpenForesight",
     "#Qwen3",
-    "#TemporalRobustness",
-    "#SyntheticDatasets"
+    "#EvaluationAI",
+    "#NewsML"
   ],
   "paper_id": "2025-12-31-arxiv-scaling_open_ended_reasoning_to_predict_the_future",
   "paper_title": "Scaling Open-Ended Reasoning to Predict the Future",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.25070v1"
     }
   ],
-  "generated_at": "2026-01-02T06:22:59.434883"
+  "generated_at": "2026-01-03T06:20:30.504823"
 }
