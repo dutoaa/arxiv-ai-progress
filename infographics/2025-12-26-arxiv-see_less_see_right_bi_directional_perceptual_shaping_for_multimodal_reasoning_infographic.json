@@ -1,24 +1,24 @@
 {
-  "key_insight": "BiPS converts question-conditioned masked views into bidirectional where-to-look signals that guide both perception and reasoning, enabling VLMs to capture fine-grained visual evidence (e.g., chart polylines) more robustly and efficiently.",
-  "problem_solved": "Addresses VLMs' inability to reliably use fine-grained visual cues, poor cross-domain generalization of intermediate visual hints, and high inference-time cost from external/latent visual toolchains.",
+  "key_insight": "Bi-directional Perceptual Shaping (BiPS) converts question-conditioned masked image views into bidirectional where-to-look signals that focus reasoning on fine-grained visual evidence (e.g., chart polylines) while reducing unnecessary visual processing.",
+  "problem_solved": "Existing VLM reasoning either misses fine-grained visual cues, generalizes poorly across domains, or adds high inference-time cost; BiPS addresses all three by selectively shaping perceptual input to emphasize relevant visual details.",
   "method": [
-    "Generate question-conditioned masked visual views that focus on candidate regions relevant to the query.",
-    "Produce bidirectional where-to-look signals that shape both the visual encoder (what to perceive) and the reasoning module (what to use), creating tighter perception–reasoning feedback.",
-    "Design a lightweight integration that reduces dependency on heavy external tools or large latent token sets, improving inference efficiency and robustness to domain shifts."
+    "Generate question-conditioned masked views of the input image to hide irrelevant regions and emphasize candidate evidence.",
+    "Produce bidirectional where-to-look signals (visual guidance in both image→reasoning and reasoning→image directions) to steer token extraction and multimodal reasoning toward fine-grained features.",
+    "Integrate the perceptual shaping as a lightweight module or latent-token conditioning step to improve accuracy while keeping inference cost low."
   ],
-  "impact": "Enables more accurate and efficient multimodal reasoning by surfacing fine-grained visual evidence and aligning perception with downstream reasoning—useful for chart understanding, VQA, and other vision-language tasks where detail and speed matter.",
+  "impact": "BiPS enables more accurate, efficient multimodal reasoning by capturing fine-grained visual evidence and improving cross-domain generalization — useful for chart understanding, visual question answering, and other VLM applications where detail matters.",
   "visual_elements": [
-    "Pipeline diagram: question -> masked view generator -> bidirectional where-to-look signals -> perception & reasoning modules",
-    "Before/after comparison on a chart: missed polylines vs. recovered fine-grained evidence highlighted",
-    "Heatmap overlays showing bidirectional attention maps (perception-focused and reasoning-focused) on an image",
-    "Bar chart comparing inference latency and accuracy/robustness across domains (baseline vs. BiPS)"
+    "Pipeline diagram: input image + question → masked views → bidirectional where-to-look maps → VLM reasoning → answer",
+    "Before/after comparison: model attention heatmaps showing missed vs. recovered fine-grained cues (e.g., polylines on charts)",
+    "Chart plotting trade-off: accuracy vs. inference cost comparing baseline VLMs and BiPS-enabled model",
+    "Icon set: masked view, bidirectional arrows (two-way attention), speed/efficiency gauge"
   ],
   "hashtags": [
     "#VisionLanguage",
     "#MultimodalAI",
-    "#PerceptualShaping",
-    "#EfficientAI",
-    "#VisualReasoning"
+    "#EfficientInference",
+    "#ExplainableAI",
+    "#ChartUnderstanding"
   ],
   "paper_id": "2025-12-26-arxiv-see_less_see_right_bi_directional_perceptual_shaping_for_multimodal_reasoning",
   "paper_title": "See Less, See Right: Bi-directional Perceptual Shaping For Multimodal Reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.22120v1"
     }
   ],
-  "generated_at": "2026-01-03T06:23:24.547268"
+  "generated_at": "2026-01-04T06:24:03.851069"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "Convert the noisy mask-inpainting paradigm into a two-stage, self-bootstrapping editing pipeline so models learn to change only lip motion under full visual context, drastically reducing hallucination and identity drift while improving sync fidelity.",
-  "problem_solved": "Addresses the lack of ideal training pairs for audio-driven visual dubbing — i.e., videos where only lip motion differs but all other visual context is identical — which causes existing inpainting-based methods to hallucinate background and identity and to produce visual artifacts.",
+  "key_insight": "Convert noisy inpainting supervision into a clean editing objective via a self-bootstrapping loop: use inpainting outputs to create pseudo paired data, then train an editor that focuses on lip motion while preserving full visual context.",
+  "problem_solved": "Addresses the lack of perfect training pairs for audio-driven visual dubbing, which forces prior methods to hallucinate missing context and causes visual artifacts and identity drift.",
   "method": [
-    "Self-bootstrapping data synthesis: generate high-quality pseudo paired examples by applying controlled inpainting/editing and filtering to create varied lip motions while keeping surrounding context consistent.",
-    "Context-rich editing model: train an editor conditioned on full-frame context + audio that edits only the mouth region (instead of hallucinating missing content), leveraging audio-visual sync, identity-preservation, and temporal-consistency losses.",
-    "Iterative refinement & filtering: iterate generation → selection → retraining to progressively improve pseudo-pairs and the editor, using perceptual/landmark-based metrics to enforce realism and identity retention."
+    "Stage an initial inpainting-based model to produce pseudo paired examples where only lip motion changes while context is incomplete.",
+    "Train a context-aware editing model to modify the lip region conditioned on audio and full-frame context, emphasizing identity and temporal consistency.",
+    "Iteratively refine the pseudo-dataset and editor (self-bootstrapping), using the editor's outputs as improved supervision to break the hallucination loop."
   ],
-  "impact": "Enables more realistic, identity-preserving audio-driven dubbing with fewer artifacts and stronger temporal coherence, making it practical for film post-production, dubbing, and virtual avatar applications. Also provides a scalable way to synthesize training data where real pairs are unavailable.",
+  "impact": "Provides a practical recipe to move from artifact-prone inpainting to robust, identity-preserving lip edits without requiring perfect paired data, making visual dubbing more reliable for research and production.",
   "visual_elements": [
-    "Pipeline diagram: self-bootstrapping loop showing synthesize → filter → train → edit stages",
-    "Before/after frame triplet: original, inpainting baseline, and proposed editor result to highlight reduced artifacts and preserved identity",
-    "Metric bar chart: trade-offs (lip-sync accuracy, identity similarity, visual artifact score) comparing baseline vs proposed",
-    "Icon set: audio waveform → mouth/face mask → edit brush to communicate audio-driven, targeted editing, and context preservation"
+    "Pipeline diagram showing: inpainting model -> pseudo-pair generation -> editor training -> iterative loop",
+    "Before/after frame triplet (original, inpainting result, editing result) to highlight artifact reduction and identity preservation",
+    "Chart comparing visual metrics (artifact rate, identity drift, lip-sync error) across iterations",
+    "Icon set: audio waveform, face/lips, iterative loop/bootstrapping, shield for identity preservation"
   ],
   "hashtags": [
     "#VisualDubbing",
-    "#AudioToVideo",
     "#LipSync",
-    "#SelfBootstrapping",
+    "#SelfSupervision",
+    "#VideoEditing",
     "#GenerativeAI"
   ],
   "paper_id": "2025-12-31-arxiv-from_inpainting_to_editing_a_self_bootstrapping_framework_for_context_rich_visua",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.25066v1"
     }
   ],
-  "generated_at": "2026-01-03T06:20:16.629430"
+  "generated_at": "2026-01-04T06:20:13.360032"
 }

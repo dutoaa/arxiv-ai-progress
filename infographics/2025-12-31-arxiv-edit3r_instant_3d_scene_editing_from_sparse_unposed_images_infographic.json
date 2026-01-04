@@ -1,23 +1,23 @@
 {
-  "key_insight": "Edit3r is a feed‑forward model that reconstructs and applies instruction-aligned 3D edits in one pass from sparse, unposed, view‑inconsistent images—no per‑scene optimization or pose estimation required, enabling instant photorealistic renders.",
-  "problem_solved": "Removes the need for slow, per-scene optimization and camera pose estimates when producing multi-view consistent 3D edits from casual, sparse image collections and text/image instructions.",
+  "key_insight": "Edit3r is a feed‑forward model that reconstructs and applies instruction‑aligned 3D edits from sparse, unposed, view‑inconsistent images in a single pass—removing the need for per‑scene optimization or pose estimation.",
+  "problem_solved": "Eliminates slow, per‑scene optimization and the requirement for posed, multi‑view consistent inputs by enabling instant, photorealistic 3D scene edits from sparse, unposed image sets.",
   "method": [
-    "A single-pass feed‑forward architecture that directly predicts 3D scene edits conditioned on unposed, view‑inconsistent input images and an edit instruction.",
-    "A training strategy that overcomes lack of multi‑view edited supervision by leveraging priors and consistency-enforcing signals (e.g., segmentation/geometry priors, synthetic view augmentation, and multi-view consistency losses) to learn view-coherent edits.",
-    "A photorealistic rendering module that produces multi-view consistent outputs without per-scene optimization or explicit pose estimation."
+    "Feed‑forward 3D reconstruction+editing network that directly predicts instruction‑aligned edits from sparse, unposed, view‑inconsistent images (no pose estimation or per‑scene optimization).",
+    "Training strategy that compensates for the lack of multi‑view consistent edited supervision via region extraction (e.g., SAM-based masks), synthetic multi‑view augmentation and consistency-aware supervision to teach the model multi‑view coherence.",
+    "Design focused on photorealistic rendering and single‑pass inference to produce multi‑view consistent edited scenes quickly at test time."
   ],
-  "impact": "Enables fast, scalable 3D scene editing from casual photo collections and instruction prompts—useful for interactive content creation, AR/VR pipelines, and rapid prototyping where latency and per-scene tuning are bottlenecks.",
+  "impact": "Enables fast, scalable 3D scene editing workflows for content creators and researchers by converting sparse, in-the-wild image edits into coherent 3D results without expensive optimization or pose labeling. This lowers the barrier for AR/VR content creation, rapid prototyping, and interactive editing.",
   "visual_elements": [
-    "Pipeline diagram: unposed sparse images + instruction -> Edit3r feed‑forward model -> multi-view edited 3D renders",
-    "Before/after renders from multiple views showing view consistency of edits",
-    "Bar chart comparing inference time: Edit3r (single pass) vs per-scene optimization baselines",
-    "Annotated schematic of the training idea: sparse edits → priors / synthetic views → consistency losses"
+    "Pipeline diagram: sparse unposed images + text instruction → Edit3r feed‑forward model → multi‑view edited 3D render outputs (single‑pass).",
+    "Before/after multi‑view comparisons showing view inconsistency in inputs vs. consistent edited renders.",
+    "Training schematic showing SAM-based region extraction, synthetic multi‑view augmentation, and consistency supervision loop.",
+    "Bar chart or timeline comparing per‑scene optimization baseline vs Edit3r single‑pass latency and workflow complexity."
   ],
   "hashtags": [
     "#Edit3r",
-    "#3DEditing",
+    "#3DReconstruction",
     "#NeuralRendering",
-    "#ZeroShotEditing",
+    "#ImageEditing",
     "#ComputerVision"
   ],
   "paper_id": "2025-12-31-arxiv-edit3r_instant_3d_scene_editing_from_sparse_unposed_images",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.25071v1"
     }
   ],
-  "generated_at": "2026-01-03T06:20:43.696607"
+  "generated_at": "2026-01-04T06:20:42.956056"
 }
