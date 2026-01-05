@@ -1,0 +1,35 @@
+{
+  "key_insight": "Introduce a diffusion-based soft reparameterization that maps categorical one-hot variables into a continuous diffusion process and uses the learned denoiser to obtain low-variance, pathwise gradients—bridging unbiased score-function estimators and biased continuous relaxations.",
+  "problem_solved": "Optimizing objectives with categorical/discrete variables suffers from either high-variance score-function estimators or biased continuous relaxations; this paper provides a new reparameterization that reduces variance while controlling bias.",
+  "method": [
+    "Define a forward diffusion (noising) process that smoothly embeds categorical one-hot vectors into a continuous space (simplex or embedding space) via a noise schedule.",
+    "Train/derive a denoising (reverse) model / score estimator that enables sampling and computing pathwise gradients through the continuous diffusion trajectory back to categorical logits.",
+    "Construct gradient estimators that use the denoiser/score to produce lower-variance, tunable-bias gradients for learning tasks (e.g., variational inference), trading off noise schedule and estimator bias."
+  ],
+  "impact": "Provides practitioners a practical alternative for training models with categorical latents or discrete choices: lower-variance gradients and a controllable bias/variance trade-off can improve stability and performance in variational inference, discrete optimization, and generative modeling.",
+  "visual_elements": [
+    "Diagram: forward diffusion of a one-hot vector into a continuous manifold and the learned denoising reverse path back to discrete categories.",
+    "Comparison chart: variance vs. bias for score-function estimators, continuous relaxations (e.g., Gumbel-Softmax), and diffusion-based reparameterization.",
+    "Flowchart: sampling + gradient computation pipeline showing where the denoiser provides pathwise gradients during learning.",
+    "Empirical plot: training curve or ELBO / accuracy vs. noise-schedule steps showing improved stability or reduced gradient variance."
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#CategoricalReparameterization",
+    "#VariationalInference",
+    "#DiscreteOptimization",
+    "#MachineLearning"
+  ],
+  "paper_id": "2026-01-02-arxiv-categorical_reparameterization_with_denoising_diffusion_models",
+  "paper_title": "Categorical Reparameterization with Denoising Diffusion models",
+  "paper_category": "Model",
+  "paper_date": "2026-01-02",
+  "paper_authors": "Samson Gourevitch, Alain Durmus, Eric Moulines, Jimmy Olsson, Yazid Janati",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.00781v1"
+    }
+  ],
+  "generated_at": "2026-01-05T06:28:04.078053"
+}
