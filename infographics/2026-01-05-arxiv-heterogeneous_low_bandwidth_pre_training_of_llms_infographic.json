@@ -1,0 +1,35 @@
+{
+  "key_insight": "Combining SparseLoCo (infrequent synchronization + sparse pseudo-gradient exchange) with low-bandwidth pipeline model parallelism using compressed activation and activation‑gradient exchanges dramatically reduces inter-device communication for LLM pre-training while preserving performance.",
+  "problem_solved": "How to scale LLM pre-training across heterogeneous, low-bandwidth clusters where model parallelism normally incurs frequent, large inter-device communications that limit scalability outside well-provisioned datacenters.",
+  "method": [
+    "Use SparseLoCo: perform infrequent global synchronization and exchange only sparse pseudo‑gradients to cut communication volume.",
+    "Apply low-bandwidth pipeline model parallelism: compress/quantize activations and activation‑gradient transfers and reduce their exchange frequency across pipeline stages.",
+    "Integrate both approaches to trade off communication vs. computation adaptively, enabling training on nodes with diverse network capacities."
+  ],
+  "impact": "Makes large-scale LLM pre-training feasible on heterogeneous, constrained networks (academic clusters, edge or cloud-of-opportunity), reducing bandwidth requirements, cost, and dependency on high‑end datacenter networks while maintaining model convergence.",
+  "visual_elements": [
+    "Schematic of hybrid parallelism: data-parallel workers using sparse pseudo-gradient exchange combined with pipeline stages exchanging compressed activations.",
+    "Bar/line chart: network bandwidth used vs. training throughput and validation loss (showing bandwidth drop with preserved accuracy).",
+    "Timeline/sequence diagram: infrequent synchronization events and sparse-gradient exchanges vs. frequent dense-sync baseline.",
+    "Cluster map iconography: heterogeneous nodes (high/low bandwidth) with thinner arrows representing compressed/less-frequent communication."
+  ],
+  "hashtags": [
+    "#LLM",
+    "#DistributedTraining",
+    "#LowBandwidth",
+    "#ModelParallelism",
+    "#SparseCommunication"
+  ],
+  "paper_id": "2026-01-05-arxiv-heterogeneous_low_bandwidth_pre_training_of_llms",
+  "paper_title": "Heterogeneous Low-Bandwidth Pre-Training of LLMs",
+  "paper_category": "Model",
+  "paper_date": "2026-01-05",
+  "paper_authors": "Yazan Obeidi, Amir Sarfi, Joel Lidin, Paul Janson, Eugene Belilovsky",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.02360v1"
+    }
+  ],
+  "generated_at": "2026-01-06T06:24:03.912270"
+}

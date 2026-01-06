@@ -1,0 +1,35 @@
+{
+  "key_insight": "Visual autoregressive (VAR) models suffer from asynchronous policy conflicts because each generation step sees heterogeneous inputs; aligning policies across these steps via group-relative updates stabilizes RL training and improves alignment.",
+  "problem_solved": "The paper addresses unstable and suboptimal reinforcement learning for Visual Autoregressive generation caused by asynchronous policy conflicts that arise from varying input structures across generation steps.",
+  "method": [
+    "Partition generation steps into consistent 'groups' based on input/conditioning heterogeneity and treat each group as a related sub-policy.",
+    "Perform group-relative policy optimization: update policies with constraints/regularizers that enforce consistency across groups (relative updates, KL/consistency penalties) rather than independent asynchronous updates.",
+    "Integrate these updates into the RL training loop for VARs to reduce conflicting gradients and stabilize optimization (e.g., prioritized replay or group-aware advantage estimation)."
+  ],
+  "impact": "Provides a practical recipe to stabilize RL for VAR models, enabling more reliable alignment and higher-quality visual generation—useful for practitioners training multimodal/autoregressive generators under RL objectives.",
+  "visual_elements": [
+    "Diagram showing heterogeneous inputs across time steps with arrows indicating asynchronous conflicts, contrasted with grouped steps and synchronized arrows after GRPO.",
+    "Flowchart of the RL loop with group partitioning → group-relative update → consistency regularizer highlighted.",
+    "Before/after training stability chart (training loss or reward variance) showing reduced oscillation and improved convergence with the proposed method.",
+    "Icon set: grouped policy blocks, constraint/lock symbol for regularizer, and a converging curve to represent stable training."
+  ],
+  "hashtags": [
+    "#VisualAutoregressive",
+    "#ReinforcementLearning",
+    "#GenerativeModels",
+    "#StableTraining",
+    "#ModelAlignment"
+  ],
+  "paper_id": "2026-01-05-arxiv-var_rl_done_right_tackling_asynchronous_policy_conflicts_in_visual_autoregressiv",
+  "paper_title": "VAR RL Done Right: Tackling Asynchronous Policy Conflicts in Visual Autoregressive Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-01-05",
+  "paper_authors": "Shikun Sun, Liao Qu, Huichao Zhang, Yiheng Liu, Yangyang Song",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.02256v1"
+    }
+  ],
+  "generated_at": "2026-01-06T06:21:24.368138"
+}

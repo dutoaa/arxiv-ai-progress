@@ -1,17 +1,17 @@
 {
-  "key_insight": "GITIII is a lightweight, interpretable graph transformer that learns correlations between a cell's internal state and its spatial niche to infer single-cell-level interactions and quantify how neighbouring cells influence gene expression.",
-  "problem_solved": "Existing spatial-transcriptomics methods struggle to infer directional, cell-level interactions transparently and scalably; GITIII addresses interpretability, per-cell influence quantification, and efficiency for large spatial datasets.",
+  "key_insight": "GITIII is a lightweight, interpretable graph transformer that learns correlations between cell state and niche in a self-supervised way to infer spatial single-cell interactions and quantify how neighbouring cells influence a receiver cell's gene expression.",
+  "problem_solved": "Inferring cell–cell interactions and quantifying neighbour influence from spatial transcriptomics data is challenging due to high dimensionality, local context dependence and the need for interpretable, scalable models.",
   "method": [
-    "Self-supervised graph transformer that models cells as graph nodes with attention-based aggregation of neighbouring signals.",
-    "Learns joint representations of intrinsic cell state and local niche correlations, producing per-cell, per-gene influence scores from attention weights.",
-    "Lightweight architecture designed for scalability and interpretability, enabling direct inspection of learnt interactions without heavy post-hoc fitting."
+    "Self-supervised graph transformer that encodes cells as nodes and spatial/neighbour relations as graph structure to learn joint cell-state and niche representations.",
+    "Interpretable attention/attribution mechanism to quantify per-neighbour influence on a receiver cell's gene expression and to highlight interaction patterns.",
+    "Lightweight architecture optimized for single-cell spatial resolution to allow scalable inference across tissues while preserving interpretability."
   ],
-  "impact": "GITIII gives ML practitioners an interpretable, efficient tool to discover and quantify cell–cell interactions from spatial transcriptomics, facilitating mechanistic insights and downstream biomarker or perturbation analyses.",
+  "impact": "Provides ML practitioners a scalable, interpretable framework to derive biologically meaningful cell–cell interaction maps from spatial transcriptomics, enabling better downstream analysis, hypothesis generation, and integration of transformer/GNN techniques in spatial biology.",
   "visual_elements": [
-    "Schematic of graph transformer: cells as nodes, edges for spatial proximity, attention weights shown as edge thickness",
-    "Spatial tissue map overlay showing per-cell inferred influence vectors or interaction arrows",
-    "Heatmap of per-gene neighbour-influence scores across cell types (niche vs intrinsic contributions)",
-    "Benchmark bar/point chart comparing model size, runtime, and interpretability vs prior methods"
+    "Schematic of the graph transformer: cells as nodes, spatial edges, and attention layers showing learned weights",
+    "Tissue map overlay: cells colored by inferred influence score from specific neighbours (heatmap on tissue image)",
+    "Cell–cell interaction network: weighted edges (thickness/color) indicating strength/direction of influence",
+    "Flowchart of self-supervised training → representation learning → attribution/interpretation"
   ],
   "hashtags": [
     "#SpatialTranscriptomics",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01161-0"
     }
   ],
-  "generated_at": "2026-01-05T06:28:52.146372"
+  "generated_at": "2026-01-06T06:24:30.552981"
 }

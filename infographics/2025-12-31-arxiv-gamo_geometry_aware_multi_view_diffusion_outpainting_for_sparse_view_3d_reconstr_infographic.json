@@ -1,23 +1,23 @@
 {
-  "key_insight": "GaMO uses geometry-aware multi-view diffusion outpainting to synthesize consistent novel views from very few input images, enabling substantially better 3D reconstructions from sparse views.",
-  "problem_solved": "Improves 3D reconstruction quality when only a small number of input views are available, addressing missing coverage, inconsistent geometry, and insufficient training data for dense multi-view methods.",
+  "key_insight": "GaMO uses geometry-aware multi-view diffusion outpainting to synthesize consistent novel views from sparse inputs, enabling substantially better 3D reconstruction when few camera views are available.",
+  "problem_solved": "Improves 3D scene capture quality under sparse-view conditions by generating geometrically consistent additional views to augment reconstruction pipelines.",
   "method": [
-    "Geometry-aware conditioning: incorporate camera poses, coarse depth or epipolar constraints to guide generation and enforce multi-view geometric consistency.",
-    "Multi-view diffusion outpainting: a diffusion-based model synthesizes novel, view-consistent image content beyond observed pixels across new camera poses to augment views.",
-    "Integration with reconstruction: use generated views as augmentation or direct inputs for standard multi-view fusion/NeRF pipelines to produce higher-fidelity 3D geometry."
+    "Geometry-aware diffusion outpainting conditioned on sparse input images and camera poses to synthesize large-field novel views beyond observed pixels.",
+    "Multi-view consistency enforced via geometric priors (pose/depth/epipolar-aware conditioning) so generated views align with real scene geometry.",
+    "Use synthesized views to augment training or inference for downstream 3D reconstruction (e.g., MVS/NeRF), improving completeness and fidelity from few inputs."
   ],
-  "impact": "Enables reliable 3D capture from fewer photos, reducing data-collection cost and expanding applicability of reconstruction methods to in-the-wild and resource-constrained settings.",
+  "impact": "Enables high-quality 3D reconstruction with far fewer captures, lowering acquisition cost and expanding applicability to AR/VR, robotics, and cultural heritage where dense imaging is impractical.",
   "visual_elements": [
-    "Pipeline diagram: sparse input images + camera poses → geometry-aware diffusion outpainting → augmented multi-view set → 3D reconstruction mesh.",
-    "Before/after comparison: side-by-side 3D reconstructions from sparse views with and without GaMO augmentation.",
-    "Geometry overlay: an image showing epipolar lines/depth cues guiding the diffusion outpainting to highlight geometry conditioning.",
-    "Bar chart: reconstruction quality (e.g., IoU/Chamfer) vs. number of input views, showing GaMO gains at low view counts."
+    "Pipeline diagram: sparse input views + poses → GaMO diffusion outpainting → synthesized views → augmented 3D reconstruction",
+    "Before/after comparison: sparse-view reconstruction vs. reconstruction with GaMO-augmented views (side-by-side)",
+    "Geometry overlay: input view showing epipolar lines/depth cues and how outpainted pixels respect multi-view geometry",
+    "Icon set: camera (sparse capture), diffusion model, 3D mesh/point cloud to summarize stages"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#DiffusionModels",
     "#MultiView",
-    "#GeometryAware",
+    "#ComputerVision",
     "#SparseView"
   ],
   "paper_id": "2025-12-31-arxiv-gamo_geometry_aware_multi_view_diffusion_outpainting_for_sparse_view_3d_reconstr",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2512.25073v1"
     }
   ],
-  "generated_at": "2026-01-05T06:30:25.641578"
+  "generated_at": "2026-01-06T06:25:55.094355"
 }

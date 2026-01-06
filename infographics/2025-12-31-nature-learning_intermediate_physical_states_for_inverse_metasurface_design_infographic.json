@@ -1,24 +1,24 @@
 {
-  "key_insight": "Using deep generative models to learn intermediate physical states (surface-current maps) rather than directly generating device layouts produces a more stable, controllable route for inverse design of tunable and stacked metasurfaces.",
-  "problem_solved": "Direct inverse design of metasurface layouts is ill-posed and unstable—especially for tunable or multi-layer (stacked) structures—making it hard to reliably meet electromagnetic specifications across operating conditions. The paper addresses this by shifting the target from discrete layouts to continuous, physically meaningful intermediate states.",
+  "key_insight": "Training deep generative models to predict intermediate physical states (surface-current maps) instead of layouts produces more stable, accurate inverse designs for tunable and stacked metasurfaces.",
+  "problem_solved": "Directly generating metasurface layouts is unstable and hard to generalize—especially for multi-layer and tunable devices—so the paper addresses design instability, poor transferability, and difficulty incorporating physical constraints by using an intermediate, physically meaningful representation.",
   "method": [
-    "Train a conditional deep generative model to map desired electromagnetic responses to intermediate surface-current distributions (physical state representation).",
-    "Apply a deterministic or physics-constrained decoder/solver that converts the predicted surface-current map into a manufacturable metasurface layout.",
-    "Leverage the intermediate representation to improve stability, handle tunability and stacking, and enforce physics constraints during training/inference."
+    "Train a conditional deep generative model to produce surface-current maps that correspond to desired electromagnetic responses.",
+    "Incorporate a differentiable physics-informed or surrogate forward model to map current maps to observable spectra during training, improving stability and fidelity.",
+    "Convert predicted current maps into manufacturable layouts via a decoder/optimization step and validate on tunable and stacked metasurface examples."
   ],
-  "impact": "For AI/ML practitioners, this shows a practical way to incorporate physics-aware intermediate representations into generative inverse design pipelines, improving robustness and interpretability while enabling design of more complex, tunable photonic devices.",
+  "impact": "For AI/ML practitioners, using physics-grounded intermediate representations increases training stability, interpretability, and transferability of generative inverse-design models, enabling more efficient discovery of complex photonic/metasurface devices.",
   "visual_elements": [
-    "Pipeline diagram: target EM response → generative model → surface-current map → decoder → physical layout (annotated with where physics constraints are applied).",
-    "Comparison chart: performance/stability metrics (e.g., error, convergence, success rate) for intermediate-state approach vs direct-layout generation.",
-    "Before/after examples: predicted surface-current maps next to resulting metasurface layouts and simulated far-field responses.",
-    "Schematic of stacked/tunable metasurfaces showing how intermediate maps change with tuning parameters."
+    "Pipeline flowchart: target spectral response → generative model → surface-current map → decoder → physical layout → simulation/measurement",
+    "Side-by-side heatmaps: predicted vs ground-truth surface-current distributions and resulting field patterns",
+    "Bar/line chart: performance comparison (accuracy, stability, sample efficiency) between current-map-based and direct-layout generative approaches",
+    "Schematic of stacked/tunable metasurface layers highlighting where intermediate currents are learned and how tuning affects response"
   ],
   "hashtags": [
     "#InverseDesign",
     "#Metasurfaces",
-    "#GenerativeModels",
     "#PhysicsInformedML",
-    "#ComputationalEM"
+    "#GenerativeModels",
+    "#ComputationalPhotonics"
   ],
   "paper_id": "2025-12-31-nature-learning_intermediate_physical_states_for_inverse_metasurface_design",
   "paper_title": "Learning intermediate physical states for inverse metasurface design",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01167-8"
     }
   ],
-  "generated_at": "2026-01-05T06:28:36.704987"
+  "generated_at": "2026-01-06T06:24:18.372890"
 }
