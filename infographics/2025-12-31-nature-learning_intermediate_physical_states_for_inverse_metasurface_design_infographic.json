@@ -1,24 +1,24 @@
 {
-  "key_insight": "Training deep generative models to predict intermediate physical states (surface-current maps) instead of layouts produces more stable, accurate inverse designs for tunable and stacked metasurfaces.",
-  "problem_solved": "Directly generating metasurface layouts is unstable and hard to generalize—especially for multi-layer and tunable devices—so the paper addresses design instability, poor transferability, and difficulty incorporating physical constraints by using an intermediate, physically meaningful representation.",
+  "key_insight": "Training deep generative models to produce intermediate physical states (surface-current maps) instead of layouts directly yields more stable, accurate inverse design for tunable and stacked metasurfaces.",
+  "problem_solved": "Directly mapping electromagnetic targets to device layouts is unstable and ill-posed for complex, tunable, or stacked metasurfaces; the paper addresses poor training stability, non-uniqueness, and difficulty incorporating physics and tunability into inverse design.",
   "method": [
-    "Train a conditional deep generative model to produce surface-current maps that correspond to desired electromagnetic responses.",
-    "Incorporate a differentiable physics-informed or surrogate forward model to map current maps to observable spectra during training, improving stability and fidelity.",
-    "Convert predicted current maps into manufacturable layouts via a decoder/optimization step and validate on tunable and stacked metasurface examples."
+    "Learn a conditional generative model that predicts intermediate surface-current maps from desired electromagnetic responses and tuning parameters.",
+    "Use a physics-aware decoder or deterministic mapping to convert predicted current maps into physical layouts, with simulation/physics losses to enforce accuracy.",
+    "Support stacked and tunable metasurfaces by conditioning the model on layer configuration and control variables for robust multi-layer design."
   ],
-  "impact": "For AI/ML practitioners, using physics-grounded intermediate representations increases training stability, interpretability, and transferability of generative inverse-design models, enabling more efficient discovery of complex photonic/metasurface devices.",
+  "impact": "Provides ML practitioners a compact, physically meaningful latent representation that improves training stability, interpretability, and sample efficiency for inverse design tasks in computational electromagnetics and beyond.",
   "visual_elements": [
-    "Pipeline flowchart: target spectral response → generative model → surface-current map → decoder → physical layout → simulation/measurement",
-    "Side-by-side heatmaps: predicted vs ground-truth surface-current distributions and resulting field patterns",
-    "Bar/line chart: performance comparison (accuracy, stability, sample efficiency) between current-map-based and direct-layout generative approaches",
-    "Schematic of stacked/tunable metasurface layers highlighting where intermediate currents are learned and how tuning affects response"
+    "Pipeline diagram: target EM response → generative model → surface-current heatmap → layout → forward simulation",
+    "Before/after bar chart comparing stability, accuracy, and convergence of direct-layout vs. intermediate-state approaches",
+    "Schematic of a stacked, tunable metasurface showing layers, control parameters, and resulting field/current maps",
+    "Latent-space/current-map visualization (heatmaps) illustrating how similar responses map to coherent intermediate states"
   ],
   "hashtags": [
     "#InverseDesign",
     "#Metasurfaces",
-    "#PhysicsInformedML",
+    "#PhysicsInformedAI",
     "#GenerativeModels",
-    "#ComputationalPhotonics"
+    "#ComputationalEM"
   ],
   "paper_id": "2025-12-31-nature-learning_intermediate_physical_states_for_inverse_metasurface_design",
   "paper_title": "Learning intermediate physical states for inverse metasurface design",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01167-8"
     }
   ],
-  "generated_at": "2026-01-06T06:24:18.372890"
+  "generated_at": "2026-01-07T06:26:09.185036"
 }

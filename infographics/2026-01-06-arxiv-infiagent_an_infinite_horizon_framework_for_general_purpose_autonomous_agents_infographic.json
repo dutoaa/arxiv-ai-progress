@@ -1,0 +1,35 @@
+{
+  "key_insight": "InfiAgent keeps an agent's working context strictly bounded for arbitrarily long tasks by externalizing persistent memory into a file-centric state abstraction, preventing unbounded prompt growth and accumulated reasoning errors.",
+  "problem_solved": "Addresses failure of LLM agents on long-horizon tasks caused by unbounded context growth, error accumulation, and the fidelity/stability trade-offs introduced by compression or retrieval-based fixes.",
+  "method": [
+    "File-centric persistent state: encode memories, plans, observations and artifacts as external files that the agent can read/write.",
+    "Bounded reasoning loop: include only immediate, relevant context in the prompt while relying on the file store for long-term state, keeping prompt size constant regardless of task duration.",
+    "Operational primitives: atomic read/write, diff/versioning, and controlled retrieval semantics to maintain information fidelity and reproducibility."
+  ],
+  "impact": "Makes general-purpose autonomous agents scalable and reliable for infinite-horizon tasks by eliminating prompt bloat and reducing accumulated reasoning errors—improving performance, debuggability, and resource efficiency for practitioners.",
+  "visual_elements": [
+    "Architecture diagram: LLM agent <-> file-centric state store showing read/write loop and bounded prompt window.",
+    "Timeline comparison: growing-context baseline vs. constant-context InfiAgent across long task duration (error rate or latency vs. time).",
+    "State flow: schematic showing files for memory, plan, observations and atomic operations (read/write/diff/version).",
+    "Performance chart: task success or error accumulation across steps for InfiAgent vs. compression/retrieval baselines."
+  ],
+  "hashtags": [
+    "#InfiAgent",
+    "#LongHorizonAgents",
+    "#AutonomousAgents",
+    "#FileCentricState",
+    "#LLMAgents"
+  ],
+  "paper_id": "2026-01-06-arxiv-infiagent_an_infinite_horizon_framework_for_general_purpose_autonomous_agents",
+  "paper_title": "InfiAgent: An Infinite-Horizon Framework for General-Purpose Autonomous Agents",
+  "paper_category": "Model",
+  "paper_date": "2026-01-06",
+  "paper_authors": "Chenglin Yu, Yuchen Wang, Songmiao Wang, Hongxia Yang, Ming Li",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.03204v1"
+    }
+  ],
+  "generated_at": "2026-01-07T06:21:49.154707"
+}

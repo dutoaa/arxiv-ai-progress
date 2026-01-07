@@ -1,0 +1,35 @@
+{
+  "key_insight": "Treating the denoising process as a sequential decision problem and using a learned critic to provide dense, per-step feedback lets reinforcement-learning efficiently remove targeted concepts from text-to-image diffusion models while preserving overall image quality.",
+  "problem_solved": "Removes targeted concepts (e.g., copyrighted or sensitive imagery) from text-to-image diffusion models without heavy supervised weight edits or global penalties, addressing high-variance updates and poor credit assignment typical of sparse, end-of-trajectory RL rewards.",
+  "method": [
+    "Formulate denoising as a sequential decision process where a policy acts at each diffusion step.",
+    "Train a critic that provides dense per-step rewards reflecting presence of target concepts and preservation of utility/content.",
+    "Use critic-guided RL to update the diffusion policy/controller so outputs avoid the targeted concept while minimizing degradation to image quality and diversity."
+  ],
+  "impact": "Provides a scalable, stable approach for targeted unlearning in generative models, enabling practitioners to remove undesirable concepts with better credit assignment and less quality trade-off — improving safety, compliance, and model maintainability.",
+  "visual_elements": [
+    "Pipeline diagram: diffusion denoising loop showing policy actions at each step and critic returning dense rewards (feedback loop).",
+    "Before/after image grid: sample prompts showing original model outputs vs. outputs after critic-guided unlearning.",
+    "Reward timeline: plot comparing sparse terminal reward (high variance) vs. critic-derived dense per-step rewards (lower variance) and resulting training stability.",
+    "Tradeoff chart: bars or scatter showing concept removal strength vs. image quality/utility metrics across methods (baseline vs. critic-guided RL)."
+  ],
+  "hashtags": [
+    "#MachineUnlearning",
+    "#DiffusionModels",
+    "#ReinforcementLearning",
+    "#ModelSafety",
+    "#TextToImage"
+  ],
+  "paper_id": "2026-01-06-arxiv-critic_guided_reinforcement_unlearning_in_text_to_image_diffusion",
+  "paper_title": "Critic-Guided Reinforcement Unlearning in Text-to-Image Diffusion",
+  "paper_category": "Model",
+  "paper_date": "2026-01-06",
+  "paper_authors": "Mykola Vysotskyi, Zahar Kohut, Mariia Shpir, Taras Rumezhak, Volodymyr Karpiv",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.03213v1"
+    }
+  ],
+  "generated_at": "2026-01-07T06:22:45.454210"
+}
