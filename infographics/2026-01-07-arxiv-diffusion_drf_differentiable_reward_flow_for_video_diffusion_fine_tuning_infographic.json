@@ -1,0 +1,35 @@
+{
+  "key_insight": "Diffusion-DRF introduces a differentiable reward flow that lets preference signals be propagated as gradients through the video diffusion process, enabling direct fine-tuning of T2V models without relying on non-differentiable rewards or heavy human labeling.",
+  "problem_solved": "Current T2V fine-tuning relies on non-differentiable preference signals (human annotations or learned reward models), which are label-intensive, prone to bias and reward hacking, and lead to unstable training.",
+  "method": [
+    "Construct a differentiable reward flow that converts preference signals into continuous, backpropagatable guidance for video diffusion denoising steps.",
+    "Fine-tune the diffusion model by propagating reward gradients through the sampling/denoising chain (while keeping the reward evaluator stable/frozen), avoiding discrete preference optimization.",
+    "Incorporate regularization and smoothing in the reward flow to reduce reward hacking and stabilize training with fewer annotated labels."
+  ],
+  "impact": "Enables more sample-efficient, stable, and robust fine-tuning of video diffusion models for improved visual fidelity and text alignment, reducing dependence on costly human labels and brittle reward functions.",
+  "visual_elements": [
+    "Pipeline diagram: input prompt → video diffusion model → differentiable reward flow → gradient backpropagation to model",
+    "Before/after comparison: non-differentiable DPO fine-tune vs Diffusion-DRF showing improved alignment and stability",
+    "Gradient-flow schematic: zoom into denoising steps with arrows showing reward gradients flowing backward",
+    "Bar chart or icon set: fewer labels required, reduced reward hacking incidents, improved fidelity/alignment metrics (conceptual)"
+  ],
+  "hashtags": [
+    "#VideoDiffusion",
+    "#DiffusionModels",
+    "#DifferentiableRewards",
+    "#FineTuning",
+    "#AIAlignment"
+  ],
+  "paper_id": "2026-01-07-arxiv-diffusion_drf_differentiable_reward_flow_for_video_diffusion_fine_tuning",
+  "paper_title": "Diffusion-DRF: Differentiable Reward Flow for Video Diffusion Fine-Tuning",
+  "paper_category": "Model",
+  "paper_date": "2026-01-07",
+  "paper_authors": "Yifan Wang, Yanyu Li, Sergey Tulyakov, Yun Fu, Anil Kag",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.04153v1"
+    }
+  ],
+  "generated_at": "2026-01-08T06:22:30.866434"
+}

@@ -1,0 +1,35 @@
+{
+  "key_insight": "ContextFocus introduces a lightweight activation-steering technique that nudges LLM hidden states to prioritize externally retrieved context over memorized parametric knowledge, substantially improving faithfulness when the two conflict.",
+  "problem_solved": "When external evidence (e.g., up-to-date retrieval) conflicts with a model's internal knowledge, LLMs often default to memorized facts and produce unfaithful outputs; this work reduces that failure mode without expensive retraining.",
+  "method": [
+    "Apply small, targeted adjustments to intermediate activations at inference time to increase the influence of retrieved context signals and suppress conflicting memorized activations.",
+    "Operate as a modular, lightweight steering layer compatible with retrieval-augmented pipelines — no full-model finetuning required.",
+    "Tune steering parameters on held-out context-conflict cases to balance faithfulness and fluency while preserving overall model behavior."
+  ],
+  "impact": "Practitioners can deploy retrieval-augmented LLMs that more reliably follow external evidence with minimal compute and infrastructure changes, reducing hallucinations and the need for costly model updates. This improves real-world safety and maintainability for systems that depend on up-to-date knowledge.",
+  "visual_elements": [
+    "Pipeline diagram: Retrieval → ContextFocus steering block → LLM decoder, highlighting where activations are adjusted",
+    "Before vs. after example: same prompt with conflicting context showing model output switching from memorized fact to context-faithful answer",
+    "Bar chart: faithfulness/error rates across baselines vs. ContextFocus (relative improvement)",
+    "Schematic: hidden-state modification illustration (small vector add/gate) annotated as 'lightweight, no full retrain'"
+  ],
+  "hashtags": [
+    "#ContextualFaithfulness",
+    "#ActivationSteering",
+    "#LLMs",
+    "#RetrievalAugmented",
+    "#AIInfrastructure"
+  ],
+  "paper_id": "2026-01-07-arxiv-contextfocus_activation_steering_for_contextual_faithfulness_in_large_language_m",
+  "paper_title": "ContextFocus: Activation Steering for Contextual Faithfulness in Large Language Models",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-01-07",
+  "paper_authors": "Nikhil Anand, Shwetha Somasundaram, Anirudh Phukan, Apoorv Saxena, Koyel Mukherjee",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.04131v1"
+    }
+  ],
+  "generated_at": "2026-01-08T06:21:39.039723"
+}
