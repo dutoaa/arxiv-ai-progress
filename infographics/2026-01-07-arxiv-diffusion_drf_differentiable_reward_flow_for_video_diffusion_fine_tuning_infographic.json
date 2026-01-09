@@ -1,22 +1,22 @@
 {
-  "key_insight": "Diffusion-DRF introduces a differentiable reward flow that lets preference signals be propagated as gradients through the video diffusion process, enabling direct fine-tuning of T2V models without relying on non-differentiable rewards or heavy human labeling.",
-  "problem_solved": "Current T2V fine-tuning relies on non-differentiable preference signals (human annotations or learned reward models), which are label-intensive, prone to bias and reward hacking, and lead to unstable training.",
+  "key_insight": "Diffusion-DRF introduces a differentiable reward flow that lets preference signals backpropagate through a frozen video diffusion pipeline, enabling end-to-end fine-tuning without relying on non-differentiable human labels or discrete reward proxies.",
+  "problem_solved": "Removes dependence on non-differentiable, label‑intensive preference signals (human annotations or learned discrete reward models) that cause bias, reward hacking, and unstable training in Text-to-Video diffusion fine-tuning.",
   "method": [
-    "Construct a differentiable reward flow that converts preference signals into continuous, backpropagatable guidance for video diffusion denoising steps.",
-    "Fine-tune the diffusion model by propagating reward gradients through the sampling/denoising chain (while keeping the reward evaluator stable/frozen), avoiding discrete preference optimization.",
-    "Incorporate regularization and smoothing in the reward flow to reduce reward hacking and stabilize training with fewer annotated labels."
+    "Define a differentiable reward flow that maps model outputs (video latents/frames) to continuous preference gradients usable for backpropagation through diffusion denoising steps.",
+    "Fine-tune a video diffusion model (with core parameters partially frozen) by optimizing these differentiable preference gradients, combined with regularization to preserve generation quality and prevent reward hacking.",
+    "Use end-to-end gradient propagation instead of discrete preference optimisation, improving label efficiency and stability while maintaining text alignment and visual fidelity."
   ],
-  "impact": "Enables more sample-efficient, stable, and robust fine-tuning of video diffusion models for improved visual fidelity and text alignment, reducing dependence on costly human labels and brittle reward functions.",
+  "impact": "Enables more stable, label‑efficient fine‑tuning of video diffusion models with fewer human annotations and reduced susceptibility to reward hacking—making preference-driven T2V improvements practical and reliable for researchers and practitioners.",
   "visual_elements": [
-    "Pipeline diagram: input prompt → video diffusion model → differentiable reward flow → gradient backpropagation to model",
-    "Before/after comparison: non-differentiable DPO fine-tune vs Diffusion-DRF showing improved alignment and stability",
-    "Gradient-flow schematic: zoom into denoising steps with arrows showing reward gradients flowing backward",
-    "Bar chart or icon set: fewer labels required, reduced reward hacking incidents, improved fidelity/alignment metrics (conceptual)"
+    "Pipeline diagram: input text → frozen diffusion model → differentiable reward flow → gradient backprop to fine-tuned layers",
+    "Before/after comparison: sample video frames showing improved text alignment and visual fidelity",
+    "Bar chart: label-efficiency and stability metrics comparing non-differentiable DPO vs Diffusion-DRF",
+    "Illustration of failure modes: reward hacking vs stabilized training with differentiable rewards"
   ],
   "hashtags": [
     "#VideoDiffusion",
     "#DiffusionModels",
-    "#DifferentiableRewards",
+    "#RewardLearning",
     "#FineTuning",
     "#AIAlignment"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.04153v1"
     }
   ],
-  "generated_at": "2026-01-08T06:22:30.866434"
+  "generated_at": "2026-01-09T06:24:55.565648"
 }

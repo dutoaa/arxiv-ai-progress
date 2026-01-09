@@ -1,0 +1,35 @@
+{
+  "key_insight": "GDPO separates (decouples) group-wise reward normalization from policy updates so multi-reward RL learns robustly across diverse preference signals, reducing cross-group interference and improving stability compared to prior GRPO-style approaches.",
+  "problem_solved": "Multi-reward RL pipelines (e.g., alignment of LMs to diverse human preferences) suffer from unstable or biased optimization when rewards are aggregated or normalized jointly, causing poor credit assignment, dominance of some rewards, and degraded overall alignment.",
+  "method": [
+    "Introduce Group reward-Decoupled Normalization (GDPO): normalize rewards per reward-group independently before computing policy gradients to avoid inter-group scaling interference.",
+    "Modify the policy optimization loop (PPO/GRPO family) to apply decoupled normalization and per-group trust-region or clipping during updates, preserving signal from each preference reward.",
+    "Provide theoretical justification for stability and empirically validate GDPO on multi-reward benchmarks, showing improved fairness across rewards and more stable training dynamics."
+  ],
+  "impact": "GDPO gives practitioners a simple, plug-in modification to multi-reward RL that yields more stable training and better preservation of diverse preference signals—useful for reward-model ensembles, multi-objective alignment, and tuning RL for LMs.",
+  "visual_elements": [
+    "Side-by-side pipeline diagram: GRPO (joint normalization → biased update) vs GDPO (per-group normalization → decoupled updates).",
+    "Bar chart or radar plot comparing per-reward performance (GRPO vs GDPO) to show reduced dominance and more balanced gains.",
+    "Training stability plot: reward curves or variance bands over time to illustrate reduced oscillation and faster convergence with GDPO.",
+    "Heatmap or matrix showing normalized reward scales before/after decoupling to visualize how GDPO preserves individual reward signals."
+  ],
+  "hashtags": [
+    "#ReinforcementLearning",
+    "#MultiObjectiveOptimization",
+    "#RewardModeling",
+    "#PolicyOptimization",
+    "#GDPO"
+  ],
+  "paper_id": "2026-01-08-arxiv-gdpo_group_reward_decoupled_normalization_policy_optimization_for_multi_reward_r",
+  "paper_title": "GDPO: Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization",
+  "paper_category": "Model",
+  "paper_date": "2026-01-08",
+  "paper_authors": "Shih-Yang Liu, Xin Dong, Ximing Lu, Shizhe Diao, Peter Belcak",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.05242v1"
+    }
+  ],
+  "generated_at": "2026-01-09T06:23:06.666755"
+}
