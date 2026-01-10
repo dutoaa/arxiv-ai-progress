@@ -1,24 +1,24 @@
 {
-  "key_insight": "Combining Neural Prophet with a Deep Neural Network (NP-DNN) improves stock price forecasting by capturing both classical time-series components (trend/seasonality/uncertainty) and complex nonlinear patterns, yielding more accurate point forecasts and tighter probabilistic intervals.",
-  "problem_solved": "Addresses the inability of traditional statistical time-series methods to effectively model nonlinear dynamics and reliably estimate the probability range (prediction intervals) of future stock prices.",
+  "key_insight": "The paper proposes NP-DNN, a hybrid model that combines Neural Prophet's time-series decomposition with a deep neural network to produce more accurate and probabilistic stock price forecasts. This approach aims to better capture trend/seasonality and complex non-linear patterns while providing prediction intervals.",
+  "problem_solved": "Addresses the inability of many traditional time-series methods to effectively forecast the probability range (uncertainty) of future stock prices and to capture complex non-linear market dynamics.",
   "method": [
-    "Use Neural Prophet as a backbone to model trend, seasonality, holidays and provide probabilistic forecasts (prediction intervals).",
-    "Integrate a Deep Neural Network to learn nonlinear relationships and interactions from historical prices and engineered features.",
-    "Fuse outputs (or train end-to-end) so NP’s interpretable components and DNN’s nonlinear representations jointly produce final point forecasts and uncertainty estimates."
+    "Hybrid architecture: integrate Neural Prophet (trend, seasonality, and changepoint modeling) with a Deep Neural Network that models residual non-linear patterns.",
+    "Train the combined model end-to-end to produce point forecasts plus probabilistic prediction intervals, improving uncertainty estimation.",
+    "Use time-series preprocessing and backtesting on historical stock data to validate forecast reliability and interval coverage."
   ],
-  "impact": "Enables AI/ML practitioners to produce more reliable, risk-aware stock forecasts that combine interpretability with nonlinear modeling power—useful for trading systems, risk management, and other time-series domains requiring uncertainty quantification.",
+  "impact": "Provides AI/ML practitioners a practical hybrid modeling pattern for financial time-series that balances interpretable components (trend/seasonality) with deep models for complex signals, improving decision-making where forecast uncertainty matters (risk management, trading strategies).",
   "visual_elements": [
-    "Architecture diagram: NP block (trend/seasonality/uncertainty) + DNN block feeding a fusion layer → final forecast with intervals.",
-    "Forecast plot: historical price, predicted mean, and shaded prediction intervals vs actuals to show interval calibration.",
-    "Benchmark bar chart: performance (MAE/RMSE/interval coverage) of NP-DNN vs baseline models (ARIMA, Prophet, pure DNN).",
-    "Feature/attention visualization: heatmap or importance scores showing which inputs drive nonlinear DNN corrections."
+    "Time-series plot showing historical prices, point forecast, and shaded prediction intervals (before vs after NP-DNN).",
+    "Simplified model diagram: Neural Prophet block -> residuals -> Deep Neural Network block -> combined forecast.",
+    "Bar or table comparing forecast interval coverage and error metrics (e.g., RMSE, MAE) across baseline vs NP-DNN.",
+    "Flowchart of training and backtesting pipeline (data preprocessing, train/validation splits, evaluation)."
   ],
   "hashtags": [
-    "#TimeSeries",
     "#NeuralProphet",
     "#DeepLearning",
-    "#ProbabilisticForecasting",
-    "#QuantFinance"
+    "#TimeSeries",
+    "#StockPrediction",
+    "#ProbabilisticForecasting"
   ],
   "paper_id": "2026-01-08-arxiv-stock_market_price_prediction_using_neural_prophet_with_deep_neural_network",
   "paper_title": "Stock Market Price Prediction using Neural Prophet with Deep Neural Network",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.05202v1"
     }
   ],
-  "generated_at": "2026-01-09T06:21:22.177128"
+  "generated_at": "2026-01-10T06:18:45.997467"
 }

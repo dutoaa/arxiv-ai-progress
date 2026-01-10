@@ -1,24 +1,24 @@
 {
-  "key_insight": "PlenopticDreamer synchronizes generative hallucinations across camera views and time, producing spatio-temporally consistent multi-view video re-renderings where prior single-view methods produced inconsistent or flickering hallucinated regions.",
-  "problem_solved": "Addresses the challenge of maintaining multi-view spatio-temporal coherence in camera-controlled generative video re-rendering — specifically, preventing inconsistent hallucinations across different viewpoints and over time caused by generative model stochasticity.",
+  "key_insight": "PlenopticDreamer synchronizes generative hallucinations across views and time so camera-controlled re-renderings remain spatially and temporally coherent in multi-view settings.",
+  "problem_solved": "Eliminates inconsistent or flickering hallucinated content when re-rendering videos from multiple camera viewpoints, a common failure of single-view generative re-renderers.",
   "method": [
-    "Introduce a plenoptic-aligned generative framework (PlenopticDreamer) that coordinates hallucinations across views and frames to form a consistent latent/plenoptic field.",
-    "Condition generation on camera poses and share synchronized latent signals or cross-view cues so the same scene parts are hallucinated coherently from multiple viewpoints.",
-    "Optimize with multi-view and temporal consistency objectives (camera-aware conditioning + consistency losses) to reduce stochastic divergence in rendered regions."
+    "Synchronize latent hallucinations across camera views and adjacent frames to lock generated details in space and time.",
+    "Condition the generator on camera parameters and multi-view alignment cues to preserve cross-view geometry.",
+    "Enforce spatio-temporal consistency during training with losses and alignment mechanisms that penalize view/temporal mismatch."
   ],
-  "impact": "Improves realism and reliability of camera-controlled video re-rendering for applications like virtual cinematography, AR/VR, and multi-view editing by reducing view-inconsistency and temporal flicker in hallucinated content.",
+  "impact": "Enables reliable, camera-controlled multi-view video re-rendering with stable hallucinations—benefitting tasks like multi-camera editing, VR/AR content creation, and synthetic dataset generation where cross-view consistency is critical.",
   "visual_elements": [
-    "Side-by-side multi-view frames: left = prior method (inconsistent hallucinations), right = PlenopticDreamer (consistent across views)",
-    "Pipeline diagram: camera poses -> synchronized latent/plenoptic field -> renderer, with consistency loss blocks annotated",
-    "Temporal consistency visualization: frame-wise variance or optical-flow based heatmap showing reduced flicker",
-    "Bar/line chart comparing multi-view consistency metrics (e.g., multi-view LPIPS, temporal warping error) for baseline vs. PlenopticDreamer"
+    "Pipeline diagram showing input multi-view video + camera poses → latent synchronization module → consistent re-rendered views",
+    "Before/after comparison: inconsistent hallucinations (flicker/mismatch) vs. synchronized, coherent outputs",
+    "Camera rig / multi-view schematic illustrating cross-view alignment and shared hallucination space",
+    "Temporal stability chart or frame-difference heatmap highlighting reduced flicker over time"
   ],
   "hashtags": [
     "#PlenopticVideo",
     "#ViewSynthesis",
     "#VideoGeneration",
-    "#MultiViewConsistency",
-    "#ComputerVision"
+    "#SpatioTemporalConsistency",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-01-08-arxiv-plenoptic_video_generation",
   "paper_title": "Plenoptic Video Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.05239v1"
     }
   ],
-  "generated_at": "2026-01-09T06:22:40.500635"
+  "generated_at": "2026-01-10T06:19:57.421002"
 }

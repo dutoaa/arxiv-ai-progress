@@ -1,24 +1,24 @@
 {
-  "key_insight": "Vision-language models increasingly prioritize textual prompts over visual evidence as object count rises, leading them to conform to incorrect prompt assertions (prompt-induced hallucination) even when the image contradicts the prompt.",
-  "problem_solved": "Characterizes when and why VLMs hallucinate by following overstated prompts in an object-counting setting, isolating the prompt vs. visual-evidence tradeoff.",
+  "key_insight": "Vision-language models can prioritize textual prompts over visual evidence: when a prompt overstates object counts, models increasingly 'hallucinate' to match the prompt as the true number of objects grows. This reveals a prompt-induced bias that scales with task difficulty.",
+  "problem_solved": "Identifies and characterizes why and when VLMs favor language priors over image content, causing prompt-induced hallucinations in multimodal outputs (tested in a controlled object-counting setting).",
   "method": [
-    "Controlled object-counting experiments where prompts overstate the number of objects (e.g., ask for four when three are present) to isolate prompt influence.",
-    "Systematic evaluation across varying object counts to measure the transition from prompt-correction to prompt-conformity.",
-    "Mechanistic analysis of failure modes (e.g., dominance of language priors vs. weakened visual grounding) to explain prompt-induced hallucination."
+    "Controlled object-counting experiments: present images with known object counts and prompts that deliberately overstate the count to measure model compliance versus visual correctness.",
+    "Behavioral and mechanistic analysis: quantify hallucination rates across object counts and probe model internals to isolate reliance on textual priors vs. visual evidence.",
+    "Comparative evaluation across models/prompts to show how hallucination scales with count and prompt phrasing."
   ],
-  "impact": "Provides practical insight for diagnosing and reducing prompt-induced hallucinations in VLMs, informing prompt design, evaluation protocols, and model training strategies to improve visual grounding and reliability.",
+  "impact": "Clarifies a common failure mode in VLMs and informs safer prompt design, model training, and evaluation strategies to reduce multimodal hallucinations in real-world applications.",
   "visual_elements": [
-    "Bar chart: prompt-conformity rate vs. true object count (shows rising conformity with higher counts).",
-    "Side-by-side example panel: input image + overstating prompt → model outputs (correct count vs. hallucinated response).",
-    "Mechanism diagram: competing influence of textual prompt and visual evidence as object count increases.",
-    "Attention/activation heatmap or schematic illustrating weakened visual grounding when prompts assert specific counts."
+    "Side-by-side example: image + overstating prompt vs. model response (correct vs. hallucinated)",
+    "Line chart: hallucination rate (y) vs. ground-truth object count (x) showing increasing conformity to prompt",
+    "Schematic: experimental setup flow (image → prompt → model → evaluation) with counted/incorrect outputs highlighted",
+    "Heatmap or attention illustration indicating stronger text-conditioned activation than visual features for hallucinated cases"
   ],
   "hashtags": [
     "#VisionLanguageModels",
     "#Hallucination",
     "#PromptEngineering",
-    "#VisualGrounding",
-    "#RobustAI"
+    "#MultimodalAI",
+    "#ModelRobustness"
   ],
   "paper_id": "2026-01-08-arxiv-mechanisms_of_prompt_induced_hallucination_in_vision_language_models",
   "paper_title": "Mechanisms of Prompt-Induced Hallucination in Vision-Language Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.05201v1"
     }
   ],
-  "generated_at": "2026-01-09T06:21:05.918776"
+  "generated_at": "2026-01-10T06:18:36.174312"
 }

@@ -1,22 +1,22 @@
 {
-  "key_insight": "Augmenting a 2D image-based localization database with per-image estimated depth maps enables effective geometric reasoning via dense image-to-image matching, delivering high-accuracy localization without a centralized 3D reconstruction.",
-  "problem_solved": "Bridges the gap between easy-to-maintain 2D image-based localization and accurate but costly-to-maintain 3D structure-based methods, enabling scalable, updatable localization with improved geometric fidelity.",
+  "key_insight": "Augmenting 2D image-based localization with per-image estimated depth maps captures local geometry so you can get strong geometric reasoning and accurate poses without building a centralized 3D reconstruction.",
+  "problem_solved": "Closes the gap between easy-to-build, easy-to-update 2D image-based localization (which lacks effective geometric reasoning) and accurate but cumbersome 3D structure-based methods (which require centralized reconstruction and are hard to update).",
   "method": [
-    "Enrich each database image with an estimated depth map to capture local scene geometry.",
-    "Perform dense image-to-image matching between query images and depth-augmented database entries to establish robust correspondences.",
-    "Use depth-aware geometric verification and pose estimation to localize queries without building or updating a global 3D model."
+    "Represent each reference image by the image plus an estimated depth map to encode local 3D structure.",
+    "Perform dense image matching between query images and depth-augmented reference images to establish geometric correspondences for pose estimation.",
+    "Keep a decentralized, image-based database that is simple to build and update while leveraging depth for improved geometric accuracy."
   ],
-  "impact": "Offers practitioners a practical trade-off: the simplicity and updatability of image-based systems with much of the geometric accuracy of 3D pipelines, benefiting applications in robotics, AR, and large-scale mapping where frequent updates and low maintenance are essential.",
+  "impact": "Enables practical, scalable localization that combines the maintainability of image-only systems with stronger geometric reasoning—useful for robotics, AR, mapping, and large-scale deployment where frequent updates are needed.",
   "visual_elements": [
-    "Pipeline diagram: database image + estimated depth -> dense matching -> depth-aware pose estimation",
-    "Side-by-side illustration: classic 2D image-only vs. depth-augmented image representation showing improved correspondences",
-    "Chart: localization accuracy vs. system maintenance/update cost comparing 2D-only, depth-augmented (ImLoc), and full 3D reconstruction methods",
-    "Icon row: scalable dataset updates, no centralized reconstruction, improved geometric reasoning, real-time applicability"
+    "Side-by-side comparison: plain 2D image localization vs. depth-augmented image localization (show differences in matching/accuracy).",
+    "Pipeline diagram: depth estimation → dense matching → correspondence filtering → pose estimation.",
+    "Overlay of dense correspondences between query and reference images with depth-informed reprojections to show geometric consistency.",
+    "Iconic illustration contrasting centralized 3D reconstruction (single heavy model) with decentralized image+depth database (many lightweight, updatable entries)."
   ],
   "hashtags": [
     "#VisualLocalization",
     "#DepthEstimation",
-    "#ImageBasedMapping",
+    "#DenseMatching",
     "#ComputerVision",
     "#Robotics"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.04185v1"
     }
   ],
-  "generated_at": "2026-01-09T06:24:08.016692"
+  "generated_at": "2026-01-10T06:21:32.673973"
 }
