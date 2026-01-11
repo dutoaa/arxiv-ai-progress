@@ -1,24 +1,24 @@
 {
-  "key_insight": "FlowLet synthesizes high-quality, age-conditional 3D brain MRIs by combining wavelet-domain representation with a flow-matching generative model, enabling efficient and faithful volume generation for downstream tasks.",
-  "problem_solved": "Addresses the scarcity and demographic skew in 3D brain MRI datasets (which limit Brain Age Prediction fairness and generalization) by providing a method to generate realistic, age-balanced synthetic MRI volumes without new subject acquisition.",
+  "key_insight": "FlowLet introduces a wavelet-based flow matching generator to synthesize conditional high-resolution 3D brain MRIs (e.g., conditioned on age), allowing realistic, multi-scale MRI augmentation without collecting new scans.",
+  "problem_solved": "Addresses demographic imbalance and scarcity in 3D brain MRI datasets for Brain Age Prediction by providing a method to generate diverse, age-conditional synthetic volumes to improve dataset balance and model generalization.",
   "method": [
-    "Decompose 3D MRI volumes into multi-scale wavelet coefficients so the model works in a compact, multi-resolution representation.",
-    "Train a conditional flow-matching generative model in the wavelet domain to learn the distribution of brain structure given age (and other covariates).",
-    "Reconstruct full-resolution 3D MRIs from predicted wavelet coefficients, enabling fast sampling with preserved anatomical detail."
+    "Wavelet multi-scale representation: decompose 3D MRIs into wavelet bands to model and synthesize coarse-to-fine anatomical structure efficiently.",
+    "Flow matching generative model: learn conditional continuous-time flows that map noise to realistic MRI volumes guided by age (or other covariates).",
+    "Conditional synthesis pipeline: combine wavelet reconstruction with flow-based sampling to produce high-fidelity 3D MRIs that preserve global anatomy and fine details."
   ],
-  "impact": "Provides AI/ML practitioners a practical tool to augment and balance MRI datasets for tasks like Brain Age Prediction, improving model fairness and generalization while reducing reliance on costly or sensitive data collection.",
+  "impact": "Provides AI/ML practitioners a practical tool to augment and balance 3D MRI datasets for tasks like Brain Age Prediction, improving fairness and robustness without expensive or ethically constrained data collection. The multi-scale flow approach scales to high-resolution volumes while retaining anatomical realism.",
   "visual_elements": [
-    "Pipeline diagram: input age + covariates → wavelet decomposition → conditional flow-matching model → wavelet reconstruction → synthetic 3D MRI.",
-    "Side-by-side slices/volumetric renders comparing real vs. synthetic MRIs to show visual fidelity.",
-    "Age-conditional interpolation grid showing smooth anatomical changes across target ages.",
-    "Bar/histogram showing dataset demographic distribution before vs. after synthetic augmentation (e.g., age balance)."
+    "Pipeline diagram: wavelet decomposition → conditional flow matching model → wavelet reconstruction (showing coarse-to-fine synthesis).",
+    "Side-by-side slices: real vs. synthetic 3D MRI slices across ages to demonstrate fidelity and age-conditioned variation.",
+    "Age-conditional interpolation: series of volumes or slice sequences showing smooth morphing across target ages.",
+    "Dataset balance chart: before/after augmentation bar chart showing improved age-distribution and class coverage."
   ],
   "hashtags": [
-    "#MedicalImaging",
     "#MRI",
     "#GenerativeAI",
+    "#MedicalImaging",
     "#DataAugmentation",
-    "#BrainAge"
+    "#WaveletFlow"
   ],
   "paper_id": "2026-01-08-arxiv-flowlet_conditional_3d_brain_mri_synthesis_using_wavelet_flow_matching",
   "paper_title": "FlowLet: Conditional 3D Brain MRI Synthesis using Wavelet Flow Matching",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.05212v1"
     }
   ],
-  "generated_at": "2026-01-10T06:18:58.813586"
+  "generated_at": "2026-01-11T06:19:27.819140"
 }

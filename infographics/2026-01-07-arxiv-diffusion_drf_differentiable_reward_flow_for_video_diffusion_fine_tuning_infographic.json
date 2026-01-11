@@ -1,23 +1,23 @@
 {
-  "key_insight": "Diffusion-DRF turns non-differentiable preference signals into a differentiable reward flow so reward gradients can backpropagate through video diffusion fine-tuning, enabling stable, end-to-end alignment between text prompts and generated video.",
-  "problem_solved": "Current T2V fine-tuning relies on non-differentiable human or learned preference signals, which is label‑intensive, bias‑prone, vulnerable to reward hacking, and leads to unstable training.",
+  "key_insight": "Introduce a differentiable reward flow (Diffusion-DRF) that lets gradients from preference/reward signals propagate back into video diffusion models, enabling stable, label-efficient fine-tuning and reducing reward-hacking.",
+  "problem_solved": "Current T2V fine-tuning relies on non-differentiable human labels or learned reward models, which is label-intensive, bias-prone, and susceptible to reward hacking and unstable training dynamics.",
   "method": [
-    "Introduce a Differentiable Reward Flow (DRF) that converts preference signals into a gradient-friendly module that interfaces with the diffusion sampling/denoising pipeline.",
-    "Integrate DRF with a pretrained video diffusion model to enable end-to-end fine-tuning (reward gradients flow back into the generator) while preserving pretrained capabilities.",
-    "Train with a differentiable preference objective (DPO-compatible surrogate and regularization) to improve text alignment and visual fidelity while reducing label dependence and reward-hacking risk."
+    "Design a differentiable reward flow that estimates preferences in a way that is backpropagatable through the diffusion sampling/fine-tuning pipeline.",
+    "Integrate the differentiable reward with a DPO-style objective to directly optimize video diffusion models for visual fidelity and text alignment without non-differentiable reward signals.",
+    "Train with fewer human annotations and greater stability, mitigating reward-hacking by keeping the reward pathway differentiable and aligned with generation gradients."
   ],
-  "impact": "Makes preference-based fine-tuning of video diffusion models more label-efficient, robust, and harder to game, giving practitioners a practical path to better text-to-video alignment and more stable training.",
+  "impact": "Makes video diffusion fine-tuning more robust, data-efficient, and harder to game — enabling practitioners to improve text-to-video fidelity and alignment with fewer labels and more stable training.",
   "visual_elements": [
-    "Pipeline diagram showing pretrained video diffusion model + Differentiable Reward Flow with arrows for gradient backpropagation",
-    "Before/after comparison of sample frames: baseline (misaligned) vs. Diffusion-DRF (aligned and higher fidelity)",
-    "Chart of training stability: loss/metric curves comparing non-differentiable reward methods vs. DRF (smoother, faster convergence)",
-    "Icon set: video frames, text prompt, reward signal (heart/score) with arrow converting discrete signal into continuous gradient"
+    "Pipeline diagram: video diffusion model <-> differentiable reward flow showing gradient arrows backpropagating into the generator",
+    "Before/after frame grid: sample video frames comparing baseline (non-diff) vs Diffusion-DRF outputs for identical prompts",
+    "Stability chart: training curves showing reduced variance/oscillations in reward and loss with Diffusion-DRF versus non-differentiable baselines",
+    "Icon set: small symbols for 'fewer labels', 'reduced bias', 'no reward hacking', and 'better alignment' to summarize benefits"
   ],
   "hashtags": [
-    "#DiffusionModels",
-    "#VideoGeneration",
+    "#VideoDiffusion",
     "#DifferentiableRewards",
-    "#FineTuning",
+    "#DPO",
+    "#GenerativeAI",
     "#AIAlignment"
   ],
   "paper_id": "2026-01-07-arxiv-diffusion_drf_differentiable_reward_flow_for_video_diffusion_fine_tuning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.04153v1"
     }
   ],
-  "generated_at": "2026-01-10T06:22:20.840869"
+  "generated_at": "2026-01-11T06:21:49.920855"
 }

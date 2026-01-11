@@ -1,24 +1,24 @@
 {
-  "key_insight": "Augmenting 2D image-based localization with per-image estimated depth maps captures local geometry so you can get strong geometric reasoning and accurate poses without building a centralized 3D reconstruction.",
-  "problem_solved": "Closes the gap between easy-to-build, easy-to-update 2D image-based localization (which lacks effective geometric reasoning) and accurate but cumbersome 3D structure-based methods (which require centralized reconstruction and are hard to update).",
+  "key_insight": "ImLoc shows that augmenting 2D image-based representations with per-image depth estimates recovers much of the geometric reasoning of 3D models while keeping the simplicity and updateability of image collections.",
+  "problem_solved": "Bridges the gap between easy-to-maintain 2D image-based localization (low geometry) and accurate but heavyweight 3D structure-based localization (costly reconstruction and updates).",
   "method": [
-    "Represent each reference image by the image plus an estimated depth map to encode local 3D structure.",
-    "Perform dense image matching between query images and depth-augmented reference images to establish geometric correspondences for pose estimation.",
-    "Keep a decentralized, image-based database that is simple to build and update while leveraging depth for improved geometric accuracy."
+    "Represent each database image as RGB + estimated depth map to encode local geometry without building a global 3D model.",
+    "Use dense image-to-image matching and geometric verification leveraging the estimated depth to compute camera poses robustly.",
+    "Keep the pipeline image-centric so databases are simple to update and maintain while preserving high localization accuracy."
   ],
-  "impact": "Enables practical, scalable localization that combines the maintainability of image-only systems with stronger geometric reasoning—useful for robotics, AR, mapping, and large-scale deployment where frequent updates are needed.",
+  "impact": "Offers practitioners a practical trade-off: near-3D geometric accuracy with the low-maintenance workflow of image-based systems—useful for scalable AR, robotics, and mapping deployments.",
   "visual_elements": [
-    "Side-by-side comparison: plain 2D image localization vs. depth-augmented image localization (show differences in matching/accuracy).",
-    "Pipeline diagram: depth estimation → dense matching → correspondence filtering → pose estimation.",
-    "Overlay of dense correspondences between query and reference images with depth-informed reprojections to show geometric consistency.",
-    "Iconic illustration contrasting centralized 3D reconstruction (single heavy model) with decentralized image+depth database (many lightweight, updatable entries)."
+    "Pipeline diagram: input image → depth estimator → RGBD database → dense matching → pose estimation",
+    "Before/after comparison: pure 2D retrieval vs ImLoc (with depth) showing improved pose alignment",
+    "Bar chart: accuracy vs maintenance cost for 2D, ImLoc, and 3D methods",
+    "Icon set: camera, depth map, database/update arrow to emphasize easy updates and geometry"
   ],
   "hashtags": [
     "#VisualLocalization",
     "#DepthEstimation",
-    "#DenseMatching",
     "#ComputerVision",
-    "#Robotics"
+    "#Robotics",
+    "#AugmentedReality"
   ],
   "paper_id": "2026-01-07-arxiv-imloc_revisiting_visual_localization_with_image_based_representation",
   "paper_title": "ImLoc: Revisiting Visual Localization with Image-based Representation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.04185v1"
     }
   ],
-  "generated_at": "2026-01-10T06:21:32.673973"
+  "generated_at": "2026-01-11T06:21:05.270533"
 }

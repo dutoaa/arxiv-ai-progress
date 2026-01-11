@@ -1,23 +1,23 @@
 {
-  "key_insight": "A lightweight test-time adaptation (TTA) framework built on a Temporal Convolutional Network (TCN) enables robust, low-overhead correction for EMG signal drift (electrode shifts, fatigue, posture) so gesture recognition models maintain accuracy over long-term use on energy‑constrained wearables.",
-  "problem_solved": "Mitigates sharp performance degradation of EMG-based gesture classifiers caused by non-stationary signals in real-world, long-term use without requiring large retraining datasets or heavy compute pipelines.",
+  "key_insight": "A lightweight, on-device Test-Time Adaptation (TTA) built around a Temporal Convolutional Network keeps EMG gesture recognition accurate under real-world signal drift without heavy retraining or large datasets.",
+  "problem_solved": "Mitigates sharp performance degradation of EMG-based gesture classifiers caused by electrode shifts, muscle fatigue, and posture changes, while avoiding costly offline re-training and high-compute adaptation pipelines that are impractical for energy-constrained wearables.",
   "method": [
-    "Use a compact Temporal Convolutional Network to capture short- and long-range temporal patterns in streaming EMG data.",
-    "Apply lightweight, online test-time adaptation updates (unsupervised/self-supervised objectives) to a small subset of model parameters so the system adapts to signal drift with minimal compute and memory overhead.",
-    "Design the pipeline for edge deployment: low-latency updates, small model footprint, and energy-efficient operations suited for wearable devices."
+    "Temporal Convolutional Network (TCN) backbone tailored to temporal EMG patterns.",
+    "A compact, low-cost TTA module that adapts model parameters or normalization statistics at test time using only unlabeled incoming signals.",
+    "Architecture and update rules optimized for minimal compute and memory so adaptation can run on battery-powered wearable devices."
   ],
-  "impact": "Enables more reliable, long-term EMG gesture decoding on resource-constrained wearables, reducing the need for frequent recalibration or large offline datasets and making practical on-device personalization feasible.",
+  "impact": "Makes long-term, reliable EMG decoding feasible on resource-constrained wearables, improving user experience and reducing maintenance/retraining needs; offers ML practitioners a practical path to deploy adaptive models in the wild.",
   "visual_elements": [
-    "Diagram: wearable armband → EMG signal stream → TCN + TTA module → predicted gesture, illustrating online adaptation loop",
-    "Chart: accuracy over time comparing baseline (no adaptation) vs. lightweight TTA showing stable performance under electrode shift/fatigue events",
-    "Block diagram: small TCN architecture highlighting the few parameters updated during test-time (low compute/memory)",
-    "Icon set: wearable device, low-power chip, drifted signal waveform, adaptation/refresh arrow to convey robustness and edge suitability"
+    "Pipeline diagram: sensor → TCN model → lightweight on-device TTA loop → updated predictions",
+    "Before vs. after line chart: accuracy over time demonstrating sharp drop without TTA and stability with TTA",
+    "Bar chart comparing compute, memory, and energy of the proposed TTA vs. full re-training and other baselines",
+    "Illustration of real-world drift sources (electrode shift, fatigue, posture) linked to model performance"
   ],
   "hashtags": [
     "#EMG",
     "#TestTimeAdaptation",
     "#WearableAI",
-    "#EdgeML",
+    "#LowPowerML",
     "#GestureRecognition"
   ],
   "paper_id": "2026-01-07-arxiv-lightweight_test_time_adaptation_for_emg_based_gesture_recognition",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.04181v1"
     }
   ],
-  "generated_at": "2026-01-10T06:22:30.050339"
+  "generated_at": "2026-01-11T06:21:58.973172"
 }

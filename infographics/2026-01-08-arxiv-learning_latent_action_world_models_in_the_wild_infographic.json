@@ -1,24 +1,24 @@
 {
-  "key_insight": "You can learn a compact, controllable action space directly from uncurated videos (no action labels) and use it to build world models that predict consequences of latent actions in the wild.",
-  "problem_solved": "World models typically require explicit action labels and curated data; this work addresses how to learn actionable, disentangled control representations from in-the-wild videos without supervised action annotations.",
+  "key_insight": "The paper shows that effective world models and action spaces can be learned directly from unlabeled, in-the-wild videos by discovering latent action variables and training dynamics in that latent space, enabling prediction and planning without ground-truth action labels.",
+  "problem_solved": "Removes the reliance on expensive or unavailable action labels for building predictive world models, enabling agents to learn how actions affect the world from noisy, real-world video data.",
   "method": [
-    "Self-supervised video modeling that separates controllable factors (latent actions) from passive/environmental factors using a structured encoder and dynamics prior.",
-    "Training objectives that enforce action-consistency (e.g., inverse/contrastive or cycle-consistency losses) and enable action-conditioned prediction in latent space.",
-    "Use the learned latent-action world model for planning or rollout by decoding latent action sequences to predicted observations, enabling downstream control or evaluation without labeled actions."
+    "Learn a compact latent action representation from raw video (frames or frame-pairs) in an unsupervised way so actions are encoded without supervision.",
+    "Train a dynamics/world model that predicts future latent states conditioned on the discovered latent actions, allowing rollouts and planning in latent space.",
+    "Enforce disentanglement and plausibility (e.g., via reconstruction/prediction objectives and regularization) so action latents capture controllable effects while separating nuisance factors."
   ],
-  "impact": "Enables scalable learning of model-based control and planning from large unlabeled video corpora, reducing reliance on costly action annotations and accelerating transfer to robotics, simulation, and embodied AI tasks.",
+  "impact": "Allows practitioners to build predictive models and planners using large-scale, unlabeled video corpora, reducing labeling cost and broadening applicability of model-based RL and planning to real-world data.",
   "visual_elements": [
-    "Pipeline diagram: raw video → encoder → split latents (action vs context) → latent dynamics → decoded predicted frames",
-    "Latent-action manifold visualization (2D projection) showing discrete/continuous action clusters discovered from diverse videos",
-    "Qualitative rollouts: side-by-side actual vs action-conditioned predicted frames across a few real-world clips",
-    "Bar chart or table comparing performance: supervised-action world model vs learned-latent-action model on prediction/planning metrics"
+    "Pipeline diagram: in-the-wild video -> latent action encoder -> latent dynamics/world model -> predicted future frames/rollouts",
+    "Before/after disentanglement: side-by-side comparison showing controllable changes captured by action latents versus static/nuisance factors",
+    "Rollout gallery: sequences of predicted futures under different sampled latent actions to illustrate planning and counterfactuals",
+    "Icon set: video camera (data), gear/latent vector (learned actions), forward arrow/paths (prediction & planning)"
   ],
   "hashtags": [
     "#WorldModels",
-    "#LatentActions",
+    "#RepresentationLearning",
     "#SelfSupervised",
-    "#VideoPrediction",
-    "#EmbodiedAI"
+    "#VideoUnderstanding",
+    "#ActionDiscovery"
   ],
   "paper_id": "2026-01-08-arxiv-learning_latent_action_world_models_in_the_wild",
   "paper_title": "Learning Latent Action World Models In The Wild",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.05230v1"
     }
   ],
-  "generated_at": "2026-01-10T06:19:32.364203"
+  "generated_at": "2026-01-11T06:19:47.958203"
 }

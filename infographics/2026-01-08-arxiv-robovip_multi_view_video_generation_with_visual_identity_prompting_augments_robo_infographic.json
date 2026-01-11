@@ -1,24 +1,24 @@
 {
-  "key_insight": "RoboVIP generates multi-view, temporally consistent video augmentations using Visual Identity Prompting so that synthetic data preserves object identity and appearance across views and time, improving downstream robot manipulation learning with realistic, scalable visual variations.",
-  "problem_solved": "Collecting large-scale, diverse, and temporally/multi-view consistent real-world manipulation data is costly and limited; prior image-edit augmentations (e.g., single-view diffusion edits) break object identity, viewpoint coherence, or temporal consistency, degrading policy training.",
+  "key_insight": "RoboVIP uses Visual Identity Prompting to generate multi-view, temporally consistent synthetic video of robot manipulation scenes, enabling realistic data augmentation that preserves object and robot identity across views and time.",
+  "problem_solved": "Collecting large-scale, diverse, multi-view manipulation data is expensive and hard to scale; prior image-level or single-view augmentations break cross-view and temporal consistency, limiting policy learning and generalization.",
   "method": [
-    "Introduce Visual Identity Prompting to anchor object appearance and identity across generated frames and camera views.",
-    "Generate multi-view, temporally-consistent video augmentations (built on image/video diffusion backbones) so augmented observations align with robot kinematics and trajectories.",
-    "Integrate augmented multi-view videos into policy training pipelines (imitation learning / RL), increasing dataset diversity while preserving realism needed for manipulation."
+    "Visual Identity Prompting: condition a generative model on reference images (object/robot appearance) so synthesized videos preserve identity across frames and camera views.",
+    "Multi-view, temporally consistent video generation: extend diffusion/ video generative techniques to produce synchronized views and coherent motion for whole trajectories.",
+    "Augmentation pipeline: splice generated multi-view videos into real manipulation trajectories to expand training datasets for downstream robot policy learning."
   ],
-  "impact": "Provides a practical way to scale realistic, identity-preserving visual augmentations for robot learning, improving generalization and data efficiency without expensive real-world collection. Practitioners can use RoboVIP to expand multi-view datasets and boost manipulation performance across varied environments.",
+  "impact": "Provides a practical way to produce realistic, multi-view manipulation data at scale, improving training diversity and generalization of robot policies without costly real-world collection. This helps researchers and practitioners accelerate robot learning and sim-to-real transfer.",
   "visual_elements": [
-    "Pipeline diagram: real robot video → Visual Identity Prompt → multi-view, temporally-consistent video generator → augmented dataset → policy training",
-    "Before/after panel: single-view edits vs. RoboVIP multi-view consistent frames showing preserved object identity across views/time",
-    "Chart: task success rate or learning curve comparing baseline data, single-image augmentation, and RoboVIP-augmented training",
-    "Icon set: robot arm, camera rig (multi-view), identity tag (object consistency), dataset/scale bar"
+    "Pipeline diagram: real capture -> visual identity prompt (reference images) -> multi-view video generator -> augmented training data -> policy training loop",
+    "Side-by-side frame grid: synchronized multi-view frames showing identity preservation across cameras and time",
+    "Performance chart: bar/line plot comparing policy success rates with and without RoboVIP augmentation",
+    "Icons/annotations: camera rig, robot arm, identity badge (for object/robot prompt), and temporal coherence waveform"
   ],
   "hashtags": [
     "#Robotics",
     "#DataAugmentation",
-    "#MultiViewVideo",
-    "#RobotLearning",
-    "#DiffusionModels"
+    "#VideoGeneration",
+    "#Sim2Real",
+    "#RobotLearning"
   ],
   "paper_id": "2026-01-08-arxiv-robovip_multi_view_video_generation_with_visual_identity_prompting_augments_robo",
   "paper_title": "RoboVIP: Multi-View Video Generation with Visual Identity Prompting Augments Robot Manipulation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.05241v1"
     }
   ],
-  "generated_at": "2026-01-10T06:20:12.634304"
+  "generated_at": "2026-01-11T06:20:19.254985"
 }
