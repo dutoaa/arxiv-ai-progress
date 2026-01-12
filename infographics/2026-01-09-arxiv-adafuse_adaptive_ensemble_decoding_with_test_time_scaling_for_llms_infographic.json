@@ -1,0 +1,35 @@
+{
+  "key_insight": "AdaFuse adaptively fuses multiple LLMs at inference by changing fusion granularity mid-generation and applying test-time scaling to model logits, so ensembles combine complementary strengths per token without any retraining.",
+  "problem_solved": "Fixed-granularity ensembling and uncalibrated voting fail to adapt to varying strengths across a generation and can be dominated by overconfident models; AdaFuse addresses the need for dynamic, calibrated ensemble decoding at test time.",
+  "method": [
+    "Adaptive fusion granularity: dynamically decide fusion at token- or span-level (per-token gating/weighting) so the ensemble adapts mid-generation to which model is most reliable.",
+    "Test-time scaling of logits: apply model-specific scaling/calibration during inference to correct confidence imbalances and better balance contributions.",
+    "Integrated ensemble decoding: combine dynamic weights and scaled logits into standard decoding (greedy/beam/sampling) with minimal extra compute and no retraining required."
+  ],
+  "impact": "Practitioners can improve generation quality, robustness, and controllability by combining off-the-shelf LLMs at inference time—no retraining—making ensemble gains practical for production and research.",
+  "visual_elements": [
+    "Pipeline flowchart: decoding loop showing per-token dynamic weighting and test-time scaling before token selection.",
+    "Heatmap: per-token/step model contribution weights across an example generation to illustrate mid-generation shifts.",
+    "Before/After calibration plot: logits or confidence distributions showing how test-time scaling reduces overconfidence.",
+    "Performance bar chart: comparison of AdaFuse vs fixed fusion baselines on key metrics (accuracy/ROUGE/win-rate) and latency overhead."
+  ],
+  "hashtags": [
+    "#LLM",
+    "#EnsembleLearning",
+    "#ModelFusion",
+    "#TestTimeScaling",
+    "#AIInference"
+  ],
+  "paper_id": "2026-01-09-arxiv-adafuse_adaptive_ensemble_decoding_with_test_time_scaling_for_llms",
+  "paper_title": "AdaFuse: Adaptive Ensemble Decoding with Test-Time Scaling for LLMs",
+  "paper_category": "Model",
+  "paper_date": "2026-01-09",
+  "paper_authors": "Chengming Cui, Tianxin Wei, Ziyi Chen, Ruizhong Qiu, Zhichen Zeng",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.06022v1"
+    }
+  ],
+  "generated_at": "2026-01-12T06:25:24.636061"
+}

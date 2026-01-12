@@ -1,23 +1,23 @@
 {
-  "key_insight": "Leveraging generative modeling in pixel space enables a monocular depth foundation model (Pixel-Perfect Depth, PPD) to produce high-quality, flying-pixel-free point clouds that preserve fine geometric details.",
-  "problem_solved": "Existing geometry foundation models produce noisy point clouds with ‘flying pixels’ and lose fine details; this work eliminates those artifacts while recovering cleaner, more accurate geometry from images.",
+  "key_insight": "Leveraging generative modeling directly in pixel space enables a monocular depth foundation model (Pixel-Perfect Depth, PPD) that produces high-quality, flying-pixel-free point clouds while preserving fine geometric detail.",
+  "problem_solved": "Existing geometry foundation models produce spurious 'flying' pixels and lose fine-scale detail in reconstructed depth/point clouds, limiting usability for robotics and AR. This work reduces flying-pixel artifacts and recovers cleaner, more detailed geometry from images.",
   "method": [
-    "Introduce Pixel-Perfect Depth (PPD): a monocular depth foundation model that uses pixel-space generative priors to predict extremely accurate per-pixel depth.",
-    "Convert pixel-perfect depth maps into point clouds with explicit suppression of flying-pixel outliers and mechanisms to retain fine geometric details.",
-    "Train and evaluate at scale to demonstrate consistent improvements in depth accuracy and artifact reduction compared to prior geometry models."
+    "Introduce Pixel-Perfect Depth (PPD), a monocular depth foundation model trained with generative modeling applied in pixel space to better capture local geometric structure.",
+    "Use pixel-space generative priors to denoise and refine depth predictions, eliminating flying pixels and preserving fine details before conversion to point clouds.",
+    "Provide a pipeline to convert refined depth maps into high-quality point clouds suitable for downstream tasks (robotics, AR, mapping)."
   ],
-  "impact": "Provides practitioners with a practical way to obtain clean, high-fidelity 3D geometry from monocular images, improving downstream tasks in robotics, AR, and 3D reconstruction by reducing artifacts and preserving detail.",
+  "impact": "Improves the fidelity and reliability of single-image 3D geometry for practitioners, enabling safer robot perception and more realistic AR content by reducing artifacts and retaining fine structure. Acts as a foundation model for many downstream 3D applications.",
   "visual_elements": [
-    "Before vs. after point-cloud comparison highlighting flying-pixel removal and finer detail recovery",
-    "Architecture diagram of PPD showing image → pixel-space generative module → depth map → point cloud pipeline",
-    "Quantitative bar/line charts: depth error, flying-pixel rate, and detail-preservation metrics vs. baselines",
-    "Application thumbnails: AR overlay and robotic perception scenes demonstrating practical improvements"
+    "Side-by-side comparison: input image, baseline depth, PPD depth, and resulting point clouds to highlight flying-pixel removal and detail recovery.",
+    "Architecture diagram: high-level flow showing pixel-space generative module producing refined depth and point-cloud conversion.",
+    "Quantitative bar chart: key metrics (e.g., artifact rate, depth accuracy, completeness) comparing PPD vs baselines.",
+    "Zoomed-in detail tiles: closeups showing preserved fine geometry (edges, thin structures) vs degraded baselines."
   ],
   "hashtags": [
     "#DepthEstimation",
     "#3DReconstruction",
     "#ComputerVision",
-    "#GenerativeModels",
+    "#Robotics",
     "#AugmentedReality"
   ],
   "paper_id": "2026-01-08-arxiv-pixel_perfect_visual_geometry_estimation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.05246v1"
     }
   ],
-  "generated_at": "2026-01-11T06:20:52.615908"
+  "generated_at": "2026-01-12T06:26:36.834381"
 }
