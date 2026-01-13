@@ -1,24 +1,24 @@
 {
-  "key_insight": "PlenopticDreamer synchronizes generative hallucinations across cameras and time so that camera-controlled re-rendered videos remain spatially and temporally consistent in multi-view scenarios.",
-  "problem_solved": "Addresses the failure of prior camera-conditioned generative re-rendering methods to keep hallucinated regions coherent across multiple viewpoints and over time, reducing flicker, view-inconsistency, and geometry violations in multi-view video.",
+  "key_insight": "PlenopticDreamer synchronizes generative hallucinations across camera views so that re-rendered videos remain spatio-temporally consistent in multi-view settings, overcoming stochastic divergence common in single-view generative re-rendering.",
+  "problem_solved": "Maintains coherent, view-consistent hallucinations for camera-controlled video re-rendering across multiple viewpoints and time, reducing flicker and cross-view inconsistencies produced by stochastic generative models.",
   "method": [
-    "Introduce a plenoptic-aligned generative pipeline that ties hallucinated content to a shared multi-view representation so different cameras see consistent imagery.",
-    "Enforce cross-view and temporal synchronization through shared latent codes / cross-view attention and dedicated spatio-temporal consistency losses during training.",
-    "Produce camera-conditioned re-renders from the synchronized representation, enabling controllable viewpoint changes while preserving coherent hallucinations."
+    "Camera-conditioned generative re-rendering backbone that supports multi-view inputs and explicit camera control.",
+    "Cross-view latent synchronization mechanism that aligns stochastic hallucinations across simultaneous views to enforce multi-view consistency.",
+    "Spatio-temporal regularization (consistency losses and/or attention-based fusion) that stabilizes hallucinated content over time and across viewpoints."
   ],
-  "impact": "Makes camera-controlled multi-view video re-rendering practical and reliable for applications like AR/VR, virtual camera navigation, and multi-view editing by greatly reducing hallucination-induced artifacts and instability.",
+  "impact": "Enables reliable multi-camera video re-rendering and novel-view synthesis with fewer artifacts and temporal discontinuities, making generative methods more practical for immersive content creation, VFX, and multi-view synthesis pipelines.",
   "visual_elements": [
-    "Before/After comparison: same scene re-rendered from multiple views showing inconsistent vs. synchronized hallucinations.",
-    "Pipeline diagram: input multi-view frames + camera poses → shared plenoptic representation → synchronized generative module → camera-conditioned re-renders.",
-    "Temporal consistency animation/strip: frame sequence highlighting reduced flicker and stable object appearance over time.",
-    "Error/consistency heatmap: per-pixel multi-view discrepancy visualized to show improvement quantitatively."
+    "Architecture diagram showing inputs (multi-view cameras + target camera control), latent synchronization module, and re-rendered outputs.",
+    "Before/after frame triplets: independent hallucination vs. synchronized multi-view hallucination to highlight reduced inconsistency.",
+    "Timeline animation or flowchart illustrating spatio-temporal regularization across consecutive frames.",
+    "Quantitative bar chart comparing temporal and multi-view consistency metrics (e.g., PSNR/LPIPS/consistency score) against prior methods."
   ],
   "hashtags": [
     "#PlenopticVideo",
-    "#ViewSynthesis",
-    "#GenerativeModels",
-    "#MultiViewConsistency",
-    "#SpatioTemporal"
+    "#NeuralRendering",
+    "#MultiviewConsistency",
+    "#VideoGeneration",
+    "#SpatioTemporalAI"
   ],
   "paper_id": "2026-01-08-arxiv-plenoptic_video_generation",
   "paper_title": "Plenoptic Video Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.05239v1"
     }
   ],
-  "generated_at": "2026-01-12T06:26:00.574388"
+  "generated_at": "2026-01-13T06:24:46.575783"
 }

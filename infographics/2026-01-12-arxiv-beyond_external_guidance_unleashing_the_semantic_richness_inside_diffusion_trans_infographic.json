@@ -1,0 +1,35 @@
+{
+  "key_insight": "Diffusion transformers can generate and use their own semantic features as internal guidance, removing the need for external pretrained networks while preserving the training acceleration benefits.",
+  "problem_solved": "Eliminates dependence on external semantic feature extractors (e.g., DINO) that add complexity and brittle dependencies to accelerated DiT training, enabling faster, simpler, and more flexible model training.",
+  "method": [
+    "Extract semantic signals from intermediate DiT representations (attention maps / feature tokens) and treat them as internal guidance targets.",
+    "Introduce a lightweight self-guidance objective (auxiliary loss / self-distillation) that aligns diffusion model features across timesteps or snapshots to bootstrap semantic learning.",
+    "Integrate the self-guidance objective into standard DiT training to accelerate convergence without needing pretrained external networks."
+  ],
+  "impact": "Makes accelerated DiT training more self-contained and reproducible, lowering engineering overhead and improving adaptability to new domains or modalities while keeping training fast.",
+  "visual_elements": [
+    "Side-by-side pipeline diagram: (a) external-guidance setup with a pretrained network feeding features vs (b) Self-Transcendence using internal features as guidance.",
+    "Convergence plot: training loss or FID vs epochs showing faster convergence with self-guidance compared to baseline without guidance and external-guidance.",
+    "Attention / feature-map montage: example intermediate DiT attention maps or token features used as semantic signals to illustrate what the model uses for self-guidance.",
+    "Flowchart of the auxiliary loss: how internal features are extracted, compared (e.g., between timesteps/snapshots), and backpropagated into the DiT."
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#Transformers",
+    "#SelfSupervision",
+    "#ModelTraining",
+    "#AIResearch"
+  ],
+  "paper_id": "2026-01-12-arxiv-beyond_external_guidance_unleashing_the_semantic_richness_inside_diffusion_trans",
+  "paper_title": "Beyond External Guidance: Unleashing the Semantic Richness Inside Diffusion Transformers for Improved Training",
+  "paper_category": "Model",
+  "paper_date": "2026-01-12",
+  "paper_authors": "Lingchen Sun, Rongyuan Wu, Zhengqiang Zhang, Ruibin Li, Yujing Sun",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.07773v1"
+    }
+  ],
+  "generated_at": "2026-01-13T06:23:24.832937"
+}

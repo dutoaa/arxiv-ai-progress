@@ -1,0 +1,35 @@
+{
+  "key_insight": "Introducing token-level multi-heads restores the expressivity that linear attention loses (preventing global-context collapse) while preserving the efficiency advantages of linear attention.",
+  "problem_solved": "Linear attention methods are efficient but often degrade model performance because they collapse global context or lose multi-head expressivity; prior fixes add extra modules that re-introduce costly computation.",
+  "method": [
+    "Token-level multi-head mechanism: apply lightweight, per-token multi-head projections to recover head-wise expressivity without global quadratic operations.",
+    "Architectural design preserves linear time/space scaling by keeping core attention computations in a linearized form and using compact reweighting per token.",
+    "Avoids heavy auxiliary modules (e.g., depthwise separable convolutions), achieving a clean trade-off between expressivity and efficiency."
+  ],
+  "impact": "Makes linear-attention Transformers practical for large-scale or resource-constrained deployments by restoring performance close to standard attention without losing computational benefits. Useful for practitioners needing scalable attention with strong representational power.",
+  "visual_elements": [
+    "Two-panel diagram comparing standard quadratic attention vs linear attention: complexity arrows (O(N^2) vs O(N)) and a callout showing 'global-context collapse' in simple linear attention.",
+    "Architecture block showing token-level multi-head module inserted into a linear-attention block, highlighting per-token heads and lightweight reweighting.",
+    "Bar chart or scatter plot mockup illustrating trade-off: accuracy (or expressivity) vs compute/memory for standard, naive linear, and MHLA.",
+    "Icon strip: stopwatch (efficiency), brain/weights (expressivity), network graph (global context), and a shield/check (robustness/avoiding collapse)."
+  ],
+  "hashtags": [
+    "#MHLA",
+    "#LinearAttention",
+    "#Transformers",
+    "#EfficientAI",
+    "#TokenLevel"
+  ],
+  "paper_id": "2026-01-12-arxiv-mhla_restoring_expressivity_of_linear_attention_via_token_level_multi_head",
+  "paper_title": "MHLA: Restoring Expressivity of Linear Attention via Token-Level Multi-Head",
+  "paper_category": "Model",
+  "paper_date": "2026-01-12",
+  "paper_authors": "Kewei Zhang, Ye Huang, Yufan Deng, Jincheng Yu, Junsong Chen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.07832v1"
+    }
+  ],
+  "generated_at": "2026-01-13T06:24:34.847871"
+}

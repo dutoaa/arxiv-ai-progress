@@ -1,0 +1,35 @@
+{
+  "key_insight": "Phonon Fine-Tuning (PFT) directly supervises MLIPs on second-order derivatives by matching the model energy Hessian to DFT-computed force constants, substantially improving predicted vibrational (phonon) properties with targeted fine-tuning.",
+  "problem_solved": "Standard MLIP losses (energy/forces/stress) do not guarantee correct curvature of the potential energy surface, causing large errors in vibrational spectra and derivative-dependent properties; PFT fixes this by adding explicit second-derivative supervision.",
+  "method": [
+    "Compute DFT force-constant matrices via finite-displacement phonon calculations for representative structures.",
+    "Compute MLIP energy Hessians and add a Hessian-matching loss term to training, then fine-tune pretrained MLIPs to minimize curvature errors.",
+    "Validate by comparing phonon dispersion and derived thermodynamic properties before vs. after PFT to ensure improved vibrational fidelity."
+  ],
+  "impact": "PFT enables MLIP users to obtain accurate phonon spectra, thermal and vibrational properties, and curvature-sensitive predictions without full retraining—improving reliability for materials modeling tasks that depend on second derivatives.",
+  "visual_elements": [
+    "Pipeline diagram: DFT finite-displacement → force-constant matrix → Hessian loss → MLIP fine-tuning",
+    "Before/after phonon dispersion plots showing improved band frequencies and removal of spurious modes",
+    "Heatmap of Hessian (force-constant) error pre- and post-fine-tuning to visualize curvature correction",
+    "Bar chart or table summarizing improvements in phonon RMSE and downstream thermal property errors"
+  ],
+  "hashtags": [
+    "#PhononFineTuning",
+    "#MLIP",
+    "#MaterialsAI",
+    "#Phonons",
+    "#DFT"
+  ],
+  "paper_id": "2026-01-12-arxiv-pft_phonon_fine_tuning_for_machine_learned_interatomic_potentials",
+  "paper_title": "PFT: Phonon Fine-tuning for Machine Learned Interatomic Potentials",
+  "paper_category": "Model",
+  "paper_date": "2026-01-12",
+  "paper_authors": "Teddy Koker, Abhijeet Gangan, Mit Kotak, Jaime Marian, Tess Smidt",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.07742v1"
+    }
+  ],
+  "generated_at": "2026-01-13T06:22:55.455837"
+}
