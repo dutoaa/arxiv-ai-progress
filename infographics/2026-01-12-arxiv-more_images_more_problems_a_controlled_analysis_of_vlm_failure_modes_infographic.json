@@ -1,24 +1,24 @@
 {
-  "key_insight": "MIMIC shows that giving LVLMs more images often uncovers systematic failure modes—especially in cross-image reasoning, relevance selection, and grounding—and that a controlled, diagnostic benchmark can isolate the root causes of these errors.",
-  "problem_solved": "Addresses the gap in rigorous evaluation for multi-image vision-language models by providing a controlled benchmark and analysis framework that identifies what breaks, when, and why as image count and task complexity increase.",
+  "key_insight": "Adding more images to VLM inputs exposes systematic, controllable failure modes—errors in aggregation, cross-image coreference, and distractor handling increase with image count. MIMIC pinpoints these weaknesses and their causes.",
+  "problem_solved": "Addresses the lack of a rigorous, controlled benchmark and analysis for multi-image vision-language understanding, diagnosing why and how LVLMs fail when reasoning over multiple images.",
   "method": [
-    "Introduce MIMIC: a diagnostic benchmark that varies number of images, task types, and distractor content to stress multi-image capabilities.",
-    "Run controlled experiments across models and tasks to categorize failures (e.g., relevance selection, cross-image fusion, temporal/ordering errors, hallucination).",
-    "Analyze error patterns to link observed failures to likely causes such as attention limits, prompt sensitivity, and multimodal grounding weaknesses."
+    "Introduce MIMIC: a controlled benchmark of multi-image tasks with systematic variations (relevance, distractors, ordering, cross-image references) and fine-grained annotations.",
+    "Run controlled probes and ablations across multiple LVLMs to quantify performance degradation as image count/complexity increases and to categorize error types.",
+    "Define metrics and a failure-mode taxonomy to attribute errors to specific causes (aggregation, alignment, hallucination, attention dilution) and measure sensitivity to task factors."
   ],
-  "impact": "Provides practitioners a practical tool and taxonomy to evaluate and debug multi-image LVLM behavior, guiding model selection, dataset design, and targeted improvements to training and prompting strategies.",
+  "impact": "Gives researchers and engineers a practical diagnostic tool and taxonomy to evaluate, compare, and improve multi-image reasoning in VLMs—guiding dataset design, model architectures, and mitigation strategies.",
   "visual_elements": [
-    "Schematic diagram of multi-image input → LVLM → outputs highlighting cross-image links and failure points.",
-    "Line/bar chart: model performance vs. number of images showing degradation or divergence trends.",
-    "Stacked bar or heatmap of categorized failure modes (relevance, grounding, reasoning, hallucination) across models/tasks.",
-    "Flowchart illustrating the controlled experiment design (variables: image count, distractors, task type) and diagnostic pipeline."
+    "Pipeline diagram of MIMIC: input (N images + prompt) → controlled perturbations → model → labeled error categories",
+    "Bar chart or line plot showing error rate vs. number of images across models (demonstrating scaling failure)",
+    "Stacked chart or heatmap of failure-mode frequencies (aggregation, coreference, distractors, hallucination) per model and per task type",
+    "Side-by-side example panels: (a) multi-image prompt, (b) correct reasoning annotation, (c) common model failure with explanation"
   ],
   "hashtags": [
     "#VisionLanguageModels",
-    "#MIMICBenchmark",
     "#MultimodalAI",
-    "#ModelEvaluation",
-    "#FailureAnalysis"
+    "#Benchmarking",
+    "#FailureModes",
+    "#MIMIC"
   ],
   "paper_id": "2026-01-12-arxiv-more_images_more_problems_a_controlled_analysis_of_vlm_failure_modes",
   "paper_title": "More Images, More Problems? A Controlled Analysis of VLM Failure Modes",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.07812v1"
     }
   ],
-  "generated_at": "2026-01-13T06:24:21.340841"
+  "generated_at": "2026-01-14T06:25:04.848441"
 }

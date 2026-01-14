@@ -1,24 +1,24 @@
 {
-  "key_insight": "Phonon Fine-Tuning (PFT) directly supervises MLIPs on second-order derivatives by matching the model energy Hessian to DFT-computed force constants, substantially improving predicted vibrational (phonon) properties with targeted fine-tuning.",
-  "problem_solved": "Standard MLIP losses (energy/forces/stress) do not guarantee correct curvature of the potential energy surface, causing large errors in vibrational spectra and derivative-dependent properties; PFT fixes this by adding explicit second-derivative supervision.",
+  "key_insight": "Phonon Fine-Tuning (PFT) improves machine-learned interatomic potentials by directly supervising second-order derivatives (energy Hessians) so MLIPs reproduce DFT force constants and vibrational properties accurately with a compact fine-tuning step.",
+  "problem_solved": "Standard MLIP training on energies, forces, and stresses can miss potential-energy curvature, causing large errors in phonons and other vibrational predictions despite low energy/force errors.",
   "method": [
-    "Compute DFT force-constant matrices via finite-displacement phonon calculations for representative structures.",
-    "Compute MLIP energy Hessians and add a Hessian-matching loss term to training, then fine-tune pretrained MLIPs to minimize curvature errors.",
-    "Validate by comparing phonon dispersion and derived thermodynamic properties before vs. after PFT to ensure improved vibrational fidelity."
+    "Compute DFT force constants using finite-displacement phonon calculations for representative structures.",
+    "Add a Hessian-level loss that matches the MLIP energy Hessian (second derivatives) to the DFT force-constant matrix and fine-tune the pre-trained MLIP.",
+    "Keep original energy/force/stress performance while correcting curvature-driven errors with minimal additional DFT data and training time."
   ],
-  "impact": "PFT enables MLIP users to obtain accurate phonon spectra, thermal and vibrational properties, and curvature-sensitive predictions without full retraining—improving reliability for materials modeling tasks that depend on second derivatives.",
+  "impact": "PFT provides a practical plug-in to make MLIPs trustworthy for vibrational, thermal, and stability-sensitive predictions, helping ML practitioners produce physically consistent potentials without retraining from scratch.",
   "visual_elements": [
-    "Pipeline diagram: DFT finite-displacement → force-constant matrix → Hessian loss → MLIP fine-tuning",
-    "Before/after phonon dispersion plots showing improved band frequencies and removal of spurious modes",
-    "Heatmap of Hessian (force-constant) error pre- and post-fine-tuning to visualize curvature correction",
-    "Bar chart or table summarizing improvements in phonon RMSE and downstream thermal property errors"
+    "Before vs after phonon dispersion plots showing reconstructed phonon bands and reduced errors after PFT",
+    "Schematic pipeline: pre-trained MLIP → compute DFT force constants (finite displacements) → Hessian loss → fine-tuned MLIP",
+    "Heatmap or matrix comparison of DFT vs MLIP Hessians (force-constant matrices) pre- and post-fine-tuning",
+    "Bar chart of error metrics (phonon RMS error, energy/force RMSE) showing preserved energy/force accuracy and reduced curvature error"
   ],
   "hashtags": [
-    "#PhononFineTuning",
     "#MLIP",
-    "#MaterialsAI",
     "#Phonons",
-    "#DFT"
+    "#MaterialsAI",
+    "#DifferentiablePhysics",
+    "#FineTuning"
   ],
   "paper_id": "2026-01-12-arxiv-pft_phonon_fine_tuning_for_machine_learned_interatomic_potentials",
   "paper_title": "PFT: Phonon Fine-tuning for Machine Learned Interatomic Potentials",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.07742v1"
     }
   ],
-  "generated_at": "2026-01-13T06:22:55.455837"
+  "generated_at": "2026-01-14T06:25:27.116272"
 }

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Standard RL fine-tuning for LLMs collapses into a few dominant reasoning patterns because rewards focus on local token behavior; rewarding uniqueness at the solution-set level encourages diverse, creative rollouts and improves multi-sample metrics (e.g., pass@k).",
+  "problem_solved": "Addresses exploration collapse in RL-finetuned LLMs where policies over-concentrate on high-probability, repetitive reasoning traces, limiting rollout-level diversity and gains from sampling multiple outputs.",
+  "method": [
+    "Define a set-level uniqueness (novelty) score over model rollouts (e.g., inverse-density, clustering-distance, or rarity of reasoning traces) rather than only token-level regularizers.",
+    "Augment the RL reward with a uniqueness-aware term that upweights rare but valid solutions, balancing quality and novelty during policy optimization.",
+    "Optimize the combined objective so the model preserves correctness while producing a wider, more creative distribution of solutions (improved pass@k and exploration)."
+  ],
+  "impact": "Enables RL-finetuned LLMs to generate more diverse, creative solutions without sacrificing accuracy, improving effectiveness in creative problem solving, multi-sample evaluation, and downstream tasks that benefit from heterogeneous outputs.",
+  "visual_elements": [
+    "Diagram contrasting token-level regularization (leads to collapse) vs. set-level uniqueness reward (promotes diverse rollouts)",
+    "Bar chart showing pass@1 vs pass@k performance gains with and without uniqueness reward",
+    "Pipeline flowchart: rollout collection → uniqueness scoring → reward augmentation → policy update",
+    "Diversity heatmap or t-SNE of solution embeddings illustrating wider spread after uniqueness-aware RL"
+  ],
+  "hashtags": [
+    "#ReinforcementLearning",
+    "#LLMs",
+    "#Creativity",
+    "#Exploration",
+    "#RLHF"
+  ],
+  "paper_id": "2026-01-13-arxiv-rewarding_the_rare_uniqueness_aware_rl_for_creative_problem_solving_in_llms",
+  "paper_title": "Rewarding the Rare: Uniqueness-Aware RL for Creative Problem Solving in LLMs",
+  "paper_category": "Model",
+  "paper_date": "2026-01-13",
+  "paper_authors": "Zhiyuan Hu, Yucheng Wang, Yufei He, Jiaying Wu, Yilun Zhao",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.08763v1"
+    }
+  ],
+  "generated_at": "2026-01-14T06:22:04.520928"
+}

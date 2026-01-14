@@ -1,0 +1,35 @@
+{
+  "key_insight": "Multiplex Thinking replaces long, discrete chain-of-thought token streams with a token-wise stochastic branch-and-merge that samples K candidate tokens per step and fuses their embeddings into a single continuous \"multiplex\" token, enabling soft, high-bandwidth internal reasoning while keeping the model's vocabulary interface.",
+  "problem_solved": "Addresses the inefficiency and low information bandwidth of long CoT token sequences by providing a compact, probabilistic internal reasoning state that captures multiple plausible continuations without emitting long explicit chains.",
+  "method": [
+    "At each decoding step, sample K candidate next tokens (branching) instead of committing to one token.",
+    "Aggregate the K candidates' embeddings into one continuous multiplex token via a stochastic/weighted merge, preserving the model's embedding space and vocabulary interface.",
+    "Repeat token-wise branch-and-merge across steps to maintain a distributional, soft reasoning trajectory that can be decoded or collapsed when needed."
+  ],
+  "impact": "Enables LLMs to reason with richer, uncertainty-aware internal states while avoiding verbose CoT outputs—potentially improving reasoning quality, compute-efficiency trade-offs, and integration with existing transformer architectures.",
+  "visual_elements": [
+    "Schematic of token-wise branch-and-merge: one input token branching into K candidates then merging into a single multiplex embedding",
+    "Comparison chart: CoT (long discrete chain) vs Multiplex Thinking (compact continuous multiplex tokens) showing token length and information bandwidth",
+    "Flow diagram showing how multiplex tokens propagate through Transformer layers and can be collapsed to a final output",
+    "Icon set: branching (fork), merging (funnel), stochastic sampling (dice), and vocabulary/interface (word/token icon)"
+  ],
+  "hashtags": [
+    "#MultiplexThinking",
+    "#ChainOfThought",
+    "#SoftReasoning",
+    "#LLMs",
+    "#EfficientInference"
+  ],
+  "paper_id": "2026-01-13-arxiv-multiplex_thinking_reasoning_via_token_wise_branch_and_merge",
+  "paper_title": "Multiplex Thinking: Reasoning via Token-wise Branch-and-Merge",
+  "paper_category": "Model",
+  "paper_date": "2026-01-13",
+  "paper_authors": "Yao Tang, Li Dong, Yaru Hao, Qingxiu Dong, Furu Wei",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.08808v1"
+    }
+  ],
+  "generated_at": "2026-01-14T06:23:03.537604"
+}

@@ -1,17 +1,17 @@
 {
-  "key_insight": "Turning discrete, verifiable 3D physical checks into smooth, continuous rewards gives dense learning signals that let vision–language models learn precise numerical spatial reasoning instead of relying on sparse relative rankings.",
-  "problem_solved": "VLMs struggle with accurate numeric predictions for 3D scene understanding because standard RL-style training (e.g., relative ranking) produces sparse rewards, unstable gradients, and discards informative \"near‑miss\" cases that carry verifiable physical signals.",
+  "key_insight": "Introduce a Smooth Verifiable Reward that turns discrete, verifiable 3D physical constraints into dense, continuous supervision—eliminating near-miss suppression from relative ranking and thereby activating spatial/numeric reasoning in Vision–Language Models.",
+  "problem_solved": "VLMs struggle to produce precise numerical predictions for 3D scene understanding because standard RL-based ranking rewards are sparse, unstable, and discard informative near-miss examples; the paper addresses how to exploit verifiable 3D constraints to provide stable, informative learning signals.",
   "method": [
-    "Define verifiable physical constraints from 3D geometry/physics as ground-truth checks (e.g., distances, collisions, alignment) rather than only relative ranks.",
-    "Design a smooth verifiable reward (SVR) function that maps those discrete checks into continuous, differentiable signals to provide dense gradients while preserving verifiability.",
-    "Integrate SVR into the VLM training loop (reward shaping / RL fine-tuning) and replace or augment relative-normalization schemes to stabilize learning and recover signal from near-miss samples."
+    "Design a Smooth Verifiable Reward (SVR) that maps verifiable 3D constraint violations into a continuous, differentiable reward signal rather than a binary/relative rank.",
+    "Integrate SVR into the RL training loop (replacing or adapting relative normalization in GRPO-style pipelines) to preserve gradient information from near-miss samples and reduce reward sparsity/instability.",
+    "Use physics- and geometry-based verifiers to generate reliable supervision from 3D scene constraints, providing dense corrective feedback for VLMs' numeric/spatial outputs."
   ],
-  "impact": "Provides a practical recipe to stabilize reward signals and activate spatial reasoning in VLMs, enabling more reliable numeric 3D predictions for downstream tasks (robotics, scene reconstruction, AR) without heavy architecture changes.",
+  "impact": "Provides a practical way to teach VLMs precise spatial and numerical reasoning with stable gradients, improving accuracy on 3D understanding and enabling stronger performance in robotics, AR, and other real-world tasks that require verifiable geometry.",
   "visual_elements": [
-    "Before vs after reward landscapes: sparse spikes (relative reward) contrasted with smooth continuous reward curves (SVR) showing denser gradients.",
-    "Flowchart of the pipeline: 3D scene → verifiable checks → SVR module → RL fine-tuning of VLM.",
-    "Illustration of near-miss examples: predicted vs ground-truth geometry with annotated small errors that are recovered by SVR.",
-    "Quantitative concept chart: training stability (gradient variance) and convergence illustration (schematic) comparing relative ranking vs SVR."
+    "Before/after reward diagram: sparse binary or relative reward vs. smooth continuous SVR curve showing preserved gradient around near-miss samples",
+    "Pipeline flowchart: input image+text → verifiable 3D constraint checker → SVR computation → RL update (highlighting change from relative normalization)",
+    "Performance bar/line chart: accuracy or error on 3D numeric tasks comparing baseline RL, ranking methods, and SVR",
+    "Illustrated 3D scene with predicted vs. ground-truth numeric measurements to show reduced error and better spatial alignment"
   ],
   "hashtags": [
     "#VisionLanguage",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.07695v1"
     }
   ],
-  "generated_at": "2026-01-13T06:21:57.591730"
+  "generated_at": "2026-01-14T06:24:55.147678"
 }

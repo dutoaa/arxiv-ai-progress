@@ -1,23 +1,23 @@
 {
-  "key_insight": "RefVFX enables tuning-free, feed-forward transfer of complex temporal effects (e.g., dynamic lighting, character transformations) from a reference video onto a target video or image while preserving the target's identity and temporal coherence.",
-  "problem_solved": "Existing editing methods struggle to reproduce rich, time-varying visual effects described neither by text nor static keyframes; this work addresses how to capture and apply dynamic temporal behavior from one video to another without per-video fine-tuning.",
+  "key_insight": "RefVFX transfer complex, dynamic visual effects from a reference video onto a target video or image in a single feed-forward pass, without per-instance tuning, while preserving content and temporal coherence.",
+  "problem_solved": "Existing editing approaches struggle to reproduce rich temporal effects (e.g., dynamic lighting, character transformations) that are hard to describe via text or static keyframes; RefVFX enables direct transfer of those temporal dynamics between videos/images without expensive per-video fine-tuning.",
   "method": [
-    "Extract a compact temporal-effect descriptor from the reference video that encodes dynamic changes (appearance, lighting, transformations).",
-    "Use a feed-forward generator that conditions target frames on the descriptor to inject the reference dynamics into the target sequence without per-video tuning.",
-    "Incorporate temporal-consistency mechanisms and losses to preserve semantics, identity, and smooth frame-to-frame transitions during transfer."
+    "Encode temporal effect dynamics from a reference video into a transferable representation that captures motion, lighting and transformation cues.",
+    "Apply a feed-forward, tuning-free transfer mechanism that modulates the target video/image with the encoded temporal dynamics at inference time.",
+    "Enforce temporal consistency and content preservation so the transferred effect remains coherent across frames and keeps target identity/structure intact."
   ],
-  "impact": "Provides a practical, fast way to copy complex moving effects between videos/images, enabling content creators and ML practitioners to perform realistic temporal edits without slow per-video optimization or hand-crafted prompts.",
+  "impact": "Makes realistic, temporally consistent visual-effect transfer practical and fast for creators and ML practitioners—reducing manual keyframing and per-instance training, and enabling scalable VFX workflows and rapid prototyping.",
   "visual_elements": [
-    "Pipeline diagram: reference video -> temporal-effect extractor -> feed-forward generator -> edited target video (annotated modules and data flow).",
-    "Before/after montage: side-by-side frames or short clips showing the target video pre- and post-effect transfer.",
-    "Temporal consistency chart: frame-wise error or perceptual similarity across time comparing RefVFX vs baseline methods.",
-    "Icon set: small symbols for 'no fine-tuning', 'real-time / feed-forward', 'preserved identity', and 'dynamic effects' to quickly convey key advantages."
+    "Before / After video strip: reference video, target input, and resulting output side-by-side to show transferred dynamics.",
+    "Simplified architecture block diagram: Reference encoder -> Transfer/modulation module -> Temporal consistency check -> Output.",
+    "Temporal dynamics visualization: timelines or flow overlays showing how lighting/motion patterns are extracted from reference and applied to target.",
+    "Comparison chart: accuracy/temporal coherence vs. prior prompt/keyframe or fine-tuning methods and a latency/throughput bar for tuning-free inference."
   ],
   "hashtags": [
+    "#RefVFX",
+    "#VideoEffects",
     "#VisualEffects",
-    "#VideoEditing",
     "#ComputerVision",
-    "#GenerativeAI",
     "#DeepLearning"
   ],
   "paper_id": "2026-01-12-arxiv-tuning_free_visual_effect_transfer_across_videos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.07833v1"
     }
   ],
-  "generated_at": "2026-01-13T06:24:41.363993"
+  "generated_at": "2026-01-14T06:24:18.265752"
 }
