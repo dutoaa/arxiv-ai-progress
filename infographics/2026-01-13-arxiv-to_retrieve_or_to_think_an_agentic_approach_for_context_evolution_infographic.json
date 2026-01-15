@@ -1,24 +1,24 @@
 {
-  "key_insight": "An agentic controller that dynamically decides when to retrieve external knowledge versus rely on internal reasoning can evolve the prompt context more efficiently, reducing irrelevant noise and computation while improving downstream reasoning.",
-  "problem_solved": "Current context augmentation methods perform retrieval at every step, causing wasted compute and noisy contexts that hurt performance on knowledge-intensive reasoning tasks.",
+  "key_insight": "Instead of retrieving external context at every reasoning step, an agentic controller can decide when to 'retrieve' vs when to 'think' (use internal reasoning), reducing noise and cost while improving downstream performance.",
+  "problem_solved": "Retrieval-augmented pipelines indiscriminately perform retrieval at every step, incurring unnecessary compute and introducing irrelevant context that can hurt reasoning accuracy.",
   "method": [
-    "Introduce Agentic Context Evolution (ACE): an agent-like controller that chooses between 'retrieve' and 'think' actions at each reasoning step to update the context selectively.",
-    "Evolve the prompt/context over time by applying retrieval only when the controller predicts high information gain or necessity, otherwise relying on internal chain-of-thought reasoning.",
-    "Optimize for a trade-off between task performance and retrieval cost (e.g., cost-aware reward or heuristic), and evaluate against brute-force retrieval baselines."
+    "Introduce Agentic Context Evolution (ACE): an agentic controller that dynamically decides whether to trigger retrieval or rely on internal generation at each step.",
+    "Evolve the working context iteratively — selectively augmenting it only when utility signals (e.g., uncertainty, information gap, or expected value of retrieval) indicate benefit.",
+    "Maintain a compact, high-signal context by avoiding redundant retrievals and by updating context through targeted external lookups and internal synthesis."
   ],
-  "impact": "ACE reduces unnecessary retrieval calls, lowering latency and API costs while producing cleaner, more relevant contexts that improve accuracy on knowledge-heavy tasks—useful for deploying efficient, scalable LLM pipelines.",
+  "impact": "ACE lowers computational cost and context noise, yielding more efficient and often more accurate knowledge-intensive reasoning—beneficial for deploying large-scale LLM systems and building robust retrieval-augmented agents.",
   "visual_elements": [
-    "Flowchart showing the agent decision: current context -> controller decides 'Retrieve' or 'Think' -> context update -> next step",
-    "Bar chart comparing retrieval frequency, latency, and accuracy between ACE and always-retrieve baselines",
-    "Timeline diagram of context evolution illustrating fewer, targeted retrievals versus constant retrievals",
-    "Icon set: magnifying glass (retrieval), brain/lightbulb (thinking), and a cost meter to represent compute/latency trade-offs"
+    "Side-by-side flowchart: brute-force retrieval-at-every-step vs ACE’s decision loop (agent decides retrieve vs think).",
+    "Bar chart: compute cost and accuracy comparison (always-retrieve vs ACE).",
+    "Schematic of context evolution: compact context maintained over iterations with occasional retrieval spikes.",
+    "Icon set: magnifying glass (retrieve), lightbulb (think), gauge (uncertainty signal), stopwatch (compute savings)."
   ],
   "hashtags": [
-    "#RetrievalAugmentedGeneration",
+    "#RetrievalAugmented",
     "#AgenticAI",
     "#ContextEvolution",
-    "#EfficientAI",
-    "#KnowledgeIntensiveTasks"
+    "#EfficientLLMs",
+    "#AIResearch"
   ],
   "paper_id": "2026-01-13-arxiv-to_retrieve_or_to_think_an_agentic_approach_for_context_evolution",
   "paper_title": "To Retrieve or To Think? An Agentic Approach for Context Evolution",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.08747v1"
     }
   ],
-  "generated_at": "2026-01-14T06:21:08.562263"
+  "generated_at": "2026-01-15T06:23:10.412020"
 }

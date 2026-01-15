@@ -1,24 +1,24 @@
 {
-  "key_insight": "Phonon Fine-Tuning (PFT) improves machine-learned interatomic potentials by directly supervising second-order derivatives (energy Hessians) so MLIPs reproduce DFT force constants and vibrational properties accurately with a compact fine-tuning step.",
-  "problem_solved": "Standard MLIP training on energies, forces, and stresses can miss potential-energy curvature, causing large errors in phonons and other vibrational predictions despite low energy/force errors.",
+  "key_insight": "Phonon Fine-Tuning (PFT) improves ML interatomic potentials by directly supervising second-order force constants: matching the MLIP energy Hessian to DFT-computed force constants corrects curvature errors and greatly improves vibrational/phonon predictions.",
+  "problem_solved": "Standard MLIP training on energies, forces, and stresses often yields incorrect curvature (second derivatives) of the potential energy surface, causing poor predictions of vibrational properties (phonons, vibrational density of states, thermal behavior).",
   "method": [
-    "Compute DFT force constants using finite-displacement phonon calculations for representative structures.",
-    "Add a Hessian-level loss that matches the MLIP energy Hessian (second derivatives) to the DFT force-constant matrix and fine-tune the pre-trained MLIP.",
-    "Keep original energy/force/stress performance while correcting curvature-driven errors with minimal additional DFT data and training time."
+    "Compute DFT force constants via finite-displacement calculations to obtain target second-order derivatives (force constant matrix).",
+    "Evaluate the MLIP energy Hessian (analytic or finite-difference) and add a Hessian/force-constant matching loss to fine-tune a pretrained MLIP.",
+    "Fine-tune with a multi-term loss to preserve original energy/force/stress accuracy while correcting curvature for improved phonon predictions."
   ],
-  "impact": "PFT provides a practical plug-in to make MLIPs trustworthy for vibrational, thermal, and stability-sensitive predictions, helping ML practitioners produce physically consistent potentials without retraining from scratch.",
+  "impact": "PFT gives ML/Materials practitioners a lightweight, targeted way to fix curvature deficiencies in MLIPs, enabling reliable prediction of vibrational and thermal properties and more stable atomistic dynamics without full retraining.",
   "visual_elements": [
-    "Before vs after phonon dispersion plots showing reconstructed phonon bands and reduced errors after PFT",
-    "Schematic pipeline: pre-trained MLIP → compute DFT force constants (finite displacements) → Hessian loss → fine-tuned MLIP",
-    "Heatmap or matrix comparison of DFT vs MLIP Hessians (force-constant matrices) pre- and post-fine-tuning",
-    "Bar chart of error metrics (phonon RMS error, energy/force RMSE) showing preserved energy/force accuracy and reduced curvature error"
+    "Schematic energy vs. displacement curve showing curvature mismatch: baseline MLIP vs. PFT-corrected MLIP vs. DFT reference.",
+    "Pipeline flowchart: DFT finite displacements → force constants (target Hessian) → MLIP Hessian computation → PFT loss → fine-tuned MLIP.",
+    "Before/after phonon dispersion or vibrational density-of-states plots highlighting improved agreement with DFT after PFT.",
+    "Bar/line chart comparing second-derivative (Hessian) errors and resulting property errors (e.g., phonon frequencies, specific heat) for baseline vs. PFT."
   ],
   "hashtags": [
-    "#MLIP",
+    "#PhononFineTuning",
+    "#InteratomicPotentials",
+    "#DFT",
     "#Phonons",
-    "#MaterialsAI",
-    "#DifferentiablePhysics",
-    "#FineTuning"
+    "#MaterialsAI"
   ],
   "paper_id": "2026-01-12-arxiv-pft_phonon_fine_tuning_for_machine_learned_interatomic_potentials",
   "paper_title": "PFT: Phonon Fine-tuning for Machine Learned Interatomic Potentials",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.07742v1"
     }
   ],
-  "generated_at": "2026-01-14T06:25:27.116272"
+  "generated_at": "2026-01-15T06:23:49.231175"
 }

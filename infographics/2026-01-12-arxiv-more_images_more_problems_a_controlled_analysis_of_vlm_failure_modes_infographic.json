@@ -1,24 +1,24 @@
 {
-  "key_insight": "Adding more images to VLM inputs exposes systematic, controllable failure modes—errors in aggregation, cross-image coreference, and distractor handling increase with image count. MIMIC pinpoints these weaknesses and their causes.",
-  "problem_solved": "Addresses the lack of a rigorous, controlled benchmark and analysis for multi-image vision-language understanding, diagnosing why and how LVLMs fail when reasoning over multiple images.",
+  "key_insight": "Introducing MIMIC, the paper shows that adding more images exposes distinct and systematic failure modes in large vision–language models (LVLMs): models often fail at cross-image reference, aggregation, and consistent reasoning even when single-image tasks succeed.",
+  "problem_solved": "The work identifies and measures core weaknesses of multi-image LVLMs by providing a controlled benchmark and analysis framework to diagnose why models break as the number of images increases.",
   "method": [
-    "Introduce MIMIC: a controlled benchmark of multi-image tasks with systematic variations (relevance, distractors, ordering, cross-image references) and fine-grained annotations.",
-    "Run controlled probes and ablations across multiple LVLMs to quantify performance degradation as image count/complexity increases and to categorize error types.",
-    "Define metrics and a failure-mode taxonomy to attribute errors to specific causes (aggregation, alignment, hallucination, attention dilution) and measure sensitivity to task factors."
+    "Design MIMIC: a controlled multi-image benchmark with targeted scenario suites (cross-image reference, aggregation, temporal/sequential reasoning, distractors).",
+    "Apply systematic perturbations and stimuli (varying image counts, referential ambiguity, distractor images) to probe failure modes.",
+    "Quantitative and qualitative analysis across multiple LVLMs to derive a taxonomy of multi-image failure modes and root causes."
   ],
-  "impact": "Gives researchers and engineers a practical diagnostic tool and taxonomy to evaluate, compare, and improve multi-image reasoning in VLMs—guiding dataset design, model architectures, and mitigation strategies.",
+  "impact": "Provides practitioners with a diagnostic tool and taxonomy to evaluate and improve multi-image reasoning in LVLMs, guiding dataset design, model architecture choices, and safer deployment of multimodal systems.",
   "visual_elements": [
-    "Pipeline diagram of MIMIC: input (N images + prompt) → controlled perturbations → model → labeled error categories",
-    "Bar chart or line plot showing error rate vs. number of images across models (demonstrating scaling failure)",
-    "Stacked chart or heatmap of failure-mode frequencies (aggregation, coreference, distractors, hallucination) per model and per task type",
-    "Side-by-side example panels: (a) multi-image prompt, (b) correct reasoning annotation, (c) common model failure with explanation"
+    "Schematic of the MIMIC setup: multiple images + prompt → model response (showing correct vs. failure examples).",
+    "Bar chart of failure-mode frequency (cross-image reference, aggregation errors, hallucination, neglect of context) across models.",
+    "Heatmap or attention overlay showing where the model focuses across images for a multi-image question.",
+    "Flowchart of the diagnostic pipeline: controlled input generation → perturbations → metrics → failure taxonomy."
   ],
   "hashtags": [
-    "#VisionLanguageModels",
+    "#VisionLanguage",
     "#MultimodalAI",
     "#Benchmarking",
-    "#FailureModes",
-    "#MIMIC"
+    "#ModelEvaluation",
+    "#LVLM"
   ],
   "paper_id": "2026-01-12-arxiv-more_images_more_problems_a_controlled_analysis_of_vlm_failure_modes",
   "paper_title": "More Images, More Problems? A Controlled Analysis of VLM Failure Modes",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.07812v1"
     }
   ],
-  "generated_at": "2026-01-14T06:25:04.848441"
+  "generated_at": "2026-01-15T06:23:34.474940"
 }

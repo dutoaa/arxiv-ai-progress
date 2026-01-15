@@ -1,0 +1,35 @@
+{
+  "key_insight": "SCE-SLAM uses learned scene-coordinate embeddings as a global, metric anchor inside a monocular SLAM pipeline to prevent scale drift across long sequences while preserving real-time local optimization.",
+  "problem_solved": "Monocular SLAM systems accumulate scale drift over long videos because local frame-to-frame optimization lacks global metric constraints; SCE-SLAM enforces a consistent global scale across independent optimization windows.",
+  "method": [
+    "Learn per-pixel / per-keypoint scene coordinate embeddings that map image observations to a shared metric 3D coordinate space.",
+    "Integrate embedding-based global constraints into an end-to-end SLAM pipeline so local windowed optimizers are anchored to a consistent scale and can be globally aligned.",
+    "Maintain real-time performance by combining lightweight local optimization with occasional global consistency updates via embedding matches (no heavy full-batch bundle adjustment)."
+  ],
+  "impact": "Provides reliable, scale-consistent monocular 3D reconstruction suitable for long-range mapping, internet-video reconstruction, and resource-constrained robotics — reducing post-processing and improving downstream perception tasks.",
+  "visual_elements": [
+    "Pipeline diagram: image -> scene-coordinate embedding network -> embedding matches -> SLAM optimizer (local windows + global anchor).",
+    "Before/after scale drift plot: trajectory or scale factor drift over time for baseline monocular SLAM vs SCE-SLAM.",
+    "Heatmap overlay on frames showing predicted scene coordinates (colors map to metric depth/position).",
+    "Comparison table/chart of qualitative outcomes (reconstructed map snippets) showing consistent scale vs warped scale."
+  ],
+  "hashtags": [
+    "#MonocularSLAM",
+    "#ScaleConsistency",
+    "#SceneCoordinates",
+    "#VisualSLAM",
+    "#Embeddings"
+  ],
+  "paper_id": "2026-01-14-arxiv-sce_slam_scale_consistent_monocular_slam_via_scene_coordinate_embeddings",
+  "paper_title": "SCE-SLAM: Scale-Consistent Monocular SLAM via Scene Coordinate Embeddings",
+  "paper_category": "Project",
+  "paper_date": "2026-01-14",
+  "paper_authors": "Yuchen Wu, Jiahe Li, Xiaohan Yu, Lina Yu, Jin Zheng",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.09665v1"
+    }
+  ],
+  "generated_at": "2026-01-15T06:21:00.500388"
+}

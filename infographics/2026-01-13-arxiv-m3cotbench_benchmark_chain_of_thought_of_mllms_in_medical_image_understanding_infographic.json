@@ -1,23 +1,23 @@
 {
-  "key_insight": "M3CoTBench is the first focused benchmark that measures Chain‑of‑Thought (CoT) reasoning abilities of Multimodal Large Language Models (MLLMs) on medical image understanding, showing that explicit stepwise reasoning can reveal strengths and failure modes not visible from final-answer accuracy alone.",
-  "problem_solved": "Existing medical image benchmarks evaluate only final answers and overlook intermediate clinical reasoning; M3CoTBench fills this gap by providing tasks, ground‑truth reasoning traces, and metrics to systematically assess CoT quality, faithfulness, and diagnostic utility in MLLMs.",
+  "key_insight": "M3CoTBench provides a targeted benchmark to evaluate Chain-of-Thought (CoT) reasoning in multimodal large language models (MLLMs) on medical image understanding, showing that CoT prompts reveal strengths and systematic gaps in stepwise clinical reasoning that are not captured by final-answer accuracy alone.",
+  "problem_solved": "Existing medical image benchmarks focus on final answers and ignore intermediate diagnostic reasoning; there is no standard way to measure the quality, faithfulness, and clinical alignment of CoT outputs from MLLMs.",
   "method": [
-    "Curate multimodal diagnostic cases (images + prompts) that require multi-step clinical reasoning and generate human‑annotated CoT traces as reference explanations.",
-    "Define evaluation protocols and metrics for CoT assessment (e.g., step alignment, factuality, diagnostic correctness, and hallucination rate) and apply them across several MLLM baselines.",
-    "Compare model behaviors with/without CoT prompting to quantify gains, tradeoffs (interpretability vs. hallucination), and domain robustness."
+    "Curate medical image tasks (e.g., radiology, dermatology) with structured questions and expert-annotated CoT reasoning traces as ground truth.",
+    "Design evaluation protocol combining automated metrics (answer accuracy, step-level correctness, faithfulness, calibration) with expert human review for clinical alignment.",
+    "Benchmark multiple MLLMs and prompting strategies (CoT prompting vs direct-answer) and analyze failure modes, localization alignment, and reasoning depth."
   ],
-  "impact": "Provides practitioners a standardized way to benchmark and improve the interpretability and safety of MLLMs in clinical imaging tasks; it helps model developers prioritize faithful stepwise reasoning and detect reasoning failures that could affect diagnoses.",
+  "impact": "Provides practitioners a standardized way to measure and compare MLLM reasoning transparency and safety in clinical imaging, guiding model selection, prompt design, and targeted improvements for diagnostically reliable multimodal systems.",
   "visual_elements": [
-    "Pipeline diagram: dataset → human CoT annotations → MLLM prompts (with/without CoT) → evaluation metrics",
-    "Bar chart: comparative metrics (accuracy, CoT fidelity, hallucination) across multiple MLLM baselines",
-    "Example case panel: medical image, reference CoT steps, model CoT output, and final diagnosis with color‑coded errors",
-    "Metric breakdown infographic: definitions and visual scales for step alignment, factuality, and diagnostic correctness"
+    "Pipeline diagram: dataset → CoT annotation → evaluation metrics → model comparison (shows workflow of M3CoTBench).",
+    "Side-by-side example: medical image with (a) final answer-only output vs (b) Chain-of-Thought output annotated by experts.",
+    "Bar chart: model performance across metrics (final accuracy, step-level correctness, faithfulness, calibration) to highlight trade-offs.",
+    "Heatmap/overlay: attention or localization alignment between model-highlighted image regions and expert-annotated salient areas."
   ],
   "hashtags": [
+    "#M3CoTBench",
     "#MedicalAI",
-    "#MultimodalLLM",
     "#ChainOfThought",
-    "#Benchmarking",
+    "#MLLM",
     "#ExplainableAI"
   ],
   "paper_id": "2026-01-13-arxiv-m3cotbench_benchmark_chain_of_thought_of_mllms_in_medical_image_understanding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.08758v1"
     }
   ],
-  "generated_at": "2026-01-14T06:21:49.738892"
+  "generated_at": "2026-01-15T06:24:13.448044"
 }

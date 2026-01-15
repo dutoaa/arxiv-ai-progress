@@ -1,0 +1,35 @@
+{
+  "key_insight": "Applying orthogonal gradient projection inside a shared LoRA adapter disentangles conflicting task updates by removing gradient components that interfere across tasks, reducing negative transfer while keeping a single, parameter-efficient adapter.",
+  "problem_solved": "Negative transfer in multi-task LoRA: conflicting gradient updates from different tasks degrade per-task performance when a single LoRA adapter is shared across tasks.",
+  "method": [
+    "Compute task-specific gradient directions within the LoRA low-rank parameter subspace during multi-task training.",
+    "Project each task's gradient orthogonally to the subspace spanned by other tasks' conflicting components (Orthogonal Gradient Projection) before applying updates.",
+    "Update the shared LoRA adapter with the conflict-free (projected) gradients, preserving low-rank structure and parameter efficiency."
+  ],
+  "impact": "Enables reliable multi-task adaptation with a single LoRA adapter by reducing negative transfer, improving per-task performance while keeping storage and compute benefits of parameter-efficient tuning.",
+  "visual_elements": [
+    "Before/After diagram showing overlapping/conflicting gradient vectors in the adapter subspace vs. orthogonally separated vectors after projection.",
+    "Architecture sketch: base LLM + single shared LoRA adapter with a module indicating orthogonal projection per task.",
+    "Bar or heatmap comparing per-task performance (single-task fine-tune vs. shared LoRA vs. shared LoRA + OGP).",
+    "Algorithm flowchart: compute gradients → build conflict subspace → orthogonal projection → apply updates."
+  ],
+  "hashtags": [
+    "#MultiTaskLearning",
+    "#LoRA",
+    "#OrthogonalProjection",
+    "#ParameterEfficient",
+    "#NegativeTransfer"
+  ],
+  "paper_id": "2026-01-14-arxiv-disentangling_task_conflicts_in_multi_task_lora_via_orthogonal_gradient_projecti",
+  "paper_title": "Disentangling Task Conflicts in Multi-Task LoRA via Orthogonal Gradient Projection",
+  "paper_category": "Model",
+  "paper_date": "2026-01-14",
+  "paper_authors": "Ziyu Yang, Guibin Chen, Yuxin Yang, Aoxiong Zeng, Xiangquan Yang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.09684v1"
+    }
+  ],
+  "generated_at": "2026-01-15T06:21:33.714553"
+}
