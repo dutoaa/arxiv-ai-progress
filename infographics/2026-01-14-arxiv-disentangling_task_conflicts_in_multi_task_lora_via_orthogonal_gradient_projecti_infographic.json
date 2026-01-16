@@ -1,24 +1,24 @@
 {
-  "key_insight": "Applying orthogonal gradient projection inside a shared LoRA adapter disentangles conflicting task updates by removing gradient components that interfere across tasks, reducing negative transfer while keeping a single, parameter-efficient adapter.",
-  "problem_solved": "Negative transfer in multi-task LoRA: conflicting gradient updates from different tasks degrade per-task performance when a single LoRA adapter is shared across tasks.",
+  "key_insight": "Projecting task gradients into orthogonal subspaces inside a shared LoRA adapter disentangles conflicting updates, eliminating negative transfer and restoring per-task performance close to single-task fine-tuning while keeping parameter efficiency.",
+  "problem_solved": "Negative transfer in multi-task LoRA: conflicting gradient updates from different tasks degrade individual task performance when a single low-rank adapter is shared across tasks.",
   "method": [
-    "Compute task-specific gradient directions within the LoRA low-rank parameter subspace during multi-task training.",
-    "Project each task's gradient orthogonally to the subspace spanned by other tasks' conflicting components (Orthogonal Gradient Projection) before applying updates.",
-    "Update the shared LoRA adapter with the conflict-free (projected) gradients, preserving low-rank structure and parameter efficiency."
+    "Detect task-specific gradient components in the shared LoRA adapter and identify conflict directions between tasks.",
+    "Apply orthogonal gradient projection to remove or reorient conflicting components so each task updates only non-conflicting subspaces of the adapter.",
+    "Maintain LoRA's low-rank structure and lightweight footprint so multi-task adaptation remains parameter- and storage-efficient."
   ],
-  "impact": "Enables reliable multi-task adaptation with a single LoRA adapter by reducing negative transfer, improving per-task performance while keeping storage and compute benefits of parameter-efficient tuning.",
+  "impact": "Allows practitioners to deploy one compact LoRA adapter for many tasks without sacrificing per-task accuracy, reducing storage and maintenance costs for multi-task LLM deployments while avoiding negative transfer.",
   "visual_elements": [
-    "Before/After diagram showing overlapping/conflicting gradient vectors in the adapter subspace vs. orthogonally separated vectors after projection.",
-    "Architecture sketch: base LLM + single shared LoRA adapter with a module indicating orthogonal projection per task.",
-    "Bar or heatmap comparing per-task performance (single-task fine-tune vs. shared LoRA vs. shared LoRA + OGP).",
-    "Algorithm flowchart: compute gradients → build conflict subspace → orthogonal projection → apply updates."
+    "2D vector diagram: two task gradients shown with the conflicting component projected orthogonally onto a preserved subspace",
+    "Architecture sketch: shared LoRA adapter plugged into an LLM with per-task orthogonal projection modules",
+    "Bar chart: per-task accuracy comparing single-task fine-tuning, naive multi-task LoRA, and the proposed orthogonal projection method",
+    "Table or icon set: storage overhead (number of adapters) vs average task performance to highlight efficiency gains"
   ],
   "hashtags": [
     "#MultiTaskLearning",
     "#LoRA",
-    "#OrthogonalProjection",
-    "#ParameterEfficient",
-    "#NegativeTransfer"
+    "#GradientOrthogonality",
+    "#NegativeTransfer",
+    "#ModelEfficiency"
   ],
   "paper_id": "2026-01-14-arxiv-disentangling_task_conflicts_in_multi_task_lora_via_orthogonal_gradient_projecti",
   "paper_title": "Disentangling Task Conflicts in Multi-Task LoRA via Orthogonal Gradient Projection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.09684v1"
     }
   ],
-  "generated_at": "2026-01-15T06:21:33.714553"
+  "generated_at": "2026-01-16T06:24:28.798119"
 }

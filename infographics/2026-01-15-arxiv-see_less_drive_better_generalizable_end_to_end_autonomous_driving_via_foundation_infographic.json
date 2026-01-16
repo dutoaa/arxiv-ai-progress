@@ -1,0 +1,35 @@
+{
+  "key_insight": "Patch-aligned features from foundation models (e.g., BLIP2) are highly redundant (≈90%); randomly selecting/stochastically dropping patches during training forces the policy to use non-redundant signals and improves out-of-distribution generalization for end-to-end driving.",
+  "problem_solved": "Redundancy in self-attention-derived patch features harms robustness and OOD generalization of end-to-end autonomous driving policies; the paper addresses how to remove that redundancy to train more generalizable controllers.",
+  "method": [
+    "Measure redundancy in foundation-model patch features using PCA and cross-patch similarity, showing ≈90% redundancy in BLIP2 descriptors.",
+    "Introduce stochastic patch selection during training: randomly sample a subset of patch features (drop redundant patches) so the policy learns to rely on diverse, robust cues.",
+    "Train end-to-end driving policies on the reduced patch set extracted from foundation models, improving OOD performance while reducing irrelevant feature dependence."
+  ],
+  "impact": "Enables more robust, generalizable end-to-end driving policies that use foundation-model features more efficiently—reducing overfitting to spurious patch signals and potentially lowering compute and memory needs during training.",
+  "visual_elements": [
+    "PCA scree plot showing that a small number of components explain most variance (annotated: ≈90% redundancy).",
+    "Cross-patch similarity heatmap to visualize redundancy across spatial patches.",
+    "Pipeline diagram: image → foundation-model patch features → stochastic patch selection (sample/drop) → policy network → improved OOD behavior.",
+    "Bar chart comparing baseline vs. stochastic-patch-selection OOD performance and a small icon/animation showing patches being removed."
+  ],
+  "hashtags": [
+    "#AutonomousDriving",
+    "#FoundationModels",
+    "#OODGeneralization",
+    "#PatchSelection",
+    "#EndToEndLearning"
+  ],
+  "paper_id": "2026-01-15-arxiv-see_less_drive_better_generalizable_end_to_end_autonomous_driving_via_foundation",
+  "paper_title": "See Less, Drive Better: Generalizable End-to-End Autonomous Driving via Foundation Models Stochastic Patch Selection",
+  "paper_category": "Model",
+  "paper_date": "2026-01-15",
+  "paper_authors": "Amir Mallak, Erfan Aasi, Shiva Sreeram, Tsun-Hsuan Wang, Daniela Rus",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.10707v1"
+    }
+  ],
+  "generated_at": "2026-01-16T06:23:02.579924"
+}

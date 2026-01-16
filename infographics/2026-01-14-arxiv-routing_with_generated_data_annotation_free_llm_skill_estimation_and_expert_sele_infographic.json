@@ -1,17 +1,17 @@
 {
-  "key_insight": "Routers can be trained without human labels by using synthetic queries and answers generated from high-level task descriptions, enabling annotation-free estimation of each expert LLM's skill for routing decisions.",
-  "problem_solved": "How to build effective LLM routers when real labeled data is unavailable or user request distributions are heterogeneous and unknown.",
+  "key_insight": "Routers can be trained without human labels by using LLMs to generate synthetic queries and answers from high-level task descriptions, enabling reliable skill estimation and expert selection in annotation-free settings.",
+  "problem_solved": "How to train model routers when ground-truth labeled data is unavailable or user request distributions are heterogeneous and unknown, avoiding costly human annotation.",
   "method": [
-    "Use generator LLMs to produce diverse synthetic query–answer pairs from high-level task descriptions (no human annotation).",
-    "Train a router on this generated dataset to predict which expert model will perform best on a given input (annotation-free skill estimation).",
-    "Validate and calibrate router decisions via proxy signals (e.g., cross-model agreement, confidence scores, or generated evaluation prompts) to improve expert selection under distribution shift."
+    "Use generator LLMs to produce diverse synthetic query–answer pairs from high-level task descriptions, creating an annotation-free training corpus.",
+    "Train a router to estimate each candidate expert model's skill/performance on the generated data (skill estimation), then learn a mapping from inputs to the best expert.",
+    "At inference, use the learned router to select the optimal expert per query, improving task-specific performance without labeled ground-truth."
   ],
-  "impact": "Enables scalable, low-cost deployment of LLM routing systems without costly annotation pipelines, making model selection robust to diverse and unknown user request distributions.",
+  "impact": "Enables deployment of dynamic, annotation-free routing systems that reduce labeling costs and adapt to varied user requests, making model selection scalable and practical for real-world AI services.",
   "visual_elements": [
-    "Pipeline diagram: Task descriptions → Generator LLM → Synthetic dataset → Router training → Expert selection",
-    "Before/after comparison: labeled-data router vs. annotation-free (RGD) router performance and cost (bars or icons)",
-    "Sankey or routing flow showing inputs mapped to selected experts with estimated skill scores",
-    "Icon set summarizing benefits: lower annotation cost, improved scalability, and robustness to unknown distributions"
+    "Pipeline diagram: Task descriptions → Generator LLM → Synthetic dataset → Router training → Inference routing to expert models",
+    "Comparison bar chart: Router trained on generated data vs. labeled-data baseline vs. naive routing (e.g., single best model)",
+    "Heatmap or matrix: Estimated skill scores of multiple experts across diverse synthetic tasks",
+    "Icon set: generator LLM (pen/robot), router (switchboard), expert models (multiple servers), and no-annotation badge"
   ],
   "hashtags": [
     "#LLMRouting",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.09692v1"
     }
   ],
-  "generated_at": "2026-01-15T06:21:54.080446"
+  "generated_at": "2026-01-16T06:24:18.034890"
 }

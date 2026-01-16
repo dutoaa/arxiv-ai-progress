@@ -1,0 +1,35 @@
+{
+  "key_insight": "MatchTIR uses bipartite matching to align predicted tool calls with ground-truth effective steps, enabling fine-grained, per-step credit assignment for tool-integrated reasoning rather than coarse trajectory-level rewards.",
+  "problem_solved": "Existing RL approaches assign uniform advantage across entire trajectories, failing to distinguish useful tool calls from redundant or erroneous ones—especially in long-horizon, multi-turn tasks. MatchTIR addresses this by providing step-level supervision that identifies which interactions actually contributed to success.",
+  "method": [
+    "Construct a bipartite matching between model-generated tool-call steps and annotated effective steps to identify correct/impactful interactions.",
+    "Translate matching results into fine-grained per-step rewards or advantages, replacing uniform trajectory-level credit assignment.",
+    "Use these step-level signals to train/update the model (RL or supervised objectives) so it favors effective tool usage and suppresses redundant/erroneous calls."
+  ],
+  "impact": "Provides more precise supervision for training LLMs with external tools, improving reliability and efficiency in long-horizon reasoning tasks and reducing spurious tool invocations—making tool-augmented agents easier to train and debug.",
+  "visual_elements": [
+    "Bipartite matching diagram: predicted tool-call nodes on one side, ground-truth effective-step nodes on the other, matched edges highlighted.",
+    "Timeline/heatmap comparing trajectory-level reward (uniform) vs step-level rewards (granular highlighting of effective calls).",
+    "Before/after bar chart: metrics such as task success rate, number of redundant tool calls, and sample efficiency.",
+    "Training loop flowchart: generation → matching → per-step reward assignment → policy/model update."
+  ],
+  "hashtags": [
+    "#MatchTIR",
+    "#ToolIntegratedReasoning",
+    "#FineGrainedSupervision",
+    "#BipartiteMatching",
+    "#RLforLLMs"
+  ],
+  "paper_id": "2026-01-15-arxiv-matchtir_fine_grained_supervision_for_tool_integrated_reasoning_via_bipartite_ma",
+  "paper_title": "MatchTIR: Fine-Grained Supervision for Tool-Integrated Reasoning via Bipartite Matching",
+  "paper_category": "Model",
+  "paper_date": "2026-01-15",
+  "paper_authors": "Changle Qu, Sunhao Dai, Hengyi Cai, Jun Xu, Shuaiqiang Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.10712v1"
+    }
+  ],
+  "generated_at": "2026-01-16T06:23:31.718618"
+}

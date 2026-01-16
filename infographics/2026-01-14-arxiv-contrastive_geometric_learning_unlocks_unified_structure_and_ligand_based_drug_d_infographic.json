@@ -1,24 +1,24 @@
 {
-  "key_insight": "ConGLUDe is a single contrastive geometric model that unifies structure‑ and ligand‑based drug design by learning joint protein and ligand embeddings, enabling end‑to‑end tasks (binding prediction, ligand retrieval/generation) from one shared representation.",
-  "problem_solved": "Removes the separation between structure‑based and ligand‑based pipelines—addressing incompatible data sources and modeling assumptions—so models can be trained jointly at scale and transfer knowledge across drug‑design tasks.",
+  "key_insight": "ConGLUDe is a single contrastive geometric model that unifies structure- and ligand-based drug-design training by learning a shared embedding space where proteins and ligands that interact are pulled together, enabling joint use of both data sources at scale.",
+  "problem_solved": "Traditional pipelines treat structure-based (protein–ligand complexes) and ligand-based (SMILES/assay) design separately, limiting transfer of information and scale; ConGLUDe removes this gap by training one model to leverage both modalities simultaneously.",
   "method": [
-    "Geometric protein encoder that produces whole‑protein representations and implicit embeddings of predicted binding regions (avoids needing explicit pocket labels).",
-    "Contrastive learning objective aligns protein and ligand embeddings in a shared latent space using positive (binders) and negative (decoy) pairs.",
-    "Unified training enables downstream uses (affinity scoring, ligand retrieval/generation, docking‑aware scoring) from one model without separate pipelines."
+    "Geometric protein encoder produces whole-protein representations and implicit embeddings of predicted binding regions using 3D-aware (equivariant) features.",
+    "Contrastive learning couples the protein encoder with ligand encoders so that true protein–ligand pairs map close in a shared latent space while negatives are pushed apart.",
+    "Unified training uses both structure-based examples (complexes) and ligand-only data, enabling cross-modal transfer for tasks like pocket prediction, virtual screening, and ligand generation."
   ],
-  "impact": "Provides AI/ML practitioners a scalable, single representation and training paradigm that reduces engineering complexity, improves transfer across tasks, and increases sample efficiency for computational drug discovery.",
+  "impact": "Provides a single, scalable foundation model for multiple drug-design tasks, improving data efficiency and making it easier for ML practitioners to build end-to-end design pipelines that exploit both structural and ligand information.",
   "visual_elements": [
-    "Diagram of joint embedding space showing protein and ligand points pulled together by contrastive loss",
-    "Block diagram of the model: geometric protein encoder + ligand encoder + contrastive head",
-    "Workflow comparison: separate structure vs ligand pipelines → unified ConGLUDe pipeline",
-    "Performance chart highlighting improvements (retrieval/affinity) and a short ablation summary"
+    "Architecture diagram: two encoders (protein geometric + ligand) with a central contrastive loss and shared embedding space.",
+    "Embedding scatterplot: proteins and their true ligands clustered together vs. random negatives to show contrastive alignment.",
+    "Workflow infographic: unified training data sources (structures + ligands) → single model → downstream tasks (screening, scoring, generation).",
+    "Performance bar chart: relative gains or benefits (e.g., transferability, data-efficiency) versus separate SBDD/LBDD baselines."
   ],
   "hashtags": [
     "#DrugDesign",
     "#ContrastiveLearning",
     "#GeometricDeepLearning",
-    "#ProteinLigand",
-    "#AIinDrugDiscovery"
+    "#AIforDrugDiscovery",
+    "#StructureAndLigand"
   ],
   "paper_id": "2026-01-14-arxiv-contrastive_geometric_learning_unlocks_unified_structure_and_ligand_based_drug_d",
   "paper_title": "Contrastive Geometric Learning Unlocks Unified Structure- and Ligand-Based Drug Design",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.09693v1"
     }
   ],
-  "generated_at": "2026-01-15T06:22:03.988898"
+  "generated_at": "2026-01-16T06:24:51.170138"
 }
