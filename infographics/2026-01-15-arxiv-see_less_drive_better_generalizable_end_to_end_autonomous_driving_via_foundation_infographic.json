@@ -1,24 +1,24 @@
 {
-  "key_insight": "Patch-aligned features from foundation models (e.g., BLIP2) are highly redundant (≈90%); randomly selecting/stochastically dropping patches during training forces the policy to use non-redundant signals and improves out-of-distribution generalization for end-to-end driving.",
-  "problem_solved": "Redundancy in self-attention-derived patch features harms robustness and OOD generalization of end-to-end autonomous driving policies; the paper addresses how to remove that redundancy to train more generalizable controllers.",
+  "key_insight": "Patch-aligned features from foundation models (e.g., BLIP2) are highly redundant (~90% redundancy); randomly selecting a subset of patches during training (stochastic patch selection) reduces redundancy and yields better out-of-distribution generalization for end-to-end driving policies.",
+  "problem_solved": "Reduces over-reliance on massively redundant patch-level features that hurt OOD robustness and increase compute for end-to-end autonomous driving models.",
   "method": [
-    "Measure redundancy in foundation-model patch features using PCA and cross-patch similarity, showing ≈90% redundancy in BLIP2 descriptors.",
-    "Introduce stochastic patch selection during training: randomly sample a subset of patch features (drop redundant patches) so the policy learns to rely on diverse, robust cues.",
-    "Train end-to-end driving policies on the reduced patch set extracted from foundation models, improving OOD performance while reducing irrelevant feature dependence."
+    "Quantify redundancy in foundation-model patch descriptors using PCA and cross-patch similarity (≈90% redundancy).",
+    "Introduce stochastic patch selection: sample a smaller subset of patch-aligned features during training instead of using all patches.",
+    "Train end-to-end driving policies on the reduced patch set to improve generalization and efficiency without changing the backbone."
   ],
-  "impact": "Enables more robust, generalizable end-to-end driving policies that use foundation-model features more efficiently—reducing overfitting to spurious patch signals and potentially lowering compute and memory needs during training.",
+  "impact": "Enables more robust, compute-efficient end-to-end driving systems that generalize better to new environments; offers a simple, model-agnostic way for practitioners to leverage foundation-model features while avoiding redundancy-induced overfitting.",
   "visual_elements": [
-    "PCA scree plot showing that a small number of components explain most variance (annotated: ≈90% redundancy).",
-    "Cross-patch similarity heatmap to visualize redundancy across spatial patches.",
-    "Pipeline diagram: image → foundation-model patch features → stochastic patch selection (sample/drop) → policy network → improved OOD behavior.",
-    "Bar chart comparing baseline vs. stochastic-patch-selection OOD performance and a small icon/animation showing patches being removed."
+    "Bar chart / scree plot showing PCA explained variance with a marker at the ~90% redundancy point.",
+    "Schematic comparing full-patch pipeline vs stochastic patch selection pipeline (fewer patches → same or better OOD performance).",
+    "Heatmap or matrix of cross-patch similarity highlighting high redundancy across patches.",
+    "Performance plot comparing in-distribution vs OOD metrics for baseline (all patches) and proposed method (stochastic selection)."
   ],
   "hashtags": [
     "#AutonomousDriving",
     "#FoundationModels",
     "#OODGeneralization",
     "#PatchSelection",
-    "#EndToEndLearning"
+    "#EfficientPerception"
   ],
   "paper_id": "2026-01-15-arxiv-see_less_drive_better_generalizable_end_to_end_autonomous_driving_via_foundation",
   "paper_title": "See Less, Drive Better: Generalizable End-to-End Autonomous Driving via Foundation Models Stochastic Patch Selection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10707v1"
     }
   ],
-  "generated_at": "2026-01-16T06:23:02.579924"
+  "generated_at": "2026-01-17T06:20:40.693642"
 }

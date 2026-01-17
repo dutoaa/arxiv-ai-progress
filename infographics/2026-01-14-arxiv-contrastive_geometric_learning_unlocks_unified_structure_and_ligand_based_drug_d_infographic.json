@@ -1,24 +1,24 @@
 {
-  "key_insight": "ConGLUDe is a single contrastive geometric model that unifies structure- and ligand-based drug-design training by learning a shared embedding space where proteins and ligands that interact are pulled together, enabling joint use of both data sources at scale.",
-  "problem_solved": "Traditional pipelines treat structure-based (protein–ligand complexes) and ligand-based (SMILES/assay) design separately, limiting transfer of information and scale; ConGLUDe removes this gap by training one model to leverage both modalities simultaneously.",
+  "key_insight": "A single contrastive geometric model (ConGLUDe) unifies structure- and ligand-based drug design by aligning geometric protein representations with ligand information, enabling joint training and cross-modal transfer between protein structure and ligand data.",
+  "problem_solved": "Existing workflows treat structure-based and ligand-based methods separately because of different data types and modeling assumptions, preventing scalable joint learning and reuse of knowledge across tasks.",
   "method": [
-    "Geometric protein encoder produces whole-protein representations and implicit embeddings of predicted binding regions using 3D-aware (equivariant) features.",
-    "Contrastive learning couples the protein encoder with ligand encoders so that true protein–ligand pairs map close in a shared latent space while negatives are pushed apart.",
-    "Unified training uses both structure-based examples (complexes) and ligand-only data, enabling cross-modal transfer for tasks like pocket prediction, virtual screening, and ligand generation."
+    "Contrastive geometric learning to align protein-level geometric encodings with ligand or predicted-binding embeddings in a shared representation space.",
+    "A geometric protein encoder that produces whole-protein representations plus implicit embeddings of predicted binding regions, enabling cross-modal supervision without separate pocket annotation.",
+    "Unified training procedure that leverages both structural data (protein coordinates) and ligand data (SMILES/graphs) so a single model supports structure- and ligand-centered downstream tasks."
   ],
-  "impact": "Provides a single, scalable foundation model for multiple drug-design tasks, improving data efficiency and making it easier for ML practitioners to build end-to-end design pipelines that exploit both structural and ligand information.",
+  "impact": "ConGLUDe enables AI/ML practitioners to train one model that transfers between structure- and ligand-based tasks, improving data efficiency and simplifying pipelines for virtual screening, lead optimization, and generative design.",
   "visual_elements": [
-    "Architecture diagram: two encoders (protein geometric + ligand) with a central contrastive loss and shared embedding space.",
-    "Embedding scatterplot: proteins and their true ligands clustered together vs. random negatives to show contrastive alignment.",
-    "Workflow infographic: unified training data sources (structures + ligands) → single model → downstream tasks (screening, scoring, generation).",
-    "Performance bar chart: relative gains or benefits (e.g., transferability, data-efficiency) versus separate SBDD/LBDD baselines."
+    "Schematic of ConGLUDe architecture showing geometric protein encoder, ligand encoder, and contrastive alignment objective between embeddings.",
+    "Before/after diagram: separate ligand- and structure-based pipelines vs. unified ConGLUDe pipeline.",
+    "Embedding visualization (e.g., t-SNE/UMAP) showing proteins and ligands co-located in a shared latent space after contrastive training.",
+    "Use-case icons: virtual screening, ligand generation, binding-site prediction with arrows showing model reuse across tasks."
   ],
   "hashtags": [
     "#DrugDesign",
     "#ContrastiveLearning",
     "#GeometricDeepLearning",
     "#AIforDrugDiscovery",
-    "#StructureAndLigand"
+    "#StructuralBiology"
   ],
   "paper_id": "2026-01-14-arxiv-contrastive_geometric_learning_unlocks_unified_structure_and_ligand_based_drug_d",
   "paper_title": "Contrastive Geometric Learning Unlocks Unified Structure- and Ligand-Based Drug Design",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.09693v1"
     }
   ],
-  "generated_at": "2026-01-16T06:24:51.170138"
+  "generated_at": "2026-01-17T06:22:21.787250"
 }

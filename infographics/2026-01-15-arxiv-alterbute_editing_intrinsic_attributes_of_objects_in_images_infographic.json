@@ -1,24 +1,24 @@
 {
-  "key_insight": "Alterbute introduces a diffusion-based editing method that changes an object's intrinsic attributes (color, texture, material, shape) while preserving its perceived identity and the surrounding scene context. It does this by relaxing the training objective to allow meaningful intrinsic variation without losing identity.",
-  "problem_solved": "Current image-editing methods either use weak unsupervised priors that fail to keep the object's identity or rely on restrictive supervision that prevents realistic intrinsic changes. Alterbute addresses the trade-off between expressive attribute editing and identity/context preservation.",
+  "key_insight": "Alterbute is a diffusion-based image-editing method that can change an object's intrinsic attributes (color, texture, material, shape) while keeping its perceived identity and scene context intact. It achieves this by training with a relaxed objective that disentangles intrinsic attributes from identity and context, enabling meaningful edits without heavy supervision.",
+  "problem_solved": "Existing image-editing approaches either use unsupervised priors that often alter object identity or rely on restrictive supervision that prevents natural intrinsic variations; Alterbute addresses the need for controlled, identity-preserving intrinsic attribute edits.",
   "method": [
-    "Diffusion-based generative editing framework tailored to modify intrinsic object attributes (color, texture, material, shape) in situ.",
-    "A relaxed training objective that explicitly balances attribute change with identity preservation, enabling larger but semantically consistent edits.",
-    "Localized editing strategy that constrains changes to the target object while maintaining scene context and perceived identity."
+    "Diffusion-based editing pipeline that conditions generation on target intrinsic-attribute prompts and an object-centric mask or localization.",
+    "Relaxed training objective that encourages disentanglement of intrinsic attributes from identity and scene context, allowing the model to change attributes while preserving identity.",
+    "Identity- and scene-aware constraints (e.g., perceptual/identity-preservation losses and compositional guidance) to maintain object identity and coherent integration with the background during edits."
   ],
-  "impact": "Enables practitioners to perform realistic, identity-preserving object edits for design, content creation, and data augmentation. It reduces the need for heavy supervision while producing controllable and believable intrinsic variations.",
+  "impact": "Provides practitioners a practical way to perform fine-grained, identity-preserving attribute edits for applications like product visualization, content creation, and data augmentation, reducing reliance on dense supervision while producing controllable, realistic edits.",
   "visual_elements": [
-    "Before / After triplets showing original, attribute-target (e.g., new color/texture), and final edited image to highlight identity preservation",
-    "A simple pipeline diagram: input image + target attribute → diffusion-based editor → identity-preserving constraints → output",
-    "Slider-style storyboard or interface mockup illustrating continuous control over attributes (color, texture, shape)",
-    "Bar/line chart or table summarizing qualitative metrics (identity similarity vs. edit strength) and an ablation sketch of the relaxed objective"
+    "Before / after triplets showing edits of color, texture, material, and shape on the same object to illustrate identity preservation.",
+    "Pipeline diagram: input image + mask/attribute prompt → diffusion-based editor → edited image, highlighting the relaxed training loop and conditioning signals.",
+    "Overlayed identity-preservation heatmap or feature-similarity visualization to show which object features are retained after editing.",
+    "UI mockup with attribute sliders or discrete attribute tokens to demonstrate user control and edit specificity."
   ],
   "hashtags": [
-    "#DiffusionModels",
     "#ImageEditing",
-    "#GenerativeAI",
+    "#DiffusionModels",
+    "#AttributeEditing",
     "#ComputerVision",
-    "#IntrinsicAttributes"
+    "#GenerativeAI"
   ],
   "paper_id": "2026-01-15-arxiv-alterbute_editing_intrinsic_attributes_of_objects_in_images",
   "paper_title": "Alterbute: Editing Intrinsic Attributes of Objects in Images",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10714v1"
     }
   ],
-  "generated_at": "2026-01-16T06:23:46.353115"
+  "generated_at": "2026-01-17T06:21:18.799924"
 }

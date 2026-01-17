@@ -1,24 +1,24 @@
 {
-  "key_insight": "DInf-Grid introduces a differentiable feature-grid representation that lets neural differential-equation solvers compute accurate derivatives directly from a grid, combining the speed of grid-based methods with the derivative fidelity of coordinate-based MLPs.",
-  "problem_solved": "Neural DE solvers that use coordinate-based MLPs (e.g., sinusoidal networks) are slow and compute-intensive, while existing grid-based alternatives train fast but cannot reliably produce higher-order derivatives needed for accurate DE solutions; DInf-Grid addresses this trade-off.",
+  "key_insight": "DInf-Grid replaces costly coordinate-based MLP neural solvers with a differentiable feature grid representation that trains much faster while enabling accurate computation of the derivatives required to solve differential equations.",
+  "problem_solved": "Coordinate-based MLP solvers (e.g., sinusoidal networks) are computationally intensive and slow to train; existing grid-based alternatives are faster but rely on simple linear interpolation, which limits accurate derivative computation needed for differential equation solvers.",
   "method": [
-    "Represent solution fields on a learnable multi-resolution feature grid that is fully differentiable with respect to coordinates and features.",
-    "Use differentiable interpolation and analytic/automatic differentiation on the grid features so the solver can evaluate accurate spatial/temporal derivatives required by differential equations.",
-    "Integrate the differentiable grid into neural DE training loops to speed up training and inference while preserving or improving solution accuracy."
+    "Introduce a differentiable feature grid that stores learned local features and supports differentiable interpolation to evaluate fields and their derivatives efficiently.",
+    "Integrate the feature grid with a neural differential-equation solver so derivative evaluations used in forward/backward integration come directly from the grid representation, reducing compute and training time.",
+    "Use a compact neural head / residual component (hybrid design) and multiresolution grid strategies to capture fine-scale structure while keeping inference and optimization efficient."
   ],
-  "impact": "Enables faster, more scalable neural DE solvers that retain accurate derivative computation—reducing training time and compute cost for practitioners solving PDEs/ODEs with neural methods and enabling wider practical adoption.",
+  "impact": "Enables faster, lower-cost neural solvers for ODEs/PDEs that still deliver accurate derivative estimates — making neural differential-equation methods more practical for scientific computing, simulation, and real-time applications.",
   "visual_elements": [
-    "Side-by-side schematic: coordinate-based MLP vs DInf-Grid (showing compute/latency and derivative paths).",
-    "Illustration of differentiable feature grid with interpolation arrows and derivative vectors at sample points.",
-    "Benchmark charts: training time vs solution error and inference latency comparisons.",
-    "Solution heatmaps for a representative PDE showing matched accuracy with reduced compute."
+    "Side-by-side diagram: coordinate-based MLP pipeline vs DInf-Grid pipeline (highlight compute and data flow differences).",
+    "Schematic of the differentiable feature grid showing learned features, interpolation kernel, and derivative extraction.",
+    "Performance chart: training time and accuracy (error) comparison between MLP solvers, linear-grid baselines, and DInf-Grid.",
+    "Field visualization: example solved PDE/ODE field and its derivative (gradient) to show improved fidelity at high frequencies."
   ],
   "hashtags": [
-    "#DifferentialEquations",
-    "#NeuralPDE",
-    "#DifferentiableProgramming",
-    "#ImplicitRepresentations",
-    "#DInfGrid"
+    "#NeuralPDEs",
+    "#DifferentiableGrids",
+    "#ScientificML",
+    "#EfficientAI",
+    "#NeuralSolvers"
   ],
   "paper_id": "2026-01-15-arxiv-dinf_grid_a_neural_differential_equation_solver_with_differentiable_feature_grid",
   "paper_title": "DInf-Grid: A Neural Differential Equation Solver with Differentiable Feature Grids",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10715v1"
     }
   ],
-  "generated_at": "2026-01-16T06:23:57.812657"
+  "generated_at": "2026-01-17T06:21:30.946793"
 }

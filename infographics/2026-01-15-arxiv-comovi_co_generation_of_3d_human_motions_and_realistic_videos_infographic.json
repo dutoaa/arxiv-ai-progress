@@ -1,23 +1,23 @@
 {
-  "key_insight": "Generating 3D human motions and 2D videos jointly yields better realism and consistency than treating them separately: 3D motions provide structural priors while pre-trained video models improve motion generalization, so co-generation unlocks mutual benefits.",
-  "problem_solved": "Bridges the gap between motion plausibility and visual realism by synchronizing 3D motion generation with realistic video synthesis, addressing inconsistent or implausible outputs when the two are created independently.",
+  "key_insight": "3D human motion and 2D video generation are mutually beneficial and should be generated together: 3D motions provide structural priors for realism/consistency, while video models supply rich visual generalization for plausible motion.",
+  "problem_solved": "Bridges the gap between standalone motion synthesis and video generation by synchronously producing coherent 3D poses and realistic 2D videos, reducing mismatches between motion structure and visual appearance.",
   "method": [
-    "Coupled generation: run two video diffusion models (one biased toward 3D motion structure, one toward photorealistic video) in a co-generative framework to produce motions and videos simultaneously.",
-    "Cross-conditioning / bidirectional guidance: exchange signals between the motion and video models during sampling so each model informs and constrains the other for temporal and spatial consistency.",
-    "Leverage pre-trained video priors: use strengths of large pre-trained video models to improve motion diversity and generalization while keeping 3D structural constraints for plausibility."
+    "Co-generation framework that couples two video diffusion models (one focused on 3D motion representations, one on 2D video frames) to generate motions and videos jointly.",
+    "Cross-conditioning / mutual guidance between the two VDMs (shared latents or iterative bidirectional conditioning) to enforce temporal and structural consistency.",
+    "Training objectives include motion–video consistency loss and temporal coherence, leveraging pre-trained video models to improve motion generalization."
   ],
-  "impact": "Enables more reliable end-to-end pipelines for animation, virtual avatars, and dataset synthesis by producing temporally consistent, physically plausible 3D motions tied to realistic video renderings; reduces manual cleanup and improves realism for downstream tasks.",
+  "impact": "Enables generation of visually coherent videos with physically plausible 3D motion, simplifying pipelines for animation, virtual humans, and data synthesis; useful for researchers and engineers working on multi-modal generative models and downstream animation tasks.",
   "visual_elements": [
-    "Pipeline diagram showing two parallel VDMs (3D-motion-focused and video-focused) with bidirectional arrows for cross-conditioning during sampling",
-    "Before/after examples: side-by-side frames of video-only generation vs. CoMoVi output paired with corresponding 3D skeletons",
-    "Flowchart of the sampling loop highlighting the exchange of guidance signals and enforcement of consistency",
-    "Quantitative/qualitative summary panel (icons) showing improvements in plausibility, temporal consistency, and visual realism"
+    "Pipeline diagram showing two coupled diffusion models (3D motion VDM ↔ 2D video VDM) with bidirectional arrows for mutual conditioning",
+    "Before/after examples: separate motion vs. co-generated motion+video frames to illustrate improved realism and alignment",
+    "Loss schematic showing consistency loss between 3D poses and rendered 2D frames and temporal coherence",
+    "Timeline visualization of synchronized 3D pose sequences alongside corresponding video frames"
   ],
   "hashtags": [
-    "#3DHumanMotion",
-    "#VideoDiffusion",
+    "#CoMoVi",
     "#GenerativeAI",
-    "#ComputerVision",
+    "#VideoDiffusion",
+    "#3DMotion",
     "#MultimodalLearning"
   ],
   "paper_id": "2026-01-15-arxiv-comovi_co_generation_of_3d_human_motions_and_realistic_videos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10632v1"
     }
   ],
-  "generated_at": "2026-01-16T06:21:38.658255"
+  "generated_at": "2026-01-17T06:19:12.163944"
 }
