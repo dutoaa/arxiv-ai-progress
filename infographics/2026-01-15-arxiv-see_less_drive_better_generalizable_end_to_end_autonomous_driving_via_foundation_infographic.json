@@ -1,24 +1,24 @@
 {
-  "key_insight": "Patch-aligned features from foundation models (e.g., BLIP2) are highly redundant (~90% redundancy); randomly selecting a subset of patches during training (stochastic patch selection) reduces redundancy and yields better out-of-distribution generalization for end-to-end driving policies.",
-  "problem_solved": "Reduces over-reliance on massively redundant patch-level features that hurt OOD robustness and increase compute for end-to-end autonomous driving models.",
+  "key_insight": "Patch-aligned features from foundation models are highly redundant because self-attention mixes information across patches; randomly selecting fewer patches during training (stochastic patch selection) forces the policy to use non-redundant cues and improves out-of-distribution robustness.",
+  "problem_solved": "Reduces excessive redundancy and over-reliance on correlated patch features in end-to-end autonomous-driving policies, improving generalization to OOD scenarios and trimming inefficient input representations.",
   "method": [
-    "Quantify redundancy in foundation-model patch descriptors using PCA and cross-patch similarity (≈90% redundancy).",
-    "Introduce stochastic patch selection: sample a smaller subset of patch-aligned features during training instead of using all patches.",
-    "Train end-to-end driving policies on the reduced patch set to improve generalization and efficiency without changing the backbone."
+    "Quantify redundancy in BLIP2 patch features using PCA and cross-patch similarity (≈90% redundancy).",
+    "Apply Stochastic Patch Selection (SPS): randomly sample a subset of patch-aligned features during training so the policy must learn from diverse, non-redundant signals.",
+    "Train end-to-end driving policies on reduced patch sets to improve robustness and reduce reliance on redundant descriptors."
   ],
-  "impact": "Enables more robust, compute-efficient end-to-end driving systems that generalize better to new environments; offers a simple, model-agnostic way for practitioners to leverage foundation-model features while avoiding redundancy-induced overfitting.",
+  "impact": "Makes end-to-end driving models more robust to distribution shifts while lowering input redundancy and potential compute/overfitting costs — valuable for practitioners building reliable autonomous driving systems with foundation-model features.",
   "visual_elements": [
-    "Bar chart / scree plot showing PCA explained variance with a marker at the ~90% redundancy point.",
-    "Schematic comparing full-patch pipeline vs stochastic patch selection pipeline (fewer patches → same or better OOD performance).",
-    "Heatmap or matrix of cross-patch similarity highlighting high redundancy across patches.",
-    "Performance plot comparing in-distribution vs OOD metrics for baseline (all patches) and proposed method (stochastic selection)."
+    "Schematic of self-attention mixing across image patches (patch grid with attention links) illustrating implicit redundancy.",
+    "Bar or pie chart showing quantified redundancy (≈90%) from PCA / cross-patch similarity.",
+    "Before/after diagram of Stochastic Patch Selection: full patch set → sampled subset → trained policy, highlighting robustness gains on OOD examples.",
+    "Side-by-side conceptual comparison of model behavior on in-distribution vs OOD scenarios with and without SPS."
   ],
   "hashtags": [
     "#AutonomousDriving",
     "#FoundationModels",
     "#OODGeneralization",
-    "#PatchSelection",
-    "#EfficientPerception"
+    "#FeatureRedundancy",
+    "#StochasticPatchSelection"
   ],
   "paper_id": "2026-01-15-arxiv-see_less_drive_better_generalizable_end_to_end_autonomous_driving_via_foundation",
   "paper_title": "See Less, Drive Better: Generalizable End-to-End Autonomous Driving via Foundation Models Stochastic Patch Selection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10707v1"
     }
   ],
-  "generated_at": "2026-01-17T06:20:40.693642"
+  "generated_at": "2026-01-18T06:20:24.755137"
 }

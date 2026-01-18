@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introducing MIMIC, the paper shows that adding more images exposes distinct and systematic failure modes in large vision–language models (LVLMs): models often fail at cross-image reference, aggregation, and consistent reasoning even when single-image tasks succeed.",
-  "problem_solved": "The work identifies and measures core weaknesses of multi-image LVLMs by providing a controlled benchmark and analysis framework to diagnose why models break as the number of images increases.",
+  "key_insight": "More images do not always improve LVLM performance: under controlled conditions, adding images frequently exposes systematic multi-image failure modes (cross-image reference errors, aggregation failures, hallucinations) that MIMIC reveals and quantifies.",
+  "problem_solved": "Fills the gap in rigorous evaluation and diagnosis of multi-image vision–language models by providing a controlled benchmark and analysis that pinpoints when and why performance degrades as image count and inter-image complexity increase.",
   "method": [
-    "Design MIMIC: a controlled multi-image benchmark with targeted scenario suites (cross-image reference, aggregation, temporal/sequential reasoning, distractors).",
-    "Apply systematic perturbations and stimuli (varying image counts, referential ambiguity, distractor images) to probe failure modes.",
-    "Quantitative and qualitative analysis across multiple LVLMs to derive a taxonomy of multi-image failure modes and root causes."
+    "Introduce MIMIC — a controlled multi-image benchmark with tasks for cross-image reference, comparison, temporal reasoning, and synthesis.",
+    "Run controlled experiments varying image count, order, semantic relations and prompts across SOTA LVLMs to measure sensitivity and failure rates.",
+    "Diagnose and categorize failure modes (e.g., cross-image confusion, aggregation errors, hallucination) and use ablations to trace root causes."
   ],
-  "impact": "Provides practitioners with a diagnostic tool and taxonomy to evaluate and improve multi-image reasoning in LVLMs, guiding dataset design, model architecture choices, and safer deployment of multimodal systems.",
+  "impact": "Provides practitioners a focused toolkit and empirical findings to better evaluate, design, and prompt LVLMs for multi-image scenarios; informs dataset creation, model architecture choices, and mitigation strategies to reduce common multi-image failures.",
   "visual_elements": [
-    "Schematic of the MIMIC setup: multiple images + prompt → model response (showing correct vs. failure examples).",
-    "Bar chart of failure-mode frequency (cross-image reference, aggregation errors, hallucination, neglect of context) across models.",
-    "Heatmap or attention overlay showing where the model focuses across images for a multi-image question.",
-    "Flowchart of the diagnostic pipeline: controlled input generation → perturbations → metrics → failure taxonomy."
+    "Benchmark schematic: grid of multiple images + prompt → model outputs, annotated to show correct vs. incorrect reasoning pathways.",
+    "Failure taxonomy diagram: icons and short labels for main failure modes (cross-image reference, aggregation, hallucination, ordering sensitivity) with example error snippets.",
+    "Performance chart: line/bar plot showing model accuracy or error rate as a function of number of images and task type (comparison, temporal, synthesis).",
+    "Case-study callouts: side-by-side multi-image examples with highlighted regions and model explanations showing how/why the model failed."
   ],
   "hashtags": [
     "#VisionLanguage",
-    "#MultimodalAI",
-    "#Benchmarking",
-    "#ModelEvaluation",
-    "#LVLM"
+    "#MultiImage",
+    "#Benchmark",
+    "#ModelRobustness",
+    "#ExplainableAI"
   ],
   "paper_id": "2026-01-12-arxiv-more_images_more_problems_a_controlled_analysis_of_vlm_failure_modes",
   "paper_title": "More Images, More Problems? A Controlled Analysis of VLM Failure Modes",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.07812v1"
     }
   ],
-  "generated_at": "2026-01-15T06:23:34.474940"
+  "generated_at": "2026-01-18T06:21:56.196832"
 }

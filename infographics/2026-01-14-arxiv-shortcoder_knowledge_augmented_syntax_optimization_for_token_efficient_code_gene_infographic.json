@@ -1,24 +1,24 @@
 {
-  "key_insight": "ShortCoder combines external knowledge augmentation with syntax-aware code representations to generate semantically equivalent code using far fewer tokens, cutting inference cost without sacrificing correctness.",
-  "problem_solved": "Large language models for code require one full model pass per generated token and must hold long contexts in memory, leading to high latency, compute, and memory overhead for code generation; ShortCoder addresses this token inefficiency.",
+  "key_insight": "ShortCoder combines external code knowledge with syntax-aware representations to compress and restructure code generation so that models emit fewer tokens for the same program, reducing inference passes and compute cost.",
+  "problem_solved": "LLM-based code generation is token-inefficient: every generated token requires a full inference step and large context retention, causing high latency, memory use, and cost for producing long or repetitive code.",
   "method": [
-    "Knowledge-augmented retrieval: fetch relevant APIs, examples, and templates to prefill or constrain generation and reduce redundant token output.",
-    "Syntax-aware compression/optimization: transform code into compact, grammar-preserving representations (e.g., macros, structured tokens, AST-based encodings) that require fewer tokens to express.",
-    "Decoder integration: map optimized representations back to executable source during or after LLM decoding so the model generates shorter sequences while preserving semantics."
+    "Knowledge augmentation: inject retrieved or pre-learned code patterns, API usage, and idioms to raise the semantic abstraction level the model needs to generate.",
+    "Syntax-aware compression: convert code to compact, syntax-preserving representations (e.g., AST-driven tokenization/macros) so that common constructs map to fewer tokens.",
+    "Decoder-friendly integration: align the compact representations with the model decoder (scaffolding/caching) to reduce per-token inference and enable multi-token emission of structured blocks."
   ],
-  "impact": "Lower token counts translate to fewer inference passes, reduced latency and cost, and smaller memory footprints—making large-code LLMs more practical for production, edge, and hardware-constrained deployments.",
+  "impact": "By cutting token counts and inference passes, ShortCoder lowers latency and compute cost for code generation systems, making LLM-based coding tools faster, cheaper, and more feasible on constrained hardware or at production scale.",
   "visual_elements": [
-    "Pipeline diagram: Retrieval → Syntax optimizer (AST/macro) → Compact tokens → LLM decoder → Expanded code",
-    "Bar chart: tokens / latency / cost comparison (baseline vs ShortCoder)",
-    "Before/after code snippet: original verbose code and its compressed syntax-aware representation mapped to fewer tokens",
-    "Schematic of AST-to-token compression with icons for API docs and model compute (to illustrate knowledge + token savings)"
+    "Before/after bar chart showing token count and latency reduction for the same code snippet",
+    "Pipeline diagram: retrieval of code knowledge → syntax compressor (AST/macros) → LLM decoder with token-efficient output",
+    "Illustration of code → compact syntax representation → regenerated code to show lossless reconstruction",
+    "Icon grid comparing compute, memory, and cost savings (relative percentages or qualitative low/medium/high)"
   ],
   "hashtags": [
     "#CodeGeneration",
-    "#TokenEfficiency",
+    "#ModelEfficiency",
+    "#LLM",
     "#SyntaxOptimization",
-    "#KnowledgeAugmentation",
-    "#ModelEfficiency"
+    "#KnowledgeAugmentation"
   ],
   "paper_id": "2026-01-14-arxiv-shortcoder_knowledge_augmented_syntax_optimization_for_token_efficient_code_gene",
   "paper_title": "ShortCoder: Knowledge-Augmented Syntax Optimization for Token-Efficient Code Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.09703v1"
     }
   ],
-  "generated_at": "2026-01-15T06:22:27.561481"
+  "generated_at": "2026-01-18T06:21:34.104129"
 }

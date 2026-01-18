@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single symbolic fixed-point computation maps product-game states to all realizable sets of properties, allowing synthesis of strategies that maximize satisfied LTLf properties without enumerating exponentially many subsets.",
-  "problem_solved": "Addresses LTLf synthesis when multiple properties may conflict and satisfying them all is impossible, avoiding combinatorial blow-up from enumerating property subsets while still producing optimal strategies.",
+  "key_insight": "Instead of enumerating which subsets of temporal properties are realizable, the authors compute in a single fixed-point pass a state-to-goal-set relation and synthesize strategies that maximize the set of satisfied properties, using a fully symbolic encoding to handle exponentially many combinations.",
+  "problem_solved": "LTLf synthesis when multiple (possibly conflicting) properties are specified and satisfying them all may be impossible; avoids combinatorial explosion from enumerating property subsets while producing optimal (maximal) realizable guarantees.",
   "method": [
-    "Construct a product game augmented with Boolean goal variables that encode which properties are considered achieved.",
-    "Run one monotone fixed-point computation over that symbolic representation to derive the relation between states and realizable goal sets.",
-    "Extract strategies that achieve maximal realizable sets from the fixed point, leveraging monotonicity to compactly represent exponentially many goal combinations."
+    "Construct a product game and compute a single fixed-point relation mapping game states to the sets of goals realizable from them.",
+    "Synthesize strategies that achieve maximal realizable goal sets rather than checking each subset separately.",
+    "Use a fully symbolic encoding: introduce Boolean goal variables and exploit monotonicity to compactly represent exponentially many goal combinations."
   ],
-  "impact": "Enables scalable synthesis of controllers/agents under multiple, potentially conflicting specifications, giving practitioners a way to automatically produce strategies that satisfy the largest feasible subset of requirements with far less computation.",
+  "impact": "Enables scalable synthesis of controllers/planners that optimally trade off multiple temporal requirements; useful for verification, planning, robotics and other systems where not all specifications can be satisfied simultaneously.",
   "visual_elements": [
-    "Diagram of product game states linked to goal-set labels, showing fixed-point propagation",
-    "Flowchart of the symbolic algorithm: introduce goal variables → monotone update → fixed point → strategy extraction",
-    "Bar/stacked chart comparing naive subset enumeration cost vs symbolic fixed-point scalability",
-    "Iconic example: agent/controller executing a synthesized strategy with maximized satisfied properties"
+    "Diagram of a product game with arrows to a matrix/list of realizable goal-sets (state → achievable-goals relation).",
+    "Flowchart of the single fixed-point computation and strategy extraction pipeline.",
+    "Iconic depiction of Boolean goal variables compressing 2^n goal combinations (e.g., many circles collapsing into a compact symbolic block).",
+    "Comparison chart showing exhaustive subset enumeration vs. the symbolic fixed-point approach (time/space or scalability)."
   ],
   "hashtags": [
     "#LTLf",
     "#Synthesis",
     "#FormalMethods",
     "#SymbolicAlgorithms",
-    "#ReactiveSynthesis"
+    "#AutonomousSystems"
   ],
   "paper_id": "2026-01-15-arxiv-multi_property_synthesis",
   "paper_title": "Multi-Property Synthesis",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10651v1"
     }
   ],
-  "generated_at": "2026-01-17T06:19:48.968373"
+  "generated_at": "2026-01-18T06:19:41.624187"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "STITCH grounds agent memory by indexing each trajectory step with a structured retrieval cue called contextual intent, enabling retrieval that matches the agent’s latent goal rather than surface-level entities — reducing context-mismatched evidence in long-horizon interactions.",
-  "problem_solved": "Memory retrieval in long-horizon, goal-oriented interactions often returns context-mismatched facts because similar entities recur under different latent goals; STITCH addresses this by making memory retrieval intent-aware.",
+  "key_insight": "Indexing each interaction step with a structured retrieval cue called \"contextual intent\" lets an agent retrieve past events that match the current intent rather than surface similarity, preventing context-mismatched memory retrieval in long-horizon tasks.",
+  "problem_solved": "Memory systems for LLM-based agents often return evidence tied to similar entities or facts but mismatched latent goals, causing irrelevant or harmful retrievals during long, goal-oriented interactions.",
   "method": [
-    "Index each trajectory step with a structured retrieval cue (contextual intent) that captures the latent goal and constraints of that step.",
-    "Retrieve historical steps by matching the current step’s contextual intent (intent-aware retrieval) instead of relying on surface entity similarity.",
-    "Integrate intent-indexed retrieval into the agent’s memory pipeline so actions consult goal-aligned history during decision-making."
+    "Introduce STITCH (Structured Intent Tracking in Contextual History): store each trajectory step with a structured retrieval cue labeled as the step's contextual intent.",
+    "Retrieve historical memories by matching the current step's contextual intent to stored cues, prioritizing intent-aligned evidence over superficial similarity.",
+    "Use intent-aware indexing to disambiguate recurring entities/facts across different latent goals and constraints."
   ],
-  "impact": "Makes LLM-based agents more reliable in long-horizon, multi-goal tasks by improving relevance of retrieved memory and reducing errors from spurious context matches — enabling better planning, troubleshooting, and evaluation.",
+  "impact": "Makes agent memory retrieval more relevant and robust in long-horizon, goal-driven interactions, reducing context-mismatch errors and improving decision quality for practitioners building LLM agents and memory subsystems.",
   "visual_elements": [
-    "Timeline/sequence diagram: trajectory steps labeled with structured retrieval cues and contextual intents to show how indexing works over time.",
-    "Retrieval flowchart: compare intent-matched retrieval vs naive entity-based retrieval, highlighting correct vs mismatched evidence returned.",
-    "Before/after bar chart: relative improvement in retrieval relevance or downstream task consistency when using STITCH (conceptual comparison).",
-    "Icon set: memory (stacked cards), intent (target/compass), and goal (flag) to reinforce the core components."
+    "Architecture diagram showing STITCH: trajectory steps → intent-coded index → intent-based retrieval loop",
+    "Side-by-side example of retrieval before vs. after STITCH (same entity under different intents) to highlight disambiguation",
+    "Timeline visualization of a long-horizon interaction with intent tags on each step and matched historical hits",
+    "Bar or radar chart summarizing gains in retrieval relevance or qualitative reduction in context-mismatched evidence"
   ],
   "hashtags": [
     "#STITCH",
     "#AgentMemory",
     "#ContextualIntent",
     "#LLMAgents",
-    "#LongHorizonTasks"
+    "#MemoryRetrieval"
   ],
   "paper_id": "2026-01-15-arxiv-grounding_agent_memory_in_contextual_intent",
   "paper_title": "Grounding Agent Memory in Contextual Intent",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10702v1"
     }
   ],
-  "generated_at": "2026-01-17T06:20:24.831676"
+  "generated_at": "2026-01-18T06:20:11.144570"
 }

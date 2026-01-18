@@ -1,24 +1,24 @@
 {
-  "key_insight": "MatchTIR introduces bipartite matching to give fine-grained, per-step supervision for tool-integrated reasoning, allowing LLMs to distinguish effective tool calls from redundant or erroneous ones within long-horizon multi-turn trajectories.",
-  "problem_solved": "Existing RL approaches use outcome- or trajectory-level rewards that assign uniform credit to all steps, which fails to identify which specific tool interactions helped or hurt performance—especially in long, multi-turn tasks.",
+  "key_insight": "MatchTIR uses bipartite matching to provide step-level supervision for tool-integrated reasoning, enabling LLMs to distinguish effective tool calls from redundant or erroneous ones during long-horizon multi-turn tasks.",
+  "problem_solved": "Existing RL-style training for tool-augmented LLMs applies coarse outcome- or trajectory-level rewards, which fail to assign credit to individual tool calls and hurt performance in complex, multi-step interactions.",
   "method": [
-    "Formulate step-level alignment as a bipartite matching problem between predicted tool calls/ reasoning steps and ground-truth successful steps to identify true positive interactions.",
-    "Use the matched associations to generate fine-grained supervision signals (reward shaping / loss adjustments) that selectively reinforce useful calls and penalize redundant or incorrect ones.",
-    "Integrate this matching-based supervision into the model training loop to improve credit assignment for long-horizon, tool-augmented reasoning."
+    "Frame alignment between model-generated reasoning/tool calls and ground-truth effective steps as a bipartite matching problem to compute fine-grained matches.",
+    "Derive step-level supervision/rewards from the matching to preferentially reinforce useful tool calls and penalize redundant or incorrect ones.",
+    "Integrate the matching-based supervision into training (reward shaping or supervised fine-tuning) to improve tool usage efficiency in long-horizon, multi-turn tasks."
   ],
-  "impact": "Provides more precise credit assignment for tool-augmented LLMs, reducing unnecessary tool usage and improving learning efficiency and robustness on complex multi-step tasks—helpful for practitioners building reliable tool-enabled agents and pipelines.",
+  "impact": "Provides practitioners a principled way to perform granular credit assignment for tool use, improving sample efficiency, reducing unnecessary tool calls, and boosting performance on complex reasoning pipelines.",
   "visual_elements": [
-    "Bipartite matching diagram linking predicted tool calls (left) to ground-truth successful steps (right) with matched edges highlighted",
-    "Timeline comparison: coarse trajectory-level reward versus fine-grained per-step credit assignment",
-    "Training flowchart showing how matching produces reward/loss signals fed back into model updates",
-    "Bar/line chart illustrating reduced redundant calls and improved success rate/sample efficiency (conceptual)"
+    "Bipartite matching diagram: predicted steps/tools on one side, ground-truth effective steps on the other, with matched pairs highlighted and match scores annotated.",
+    "Timeline comparison: coarse-grained vs fine-grained credit assignment across a multi-turn interaction showing which tool calls are reinforced or suppressed.",
+    "Training flowchart: model → tool invocation → matching-based supervision → updated policy, visualizing where matching inserts into the loop.",
+    "Bar/line chart: metrics before/after MatchTIR (e.g., task success rate, number of redundant tool calls, sample efficiency)."
   ],
   "hashtags": [
     "#MatchTIR",
-    "#ToolIntegration",
-    "#CreditAssignment",
+    "#ToolIntegratedReasoning",
+    "#FineGrainedSupervision",
     "#BipartiteMatching",
-    "#LLM"
+    "#LLMs"
   ],
   "paper_id": "2026-01-15-arxiv-matchtir_fine_grained_supervision_for_tool_integrated_reasoning_via_bipartite_ma",
   "paper_title": "MatchTIR: Fine-Grained Supervision for Tool-Integrated Reasoning via Bipartite Matching",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10712v1"
     }
   ],
-  "generated_at": "2026-01-17T06:21:09.593445"
+  "generated_at": "2026-01-18T06:20:46.659355"
 }

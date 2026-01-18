@@ -1,24 +1,24 @@
 {
-  "key_insight": "3D human motion and 2D video generation are mutually beneficial and should be generated together: 3D motions provide structural priors for realism/consistency, while video models supply rich visual generalization for plausible motion.",
-  "problem_solved": "Bridges the gap between standalone motion synthesis and video generation by synchronously producing coherent 3D poses and realistic 2D videos, reducing mismatches between motion structure and visual appearance.",
+  "key_insight": "3D human motions and 2D human videos are intrinsically coupled, so jointly generating them using coupled video diffusion models yields more plausible, temporally consistent videos and structurally sound motions.",
+  "problem_solved": "Addresses the mismatch and inconsistency when 3D motion and 2D video are generated separately — and the difficulty of leveraging pre-trained video models for robust motion generation — by synchronizing their generation processes.",
   "method": [
-    "Co-generation framework that couples two video diffusion models (one focused on 3D motion representations, one on 2D video frames) to generate motions and videos jointly.",
-    "Cross-conditioning / mutual guidance between the two VDMs (shared latents or iterative bidirectional conditioning) to enforce temporal and structural consistency.",
-    "Training objectives include motion–video consistency loss and temporal coherence, leveraging pre-trained video models to improve motion generalization."
+    "Co-generate 3D motions and 2D videos via two coupled video diffusion models (one focused on 3D motion/skeleton, one on photo-realistic video) that exchange conditioning signals.",
+    "Perform joint/iterative diffusion sampling with cross-modal conditioning (e.g., cross-attention or shared latent conditioning) to enforce spatial, temporal and structural consistency.",
+    "Leverage pre-trained video models for strong generalization while using 3D motion priors to maintain plausible human structure and kinematics."
   ],
-  "impact": "Enables generation of visually coherent videos with physically plausible 3D motion, simplifying pipelines for animation, virtual humans, and data synthesis; useful for researchers and engineers working on multi-modal generative models and downstream animation tasks.",
+  "impact": "Enables generation of realistic, temporally consistent human videos with accurate 3D motion — useful for animation, virtual production, and data augmentation — and provides a practical path to combine large pre-trained video models with structured 3D priors.",
   "visual_elements": [
-    "Pipeline diagram showing two coupled diffusion models (3D motion VDM ↔ 2D video VDM) with bidirectional arrows for mutual conditioning",
-    "Before/after examples: separate motion vs. co-generated motion+video frames to illustrate improved realism and alignment",
-    "Loss schematic showing consistency loss between 3D poses and rendered 2D frames and temporal coherence",
-    "Timeline visualization of synchronized 3D pose sequences alongside corresponding video frames"
+    "Architecture diagram showing two coupled VDMs (3D-motion branch and 2D-video branch) with bidirectional conditioning arrows",
+    "Before/after comparison: separately generated video+motion vs. co-generated video+motion with 3D skeleton overlay on frames",
+    "Flowchart of the joint diffusion sampling process (timesteps, cross-conditioning, iterative refinement)",
+    "Bar/line chart summarizing empirical gains in realism/consistency metrics (e.g., FID, motion plausibility scores)"
   ],
   "hashtags": [
     "#CoMoVi",
-    "#GenerativeAI",
-    "#VideoDiffusion",
     "#3DMotion",
-    "#MultimodalLearning"
+    "#VideoDiffusion",
+    "#GenerativeAI",
+    "#HumanMotion"
   ],
   "paper_id": "2026-01-15-arxiv-comovi_co_generation_of_3d_human_motions_and_realistic_videos",
   "paper_title": "CoMoVi: Co-Generation of 3D Human Motions and Realistic Videos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10632v1"
     }
   ],
-  "generated_at": "2026-01-17T06:19:12.163944"
+  "generated_at": "2026-01-18T06:19:18.014333"
 }

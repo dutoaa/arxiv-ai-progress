@@ -1,24 +1,24 @@
 {
-  "key_insight": "Molmo2 provides an open-weight, openly documented vision-language model and dataset that matches strong proprietary video-language capabilities while adding explicit grounding (spatial + temporal) for video understanding.",
-  "problem_solved": "Addresses the lack of fully open, reproducible video-language foundations: most top VLMs are proprietary or distilled from proprietary models and do not provide weights, data, or grounding capabilities needed for real-world applications.",
+  "key_insight": "Molmo2 provides an open-weight, fully documented vision-language model trained on openly released data and recipes, achieving strong video understanding and explicit spatial-temporal grounding without relying on proprietary models or synthetic distillation.",
+  "problem_solved": "The paper addresses the lack of fully open, reproducible foundations for state-of-the-art video-language models that also support grounding (spatial and temporal localization). It removes barriers caused by proprietary weights, undisclosed data, or distillation from closed models.",
   "method": [
-    "Train a unified multimodal transformer on openly released image+video-caption and grounding annotations, combining contrastive, captioning, and grounding losses.",
-    "Incorporate temporal video encoding and localized grounding heads to predict spatial boxes and temporal spans aligned with language.",
-    "Release full training data, recipes, and model weights to enable reproducibility and further community research."
+    "Release of model weights, training recipe, and a curated, fully documented open dataset for image- and video-language training (no proprietary distillation).",
+    "Architectural extensions for video: spatio-temporal encoder + cross-modal grounding head to predict bounding boxes and temporal spans alongside captioning/QA.",
+    "Multi-task training on combined objectives (contrastive alignment, captioning, temporal localization, spatial grounding) to unify high-level understanding with precise grounding capabilities."
   ],
-  "impact": "Enables researchers and practitioners to build, evaluate, and extend state-of-the-art open VLMs with video understanding and localization — accelerating transparent progress in multimodal AI and downstream tasks (VQA, retrieval, robotics, accessibility).",
+  "impact": "Molmo2 democratizes research by providing a reproducible, open baseline for video-language and grounding tasks, enabling practitioners to build, evaluate, and improve grounded VLMs without proprietary dependencies. This accelerates development of applications that need precise spatial/temporal reasoning (e.g., robotics, video QA, visual search).",
   "visual_elements": [
-    "Architecture diagram: multimodal transformer with video encoder, language encoder, and grounding head",
-    "Dataset pipeline flowchart: sources → annotation (captions + bounding boxes + temporal spans) → training splits",
-    "Performance chart: Molmo2 vs proprietary and prior open models across video captioning, retrieval, and grounding benchmarks",
-    "Example montage: video frames with predicted grounded boxes and temporal span highlights aligned to language queries"
+    "Architecture diagram: visual encoder (frames) → temporal aggregator → cross-modal grounding head + language decoder",
+    "Dataset composition chart: proportions of image vs. video data, paired grounding annotations, and public sources",
+    "Example grounding panels: video frame with bounding box + timestamp highlight + generated grounded caption/answer",
+    "Evaluation bar chart: Molmo2 vs. prior open models across video understanding and grounding benchmarks"
   ],
   "hashtags": [
     "#VisionLanguage",
     "#OpenSourceAI",
     "#VideoUnderstanding",
-    "#Multimodal",
-    "#Grounding"
+    "#Grounding",
+    "#Molmo2"
   ],
   "paper_id": "2026-01-15-arxiv-molmo2_open_weights_and_data_for_vision_language_models_with_video_understanding",
   "paper_title": "Molmo2: Open Weights and Data for Vision-Language Models with Video Understanding and Grounding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10611v1"
     }
   ],
-  "generated_at": "2026-01-17T06:19:03.642151"
+  "generated_at": "2026-01-18T06:19:09.729720"
 }
