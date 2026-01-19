@@ -1,24 +1,24 @@
 {
-  "key_insight": "Patch-aligned features from foundation models are highly redundant because self-attention mixes information across patches; randomly selecting fewer patches during training (stochastic patch selection) forces the policy to use non-redundant cues and improves out-of-distribution robustness.",
-  "problem_solved": "Reduces excessive redundancy and over-reliance on correlated patch features in end-to-end autonomous-driving policies, improving generalization to OOD scenarios and trimming inefficient input representations.",
+  "key_insight": "Patch-aligned features from foundation models (e.g., BLIP2) are highly redundant (≈90% redundancy), and training end-to-end driving policies on a stochastically selected subset of patches reduces redundancy and improves Out-of-Distribution generalization.",
+  "problem_solved": "Reduces redundancy and over-reliance on correlated patch features in foundation-model representations to improve robustness and generalization of end-to-end autonomous driving policies under OOD conditions.",
   "method": [
-    "Quantify redundancy in BLIP2 patch features using PCA and cross-patch similarity (≈90% redundancy).",
-    "Apply Stochastic Patch Selection (SPS): randomly sample a subset of patch-aligned features during training so the policy must learn from diverse, non-redundant signals.",
-    "Train end-to-end driving policies on reduced patch sets to improve robustness and reduce reliance on redundant descriptors."
+    "Measure redundancy in foundation-model patch features using PCA (variance explained) and cross-patch similarity analysis.",
+    "Apply stochastic patch selection: randomly sample a subset of patch features during training to break redundancy and force diverse, informative representations.",
+    "Train end-to-end driving policies on the reduced/stochastic patch set and evaluate OOD generalization and efficiency."
   ],
-  "impact": "Makes end-to-end driving models more robust to distribution shifts while lowering input redundancy and potential compute/overfitting costs — valuable for practitioners building reliable autonomous driving systems with foundation-model features.",
+  "impact": "Improves robustness and OOD generalization for vision-to-control systems while reducing input redundancy and computational load—beneficial for practitioners building reliable, efficient autonomous-driving models.",
   "visual_elements": [
-    "Schematic of self-attention mixing across image patches (patch grid with attention links) illustrating implicit redundancy.",
-    "Bar or pie chart showing quantified redundancy (≈90%) from PCA / cross-patch similarity.",
-    "Before/after diagram of Stochastic Patch Selection: full patch set → sampled subset → trained policy, highlighting robustness gains on OOD examples.",
-    "Side-by-side conceptual comparison of model behavior on in-distribution vs OOD scenarios with and without SPS."
+    "PCA scree/variance-explained plot showing ~90% variance captured by few components (quantifies redundancy).",
+    "Cross-patch similarity heatmap to visualize high inter-patch correlation in foundation-model features.",
+    "Image-grid diagram showing patches with stochastic selection highlighted across training steps (illustrates method).",
+    "Performance bar/line chart comparing in-distribution vs OOD driving metrics and compute/feature count with and without stochastic patch selection."
   ],
   "hashtags": [
     "#AutonomousDriving",
     "#FoundationModels",
     "#OODGeneralization",
-    "#FeatureRedundancy",
-    "#StochasticPatchSelection"
+    "#PatchSelection",
+    "#ModelRobustness"
   ],
   "paper_id": "2026-01-15-arxiv-see_less_drive_better_generalizable_end_to_end_autonomous_driving_via_foundation",
   "paper_title": "See Less, Drive Better: Generalizable End-to-End Autonomous Driving via Foundation Models Stochastic Patch Selection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10707v1"
     }
   ],
-  "generated_at": "2026-01-18T06:20:24.755137"
+  "generated_at": "2026-01-19T06:29:41.856182"
 }

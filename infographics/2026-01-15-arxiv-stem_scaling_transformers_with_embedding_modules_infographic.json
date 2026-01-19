@@ -1,22 +1,22 @@
 {
-  "key_insight": "STEM replaces the FFN up-projection with a static, layer-local token-indexed embedding lookup while keeping gating and down-projection dense, removing runtime routing and enabling CPU-offload with async prefetch; this decouples parameter capacity from per-token compute.",
-  "problem_solved": "Solves instability, load‑balancing and communication overheads of fine‑grained sparsity/routing in transformers so models can increase parameter capacity without proportional per‑token compute cost.",
+  "key_insight": "STEM replaces the FFN up-projection with a static, token-indexed embedding lookup while keeping gating and down-projection dense, enabling much larger parametric capacity without per-token routing or proportional compute. This removes runtime routing overhead and permits asynchronous CPU offload for more stable, scalable training.",
+  "problem_solved": "Solves the training instability, load-balancing, routing latency, and communication overhead that hamper fine-grained sparse/mixture approaches, while decoupling model capacity from per-token compute cost.",
   "method": [
-    "Replace the FFN up‑projection with a static, token‑indexed embedding lookup that is local to each layer.",
-    "Retain a dense gating mechanism and dense down‑projection to preserve expressive capacity and training stability.",
-    "Enable CPU offload of embedding tables with asynchronous prefetch to eliminate runtime routing and cross‑device communication bottlenecks."
+    "Use a layer-local, token-indexed embedding lookup to supply the FFN up-projection instead of a dense matmul or dynamic router.",
+    "Keep the gating mechanism and the FFN down-projection dense to preserve expressivity and stability.",
+    "Eliminate runtime routing and enable asynchronous CPU offload/prefetch of embeddings to reduce peak memory and cross-device communication."
   ],
-  "impact": "Makes it practical to scale transformer parameter count with lower per‑token compute and fewer routing/communication issues, improving training stability and enabling larger models on commodity hardware or CPU‑backed memory.",
+  "impact": "Practitioners can scale transformer parameter counts with lower per-token compute and simpler runtimes, improving throughput, stability, and deployability (especially when leveraging CPU memory for large embeddings). This approach lowers engineering overhead compared with dynamic sparse routing.",
   "visual_elements": [
-    "Side‑by‑side architecture diagram: standard FFN vs STEM (show embedding lookup replacing up‑projection; dense gate + down‑projection preserved).",
-    "Chart: parameters vs per‑token compute — STEM showing increased params with flat per‑token compute (compared to dense and routed sparse baselines).",
-    "Pipeline schematic of CPU offload + asynchronous prefetch illustrating reduced runtime routing and communication.",
-    "Iconized benefit strip: stability, load balance, lower comm overhead, and easier deployment on commodity hardware."
+    "Side-by-side diagram: standard FFN / MoE with routing vs. STEM's FFN using token-indexed embedding lookup (highlight removed routing).",
+    "Pipeline illustration: asynchronous CPU embedding prefetch → local layer lookup → dense gate & down-projection (showing reduced communication).",
+    "Bar chart: effective parameter capacity vs per-token compute comparing dense, MoE, and STEM.",
+    "Icon set: stability (shield), low-latency/throughput (speedometer), memory offload (CPU chip + arrows), and simpler runtime (gear wrench)."
   ],
   "hashtags": [
     "#Transformers",
-    "#Sparsity",
     "#ModelScaling",
+    "#SparseModels",
     "#EfficientAI",
     "#EmbeddingModules"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10639v1"
     }
   ],
-  "generated_at": "2026-01-18T06:19:27.300617"
+  "generated_at": "2026-01-19T06:29:27.092225"
 }
