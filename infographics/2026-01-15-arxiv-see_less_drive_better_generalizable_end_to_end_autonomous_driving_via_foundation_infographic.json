@@ -1,24 +1,24 @@
 {
-  "key_insight": "Patch-aligned features from foundation models (e.g., BLIP2) are highly redundant (≈90% redundancy), and training end-to-end driving policies on a stochastically selected subset of patches reduces redundancy and improves Out-of-Distribution generalization.",
-  "problem_solved": "Reduces redundancy and over-reliance on correlated patch features in foundation-model representations to improve robustness and generalization of end-to-end autonomous driving policies under OOD conditions.",
+  "key_insight": "Stochastically selecting a subset of patch-aligned features from a foundation model (BLIP2) removes heavy redundancy (≈90%) caused by self-attention, and training policies on fewer patches improves out-of-distribution generalization for end-to-end driving — see less, drive better.",
+  "problem_solved": "High redundancy in patch-level foundation-model features causes inefficient, overfit end-to-end driving policies that generalize poorly to OOD scenarios; the paper addresses how to reduce redundancy and improve robustness.",
   "method": [
-    "Measure redundancy in foundation-model patch features using PCA (variance explained) and cross-patch similarity analysis.",
-    "Apply stochastic patch selection: randomly sample a subset of patch features during training to break redundancy and force diverse, informative representations.",
-    "Train end-to-end driving policies on the reduced/stochastic patch set and evaluate OOD generalization and efficiency."
+    "Quantify redundancy in BLIP2 patch features via PCA and cross-patch similarity (≈90% redundancy observed).",
+    "Introduce Stochastic Patch Selection: randomly sample/drop patch-aligned features during training so the policy cannot rely on redundant cross-patch encodings.",
+    "Train end-to-end driving policies on reduced patch sets and evaluate on OOD benchmarks to demonstrate improved robustness and efficiency."
   ],
-  "impact": "Improves robustness and OOD generalization for vision-to-control systems while reducing input redundancy and computational load—beneficial for practitioners building reliable, efficient autonomous-driving models.",
+  "impact": "Reducing redundant visual inputs yields more robust, generalizable driving policies and lowers input dimensionality and compute, benefiting practitioners building vision-to-control systems that must operate safely in novel environments.",
   "visual_elements": [
-    "PCA scree/variance-explained plot showing ~90% variance captured by few components (quantifies redundancy).",
-    "Cross-patch similarity heatmap to visualize high inter-patch correlation in foundation-model features.",
-    "Image-grid diagram showing patches with stochastic selection highlighted across training steps (illustrates method).",
-    "Performance bar/line chart comparing in-distribution vs OOD driving metrics and compute/feature count with and without stochastic patch selection."
+    "Diagram of input image → patch grid → BLIP2 encoder with attention arrows showing cross-patch mixing and redundancy",
+    "Bar chart of PCA variance explained vs. number of components (highlighting ≈90% redundancy)",
+    "Cross-patch similarity heatmap to visualize redundancy across patches",
+    "Line chart comparing OOD performance (or robustness) vs. number of patches with stochastic selection outperforming baselines"
   ],
   "hashtags": [
     "#AutonomousDriving",
     "#FoundationModels",
-    "#OODGeneralization",
-    "#PatchSelection",
-    "#ModelRobustness"
+    "#Generalization",
+    "#EfficientAI",
+    "#ComputerVision"
   ],
   "paper_id": "2026-01-15-arxiv-see_less_drive_better_generalizable_end_to_end_autonomous_driving_via_foundation",
   "paper_title": "See Less, Drive Better: Generalizable End-to-End Autonomous Driving via Foundation Models Stochastic Patch Selection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.10707v1"
     }
   ],
-  "generated_at": "2026-01-19T06:29:41.856182"
+  "generated_at": "2026-01-20T06:27:09.617712"
 }

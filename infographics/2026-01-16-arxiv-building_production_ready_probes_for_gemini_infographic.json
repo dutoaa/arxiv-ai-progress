@@ -1,24 +1,24 @@
 {
-  "key_insight": "Activation probes are a promising misuse-detection tool but fail when production inputs shift from short to long contexts; this work develops probe designs and training strategies that generalize across that shift, making probes practical for deployment.",
-  "problem_solved": "Fixes the failure mode where activation probes trained on short-context data break down on long-context inputs common in production, preventing reliable misuse detection.",
+  "key_insight": "Activation probes can detect misuse signals in large language models, but standard probe designs fail when inputs shift from short to long contexts; with architecture and training changes, probes can be made robust and production-ready for models like Gemini.",
+  "problem_solved": "Existing activation probes do not generalize under the production distribution shift from short-context to long-context inputs, leading to unreliable misuse detection when deployed.",
   "method": [
-    "Design context-aware probe architectures that aggregate and attend over long activation sequences so signals remain stable as context length grows.",
-    "Train with shift-aware data augmentation (mixing short and long contexts) and objectives that emphasize robustness to distributional change (e.g., contrastive/regularized losses and calibration).",
-    "Evaluate and iterate on probe decision thresholds and calibration under realistic production shifts to maintain precision/recall trade-offs."
+    "Design context-aware probe architectures (e.g., position-aware readouts, hierarchical pooling or attention over token-wise activations) to capture long-range signals.",
+    "Train with long-context augmentation and auxiliary/contrastive objectives that promote invariance across context lengths and improve calibration.",
+    "Adopt deployment strategies (sliding-window inference, lightweight ensembling, latency-aware layer selection) to maintain performance and throughput in production."
   ],
-  "impact": "Makes activation-based misuse detection robust to real-world long-context usage, enabling safer deployment of frontier LMs by reducing degradation in detection performance when input distributions change.",
+  "impact": "Makes activation-based misuse detectors practical for production LMs by shrinking the short→long context generalization gap, improving reliability of safety monitoring for practitioners deploying models like Gemini.",
   "visual_elements": [
-    "Schematic comparing short-context vs long-context inputs and where probes read activations (showing failure vs robust design).",
-    "Architecture diagram of a context-aware probe (aggregation/attention over token activations).",
-    "Line chart of detection performance (precision/recall or accuracy) vs context length for baseline probes and the proposed approach.",
-    "Calibration/threshold visualization showing stable decision regions after shift-aware training."
+    "Side-by-side diagram: short-context probe success vs long-context probe failure (highlighting the generalization gap).",
+    "Architecture sketch showing the probe attached to model activations with position-aware pooling/attention layers.",
+    "Before/after bar or line chart illustrating reduced error or gap across context lengths after proposed changes.",
+    "Deployment flowchart showing sliding-window inference, ensembling, and latency vs accuracy trade-offs."
   ],
   "hashtags": [
+    "#AIAlignment",
     "#ModelSafety",
-    "#ActivationProbes",
-    "#LongContext",
-    "#MLRobustness",
-    "#Interpretability"
+    "#LLMs",
+    "#Probing",
+    "#Gemini"
   ],
   "paper_id": "2026-01-16-arxiv-building_production_ready_probes_for_gemini",
   "paper_title": "Building Production-Ready Probes For Gemini",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.11516v1"
     }
   ],
-  "generated_at": "2026-01-19T06:28:35.700885"
+  "generated_at": "2026-01-20T06:25:26.703623"
 }

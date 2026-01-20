@@ -1,24 +1,24 @@
 {
-  "key_insight": "GeRo enables Vision-Language-Action models to jointly plan and generate language-grounded future traffic scenes via autoregressive rollouts, turning VLA models into generative planners rather than only imitators.",
-  "problem_solved": "Addresses reliance on sparse trajectory annotations and under-utilization of VLA models' generative potential, improving multi-step planning, scene forecasting, and scenario coverage for end-to-end autonomous driving.",
+  "key_insight": "GeRo converts Vision–Language–Action models into generative planners by using autoregressive, language-grounded rollouts that jointly predict future traffic scenes and driving actions, enabling multi-step scenario generation and planning.",
+  "problem_solved": "Overcomes reliance on sparse trajectory imitation and the under-utilization of VLA models' generative potential, which limits robust planning, interpretability, and scalable scenario/data generation for end-to-end autonomous driving.",
   "method": [
-    "Plug-and-play GeRo wrapper that autoregressively rolls out future timesteps: at each step the VLA model generates both language-grounded scene descriptions and next actions.",
-    "Joint planning + generation loop uses generated scenes to inform subsequent action predictions, creating richer supervision and longer-horizon forecasts beyond sparse trajectories.",
-    "Language grounding of generated scenarios enables interpretable scene variations and supports scenario augmentation for robustness testing and training."
+    "Plug-and-play GeRo wrapper for VLA models that augments them with generation capabilities while preserving existing planning interfaces.",
+    "Autoregressive rollout strategy: iteratively generate language-grounded future scene descriptions and corresponding actions to produce multi-step scenario rollouts.",
+    "Use generated rollouts as interpretable predictions and synthetic scenarios for training, evaluation, and robust planning."
   ],
-  "impact": "Provides a practical way to turn VLA models into generative planners that produce interpretable, inspectable future scenarios—improving data efficiency, generalization, and safety analysis for autonomous driving research and deployment.",
+  "impact": "Provides richer supervision and interpretable planning signals, enabling scalable synthetic scenario generation and improved robustness/data-efficiency for researchers and engineers building end-to-end driving systems.",
   "visual_elements": [
-    "Pipeline diagram: sensor input -> VLA model -> autoregressive rollout loop producing paired language-scene + action at each timestep",
-    "Timeline/rollout visualization: stacked frames showing generated future scenes and associated actions across multiple timesteps",
-    "Before vs after: comparison of sparse imitation-only training vs GeRo-generated scenario augmentation improving coverage",
-    "Icon/legend set: language bubble (scene description), car icon (action), timeline arrow (rollout), shield/check (safety/robustness)"
+    "Pipeline diagram showing VLA model + GeRo wrapper and the autoregressive loop (scene -> language description -> action -> next scene).",
+    "Before vs after comparison chart (imitation-only vs GeRo) illustrating gains in scenario coverage, interpretability, or robustness.",
+    "Storyboard/example rollout: sequence of traffic frames with generated language annotations and planned actions over time.",
+    "Icons/visual cues for 'plug-and-play', language balloons, steering/action arrows, and a rollout timeline."
   ],
   "hashtags": [
     "#AutonomousDriving",
     "#VisionLanguageModels",
     "#GenerativeAI",
-    "#SelfDriving",
-    "#Robotics"
+    "#Simulation",
+    "#EndToEndLearning"
   ],
   "paper_id": "2026-01-16-arxiv-generative_scenario_rollouts_for_end_to_end_autonomous_driving",
   "paper_title": "Generative Scenario Rollouts for End-to-End Autonomous Driving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.11475v1"
     }
   ],
-  "generated_at": "2026-01-19T06:26:44.290629"
+  "generated_at": "2026-01-20T06:24:00.508254"
 }

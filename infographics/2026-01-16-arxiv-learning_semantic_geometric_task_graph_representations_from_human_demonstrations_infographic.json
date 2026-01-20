@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single, learned semantic–geometric task-graph representation can jointly capture discrete task structure and the time-varying, object-centric geometric relations from human demonstrations, enabling reasoning about long-horizon, bimanual manipulation.",
-  "problem_solved": "Addresses the challenge of representing and reasoning about both the semantic ordering of actions and the evolving spatial relationships between objects in variable bimanual demonstrations so robots can understand and predict task progression.",
+  "key_insight": "The paper proposes a unified semantic–geometric task-graph learned from human demonstrations that jointly models discrete task structure (semantic steps and object roles) and the temporal evolution of object-centric geometric relations, enabling robust reasoning and generalization for long-horizon, bimanual manipulation.",
+  "problem_solved": "How to jointly capture the discrete semantic structure of tasks (action ordering, object roles) and the continuous, time-varying geometric relations between objects from human demonstrations so agents can reason about and generalize across variable bimanual manipulation behaviors.",
   "method": [
-    "Extract object-centric trajectories and semantic event labels from human bimanual demonstrations to form the basic elements of a task graph.",
-    "Build a joint semantic–geometric graph where nodes encode task semantics (steps/objects) and edges encode temporally evolving geometric relations; learn this representation with a graph-based model (e.g., graph neural components) from demonstrations.",
-    "Use temporal modeling over the graph to track task progression and enable prediction, generalization, and downstream planning or imitation."
+    "Represent tasks as a semantic–geometric graph: semantic nodes encode discrete steps/roles and edges encode object-centric geometric relations that evolve over time.",
+    "Learn the representation from human demonstrations using object-centric encoders coupled with a temporal graph model (e.g., temporal GNN / sequence model) to capture progression and geometric dynamics.",
+    "Use the learned graph for inference and reasoning: predict next actions, detect task progression, and generalize to varied action orders and bimanual coordination."
   ],
-  "impact": "Provides a compact, interpretable representation that improves a robot’s ability to generalize and plan across long-horizon, multi-object bimanual tasks from human demos—useful for imitation learning, task inference, and structured planning in robotics research and applications.",
+  "impact": "Gives practitioners an interpretable, compact representation that improves imitation learning, planning, and transfer for complex, long-horizon and bimanual manipulation tasks by enabling explicit reasoning over semantics and geometry.",
   "visual_elements": [
-    "Schematic of a semantic–geometric task graph: nodes (semantic steps/objects) with colored edges showing geometric relations (distances/orientations) that change over time.",
-    "Timeline or sequence strip showing object-centric frames from a bimanual demonstration with evolving relation overlays (e.g., relative pose arrows).",
-    "Diagram comparing raw demonstrations → learned graph representation → downstream uses (prediction, planning, imitation).",
-    "Bar/line chart summarizing gains: generalization to new object configurations and success rate for long-horizon tasks."
+    "Semantic–geometric task-graph diagram: nodes (semantic steps / object roles) with edges annotated by evolving relative poses or contact states.",
+    "Sequence of demo frames with object-centric overlays showing predicted geometric relations and node activations over time.",
+    "Model architecture diagram: object encoder → temporal graph module (GNN/Transformer) → task-graph output / action predictor.",
+    "Evaluation charts: task success / generalization rates across changed object roles, reordered steps, and bimanual vs single-arm conditions."
   ],
   "hashtags": [
-    "#Robotics",
-    "#ImitationLearning",
-    "#RepresentationLearning",
+    "#TaskRepresentation",
     "#GraphNeuralNetworks",
-    "#BimanualManipulation"
+    "#ImitationLearning",
+    "#Robotics",
+    "#HumanDemonstration"
   ],
   "paper_id": "2026-01-16-arxiv-learning_semantic_geometric_task_graph_representations_from_human_demonstrations",
   "paper_title": "Learning Semantic-Geometric Task Graph-Representations from Human Demonstrations",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.11460v1"
     }
   ],
-  "generated_at": "2026-01-19T06:26:16.199844"
+  "generated_at": "2026-01-20T06:23:25.680264"
 }

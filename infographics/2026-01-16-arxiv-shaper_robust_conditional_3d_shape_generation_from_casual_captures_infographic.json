@@ -1,24 +1,24 @@
 {
-  "key_insight": "ShapeR can synthesize complete, high-quality 3D object shapes from casual, noisy image sequences by fusing sparse SLAM cues, 3D detections, and vision–language priors to condition a robust generative shape model.",
-  "problem_solved": "Most conditional 3D generation methods require clean, segmented, unoccluded inputs; ShapeR enables reliable 3D shape generation from real-world, casually captured video where observations are sparse, occluded, and noisy.",
+  "key_insight": "ShapeR reconstructs complete, high-quality 3D object shapes from casual, real-world image sequences by fusing sparse SLAM geometry, 3D detections, and vision-language semantic cues—removing the need for clean, segmented inputs.",
+  "problem_solved": "Overcomes the reliance of prior 3D generation methods on clean, unoccluded, well-segmented captures by enabling robust conditional shape generation from noisy, occluded, and casually captured sequences.",
   "method": [
-    "Extract sparse 3D structure and camera poses from casual captures using off‑the‑shelf visual–inertial SLAM.",
-    "Associate and enrich object observations with 3D detection/segmentation and vision–language models to provide semantic and instance-level cues.",
-    "Condition a robust generative 3D shape model on the fused sparse spatial cues + semantic priors, with training and fusion strategies that tolerate occlusion and noise."
+    "Extract per-object sparse geometric priors using off-the-shelf visual-inertial SLAM and 3D detection on casual image sequences.",
+    "Leverage vision-language models to provide semantic and category-conditioned cues for each detected object.",
+    "Fuse sparse SLAM points, detections, and language priors in a generative model that completes and refines full 3D shapes robust to occlusion and imperfect segmentation."
   ],
-  "impact": "Makes practical 3D shape reconstruction feasible from everyday captures (phones, handheld rigs) without controlled scanning—accelerating dataset creation, AR/VR content generation, and perception for robotics and vision systems.",
+  "impact": "Enables practitioners to generate reliable 3D object models from real-world, unconstrained captures—reducing the need for controlled scans and accelerating applications in AR, robotics, and dataset creation.",
   "visual_elements": [
-    "Pipeline diagram: casual video → SLAM map & poses → 3D detection + VLM cueing → conditioned generative model → full 3D shape",
-    "Before/after examples: input frames and sparse SLAM points next to reconstructed complete meshes/volumes",
-    "Robustness chart: reconstruction quality vs. occlusion / sparsity / noise levels",
-    "Icon row: phone camera, SLAM map, language/semantic tag, 3D model"
+    "Pipeline diagram showing: input casual video → SLAM + 3D detection → vision-language conditioning → ShapeR generative module → completed 3D shape",
+    "Before/after comparisons: sparse SLAM points and occluded frames vs. completed 3D reconstruction",
+    "Failure-mode / robustness chart: performance vs. occlusion level and segmentation noise",
+    "Icon set for inputs (camera / IMU / language), modules (detector / SLAM / generator), and outputs (mesh / pointcloud)"
   ],
   "hashtags": [
-    "#3DReconstruction",
+    "#3DGeneration",
     "#SLAM",
-    "#GenerativeModels",
     "#VisionLanguage",
-    "#ARVR"
+    "#Robust3D",
+    "#ShapeR"
   ],
   "paper_id": "2026-01-16-arxiv-shaper_robust_conditional_3d_shape_generation_from_casual_captures",
   "paper_title": "ShapeR: Robust Conditional 3D Shape Generation from Casual Captures",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.11514v1"
     }
   ],
-  "generated_at": "2026-01-19T06:28:22.049675"
+  "generated_at": "2026-01-20T06:25:11.309657"
 }

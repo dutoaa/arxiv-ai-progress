@@ -1,24 +1,24 @@
 {
-  "key_insight": "A McDonald-style extractive summarization objective can be formulated as an Ising/QUBO problem and efficiently solved on a CMOS Ising machine, enabling low-latency, energy-efficient sentence selection without full neural models.",
-  "problem_solved": "Reduce the energy, latency, and hardware demands of extractive summarization for real-time or resource-constrained deployments by moving optimization off CPUs/GPUs and onto a purpose-built CMOS Ising accelerator.",
+  "key_insight": "Extractive summarization can be formulated as a combinatorial (Ising/QUBO) optimization and efficiently executed on a CMOS Ising machine, enabling low‑power, low‑latency sentence selection without large CPU/GPU costs.",
+  "problem_solved": "Modern extractive summarization models are accurate but rely on energy‑hungry CPUs/GPUs, making real‑time inference in resource‑constrained environments impractical; this work shows a hardware‑efficient alternative.",
   "method": [
-    "Formulate sentence selection (maximize relevance, minimize redundancy) as a pairwise Ising/QUBO optimization (McDonald-style objective).",
-    "Map the QUBO onto a CMOS Ising hardware substrate and run annealing/parallel recurrent dynamics to obtain candidate summaries.",
-    "Apply lightweight post-processing (thresholding, budget constraints, tie-breaking) to produce final extractive summaries and compare to CPU/GPU baselines on standard benchmarks."
+    "Map the McDonald-style extractive summarization objective (maximize relevance, minimize redundancy) to a QUBO/Ising formulation where binary spin variables represent sentence selection.",
+    "Implement and solve the Ising model on a CMOS Ising machine (specialized hardware for combinatorial optimization) to perform fast, low‑power inference.",
+    "Compare solution quality and system metrics (accuracy vs. redundancy tradeoff, energy, latency) against conventional CPU/GPU baselines to validate feasibility."
   ],
-  "impact": "Shows a practical hardware-software co-design path for energy-efficient, low-latency extractive summarization suitable for edge devices and large-scale deployments, lowering the barrier to real-time NLP outside datacenters.",
+  "impact": "Provides a practical path to deploy extractive summarization in energy- and latency‑sensitive settings (edge devices, real‑time services) and demonstrates the viability of specialized Ising hardware for combinatorial NLP tasks.",
   "visual_elements": [
-    "Pipeline diagram: text → sentence features → QUBO/Ising mapping → CMOS Ising chip → selected sentences",
-    "Schematic of CMOS Ising array highlighting spins, couplers, and readout",
-    "Bar chart: energy and latency comparison (CMOS Ising vs CPU vs GPU) for the same summarization task",
-    "Illustration of sentence graph (nodes = sentences, weighted edges = redundancy) showing how the Ising solution picks a diverse subset"
+    "Diagram: mapping from document → sentence nodes → binary spins (Ising variables) showing relevance and redundancy terms",
+    "Hardware block: CMOS Ising machine schematic with data flow from sentence embeddings to spin configuration",
+    "Chart: tradeoff plot comparing energy and latency (Ising HW vs CPU/GPU) against summarization quality",
+    "Example: short document with highlighted sentences selected by the Ising solver vs baseline model"
   ],
   "hashtags": [
-    "#IsingMachine",
     "#ExtractiveSummarization",
-    "#EnergyEfficientAI",
-    "#EdgeNLP",
-    "#HardwareAccelerator"
+    "#IsingMachine",
+    "#EfficientAI",
+    "#HardwareAccelerator",
+    "#LowPowerNLP"
   ],
   "paper_id": "2026-01-16-arxiv-extractive_summarization_on_a_cmos_ising_machine",
   "paper_title": "Extractive summarization on a CMOS Ising machine",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.11491v1"
     }
   ],
-  "generated_at": "2026-01-19T06:27:10.849216"
+  "generated_at": "2026-01-20T06:24:20.956762"
 }
