@@ -1,0 +1,35 @@
+{
+  "key_insight": "Allowing an LLM to generate and test its own small interventions on intermediate reasoning steps produces counterfactual outcomes that enable fine-grained credit assignment, improving learning of correct substeps instead of only rewarding final answers.",
+  "problem_solved": "Standard outcome-level RL treats entire reasoning traces as wholly rewarded or penalized, which penalizes correct intermediate steps in failed traces and reinforces spurious steps in successful ones; this paper fixes coarse credit assignment in LLM chain-of-thought reasoning.",
+  "method": [
+    "Self-proposed interventions: the model proposes alternative edits to intermediate reasoning steps (counterfactuals) and rolls out consequences to observe changes in final outcomes.",
+    "Use outcome differences from these counterfactual rollouts to attribute credit/blame to specific steps and apply targeted updates (rather than uniform reward at the final answer).",
+    "Integrate with outcome-reward RL to reinforce verified causal substeps and suppress spurious ones, improving sample efficiency and reasoning robustness."
+  ],
+  "impact": "Enables more accurate and sample-efficient improvement of multi-step LLM reasoning by rewarding the right substeps. Practitioners can train models that learn reliable intermediate reasoning rather than overfitting to final-answer shortcuts.",
+  "visual_elements": [
+    "Flow diagram: chain-of-thought trace with highlighted step where an intervention is proposed, plus two rollouts (original vs intervened) showing different outcomes.",
+    "Causal credit map: heatmap over reasoning steps showing assigned credit/blame from counterfactual outcomes (hot = positive credit, cold = negative).",
+    "Performance chart: bar/line plot comparing final-task accuracy and sample efficiency for outcome-only RL vs InT (self-proposed interventions).",
+    "Icon set: small icons for 'intervene', 'rollout', 'compare outcomes', and 'update weights' to summarize the pipeline at a glance."
+  ],
+  "hashtags": [
+    "#LLM",
+    "#ReinforcementLearning",
+    "#CreditAssignment",
+    "#ChainOfThought",
+    "#CausalInterventions"
+  ],
+  "paper_id": "2026-01-20-arxiv-int_self_proposed_interventions_enable_credit_assignment_in_llm_reasoning",
+  "paper_title": "InT: Self-Proposed Interventions Enable Credit Assignment in LLM Reasoning",
+  "paper_category": "Model",
+  "paper_date": "2026-01-20",
+  "paper_authors": "Matthew Y. R. Yang, Hao Bai, Ian Wu, Gene Yang, Amrith Setlur",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.14209v1"
+    }
+  ],
+  "generated_at": "2026-01-21T06:23:13.932199"
+}

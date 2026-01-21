@@ -1,24 +1,24 @@
 {
-  "key_insight": "ShapeR reconstructs complete, high-quality 3D object shapes from casual, real-world image sequences by fusing sparse SLAM geometry, 3D detections, and vision-language semantic cues—removing the need for clean, segmented inputs.",
-  "problem_solved": "Overcomes the reliance of prior 3D generation methods on clean, unoccluded, well-segmented captures by enabling robust conditional shape generation from noisy, occluded, and casually captured sequences.",
+  "key_insight": "ShapeR enables reliable conditional 3D object shape generation directly from casually captured, noisy image sequences by fusing sparse SLAM geometry, recognition detections, and vision-language cues to recover complete object shapes.",
+  "problem_solved": "Most 3D shape generators require clean, unoccluded, well-segmented inputs; ShapeR addresses the challenge of generating complete, high-quality 3D shapes from real-world casual captures that include occlusions, sparse viewpoints, and imperfect segmentation.",
   "method": [
-    "Extract per-object sparse geometric priors using off-the-shelf visual-inertial SLAM and 3D detection on casual image sequences.",
-    "Leverage vision-language models to provide semantic and category-conditioned cues for each detected object.",
-    "Fuse sparse SLAM points, detections, and language priors in a generative model that completes and refines full 3D shapes robust to occlusion and imperfect segmentation."
+    "Preprocessing pipeline: run off‑the‑shelf visual–inertial SLAM, 3D object detectors, and vision‑language models to extract per‑object sparse SLAM points, multi‑view image crops, and semantic labels.",
+    "Multimodal encoder: robustly fuse sparse geometric cues, multi‑view appearance features, and language/semantic tokens to form a conditional shape representation that tolerates missing or noisy inputs.",
+    "Conditional shape decoder: predict a complete 3D shape (implicit field / occupancy/mesh) from the fused conditional representation using training with augmentation and robustness losses to handle casual-capture artifacts."
   ],
-  "impact": "Enables practitioners to generate reliable 3D object models from real-world, unconstrained captures—reducing the need for controlled scans and accelerating applications in AR, robotics, and dataset creation.",
+  "impact": "ShapeR makes it practical to build accurate 3D assets and datasets from everyday phone or handheld captures without specialized capture rigs, lowering the barrier for real-world 3D reconstruction and downstream tasks like AR, robotics, and content creation.",
   "visual_elements": [
-    "Pipeline diagram showing: input casual video → SLAM + 3D detection → vision-language conditioning → ShapeR generative module → completed 3D shape",
-    "Before/after comparisons: sparse SLAM points and occluded frames vs. completed 3D reconstruction",
-    "Failure-mode / robustness chart: performance vs. occlusion level and segmentation noise",
-    "Icon set for inputs (camera / IMU / language), modules (detector / SLAM / generator), and outputs (mesh / pointcloud)"
+    "Pipeline diagram showing input casual capture → SLAM + 3D detection + VLM → fusion encoder → conditional shape decoder",
+    "Before/after examples: sparse noisy SLAM points and occluded views alongside the reconstructed complete 3D mesh",
+    "Modalities fusion schematic: icons/miniatures for SLAM points, image crops, and language labels feeding into a single encoder",
+    "Robustness chart: qualitative or quantitative comparison of ShapeR vs baseline methods under increasing occlusion / view sparsity"
   ],
   "hashtags": [
-    "#3DGeneration",
+    "#3DReconstruction",
+    "#ShapeGeneration",
     "#SLAM",
     "#VisionLanguage",
-    "#Robust3D",
-    "#ShapeR"
+    "#RobustComputerVision"
   ],
   "paper_id": "2026-01-16-arxiv-shaper_robust_conditional_3d_shape_generation_from_casual_captures",
   "paper_title": "ShapeR: Robust Conditional 3D Shape Generation from Casual Captures",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.11514v1"
     }
   ],
-  "generated_at": "2026-01-20T06:25:11.309657"
+  "generated_at": "2026-01-21T06:26:25.722323"
 }

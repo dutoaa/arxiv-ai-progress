@@ -1,0 +1,35 @@
+{
+  "key_insight": "Hallucination risk can be detected directly in intermediate hidden states of LLMs: lightweight residual probes read epistemic signals from question-token representations that are attenuated by final decoding, enabling early, model-agnostic assessment of when a model is likely to hallucinate.",
+  "problem_solved": "Existing methods detect hallucinations only after fluent (but potentially false) outputs are generated or require expensive external verification. This paper provides a lightweight way to assess hallucination risk from internal activations before or during decoding.",
+  "method": [
+    "Attach small residual probes to intermediate layers to read question-token hidden states and predict per-query/per-token hallucination risk.",
+    "Use a training signal linking hidden-state patterns to known hallucination labels (latent testing) so probes learn epistemic uncertainty encoded in intermediate representations.",
+    "Operate as a low-overhead, model-agnostic monitoring tool that can be run during inference to flag risky outputs for verification or abstention."
+  ],
+  "impact": "Provides practitioners a practical, low-cost technique to detect and mitigate hallucination risk earlier in the generation pipeline, improving safety, calibration, and routing decisions without modifying the base model.",
+  "visual_elements": [
+    "Schematic of an LLM stack showing probes tapping intermediate residual streams of question tokens and outputting a risk score.",
+    "Layer-wise heatmap illustrating where epistemic signals are strongest and how they decay toward final decoding.",
+    "Flowchart of deployment: input question → latent probe risk score → decision (accept, verify, abstain).",
+    "Bar chart or ROC-style graphic comparing probe-based early detection to output-only hallucination detectors (illustrative)"
+  ],
+  "hashtags": [
+    "#HallucinationDetection",
+    "#LLMSafety",
+    "#Interpretability",
+    "#ResidualProbes",
+    "#LatentTesting"
+  ],
+  "paper_id": "2026-01-20-arxiv-halt_hallucination_assessment_via_latent_testing",
+  "paper_title": "HALT: Hallucination Assessment via Latent Testing",
+  "paper_category": "Model",
+  "paper_date": "2026-01-20",
+  "paper_authors": "Rohan Bhatnagar, Youran Sun, Chi Andrew Zhang, Yixin Wen, Haizhao Yang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.14210v1"
+    }
+  ],
+  "generated_at": "2026-01-21T06:23:24.955957"
+}
