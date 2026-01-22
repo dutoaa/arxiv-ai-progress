@@ -1,24 +1,24 @@
 {
-  "key_insight": "A simple \"informative alignment\" metric predicts which teacher chain-of-thought trajectories are most useful for training a student LLM—high teacher strength alone doesn't guarantee better student reasoning.",
-  "problem_solved": "Identifies and addresses the mismatch between strong teacher reasoning traces and the student model's ability to learn from them, enabling selection of trajectories that are actually teachable and beneficial for distillation.",
+  "key_insight": "Introduce a simple \"informative alignment\" metric that scores teacher chain-of-thought trajectories by how useful they are for a given student—balancing novelty (informativeness) and learnability (alignment). Selecting trajectories by this metric yields better student reasoning than simply using stronger teachers or by student-likelihood selection.",
+  "problem_solved": "Data-student suitability: stronger teacher trajectories or those that merely match a student's current behavior do not always produce the best distilled reasoning; we need a way to pick trajectories that the student can actually learn from.",
   "method": [
-    "Define a lightweight informative-alignment score that quantifies how much a teacher CoT trajectory aligns with and informs a specific student model (e.g., how the trajectory changes the student's beliefs or outputs).",
-    "Compute the score per trajectory and use it to rank, select, or weight teacher demonstrations for distillation instead of relying on teacher strength or student likelihood alone.",
-    "Validate that selecting trajectories by informative alignment correlates with improved downstream student reasoning performance across tasks."
+    "Define a lightweight metric that quantifies how informative a teacher trajectory is for a particular student, capturing both corrective signal and how learnable it is.",
+    "Score and rank teacher chain-of-thought trajectories with the metric, then select high-scoring trajectories for distillation into the student model.",
+    "Empirically compare this selection to baselines (strong-teacher-only, student-likelihood) across reasoning tasks and show improved student performance."
   ],
-  "impact": "Provides a practical, data-centric tool for curating reasoning examples that a student LLM can actually learn from, making distillation more effective and sample-efficient without requiring stronger teachers.",
+  "impact": "Provides a practical, data-driven selection rule for CoT distillation that improves student LLM reasoning efficiency and final performance, enabling more effective and sample-efficient knowledge transfer during model compression or training.",
   "visual_elements": [
-    "Flowchart: teacher CoT trajectories → informative-alignment scoring → selected trajectories → student model (distillation loop)",
-    "Scatter plot: informative-alignment score vs. downstream student accuracy (showing positive correlation)",
-    "Bar chart: student performance comparing random/likelihood-based selection vs. alignment-based selection",
-    "Icon set: teacher (lamp), student (brain), metric (ruler), and selection (filter) to illustrate the pipeline"
+    "Pipeline diagram: multiple teacher CoTs → metric scorer (informative alignment) → selected trajectories → student model",
+    "Tradeoff cartoon: novelty/informativeness vs. learnability/alignment illustrating why extremes (too novel or too similar) are suboptimal",
+    "Bar chart: student accuracy under different selection strategies (strong teacher, student-likelihood, informative alignment)",
+    "Scatter plot: trajectory metric score vs. measured student improvement to show correlation"
   ],
   "hashtags": [
     "#ChainOfThought",
     "#ModelDistillation",
-    "#LLMs",
-    "#DataCuration",
-    "#AIReasoning"
+    "#DataSelection",
+    "#LLMTraining",
+    "#AIAlignment"
   ],
   "paper_id": "2026-01-20-arxiv-which_reasoning_trajectories_teach_students_to_reason_better_a_simple_metric_of",
   "paper_title": "Which Reasoning Trajectories Teach Students to Reason Better? A Simple Metric of Informative Alignment",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.14249v1"
     }
   ],
-  "generated_at": "2026-01-21T06:24:55.914633"
+  "generated_at": "2026-01-22T06:25:41.730920"
 }

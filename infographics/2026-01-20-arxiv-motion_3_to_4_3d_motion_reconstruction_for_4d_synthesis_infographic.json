@@ -1,24 +1,24 @@
 {
-  "key_insight": "Motion 3-to-4 is a feed-forward pipeline that converts a single monocular video (optionally plus a 3D reference mesh) into a high-quality 4D dynamic object by explicitly separating static shape reconstruction from motion estimation, enabling temporally coherent 3D+time synthesis from limited data.",
-  "problem_solved": "Addresses the ambiguity and data scarcity of recovering both geometry and time-varying motion from a single-view video, producing editable, temporally consistent 4D assets rather than per-frame or purely 2D outputs.",
+  "key_insight": "Motion 3-to-4 is a feed-forward framework that reconstructs high-quality 4D (time-varying 3D) objects from a single monocular video (and an optional 3D reference mesh) by explicitly separating static shape from dynamic motion, enabling accurate geometry and motion recovery despite limited data and monocular ambiguity.",
+  "problem_solved": "Recovers both detailed 3D geometry and temporally coherent motion from a single-view video input — a task made difficult by limited 4D training data and inherent depth/motion ambiguity in monocular capture.",
   "method": [
-    "Decompose 4D synthesis into two complementary tasks: static 3D shape generation and dynamic motion reconstruction (per-frame deformation/pose) to reduce ambiguity.",
-    "Feed-forward architecture that accepts a monocular video and optional 3D reference mesh to produce a temporally coherent 4D representation without expensive per-scene optimization.",
-    "Leverage joint supervision from video observations and the reference mesh (when available) to produce high-fidelity geometry and consistent motion over time."
+    "Decompose 4D synthesis into static 3D shape reconstruction and dynamic motion estimation so each subtask is easier to solve robustly in a feed-forward pass.",
+    "Optionally condition on a provided 3D reference mesh to anchor geometry; otherwise infer a high-quality static shape from the video.",
+    "Use temporal consistency and motion-aware neural representations to produce coherent 4D outputs (time-indexed meshes or neural fields) suitable for rendering and animation."
   ],
-  "impact": "Makes it practical to generate editable 4D (3D + time) assets from everyday monocular videos, lowering the bar for applications in AR/VR, animation, VFX, and data augmentation for downstream learning tasks.",
+  "impact": "Enables practitioners to generate temporally coherent 3D animations from simple monocular videos, lowering the barrier for 4D content creation in AR/VR, VFX, and robotics without large multi-view datasets.",
   "visual_elements": [
-    "Pipeline diagram: input monocular video (+ optional mesh) -> shape branch + motion branch -> 4D dynamic object output",
-    "Before/after gallery: input video frames vs. reconstructed 3D shape and animated sequence (temporal playback frames)",
-    "Schematic: decomposition illustration showing static geometry separated from per-frame motion vectors/deformations",
-    "Comparative chart: quality/temporal-consistency metrics or qualitative examples vs. single-frame or per-frame baselines"
+    "Pipeline diagram: input monocular video (+ optional mesh) → static 3D shape branch → motion estimation branch → fused 4D output",
+    "Before/after comparison: original video frames vs. reconstructed time-varying 3D meshes or rendered animations",
+    "Flow visualization: per-frame motion vectors or deformation fields overlaid on the static geometry to show temporal coherence",
+    "Ablation chart: qualitative/quantitative comparison showing benefits of decomposition and optional reference mesh"
   ],
   "hashtags": [
     "#4DSynthesis",
     "#MotionReconstruction",
     "#NeuralRendering",
-    "#MonocularReconstruction",
-    "#3DComputerVision"
+    "#ComputerVision",
+    "#3DDeepLearning"
   ],
   "paper_id": "2026-01-20-arxiv-motion_3_to_4_3d_motion_reconstruction_for_4d_synthesis",
   "paper_title": "Motion 3-to-4: 3D Motion Reconstruction for 4D Synthesis",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.14253v1"
     }
   ],
-  "generated_at": "2026-01-21T06:25:20.183750"
+  "generated_at": "2026-01-22T06:25:52.657654"
 }

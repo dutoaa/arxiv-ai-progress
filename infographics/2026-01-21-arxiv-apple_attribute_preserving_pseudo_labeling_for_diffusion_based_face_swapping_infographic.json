@@ -1,0 +1,35 @@
+{
+  "key_insight": "APPLE introduces attribute-preserving pseudo-labeling to supervise diffusion-based face swapping, enabling accurate identity transfer while explicitly preserving target-specific attributes (pose, expression, lighting, skin tone, makeup).",
+  "problem_solved": "Face swapping lacks real ground-truth, forcing a trade-off between identity transfer and preserving target attributes; diffusion-based conditional inpainting often degrades those target-specific attributes.",
+  "method": [
+    "Generate pseudo ground-truth attribute labels from the target image (pose, expression, lighting, skin tone, makeup) to serve as conditioning signals.",
+    "Condition a diffusion-based inpainting/synthesis model on both source identity features and the target pseudo-attribute labels, with losses that enforce identity fidelity and attribute consistency.",
+    "Train end-to-end so the model learns to decouple identity from target attributes, producing high-fidelity swapped faces that retain target-specific appearance and geometry."
+  ],
+  "impact": "Provides a practical way to supervise face swapping without real paired data, improving visual fidelity and attribute reliability. This benefits practitioners building realistic synthesis, data augmentation, and evaluation tools in face-related applications.",
+  "visual_elements": [
+    "Pipeline diagram: source face + target face → pseudo-label extractor → conditioned diffusion inpainting → swapped output",
+    "Triplet comparison: source / target / swapped (side-by-side) to highlight identity transfer and attribute preservation",
+    "Attribute overlays: pose vectors, expression landmarks, and lighting/skin-tone maps showing preserved cues",
+    "Quantitative charts: identity similarity vs. attribute-preservation metrics and ablation bars showing effect of pseudo-labeling"
+  ],
+  "hashtags": [
+    "#FaceSwap",
+    "#DiffusionModels",
+    "#AttributePreservation",
+    "#ComputerVision",
+    "#SyntheticData"
+  ],
+  "paper_id": "2026-01-21-arxiv-apple_attribute_preserving_pseudo_labeling_for_diffusion_based_face_swapping",
+  "paper_title": "APPLE: Attribute-Preserving Pseudo-Labeling for Diffusion-Based Face Swapping",
+  "paper_category": "Model",
+  "paper_date": "2026-01-21",
+  "paper_authors": "Jiwon Kang, Yeji Choi, JoungBin Lee, Wooseok Jang, Jinhyeok Choi",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.15288v1"
+    }
+  ],
+  "generated_at": "2026-01-22T06:24:24.752594"
+}

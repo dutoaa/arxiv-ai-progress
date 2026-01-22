@@ -1,17 +1,17 @@
 {
-  "key_insight": "Jet-RL introduces a unified FP8 precision flow that lets on-policy RL (including the expensive rollout phase) run in FP8 without losing model quality, cutting rollout compute and time substantially.",
-  "problem_solved": "Rollouts dominate on-policy RL training time and resource use (>70%), and prior pipelines either keep expensive BF16 for rollouts or fail in stability when aggressively quantized.",
+  "key_insight": "Jet-RL enables stable on‑policy reinforcement learning using FP8 by unifying precision across training and rollout, removing the costly BF16↔FP8 transitions and preserving policy performance while greatly reducing compute and memory for rollouts.",
+  "problem_solved": "Rollout generation dominates on‑policy RL training cost (>70% of time) and current workflows mix BF16 and FP8, incurring expensive conversions and instability; Jet‑RL removes this bottleneck by making FP8 practical and reliable for end‑to‑end on‑policy training.",
   "method": [
-    "Unified precision flow: apply FP8 consistently across rollout and training to remove precision mismatches and pipeline overheads.",
-    "Precision-aware algorithms: use quantization-aware forward/backward passes, adaptive loss/activation scaling, and selective higher-precision accumulation for numerically sensitive ops.",
-    "Integration with on-policy loop: coordinate rollout generation, advantage estimation, and optimizer updates under a single FP8 management strategy to preserve stability and accuracy."
+    "Unified precision flow: use a consistent FP8 numerical path across rollout and training to eliminate frequent BF16↔FP8 conversions and alignment overhead.",
+    "Precision-aware numerics: combine FP8 kernels with calibrated dynamic range management, loss scaling, and optimizer adjustments to preserve stability for on‑policy updates.",
+    "Safety/fallback mechanisms: lightweight runtime checks and selective BF16 fallback for numerically sensitive ops to maintain performance parity with higher precision baselines."
   ],
-  "impact": "Enables large-scale, cost-effective on-policy RL for LLMs by reducing compute, memory, and wall-clock time for rollouts, allowing more experiments and faster fine-tuning with lower infrastructure cost.",
+  "impact": "Practitioners can run on‑policy RL (including LLM fine‑tuning workflows) with substantially lower rollout compute and memory costs, enabling faster experiments and cheaper production training without sacrificing policy quality.",
   "visual_elements": [
-    "Pipeline flow diagram showing unified FP8 across rollout and training (before vs after)",
-    "Stacked bar chart of training time breakdown highlighting rollout >70% and the reduced rollout time with Jet-RL",
-    "Line chart comparing model performance (reward/validation metric) for BF16 vs Jet-RL FP8 to show parity",
-    "Icons representing compute, memory, and cost savings (e.g., GPU, RAM, dollar signs) with percentage annotations"
+    "Pipeline diagram showing unified FP8 precision flow vs. mixed BF16/FP8 flow (highlight conversions removed)",
+    "Bar chart comparing runtime and memory for rollout-heavy training with and without Jet‑RL",
+    "Line plot of policy performance (reward or loss) showing parity between Jet‑RL FP8 and BF16 baseline",
+    "Icon set: FP8 chip/kernel, rollout loop, safety shield (fallback), and cost savings tag"
   ],
   "hashtags": [
     "#FP8",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.14243v1"
     }
   ],
-  "generated_at": "2026-01-21T06:24:41.110970"
+  "generated_at": "2026-01-22T06:25:15.582431"
 }

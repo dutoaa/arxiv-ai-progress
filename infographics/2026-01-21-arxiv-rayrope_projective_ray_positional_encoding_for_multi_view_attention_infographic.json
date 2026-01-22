@@ -1,0 +1,35 @@
+{
+  "key_insight": "Encoding patch positions as projective camera rays (direction + ray parameter) lets multi-view transformers compute multi-frequency, SE(3)-invariant attention that is uniquely tied to scene geometry and adapts to camera poses.",
+  "problem_solved": "Existing absolute or relative positional encodings for multi-view attention either fail to uniquely identify patches across views, are not SE(3)-invariant, or cannot represent multi-frequency geometric similarity in a scene-adaptive way.",
+  "method": [
+    "Represent each image patch by its projective ray (ray direction in a common frame plus a ray parameter such as depth or inverse depth) rather than by 2D image coordinates.",
+    "Apply multi-frequency (RoPE-style) positional encodings along ray parameters and/or angular coordinates so attention can measure similarity across views at multiple spatial frequencies while preserving SE(3) invariance.",
+    "Integrate the ray-based encodings into transformer attention so cross-view tokens are compared in a geometry-aware, pose-invariant manner and can adapt encoding scales to scene depth/structure."
+  ],
+  "impact": "RayRoPE provides a principled, geometry-aware positional encoding for multi-view transformers, improving cross-view feature fusion and robustness to camera pose changes—useful for 3D reconstruction, novel view synthesis, and multi-view perception pipelines.",
+  "visual_elements": [
+    "Diagram of cameras and projective rays: pixels mapped to 3D rays (direction + depth) with an inset showing the encoded ray vector.",
+    "Schematic of transformer attention comparing ray-encoded tokens across views, illustrating SE(3)-invariance (camera rotation/translation leaves relations consistent).",
+    "Side-by-side comparison (cartoon or bar chart) of prior absolute/relative encodings vs RayRoPE on criteria: uniqueness, SE(3)-invariance, multi-frequency similarity, scene adaptivity.",
+    "Attention heatmap overlays across multiple views showing more consistent cross-view matches when using RayRoPE."
+  ],
+  "hashtags": [
+    "#MultiView",
+    "#PositionalEncoding",
+    "#3DVision",
+    "#Transformers",
+    "#RayRoPE"
+  ],
+  "paper_id": "2026-01-21-arxiv-rayrope_projective_ray_positional_encoding_for_multi_view_attention",
+  "paper_title": "RayRoPE: Projective Ray Positional Encoding for Multi-view Attention",
+  "paper_category": "Model",
+  "paper_date": "2026-01-21",
+  "paper_authors": "Yu Wu, Minsik Jeon, Jen-Hao Rick Chang, Oncel Tuzel, Shubham Tulsiani",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.15275v1"
+    }
+  ],
+  "generated_at": "2026-01-22T06:22:43.620764"
+}
