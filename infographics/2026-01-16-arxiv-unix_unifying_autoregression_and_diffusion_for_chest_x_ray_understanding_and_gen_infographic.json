@@ -1,24 +1,24 @@
 {
-  "key_insight": "UniX reconciles the conflicting goals of semantic abstraction and pixel-accurate reconstruction by combining autoregressive and diffusion paradigms in one unified chest X‑ray foundation model, avoiding the performance trade-offs of parameter-sharing designs.",
-  "problem_solved": "Existing unified medical models struggle because autoregressive sharing forces a single pathway to serve both high-level understanding and low-level image generation, degrading one or both capabilities; UniX eliminates this conflict.",
+  "key_insight": "UniX unifies autoregressive semantic modeling and diffusion-based pixel synthesis in a single chest X‑ray foundation model by separating task-specific pathways to avoid the usual trade-off between understanding and generation.",
+  "problem_solved": "Existing unified medical models compromise either semantic understanding or pixel-level generation because shared-parameter autoregressive designs force conflicting representations; UniX addresses this by decoupling and coordinating both goals.",
   "method": [
-    "Hybrid architecture: a shared visual encoder with two specialized branches — an autoregressive branch for semantic understanding and a diffusion branch for high‑fidelity image generation.",
-    "Task‑specific decoders and loss functions to decouple semantic abstraction from pixel reconstruction while enabling cross-task knowledge transfer.",
-    "Joint training strategy that balances objectives and reduces parameter interference (e.g., regularization or cross-attention gating between branches)."
+    "Hybrid architecture: shared encoder/latent space with two specialized decoders—an autoregressive head for semantic/reporting tasks and a diffusion head for high-fidelity image generation.",
+    "Task-aware training: joint optimization with separate objectives and conditioning so each pathway preserves its inductive bias while benefiting from shared representation learning.",
+    "Cross-path coordination: lightweight adapters/conditioning modules enable information flow between heads to align semantics and pixels without parameter interference."
   ],
-  "impact": "UniX enables a single foundation model that performs strongly on both diagnostic tasks (reports/labels) and realistic image generation, simplifying deployment, improving data augmentation, and advancing clinical AI workflows.",
+  "impact": "UniX enables a single, deployable medical foundation model that performs both diagnosis-oriented understanding and realistic X‑ray generation well, improving downstream efficiency, data augmentation, and clinical utility for AI/ML practitioners.",
   "visual_elements": [
-    "Architecture diagram: shared encoder feeding two clearly labeled branches (autoregressive → semantics; diffusion → pixels).",
-    "Side-by-side examples: original chest X-ray, generated/reconstructed image, and generated report/label to show dual capabilities.",
-    "Bar chart: comparative metrics showing improvements on both understanding (e.g., AUC/F1) and generation (e.g., FID/LPIPS) versus prior unified and single-task baselines.",
-    "Training flowchart: losses and gating/regularization components that prevent parameter conflict between branches."
+    "Architecture diagram: shared encoder with split autoregressive and diffusion decoders, showing data flow and conditioning.",
+    "Performance comparison chart: bars or radar showing understanding vs generation metrics for UniX vs parameter-shared and task-specific baselines.",
+    "Qualitative examples: paired columns of generated chest X‑rays and corresponding diagnostic reports to illustrate joint capability.",
+    "Training flowchart: joint-loss schematic highlighting separate objectives and cross-path adapters/conditioning."
   ],
   "hashtags": [
+    "#UniX",
+    "#MedicalImaging",
     "#ChestXRay",
-    "#MedicalAI",
     "#DiffusionModels",
-    "#AutoregressiveModels",
-    "#FoundationModel"
+    "#FoundationModels"
   ],
   "paper_id": "2026-01-16-arxiv-unix_unifying_autoregression_and_diffusion_for_chest_x_ray_understanding_and_gen",
   "paper_title": "UniX: Unifying Autoregression and Diffusion for Chest X-Ray Understanding and Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.11522v1"
     }
   ],
-  "generated_at": "2026-01-22T06:25:05.369983"
+  "generated_at": "2026-01-23T06:24:21.269063"
 }

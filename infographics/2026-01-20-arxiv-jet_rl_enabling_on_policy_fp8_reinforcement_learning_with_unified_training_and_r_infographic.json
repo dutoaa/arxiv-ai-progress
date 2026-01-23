@@ -1,24 +1,24 @@
 {
-  "key_insight": "Jet-RL enables stable on‑policy reinforcement learning using FP8 by unifying precision across training and rollout, removing the costly BF16↔FP8 transitions and preserving policy performance while greatly reducing compute and memory for rollouts.",
-  "problem_solved": "Rollout generation dominates on‑policy RL training cost (>70% of time) and current workflows mix BF16 and FP8, incurring expensive conversions and instability; Jet‑RL removes this bottleneck by making FP8 practical and reliable for end‑to‑end on‑policy training.",
+  "key_insight": "Jet-RL enables end-to-end on-policy RL in FP8 by unifying precision across rollout and training paths, preserving numerical stability while dramatically reducing rollout compute and memory overhead.",
+  "problem_solved": "Rollout dominates on-policy RL training time and cost, and existing pipelines that mix FP8 rollouts with higher-precision training introduce data movement, conversion overhead, and numerical instability—blocking efficient, large-scale RL for LLMs.",
   "method": [
-    "Unified precision flow: use a consistent FP8 numerical path across rollout and training to eliminate frequent BF16↔FP8 conversions and alignment overhead.",
-    "Precision-aware numerics: combine FP8 kernels with calibrated dynamic range management, loss scaling, and optimizer adjustments to preserve stability for on‑policy updates.",
-    "Safety/fallback mechanisms: lightweight runtime checks and selective BF16 fallback for numerically sensitive ops to maintain performance parity with higher precision baselines."
+    "Unified precision flow: apply FP8 consistently across rollout and training to eliminate frequent precision conversions and streamline data paths.",
+    "Numerical stabilization: use calibrated scaling and quantization-aware techniques (e.g., dynamic scaling, variance-aware quantization/loss scaling) to retain on-policy training fidelity in low precision.",
+    "System and kernel co-design: optimize memory layout and compute kernels to exploit FP8 hardware efficiently and accelerate rollout throughput without degrading policy performance."
   ],
-  "impact": "Practitioners can run on‑policy RL (including LLM fine‑tuning workflows) with substantially lower rollout compute and memory costs, enabling faster experiments and cheaper production training without sacrificing policy quality.",
+  "impact": "Makes on-policy RL far more compute- and memory-efficient, enabling faster iteration, lower cost, and wider adoption of RL fine-tuning for LLMs and other large models while maintaining training stability and policy quality.",
   "visual_elements": [
-    "Pipeline diagram showing unified FP8 precision flow vs. mixed BF16/FP8 flow (highlight conversions removed)",
-    "Bar chart comparing runtime and memory for rollout-heavy training with and without Jet‑RL",
-    "Line plot of policy performance (reward or loss) showing parity between Jet‑RL FP8 and BF16 baseline",
-    "Icon set: FP8 chip/kernel, rollout loop, safety shield (fallback), and cost savings tag"
+    "Before/After pipeline diagram showing mixed-precision (BF16+FP8 with conversion costs) vs unified FP8 precision flow",
+    "Stacked bar chart of training time breakdown (rollout vs optimization) highlighting rollout reduction",
+    "Line chart of policy performance (reward/accuracy) vs precision showing maintained fidelity in FP8",
+    "Icon set: FP8 chip (performance), stopwatch (speedup), memory chip (reduced footprint), shield (stability)"
   ],
   "hashtags": [
     "#FP8",
+    "#QuantizedRL",
     "#ReinforcementLearning",
-    "#Quantization",
     "#EfficientTraining",
-    "#LLMFinetuning"
+    "#OnPolicyRL"
   ],
   "paper_id": "2026-01-20-arxiv-jet_rl_enabling_on_policy_fp8_reinforcement_learning_with_unified_training_and_r",
   "paper_title": "Jet-RL: Enabling On-Policy FP8 Reinforcement Learning with Unified Training and Rollout Precision Flow",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.14243v1"
     }
   ],
-  "generated_at": "2026-01-22T06:25:15.582431"
+  "generated_at": "2026-01-23T06:25:22.076570"
 }

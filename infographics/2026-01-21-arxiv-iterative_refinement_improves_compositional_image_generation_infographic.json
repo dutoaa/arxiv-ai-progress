@@ -1,24 +1,24 @@
 {
-  "key_insight": "Iterative refinement—a repeated propose-verify-correct loop at inference—substantially improves text-to-image alignment on complex, compositional prompts by enforcing multiple objects, relations, and attributes stepwise.",
-  "problem_solved": "Text-to-image models struggle to satisfy many simultaneous constraints in richly compositional prompts; standard fixes (more denoising steps or parallel sampling) are insufficient to reliably produce correct multi-object/relational scenes.",
+  "key_insight": "Applying an inference-time, chain-of-thought–style iterative refinement loop—where a generated image is repeatedly verified and corrected against decomposed prompt constraints—substantially improves alignment for richly compositional text-to-image prompts.",
+  "problem_solved": "Text-to-image models struggle to satisfy many simultaneous constraints (multiple objects, relations, and attributes) in a single prompt; existing fixes like more denoising or parallel sampling with verifiers are insufficient for complex compositional requests.",
   "method": [
-    "Run generation as an iterative loop: propose an image (or latent), verify which prompt constraints are unmet, and apply targeted corrections.",
-    "Use a lightweight verifier/feedback signal (e.g., captioning/scoring or constraint-checker) to detect mismatches and guide subsequent refinement steps.",
-    "Apply corrections across denoising/latent steps so constraints are enforced progressively rather than only at final sampling."
+    "Decompose the input prompt into explicit sub-constraints (objects, attributes, relations) or an internal reasoning chain.",
+    "Generate an initial image with a diffusion model, run automated verifiers/constraint checks, then iteratively refine only the violating regions or aspects.",
+    "Repeat verification + localized correction until most constraints are satisfied, keeping the approach as an inference-time add-on (no model retraining required)."
   ],
-  "impact": "Enables practitioners to produce more reliable, constraint-satisfying images from existing T2I models without retraining, improving utility for complex scene generation, dataset creation, and downstream evaluation tasks.",
+  "impact": "Provides a practical, model-agnostic way to boost compositional fidelity of T2I outputs at inference time, enabling practitioners to get more reliable and controllable generations without costly retraining.",
   "visual_elements": [
-    "Flowchart of the iterative propose → verify → correct loop (annotated with where verifier feedback is injected).",
-    "Before/after image pairs for a complex prompt showing error modes fixed by refinement (e.g., swapped objects, missing attributes).",
-    "Bar/line chart comparing prompt-constraint satisfaction rates vs. baseline methods (single-pass, extra denoising, parallel sampling).",
-    "Schematic illustrating verifier types (captioning, classifier, symbolic constraint checker) feeding corrective updates into the sampler."
+    "Pipeline diagram: prompt → decomposition (sub-constraints) → generate → verify → refine (loop) → final image",
+    "Before/after image pairs showing a complex prompt where baseline fails and iterative refinement succeeds",
+    "Bar chart comparing compositional accuracy or constraint-satisfaction rate across baseline, more denoising, verifier-only, and iterative refinement",
+    "Schematic showing example constraint checks (object count, spatial relation, attribute match) mapped to localized refinements"
   ],
   "hashtags": [
     "#TextToImage",
     "#Compositionality",
     "#IterativeRefinement",
-    "#GenerativeAI",
-    "#DiffusionModels"
+    "#DiffusionModels",
+    "#ChainOfThought"
   ],
   "paper_id": "2026-01-21-arxiv-iterative_refinement_improves_compositional_image_generation",
   "paper_title": "Iterative Refinement Improves Compositional Image Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.15286v1"
     }
   ],
-  "generated_at": "2026-01-22T06:23:58.007547"
+  "generated_at": "2026-01-23T06:24:58.211262"
 }

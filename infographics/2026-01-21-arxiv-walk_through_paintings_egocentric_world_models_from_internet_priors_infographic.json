@@ -1,24 +1,24 @@
 {
-  "key_insight": "EgoWM converts pretrained video diffusion models into action-conditioned egocentric world models, enabling them to predict accurate, controllable futures by leveraging Internet-scale video priors rather than training from scratch.",
-  "problem_solved": "How to obtain accurate, action-conditioned future predictions (a true world model) without expensive training from scratch and while preserving rich priors learned from large-scale internet video.",
+  "key_insight": "EgoWM converts pretrained video diffusion models into action-conditioned egocentric world models, enabling controllable, plausible future prediction without training from scratch by repurposing Internet-scale video priors.",
+  "problem_solved": "How to produce accurate, action-conditioned future video predictions (especially from a first-person/egocentric view) while avoiding costly training from scratch and leveraging large pretrained video generative models.",
   "method": [
-    "Architecture-agnostic plug-in that wraps any pretrained video diffusion model to accept action/control inputs for future rollouts.",
-    "Repurpose Internet-scale video priors from pretrained diffusion weights instead of training new models, enabling plausible and accurate action-conditioned predictions.",
-    "Operate in an egocentric frame of reference to model how the world changes from the agent’s viewpoint and produce controllable video rollouts."
+    "Take an off-the-shelf pretrained video diffusion model and reuse its learned world priors instead of training a new model.",
+    "Inject action-conditioning into the generation process via lightweight conditioning/adapters that modulate sampling to reflect intended actions (architecture-agnostic).",
+    "Generate controllable future frames in egocentric view by steering the pretrained diffusion sampler with the action signals, enabling correct-to-the-action predictions."
   ],
-  "impact": "Allows practitioners to turn existing video generation models into controllable world models quickly and efficiently, unlocking safer and more accurate future prediction for embodied AI, robotics, and simulation without costly retraining.",
+  "impact": "Provides a practical, sample-efficient path to build action-aware world models for robotics, AR/VR, and interactive agents by leveraging existing large-scale generative video models—reducing compute and data needs while improving controllability.",
   "visual_elements": [
-    "Pipeline diagram: current egocentric frame + action input -> EgoWM (plug-in) -> predicted future frames",
-    "Before vs after comparison: generic plausible future (baseline) vs action-accurate future (EgoWM)",
-    "Model schematic showing ‘pretrained video diffusion’ box with a small action-conditioning adapter attached",
-    "Icon set: eye (egocentric), joystick (action/control), clock/frames (temporal prediction), cloud/database (Internet priors)"
+    "Pipeline diagram: pretrained video diffusion model + action-conditioning adapters -> controllable future frames",
+    "Before/after frame strips: same input scene with different action inputs producing divergent, correct futures",
+    "Bar chart: compute/data cost and sample efficiency of EgoWM vs training world models from scratch",
+    "Icon set: egocentric camera, action token, diffusion model, and predicted-frame timeline"
   ],
   "hashtags": [
-    "#WorldModel",
+    "#EgocentricWorldModel",
     "#VideoDiffusion",
-    "#EgocentricAI",
-    "#ControllableGeneration",
-    "#InternetPriors"
+    "#WorldModels",
+    "#ActionConditional",
+    "#ControllableGeneration"
   ],
   "paper_id": "2026-01-21-arxiv-walk_through_paintings_egocentric_world_models_from_internet_priors",
   "paper_title": "Walk through Paintings: Egocentric World Models from Internet Priors",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.15284v1"
     }
   ],
-  "generated_at": "2026-01-22T06:23:46.610077"
+  "generated_at": "2026-01-23T06:25:09.414513"
 }
