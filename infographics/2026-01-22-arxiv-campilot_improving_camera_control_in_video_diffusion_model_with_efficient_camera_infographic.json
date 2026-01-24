@@ -1,24 +1,24 @@
 {
-  "key_insight": "A camera-specific reward-feedback loop improves camera controllability in video diffusion models by evaluating and optimizing camera alignment efficiently, without repeatedly decoding latents to RGB.",
-  "problem_solved": "Existing reward-feedback (ReFL) methods can’t effectively or efficiently evaluate video-camera alignment because general reward models lack camera-awareness and decoding latents into RGB for reward computation is computationally expensive.",
+  "key_insight": "CamPilot improves camera controllability in video diffusion models by introducing an efficient camera-aware reward feedback loop that evaluates and optimizes camera-video alignment without expensive RGB decoding.",
+  "problem_solved": "Current reward-feedback approaches cannot reliably measure video-camera alignment and are computationally costly because they require decoding latents to RGB for reward computation; CamPilot addresses both accuracy and efficiency.",
   "method": [
-    "Train or adapt a lightweight, camera-aware reward model that directly assesses video-camera alignment (poses, motion, framing) rather than generic video quality.",
-    "Compute rewards in latent space or with efficient proxies to avoid repeated expensive RGB decoding, enabling frequent feedback during fine-tuning.",
-    "Integrate the camera reward into a ReFL-style training loop to fine-tune the diffusion model for stronger and more consistent camera control."
+    "Train a specialized camera-alignment reward model that directly assesses camera trajectory fidelity with respect to prompts/targets.",
+    "Compute rewards in latent space (or via lightweight representations) to avoid repeated expensive decoding from latents to RGB during feedback loops.",
+    "Integrate the camera reward into a Reward Feedback Learning pipeline to fine-tune the video diffusion model for stronger, more precise camera control."
   ],
-  "impact": "Enables practitioners to achieve more reliable and controllable camera behavior in generated videos with far less compute overhead, improving applicability of video diffusion models for filmmaking, robotics simulation, and interactive content creation.",
+  "impact": "Enables practitioners to generate videos with more accurate and controllable camera movements while reducing compute cost during optimization, making camera-conditioned video generation more practical for research and production.",
   "visual_elements": [
-    "Before/After frame sequence: side-by-side short clips showing improved camera framing and motion alignment.",
-    "Training loop diagram: diffusion model → latent-space reward evaluator → reward feedback → fine-tuning (highlighting no RGB decode step).",
-    "Architecture sketch: camera-aware reward model inputs (latent video + camera params) and outputs a scalar alignment score.",
-    "Bar chart or radar plot: comparison of camera-alignment metrics and compute cost (decoding vs latent reward) across methods."
+    "Pipeline diagram: prompt → diffusion model → latent video → camera-aware reward module (in-latent) → feedback loop for model update",
+    "Before/After montage: same prompt showing improved camera trajectories (e.g., smoother pans, correct zooms) pre- vs post-CamPilot",
+    "Bar chart: alignment score and compute cost comparison (baseline ReFL vs CamPilot)",
+    "Icon set: camera trajectory, brain/reward, latent cube (representing latent space), and speed/efficiency meter"
   ],
   "hashtags": [
     "#VideoDiffusion",
     "#CameraControl",
-    "#RewardLearning",
-    "#EfficientAI",
-    "#GenerativeModels"
+    "#RewardFeedback",
+    "#GenerativeAI",
+    "#EfficientML"
   ],
   "paper_id": "2026-01-22-arxiv-campilot_improving_camera_control_in_video_diffusion_model_with_efficient_camera",
   "paper_title": "CamPilot: Improving Camera Control in Video Diffusion Model with Efficient Camera Reward Feedback",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16214v1"
     }
   ],
-  "generated_at": "2026-01-23T06:23:51.901191"
+  "generated_at": "2026-01-24T06:21:35.680664"
 }

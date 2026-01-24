@@ -1,24 +1,24 @@
 {
-  "key_insight": "DistSeal shows that watermarking inside a generative model's latent space—trained post-hoc—yields effective, low-overhead, less-visible watermarks that work for both diffusion and autoregressive generators.",
-  "problem_solved": "Existing watermarking methods operate in pixel space and introduce extra computation and visible artifacts; this paper addresses how to embed robust watermarks earlier in the pipeline to reduce artifacts and cost while remaining model-agnostic.",
+  "key_insight": "Instead of adding watermarks in image (pixel) space, train compact post-hoc watermarking modules inside the generative model's latent space (DistSeal) to embed detectable signatures with less visual artifact and compute overhead, working across diffusion and autoregressive generators.",
+  "problem_solved": "Reduces the visual artifacts, computational cost, and model-specific limits of prior pixel-space watermarking by enabling a unified, latent-space watermarking approach that can be applied after model training across different generative architectures.",
   "method": [
-    "Train lightweight encoder/decoder watermark modules post-hoc in the model's latent space (no retraining of the base generator).",
-    "Insert watermark signals into latents during generation (pre-decoding/denoising) so they propagate to pixels while preserving image quality.",
-    "Design a unified DistSeal training objective for both diffusion and autoregressive latents that balances detectability, visual fidelity, and robustness to common perturbations."
+    "Post-hoc training of small watermarking networks that inject a signature directly into model latent representations rather than final pixels.",
+    "Design DistSeal as a unified workflow compatible with both diffusion and autoregressive latent pipelines so the same watermarking procedure transfers across architectures.",
+    "Train a detector/verification mechanism that recognizes the embedded latent signature in generated outputs while preserving perceptual fidelity."
   ],
-  "impact": "Practitioners can retrofit existing generative models with efficient, low-impact provenance signals—improving detection/IP protection and reducing visual degradation and compute compared with pixel-space methods.",
+  "impact": "Makes provenance and detection of AI-generated images more practical and less intrusive for practitioners, enabling scalable, cross-model watermarking with lower artifact risk and computational cost.",
   "visual_elements": [
-    "Side-by-side pipeline diagram: pixel-space watermarking vs latent-space (DistSeal) watermarking showing where the watermark is inserted.",
-    "Architecture sketch of DistSeal encoder/decoder interacting with diffusion and autoregressive latents.",
-    "Bar chart comparing compute overhead and perceptual quality (e.g., FID or LPIPS) for pixel vs latent watermarking.",
-    "Robustness plot (ROC or detection accuracy) under common image perturbations (compression, crop, noise)."
+    "Pipeline diagram: original latent -> DistSeal watermark module -> generative decoder -> watermarked image; with a parallel detector path.",
+    "Side-by-side comparison chart: pixel-space watermarking vs latent-space (metrics: visual quality, compute overhead, robustness, post-hoc compatibility).",
+    "Architecture-agnostic icon set showing diffusion and autoregressive models linked to a single DistSeal module to highlight cross-model applicability.",
+    "Robustness/attack storyboard: how a detector recovers the watermark under common image transformations (resize, crop, compression)."
   ],
   "hashtags": [
-    "#LatentWatermarking",
+    "#Watermarking",
     "#GenerativeAI",
     "#DiffusionModels",
-    "#AIProvenance",
-    "#ModelSecurity"
+    "#ModelSecurity",
+    "#AIForensics"
   ],
   "paper_id": "2026-01-22-arxiv-learning_to_watermark_in_the_latent_space_of_generative_models",
   "paper_title": "Learning to Watermark in the Latent Space of Generative Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16140v1"
     }
   ],
-  "generated_at": "2026-01-23T06:21:33.385895"
+  "generated_at": "2026-01-24T06:19:27.888897"
 }

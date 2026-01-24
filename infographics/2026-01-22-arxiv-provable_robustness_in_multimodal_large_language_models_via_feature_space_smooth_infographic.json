@@ -1,17 +1,17 @@
 {
-  "key_insight": "Introduce Feature-space Smoothing (FS): a model-agnostic transform that smooths encoder latent features and yields provable, certified robustness guarantees for multimodal LLMs' feature representations.",
-  "problem_solved": "MLLMs are vulnerable to adversarial perturbations that corrupt intermediate feature representations and cause wrong predictions; FS defends against such attacks by certifying stability in feature space.",
+  "key_insight": "Applying randomized smoothing directly in the model's feature space (Feature-space Smoothing, FS) yields provable, certified robustness for multimodal LLMs by stabilizing their internal feature representations against adversarial perturbations.",
+  "problem_solved": "Multimodal LLMs are vulnerable to adversarial perturbations that distort feature representations and cause incorrect predictions; this paper provides a method to provably defend those internal features.",
   "method": [
-    "Apply smoothing directly in the encoder's latent feature space (not the raw input) to produce a smoothed feature encoder that averages over small perturbations.",
-    "Derive theoretical certification bounds (a certified radius in feature space) that guarantee the smoothed encoder's output remains unchanged under bounded feature perturbations.",
-    "Make FS plug-and-play for existing MLLMs: wrap any feature encoder with the smoothing transform and optionally fine-tune to balance accuracy and robustness."
+    "Transform any pretrained feature encoder into a smoothed variant by applying controlled randomness/noise in feature space to obtain stable feature outputs.",
+    "Derive theoretical guarantees (certified robustness bounds) that quantify how much feature-space perturbation can be tolerated without changing downstream predictions.",
+    "Deploy the smoothed encoder in existing multimodal LLM pipelines to improve resistance to adversarial distortions without redesigning the whole model."
   ],
-  "impact": "Provides practitioners a practical, model-agnostic way to obtain provable robustness for multimodal models, improving reliability and safety for vision-language and other multimodal applications without redesigning architectures.",
+  "impact": "Provides AI practitioners a principled, plug-and-play defense to make multimodal models more reliable and auditable under adversarial attacks, enabling safer deployment in vision-language tasks.",
   "visual_elements": [
-    "Pipeline diagram: original encoder -> Feature-space Smoothing block -> classifier, showing plug-and-play integration with MLLMs.",
-    "2D feature-space illustration: unsmoothed features showing decision flips vs. smoothed features with a certified robustness radius (circle) that preserves class labels.",
-    "Bar chart or table: clean accuracy vs. robust accuracy / certified radius comparison (baseline vs. FS-enhanced model).",
-    "Icon set: shield (robustness guarantee), gear (plug-and-play), theorem/checkmark (provable certification)"
+    "Pipeline diagram: input image/text → feature encoder → FS (noise injection in feature space) → multimodal LLM → prediction (showing 'smoothed' path).",
+    "Feature-space geometry: scatter plots showing original features (sensitive) vs. smoothed features (concentrated/robust) with certification radius circles.",
+    "Certification bar chart: certified radius / robustness probability before vs. after applying FS across multiple perturbation magnitudes.",
+    "Threat vs. defense illustration: an adversarial perturbation altering input vs. FS-blocked feature change, with a short caption summarizing the theoretical guarantee."
   ],
   "hashtags": [
     "#MultimodalLLM",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16200v1"
     }
   ],
-  "generated_at": "2026-01-23T06:22:51.212265"
+  "generated_at": "2026-01-24T06:20:37.150570"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "A large pretrained video prediction model (Cosmos-Predict2) can be adapted directly into a visuomotor policy with minimal changes, leveraging its learned spatiotemporal priors to produce effective control and planning without complex multi-stage retraining or new action-generation modules.",
-  "problem_solved": "Reduces the complexity and engineering overhead of converting powerful video generation models into robot control policies by avoiding multi-stage post-training and heavy architectural additions while retaining strong temporal and physical reasoning.",
+  "key_insight": "A large pretrained video generation model (Cosmos‑Predict2) can be directly fine‑tuned into an effective visuomotor policy without multi‑stage post‑training or new architectural modules, leveraging its spatiotemporal priors for control and planning.",
+  "problem_solved": "Reduces complexity and engineering overhead in adapting powerful video prediction models for robotics: removes the need for multiple post‑training stages and bespoke action‑generation components while retaining strong temporal understanding for control.",
   "method": [
-    "Single-stage fine-tuning of a pretrained video model (Cosmos-Predict2) to map observations to actions, preserving spatiotemporal priors learned from large-scale video.",
-    "Introduce lightweight action-conditioning (e.g., action tokens or small decoder head) and train end-to-end on control data instead of adding complex new modules.",
-    "Use the model's generative rollouts for short-horizon planning or sample-based action selection at inference to guide visuomotor behavior."
+    "Start from a pretrained video prediction model (Cosmos‑Predict2) and fine‑tune it end‑to‑end to produce action‑conditioned predictions relevant to control tasks.",
+    "Use simple conditioning and supervision (e.g., action tokens or concatenated action inputs + imitation/planning losses) rather than adding new architectural blocks or multi‑stage training pipelines.",
+    "Leverage the model’s learned spatiotemporal priors for planning by predicting future observation sequences and selecting actions that achieve desired future states."
   ],
-  "impact": "Makes it practical for ML and robotics teams to reuse state-of-the-art video models for control and planning, lowering implementation cost and accelerating progress on embodied tasks that require temporal understanding.",
+  "impact": "Makes it much easier for researchers and engineers to reuse large video models for planning and control, improving sample efficiency and accelerating development of visuomotor policies without complex reengineering.",
   "visual_elements": [
-    "Pipeline diagram: pretrained video model → lightweight action head → policy output (showing minimal added components).",
-    "Before/After schematic: multi-stage complex adaptation vs. Cosmos Policy single-stage fine-tune.",
-    "Rollout visualization: predicted future frames with corresponding planned actions over time.",
-    "Bar/line chart: conceptual comparison of development complexity and sample efficiency versus prior multi-stage methods."
+    "Pipeline diagram: pretrained video model → lightweight action conditioning → fine‑tuned policy for control",
+    "Before/after rollouts: predicted video frames and executed robot trajectories comparing baseline vs Cosmos Policy",
+    "Bar chart: performance and sample efficiency gains vs multi‑stage or architecture‑heavy baselines",
+    "Saliency/attention map overlay on frames showing where temporal priors inform action decisions"
   ],
   "hashtags": [
     "#CosmosPolicy",
-    "#VideoModels",
     "#Visuomotor",
-    "#PolicyLearning",
-    "#RoboticsAI"
+    "#VideoModels",
+    "#Robotics",
+    "#ModelFineTuning"
   ],
   "paper_id": "2026-01-22-arxiv-cosmos_policy_fine_tuning_video_models_for_visuomotor_control_and_planning",
   "paper_title": "Cosmos Policy: Fine-Tuning Video Models for Visuomotor Control and Planning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16163v1"
     }
   ],
-  "generated_at": "2026-01-23T06:22:09.749483"
+  "generated_at": "2026-01-24T06:20:04.687669"
 }

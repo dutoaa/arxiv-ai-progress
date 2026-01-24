@@ -1,24 +1,24 @@
 {
-  "key_insight": "MolecularIQ introduces a symbolic verification framework that tests whether models truly reason over molecular graphs rather than rely on memorized chemical text; it exposes structural failures by checking model outputs against graph-derived, rule-based ground truth.",
-  "problem_solved": "Existing benchmarks focus on general chemical knowledge or text-based tasks and do not reliably measure a model's ability to parse and reason about the molecular graph structure that determines chemical properties.",
+  "key_insight": "MolecularIQ introduces a symbolic verification framework to directly evaluate AI models' ability to reason about molecular structure encoded as graphs, revealing gaps between text‑based chemical knowledge and true graph‑level chemical reasoning.",
+  "problem_solved": "Existing chemistry benchmarks focus on textual or literature knowledge and do not reliably measure whether models can parse, manipulate, and verify structural information in molecular graphs — a core requirement for predicting molecular properties and reactions.",
   "method": [
-    "Construct targeted graph-based tasks (e.g., atom/bond counting, substructure membership, stereochemistry-aware queries) that require explicit graph reasoning rather than textual recall.",
-    "Use symbolic verification: derive exact answers from molecular graphs using rule-based algorithms and compare model outputs to these unambiguous ground-truths to detect reasoning errors.",
-    "Evaluate a range of models (LLMs and graph-aware models) on these tasks to quantify chemical-graph reasoning strengths and failure modes."
+    "Define tasks that require structural reasoning on molecular graphs (e.g., substructure identification, valence checks, functional group inference) rather than only text-based prompts.",
+    "Translate molecular graphs into symbolic representations and apply automated symbolic verification to check model outputs against graph-grounded constraints.",
+    "Use the verification pipeline to benchmark LLMs and graph models, exposing specific failure modes in symbolic/graph reasoning."
   ],
-  "impact": "Provides a focused, interpretable benchmark that reveals whether AI models genuinely understand molecular structure—guiding model selection, architecture design, and targeted fine-tuning for chemistry applications.",
+  "impact": "Provides a targeted evaluation tool that helps practitioners diagnose and improve models' chemical-structure reasoning, guiding model selection, training strategies, and dataset design for molecular applications.",
   "visual_elements": [
-    "Schematic molecular graph annotated with a sample query (e.g., 'number of aromatic rings') and the symbolic derivation of the answer",
-    "Pipeline diagram: input (SMILES/graph) → model prediction → symbolic verifier → pass/fail",
-    "Bar chart comparing model performance across task categories (counting, substructure, stereochemistry, property inference)",
-    "Example prompt/response pair with highlighted error types (miscount, ignored bond type, stereochemistry mistake) and red/green pass-fail icons"
+    "Side-by-side: molecular graph vs. symbolic representation (annotation of nodes/edges and labels).",
+    "Pipeline flowchart: input molecule → symbolic conversion → model prediction → symbolic verifier → pass/fail.",
+    "Bar or radar chart comparing model performance on structural vs. textual chemistry tasks, highlighting failure modes.",
+    "Example molecule annotated with a common reasoning error (e.g., missed functional group or valence violation) and the verifier's explanation."
   ],
   "hashtags": [
     "#MolecularIQ",
-    "#ChemicalAI",
+    "#MolecularAI",
+    "#SymbolicVerification",
     "#GraphReasoning",
-    "#LLMs",
-    "#Benchmarking"
+    "#Cheminformatics"
   ],
   "paper_id": "2026-01-21-arxiv-moleculariq_characterizing_chemical_reasoning_capabilities_through_symbolic_veri",
   "paper_title": "MolecularIQ: Characterizing Chemical Reasoning Capabilities Through Symbolic Verification on Molecular Graphs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.15279v1"
     }
   ],
-  "generated_at": "2026-01-22T06:22:55.804291"
+  "generated_at": "2026-01-24T06:23:14.440712"
 }
