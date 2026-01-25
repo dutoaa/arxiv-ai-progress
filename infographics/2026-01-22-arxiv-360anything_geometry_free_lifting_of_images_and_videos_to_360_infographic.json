@@ -1,24 +1,24 @@
 {
-  "key_insight": "360Anything lifts ordinary perspective images and videos into full 360° equirectangular panoramas without relying on camera calibration, by learning the mapping in image space using pre-trained diffusion transformers.",
-  "problem_solved": "Removes the need for explicit geometric alignment and camera metadata when converting in-the-wild photos and videos into 360° panoramas, enabling panorama generation from uncalibrated inputs.",
+  "key_insight": "A geometry-free framework that lifts perspective images and videos into full 360° equirectangular panoramas by leveraging pre-trained diffusion transformers, removing the need for camera calibration or explicit geometric alignment.",
+  "problem_solved": "Existing panorama-lifting methods require known camera metadata or careful geometric alignment between perspective views and ERP space, which prevents application to in-the-wild images and videos where calibration is missing or noisy. 360Anything enables reliable 360° synthesis without camera parameters.",
   "method": [
-    "Geometry-free framework that learns to map perspective crops to equirectangular panorama space, avoiding explicit camera calibration or reprojection.",
-    "Built on pre-trained diffusion transformers to generate high-quality 360° content, adapted to handle both single images and sequential video frames.",
-    "Training and inference emphasize implicit spatial consistency (and temporal coherence for video) so outputs are plausible and seamless across the full panorama."
+    "Treat input perspective frames as partial observations and condition a pre-trained diffusion transformer to hallucinate the missing 360° content, avoiding explicit geometric warping.",
+    "Use learned attention/transformer-based priors to map local image appearance into equirectangular layout, plus temporal conditioning for consistent video lifting.",
+    "Train/fine-tune on paired (or synthetic) perspective⇄ERP examples so the model learns how to complete panoramas without relying on camera metadata."
   ],
-  "impact": "Makes 360° panorama and immersive content generation accessible for real-world, uncalibrated imagery and video, simplifying pipelines for VR, augmented reality, data augmentation, and 3D scene modeling.",
+  "impact": "Simplifies creation of panoramic and immersive content from in-the-wild photos and videos, enabling easier data collection and downstream VR/AR, scene reconstruction, and dataset augmentation without calibration overhead.",
   "visual_elements": [
-    "Before/after example: a perspective photo alongside the generated full 360° equirectangular panorama.",
-    "Pipeline diagram contrasting geometry-based (camera-calibration) methods vs the geometry-free diffusion-transformer approach.",
-    "Video-frame sequence showing temporal consistency: input frames → per-frame lifted panoramas → stitched 360° video.",
-    "Qualitative mosaic of diverse in-the-wild inputs (indoor, outdoor, varying FoV) with corresponding 360° outputs."
+    "Pipeline diagram: perspective image input → diffusion transformer (geometry-free) → output equirectangular 360° panorama",
+    "Side-by-side comparison: geometry-based method (requires camera metadata) vs 360Anything (no metadata) with qualitative outputs",
+    "Temporal consistency strip: sequence of lifted frames showing stable panorama synthesis for video",
+    "Icon set: 'no calibration' badge, diffusion model symbol, 360° viewer icon"
   ],
   "hashtags": [
     "#360Anything",
-    "#360Panorama",
+    "#PanoramaSynthesis",
     "#DiffusionModels",
     "#ComputerVision",
-    "#VirtualReality"
+    "#ImmersiveAI"
   ],
   "paper_id": "2026-01-22-arxiv-360anything_geometry_free_lifting_of_images_and_videos_to_360",
   "paper_title": "360Anything: Geometry-Free Lifting of Images and Videos to 360°",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16192v1"
     }
   ],
-  "generated_at": "2026-01-24T06:20:26.003868"
+  "generated_at": "2026-01-25T06:20:56.019829"
 }

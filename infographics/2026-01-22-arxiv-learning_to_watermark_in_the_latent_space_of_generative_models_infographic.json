@@ -1,24 +1,24 @@
 {
-  "key_insight": "Instead of adding watermarks in image (pixel) space, train compact post-hoc watermarking modules inside the generative model's latent space (DistSeal) to embed detectable signatures with less visual artifact and compute overhead, working across diffusion and autoregressive generators.",
-  "problem_solved": "Reduces the visual artifacts, computational cost, and model-specific limits of prior pixel-space watermarking by enabling a unified, latent-space watermarking approach that can be applied after model training across different generative architectures.",
+  "key_insight": "Watermarks can be applied more effectively and efficiently inside a generative model's latent space rather than in pixel space; DistSeal is a unified, post-hoc latent watermarking method that works across diffusion and autoregressive models.",
+  "problem_solved": "Pixel-space watermarking of AI images is computationally costly and can introduce visible artifacts; there is a need for a model-agnostic, low-overhead, robust watermarking technique that can be applied to pretrained generative models without retraining them.",
   "method": [
-    "Post-hoc training of small watermarking networks that inject a signature directly into model latent representations rather than final pixels.",
-    "Design DistSeal as a unified workflow compatible with both diffusion and autoregressive latent pipelines so the same watermarking procedure transfers across architectures.",
-    "Train a detector/verification mechanism that recognizes the embedded latent signature in generated outputs while preserving perceptual fidelity."
+    "Train lightweight post-hoc watermarking networks that operate in the generative model's latent space (encode -> watermark latent -> decode).",
+    "Design objectives that balance imperceptibility (minimal visual change) and detectability/robustness so the watermark survives generation and common perturbations.",
+    "Make the approach model-agnostic and compatible with both diffusion and autoregressive pipelines by working at the shared latent representation level."
   ],
-  "impact": "Makes provenance and detection of AI-generated images more practical and less intrusive for practitioners, enabling scalable, cross-model watermarking with lower artifact risk and computational cost.",
+  "impact": "Enables practitioners to add reliable, low-cost provenance signals to outputs from pretrained generative models with fewer visual artifacts and less compute than pixel-space methods — improving content traceability and stewardship.",
   "visual_elements": [
-    "Pipeline diagram: original latent -> DistSeal watermark module -> generative decoder -> watermarked image; with a parallel detector path.",
-    "Side-by-side comparison chart: pixel-space watermarking vs latent-space (metrics: visual quality, compute overhead, robustness, post-hoc compatibility).",
-    "Architecture-agnostic icon set showing diffusion and autoregressive models linked to a single DistSeal module to highlight cross-model applicability.",
-    "Robustness/attack storyboard: how a detector recovers the watermark under common image transformations (resize, crop, compression)."
+    "Pipeline diagram: encoder -> latent watermark module (DistSeal) -> decoder, annotated for diffusion and autoregressive flows.",
+    "Side-by-side image comparison: original, pixel-space watermark (visible artifacts), latent-space watermark (imperceptible).",
+    "Bar chart or table: compute/time and artifact-score comparison between pixel-space vs. latent-space watermarking.",
+    "Robustness plot: detection accuracy vs. common perturbations (compression, cropping, noise) for DistSeal."
   ],
   "hashtags": [
     "#Watermarking",
+    "#LatentSpace",
     "#GenerativeAI",
-    "#DiffusionModels",
     "#ModelSecurity",
-    "#AIForensics"
+    "#AIIntegrity"
   ],
   "paper_id": "2026-01-22-arxiv-learning_to_watermark_in_the_latent_space_of_generative_models",
   "paper_title": "Learning to Watermark in the Latent Space of Generative Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16140v1"
     }
   ],
-  "generated_at": "2026-01-24T06:19:27.888897"
+  "generated_at": "2026-01-25T06:19:59.010759"
 }

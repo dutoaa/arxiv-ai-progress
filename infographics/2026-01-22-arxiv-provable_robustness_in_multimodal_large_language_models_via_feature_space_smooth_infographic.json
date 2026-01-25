@@ -1,24 +1,24 @@
 {
-  "key_insight": "Applying randomized smoothing directly in the model's feature space (Feature-space Smoothing, FS) yields provable, certified robustness for multimodal LLMs by stabilizing their internal feature representations against adversarial perturbations.",
-  "problem_solved": "Multimodal LLMs are vulnerable to adversarial perturbations that distort feature representations and cause incorrect predictions; this paper provides a method to provably defend those internal features.",
+  "key_insight": "Feature-space Smoothing (FS) converts any multimodal feature encoder into a smoothed variant that provably limits the effect of adversarial perturbations on feature representations, yielding certified robustness for downstream MLLM predictions.",
+  "problem_solved": "MLLMs are vulnerable to adversarial perturbations that distort intermediate feature representations and cause incorrect outputs; prior defenses lack theoretical guarantees for multimodal feature robustness.",
   "method": [
-    "Transform any pretrained feature encoder into a smoothed variant by applying controlled randomness/noise in feature space to obtain stable feature outputs.",
-    "Derive theoretical guarantees (certified robustness bounds) that quantify how much feature-space perturbation can be tolerated without changing downstream predictions.",
-    "Deploy the smoothed encoder in existing multimodal LLM pipelines to improve resistance to adversarial distortions without redesigning the whole model."
+    "Apply smoothing (noise-averaging) directly in the encoder feature space to produce a smoothed feature extractor that reduces sensitivity to input perturbations.",
+    "Derive theoretical certificates that bound how much a feature can be perturbed before the smoothed encoder’s output (and thus downstream prediction) can change — i.e., a provable robustness radius in feature space.",
+    "Design FS as a plug-in transformation compatible with existing encoders and LLM heads, enabling certified robustness without redesigning the entire MLLM pipeline."
   ],
-  "impact": "Provides AI practitioners a principled, plug-and-play defense to make multimodal models more reliable and auditable under adversarial attacks, enabling safer deployment in vision-language tasks.",
+  "impact": "Gives practitioners a practical, plug-and-play defense with formal guarantees, making multimodal systems more reliable against adversarial attacks and suitable for safety-critical deployments.",
   "visual_elements": [
-    "Pipeline diagram: input image/text → feature encoder → FS (noise injection in feature space) → multimodal LLM → prediction (showing 'smoothed' path).",
-    "Feature-space geometry: scatter plots showing original features (sensitive) vs. smoothed features (concentrated/robust) with certification radius circles.",
-    "Certification bar chart: certified radius / robustness probability before vs. after applying FS across multiple perturbation magnitudes.",
-    "Threat vs. defense illustration: an adversarial perturbation altering input vs. FS-blocked feature change, with a short caption summarizing the theoretical guarantee."
+    "Pipeline diagram: input image/text → feature encoder → Feature-space Smoothing block → LLM head, annotated with a certified radius around smoothed features.",
+    "Feature-space visualization (t-SNE/PCA) showing: original features, adversarial-shifted features, and how FS pulls/adapts features back into robust clusters.",
+    "Line chart: model accuracy and certified robustness percentage versus perturbation magnitude, comparing baseline vs FS.",
+    "Iconic badge/infographic: shield or certificate showing 'provable robustness' and an annotated robustness radius to convey certification intuitively."
   ],
   "hashtags": [
     "#MultimodalLLM",
-    "#CertifiedRobustness",
-    "#AdversarialML",
-    "#FeatureSmoothing",
-    "#SafeAI"
+    "#Robustness",
+    "#AdversarialDefense",
+    "#CertifiedML",
+    "#FeatureSmoothing"
   ],
   "paper_id": "2026-01-22-arxiv-provable_robustness_in_multimodal_large_language_models_via_feature_space_smooth",
   "paper_title": "Provable Robustness in Multimodal Large Language Models via Feature Space Smoothing",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16200v1"
     }
   ],
-  "generated_at": "2026-01-24T06:20:37.150570"
+  "generated_at": "2026-01-25T06:21:11.680544"
 }

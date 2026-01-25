@@ -1,24 +1,24 @@
 {
-  "key_insight": "Scaling Representation Autoencoder (RAE) decoders on a frozen high‑capacity semantic encoder (SigLIP-2) enables diffusion transformers to produce higher-fidelity, large-scale freeform text-to-image outputs, but dataset composition (web, synthetic, text-rendered) is critical for text and attribute fidelity.",
-  "problem_solved": "How to scale text-to-image diffusion models efficiently while preserving semantic fidelity and readable text in generated images using a reusable representation backbone.",
+  "key_insight": "Scaling Representation Autoencoders (RAEs) by training large diffusion-transformer decoders on a frozen high‑dimensional semantic encoder (SigLIP‑2) enables open‑domain text‑to‑image generation; scale improves general image fidelity but achieving strong text alignment requires targeted data composition.",
+  "problem_solved": "Bridges the gap between RAE-based diffusion models (previously successful on ImageNet) and large‑scale, freeform text‑to‑image generation—addressing how to scale architectures and data to preserve visual fidelity while maintaining text conditioning.",
   "method": [
-    "Freeze a high-capacity semantic encoder (SigLIP-2) and scale RAE decoders to operate in its high-dimensional latent space.",
-    "Train on a mixed corpus (web imagery, synthetic data, text-rendered examples) to broaden visual concepts and improve text handling.",
-    "Integrate the RAE latent space with a diffusion transformer conditioning pipeline for freeform text prompts, leveraging the frozen encoder to improve training stability and reuse."
+    "Freeze a high‑capacity semantic encoder (SigLIP‑2) to produce stable, high‑dimensional representation latents.",
+    "Scale diffusion‑transformer decoders (RAE decoders) trained in the encoder's semantic latent space for image reconstruction and generation.",
+    "Train on a mixed corpus (web images, synthetic renders, and text‑rendered data) and analyze how dataset composition impacts fidelity and text alignment."
   ],
-  "impact": "Provides a practical, scalable pathway to build high-quality T2I models by decoupling representation learning from generative decoding—reducing retraining cost and improving sample fidelity and text accuracy for downstream applications.",
+  "impact": "Provides a modular, scalable recipe for building high‑fidelity T2I models by decoupling representation encoding from generative decoding—enabling reuse of frozen encoders and focused decoder scaling, while highlighting the importance of targeted data curation for text alignment.",
   "visual_elements": [
-    "Architecture diagram: frozen SigLIP-2 encoder → RAE latent space → diffusion transformer decoder pipeline.",
-    "Dataset composition pie chart: web vs synthetic vs text-rendered data and their impact on metrics.",
-    "Scaling curve: sample fidelity / text accuracy vs decoder/model scale.",
-    "Before/after example grid: outputs from small vs scaled RAE decoders on identical text prompts (highlighting text legibility and detail)."
+    "Architecture diagram: frozen SigLIP‑2 encoder -> semantic latent space -> large diffusion transformer decoder (RAE).",
+    "Data composition pie chart: web images vs synthetic vs text‑rendered, annotated with their impact on fidelity vs text alignment.",
+    "Performance tradeoff chart: decoder scale (model size) vs image fidelity and text alignment (qualitative metric curves).",
+    "Qualitative grid: sample prompts with generated images illustrating improvements from scaling and from curated data."
   ],
   "hashtags": [
     "#TextToImage",
     "#DiffusionModels",
     "#RepresentationLearning",
-    "#ScalableAI",
-    "#GenerativeModels"
+    "#GenerativeAI",
+    "#DiffusionTransformers"
   ],
   "paper_id": "2026-01-22-arxiv-scaling_text_to_image_diffusion_transformers_with_representation_autoencoders",
   "paper_title": "Scaling Text-to-Image Diffusion Transformers with Representation Autoencoders",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16208v1"
     }
   ],
-  "generated_at": "2026-01-24T06:20:57.684353"
+  "generated_at": "2026-01-25T06:21:36.790555"
 }

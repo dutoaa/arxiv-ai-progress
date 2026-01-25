@@ -1,24 +1,24 @@
 {
-  "key_insight": "Zero-shot compositional action models often learn an object-driven shortcut—predicting verbs from objects—because compositional supervision is sparse/skewed and verbs are learned asymmetrically; mitigating this disentanglement failure substantially improves generalization to unseen verb–object pairs.",
-  "problem_solved": "Addresses poor zero-shot generalization in Compositional Video Understanding by identifying and mitigating an overlooked failure mode: object-driven verb shortcuts that cause models to fail on novel verb–object combinations.",
+  "key_insight": "Zero-shot compositional action recognition models mainly fail because they take object-driven 'verb shortcuts'—relying on object cues to predict verbs—rather than learning true verb semantics. Fixing this requires addressing sparse/skewed compositional supervision and asymmetric learning between verbs and objects.",
+  "problem_solved": "Reduces object-driven shortcut behavior in Zero-Shot Compositional Action Recognition (ZS-CAR), improving generalization to unseen verb–object combinations by forcing models to learn verbs more robustly instead of overfitting to object cues.",
   "method": [
-    "Systematic diagnosis: quantify shortcut behavior via per-composition sparsity/skew analyses and error attribution showing verbs dominated by object cues.",
-    "Training-time mitigation: apply disentangling strategies (e.g., balanced reweighting, compositional augmentation, and contrastive/object-agnostic regularization) to reduce object→verb shortcut learning.",
-    "Evaluation: measure zero-shot compositional performance and robustness across benchmarks to validate improved generalization to unseen verb–object pairs."
+    "Systematic diagnosis: quantify shortcut behavior and trace it to two factors—extreme sparsity/skewness in compositional labels and asymmetric learning difficulty between verbs and objects.",
+    "Targeted mitigations: introduce compositional reweighting and verb-focused training (e.g., object masking/augmentation, disentangled/contrastive objectives) to suppress object shortcuts and amplify verb signals.",
+    "Evaluation: validate interventions on standard ZS-CAR benchmarks, measuring improved accuracy on held-out verb–object combos and reduced object-driven confusions."
   ],
-  "impact": "Provides a practical path to reduce shortcut-driven failures in video action recognition, improving robustness and real-world generalization for systems that must compose verbs and objects they haven't seen together.",
+  "impact": "Provides practitioners with principled diagnostics and lightweight fixes to make action recognition models truly compositional and more reliable in zero-shot settings—critical for deploying models that must generalize to novel interactions.",
   "visual_elements": [
-    "Heatmap/confusion matrix highlighting verbs predicted from objects (showing object-driven shortcut errors).",
-    "Bar chart comparing zero-shot accuracy before vs. after mitigation for seen/unseen compositions.",
-    "Schematic pipeline diagram: diagnosis → disentangling interventions (reweighting/augmentation/contrastive) → improved inference.",
-    "t-SNE or feature-space visualization showing reduced entanglement between object and verb representations after mitigation."
+    "Schematic illustrating an object-driven shortcut: object icon → wrong verb prediction vs. desired verb-focused pathway",
+    "Heatmap or bar chart showing compositional supervision sparsity/skewness across verb–object pairs",
+    "Before/after confusion matrices or accuracy bars comparing baseline vs. mitigated model on unseen compositions",
+    "Pipeline diagram of mitigation techniques (masking/augmentation, reweighting, contrastive/disentanglement) with arrows to improved generalization"
   ],
   "hashtags": [
-    "#CompositionalLearning",
-    "#ZeroShot",
+    "#CompositionalAI",
     "#ActionRecognition",
-    "#Debiasing",
-    "#VideoUnderstanding"
+    "#ZeroShot",
+    "#VideoUnderstanding",
+    "#Debiasing"
   ],
   "paper_id": "2026-01-22-arxiv-why_can_t_i_open_my_drawer_mitigating_object_driven_shortcuts_in_zero_shot_compo",
   "paper_title": "Why Can't I Open My Drawer? Mitigating Object-Driven Shortcuts in Zero-Shot Compositional Action Recognition",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16211v1"
     }
   ],
-  "generated_at": "2026-01-24T06:21:20.578602"
+  "generated_at": "2026-01-25T06:21:56.281937"
 }

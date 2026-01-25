@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce a simple \"informative alignment\" metric that scores teacher chain-of-thought trajectories by how useful they are for a given student—balancing novelty (informativeness) and learnability (alignment). Selecting trajectories by this metric yields better student reasoning than simply using stronger teachers or by student-likelihood selection.",
-  "problem_solved": "Data-student suitability: stronger teacher trajectories or those that merely match a student's current behavior do not always produce the best distilled reasoning; we need a way to pick trajectories that the student can actually learn from.",
+  "key_insight": "Stronger teacher reasoning traces don’t always produce better student reasoners; instead, selecting trajectories by how informatively they align with a student model better predicts which examples will teach the student to reason. The paper proposes a simple \"informative alignment\" metric to quantify this suitability.",
+  "problem_solved": "Distillation of chain-of-thought reasoning from teacher to student LLMs often fails because existing selection criteria (e.g., student likelihood) prefer trajectories that merely match the student's current behavior rather than ones that drive learning; this work addresses how to choose trajectories that actually improve student reasoning.",
   "method": [
-    "Define a lightweight metric that quantifies how informative a teacher trajectory is for a particular student, capturing both corrective signal and how learnable it is.",
-    "Score and rank teacher chain-of-thought trajectories with the metric, then select high-scoring trajectories for distillation into the student model.",
-    "Empirically compare this selection to baselines (strong-teacher-only, student-likelihood) across reasoning tasks and show improved student performance."
+    "Define a simple informative-alignment metric that captures how a teacher trajectory both aligns with and adds learning signal relative to the student.",
+    "Score and rank teacher CoT trajectories using this metric instead of relying solely on student likelihood or teacher strength.",
+    "Select high-scoring trajectories for distillation and validate that these choices better predict student learning outcomes (empirical evaluation)."
   ],
-  "impact": "Provides a practical, data-driven selection rule for CoT distillation that improves student LLM reasoning efficiency and final performance, enabling more effective and sample-efficient knowledge transfer during model compression or training.",
+  "impact": "Provides a practical, data-driven way to choose reasoning trajectories for distillation, improving efficiency and effectiveness of teaching student LLMs without requiring larger or stronger teachers. Practitioners can get better student reasoning by prioritizing informative alignment over raw teacher quality.",
   "visual_elements": [
-    "Pipeline diagram: multiple teacher CoTs → metric scorer (informative alignment) → selected trajectories → student model",
-    "Tradeoff cartoon: novelty/informativeness vs. learnability/alignment illustrating why extremes (too novel or too similar) are suboptimal",
-    "Bar chart: student accuracy under different selection strategies (strong teacher, student-likelihood, informative alignment)",
-    "Scatter plot: trajectory metric score vs. measured student improvement to show correlation"
+    "Flow diagram: Teacher trajectories → Informative alignment metric → Selected trajectories → Student model (distillation pipeline).",
+    "Bar chart: Comparison of student performance when trained on (a) strongest-teacher trajectories vs (b) informative-alignment-selected trajectories.",
+    "Heatmap or scatter: Trajectories plotted by student-likelihood vs informative-alignment score to show selection differences.",
+    "Icon set: teacher (brain/robot), student (smaller robot), magnifying glass (metric), upward arrow (improvement)"
   ],
   "hashtags": [
     "#ChainOfThought",
     "#ModelDistillation",
-    "#DataSelection",
     "#LLMTraining",
-    "#AIAlignment"
+    "#RepresentationLearning",
+    "#AIeducation"
   ],
   "paper_id": "2026-01-20-arxiv-which_reasoning_trajectories_teach_students_to_reason_better_a_simple_metric_of",
   "paper_title": "Which Reasoning Trajectories Teach Students to Reason Better? A Simple Metric of Informative Alignment",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.14249v1"
     }
   ],
-  "generated_at": "2026-01-22T06:25:41.730920"
+  "generated_at": "2026-01-25T06:23:26.097929"
 }

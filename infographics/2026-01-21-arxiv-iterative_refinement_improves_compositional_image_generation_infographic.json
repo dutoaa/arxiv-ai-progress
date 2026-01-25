@@ -1,24 +1,24 @@
 {
-  "key_insight": "Applying an inference-time, chain-of-thought–style iterative refinement loop—where a generated image is repeatedly verified and corrected against decomposed prompt constraints—substantially improves alignment for richly compositional text-to-image prompts.",
-  "problem_solved": "Text-to-image models struggle to satisfy many simultaneous constraints (multiple objects, relations, and attributes) in a single prompt; existing fixes like more denoising or parallel sampling with verifiers are insufficient for complex compositional requests.",
+  "key_insight": "Iterative refinement—repeatedly verifying and correcting generated images against decomposed prompt constraints—substantially improves alignment on richly compositional text-to-image prompts. This yields more accurate multi-object, relation, and attribute satisfaction than single-pass sampling or naive step increases.",
+  "problem_solved": "Text-to-image models fail to reliably render complex, compositional prompts that require simultaneously satisfying many objects, relations, and attributes; existing inference tricks (more denoising steps or parallel sampling) are insufficient for such multi-constraint scenarios.",
   "method": [
-    "Decompose the input prompt into explicit sub-constraints (objects, attributes, relations) or an internal reasoning chain.",
-    "Generate an initial image with a diffusion model, run automated verifiers/constraint checks, then iteratively refine only the violating regions or aspects.",
-    "Repeat verification + localized correction until most constraints are satisfied, keeping the approach as an inference-time add-on (no model retraining required)."
+    "Decompose complex prompts into smaller constraints (objects, relations, attributes) and use a looped inference procedure that verifies which constraints are unmet.",
+    "Apply targeted iterative edits or re-sampling steps guided by a verifier or internal reasoning signal (inspired by chain-of-thought) to progressively satisfy remaining constraints.",
+    "Stop when a verifier indicates prompt alignment or after a fixed budget of refinement steps, producing higher-fidelity, compositionally correct images."
   ],
-  "impact": "Provides a practical, model-agnostic way to boost compositional fidelity of T2I outputs at inference time, enabling practitioners to get more reliable and controllable generations without costly retraining.",
+  "impact": "Enables practitioners to get more reliable, faithful image outputs for complex prompts without retraining models—useful for design, illustration, and downstream evaluation tasks that demand precise compositional control.",
   "visual_elements": [
-    "Pipeline diagram: prompt → decomposition (sub-constraints) → generate → verify → refine (loop) → final image",
-    "Before/after image pairs showing a complex prompt where baseline fails and iterative refinement succeeds",
-    "Bar chart comparing compositional accuracy or constraint-satisfaction rate across baseline, more denoising, verifier-only, and iterative refinement",
-    "Schematic showing example constraint checks (object count, spatial relation, attribute match) mapped to localized refinements"
+    "Pipeline diagram showing: Prompt → Decomposition → Generation → Verifier → Iterative Edit Loop → Final Image",
+    "Before/after image pairs comparing single-pass output vs. iteratively refined output for the same complex prompt",
+    "Bar chart or line plot showing improvement in compositional accuracy (e.g., object/count/relation metrics) across refinement steps",
+    "Icon set illustrating components: prompt, verifier/checklist, edit/re-sample arrow, and final validated image"
   ],
   "hashtags": [
     "#TextToImage",
     "#Compositionality",
     "#IterativeRefinement",
     "#DiffusionModels",
-    "#ChainOfThought"
+    "#AIAlignment"
   ],
   "paper_id": "2026-01-21-arxiv-iterative_refinement_improves_compositional_image_generation",
   "paper_title": "Iterative Refinement Improves Compositional Image Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.15286v1"
     }
   ],
-  "generated_at": "2026-01-23T06:24:58.211262"
+  "generated_at": "2026-01-25T06:22:47.980284"
 }

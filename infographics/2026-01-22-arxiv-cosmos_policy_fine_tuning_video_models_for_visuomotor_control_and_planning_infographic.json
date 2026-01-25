@@ -1,24 +1,24 @@
 {
-  "key_insight": "A large pretrained video generation model (Cosmos‑Predict2) can be directly fine‑tuned into an effective visuomotor policy without multi‑stage post‑training or new architectural modules, leveraging its spatiotemporal priors for control and planning.",
-  "problem_solved": "Reduces complexity and engineering overhead in adapting powerful video prediction models for robotics: removes the need for multiple post‑training stages and bespoke action‑generation components while retaining strong temporal understanding for control.",
+  "key_insight": "A large pretrained video generation model (Cosmos‑Predict2) can be fine‑tuned with minimal changes to serve as an effective visuomotor policy and planner—removing the need for multi‑stage post‑training or new action‑generation architectures.",
+  "problem_solved": "Prior attempts to adapt video models for robotics required complex multi‑stage pipelines and added modules to generate actions, making integration brittle and sample‑inefficient; this work simplifies the adaptation so spatiotemporal priors from video models can be directly leveraged for control and planning.",
   "method": [
-    "Start from a pretrained video prediction model (Cosmos‑Predict2) and fine‑tune it end‑to‑end to produce action‑conditioned predictions relevant to control tasks.",
-    "Use simple conditioning and supervision (e.g., action tokens or concatenated action inputs + imitation/planning losses) rather than adding new architectural blocks or multi‑stage training pipelines.",
-    "Leverage the model’s learned spatiotemporal priors for planning by predicting future observation sequences and selecting actions that achieve desired future states."
+    "Start from a pretrained Cosmos‑Predict2 video model and fine‑tune it end‑to‑end on visuomotor datasets with simple action conditioning (minimal architectural changes).",
+    "Train the model to predict future observations conditioned on candidate action sequences and use its predicted futures to select or refine actions (planning / MPC style inference).",
+    "Keep training objectives and pipeline lightweight (behavior‑cloning / likelihood‑based fine‑tuning and optional online adaptation) to preserve pretrained spatiotemporal priors and improve sample efficiency."
   ],
-  "impact": "Makes it much easier for researchers and engineers to reuse large video models for planning and control, improving sample efficiency and accelerating development of visuomotor policies without complex reengineering.",
+  "impact": "Provides a low‑complexity, high‑reuse path for turning large video models into practical visuomotor controllers and planners, lowering engineering overhead and improving long‑horizon reasoning for robotics and embodied AI.",
   "visual_elements": [
-    "Pipeline diagram: pretrained video model → lightweight action conditioning → fine‑tuned policy for control",
-    "Before/after rollouts: predicted video frames and executed robot trajectories comparing baseline vs Cosmos Policy",
-    "Bar chart: performance and sample efficiency gains vs multi‑stage or architecture‑heavy baselines",
-    "Saliency/attention map overlay on frames showing where temporal priors inform action decisions"
+    "Pipeline diagram: pretrained video model → simple action conditioning/fine‑tuning → prediction → planning/MPC loop",
+    "Side‑by‑side rollouts: predicted future frames with overlaid action sequences vs actual robot execution",
+    "Performance chart: task success / sample efficiency comparing Cosmos Policy to prior multi‑stage baselines",
+    "Schematic illustrating planning over predicted futures (search/display of candidate action sequences and selected trajectory)"
   ],
   "hashtags": [
     "#CosmosPolicy",
-    "#Visuomotor",
     "#VideoModels",
-    "#Robotics",
-    "#ModelFineTuning"
+    "#VisuomotorControl",
+    "#ModelBasedRL",
+    "#Robotics"
   ],
   "paper_id": "2026-01-22-arxiv-cosmos_policy_fine_tuning_video_models_for_visuomotor_control_and_planning",
   "paper_title": "Cosmos Policy: Fine-Tuning Video Models for Visuomotor Control and Planning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16163v1"
     }
   ],
-  "generated_at": "2026-01-24T06:20:04.687669"
+  "generated_at": "2026-01-25T06:20:34.166896"
 }

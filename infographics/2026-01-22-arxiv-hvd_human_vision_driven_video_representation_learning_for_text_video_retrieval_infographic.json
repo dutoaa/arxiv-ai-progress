@@ -1,17 +1,17 @@
 {
-  "key_insight": "HVD introduces a human-vision-inspired coarse-to-fine alignment that first selects salient frames and then refines cross-modal matching at finer visual granularity, reducing background noise and improving text-video retrieval accuracy.",
-  "problem_solved": "Addresses 'blind' feature interaction in CLIP-based text-video retrieval where sparse text queries make it hard to locate key visual cues amid irrelevant background content.",
+  "key_insight": "HVD introduces a human-vision inspired, coarse-to-fine alignment that lets a text-video retrieval model focus on salient frames and regions, reducing background noise and improving cross-modal matching.",
+  "problem_solved": "Addresses 'blind' feature interaction in CLIP-style text-video retrieval where sparse textual queries and noisy backgrounds prevent the model from identifying key visual information.",
   "method": [
-    "Coarse stage: frame-level scoring/selection to identify candidate frames that likely contain query-relevant content (reduces search space and background noise).",
-    "Fine stage: localized (patch/region or object-level) alignment between selected frames and text to refine matching, inspired by human attention/saliency.",
-    "Training: integrate coarse-to-fine alignment with contrastive/cross-modal objectives (built on CLIP-style encoders) to learn robust, discriminative video representations."
+    "Coarse frame-level alignment: identify and weight video frames that are globally relevant to the text query.",
+    "Fine-grained region/patch-level alignment: apply human-vision driven saliency or attention to localize and align important visual regions with textual tokens.",
+    "Dual-level contrastive/cross-modal learning: jointly train coarse and fine alignments to produce discriminative, interpretable video representations for retrieval."
   ],
-  "impact": "Enables more accurate and robust text-video retrieval, especially for short or sparse queries, while reducing wasted computation on irrelevant frames—useful for search, retrieval, and multimodal indexing pipelines.",
+  "impact": "Makes text-video retrieval more accurate and interpretable by focusing modeling capacity on semantically relevant visual cues; useful for practitioners building robust multimodal search and indexing systems.",
   "visual_elements": [
-    "Pipeline diagram showing coarse frame selection → fine region-level alignment → final retrieval score.",
-    "Heatmap/attention overlay on video frames illustrating how HVD focuses on salient regions versus background.",
-    "Bar chart comparing retrieval metrics (e.g., Recall@1/5/10) for baseline CLIP-based method vs HVD.",
-    "Before-and-after example: query, retrieved frame(s) from baseline (noisy) and HVD (focused/relevant)."
+    "Pipeline diagram showing coarse (frame) → fine (region) alignment stages with arrows linking text to video",
+    "Example video frame with saliency heatmap overlays highlighting attended regions",
+    "Side-by-side retrieval examples (query text and top-5 retrieved clips) to illustrate improved precision",
+    "Bar chart or table comparing retrieval metrics (e.g., R@1/R@5) before vs. after applying HVD"
   ],
   "hashtags": [
     "#TextVideoRetrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16155v1"
     }
   ],
-  "generated_at": "2026-01-24T06:19:54.795187"
+  "generated_at": "2026-01-25T06:20:20.905523"
 }

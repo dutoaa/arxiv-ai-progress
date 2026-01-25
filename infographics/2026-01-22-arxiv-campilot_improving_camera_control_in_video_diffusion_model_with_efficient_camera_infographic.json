@@ -1,24 +1,24 @@
 {
-  "key_insight": "CamPilot improves camera controllability in video diffusion models by introducing an efficient camera-aware reward feedback loop that evaluates and optimizes camera-video alignment without expensive RGB decoding.",
-  "problem_solved": "Current reward-feedback approaches cannot reliably measure video-camera alignment and are computationally costly because they require decoding latents to RGB for reward computation; CamPilot addresses both accuracy and efficiency.",
+  "key_insight": "CamPilot improves camera controllability of video diffusion models by introducing an efficient camera-focused reward feedback loop that evaluates alignment in latent space, avoiding costly RGB decoding while enabling stronger camera-conditioned generation.",
+  "problem_solved": "Existing reward-feedback methods struggle because off-the-shelf reward models cannot reliably assess video–camera alignment and computing rewards by decoding latents to RGB is computationally expensive, limiting practical camera control in video diffusion.",
   "method": [
-    "Train a specialized camera-alignment reward model that directly assesses camera trajectory fidelity with respect to prompts/targets.",
-    "Compute rewards in latent space (or via lightweight representations) to avoid repeated expensive decoding from latents to RGB during feedback loops.",
-    "Integrate the camera reward into a Reward Feedback Learning pipeline to fine-tune the video diffusion model for stronger, more precise camera control."
+    "Train a lightweight camera-alignment reward model that operates (or is approximated) in the diffusion latent space so alignment can be scored without full RGB decoding.",
+    "Integrate the latent-space reward into a reward-feedback fine-tuning loop (CamPilot) to steer the video diffusion model toward trajectories and viewpoints that match camera-control prompts.",
+    "Use synthetic/annotated camera trajectories and contrastive/regression-style losses or preference-weighted updates to supervise the reward model and to update the generator efficiently."
   ],
-  "impact": "Enables practitioners to generate videos with more accurate and controllable camera movements while reducing compute cost during optimization, making camera-conditioned video generation more practical for research and production.",
+  "impact": "This approach enables more precise and computationally efficient camera-conditioned video synthesis, making camera-aware video generation practical for downstream applications like cinematic editing, robotics simulation, and AR/VR content creation.",
   "visual_elements": [
-    "Pipeline diagram: prompt → diffusion model → latent video → camera-aware reward module (in-latent) → feedback loop for model update",
-    "Before/After montage: same prompt showing improved camera trajectories (e.g., smoother pans, correct zooms) pre- vs post-CamPilot",
-    "Bar chart: alignment score and compute cost comparison (baseline ReFL vs CamPilot)",
-    "Icon set: camera trajectory, brain/reward, latent cube (representing latent space), and speed/efficiency meter"
+    "Pipeline diagram: video diffusion model ↔ latent-space camera reward model ↔ reward-guided fine-tuning loop",
+    "Before/after montage: same camera prompt showing improved camera motion/alignment pre- and post-CamPilot",
+    "Bar/line chart: computational cost (decode vs. latent reward) and alignment score improvements",
+    "Icon set: camera trajectory, latent-space cube, speed/efficiency meter, reward/heart symbol"
   ],
   "hashtags": [
     "#VideoDiffusion",
     "#CameraControl",
-    "#RewardFeedback",
-    "#GenerativeAI",
-    "#EfficientML"
+    "#RewardLearning",
+    "#LatentSpace",
+    "#CamPilot"
   ],
   "paper_id": "2026-01-22-arxiv-campilot_improving_camera_control_in_video_diffusion_model_with_efficient_camera",
   "paper_title": "CamPilot: Improving Camera Control in Video Diffusion Model with Efficient Camera Reward Feedback",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16214v1"
     }
   ],
-  "generated_at": "2026-01-24T06:21:35.680664"
+  "generated_at": "2026-01-25T06:22:05.352639"
 }

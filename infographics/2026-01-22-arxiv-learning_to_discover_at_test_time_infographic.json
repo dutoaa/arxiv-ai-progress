@@ -1,23 +1,23 @@
 {
-  "key_insight": "Instead of prompting a frozen LLM, train the model at test time with reinforcement learning so it adapts to the specific test problem and actively discovers a single best (potentially state‑of‑the‑art) solution.",
-  "problem_solved": "Overcomes limitations of test‑time prompting and static models by enabling continual, instance‑specific learning aimed at producing one excellent solution for a scientific problem rather than many good solutions on average.",
+  "key_insight": "Train the LLM at test time with reinforcement learning so it adapts to the specific problem instance and iteratively discovers a single, superior solution rather than relying on frozen prompting or averaging many outputs.",
+  "problem_solved": "How to push a model to discover a new state-of-the-art solution for a specific scientific/test problem by continuing to learn from experience during inference, instead of using a frozen model or search over prompts.",
   "method": [
-    "Run reinforcement learning during inference so the LLM updates from experience specific to the test instance (test‑time continual learning).",
-    "Optimize for a single high‑quality solution using episode‑level rewards and search-focused update rules, contrasting with prompting a frozen model.",
-    "Maintain practical safeguards (e.g., constrained updates or selective replay) to keep adaptation focused and stable while searching for a new best answer."
+    "Run reinforcement learning during inference: generate candidate solutions, evaluate them against the task objective, and update the model policy using the feedback.",
+    "Optimize for a single-best outcome (continual/test-time learning) rather than average-case performance, enabling aggressive exploration-exploitation tailored to the current test instance.",
+    "Contrast with prior test-time search (e.g., prompting a frozen LLM): incorporate on-the-fly parameter updates so the model accumulates problem-specific experience."
   ],
-  "impact": "Enables models to actively discover stronger, instance‑specific solutions and potentially push new state‑of‑the‑art results on scientific problems; useful for researchers and practitioners who need a single optimal result rather than averaged performance.",
+  "impact": "Enables automated discovery of higher-quality, instance-specific solutions (useful for scientific tasks, optimization, and benchmarks) by allowing models to adapt and improve at test time rather than relying on static inference strategies.",
   "visual_elements": [
-    "Side‑by‑side diagram: frozen prompting (no updates) vs test‑time RL (model updates during inference).",
-    "Flowchart of the test‑time RL loop: propose → evaluate → receive reward → update → repeat.",
-    "Performance curve showing test‑time RL discovering a new peak (SOTA) compared to baseline prompting.",
-    "Icon set: magnifying glass (discovery), lightning bolt (fast adaptation), target (single optimal solution)."
+    "Side-by-side schematic: Frozen prompt-based search (multiple static outputs) vs. Test-time RL loop (generate → evaluate → update → repeat).",
+    "Flowchart of the test-time RL cycle showing candidate generation, evaluation metric, reward signal, and policy update step.",
+    "Performance curve showing single-run improvement over iterations (score vs. inference steps) compared to baseline frozen LLM.",
+    "Icon set: magnifying glass for discovery, lightning bolt for rapid adaptation, and trophy for new state-of-the-art."
   ],
   "hashtags": [
     "#TestTimeLearning",
     "#ReinforcementLearning",
-    "#ContinualLearning",
     "#LLMs",
+    "#ContinualLearning",
     "#AIResearch"
   ],
   "paper_id": "2026-01-22-arxiv-learning_to_discover_at_test_time",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16175v1"
     }
   ],
-  "generated_at": "2026-01-24T06:20:15.910815"
+  "generated_at": "2026-01-25T06:20:43.751139"
 }

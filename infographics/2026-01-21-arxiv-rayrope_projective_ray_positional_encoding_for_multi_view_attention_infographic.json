@@ -1,22 +1,22 @@
 {
-  "key_insight": "RayRoPE encodes image patches by their projective rays (camera-to-scene) to produce unique, geometry-aware positional encodings that enable SE(3)-invariant, multi-frequency attention across posed multi-view inputs. This bridges the gap between absolute/relative encodings and the needs of multi-view transformers.",
-  "problem_solved": "Existing positional encodings for multi-view attention either fail to be unique across views, are not SE(3)-invariant, or cannot represent multi-frequency similarity while adapting to scene geometry. RayRoPE provides a principled encoding that meets these desiderata for posed image sets.",
+  "key_insight": "RayRoPE encodes image patches by their projective camera rays and applies a rotary-style, multi-frequency positional encoding so multi-view attention is uniquely informed by 3D geometry and is SE(3)-invariant.",
+  "problem_solved": "Prior absolute or relative positional encodings for multi-view transformers cannot simultaneously (a) uniquely identify patches across views, (b) support SE(3)-invariant multi-frequency attention, and (c) adapt to scene geometry; RayRoPE fills this gap.",
   "method": [
-    "Represent each image patch by its projective ray (camera origin + ray direction into the scene) rather than only by pixel coordinates or simple relative offsets.",
-    "Apply a multi-frequency positional embedding scheme along the ray geometry so patches from different views map to consistent, comparable encodings while retaining high-frequency detail.",
-    "Design the encoding to be compatible with SE(3)-invariant attention, so rotations/translations of the scene/cameras preserve required attention similarities."
+    "Represent patch positions using their associated camera rays (ray direction + projective depth/parameterization) so tokens are grounded in 3D geometry.",
+    "Apply a projective rotary positional encoding (RayRoPE) to queries/keys to preserve multi-frequency similarity while achieving SE(3)-invariant attention.",
+    "Adapt encoding frequencies or scales based on ray depth / local geometry so embeddings remain discriminative across varying distances and viewpoints."
   ],
-  "impact": "RayRoPE gives practitioners a compact, geometry-aware positional encoding for multi-view transformers, improving cross-view correspondence and attention robustness under camera motion—useful for multi-view perception, 3D reconstruction, and embodied vision tasks.",
+  "impact": "Makes multi-view transformers geometry-aware and robust to camera motions, improving cross-view feature alignment and generalization for tasks like 3D reconstruction, novel-view synthesis, and multi-view perception.",
   "visual_elements": [
-    "Schematic of a camera rig showing rays cast from camera centers through image patches into 3D scene (illustrates 'projective rays').",
-    "Diagram contrasting prior absolute/relative encodings vs. RayRoPE (showing uniqueness and SE(3)-invariance benefits).",
-    "Heatmap or attention map visualization across multiple views demonstrating consistent multi-frequency attention after RayRoPE.",
-    "Frequency/embedding plot showing multi-scale basis functions along a ray and how they capture fine and coarse geometry."
+    "Camera-ray diagram: multiple cameras observing the same 3D point with rays projected to image patches (illustrates ray-based patch representation).",
+    "Encoding pipeline: schematic showing image patch → camera ray extraction → RayRoPE embedding → multi-view attention (high-level flow).",
+    "Invariance / similarity illustration: heatmaps comparing attention similarity with prior encodings vs RayRoPE under camera rotations/translations.",
+    "Adaptive-frequency graphic: plot or icon showing frequency scaling with depth (near vs far) and its effect on embedding distinctiveness."
   ],
   "hashtags": [
     "#MultiView",
-    "#Transformers",
     "#PositionalEncoding",
+    "#Transformers",
     "#3DVision",
     "#RayRoPE"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.15275v1"
     }
   ],
-  "generated_at": "2026-01-24T06:22:45.596772"
+  "generated_at": "2026-01-25T06:23:16.975644"
 }
