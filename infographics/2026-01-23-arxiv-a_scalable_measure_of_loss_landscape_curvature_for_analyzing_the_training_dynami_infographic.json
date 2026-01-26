@@ -1,0 +1,35 @@
+{
+  "key_insight": "The paper introduces a scalable, low-cost estimator of loss-landscape curvature that closely tracks Hessian sharpness for very large language models, enabling curvature-aware analysis during real LLM training runs.",
+  "problem_solved": "Directly computing Hessian sharpness (largest Hessian eigenvalue) is computationally and memory prohibitive for LLMs, leaving practitioners without a practical curvature diagnostic to analyze stability and learning-rate interactions during training.",
+  "method": [
+    "Design a stochastic, scalable curvature estimator that uses cheap directional probes (Hessian-vector products or gradient-difference approximations) instead of forming the full Hessian.",
+    "Aggregate a small number of randomized directional measurements with lightweight spectral extraction (e.g., power / Lanczos-style steps) to approximate the top eigenvalue with sublinear extra cost.",
+    "Implement the estimator to run in distributed/parallel training without large communication overhead and validate it empirically across LLM scales and training phases to show strong correlation with true Hessian sharpness and predictive power for instability events."
+  ],
+  "impact": "Provides a practical tool for monitoring and diagnosing training stability and learning-rate interactions in LLM training, allowing researchers and engineers to make informed optimization and scheduling decisions without prohibitive compute or memory overhead.",
+  "visual_elements": [
+    "Loss-landscape sketch showing flat vs sharp minima with overlaid directional probes and an arrow indicating the estimated top curvature.",
+    "Algorithm flowchart: input gradients → directional probes/HVPs → small spectral routine → curvature estimate (runs in-train).",
+    "Line chart: curvature estimate vs true λ_max^H (or proxy) across training steps, annotated with learning-rate changes and stability events.",
+    "Timeline plot: curvature, training loss, and learning-rate schedule together to illustrate interactions and predictive warnings of instability."
+  ],
+  "hashtags": [
+    "#LossLandscape",
+    "#LLMTraining",
+    "#ModelOptimization",
+    "#Curvature",
+    "#DeepLearning"
+  ],
+  "paper_id": "2026-01-23-arxiv-a_scalable_measure_of_loss_landscape_curvature_for_analyzing_the_training_dynami",
+  "paper_title": "A Scalable Measure of Loss Landscape Curvature for Analyzing the Training Dynamics of LLMs",
+  "paper_category": "Model",
+  "paper_date": "2026-01-23",
+  "paper_authors": "Dayal Singh Kalra, Jean-Christophe Gagnon-Audet, Andrey Gromov, Ishita Mediratta, Kelvin Niu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.16979v1"
+    }
+  ],
+  "generated_at": "2026-01-26T06:27:32.305296"
+}

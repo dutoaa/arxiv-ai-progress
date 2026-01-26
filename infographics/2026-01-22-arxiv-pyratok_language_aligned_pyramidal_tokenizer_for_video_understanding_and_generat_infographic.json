@@ -1,24 +1,24 @@
 {
-  "key_insight": "PyraTok introduces a pyramidal tokenizer that produces discrete video tokens at multiple spatiotemporal scales and aligns them with language, improving cross-modal correspondence and zero‑shot transfer compared to single‑scale codebooks.",
-  "problem_solved": "Existing discrete video tokenizers use a single-scale codebook with limited vocabulary and weak language supervision, causing poor semantic alignment between video tokens and text and limiting zero‑shot transfer and generation quality.",
+  "key_insight": "PyraTok learns discrete video tokens at multiple spatiotemporal scales and aligns each scale with language, producing semantically structured latents that improve cross-modal alignment and zero‑shot transfer for video understanding and generation.",
+  "problem_solved": "Existing video tokenizers use a single-scale codebook and weak language supervision, which yields coarse, poorly aligned tokens that limit text-to-video generation quality and zero-shot transfer across video tasks.",
   "method": [
-    "Build on a pretrained video VAE and replace its single-scale codebook with a pyramidal set of discrete latents that capture multiple spatiotemporal resolutions.",
-    "Apply language supervision to the multi-scale codebooks so tokens become semantically aligned to text (e.g., contrastive or classifier-based alignment between token-level features and text embeddings).",
-    "Train and integrate the pyramidal tokenizer so downstream models (generation and understanding) can attend to coarse-to-fine semantic tokens for better cross-modal transfer and sample fidelity."
+    "Build on a pretrained video VAE and introduce a pyramidal tokenizer that produces discrete latents at multiple spatiotemporal resolutions (fine → coarse).",
+    "Apply language alignment to each scale so codebooks encode semantically meaningful concepts tied to text, improving cross-modal correspondence.",
+    "Use the multi-scale tokens to condition reconstruction and generation, enabling scale-specific control and better zero-shot transfer for downstream video tasks."
   ],
-  "impact": "Provides a practical way to obtain semantically structured, multi-resolution video tokens that improve text-video alignment, boosting zero-shot performance and quality for both video understanding and text-to-video generation. This enables more robust, scalable multimodal systems without retraining entire generative models from scratch.",
+  "impact": "PyraTok provides richer, language-grounded video representations that improve text-to-video synthesis and zero-shot video understanding without task-specific retraining, making multimodal systems more flexible and generalizable for practitioners.",
   "visual_elements": [
-    "Pyramidal diagram showing multiple spatiotemporal scales (coarse → fine) with arrows to discrete codebooks at each level.",
-    "Flowchart: pretrained video VAE → PyraTok multi-scale tokenizer → language alignment (text embeddings) → downstream tasks (generation/understanding).",
-    "Side-by-side comparison: single-scale vs pyramidal tokenization effects on alignment/zero-shot accuracy or qualitative generated frames.",
-    "Token vocabulary visualization: colored grid or t-SNE showing semantically clustered tokens aligned to text labels/phrases."
+    "Pyramidal schematic: stacked feature maps showing fine-to-coarse token grids over video frames with arrows to text labels.",
+    "Pipeline diagram: pretrained video VAE → pyramidal tokenizer (multi-scale codebooks) → language alignment → generation/understanding.",
+    "Token overlay: example video frames with colored token assignments at different scales to show semantic grouping.",
+    "Before/after comparison: qualitative panels or small charts illustrating improved alignment and transfer (e.g., better caption match or retrieval rank—no absolute numbers needed)."
   ],
   "hashtags": [
-    "#VideoVAE",
-    "#Tokenizer",
-    "#MultimodalAI",
+    "#VideoAI",
+    "#Tokenization",
     "#TextToVideo",
-    "#ZeroShot"
+    "#Multimodal",
+    "#RepresentationLearning"
   ],
   "paper_id": "2026-01-22-arxiv-pyratok_language_aligned_pyramidal_tokenizer_for_video_understanding_and_generat",
   "paper_title": "PyraTok: Language-Aligned Pyramidal Tokenizer for Video Understanding and Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16210v1"
     }
   ],
-  "generated_at": "2026-01-25T06:21:45.295063"
+  "generated_at": "2026-01-26T06:29:28.211105"
 }
