@@ -1,24 +1,24 @@
 {
-  "key_insight": "PyraTok learns discrete video tokens at multiple spatiotemporal scales and aligns each scale with language, producing semantically structured latents that improve cross-modal alignment and zero‑shot transfer for video understanding and generation.",
-  "problem_solved": "Existing video tokenizers use a single-scale codebook and weak language supervision, which yields coarse, poorly aligned tokens that limit text-to-video generation quality and zero-shot transfer across video tasks.",
+  "key_insight": "PyraTok learns discrete video tokens at multiple spatiotemporal scales and explicitly aligns them with language, producing semantically structured representations that improve cross-modal alignment and zero-shot transfer.",
+  "problem_solved": "Existing video tokenizers use single-scale codebooks with limited vocabularies and weak language supervision, leading to poor semantic alignment with text and limited zero-shot capability for video understanding and generation.",
   "method": [
-    "Build on a pretrained video VAE and introduce a pyramidal tokenizer that produces discrete latents at multiple spatiotemporal resolutions (fine → coarse).",
-    "Apply language alignment to each scale so codebooks encode semantically meaningful concepts tied to text, improving cross-modal correspondence.",
-    "Use the multi-scale tokens to condition reconstruction and generation, enabling scale-specific control and better zero-shot transfer for downstream video tasks."
+    "Construct a pyramidal tokenizer on top of a pretrained video VAE to produce discrete latents at multiple spatiotemporal resolutions (a multi-scale codebook pyramid).",
+    "Introduce stronger language alignment across scales so tokens become semantically structured and directly comparable to text representations.",
+    "Replace single-scale discrete latents with the language-aligned pyramidal tokens for downstream text-to-video generation and zero-shot video understanding."
   ],
-  "impact": "PyraTok provides richer, language-grounded video representations that improve text-to-video synthesis and zero-shot video understanding without task-specific retraining, making multimodal systems more flexible and generalizable for practitioners.",
+  "impact": "PyraTok provides more expressive, language-grounded video tokens that improve cross-modal transfer and reduce reliance on task-specific fine-tuning, benefiting practitioners building text-to-video models, retrieval systems, and zero-shot video classifiers.",
   "visual_elements": [
-    "Pyramidal schematic: stacked feature maps showing fine-to-coarse token grids over video frames with arrows to text labels.",
-    "Pipeline diagram: pretrained video VAE → pyramidal tokenizer (multi-scale codebooks) → language alignment → generation/understanding.",
-    "Token overlay: example video frames with colored token assignments at different scales to show semantic grouping.",
-    "Before/after comparison: qualitative panels or small charts illustrating improved alignment and transfer (e.g., better caption match or retrieval rank—no absolute numbers needed)."
+    "Pyramid diagram showing multiple spatiotemporal scales (fine → coarse) with discrete tokens at each level.",
+    "Schematic of token-to-text alignment (arrows or heatmap) illustrating improved semantic correspondence between video tokens and language.",
+    "Before/after comparison: single-scale tokenizer vs PyraTok on a sample generation or retrieval example.",
+    "Bar chart or radar plot summarizing gains in cross-modal alignment and zero-shot transfer (conceptual, not necessarily numeric)."
   ],
   "hashtags": [
-    "#VideoAI",
+    "#VideoVAE",
+    "#MultimodalLearning",
     "#Tokenization",
     "#TextToVideo",
-    "#Multimodal",
-    "#RepresentationLearning"
+    "#ZeroShotTransfer"
   ],
   "paper_id": "2026-01-22-arxiv-pyratok_language_aligned_pyramidal_tokenizer_for_video_understanding_and_generat",
   "paper_title": "PyraTok: Language-Aligned Pyramidal Tokenizer for Video Understanding and Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16210v1"
     }
   ],
-  "generated_at": "2026-01-26T06:29:28.211105"
+  "generated_at": "2026-01-27T06:25:47.301297"
 }

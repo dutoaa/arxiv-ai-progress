@@ -1,24 +1,24 @@
 {
-  "key_insight": "Representation Autoencoders (RAEs) can be scaled from ImageNet to open‑domain text-to-image generation by training large decoders on a frozen high-dimensional semantic encoder (SigLIP-2); scale improves general fidelity but performance also depends critically on targeted data composition.",
-  "problem_solved": "Bridges the gap between RAE-based diffusion modeling (successful on ImageNet) and large-scale, freeform text-to-image generation by providing a scalable, modular approach that leverages a frozen semantic encoder and large decoders.",
+  "key_insight": "Scaling Representation Autoencoder (RAE) decoders on a frozen high-quality encoder (SigLIP-2) for text-to-image generation improves overall image fidelity, but careful dataset composition (web, synthetic, text-rendered) is still crucial for reliable text conditioning and compositional control.",
+  "problem_solved": "Enables scaling RAE-based diffusion models from ImageNet to open-ended text-to-image generation while maintaining high fidelity and semantic alignment, addressing whether semantic latent RAEs can generalize to large-scale, freeform T2I tasks.",
   "method": [
-    "Freeze a high-dimensional semantic encoder (SigLIP-2) to produce stable representation latents.",
-    "Train and scale RAE decoders (diffusion transformers) on a mixed corpus: web images, synthetic renders, and text‑rendered data to support freeform text conditioning.",
-    "Analyze how decoder scale and targeted dataset composition affect fidelity and generalization in text-conditioned generation."
+    "Freeze a pre-trained representation encoder (SigLIP-2) and scale RAE decoders trained in a high-dimensional semantic latent space.",
+    "Train on a mixture of web images, synthetic data, and text-rendered examples to improve generalization to freeform captions.",
+    "Use diffusion transformers operating in the RAE latent space to generate images conditioned on text."
   ],
-  "impact": "Enables modular, scalable T2I systems that reuse a fixed semantic encoder while improving fidelity via larger decoders and curated training data—reducing retraining costs and improving generalization for practitioners building large generative models.",
+  "impact": "Shows a practical path to scale semantic-latent diffusion for high-quality, controllable T2I models while leveraging a frozen encoder—reducing retraining cost and focusing engineering effort on decoder scaling and dataset design.",
   "visual_elements": [
-    "Architecture diagram: frozen SigLIP-2 encoder → latent space → scaled diffusion transformer decoder conditioned on text.",
-    "Dataset composition pie chart: proportions of web images, synthetic data, and text-rendered samples used for decoder training.",
-    "Scale vs. fidelity curve: decoder size on x-axis, image fidelity/generalization on y-axis, with annotations showing effects of data composition.",
-    "Before/after image grid: examples comparing small vs. large decoder outputs (same text prompts) to illustrate qualitative gains."
+    "Architecture diagram: frozen SigLIP-2 encoder -> RAE latent space -> scaled diffusion transformer decoder",
+    "Dataset composition chart: proportions of web / synthetic / text-rendered data and their effect on metrics",
+    "Scaling curve: image fidelity (or FID/CLIP-score) vs. decoder scale and vs. dataset scale",
+    "Qualitative grid: generated images with corresponding captions highlighting improvements and failure modes"
   ],
   "hashtags": [
     "#TextToImage",
     "#DiffusionModels",
     "#RepresentationLearning",
-    "#RAE",
-    "#ScalingAI"
+    "#ScalingAI",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-01-22-arxiv-scaling_text_to_image_diffusion_transformers_with_representation_autoencoders",
   "paper_title": "Scaling Text-to-Image Diffusion Transformers with Representation Autoencoders",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16208v1"
     }
   ],
-  "generated_at": "2026-01-26T06:28:53.978377"
+  "generated_at": "2026-01-27T06:25:21.815322"
 }

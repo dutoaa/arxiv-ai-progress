@@ -1,24 +1,24 @@
 {
-  "key_insight": "A diffusion-based generative model that jointly models multiple cardiovascular biomarkers to synthesize, impute, and harmonize cross-modal physiological signals, preserving clinically relevant dynamics and cross-modal dependencies.",
-  "problem_solved": "Addresses the challenge of sparse, heterogeneous and partially missing multimodal cardiovascular monitoring data by enabling realistic cross-modal generation and imputation so models can be trained and validated without requiring fully paired recordings.",
+  "key_insight": "A conditional diffusion framework that jointly models multiple cardiovascular biomarkers, enabling realistic cross-modal synthesis and imputation while preserving physiological relationships across signals.",
+  "problem_solved": "Integrates heterogeneous cardiovascular monitoring modalities (different sampling rates, noise profiles, and missing channels) by learning their joint distribution so models can generate or impute missing modalities without large matched multimodal datasets.",
   "method": [
-    "Adapt a diffusion generative framework for multimodal time-series with modality-specific encoders/decoders and a shared latent fusion to capture cross-modal dependencies.",
-    "Train conditional generation and imputation objectives so the model can synthesize missing modalities, translate between modalities (e.g., ECG ↔ PPG), and preserve clinical biomarkers.",
-    "Evaluate fidelity and clinical utility via signal reconstruction metrics and downstream tasks (e.g., arrhythmia/risk prediction) to demonstrate improved robustness and realism."
+    "Multivariate conditional diffusion model that learns the joint distribution of multiple cardiovascular biomarkers rather than separate unimodal generators.",
+    "Cross-modal conditioning and a shared latent representation to enable synthesis, imputation, and modality translation across signals with variable timing and missing channels.",
+    "Physiological-consistency constraints and task-aware training (e.g., downstream prediction or cycle-consistency) to keep synthesized signals clinically plausible and useful."
   ],
-  "impact": "Enables AI/ML practitioners to augment scarce multimodal cardiovascular datasets, perform robust cross-modal imputation, and simulate monitoring scenarios—reducing the need for fully paired clinical recordings and improving downstream model performance.",
+  "impact": "Provides a practical route for robust data augmentation, cross-modal imputation, and simulation in cardiovascular ML, lowering data-collection burdens and improving model generalization and downstream clinical utility.",
   "visual_elements": [
-    "Model schematic: modality-specific encoders → shared latent fusion → diffusion-based generator → modality decoders (showing conditional/imputation paths).",
-    "Before/after examples: aligned waveform panels (ECG, PPG, blood pressure) showing real vs. generated/imputed signals with preserved biomarkers.",
-    "Cross-modal attention/correlation heatmap: visualizing learned dependencies between biomarkers across modalities.",
-    "Bar/line chart: quantitative gains on reconstruction and downstream task metrics (e.g., AUROC, MSE) comparing baseline vs. joint diffusion model."
+    "Pipeline diagram: multimodal inputs (ECG/PPG/BP/others) → conditional diffusion module → joint synthesized outputs/imputations",
+    "Before/after example panels showing missing-channel imputation and cross-modal translation (real vs. synthesized signals)",
+    "Metric bar chart comparing fidelity and physiological correlation for real vs. synthesized biomarkers across evaluation datasets",
+    "Latent-space visualization (e.g., t-SNE) showing clustering by physiological state and modality, illustrating shared representation"
   ],
   "hashtags": [
-    "#CardioAI",
     "#DiffusionModels",
-    "#MultimodalLearning",
+    "#MultimodalAI",
+    "#CardioML",
     "#MedicalAI",
-    "#TimeSeries"
+    "#SyntheticData"
   ],
   "paper_id": "2026-01-21-nature-jointly_modeling_cardiovascular_biomarkers",
   "paper_title": "Jointly modeling cardiovascular biomarkers",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01172-x"
     }
   ],
-  "generated_at": "2026-01-26T06:28:21.243813"
+  "generated_at": "2026-01-27T06:23:42.989171"
 }

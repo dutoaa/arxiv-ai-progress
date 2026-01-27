@@ -1,0 +1,35 @@
+{
+  "key_insight": "Reuse previously generated off-policy trajectories by conditioning the policy on successful prefixes, turning old inference/RL FLOPs into useful supervision that boosts learning on hard problems where on-policy successes are rare.",
+  "problem_solved": "Standard RL on difficult reasoning tasks wastes compute because correct on-policy traces are scarce, gradients vanish, and training stalls; the paper addresses how to reuse past off-policy computation safely and effectively to restart learning.",
+  "method": [
+    "Condition the policy on prefixes of successful off-policy traces so the model continues from partially successful contexts instead of treating off-policy data as full-target supervision.",
+    "Integrate prefix-conditioning into the RL optimization pipeline to convert off-policy sampling FLOPs into actionable learning signals while avoiding typical off-policy instabilities.",
+    "Train/finetune the model to complete conditioned prefixes (and then use RL updates), enabling reuse of prior inference or training trajectories to improve sample and compute efficiency."
+  ],
+  "impact": "Makes RL practical on hard LLM reasoning tasks by converting wasted inference/RL compute into reusable training signal, improving sample-efficiency and accelerating learning where conventional on-policy RL fails.",
+  "visual_elements": [
+    "Schematic: model conditioned on a prefix (highlighted) of a trajectory and generating the continuation — shows prefix→completion flow.",
+    "Before/After bar chart: on-policy-only training vs. PrefixRL sample- or compute-efficiency (fewer FLOPs to reach a success rate).",
+    "Pipeline diagram: collect traces → extract successful prefixes → conditioned RL updates → improved policy, emphasizing FLOP reuse loop.",
+    "Icon set: clock/FLOP reuse, shield for stability (avoiding off-policy collapse), and a rising-learning curve for faster convergence."
+  ],
+  "hashtags": [
+    "#ReinforcementLearning",
+    "#OffPolicy",
+    "#LLMs",
+    "#SampleEfficiency",
+    "#ComputeReuse"
+  ],
+  "paper_id": "2026-01-26-arxiv-reuse_your_flops_scaling_rl_on_hard_problems_by_conditioning_on_very_off_policy",
+  "paper_title": "Reuse your FLOPs: Scaling RL on Hard Problems by Conditioning on Very Off-Policy Prefixes",
+  "paper_category": "Model",
+  "paper_date": "2026-01-26",
+  "paper_authors": "Amrith Setlur, Zijian Wang, Andrew Cohen, Paria Rashidinejad, Sang Michael Xie",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.18795v1"
+    }
+  ],
+  "generated_at": "2026-01-27T06:23:13.474358"
+}

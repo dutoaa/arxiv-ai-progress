@@ -1,24 +1,24 @@
 {
-  "key_insight": "LoL identifies a critical failure mode called sink-collapse—where generated video repeatedly reverts to an attention \"sink\" frame—and introduces sink-robust modeling and training strategies that preserve coherence to scale autoregressive video generation to hour-long outputs.",
-  "problem_solved": "Addresses error accumulation and loss of long-term temporal coherence in autoregressive long-form video generation, specifically preventing abrupt scene resets and cyclic motion patterns caused by attention sink frames.",
+  "key_insight": "The paper identifies a failure mode called sink-collapse—where autoregressive long-form video models repeatedly revert to an attention \"sink\" frame—and introduces targeted architectural and training fixes that restore long-term temporal coherence, enabling generation that scales toward hour-long videos.",
+  "problem_solved": "Mitigates error accumulation and cyclic scene resets in autoregressive long-form video generation by diagnosing and preventing sink-frame driven collapse, improving continuity and realistic long-term dynamics.",
   "method": [
-    "Diagnose sink-collapse and modify attention dynamics to reduce over-reliance on sink frames (sink-aware / sink-robust attention mechanisms and gating).",
-    "Introduce temporal consistency objectives and hierarchical memory / context-refresh strategies to preserve long-range dependencies while keeping computation efficient.",
-    "Use training curricula and overlapping-chunk generation to stabilize autoregressive sampling for hour-scale outputs."
+    "Diagnose and quantify sink-collapse to reveal how sink-frame attention causes abrupt resets and cyclic motion patterns.",
+    "Introduce a sink-aware attention design plus anti-collapse regularization to discourage repeated reversion to the sink frame during generation.",
+    "Use hierarchical temporal context (chunked decoding with a persistent latent memory) to preserve long-range dynamics and scale autoregressive decoding to hour-long outputs."
   ],
-  "impact": "Makes autoregressive video models practical for hour-scale generation with fewer artifacts and more stable narratives, enabling downstream uses such as long-form content synthesis, simulation, and creative tools for ML practitioners.",
+  "impact": "Makes autoregressive video generators more reliable for long-form outputs, reducing repetitive artifacts and improving coherence across minutes-to-hours—useful for simulation, film/VFX, and long-form content generation research and products.",
   "visual_elements": [
-    "Schematic of sink-collapse: a short looped diagram showing generation reverting to a sink frame vs. a stable LoL-generated sequence.",
-    "Architecture diagram highlighting sink-robust attention + hierarchical memory components and how context is propagated.",
-    "Before/after example frames or short timelines comparing coherence and motion continuity over long horizons.",
-    "Line chart of coherence/quality metrics over time (baseline vs. LoL) showing reduced degradation."
+    "Before/after timeline showing sink-collapse (repeating sink frame, abrupt resets) vs stabilized long-term generation",
+    "Model architecture diagram highlighting sink-aware attention and hierarchical/persistent memory pathways",
+    "Line chart comparing coherence metrics (e.g., temporal consistency, diversity) vs generated duration for baseline and proposed method",
+    "Example frame sequences or GIF strips demonstrating eliminated cyclic motion and sustained scene dynamics"
   ],
   "hashtags": [
+    "#LongFormVideo",
     "#VideoGeneration",
-    "#LongFormAI",
-    "#TemporalCoherence",
     "#AutoregressiveModels",
-    "#GenerativeAI"
+    "#TemporalCoherence",
+    "#AIResearch"
   ],
   "paper_id": "2026-01-23-arxiv-lol_longer_than_longer_scaling_video_generation_to_hour",
   "paper_title": "LoL: Longer than Longer, Scaling Video Generation to Hour",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16914v1"
     }
   ],
-  "generated_at": "2026-01-26T06:25:47.849069"
+  "generated_at": "2026-01-27T06:25:11.039131"
 }

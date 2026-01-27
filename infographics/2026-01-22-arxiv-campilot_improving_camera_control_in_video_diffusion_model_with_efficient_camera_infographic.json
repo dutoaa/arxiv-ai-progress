@@ -1,24 +1,24 @@
 {
-  "key_insight": "CamPilot improves camera controllability of video diffusion models by introducing an efficient camera-focused reward feedback loop that evaluates alignment in latent space, avoiding costly RGB decoding while enabling stronger camera-conditioned generation.",
-  "problem_solved": "Existing reward-feedback methods struggle because off-the-shelf reward models cannot reliably assess video–camera alignment and computing rewards by decoding latents to RGB is computationally expensive, limiting practical camera control in video diffusion.",
+  "key_insight": "Introduce an efficient camera-alignment reward feedback mechanism that lets video diffusion models learn stronger, more accurate camera control by assessing alignment without expensive RGB decoding.",
+  "problem_solved": "Camera-controlled video diffusion models still struggle to follow desired camera trajectories: existing reward-feedback (ReFL) methods lack a camera-aware reward model and computing rewards by decoding latents to RGB is computationally costly and slow.",
   "method": [
-    "Train a lightweight camera-alignment reward model that operates (or is approximated) in the diffusion latent space so alignment can be scored without full RGB decoding.",
-    "Integrate the latent-space reward into a reward-feedback fine-tuning loop (CamPilot) to steer the video diffusion model toward trajectories and viewpoints that match camera-control prompts.",
-    "Use synthetic/annotated camera trajectories and contrastive/regression-style losses or preference-weighted updates to supervise the reward model and to update the generator efficiently."
+    "Design a camera-aware reward model that evaluates video↔camera alignment (trained to recognize trajectory, framing, and motion consistency).",
+    "Compute reward signals efficiently in latent space (or via a compact camera encoder) to avoid full RGB decoding for every sample.",
+    "Integrate the efficient reward into a ReFL loop to fine-tune the video diffusion model, improving its camera-controllability while keeping compute low."
   ],
-  "impact": "This approach enables more precise and computationally efficient camera-conditioned video synthesis, making camera-aware video generation practical for downstream applications like cinematic editing, robotics simulation, and AR/VR content creation.",
+  "impact": "Makes camera-conditioned video generation more reliable and practical by improving alignment accuracy and drastically lowering reward-evaluation cost—accelerating research and deployment of controllable generative video systems.",
   "visual_elements": [
-    "Pipeline diagram: video diffusion model ↔ latent-space camera reward model ↔ reward-guided fine-tuning loop",
-    "Before/after montage: same camera prompt showing improved camera motion/alignment pre- and post-CamPilot",
-    "Bar/line chart: computational cost (decode vs. latent reward) and alignment score improvements",
-    "Icon set: camera trajectory, latent-space cube, speed/efficiency meter, reward/heart symbol"
+    "Pipeline diagram: diffusion model → latent-space camera reward → feedback loop for fine-tuning",
+    "Before/after frame sequences showing improved camera trajectories and framing",
+    "Bar chart comparing compute cost (RGB decoding vs latent reward) and alignment score gains",
+    "Icons: camera trajectory, reward/score meter, latency/compute chip, diffusion model"
   ],
   "hashtags": [
     "#VideoDiffusion",
     "#CameraControl",
-    "#RewardLearning",
+    "#RewardFeedback",
     "#LatentSpace",
-    "#CamPilot"
+    "#GenerativeAI"
   ],
   "paper_id": "2026-01-22-arxiv-campilot_improving_camera_control_in_video_diffusion_model_with_efficient_camera",
   "paper_title": "CamPilot: Improving Camera Control in Video Diffusion Model with Efficient Camera Reward Feedback",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.16214v1"
     }
   ],
-  "generated_at": "2026-01-25T06:22:05.352639"
+  "generated_at": "2026-01-27T06:26:19.570080"
 }

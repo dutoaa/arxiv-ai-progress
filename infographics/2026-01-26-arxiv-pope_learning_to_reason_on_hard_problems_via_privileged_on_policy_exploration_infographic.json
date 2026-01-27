@@ -1,0 +1,35 @@
+{
+  "key_insight": "POPE provides a privileged on-policy exploration mechanism that finds correct reasoning rollouts on hard problems so the learner receives non-zero reward; this converts otherwise signal-less training into effective learning of complex reasoning.",
+  "problem_solved": "On hard reasoning tasks, standard on-policy RL rarely encounters any correct rollout, producing zero reward and preventing learning; POPE addresses this exploration failure so models can receive learning signals on difficult problems.",
+  "method": [
+    "Introduce a privileged exploration policy that can sample (or guide to) correct/high-reward rollouts on hard training problems during on-policy training.",
+    "Incorporate those privileged rollouts into the learner's updates while retaining on-policy update structure (e.g., via controlled importance weighting, constrained updates, or auxiliary losses) so exploration signal transfers without destabilizing training.",
+    "Train the main policy to reproduce successful trajectories discovered by the privileged explorer, enabling the learner to perform correct multi-step reasoning without privileged access at test time."
+  ],
+  "impact": "By breaking the zero-reward deadlock on hard problems, POPE enables RL-based fine-tuning of LLMs to acquire complex reasoning skills more reliably and efficiently, improving sample efficiency and robustness on difficult tasks.",
+  "visual_elements": [
+    "Pipeline diagram: privileged explorer + learner policy interacting with environment, with arrows showing privileged rollouts providing rewards to learner.",
+    "Before vs after bar/line chart: fraction of episodes with non-zero reward and learning curve showing training stagnation without POPE versus improvement with POPE.",
+    "Example rollout visualization: token-level or step-level trace highlighting a correct reasoning trajectory discovered by the privileged policy.",
+    "Icon set: 'zero reward' stop sign, 'privileged guide' flashlight icon illuminating successful paths, and 'learner' model icon absorbing knowledge."
+  ],
+  "hashtags": [
+    "#POPE",
+    "#ReinforcementLearning",
+    "#LLMReasoning",
+    "#Exploration",
+    "#SampleEfficiency"
+  ],
+  "paper_id": "2026-01-26-arxiv-pope_learning_to_reason_on_hard_problems_via_privileged_on_policy_exploration",
+  "paper_title": "POPE: Learning to Reason on Hard Problems via Privileged On-Policy Exploration",
+  "paper_category": "Model",
+  "paper_date": "2026-01-26",
+  "paper_authors": "Yuxiao Qu, Amrith Setlur, Virginia Smith, Ruslan Salakhutdinov, Aviral Kumar",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.18779v1"
+    }
+  ],
+  "generated_at": "2026-01-27T06:22:55.383988"
+}
