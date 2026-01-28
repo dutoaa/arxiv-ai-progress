@@ -1,24 +1,24 @@
 {
-  "key_insight": "Dep-Search learns explicit, dependency-aware reasoning traces and stores them in persistent memory so multi-step search can plan and reuse substep dependencies across episodes, making search-based reasoning more structured and reusable.",
-  "problem_solved": "Current search-based reasoning frameworks depend on implicit natural-language traces and lack a mechanism to capture and reuse dependencies between sub-steps across queries, which hurts compositionality, interpretability, and efficiency.",
+  "key_insight": "Modeling and learning explicit, dependency-aware reasoning traces plus a persistent memory module lets search-guided LLMs plan and reuse intermediate facts, yielding more accurate, efficient, and interpretable multi-step reasoning.",
+  "problem_solved": "Search-based reasoning frameworks often rely on implicit natural-language prompts and lack explicit modeling of dependencies and long-lived intermediate facts, causing redundant retrievals, brittle reasoning chains, and poor traceability.",
   "method": [
-    "Train a controller to produce explicit reasoning traces that encode dependencies between intermediate substeps (dependency-aware traces).",
-    "Maintain a persistent memory store of traces and sub-results to guide future search and enable reuse across episodes.",
-    "Orchestrate multi-step search over external knowledge using the learned traces as a planning/pruning signal, improving structured exploration and trace interpretability."
+    "Represent multi-step reasoning as dependency-aware traces that record actions, retrieved facts, and directed dependencies between steps.",
+    "Train a controller to generate search actions conditioned on the current trace and a persistent memory store that accumulates and indexes intermediate results.",
+    "Use the persistent memory to prune redundant searches, resolve dependencies, and enable iterative refinement of answers with explicit, reusable traces."
   ],
-  "impact": "Provides AI/ML practitioners a way to make multi-step search more interpretable, efficient, and compositional by design — enabling reuse of past reasoning and clearer debugging of complex reasoning pipelines.",
+  "impact": "Makes search-augmented LLM reasoning more reliable, efficient, and auditable—helpful for practitioners building complex QA, multi-hop retrieval, and decision-support systems that need repeatable, explainable chains of thought.",
   "visual_elements": [
-    "Architecture diagram: LLM controller ↔ search module ↔ external KB with a persistent memory layer highlighted.",
-    "Dependency trace example: DAG showing sub-steps and explicit dependencies for a multi-step query.",
-    "Episode timeline: how traces are stored and reused across consecutive queries (before vs after persistent memory).",
-    "Comparative visual: schematic bar/arrow chart showing gains in trace reuse, search stability, or interpretability (conceptual, not numeric)."
+    "Architecture diagram: controller + dependency-aware trace representation + persistent memory module and search loop",
+    "Example reasoning trace timeline: steps, retrieved facts, and directed dependency edges",
+    "Bar chart: accuracy/efficiency comparison vs RAG and other search baselines",
+    "Memory graph visualization: nodes = facts, edges = dependencies showing reuse across queries"
   ],
   "hashtags": [
     "#DepSearch",
     "#ReasoningTraces",
     "#PersistentMemory",
-    "#LLMs",
-    "#AIResearch"
+    "#LLMSearch",
+    "#ExplainableAI"
   ],
   "paper_id": "2026-01-26-arxiv-dep_search_learning_dependency_aware_reasoning_traces_with_persistent_memory",
   "paper_title": "Dep-Search: Learning Dependency-Aware Reasoning Traces with Persistent Memory",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.18771v1"
     }
   ],
-  "generated_at": "2026-01-27T06:22:28.959172"
+  "generated_at": "2026-01-28T06:26:49.250113"
 }

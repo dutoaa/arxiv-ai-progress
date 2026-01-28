@@ -1,24 +1,24 @@
 {
-  "key_insight": "Model annotator behavior and systematically decide to trust, ignore, or flip each preference signal—producing reward models and policies that remain accurate even when some annotators are noisy or adversarial.",
-  "problem_solved": "Preference-based RL (PBRL) degrades when feedback comes from heterogeneous annotators (accurate, noisy, or adversarial). The paper solves robustly learning rewards and policies from multi-expert pairwise comparisons without assuming all feedback is honest.",
+  "key_insight": "A PBRL framework that infers per-annotator reliability and adaptively trusts, ignores, or flips their pairwise preferences, producing robust reward models and policies even with noisy or adversarial annotators.",
+  "problem_solved": "How to learn reliable reward signals and policies from preference data collected from heterogeneous annotators (accurate, noisy, or adversarial) where treating all feedback equally or naively filtering fails.",
   "method": [
-    "Infer per-expert reliability and systematic bias from multi-expert pairwise comparisons (probabilistic annotator model).",
-    "Triage each feedback instance into three actions—trust, discard, or flip—based on inferred reliability and consistency with the emerging reward signal.",
-    "Integrate the triage-adjusted preferences into reward-model training and downstream RL (robust loss / iterative EM-style refinement) to produce stable policies under adversarial noise."
+    "Estimate annotator reliability from aggregated pairwise comparisons and classify feedback as Trust / Don't Trust / Flip.",
+    "Reweight or correct (flip) adversarial/noisy preferences to produce a denoised preference dataset.",
+    "Train a reward model on corrected preferences and use it with standard RL to learn robust policies."
   ],
-  "impact": "Enables practitioners to train RL agents from crowdsourced or mixed-quality human feedback with far less manual curation and higher tolerance to adversarial annotators, improving real-world deployment and scaling of preference-based learning.",
+  "impact": "Enables practical deployment of preference-based RL with mixed-quality human feedback by improving robustness to malicious or low-quality annotators, reducing manual curation and improving policy reliability.",
   "visual_elements": [
-    "Flow diagram: multi-expert preference inputs → annotator reliability inference → triage (Trust / Don’t Trust / Flip) → reward model → RL policy.",
-    "Bar chart: policy performance vs. fraction of adversarial annotators comparing baseline PBRL, filtering approaches, and the proposed method.",
-    "Heatmap: inferred annotator reliability / bias across experts (clear adversarial cluster visible).",
-    "Icon set: simple icons for 'trust', 'trash/ignore', and 'flip/invert' to communicate the triage rule succinctly."
+    "Pipeline diagram: multi-expert pairwise comparisons → annotator reliability inference → trust/don't-trust/flip decisions → reward model → RL agent",
+    "Bar chart comparing policy performance (naive, filter-only, trust/don't-trust/flip) across increasing fractions of adversarial annotators",
+    "Icon row showing annotator types (reliable, noisy, adversarial) with example preference snippets",
+    "Before/after example of preference labels (raw vs corrected) or a small confusion-style matrix showing flipped vs retained labels"
   ],
   "hashtags": [
-    "#ReinforcementLearning",
-    "#PreferenceLearning",
-    "#RobustML",
+    "#PreferenceBasedRL",
     "#HumanFeedback",
-    "#AIAlignment"
+    "#RobustLearning",
+    "#AdversarialRobustness",
+    "#MultiExpert"
   ],
   "paper_id": "2026-01-26-arxiv-trust_don_t_trust_or_flip_robust_preference_based_reinforcement_learning_with_mu",
   "paper_title": "Trust, Don't Trust, or Flip: Robust Preference-Based Reinforcement Learning with Multi-Expert Feedback",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.18751v1"
     }
   ],
-  "generated_at": "2026-01-27T06:22:03.795460"
+  "generated_at": "2026-01-28T06:26:27.361202"
 }

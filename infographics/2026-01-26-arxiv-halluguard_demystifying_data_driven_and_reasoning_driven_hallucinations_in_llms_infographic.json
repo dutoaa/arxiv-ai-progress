@@ -1,24 +1,24 @@
 {
-  "key_insight": "HalluGuard introduces a unified way to detect and quantify two distinct sources of LLM hallucinations—data-driven and reasoning-driven—so that failures can be identified and addressed systematically. It moves beyond task-specific heuristics by providing a general, risk-based framework for measuring hallucination likelihood.",
-  "problem_solved": "Existing hallucination detectors focus on either source (bad or missing evidence vs. faulty internal reasoning) and rely on task-specific rules, limiting generalization; this paper provides a single, task-agnostic approach to distinguish, quantify, and detect both types of hallucinations.",
+  "key_insight": "HalluGuard disentangles two distinct sources of LLM hallucinations—data-driven and reasoning-driven—and provides a unified, task-agnostic way to assess hallucination risk so practitioners can detect and mitigate both types together.",
+  "problem_solved": "Current hallucination detection methods typically target only one failure mode and depend on task-specific heuristics, limiting reliability and generalization in high‑stakes applications; this paper addresses the need for a generalizable framework that identifies both data- and reasoning-driven hallucinations.",
   "method": [
-    "Define a clear taxonomy and risk metric that separates data-driven hallucinations (unsupported by external evidence) from reasoning-driven hallucinations (internal inference errors).",
-    "Compute hallucination risk by cross-checking model outputs against retrieved or known evidence for data risk and by assessing internal reasoning consistency (e.g., chain-of-thought checks, contradiction detection) for reasoning risk.",
-    "Combine these signals into a unified HalluGuard detector and benchmark that is model- and task-agnostic, enabling calibrated alerts and prioritized mitigation strategies."
+    "Conceptual decomposition: explicitly separate hallucinations into data-driven (wrong or missing training facts/provenance) and reasoning-driven (faulty chains of inference) sources.",
+    "Unified risk scoring: compute interpretable hallucination-risk signals by combining model-internal uncertainty, provenance checks, and reasoning-consistency tests to flag likely failures.",
+    "Task-agnostic evaluation: apply the framework across multiple tasks/domains to demonstrate broader coverage versus single-source heuristics."
   ],
-  "impact": "Provides practitioners a practical, generalizable tool to detect and prioritize hallucination types, improving trust and targeted mitigation in high-stakes applications (healthcare, law, science). This enables better monitoring, debugging, and intervention selection across diverse tasks and models.",
+  "impact": "Provides practitioners a practical and interpretable tool to triage, monitor, and reduce hallucination risk across domains, improving safety and trustworthiness of LLM deployments in high‑stakes settings.",
   "visual_elements": [
-    "Two-column diagram contrasting data-driven vs reasoning-driven hallucinations with short examples for each.",
-    "Pipeline flowchart of HalluGuard: input → evidence retrieval → reasoning-check module → risk scoring → mitigation/action.",
-    "Bar/line chart comparing detection performance and false-positive rates of HalluGuard vs baseline heuristics across multiple tasks.",
-    "Icon set mapping applications (health, law, science) to recommended mitigation actions based on detected risk type."
+    "Two-column diagram contrasting data-driven vs reasoning-driven hallucinations with concrete short examples under each column.",
+    "Pipeline flowchart showing how HalluGuard computes risk: input → model signals (uncertainty/provenance) → reasoning-consistency checks → combined risk score → actions (flag / verify / abstain).",
+    "Stacked bar chart comparing detection coverage of single-source heuristics vs HalluGuard across multiple tasks/domains.",
+    "Icon set: shield (safety), magnifying glass (diagnosis), chain links (reasoning), database (data provenance) to summarize components at a glance."
   ],
   "hashtags": [
     "#HalluGuard",
-    "#HallucinationDetection",
-    "#LLMTrust",
-    "#ExplainableAI",
-    "#ModelReliability"
+    "#LLMs",
+    "#Hallucination",
+    "#AITrust",
+    "#ExplainableAI"
   ],
   "paper_id": "2026-01-26-arxiv-halluguard_demystifying_data_driven_and_reasoning_driven_hallucinations_in_llms",
   "paper_title": "HalluGuard: Demystifying Data-Driven and Reasoning-Driven Hallucinations in LLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.18753v1"
     }
   ],
-  "generated_at": "2026-01-27T06:22:17.461584"
+  "generated_at": "2026-01-28T06:26:40.910006"
 }
