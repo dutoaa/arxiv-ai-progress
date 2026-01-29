@@ -1,24 +1,24 @@
 {
-  "key_insight": "Aggregate validation metrics (e.g., perplexity) hide diverse downstream scaling behaviors—some tasks improve, some plateau, and some degrade as models scale—so predicting task performance requires finer-grained, flexible analysis rather than a single power-law fit.",
-  "problem_solved": "Clarifies why downstream performance is poorly predicted from validation perplexity by identifying two failure modes: averaging token-level losses obscures actionable signal, and no simple parametric family universally captures the heterogeneous scaling trajectories of individual tasks.",
+  "key_insight": "Aggregate validation metrics (like perplexity) mask heterogeneous downstream scaling: some tasks improve with scale, others plateau, and some even degrade — so validation perplexity alone cannot reliably predict per-task performance.",
+  "problem_solved": "Explains why predicting individual downstream task performance from average token-level validation loss fails, and provides analysis and alternatives to reveal and model diverse task-specific scaling behaviors.",
   "method": [
-    "Empirical analysis of downstream task performance across model scales to characterize distinct scaling regimes (monotonic improvement, plateau, degradation).",
-    "Decompose aggregate validation loss into finer-grained signals (per-task / per-example / per-token) to reveal predictive structure lost by averaging.",
-    "Introduce flexible, nonparametric or mixture-style modeling and evaluation protocols to fit and forecast diverse task-specific scaling curves."
+    "Empirical analysis of many downstream tasks across model scales to characterize per-task scaling patterns (monotonic improvement, plateauing, degradation).",
+    "Diagnose two failure modes of using validation perplexity: (1) averaging token-level loss obscures informative signals; (2) no simple parametric scaling family captures the diversity of task behaviors.",
+    "Propose richer predictors and flexible fitting strategies (e.g., token-loss distribution summaries, nonparametric/mixture fits and per-task curves) and practical evaluation guidelines for model selection."
   ],
-  "impact": "Enables practitioners to better forecast how specific tasks will respond to increased compute or model size, choose evaluation metrics beyond perplexity, and make more cost-effective scaling decisions for downstream objectives.",
+  "impact": "Enables practitioners to better anticipate when scaling will help—or hurt—specific tasks, avoid overreliance on perplexity for model selection, and design more informative evaluation pipelines that reveal task-specific scaling.",
   "visual_elements": [
-    "Line plot with multiple exemplar task curves showing monotonic improvement, plateauing, and degradation across model scale.",
-    "Heatmap or violin plots of per-token or per-example loss distributions at different scales to show where averaging hides signal.",
-    "Schematic pipeline: aggregate loss → decomposition → flexible fit → downstream performance prediction.",
-    "Icon set emphasizing pitfalls (magnifying glass over 'perplexity', warning triangle) and recommendations (scaling budget, task-specific evaluation checklist)."
+    "Overlay plot: smooth aggregate validation loss power-law curve vs. multiple individual task curves showing improvement, plateau, and degradation.",
+    "Heatmap or cluster diagram grouping tasks by scaling behavior (improve/plateau/degrade).",
+    "Violin or histogram plots of token-level loss distributions to show how averaging hides signal.",
+    "Evaluation pipeline flowchart recommending per-task curve fitting, alternative predictors, and decision points for model selection."
   ],
   "hashtags": [
+    "#NeuralScaling",
     "#ScalingLaws",
     "#ModelEvaluation",
-    "#LanguageModels",
     "#Perplexity",
-    "#AIResearch"
+    "#Benchmarking"
   ],
   "paper_id": "2026-01-27-arxiv-neural_neural_scaling_laws",
   "paper_title": "Neural Neural Scaling Laws",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.19831v1"
     }
   ],
-  "generated_at": "2026-01-28T06:23:49.656640"
+  "generated_at": "2026-01-29T06:39:07.171593"
 }

@@ -1,21 +1,21 @@
 {
-  "key_insight": "HalluGuard disentangles two distinct sources of LLM hallucinations—data-driven and reasoning-driven—and provides a unified, task-agnostic way to assess hallucination risk so practitioners can detect and mitigate both types together.",
-  "problem_solved": "Current hallucination detection methods typically target only one failure mode and depend on task-specific heuristics, limiting reliability and generalization in high‑stakes applications; this paper addresses the need for a generalizable framework that identifies both data- and reasoning-driven hallucinations.",
+  "key_insight": "HalluGuard disentangles and quantifies two distinct hallucination sources—data-driven and reasoning-driven—providing a unified, task-agnostic risk score and attribution that improves detection and mitigation of LLM hallucinations.",
+  "problem_solved": "Current hallucination detection approaches handle either data or reasoning errors and rely on task-specific heuristics; this paper addresses the need for a general, source-aware detection and attribution method that generalizes across tasks and domains.",
   "method": [
-    "Conceptual decomposition: explicitly separate hallucinations into data-driven (wrong or missing training facts/provenance) and reasoning-driven (faulty chains of inference) sources.",
-    "Unified risk scoring: compute interpretable hallucination-risk signals by combining model-internal uncertainty, provenance checks, and reasoning-consistency tests to flag likely failures.",
-    "Task-agnostic evaluation: apply the framework across multiple tasks/domains to demonstrate broader coverage versus single-source heuristics."
+    "Design diagnostic probes and interventions that separate data-driven failures (false or missing knowledge) from reasoning-driven failures (logical or chain-of-thought mistakes).",
+    "Compute a unified hallucination risk score with per-source attribution so practitioners can detect, prioritize, and explain failures.",
+    "Provide a model-agnostic evaluation pipeline (e.g., contrastive inputs, chain-of-thought checks, and counterfactual tests) to validate detection across tasks and domains."
   ],
-  "impact": "Provides practitioners a practical and interpretable tool to triage, monitor, and reduce hallucination risk across domains, improving safety and trustworthiness of LLM deployments in high‑stakes settings.",
+  "impact": "Enables developers and researchers to detect, attribute, and prioritize hallucination remediation more effectively across domains (healthcare, law, science), improving LLM reliability and trustworthiness in high-stakes settings.",
   "visual_elements": [
-    "Two-column diagram contrasting data-driven vs reasoning-driven hallucinations with concrete short examples under each column.",
-    "Pipeline flowchart showing how HalluGuard computes risk: input → model signals (uncertainty/provenance) → reasoning-consistency checks → combined risk score → actions (flag / verify / abstain).",
-    "Stacked bar chart comparing detection coverage of single-source heuristics vs HalluGuard across multiple tasks/domains.",
-    "Icon set: shield (safety), magnifying glass (diagnosis), chain links (reasoning), database (data provenance) to summarize components at a glance."
+    "Two-branch flowchart: left branch labeled Data-Driven (missing/incorrect facts), right branch labeled Reasoning-Driven (logic/chain-of-thought errors); arrows converge to a unified risk score.",
+    "Stacked bar chart or heatmap comparing traditional single-source detectors vs HalluGuard's attribution-aware risk scores across several tasks.",
+    "Example prompt → model output → annotated failure map showing which tokens/errors are attributed to data vs reasoning.",
+    "Icon set: shield (safety), magnifying glass (diagnostics), scales (attribution), and an adjustable meter (risk score)"
   ],
   "hashtags": [
     "#HalluGuard",
-    "#LLMs",
+    "#LLM",
     "#Hallucination",
     "#AITrust",
     "#ExplainableAI"
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.18753v1"
     }
   ],
-  "generated_at": "2026-01-28T06:26:40.910006"
+  "generated_at": "2026-01-29T06:39:24.540291"
 }

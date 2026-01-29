@@ -1,24 +1,24 @@
 {
-  "key_insight": "Correcting systematic biases in binding-affinity datasets (e.g., target/scaffold overlap and measurement artifacts) substantially improves model generalization to new compounds and targets, revealing that prior performance gains were often driven by biased splits rather than true predictive power.",
-  "problem_solved": "Addresses misleading performance estimates caused by dataset bias and leakage in binding-affinity prediction, which produce overoptimistic models that fail to generalize to novel chemical matter or biological targets.",
+  "key_insight": "Fixing hidden dataset biases (e.g., overlap between training and test molecules/targets) markedly improves how well binding-affinity models generalize to new compounds and targets.",
+  "problem_solved": "Many binding-affinity models report overly optimistic performance because biased dataset splits let models memorize artifacts instead of learning true biophysical signals; this paper addresses how to detect and remove those biases to obtain realistic generalization estimates.",
   "method": [
-    "Diagnose dataset biases and overlap (e.g., scaffold/target leakage, measurement heterogeneity) using quantitative analyses.",
-    "Apply debiasing actions: curated resplitting or holdout protocols, reweighting/importance-sampling, and controlled retraining to remove shortcuts.",
-    "Re-evaluate models under rigorous, unbiased benchmarks to demonstrate improved out-of-distribution generalization."
+    "Diagnose common sources of dataset bias (molecule/target overlap, scaffold leakage, label distribution shifts) using targeted partitioning analyses.",
+    "Create and evaluate debiased data splits or reweighting procedures that minimize overlap and distributional leakage between train and test sets.",
+    "Reassess published models and benchmarks under unbiased evaluation protocols to quantify true generalization gains."
   ],
-  "impact": "Provides a practical roadmap for more reliable affinity predictors: better dataset practices and evaluation protocols yield models that transfer to real-world drug-discovery scenarios, reducing wasted experimental follow-up and false confidence in ML results.",
+  "impact": "Provides practical guidelines and validation protocols that make binding-affinity predictions more reliable and reproducible, helping practitioners build models that transfer to novel drug discovery scenarios.",
   "visual_elements": [
-    "Before/after overlap diagram showing scaffold/target leakage between training and test sets",
-    "Bar chart comparing reported vs. debiased model performance (apparent high → realistic lower/higher generalization)",
-    "Pipeline flowchart: detect bias → apply resplit/reweight → retrain → unbiased evaluation",
-    "Iconic molecule + neural network illustration with an arrow showing improved generalization to new targets"
+    "Flowchart showing biased vs. debiased data-splitting pipeline (highlighting overlap removal)",
+    "Before-and-after bar chart of model performance (biased split vs. debiased split)",
+    "Schematic illustrating examples of leakage (same scaffold in train and test) and its effect on learned shortcuts",
+    "Checklist infographic of recommended best practices for dataset curation and evaluation"
   ],
   "hashtags": [
-    "#DrugDiscovery",
-    "#MLBias",
+    "#DatasetBias",
     "#BindingAffinity",
     "#ModelGeneralization",
-    "#DataQuality"
+    "#DrugDiscoveryAI",
+    "#ReproducibleML"
   ],
   "paper_id": "2026-01-27-nature-addendum_resolving_data_bias_improves_generalization_in_binding_affinity_predict",
   "paper_title": "Addendum: Resolving data bias improves generalization in binding affinity prediction",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01174-9"
     }
   ],
-  "generated_at": "2026-01-28T06:26:15.219845"
+  "generated_at": "2026-01-29T06:38:29.347696"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "RHSIA trains a deep-learning surrogate to predict patient-specific hemodynamic markers for intracranial aneurysms in real time, replacing slow CFD while preserving clinically useful accuracy. This enables fast, scalable access to biomechanical risk indicators from morphology alone.",
-  "problem_solved": "Full CFD is time-consuming, requires specialized expertise, and has low throughput, preventing routine clinical use and large-scale studies of aneurysm hemodynamics.",
+  "key_insight": "A deep-learning surrogate can predict CFD-derived hemodynamic markers from patient-specific aneurysm geometry in real time, enabling rapid biomechanical assessment of non-idealized intracranial aneurysms.",
+  "problem_solved": "CFD-based hemodynamic analysis is accurate but slow, requires specialized expertise, and is impractical for large-scale clinical use; the paper replaces slow simulations with a fast, automated surrogate suitable for real-world (non-idealized) patient geometries.",
   "method": [
-    "Create a paired dataset of aneurysm morphologies and CFD-derived hemodynamic outputs (velocity fields, wall shear stress, etc.).",
-    "Train a neural surrogate to map 3D aneurysm geometry/segmentation to hemodynamic markers, optimizing for accuracy and inference speed.",
-    "Validate on non-idealized, patient-like anatomies and quantify error vs CFD while demonstrating real-time inference performance."
+    "Train a deep surrogate model to map 3D aneurysm morphology (patient-specific geometries) to key biomechanical outputs previously obtained by CFD (e.g., wall shear stress, velocity fields, oscillatory indices).",
+    "Use a dataset of CFD simulations on non-idealized aneurysm geometries for supervised learning and validate surrogate predictions against high-fidelity CFD results.",
+    "Optimize model for real-time inference and clinically usable outputs (fast runtime, comparable spatial accuracy, and robustness to realistic boundary conditions)."
   ],
-  "impact": "Provides a practical path to translate biomechanical CFD markers into clinical workflows and large studies by enabling rapid, automated hemodynamic estimation; relevant to ML practitioners working on physics surrogates and medical deployment.",
+  "impact": "Enables scalable, rapid hemodynamic assessment for clinical trials and decision support, lowering the barrier to integrating biomechanics into patient care; relevant to ML practitioners building physics surrogates or clinical AI pipelines.",
   "visual_elements": [
-    "Pipeline diagram: medical image → segmentation → RHSIA model → hemodynamic maps (velocity / WSS)",
-    "Side-by-side heatmaps: CFD result vs RHSIA prediction on the same aneurysm surface",
-    "Bar chart: inference time and throughput (CFD vs RHSIA) showing orders-of-magnitude speedup",
-    "Accuracy/error plot: per-case or per-metric error distribution and clinically acceptable thresholds"
+    "Pipeline diagram: patient imaging → geometry extraction → surrogate model → hemodynamic maps (real-time)",
+    "Side-by-side heatmap comparison of surrogate vs. CFD (e.g., WSS) on the same aneurysm surface",
+    "Scatter/box plot of accuracy vs. runtime showing surrogate speedup and error distribution relative to CFD",
+    "Iconic timeline or dashboard mockup showing 'minutes vs. hours' clinical workflow improvement"
   ],
   "hashtags": [
-    "#MedicalAI",
+    "#Hemodynamics",
     "#SurrogateModeling",
-    "#ComputationalFluidDynamics",
     "#IntracranialAneurysm",
-    "#RealTimeInference"
+    "#MedicalAI",
+    "#CFD"
   ],
   "paper_id": "2026-01-27-arxiv-rhsia_real_time_hemodynamics_surrogation_for_non_idealized_intracranial_aneurysm",
   "paper_title": "RHSIA: Real-time Hemodynamics Surrogation for Non-idealized Intracranial Aneurysms",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.19876v1"
     }
   ],
-  "generated_at": "2026-01-28T06:25:00.826823"
+  "generated_at": "2026-01-29T06:39:37.836274"
 }
