@@ -1,0 +1,35 @@
+{
+  "key_insight": "The paper enables one-step, latent-free image generation by decoupling the network's output space from the loss space and training a pixel-space flow—Pixel MeanFlow (pMF)—that maps noise directly to images in a single step.",
+  "problem_solved": "Modern diffusion and flow models rely on many sampling steps and/or latent spaces (encoders/decoders); pMF targets both bottlenecks to provide fast, simpler, high-quality image generation without latents or iterative sampling.",
+  "method": [
+    "Formulate network output space and loss space separately so the model can predict pixel-domain mean updates while optimizing a suitable loss in a different space.",
+    "Train a flow-based model that operates directly on pixels (Pixel MeanFlow) to learn a one-step mapping from random noise to images.",
+    "Adopt objective and architectural choices to stabilize training and preserve sample quality without requiring an encoder/decoder or multi-step refinement."
+  ],
+  "impact": "Delivers dramatic sampling-speed improvements and a simpler generation pipeline—helpful for practitioners needing real-time or resource-constrained image synthesis while maintaining competitive image quality.",
+  "visual_elements": [
+    "Pipeline comparison diagram: multi-step diffusion/flow vs one-step Pixel MeanFlow (arrow showing reduction to a single step).",
+    "Architecture schematic highlighting the decoupling of network output space and loss space (boxes for output head vs loss computation).",
+    "Chart: sample quality (FID/IS) vs number of sampling steps, showing pMF at the one-step point vs multi-step baselines.",
+    "Image grid: side-by-side samples — ground truth, pMF one-step outputs, and multi-step baseline outputs for perceptual comparison."
+  ],
+  "hashtags": [
+    "#PixelMeanFlow",
+    "#OneStepGeneration",
+    "#GenerativeModels",
+    "#FlowModels",
+    "#ImageGeneration"
+  ],
+  "paper_id": "2026-01-29-arxiv-one_step_latent_free_image_generation_with_pixel_mean_flows",
+  "paper_title": "One-step Latent-free Image Generation with Pixel Mean Flows",
+  "paper_category": "Model",
+  "paper_date": "2026-01-29",
+  "paper_authors": "Yiyang Lu, Susie Lu, Qiao Sun, Hanhong Zhao, Zhicheng Jiang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.22158v1"
+    }
+  ],
+  "generated_at": "2026-01-30T06:38:28.642106"
+}
