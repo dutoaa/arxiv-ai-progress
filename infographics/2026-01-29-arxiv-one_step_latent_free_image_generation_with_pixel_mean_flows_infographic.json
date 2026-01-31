@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper enables one-step, latent-free image generation by decoupling the network's output space from the loss space and training a pixel-space flow—Pixel MeanFlow (pMF)—that maps noise directly to images in a single step.",
-  "problem_solved": "Modern diffusion and flow models rely on many sampling steps and/or latent spaces (encoders/decoders); pMF targets both bottlenecks to provide fast, simpler, high-quality image generation without latents or iterative sampling.",
+  "key_insight": "Pixel MeanFlow (pMF) enables one-step, latent-free image generation by separating the network output space from the loss space and learning a pixel-wise mean flow mapping directly in image space, removing the need for multi-step sampling or a latent bottleneck.",
+  "problem_solved": "Modern diffusion and flow models rely on multi-step sampling and operate in latent spaces, which increases sampling time and complicates model design; pMF addresses fast, high-quality image generation without latents or iterative denoising.",
   "method": [
-    "Formulate network output space and loss space separately so the model can predict pixel-domain mean updates while optimizing a suitable loss in a different space.",
-    "Train a flow-based model that operates directly on pixels (Pixel MeanFlow) to learn a one-step mapping from random noise to images.",
-    "Adopt objective and architectural choices to stabilize training and preserve sample quality without requiring an encoder/decoder or multi-step refinement."
+    "Design a network that predicts a pixel-wise mean flow mapping directly in image (pixel) space rather than a latent representation.",
+    "Separate the network output space from the loss space so the model can optimize a loss that differs from the raw output representation (e.g., transform-domain or perceptual loss) to improve fidelity.",
+    "Train the mapping to produce a one-step deterministic or single-sample stochastic transform from noise to image, enabling one-step sampling at inference."
   ],
-  "impact": "Delivers dramatic sampling-speed improvements and a simpler generation pipeline—helpful for practitioners needing real-time or resource-constrained image synthesis while maintaining competitive image quality.",
+  "impact": "pMF simplifies generation pipelines and dramatically reduces sampling cost while retaining high-quality outputs, making fast, end-to-end image synthesis more practical for real-world ML workflows and deployment.",
   "visual_elements": [
-    "Pipeline comparison diagram: multi-step diffusion/flow vs one-step Pixel MeanFlow (arrow showing reduction to a single step).",
-    "Architecture schematic highlighting the decoupling of network output space and loss space (boxes for output head vs loss computation).",
-    "Chart: sample quality (FID/IS) vs number of sampling steps, showing pMF at the one-step point vs multi-step baselines.",
-    "Image grid: side-by-side samples — ground truth, pMF one-step outputs, and multi-step baseline outputs for perceptual comparison."
+    "Side-by-side pipeline diagram comparing: (a) multi-step latent diffusion/flow with a latent bottleneck, and (b) pMF one-step pixel-space mapping.",
+    "Illustration of 'output space vs loss space' showing network outputs in pixel space and a separate loss computed in a transformed/perceptual space.",
+    "Before/after sampling speed vs quality plot (schematic) highlighting one-step inference and comparable perceptual fidelity.",
+    "Icon set: single-step clock (speed), pixel grid (no latent), flow arrow (mapping), and loss target (optimization)"
   ],
   "hashtags": [
-    "#PixelMeanFlow",
+    "#GenerativeAI",
     "#OneStepGeneration",
-    "#GenerativeModels",
     "#FlowModels",
-    "#ImageGeneration"
+    "#ImageSynthesis",
+    "#LatentFree"
   ],
   "paper_id": "2026-01-29-arxiv-one_step_latent_free_image_generation_with_pixel_mean_flows",
   "paper_title": "One-step Latent-free Image Generation with Pixel Mean Flows",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.22158v1"
     }
   ],
-  "generated_at": "2026-01-30T06:38:28.642106"
+  "generated_at": "2026-01-31T06:27:45.860594"
 }

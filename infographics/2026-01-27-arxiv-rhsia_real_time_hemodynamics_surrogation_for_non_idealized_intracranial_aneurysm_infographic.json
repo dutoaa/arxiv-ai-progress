@@ -1,24 +1,24 @@
 {
-  "key_insight": "A deep-learning surrogate can predict CFD-derived hemodynamic markers from patient-specific aneurysm geometry in real time, enabling rapid biomechanical assessment of non-idealized intracranial aneurysms.",
-  "problem_solved": "CFD-based hemodynamic analysis is accurate but slow, requires specialized expertise, and is impractical for large-scale clinical use; the paper replaces slow simulations with a fast, automated surrogate suitable for real-world (non-idealized) patient geometries.",
+  "key_insight": "A deep-learning surrogate can predict clinically relevant hemodynamic markers for intracranial aneurysms from patient geometry in real time, enabling CFD-level insights without the time and expertise burden of full simulations.",
+  "problem_solved": "CFD-derived fluid-mechanical markers are valuable for assessing aneurysm risk but are too slow, specialized, and low-throughput for routine clinical use or large trials—this work provides a fast, automated alternative that works on realistic (non-idealized) patient geometries.",
   "method": [
-    "Train a deep surrogate model to map 3D aneurysm morphology (patient-specific geometries) to key biomechanical outputs previously obtained by CFD (e.g., wall shear stress, velocity fields, oscillatory indices).",
-    "Use a dataset of CFD simulations on non-idealized aneurysm geometries for supervised learning and validate surrogate predictions against high-fidelity CFD results.",
-    "Optimize model for real-time inference and clinically usable outputs (fast runtime, comparable spatial accuracy, and robustness to realistic boundary conditions)."
+    "Generate training targets by running CFD on a diverse set of non-idealized, patient-derived aneurysm geometries to obtain hemodynamic markers.",
+    "Train a deep-learning surrogate model that maps 3D aneurysm morphology to biomechanical markers, optimized for runtime and robustness to realistic geometry artifacts.",
+    "Evaluate the surrogate against CFD on held-out cases for marker agreement and measure runtime speedups to demonstrate real-time inference capability."
   ],
-  "impact": "Enables scalable, rapid hemodynamic assessment for clinical trials and decision support, lowering the barrier to integrating biomechanics into patient care; relevant to ML practitioners building physics surrogates or clinical AI pipelines.",
+  "impact": "Enables scalable, real-time hemodynamic assessment for clinical workflows and trials; for ML practitioners it exemplifies building physics-informed surrogate models that trade minimal accuracy loss for large gains in speed and clinical applicability.",
   "visual_elements": [
-    "Pipeline diagram: patient imaging → geometry extraction → surrogate model → hemodynamic maps (real-time)",
-    "Side-by-side heatmap comparison of surrogate vs. CFD (e.g., WSS) on the same aneurysm surface",
-    "Scatter/box plot of accuracy vs. runtime showing surrogate speedup and error distribution relative to CFD",
-    "Iconic timeline or dashboard mockup showing 'minutes vs. hours' clinical workflow improvement"
+    "Pipeline diagram: patient imaging → geometry extraction → surrogate model → hemodynamic marker outputs (vs CFD baseline).",
+    "Side-by-side heatmaps on 3D aneurysm geometry: surrogate prediction vs CFD ground truth to show spatial agreement.",
+    "Bar chart: runtime comparison (CFD vs surrogate) and error metrics (MAE/RMSE) to illustrate speed/accuracy tradeoff.",
+    "Scatter plot: predicted vs CFD marker values across test cases with a line of identity to visualize calibration and bias."
   ],
   "hashtags": [
-    "#Hemodynamics",
-    "#SurrogateModeling",
-    "#IntracranialAneurysm",
     "#MedicalAI",
-    "#CFD"
+    "#SurrogateModeling",
+    "#CFD",
+    "#Neurovascular",
+    "#DeepLearning"
   ],
   "paper_id": "2026-01-27-arxiv-rhsia_real_time_hemodynamics_surrogation_for_non_idealized_intracranial_aneurysm",
   "paper_title": "RHSIA: Real-time Hemodynamics Surrogation for Non-idealized Intracranial Aneurysms",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.19876v1"
     }
   ],
-  "generated_at": "2026-01-29T06:39:37.836274"
+  "generated_at": "2026-01-31T06:29:49.376713"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Aggregate validation metrics (like perplexity) mask heterogeneous downstream scaling: some tasks improve with scale, others plateau, and some even degrade — so validation perplexity alone cannot reliably predict per-task performance.",
-  "problem_solved": "Explains why predicting individual downstream task performance from average token-level validation loss fails, and provides analysis and alternatives to reveal and model diverse task-specific scaling behaviors.",
+  "key_insight": "Although aggregate validation metrics (e.g., perplexity) follow smooth power-law scaling, individual downstream tasks show diverse behaviors — improving, plateauing, or degrading with scale — so validation perplexity alone cannot reliably predict task performance.",
+  "problem_solved": "Addresses the gap between smooth aggregate neural scaling laws and noisy, heterogeneous downstream task scaling, identifying why validation-perplexity-based predictions fail and what limits simple parametric extrapolation.",
   "method": [
-    "Empirical analysis of many downstream tasks across model scales to characterize per-task scaling patterns (monotonic improvement, plateauing, degradation).",
-    "Diagnose two failure modes of using validation perplexity: (1) averaging token-level loss obscures informative signals; (2) no simple parametric scaling family captures the diversity of task behaviors.",
-    "Propose richer predictors and flexible fitting strategies (e.g., token-loss distribution summaries, nonparametric/mixture fits and per-task curves) and practical evaluation guidelines for model selection."
+    "Empirically analyze how a wide set of individual downstream tasks scale across model/compute regimes and contrast them with aggregate validation loss curves.",
+    "Show that averaging token-level losses hides task-specific signals and that no single simple parametric family captures the variety of per-task scaling behaviors.",
+    "Propose analyzing finer-grained signals (e.g., token- or task-level decompositions and nonparametric fits) to better characterize and predict downstream performance."
   ],
-  "impact": "Enables practitioners to better anticipate when scaling will help—or hurt—specific tasks, avoid overreliance on perplexity for model selection, and design more informative evaluation pipelines that reveal task-specific scaling.",
+  "impact": "Helps practitioners avoid over-reliance on aggregate perplexity when forecasting model usefulness and motivates task-aware evaluation and modeling strategies for more reliable scaling predictions.",
   "visual_elements": [
-    "Overlay plot: smooth aggregate validation loss power-law curve vs. multiple individual task curves showing improvement, plateau, and degradation.",
-    "Heatmap or cluster diagram grouping tasks by scaling behavior (improve/plateau/degrade).",
-    "Violin or histogram plots of token-level loss distributions to show how averaging hides signal.",
-    "Evaluation pipeline flowchart recommending per-task curve fitting, alternative predictors, and decision points for model selection."
+    "Line chart: smooth power-law curve for aggregate validation loss vs. overlaid diverse per-task curves (improve/plateau/degrade).",
+    "Heatmap: tasks (rows) × model scale (columns) showing performance heterogeneity across scales.",
+    "Diagram: token-level loss decomposition vs. averaged perplexity to illustrate lost signal from averaging.",
+    "Schematic: parametric fit failure — simple curve families vs. actual nonparametric task trajectories."
   ],
   "hashtags": [
     "#NeuralScaling",
-    "#ScalingLaws",
     "#ModelEvaluation",
-    "#Perplexity",
-    "#Benchmarking"
+    "#LanguageModels",
+    "#ScalingLaws",
+    "#TaskRobustness"
   ],
   "paper_id": "2026-01-27-arxiv-neural_neural_scaling_laws",
   "paper_title": "Neural Neural Scaling Laws",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.19831v1"
     }
   ],
-  "generated_at": "2026-01-29T06:39:07.171593"
+  "generated_at": "2026-01-31T06:29:38.738331"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "You can get the best of both worlds for extremely long contexts by converting pre-trained softmax-attention blocks into lightweight linear/RNN-style components and combining them with a few retained softmax blocks — yielding high accuracy with much lower pretraining cost and much better throughput.",
-  "problem_solved": "How to deploy Transformer models that handle extremely long contexts without the prohibitive cost of training new long-context models from scratch, and while preserving accuracy and runtime efficiency.",
+  "key_insight": "An efficient distillation + parameter-transfer recipe makes it practical to convert pretrained softmax‑attention transformers into hybrid linear‑attention/RNN architectures, preserving accuracy while enabling extremely long contexts with much lower compute and memory.",
+  "problem_solved": "Pretraining hybrid Transformer/RNN models from scratch for long‑context tasks is prohibitively expensive; existing conversion methods are inefficient or degrade performance, limiting adoption for very long sequences.",
   "method": [
-    "Efficient distillation/parameter-transfer pipeline: convert pre-trained softmax-attention blocks into linear or RNN-style blocks using targeted parameter transfer and lightweight knowledge distillation so heavy pretraining isn’t required.",
-    "Hybrid architecture design: keep a small number of softmax-attention blocks for global context while replacing other layers with linear/RNN modules that provide cheap, scalable local/recurrence memory.",
-    "Training/finetuning recipe: distill behaviour from the original model on representative long-context inputs and tune hybrid layering to trade off accuracy vs throughput."
+    "Design a compact distillation protocol that transfers knowledge from pretrained softmax‑attention blocks into linear/RNN blocks with targeted losses and parameter mappings.",
+    "Propose hybrid architecture choices and conversion rules (which layers to convert, gating/skip connections) that retain modeling capacity while enabling O(n) memory/compute.",
+    "Empirically validate across very long context benchmarks, showing large throughput/memory gains with minimal performance drop."
   ],
-  "impact": "Practitioners can extend context windows by orders of magnitude with much lower compute and latency, enabling long-document understanding, retrieval-augmented workflows, and streaming use cases without retraining massive models from scratch.",
+  "impact": "Enables practitioners to reuse large pretrained models rather than retrain hybrids from scratch, drastically reducing compute and memory for long‑context applications (document search, code, multi‑hour audio, agents). This makes deployment of extremely long‑context models practical and cost‑effective.",
   "visual_elements": [
-    "Architecture diagram showing hybrid stack: a few softmax-attention blocks at the top and many linear/RNN blocks below, with arrows indicating parameter transfer.",
-    "Pipeline flowchart for efficient distillation: pre-trained model → parameter transfer → distillation on long-context data → hybrid model.",
-    "Performance chart: accuracy vs context length and throughput/latency tradeoff comparing original softmax model, hybrid model, and fully linear baselines.",
-    "Memory/compute bar chart highlighting reduced FLOPs, GPU memory, and inference latency for the hybrid distilled model."
+    "Left: side‑by‑side diagram of standard softmax Transformer vs converted hybrid (linear/RNN) block highlighting converted layers.",
+    "Pipeline flowchart of the distillation + parameter transfer process (teacher model → distillation losses → hybrid student).",
+    "Performance chart: accuracy vs context length with throughput/memory overlays (showing maintained accuracy and big efficiency gains).",
+    "Bar chart of compute and memory reduction (FLOPs, peak memory) before vs after conversion."
   ],
   "hashtags": [
     "#LongContext",
-    "#EfficientAI",
-    "#Transformers",
+    "#EfficientTransformers",
     "#ModelDistillation",
-    "#Attention"
+    "#HybridAttention",
+    "#AIInfrastructure"
   ],
   "paper_id": "2026-01-29-arxiv-hybrid_linear_attention_done_right_efficient_distillation_and_effective_architec",
   "paper_title": "Hybrid Linear Attention Done Right: Efficient Distillation and Effective Architectures for Extremely Long Contexts",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.22156v1"
     }
   ],
-  "generated_at": "2026-01-30T06:38:12.131707"
+  "generated_at": "2026-01-31T06:27:37.922829"
 }

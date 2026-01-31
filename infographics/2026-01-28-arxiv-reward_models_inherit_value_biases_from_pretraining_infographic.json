@@ -1,24 +1,24 @@
 {
-  "key_insight": "Reward models inherit representational value biases from their pretrained LLM initializations, producing systematic differences in reward judgments across value-relevant axes even after RM-specific training.",
-  "problem_solved": "Addresses the understudied question of how pretraining shapes reward-model behavior and whether value-related biases persist in RMs used for alignment.",
+  "key_insight": "Reward models inherit value and preference biases from their LLM pretraining: even after supervised or preference fine-tuning, RMs display systematic differences in moral, social, and value judgments that reflect their initialization.",
+  "problem_solved": "Clarifies how pretraining shapes downstream reward models and quantifies the degree to which inherited representations produce biased value judgments—filling a gap in RM auditing and alignment research.",
   "method": [
-    "Empirical evaluation of 10 leading open-weight reward models initialized from pretrained LLMs.",
-    "Probing RMs with validated psycholinguistic corpora to elicit value- and preference-related judgments across multiple axes.",
-    "Quantitative comparison of model responses to characterize systematic differences and trace them back to pretrained representations."
+    "Assembled 10 leading open-weight reward models initialized from different pretrained LLMs.",
+    "Evaluated RMs using validated psycholinguistic and moral judgment corpora to probe value, moral, and social preference signals.",
+    "Performed comparative analyses (score distributions, effect sizes, and correlations) to attribute observed differences to pretraining initialization rather than only to fine-tuning."
   ],
-  "impact": "Shows that alignment via reward modeling can inherit unwanted value biases from pretraining, so practitioners must evaluate and mitigate pretrained influences when building and deploying RMs. Results guide better RM selection, evaluation protocols, and targeted debiasing or fine-tuning strategies.",
+  "impact": "Highlights that RM initialization matters for alignment and fairness: practitioners must audit and account for pretrained biases when training or deploying reward models to avoid unintended value transfer and misaligned behavior.",
   "visual_elements": [
-    "Pipeline diagram: Pretrained LLM → Reward model initialization/fine-tuning → Output judgments (to show inheritance path).",
-    "Heatmap or matrix comparing RM responses across multiple value axes (rows = models, columns = value dimensions).",
-    "Bar/violin plots of bias magnitude per model illustrating variability across the 10 RMs.",
-    "Schematic of probing setup: psycholinguistic corpus → prompt variants → RM scores (to convey methodology concisely)."
+    "Bar chart comparing bias/value scores across the 10 RMs for key psycholinguistic tests (side-by-side bars per test).",
+    "Heatmap showing correlation between pretrained model features (e.g., corpus/source or architecture) and RM bias dimensions.",
+    "Pipeline diagram: Pretrained LLM → RM initialization → Fine-tuning → Observed value biases, with callouts showing where inherited effects emerge.",
+    "Example prompt-response tiles illustrating divergent RM preference scores on the same moral/social question."
   ],
   "hashtags": [
-    "#RewardModels",
-    "#ModelBias",
     "#AIAlignment",
+    "#BiasInAI",
+    "#RewardModels",
     "#LLM",
-    "#AIEthics"
+    "#ModelAuditing"
   ],
   "paper_id": "2026-01-28-arxiv-reward_models_inherit_value_biases_from_pretraining",
   "paper_title": "Reward Models Inherit Value Biases from Pretraining",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.20838v1"
     }
   ],
-  "generated_at": "2026-01-30T06:40:19.917904"
+  "generated_at": "2026-01-31T06:29:14.317651"
 }

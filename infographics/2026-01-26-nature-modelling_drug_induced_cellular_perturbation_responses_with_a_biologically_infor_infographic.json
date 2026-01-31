@@ -1,24 +1,24 @@
 {
-  "key_insight": "A biologically informed dual-branch transformer separates a cell's baseline state from drug-induced regulatory shifts, enabling accurate prediction of transcriptional responses across nonlinear dose–time trajectories and unseen cellular contexts.",
-  "problem_solved": "Predicting how cells' gene expression changes after drug perturbations across varying doses, times and cell types while disentangling intrinsic cell state from treatment effects to improve generalization and interpretability.",
+  "key_insight": "A biologically informed dual-branch transformer disentangles baseline cell state from drug-induced regulatory shifts, enabling accurate prediction of nonlinear dose–time transcriptional responses and strong generalization to unseen cellular contexts.",
+  "problem_solved": "Predicting how cells transcriptionally respond to drugs across varying doses and times is hard because baseline cell identity confounds treatment effects and responses are nonlinear and context-dependent; this model separates those factors to improve accuracy and out-of-distribution generalization.",
   "method": [
-    "Dual-branch transformer: one branch encodes baseline cell/state features, the other encodes drug-induced perturbation signals; outputs are combined to predict post-treatment transcriptional profiles.",
-    "Explicit dose and time embeddings plus attention mechanisms capture nonlinear dose–time dynamics and interactions with regulatory programs.",
-    "Biologically informed training objectives and latent disentanglement encourage separation of intrinsic cell state vs. treatment effect, improving transfer to unseen cell contexts."
+    "Dual-branch transformer: separate branches encode baseline cell state and drug-induced perturbation, then combine representations to predict post-treatment expression while preserving interpretability.",
+    "Biologically informed priors: incorporate pathway/gene-regulatory constraints and domain-specific embeddings to bias the model toward plausible mechanistic shifts.",
+    "Dose–time modeling: continuous dose/time embeddings and attention mechanisms capture nonlinear dynamics and interactions across treatment conditions."
   ],
-  "impact": "Provides a generalizable, interpretable modeling paradigm for perturbation prediction useful in drug discovery, perturbation screening and transfer learning; demonstrates how architectural inductive biases (biological priors + transformers) improve real-world generalization.",
+  "impact": "Provides a scalable, interpretable framework for modeling perturbation responses that improves OOD generalization and can accelerate in-silico drug screening, mechanistic hypothesis generation, and transfer learning in molecular and single-cell applications.",
   "visual_elements": [
-    "Schematic of the dual-branch transformer showing separate baseline and perturbation branches, fusion layer, and predicted gene expression output",
-    "Dose–time response plots illustrating nonlinear trajectories and model fit vs. ground truth",
-    "Latent-space visualization (e.g., UMAP) separating baseline cell-state embeddings from drug-shift embeddings to show disentanglement",
-    "Heatmap comparison of observed vs. predicted gene expression across conditions (including unseen cell types)"
+    "Architecture schematic showing two parallel transformer branches (cell state vs perturbation) merging into a prediction head with disentanglement arrows.",
+    "Dose–time response surface (heatmap or 3D surface) illustrating nonlinear predicted transcriptional trajectories across dose and time.",
+    "Embedding visualization (UMAP/t-SNE) showing separation of baseline cell-state embeddings from perturbation embeddings and clustering by response.",
+    "Benchmark bar/line chart comparing prediction accuracy and OOD generalization against existing baselines across multiple cell types."
   ],
   "hashtags": [
-    "#DrugResponse",
     "#Transformers",
     "#ComputationalBiology",
-    "#DoseTimeDynamics",
-    "#InterpretableAI"
+    "#DrugDiscovery",
+    "#SingleCell",
+    "#PerturbationModeling"
   ],
   "paper_id": "2026-01-26-nature-modelling_drug_induced_cellular_perturbation_responses_with_a_biologically_infor",
   "paper_title": "Modelling drug-induced cellular perturbation responses with a biologically informed dual-branch transformer",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01165-w"
     }
   ],
-  "generated_at": "2026-01-30T06:39:28.620008"
+  "generated_at": "2026-01-31T06:28:34.601610"
 }
