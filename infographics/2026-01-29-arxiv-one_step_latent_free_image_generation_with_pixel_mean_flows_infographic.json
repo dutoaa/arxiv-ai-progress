@@ -1,22 +1,22 @@
 {
-  "key_insight": "Pixel MeanFlow (pMF) enables one-step, latent-free image generation by separating the network output space from the loss space and learning a pixel-wise mean flow mapping directly in image space, removing the need for multi-step sampling or a latent bottleneck.",
-  "problem_solved": "Modern diffusion and flow models rely on multi-step sampling and operate in latent spaces, which increases sampling time and complicates model design; pMF addresses fast, high-quality image generation without latents or iterative denoising.",
+  "key_insight": "Pixel MeanFlow (pMF) enables one-step, latent-free image generation by separating what the network predicts (output space) from how it's trained (loss space), allowing a single-step flow transform from simple noise to high-quality images.",
+  "problem_solved": "Bridges the gap between multi-step latent diffusion/flow models and fully one-step, pixel-space generative models — removing iterative sampling and latent-space dependencies that increase latency and system complexity.",
   "method": [
-    "Design a network that predicts a pixel-wise mean flow mapping directly in image (pixel) space rather than a latent representation.",
-    "Separate the network output space from the loss space so the model can optimize a loss that differs from the raw output representation (e.g., transform-domain or perceptual loss) to improve fidelity.",
-    "Train the mapping to produce a one-step deterministic or single-sample stochastic transform from noise to image, enabling one-step sampling at inference."
+    "Design a flow-based generator whose network outputs live in a tailored pixel-space (the \"mean flow\" representation) while the optimization/loss is computed in the target image space.",
+    "Train the model so a single transformation maps simple base noise directly to images (one-step sampling) without intermediate latents or multi-step denoising.",
+    "Separate output & loss spaces to stabilize training and align the model's predictive target with perceptual/image reconstruction objectives."
   ],
-  "impact": "pMF simplifies generation pipelines and dramatically reduces sampling cost while retaining high-quality outputs, making fast, end-to-end image synthesis more practical for real-world ML workflows and deployment.",
+  "impact": "Practitioners get a fast, simpler alternative to multi-step diffusion/flow pipelines — enabling real-time or resource-constrained image synthesis and easier deployment while retaining high image quality.",
   "visual_elements": [
-    "Side-by-side pipeline diagram comparing: (a) multi-step latent diffusion/flow with a latent bottleneck, and (b) pMF one-step pixel-space mapping.",
-    "Illustration of 'output space vs loss space' showing network outputs in pixel space and a separate loss computed in a transformed/perceptual space.",
-    "Before/after sampling speed vs quality plot (schematic) highlighting one-step inference and comparable perceptual fidelity.",
-    "Icon set: single-step clock (speed), pixel grid (no latent), flow arrow (mapping), and loss target (optimization)"
+    "High-level pipeline diagram: single-step mapping from noise to image, highlighting separation between network output space and loss space.",
+    "Before/after timeline chart: multi-step sampling vs pMF one-step sampling showing latency reduction and similar quality.",
+    "Architecture sketch: block showing flow module producing 'pixel mean' outputs and a separate loss computation in image space.",
+    "Image grid: qualitative examples (ground truth vs pMF samples) to illustrate perceptual fidelity."
   ],
   "hashtags": [
-    "#GenerativeAI",
-    "#OneStepGeneration",
+    "#GenerativeModels",
     "#FlowModels",
+    "#OneStepGeneration",
     "#ImageSynthesis",
     "#LatentFree"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.22158v1"
     }
   ],
-  "generated_at": "2026-01-31T06:27:45.860594"
+  "generated_at": "2026-02-01T06:39:03.684353"
 }

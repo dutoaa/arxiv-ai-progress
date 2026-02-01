@@ -1,24 +1,24 @@
 {
-  "key_insight": "Although aggregate validation metrics (e.g., perplexity) follow smooth power-law scaling, individual downstream tasks show diverse behaviors — improving, plateauing, or degrading with scale — so validation perplexity alone cannot reliably predict task performance.",
-  "problem_solved": "Addresses the gap between smooth aggregate neural scaling laws and noisy, heterogeneous downstream task scaling, identifying why validation-perplexity-based predictions fail and what limits simple parametric extrapolation.",
+  "key_insight": "Aggregate validation metrics like perplexity can follow smooth power laws while individual downstream tasks show heterogeneous scaling — some improve, some plateau, and some worsen — so validation perplexity alone is an unreliable predictor of task performance as models scale.",
+  "problem_solved": "Clarifies why using aggregate scaling laws (validation loss/perplexity) to predict downstream task performance fails, and identifies the mechanisms (token-level averaging and lack of a universal parametric mapping) behind that failure.",
   "method": [
-    "Empirically analyze how a wide set of individual downstream tasks scale across model/compute regimes and contrast them with aggregate validation loss curves.",
-    "Show that averaging token-level losses hides task-specific signals and that no single simple parametric family captures the variety of per-task scaling behaviors.",
-    "Propose analyzing finer-grained signals (e.g., token- or task-level decompositions and nonparametric fits) to better characterize and predict downstream performance."
+    "Empirical, task-level scaling study: measure downstream performance across model sizes and compute budgets to reveal diverse per-task trajectories (monotonic improvement, plateaus, degradation).",
+    "Diagnostic decomposition: analyze token-level losses and their aggregation to show how averaging obscures task-relevant signal.",
+    "Statistical assessment: evaluate parametric fits linking perplexity to downstream metrics and demonstrate that no simple family robustly generalizes across tasks."
   ],
-  "impact": "Helps practitioners avoid over-reliance on aggregate perplexity when forecasting model usefulness and motivates task-aware evaluation and modeling strategies for more reliable scaling predictions.",
+  "impact": "Practitioners should not rely solely on validation perplexity when forecasting gains from scaling; instead, evaluate task-specific metrics and consider token-level or task-aware extrapolations to guide compute allocation and model selection.",
   "visual_elements": [
-    "Line chart: smooth power-law curve for aggregate validation loss vs. overlaid diverse per-task curves (improve/plateau/degrade).",
-    "Heatmap: tasks (rows) × model scale (columns) showing performance heterogeneity across scales.",
-    "Diagram: token-level loss decomposition vs. averaged perplexity to illustrate lost signal from averaging.",
-    "Schematic: parametric fit failure — simple curve families vs. actual nonparametric task trajectories."
+    "Line chart: aggregate validation loss (smooth power-law) overlaid with multiple downstream-task curves showing improvement, plateau, and degradation.",
+    "Heatmap or raster: token-level loss contributions across inputs to illustrate how averaging masks signal.",
+    "Scatter plot: validation perplexity vs. downstream task performance showing weak/variable correlation and poor predictive fit.",
+    "Flowchart/Checklist: recommended evaluation workflow — task-specific metrics, token-level diagnostics, and non-parametric/task-aware extrapolation."
   ],
   "hashtags": [
-    "#NeuralScaling",
-    "#ModelEvaluation",
-    "#LanguageModels",
     "#ScalingLaws",
-    "#TaskRobustness"
+    "#LanguageModels",
+    "#ModelEvaluation",
+    "#MLRobustness",
+    "#AIResearch"
   ],
   "paper_id": "2026-01-27-arxiv-neural_neural_scaling_laws",
   "paper_title": "Neural Neural Scaling Laws",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.19831v1"
     }
   ],
-  "generated_at": "2026-01-31T06:29:38.738331"
+  "generated_at": "2026-02-01T06:41:07.028976"
 }

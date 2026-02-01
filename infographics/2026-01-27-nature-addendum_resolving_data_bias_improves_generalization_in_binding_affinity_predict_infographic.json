@@ -1,24 +1,24 @@
 {
-  "key_insight": "Correcting dataset bias in binding-affinity data substantially improves out-of-distribution generalization of prediction models; bias-aware data curation and evaluation reveal true model performance rather than spurious correlations.",
-  "problem_solved": "Public binding-affinity benchmarks contain selection and distributional biases (uneven target/ligand representation, correlated experimental conditions) that cause models to overfit and produce overly optimistic results on standard test splits, reducing real-world utility.",
+  "key_insight": "Correcting dataset biases in binding-affinity datasets — rather than only tweaking model architectures — substantially improves out-of-distribution generalization of predictive models.",
+  "problem_solved": "Models for binding affinity often overfit to biased training data (e.g., scaffold, target, or assay biases), producing inflated in-distribution performance but poor real-world generalization; the paper addresses detecting and correcting these biases.",
   "method": [
-    "Diagnose and quantify dataset biases (e.g., target/ligand frequency imbalances and confounding experimental variables).",
-    "Apply bias-resolution procedures: curated filtering, reweighting or stratified splitting to remove spurious correlations and produce more realistic training/test partitions.",
-    "Re-evaluate models on bias-aware, out-of-distribution (OOD) splits and corrected baselines to demonstrate improved generalization."
+    "Identify and quantify dataset biases and leakage (e.g., shared scaffolds/targets between train and test splits) using statistical and fingerprint-based analyses.",
+    "Resolve bias via dataset curation and re-splitting strategies (balanced/resampled or de-duplicated splits), plus sample reweighting or augmentation to counter overrepresented patterns.",
+    "Re-evaluate models on unbiased, out-of-distribution test sets to demonstrate improved generalization after bias mitigation."
   ],
-  "impact": "Adopting bias-aware curation and evaluation yields more reliable binding-affinity predictors for drug discovery and reduces false confidence from biased benchmarks; it promotes reproducible, transferable ML models in molecular sciences.",
+  "impact": "Practitioners gain a practical pathway to improve robustness and real-world utility of binding-affinity models by prioritizing dataset auditing and split design; this leads to more reliable candidate prioritization in drug discovery pipelines.",
   "visual_elements": [
-    "Heatmap showing dataset composition by target and ligand frequency to illustrate imbalance.",
-    "Before/after bar chart comparing OOD performance (e.g., RMSE or Spearman) with original vs bias-corrected data.",
-    "Pipeline diagram of bias-identification → curation/reweighting → OOD evaluation.",
-    "Scatter plots of predicted vs true affinities showing tighter correlation after bias correction."
+    "Before/after schematic: biased train→test leakage vs. bias-resolved, OOD-aware split",
+    "Bar chart: performance (MAE/RMSE or R^2) on biased vs. bias-corrected test sets",
+    "Heatmap or network showing dataset composition and overrepresented scaffolds/targets",
+    "Flowchart: bias detection → curation/reweighting → OOD evaluation"
   ],
   "hashtags": [
     "#DataBias",
     "#BindingAffinity",
-    "#DrugDiscovery",
-    "#MLGeneralization",
-    "#DatasetCuration"
+    "#Generalization",
+    "#DrugDiscoveryAI",
+    "#MLRobustness"
   ],
   "paper_id": "2026-01-27-nature-addendum_resolving_data_bias_improves_generalization_in_binding_affinity_predict",
   "paper_title": "Addendum: Resolving data bias improves generalization in binding affinity prediction",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01174-9"
     }
   ],
-  "generated_at": "2026-01-31T06:28:55.514267"
+  "generated_at": "2026-02-01T06:40:13.598774"
 }

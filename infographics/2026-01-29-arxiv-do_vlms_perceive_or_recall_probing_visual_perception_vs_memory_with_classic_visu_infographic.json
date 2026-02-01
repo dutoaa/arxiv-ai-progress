@@ -1,24 +1,24 @@
 {
-  "key_insight": "Large VLMs often give illusion-consistent answers by recalling learned patterns rather than visually perceiving changes — they frequently keep the same response even when illusion factors are visibly inverted.",
-  "problem_solved": "Determines whether VLM outputs on classic visual illusions reflect genuine visual perception or memorized associations, and provides a systematic probing framework to separate perception from recall.",
+  "key_insight": "VLMs often produce 'correct' answers to classic visual illusions by recalling memorized patterns rather than perceiving the visual change—models tend to repeat the same response even when illusion factors are inverted, unlike humans.",
+  "problem_solved": "Distinguishes whether VLM outputs reflect genuine visual perception or memorized training associations, providing a systematic way to diagnose when models are blind to obvious visual changes.",
   "method": [
-    "Construct controlled illusion test sets that include original images and versions with inverted/altered illusion factors.",
-    "Probe VLMs with standardized prompts and image manipulations, measuring response invariance and mismatch with human perception.",
-    "Quantitatively compare model behaviors across architectures, checkpoints, and prompt variants to isolate memorization vs. perceptual failure."
+    "Construct a benchmark of classic visual illusions with controlled manipulations (inversions/counterfactuals) to test perceptual sensitivity.",
+    "Probe multiple VLMs with standardized prompts and compare model responses to human judgments, measuring invariance to visual change.",
+    "Use targeted ablations and probing analyses (e.g., perturb visual input, isolate encoder vs. decoder contributions, vary prompt context) to separate perception from recall."
   ],
-  "impact": "Provides practitioners a clear evaluation protocol to detect when VLMs rely on memorized patterns instead of processing visual evidence, informing model selection, training, and robustness fixes for multimodal systems.",
+  "impact": "Reveals a key failure mode in VLM evaluation and deployment: high-level correctness can mask lack of true perceptual grounding. This guides practitioners to design more robust benchmarks, training regimes, and interpretability checks that prioritize perceptual fidelity over memorized cues.",
   "visual_elements": [
-    "Side-by-side image pairs (original vs inverted illusion) with model answers and human answers for direct comparison",
-    "Pipeline flowchart showing dataset creation → prompting → response analysis → attribution (perception vs recall)",
-    "Bar or heatmap chart showing invariance rates across models and prompt conditions",
-    "Iconic split graphic contrasting 'Perception (eye/brain)' vs 'Recall (database/memo)'"
+    "Side-by-side original vs inverted illusion image with model and human answers annotated to show divergent sensitivity.",
+    "Bar chart showing response invariance rates across multiple VLMs (percent unchanged after inversion).",
+    "Flow diagram of the probing pipeline: dataset → prompts → model responses → human baseline → ablation analyses.",
+    "Heatmap or attention overlay indicating which image regions feed the model's decision (to illustrate reliance on local cues vs global perception)."
   ],
   "hashtags": [
     "#VisionLanguageModels",
-    "#ModelRobustness",
-    "#PerceptionVsMemory",
     "#AIInterpretability",
-    "#Evaluation"
+    "#Robustness",
+    "#VisualIllusions",
+    "#ModelEvaluation"
   ],
   "paper_id": "2026-01-29-arxiv-do_vlms_perceive_or_recall_probing_visual_perception_vs_memory_with_classic_visu",
   "paper_title": "Do VLMs Perceive or Recall? Probing Visual Perception vs. Memory with Classic Visual Illusions",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.22150v1"
     }
   ],
-  "generated_at": "2026-01-31T06:26:38.255487"
+  "generated_at": "2026-02-01T06:37:59.390259"
 }
