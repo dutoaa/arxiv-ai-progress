@@ -1,0 +1,35 @@
+{
+  "key_insight": "Decoupled Diffusion Inverse Solver (DDIS) separates the generative prior and the forward physics: an unconditional diffusion models the coefficient prior in function space, while a neural operator explicitly provides PDE-based guidance during sampling. This yields a data-efficient, physics-aware posterior sampler for inverse PDE problems.",
+  "problem_solved": "Reduces the need for large paired coefficient–solution datasets in inverse PDE problems by avoiding joint coefficient-solution modeling and making physics explicit during sampling, enabling accurate posterior sampling with far less supervised data.",
+  "method": [
+    "Train an unconditional diffusion model in function space to learn the prior over PDE coefficients (no paired solution data required).",
+    "Train or use a neural operator to model the forward PDE map; use it to provide physics-based guidance (likelihood) during diffusion sampling.",
+    "Decouple prior learning from forward physics so the sampler produces physics-consistent posterior samples with improved data efficiency and modularity."
+  ],
+  "impact": "Provides practitioners a modular, scalable approach to solve inverse PDEs with fewer paired examples while respecting physical constraints—useful for scientific ML, engineering inverse design, and uncertainty quantification in high-dimensional/function-space settings.",
+  "visual_elements": [
+    "Architecture diagram: two-module layout showing (A) unconditional diffusion prior in function space and (B) neural operator forward model feeding guidance into sampling.",
+    "Pipeline flow: coefficient prior → guided diffusion sampling → posterior samples passed through PDE forward operator to show consistency with observations.",
+    "Comparison chart: sample quality or reconstruction error vs number of paired training samples, highlighting data efficiency over joint modeling baselines.",
+    "Icon set: PDE/equation symbol, diffusion/generative model, neural operator/network, and uncertainty/posterior cloud to convey core concepts at a glance."
+  ],
+  "hashtags": [
+    "#InverseProblems",
+    "#DiffusionModels",
+    "#NeuralOperators",
+    "#PhysicsInformedML",
+    "#DataEfficient"
+  ],
+  "paper_id": "2026-01-30-arxiv-decoupled_diffusion_sampling_for_inverse_problems_on_function_spaces",
+  "paper_title": "Decoupled Diffusion Sampling for Inverse Problems on Function Spaces",
+  "paper_category": "Model",
+  "paper_date": "2026-01-30",
+  "paper_authors": "Thomas Y. L. Lin, Jiachen Yao, Lufang Chiang, Julius Berner, Anima Anandkumar",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.23280v1"
+    }
+  ],
+  "generated_at": "2026-02-02T06:53:22.634141"
+}

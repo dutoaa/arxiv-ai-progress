@@ -1,24 +1,24 @@
 {
-  "key_insight": "DynaWeb adapts model-based reinforcement learning to web agents by learning a differentiable world model of web interactions, enabling safe, efficient simulated training of agents that perform browsing tasks without extensive live internet access.",
-  "problem_solved": "Training autonomous web agents via online interactions is slow, expensive, and risky (privacy, breakage, costs). DynaWeb reduces dependence on live web access while improving sample efficiency and safety.",
+  "key_insight": "DynaWeb adapts model-based reinforcement learning to web agents by learning a compact world model of the web so agents can train via simulated interactions, greatly reducing the need for costly and risky live-web exploration.",
+  "problem_solved": "Training autonomous web agents on the live internet is inefficient, expensive, and unsafe; interacting with real web environments at scale prevents practical RL-driven agent development.",
   "method": [
-    "Learn a web world model that predicts DOM/state transitions and outcomes of actions (click, type, navigate) from agent interactions.",
-    "Use imagined rollouts from the learned model to train policies (Dyna-style planning + model-based updates), with periodic grounding on limited real web data to correct model bias.",
-    "Incorporate uncertainty estimation (e.g., ensembles) and adaptive real-environment querying to avoid compounding model errors and ensure robust sim-to-real transfer."
+    "Learn an action-conditioned world model of web state transitions (e.g., DOM/API/response dynamics) from limited real interactions and logs.",
+    "Use the learned model to generate imagined rollouts for policy learning and planning, interleaving simulated training with occasional real rollouts for grounding.",
+    "Mitigate model bias via uncertainty-aware rollouts (ensembles or confidence gating) and selective real-environment fine-tuning."
   ],
-  "impact": "Enables faster, cheaper, and safer development of web agents by cutting live-web data needs and improving sample efficiency—lowering the barrier to deploying capable autonomous web assistants.",
+  "impact": "Enables sample-efficient, safer, and cheaper training of web-capable agents (including LLM-based assistants), accelerating development and deployment of autonomous web automation and assistance.",
   "visual_elements": [
-    "Pipeline diagram: Live web environment → World model (DOM encoder + dynamics) → Imagined rollouts → Policy learner → Occasional real-world fine-tune loop",
-    "Training loop infographic showing alternating 'model learning' and 'policy optimization' phases (Dyna-style)",
-    "Bar chart comparing sample efficiency and cost: DynaWeb vs. online RL baselines",
-    "Icons: browser window (web), brain/model (world model), shield (safety/uncertainty), lightning bolt (speed/efficiency)"
+    "Pipeline diagram: real web -> world model -> simulated rollouts -> policy -> periodic real validation (highlight feedback loop).",
+    "Bar/line chart comparing sample efficiency and cost of model-based (DynaWeb) vs model-free RL on web tasks.",
+    "Architecture block diagram showing inputs (DOM, API responses), world model, planner/policy, and uncertainty module.",
+    "Icon set: browser window (web), robot/agent (automation), shield (safety), and lightning bolt (speed/sample-efficiency)."
   ],
   "hashtags": [
+    "#DynaWeb",
     "#ModelBasedRL",
     "#WebAgents",
-    "#DynaWeb",
-    "#ReinforcementLearning",
-    "#Sim2Real"
+    "#SampleEfficiency",
+    "#AutonomousAgents"
   ],
   "paper_id": "2026-01-29-arxiv-dynaweb_model_based_reinforcement_learning_of_web_agents",
   "paper_title": "DynaWeb: Model-Based Reinforcement Learning of Web Agents",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.22149v1"
     }
   ],
-  "generated_at": "2026-02-01T06:40:32.263256"
+  "generated_at": "2026-02-02T06:55:53.059826"
 }

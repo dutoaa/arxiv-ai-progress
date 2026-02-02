@@ -1,0 +1,35 @@
+{
+  "key_insight": "DLLM decoding wastes most parallel compute because only a small subset of tokens is decodable at each diffusion step, and attention-derived token importance reliably predicts which tokens are decodable — enabling concentrated compute where it matters.",
+  "problem_solved": "Reduces the high decoding compute cost of Diffusion Large Language Models (DLLMs) by avoiding wasted work on non-decodable tokens during parallel block decoding.",
+  "method": [
+    "Estimate token-wise decodability using attention-derived importance scores (fast, correlated proxy).",
+    "Dynamically allocate compute to tokens predicted as decodable (mask/prune or route activations to the small subset) while skipping or deferring others.",
+    "Iteratively update decodability predictions across diffusion steps to preserve generation quality with minimal overhead."
+  ],
+  "impact": "Significantly lowers inference cost and latency for DLLMs, making them more practical to deploy at scale while maintaining generation quality — enabling efficient, real-time or cost-constrained use cases.",
+  "visual_elements": [
+    "Side-by-side diagram: standard DLLM parallel block decoding (most compute wasted) vs FOCUS selective-compute flow (compute concentrated on decodable tokens).",
+    "Heatmap overlay: token attention scores correlated with token-wise decodability across diffusion steps.",
+    "Bar/line chart: compute/time vs quality comparing baseline DLLM, FOCUS, and AR baselines (showing compute savings and retained quality).",
+    "Pipeline icon set: attention scorer → decodability selector → selective compute blocks → final output (showing low overhead decision loop)."
+  ],
+  "hashtags": [
+    "#DLLM",
+    "#EfficientInference",
+    "#DiffusionModels",
+    "#SparseComputation",
+    "#FOCUS"
+  ],
+  "paper_id": "2026-01-30-arxiv-focus_dllms_know_how_to_tame_their_compute_bound",
+  "paper_title": "FOCUS: DLLMs Know How to Tame Their Compute Bound",
+  "paper_category": "Model",
+  "paper_date": "2026-01-30",
+  "paper_authors": "Kaihua Liang, Xin Tan, An Zhong, Hong Xu, Marco Canini",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.23278v1"
+    }
+  ],
+  "generated_at": "2026-02-02T06:53:10.925968"
+}

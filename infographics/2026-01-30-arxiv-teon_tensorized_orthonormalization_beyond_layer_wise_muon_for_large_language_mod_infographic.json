@@ -1,0 +1,35 @@
+{
+  "key_insight": "TEON generalizes Muon's layer-wise matrix orthonormalization by treating network gradients as a structured higher-order tensor and performing tensorized orthonormalization, yielding stronger theoretical convergence and more globally coherent pre-training updates.",
+  "problem_solved": "Layer-wise Muon only orthogonalizes gradients per-layer (matrix-level), which misses cross-layer / multi-mode correlations in gradients and limits convergence and stability for very large models; TEON addresses this by capturing and regularizing the tensor structure of gradients.",
+  "method": [
+    "Model gradients (or momenta) as a higher-order tensor that spans modes such as layers, parameter axes, heads/positions, etc.",
+    "Perform orthonormalization across tensor modes (tensorized orthonormalization) instead of independently per-layer, preserving multi-mode structure and reducing redundant directions across the network.",
+    "Provide a theoretical convergence improvement over layer-wise Muon and a practical, computationally efficient implementation (e.g., via mode-wise transforms / low-rank updates) suitable for LLM pre-training."
+  ],
+  "impact": "TEON improves optimization stability and convergence for large-scale model pre-training by enforcing globally consistent, multi-mode orthogonality in gradient space—leading to faster, more reliable training and better utilization of compute for LLMs.",
+  "visual_elements": [
+    "Side-by-side schematic: layer-wise (matrix) orthonormalization vs TEON's tensorized orthonormalization (showing a 3D tensor with orthonormalization across modes).",
+    "Flowchart of the TEON update: gradient tensor → mode-wise orthonormalization → orthogonalized update → parameter step.",
+    "Convergence plot: training/validation loss or steps-to-convergence comparing Muon, TEON, and a baseline optimizer.",
+    "Icon set: tensor/mode icon, convergence/clock icon, stability/shield icon to quickly convey benefits."
+  ],
+  "hashtags": [
+    "#TEON",
+    "#MuonOptimizer",
+    "#TensorMethods",
+    "#LLMPretraining",
+    "#Optimization"
+  ],
+  "paper_id": "2026-01-30-arxiv-teon_tensorized_orthonormalization_beyond_layer_wise_muon_for_large_language_mod",
+  "paper_title": "TEON: Tensorized Orthonormalization Beyond Layer-Wise Muon for Large Language Model Pre-Training",
+  "paper_category": "Model",
+  "paper_date": "2026-01-30",
+  "paper_authors": "Ruijie Zhang, Yequan Zhao, Ziyue Liu, Zhengyang Wang, Dongyang Li",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2601.23261v1"
+    }
+  ],
+  "generated_at": "2026-02-02T06:52:36.980443"
+}
