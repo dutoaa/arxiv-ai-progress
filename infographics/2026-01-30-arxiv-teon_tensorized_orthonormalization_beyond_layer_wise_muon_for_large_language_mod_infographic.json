@@ -1,22 +1,22 @@
 {
-  "key_insight": "TEON generalizes Muon's layer-wise matrix orthonormalization by treating network gradients as a structured higher-order tensor and performing tensorized orthonormalization, yielding stronger theoretical convergence and more globally coherent pre-training updates.",
-  "problem_solved": "Layer-wise Muon only orthogonalizes gradients per-layer (matrix-level), which misses cross-layer / multi-mode correlations in gradients and limits convergence and stability for very large models; TEON addresses this by capturing and regularizing the tensor structure of gradients.",
+  "key_insight": "TEON generalizes layer-wise Muon by modeling network gradients as a structured higher-order tensor and performing tensorized orthonormalization across modes, not just within individual layers. This broader orthogonalization yields provable convergence improvements while remaining practically scalable for LLM pre-training.",
+  "problem_solved": "Layer-wise orthogonalization (as in Muon) ignores cross-layer and multi-mode correlations in gradients, limiting efficiency and convergence during large language model pre-training. TEON addresses this by removing redundant directions across the full gradient tensor structure.",
   "method": [
-    "Model gradients (or momenta) as a higher-order tensor that spans modes such as layers, parameter axes, heads/positions, etc.",
-    "Perform orthonormalization across tensor modes (tensorized orthonormalization) instead of independently per-layer, preserving multi-mode structure and reducing redundant directions across the network.",
-    "Provide a theoretical convergence improvement over layer-wise Muon and a practical, computationally efficient implementation (e.g., via mode-wise transforms / low-rank updates) suitable for LLM pre-training."
+    "Represent gradients/momentum across layers, heads, and parameters as a higher-order tensor to capture multi-mode structure.",
+    "Perform orthonormalization along tensor modes (tensorized orthonormalization) to remove redundant directions jointly across layers rather than independently per layer.",
+    "Provide a scalable, practical algorithm with improved theoretical convergence guarantees compared to layer-wise Muon (plus implementation choices for efficiency in LLM pre-training)."
   ],
-  "impact": "TEON improves optimization stability and convergence for large-scale model pre-training by enforcing globally consistent, multi-mode orthogonality in gradient space—leading to faster, more reliable training and better utilization of compute for LLMs.",
+  "impact": "TEON can improve stability and convergence speed in large model pre-training by exploiting cross-layer gradient structure, potentially reducing training time and improving optimizer robustness without major architecture changes.",
   "visual_elements": [
-    "Side-by-side schematic: layer-wise (matrix) orthonormalization vs TEON's tensorized orthonormalization (showing a 3D tensor with orthonormalization across modes).",
-    "Flowchart of the TEON update: gradient tensor → mode-wise orthonormalization → orthogonalized update → parameter step.",
-    "Convergence plot: training/validation loss or steps-to-convergence comparing Muon, TEON, and a baseline optimizer.",
-    "Icon set: tensor/mode icon, convergence/clock icon, stability/shield icon to quickly convey benefits."
+    "Side-by-side schematic: layer-wise matrix orthonormalization (Muon) vs. tensorized multi-mode orthonormalization (TEON).",
+    "Tensor illustration showing modes (layers × heads × parameters) and the orthonormalization operations along modes.",
+    "Convergence plot comparing training loss or steps-to-convergence for Muon vs. TEON on a representative LLM pre-training run.",
+    "Flowchart/pseudocode block highlighting the TEON algorithm steps and scalability/complexity notes."
   ],
   "hashtags": [
     "#TEON",
+    "#TensorOrthogonalization",
     "#MuonOptimizer",
-    "#TensorMethods",
     "#LLMPretraining",
     "#Optimization"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.23261v1"
     }
   ],
-  "generated_at": "2026-02-02T06:52:36.980443"
+  "generated_at": "2026-02-03T06:41:46.269736"
 }

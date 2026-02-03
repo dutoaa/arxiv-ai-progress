@@ -1,23 +1,23 @@
 {
-  "key_insight": "DLLM decoding wastes most parallel compute because only a small subset of tokens is decodable at each diffusion step, and attention-derived token importance reliably predicts which tokens are decodable — enabling concentrated compute where it matters.",
-  "problem_solved": "Reduces the high decoding compute cost of Diffusion Large Language Models (DLLMs) by avoiding wasted work on non-decodable tokens during parallel block decoding.",
+  "key_insight": "DLLM decoding wastes most compute because only a small subset of tokens is decodable at each diffusion step; attention-derived token importance strongly predicts which tokens are decodable, enabling targeted compute.",
+  "problem_solved": "High decoding cost and compute inefficiency in Diffusion Large Language Models caused by parallel computation over token blocks where most tokens at each step are non-decodable and therefore wasteful.",
   "method": [
-    "Estimate token-wise decodability using attention-derived importance scores (fast, correlated proxy).",
-    "Dynamically allocate compute to tokens predicted as decodable (mask/prune or route activations to the small subset) while skipping or deferring others.",
-    "Iteratively update decodability predictions across diffusion steps to preserve generation quality with minimal overhead."
+    "Extract token-wise importance signals from attention to predict decodability per diffusion step.",
+    "Dynamically select and prioritize decodable tokens for full decoding work while applying lightweight updates to others.",
+    "Deploy FOCUS scheduling to adaptively allocate compute within token blocks, maintaining output quality with much less wasted computation."
   ],
-  "impact": "Significantly lowers inference cost and latency for DLLMs, making them more practical to deploy at scale while maintaining generation quality — enabling efficient, real-time or cost-constrained use cases.",
+  "impact": "Reduces wasted compute and decoding latency for DLLMs, making diffusion-based LLMs more practical and cost-effective to deploy and scale without sacrificing generation quality.",
   "visual_elements": [
-    "Side-by-side diagram: standard DLLM parallel block decoding (most compute wasted) vs FOCUS selective-compute flow (compute concentrated on decodable tokens).",
-    "Heatmap overlay: token attention scores correlated with token-wise decodability across diffusion steps.",
-    "Bar/line chart: compute/time vs quality comparing baseline DLLM, FOCUS, and AR baselines (showing compute savings and retained quality).",
-    "Pipeline icon set: attention scorer → decodability selector → selective compute blocks → final output (showing low overhead decision loop)."
+    "Before vs After schematic: token-block compute heatmap showing wasted compute in baseline vs concentrated compute in FOCUS.",
+    "Attention heatmap over tokens aligned with a marker for 'decodable' tokens to illustrate the correlation.",
+    "Bar chart comparing compute/time (or FLOPs) and decoding latency: baseline vs FOCUS.",
+    "Flowchart of the FOCUS loop: attention → importance scoring → token selection → prioritized decoding."
   ],
   "hashtags": [
-    "#DLLM",
-    "#EfficientInference",
-    "#DiffusionModels",
+    "#DiffusionLLM",
+    "#EfficientAI",
     "#SparseComputation",
+    "#ModelOptimization",
     "#FOCUS"
   ],
   "paper_id": "2026-01-30-arxiv-focus_dllms_know_how_to_tame_their_compute_bound",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.23278v1"
     }
   ],
-  "generated_at": "2026-02-02T06:53:10.925968"
+  "generated_at": "2026-02-03T06:41:58.015816"
 }

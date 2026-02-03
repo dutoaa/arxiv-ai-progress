@@ -1,24 +1,24 @@
 {
-  "key_insight": "A physics-driven CCD noise synthesis pipeline can recreate realistic, scientifically interpretable noise in astronomical images, enabling reliable paired training data for learning-based denoisers without relying on scarce real clean/noisy pairs.",
-  "problem_solved": "Addresses the shortage of paired clean/noisy astronomical training data and the need for physically interpretable, reproducible noise models in CCD-based imaging pipelines—limits that hinder deployment and trust of ML denoisers in scientific workflows.",
+  "key_insight": "A physics-based CCD noise synthesis pipeline can produce realistic, interpretable noisy astronomical images for training denoisers, overcoming the lack of paired data and improving scientific fidelity in restored images.",
+  "problem_solved": "Addresses the scarcity of realistic paired clean/noisy astronomical training data and the need for reproducible, physically interpretable noise models that reflect true CCD noise formation (shot noise, dark current, readout artifacts, pixel non-uniformity).",
   "method": [
-    "Construct a modular, physics-based noise model of CCD image formation that explicitly simulates dominant noise sources (photon shot noise, detector electronics/read noise, bias/offsets and other instrument effects).",
-    "Generate realistic noisy images from high-fidelity clean inputs to produce paired training data for supervised denoising, while preserving physical interpretability and reproducibility.",
-    "Integrate with standard calibration pipelines and validate synthetic noise characteristics against real observed frames to ensure statistical and scientific fidelity."
+    "Construct a modular, physics-based simulator that models successive CCD noise sources (photon shot noise, dark current, read noise, PRNU, charge transfer inefficiency) to synthesize realistic noisy images from clean inputs.",
+    "Use the synthesized paired data to train and evaluate learning-based denoisers, ensuring the simulated noise matches statistical and visual properties of real observations.",
+    "Provide reproducible pipeline components and validation metrics so trained models maintain scientific interpretability and downstream analysis fidelity."
   ],
-  "impact": "Provides AI/ML practitioners a reproducible way to produce realistic training data and to train denoisers that respect astrophysical signal fidelity, reducing risk of artifact introduction and improving scientific usability of ML-based denoising.",
+  "impact": "Enables AI/ML practitioners to train more effective, scientifically trustworthy denoisers for astronomical imaging using domain-accurate synthetic data, improving downstream tasks (source detection, photometry) without requiring large volumes of matched real pairs.",
   "visual_elements": [
-    "Pipeline flowchart showing clean image → physics-based noise modules (photon, read, bias, electronics) → synthetic noisy image → supervised denoiser",
-    "Stacked bar or radar chart breaking down contribution of different noise sources (photon vs read vs bias) to total variance",
-    "Before/after image pair of a deep-sky target with zoomed-in residuals and astrophysical metric annotations (e.g., source flux preservation)",
-    "Validation plot comparing statistics (e.g., noise histograms, power spectra, or residual distributions) of synthetic vs real CCD frames"
+    "Pipeline diagram showing sequential CCD noise sources applied to a clean image (photon → dark current → read noise → PRNU → artifacts).",
+    "Before/after denoising comparison (simulated noisy, denoised, and ground truth) highlighting preserved astronomical features.",
+    "Stacked bar or violin plots comparing statistical distributions of real vs. simulated noise components.",
+    "Flowchart linking simulator → synthetic paired dataset → denoiser training → scientific validation (e.g., photometry error plot)."
   ],
   "hashtags": [
     "#Astronomy",
     "#Denoising",
-    "#CCD",
+    "#PhysicsBasedML",
     "#SyntheticData",
-    "#PhysicsBasedAI"
+    "#CCD"
   ],
   "paper_id": "2026-01-30-arxiv-denoising_the_deep_sky_physics_based_ccd_noise_formation_for_astronomical_imagin",
   "paper_title": "Denoising the Deep Sky: Physics-Based CCD Noise Formation for Astronomical Imaging",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.23276v1"
     }
   ],
-  "generated_at": "2026-02-02T06:52:58.376100"
+  "generated_at": "2026-02-03T06:41:22.998183"
 }
