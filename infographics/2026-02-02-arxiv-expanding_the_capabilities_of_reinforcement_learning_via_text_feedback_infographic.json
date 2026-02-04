@@ -1,24 +1,24 @@
 {
-  "key_insight": "Text feedback—natural, intermediate supervision richer than scalar rewards but cheaper than full demonstrations—can be used to effectively guide reinforcement learning, improving learning signal quality and scalability.",
-  "problem_solved": "Addresses the weak informativeness of binary rewards in RL (one bit per rollout) and the high cost of collecting dense demonstrations, by leveraging abundant human-language feedback as a practical middle ground.",
+  "key_insight": "Textual feedback provides a middle ground between sparse binary rewards and costly demonstrations: it is richer than a single-bit signal yet cheaper and more scalable than full demonstrations, enabling denser, human-native supervision for policy learning.",
+  "problem_solved": "RL training for language and decision agents relies on either very sparse rewards or expensive demonstrations; this paper addresses how to obtain richer, scalable supervision that improves learning without requiring full expert demonstrations.",
   "method": [
-    "Collect short human textual critiques or guidance for rollouts instead of only binary labels or full demonstrations.",
-    "Train a module that converts text feedback into learning signals (e.g., reward estimates, preference supervision, or policy targets) using LMs or reward models.",
-    "Integrate those signals into the RL loop (policy updates, value learning, or supervised distillation) to shape behavior more efficiently."
+    "Collect natural-language feedback associated with rollouts or model outputs (human or crowd-sourced).",
+    "Train models to interpret text feedback into dense training signals (e.g., learned reward or loss shaping).",
+    "Use the derived dense signals to update policies (via RL fine-tuning or supervised objectives), closing the gap between scalar rewards and demonstrations."
   ],
-  "impact": "Enables more informative, scalable supervision for RL agents and LLM fine-tuning by using naturally available text—potentially improving sample efficiency, alignment, and rapid behavior correction without expensive demonstrations.",
+  "impact": "Provides a practical, scalable way to improve sample efficiency and alignment in RL systems by leveraging abundant human-language feedback—reducing annotation cost while yielding richer supervision that is easy to inspect and improve.",
   "visual_elements": [
-    "Pipeline diagram: rollout -> human text feedback bubble -> text-to-reward/model -> policy update (loop)",
-    "Bar or heatmap comparing supervision density: binary reward vs. text feedback vs. demonstrations",
-    "Example pair: short textual critique (left) and corrected agent behavior or output (right)",
-    "Icons: human annotator, speech/text bubble, reward meter, agent/robot to emphasize human-in-the-loop flow"
+    "Spectrum diagram comparing binary rewards ← text feedback ← demonstrations (showing richness vs cost).",
+    "Pipeline flowchart: agent rollout → human text feedback → feedback-to-reward model → policy update.",
+    "Before/after schematic learning curve (conceptual) showing faster/better learning with text feedback vs binary reward.",
+    "Icon set: speech bubble (text feedback), single-bit thumbs (binary reward), full demo icon (expensive), and a gear/robot for the agent."
   ],
   "hashtags": [
     "#ReinforcementLearning",
+    "#HumanFeedback",
     "#TextFeedback",
-    "#HumanInTheLoop",
-    "#RLHF",
-    "#LanguageModels"
+    "#RewardModeling",
+    "#EfficientLearning"
   ],
   "paper_id": "2026-02-02-arxiv-expanding_the_capabilities_of_reinforcement_learning_via_text_feedback",
   "paper_title": "Expanding the Capabilities of Reinforcement Learning via Text Feedback",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.02482v1"
     }
   ],
-  "generated_at": "2026-02-03T06:39:48.981378"
+  "generated_at": "2026-02-04T06:41:41.332265"
 }

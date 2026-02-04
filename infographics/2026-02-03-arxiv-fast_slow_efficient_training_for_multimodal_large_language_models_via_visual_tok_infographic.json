@@ -1,0 +1,35 @@
+{
+  "key_insight": "A fast–slow training scheme applies visual token pruning during training so MLLMs process fewer image tokens with little to no accuracy loss, cutting training compute and memory while keeping model quality.",
+  "problem_solved": "Training multimodal LLMs is inefficient because large numbers of visual tokens inflate compute and memory; prior work reduces model size but not token-related training costs, and naive token pruning during training destabilizes learning.",
+  "method": [
+    "Fast–Slow architecture: a lightweight fast path processes all visual tokens to produce coarse features and pruning scores, while a slow path processes only a retained subset of important tokens with full-capacity layers.",
+    "Token selection & schedule: dynamically prune low-importance visual tokens during training using learned scores, with a staged/alternating schedule to preserve gradient signals and representation quality.",
+    "Joint optimization: train pruning modules and the backbone end-to-end so the model learns which tokens are essential for downstream multimodal tasks while minimizing training overhead."
+  ],
+  "impact": "This approach lowers training FLOPs and memory for MLLMs, enabling faster pretraining and fine-tuning without large accuracy trade-offs—making multimodal research and deployment more resource-efficient.",
+  "visual_elements": [
+    "Pipeline diagram showing Fast path (all tokens, lightweight layers) vs Slow path (kept tokens, full layers) and the pruning decision between them",
+    "Bar chart or line plot comparing training compute/memory vs baseline (no pruning) and accuracy retention",
+    "Token heatmap overlaid on an image showing pruned vs retained tokens across training steps",
+    "Timeline/flowchart illustrating the training schedule (staged/alternating pruning ratios and joint optimization)"
+  ],
+  "hashtags": [
+    "#MultimodalLLM",
+    "#EfficientTraining",
+    "#VisualTokenPruning",
+    "#FastSlowTraining",
+    "#MLSystems"
+  ],
+  "paper_id": "2026-02-03-arxiv-fast_slow_efficient_training_for_multimodal_large_language_models_via_visual_tok",
+  "paper_title": "Fast-Slow Efficient Training for Multimodal Large Language Models via Visual Token Pruning",
+  "paper_category": "Model",
+  "paper_date": "2026-02-03",
+  "paper_authors": "Dingkun Zhang, Shuhan Qi, Yulin Wu, Xinyu Xiao, Xuan Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.03815v1"
+    }
+  ],
+  "generated_at": "2026-02-04T06:39:30.689053"
+}

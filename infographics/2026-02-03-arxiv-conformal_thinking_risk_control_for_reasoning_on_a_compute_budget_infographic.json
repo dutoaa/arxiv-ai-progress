@@ -1,0 +1,35 @@
+{
+  "key_insight": "The paper reframes token-budget selection for LLM reasoning as a risk-control problem and uses conformal-style calibration to set adaptive stopping thresholds that guarantee a user-specified error rate while reducing wasted computation.",
+  "problem_solved": "How to decide when to keep spending tokens on multi-step LLM reasoning versus stopping early—balancing reliability (error rate) against compute—without relying on brittle heuristics and while providing statistical guarantees.",
+  "method": [
+    "Calibrate per-step or per-instance stopping criteria on a validation set using conformal/statistical techniques to map model scores to error-risk estimates.",
+    "Formulate an optimization: for a target risk level (alpha), choose stopping thresholds that minimize expected token usage subject to the risk constraint.",
+    "Deploy adaptive inference: apply the learned stopping rule at test time to stop reasoning early when additional tokens are unlikely to reduce risk, providing dataset-level guarantees."
+  ],
+  "impact": "Enables practitioners to trade compute for reliability with provable error control, improving efficiency of LLM reasoning deployments and making token-budgeting decisions principled and actionable.",
+  "visual_elements": [
+    "Risk vs. Tokens curve: plot showing error rate as a function of token budget with a highlighted threshold that meets the target risk.",
+    "Adaptive reasoning flowchart: model generates steps → evaluate stopping score → continue or stop (with statistical guarantee badge).",
+    "Calibration plot: validation scores mapped to empirical error coverage used to choose conformal thresholds.",
+    "Bar chart/comparison: average tokens and error rate for fixed-budget baselines vs. the proposed adaptive, risk-controlled method."
+  ],
+  "hashtags": [
+    "#LLM",
+    "#ConformalPrediction",
+    "#AdaptiveComputation",
+    "#RiskControl",
+    "#EfficientAI"
+  ],
+  "paper_id": "2026-02-03-arxiv-conformal_thinking_risk_control_for_reasoning_on_a_compute_budget",
+  "paper_title": "Conformal Thinking: Risk Control for Reasoning on a Compute Budget",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-02-03",
+  "paper_authors": "Xi Wang, Anushri Suresh, Alvin Zhang, Rishi More, William Jurayj",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.03814v1"
+    }
+  ],
+  "generated_at": "2026-02-04T06:39:15.913307"
+}

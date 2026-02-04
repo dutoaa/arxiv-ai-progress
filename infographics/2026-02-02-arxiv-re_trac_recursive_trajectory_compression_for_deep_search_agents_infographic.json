@@ -1,24 +1,24 @@
 {
-  "key_insight": "Re-TRAC compresses and organizes entire agent trajectories into structured, recursive state summaries so agents can revisit, branch, and cross-examine past search paths instead of following a single linear trace. This enables global awareness and more efficient, uncertainty-aware exploration in long-horizon LLM-based agents.",
-  "problem_solved": "Overcomes the limitations of linear ReAct-style agents that cannot easily revisit earlier states, branch into alternative search directions, or maintain global context under long trajectories, which causes redundant exploration and local optima.",
+  "key_insight": "Re-TRAC compresses each agent trajectory into a structured, recursive state summary so LLM-based agents can revisit, branch, and reason across trajectories—breaking the linear ReAct chain to avoid local optima and redundant exploration.",
+  "problem_solved": "Linear ReAct-style traces make it hard for agents to maintain global awareness, revisit earlier states, or branch into alternative search directions, which causes inefficient search, redundant work, and stagnation in local optima.",
   "method": [
-    "After each trajectory, generate a structured state summary capturing evidence, uncertainties, key decisions, and outcomes.",
-    "Recursively compress trajectories into a hierarchical memory/graph that supports cross-trajectory queries, branching, and selective unrolling.",
-    "Use the compressed state representations to guide future planning and uncertainty-aware exploration, enabling revisits and alternative search directions."
+    "After each trajectory, generate a structured state representation that captures evidence, actions, outcomes, and uncertainty.",
+    "Recursively compress and index these state summaries to enable cross-trajectory retrieval, branching, and re-entry into prior search points.",
+    "Use the compressed summaries to guide planning and prioritization (uncertainty-guided exploration and targeted re-examination), reducing context burden and redundant exploration."
   ],
-  "impact": "Makes LLM-based search agents more scalable and efficient for long-horizon tasks by reducing redundant work, improving global planning, and enabling systematic exploration of alternatives. Practitioners get better performance with fewer tokens and clearer traceability of decisions.",
+  "impact": "Re-TRAC makes deep search agents more efficient, scalable, and interpretable by enabling non-linear exploration and global state awareness—leading to faster convergence, less wasted computation, and better handling of long-context tasks.",
   "visual_elements": [
-    "Side-by-side diagram: linear ReAct trace vs recursive compressed-trajectory graph showing branching and revisits",
-    "Flowchart: generate trajectory → compress state summary → store in hierarchical memory → query for planning",
-    "Bar/line chart: search efficiency or success rate vs trajectory length comparing ReAct and Re-TRAC",
-    "Icon set: evidence, uncertainty, branch, and compressed memory to illustrate core components"
+    "Side-by-side diagram: linear ReAct timeline vs. Re-TRAC recursive trajectory tree to show branching and revisitation",
+    "Flowchart showing: trajectory -> structured state summary -> compression/indexing -> cross-trajectory retrieval -> guided next-step planning",
+    "Heatmap or bar chart comparing search efficiency metrics (time-to-solution, redundant steps, success rate) between ReAct and Re-TRAC",
+    "Annotated example trace: a compressed state card showing evidence, uncertainty, and suggested branches"
   ],
   "hashtags": [
     "#ReTRAC",
     "#TrajectoryCompression",
     "#LLMAgents",
-    "#RecursiveMemory",
-    "#SearchOptimization"
+    "#RecursiveReasoning",
+    "#SearchAgents"
   ],
   "paper_id": "2026-02-02-arxiv-re_trac_recursive_trajectory_compression_for_deep_search_agents",
   "paper_title": "RE-TRAC: REcursive TRAjectory Compression for Deep Search Agents",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.02486v1"
     }
   ],
-  "generated_at": "2026-02-03T06:39:59.456650"
+  "generated_at": "2026-02-04T06:42:15.211790"
 }

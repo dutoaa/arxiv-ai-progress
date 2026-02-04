@@ -1,24 +1,24 @@
 {
-  "key_insight": "SPARKLING enables stable width expansion mid-training by jointly preserving the network's signal (activations/gradients) when new channels are added and introducing controlled symmetry breaking so new parameters become useful rather than redundant.",
-  "problem_solved": "How to safely and efficiently increase model width during the middle of pre-training—maximizing compute savings from progressive learning—without causing the severe instabilities and collapse that naive width expansion produces.",
+  "key_insight": "SPARKLING makes it possible to stably expand model width in the middle of training by jointly preserving forward/backward signal magnitudes and applying controlled symmetry breaking, enabling width-progressive learning without catastrophic instability.",
+  "problem_solved": "Addresses the severe training instabilities that occur when increasing model width mid-training—instabilities that have prevented practical width-progressive schedules and limited pre-training compute savings.",
   "method": [
-    "Signal preservation: initialize and rescale new channels so activations and gradients remain consistent with the pre-expanded model (e.g., parameter copying + calibrated scaling of new weights/normalization).",
-    "Symmetry breaking: inject small, structured perturbations or learnable diversifying factors to newly added units so they rapidly specialize instead of staying redundant copies.",
-    "Stabilization schedule: combine a width-growth curriculum (timing and fraction of channels added) with short warmup and normalization adjustments to ensure smooth adaptation."
+    "Signal-preserving layer surgery: add parameters with rescaling/initialization that maintain activation and gradient magnitudes after widening.",
+    "Controlled symmetry breaking: introduce small, structured perturbations or asymmetric initialization for new units to avoid neuron collapse and encourage diversity.",
+    "Training-state-aware transfer: adapt optimizer state or selectively reset/update moments so training continues smoothly after width changes."
   ],
-  "impact": "Makes width-progressive learning practical beyond very early training stages, enabling large compute and time savings for practitioners who want to grow models dynamically. It broadens progressive scaling strategies beyond depth-only methods and reduces the cost of pre-training large models.",
+  "impact": "Enables large compute savings and more flexible scaling schedules by allowing safe mid-stage widening—practitioners can progressively widen models with less tuning and fewer stability failures, making large-scale pre-training more efficient.",
   "visual_elements": [
-    "Timeline diagram showing traditional training vs. SPARKLING width-expansion points and compute saved",
-    "Schematic of a layer before/after expansion illustrating signal-preserving initialization and small symmetry-breaking perturbations",
-    "Stability plot (training loss/grad-norm) comparing naive expansion vs. SPARKLING during mid-stage growth",
-    "Flowchart of the SPARKLING expansion step: decide growth fraction → init & rescale → apply perturbation → short warmup"
+    "Training timeline: stages showing when width is expanded and corresponding compute saved (bar/area chart).",
+    "Stability comparison: loss and gradient-norm curves for naive widening vs SPARKLING (before/after plots).",
+    "Layer diagram: schematic of adding units with rescaling (signal preservation) and small perturbations (symmetry breaking).",
+    "Compute vs accuracy curve: shows similar final performance with less pre-training compute when using width-progressive SPARKLING."
   ],
   "hashtags": [
+    "#SPARKLING",
     "#ProgressiveLearning",
-    "#ModelScaling",
+    "#WidthExpansion",
     "#EfficientTraining",
-    "#NeuralNetworks",
-    "#SPARKLING"
+    "#ModelScaling"
   ],
   "paper_id": "2026-02-02-arxiv-sparkling_balancing_signal_preservation_and_symmetry_breaking_for_width_progress",
   "paper_title": "SPARKLING: Balancing Signal Preservation and Symmetry Breaking for Width-Progressive Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.02472v1"
     }
   ],
-  "generated_at": "2026-02-03T06:38:42.941884"
+  "generated_at": "2026-02-04T06:41:16.250335"
 }
