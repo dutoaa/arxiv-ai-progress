@@ -1,17 +1,17 @@
 {
-  "key_insight": "Jointly optimizing a probabilistic belief over user intent and the assistance policy end-to-end (BRACE) yields more adaptive, context-aware shared-autonomy than decoupled or statically blended approaches, improving task success while respecting user agency.",
-  "problem_solved": "Overcomes suboptimal goal inference and fixed assistance arbitration in shared autonomy by fusing belief estimation and policy learning so assistance adapts to uncertain intent and unstructured environments.",
+  "key_insight": "BRACE jointly learns a Bayesian belief over user intent and a policy for assistance in an end-to-end way, so inference and assistance are optimized together rather than treated separately. This yields more adaptive, context-aware assistance that preserves user agency in unstructured environments.",
+  "problem_solved": "Current shared-autonomy systems use fixed blending or decoupled goal inference and arbitration, producing suboptimal assistance when user intent and environment context are uncertain; BRACE addresses this by integrating belief estimation and policy optimization.",
   "method": [
-    "Formulate shared autonomy as a POMDP-like problem where a Bayesian belief over user goals is maintained and updated from observations.",
-    "Encode context (environment and user cues) with a learned context encoder and feed the belief + context into a reinforcement-learning policy.",
-    "Train belief update and assistance policy end-to-end (BRACE) with an objective that balances task performance and user agency, replacing static blending or separate modules."
+    "End-to-end training that backpropagates through a Bayesian belief module and a reinforcement-learning policy so belief updates and assistance actions are jointly optimized.",
+    "Context encoding to represent environment and user signals, producing a posterior over goals that conditions the assistance policy.",
+    "Reinforcement learning objective balances task performance and user agency, enabling adaptive assistance levels rather than static blending."
   ],
-  "impact": "Makes shared-autonomy systems more robust and practical: less manual tuning, better performance in real-world/uncertain settings, and smoother, agency-preserving assistance—useful for HRI, assistive robotics, and adaptive interfaces.",
+  "impact": "Practitioners get a recipe for principled, adaptive shared-autonomy systems that improve task success under uncertainty while respecting user control; applicable to assistive robotics, teleoperation, and human-in-the-loop systems.",
   "visual_elements": [
-    "Pipeline diagram: sensors → context encoder → Bayesian belief over goals → RL assistance policy → robot action",
-    "Side-by-side bar chart: BRACE vs static blending / decoupled baselines on success rate, intervention frequency, and user override rate",
-    "Graphical model / POMDP sketch showing latent user intent, observations, and actions with belief updates",
-    "Tradeoff curve icon: task success vs. user agency (showing BRACE nearer the Pareto frontier)"
+    "Pipeline diagram: sensor/user input → context encoder → Bayesian belief (posterior) → RL policy → robot action, with end-to-end gradient arrows.",
+    "Comparison bar chart: BRACE vs static blending and decoupled methods on success rate and user-override frequency.",
+    "Belief evolution heatmap: probability over candidate goals over time as user inputs arrive and assistance adapts.",
+    "Icon set: human operator, robot actuator, Bayesian prior/posterior, reward/gauge indicating assistance level."
   ],
   "hashtags": [
     "#SharedAutonomy",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.23285v1"
     }
   ],
-  "generated_at": "2026-02-03T06:41:35.447342"
+  "generated_at": "2026-02-05T06:49:25.777668"
 }

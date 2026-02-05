@@ -1,24 +1,24 @@
 {
-  "key_insight": "A physics-based CCD noise synthesis pipeline can produce realistic, interpretable noisy astronomical images for training denoisers, overcoming the lack of paired data and improving scientific fidelity in restored images.",
-  "problem_solved": "Addresses the scarcity of realistic paired clean/noisy astronomical training data and the need for reproducible, physically interpretable noise models that reflect true CCD noise formation (shot noise, dark current, readout artifacts, pixel non-uniformity).",
+  "key_insight": "A physics-based CCD noise synthesis pipeline can generate realistic, interpretable noisy–clean image pairs for astronomical imaging, enabling effective supervised denoising without relying on scarce real paired data.",
+  "problem_solved": "Addresses the lack of physically realistic paired training data and the need for interpretable, reproducible noise models in astronomical CCD denoising workflows.",
   "method": [
-    "Construct a modular, physics-based simulator that models successive CCD noise sources (photon shot noise, dark current, read noise, PRNU, charge transfer inefficiency) to synthesize realistic noisy images from clean inputs.",
-    "Use the synthesized paired data to train and evaluate learning-based denoisers, ensuring the simulated noise matches statistical and visual properties of real observations.",
-    "Provide reproducible pipeline components and validation metrics so trained models maintain scientific interpretability and downstream analysis fidelity."
+    "Construct a modular, physics-based simulator of CCD noise formation that models key stages (photon shot noise, dark current, pixel defects, readout electronics and digitization).",
+    "Use the simulator to synthesize realistic noisy–clean image pairs for training and augmenting learning-based denoisers.",
+    "Validate synthetic noise by matching statistical signatures to real observations and integrate the pipeline with standard calibration/denoising workflows."
   ],
-  "impact": "Enables AI/ML practitioners to train more effective, scientifically trustworthy denoisers for astronomical imaging using domain-accurate synthetic data, improving downstream tasks (source detection, photometry) without requiring large volumes of matched real pairs.",
+  "impact": "Provides AI/ML practitioners with reproducible, physically grounded training data and diagnostics that improve denoiser generalization and scientific interpretability, reducing reliance on hard-to-obtain real paired datasets.",
   "visual_elements": [
-    "Pipeline diagram showing sequential CCD noise sources applied to a clean image (photon → dark current → read noise → PRNU → artifacts).",
-    "Before/after denoising comparison (simulated noisy, denoised, and ground truth) highlighting preserved astronomical features.",
-    "Stacked bar or violin plots comparing statistical distributions of real vs. simulated noise components.",
-    "Flowchart linking simulator → synthetic paired dataset → denoiser training → scientific validation (e.g., photometry error plot)."
+    "End-to-end pipeline diagram: photon → sensor → electronics → digitized image (annotate noise sources at each stage).",
+    "Side-by-side image triplet: clean ground truth, synthetic noisy image, denoised result.",
+    "Stacked bar or pie chart of noise contributions (shot noise, dark current, read noise, quantization) to show relative importance.",
+    "Statistical comparison plots (histograms, power spectra) demonstrating synthetic vs. real noise agreement."
   ],
   "hashtags": [
     "#Astronomy",
     "#Denoising",
-    "#PhysicsBasedML",
-    "#SyntheticData",
-    "#CCD"
+    "#PhysicsBased",
+    "#CCD",
+    "#SyntheticData"
   ],
   "paper_id": "2026-01-30-arxiv-denoising_the_deep_sky_physics_based_ccd_noise_formation_for_astronomical_imagin",
   "paper_title": "Denoising the Deep Sky: Physics-Based CCD Noise Formation for Astronomical Imaging",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.23276v1"
     }
   ],
-  "generated_at": "2026-02-03T06:41:22.998183"
+  "generated_at": "2026-02-05T06:49:14.289847"
 }

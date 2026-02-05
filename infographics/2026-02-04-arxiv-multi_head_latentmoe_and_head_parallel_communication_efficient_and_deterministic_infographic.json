@@ -1,0 +1,35 @@
+{
+  "key_insight": "Multi-Head LatentMoE + Head Parallel gives a deterministic, communication-efficient way to run sparse Mixture-of-Experts so communication no longer scales linearly with the number of activated experts and data-dependent metadata is eliminated.",
+  "problem_solved": "Reduces EP-style MoE training costs by addressing communication blowup with k, load imbalance related latency/memory spikes, and costly data-dependent metadata exchange.",
+  "method": [
+    "Multi-Head LatentMoE: use a multi-head latent routing/gating scheme to deterministically map tokens to expert groups, decoupling communication volume from the number of activated experts.",
+    "Head Parallel: partition computation across attention heads (or head-aligned expert shards) to enable deterministic, evenly distributed work and memory, avoiding load imbalance.",
+    "Eliminate data-dependent routing metadata by deriving routing deterministically from model structure and heads, enabling fixed communication patterns and simpler all-to-all schedules."
+  ],
+  "impact": "Makes large-scale sparse MoE training faster, more memory-efficient and easier to implement/debug — lowering infrastructure cost and enabling more predictable scaling for practitioners.",
+  "visual_elements": [
+    "Block diagram comparing Expert Parallel vs Multi-Head LatentMoE + Head Parallel showing deterministic routing and reduced all-to-all connections",
+    "Bar/line chart: communication bytes (y) vs activated experts k (x) showing linear growth for EP and flat/sublinear for the proposed method",
+    "Heatmap of expert load across tokens for EP (imbalanced) vs Head Parallel (balanced), illustrating improved load distribution",
+    "Pipeline illustration showing elimination of metadata exchange (crossed-out metadata icon) and fixed communication steps"
+  ],
+  "hashtags": [
+    "#MoE",
+    "#ModelParallelism",
+    "#EfficientTraining",
+    "#SparseModels",
+    "#DeepLearning"
+  ],
+  "paper_id": "2026-02-04-arxiv-multi_head_latentmoe_and_head_parallel_communication_efficient_and_deterministic",
+  "paper_title": "Multi-Head LatentMoE and Head Parallel: Communication-Efficient and Deterministic MoE Parallelism",
+  "paper_category": "Model",
+  "paper_date": "2026-02-04",
+  "paper_authors": "Chenwei Cui, Rockwell Jackson, Benjamin Joseph Herrera, Ana María Tárano, Hannah Kerner",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.04870v1"
+    }
+  ],
+  "generated_at": "2026-02-05T06:47:28.328188"
+}

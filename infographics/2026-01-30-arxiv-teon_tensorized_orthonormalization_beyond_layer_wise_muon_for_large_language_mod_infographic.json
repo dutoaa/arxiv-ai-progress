@@ -1,24 +1,24 @@
 {
-  "key_insight": "TEON generalizes layer-wise Muon by modeling network gradients as a structured higher-order tensor and performing tensorized orthonormalization across modes, not just within individual layers. This broader orthogonalization yields provable convergence improvements while remaining practically scalable for LLM pre-training.",
-  "problem_solved": "Layer-wise orthogonalization (as in Muon) ignores cross-layer and multi-mode correlations in gradients, limiting efficiency and convergence during large language model pre-training. TEON addresses this by removing redundant directions across the full gradient tensor structure.",
+  "key_insight": "TEON generalizes the Muon optimizer by modeling gradients as a structured higher-order tensor and applying tensorized orthonormalization across modes, yielding stronger convergence guarantees than layer-wise (matrix) orthogonalization.",
+  "problem_solved": "Layer-wise Muon treats each layer independently and misses cross-layer and multi-mode correlations in gradients; TEON addresses this by removing redundancy and collinearity in a tensor-structured gradient representation to improve optimization for large language model pre-training.",
   "method": [
-    "Represent gradients/momentum across layers, heads, and parameters as a higher-order tensor to capture multi-mode structure.",
-    "Perform orthonormalization along tensor modes (tensorized orthonormalization) to remove redundant directions jointly across layers rather than independently per layer.",
-    "Provide a scalable, practical algorithm with improved theoretical convergence guarantees compared to layer-wise Muon (plus implementation choices for efficiency in LLM pre-training)."
+    "Represent the network gradients (or momenta) as a structured higher-order tensor that captures interactions across parameter modes (e.g., layers, heads, channels).",
+    "Perform tensorized orthonormalization across tensor modes (mode-wise / multi-mode orthogonalization) to decorrelate gradient components beyond per-layer matrices.",
+    "Design scalable approximations and algorithmic steps that retain provable improved convergence over layer-wise Muon while remaining practical for LLM-scale pre-training."
   ],
-  "impact": "TEON can improve stability and convergence speed in large model pre-training by exploiting cross-layer gradient structure, potentially reducing training time and improving optimizer robustness without major architecture changes.",
+  "impact": "TEON can make LLM pre-training more stable and sample-efficient by removing multi-mode gradient redundancies, enabling faster convergence and more robust scaling of optimizer behavior across very large models.",
   "visual_elements": [
-    "Side-by-side schematic: layer-wise matrix orthonormalization (Muon) vs. tensorized multi-mode orthonormalization (TEON).",
-    "Tensor illustration showing modes (layers × heads × parameters) and the orthonormalization operations along modes.",
-    "Convergence plot comparing training loss or steps-to-convergence for Muon vs. TEON on a representative LLM pre-training run.",
-    "Flowchart/pseudocode block highlighting the TEON algorithm steps and scalability/complexity notes."
+    "Side-by-side illustration: matrix (layer-wise) orthonormalization vs tensorized (multi-mode) orthonormalization showing additional cross-mode decorrelation.",
+    "Schematic tensor diagram labeling modes (layers, heads, channels) with arrows showing mode-wise orthonormal transforms.",
+    "Convergence chart: training loss or validation perplexity curve comparing TEON vs Muon and baseline optimizers (faster drop / lower final loss for TEON).",
+    "Algorithm flow diagram: gradient tensor construction → mode-wise orthonormalization → update step, with a callout for scalable/approximate computations."
   ],
   "hashtags": [
     "#TEON",
-    "#TensorOrthogonalization",
-    "#MuonOptimizer",
+    "#Optimizer",
     "#LLMPretraining",
-    "#Optimization"
+    "#TensorMethods",
+    "#Orthogonalization"
   ],
   "paper_id": "2026-01-30-arxiv-teon_tensorized_orthonormalization_beyond_layer_wise_muon_for_large_language_mod",
   "paper_title": "TEON: Tensorized Orthonormalization Beyond Layer-Wise Muon for Large Language Model Pre-Training",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.23261v1"
     }
   ],
-  "generated_at": "2026-02-03T06:41:46.269736"
+  "generated_at": "2026-02-05T06:49:42.965767"
 }

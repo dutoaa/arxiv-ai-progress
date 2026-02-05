@@ -1,24 +1,24 @@
 {
-  "key_insight": "VideoGPA distills 3D geometry priors from a pre-trained geometry foundation model into video diffusion models via self-supervised alignment, enabling much stronger multi-view and temporal structural consistency in generated videos with little extra data.",
-  "problem_solved": "Video diffusion models often produce object deformation and spatial drift because standard denoising objectives do not explicitly enforce geometric coherence across frames and views.",
+  "key_insight": "VideoGPA distills geometry priors from a geometry foundation model into video diffusion training via a self-supervised preference-alignment objective, enabling substantially improved 3D structural consistency across generated video frames.",
+  "problem_solved": "Video diffusion models produce high-quality frames but often fail to maintain 3D coherence across time (object deformation, spatial drift) because standard denoising objectives don’t explicitly enforce geometric consistency.",
   "method": [
-    "Use a geometry foundation model to extract geometric cues (e.g., depth, normals, correspondences) from frames without extra manual labels.",
-    "Distill those cues into the video denoiser with self-supervised geometric-consistency losses (view-consistency and correspondence-aware penalties) that align generation behavior with geometry preferences.",
-    "Keep the approach data-efficient and plug-and-play so existing VDMs can be enhanced to produce 3D-consistent video outputs."
+    "Leverage a pre-trained geometry foundation model (e.g., depth/pose/3D-aware estimator) to produce geometric cues as supervision.",
+    "Distill those geometry priors into the video diffusion model with a self-supervised preference-alignment objective that biases generation toward geometrically consistent solutions.",
+    "Design the pipeline to be data-efficient by applying alignment on latent/denoised representations and across temporal frames to enforce 3D-consistent motion and shape."
   ],
-  "impact": "Improves realism and structural stability of generated videos, reducing artifacts like shape collapse and spatial drift—beneficial for content creation, video editing, and downstream 3D-aware applications.",
+  "impact": "Practitioners get more temporally and spatially stable video generation with fewer artifacts, which improves downstream use in AR/VR, visual effects, and any application needing multi-frame 3D coherence—without large labeled video datasets.",
   "visual_elements": [
-    "Before vs. after frame sequences showing object deformation and spatial drift corrected by VideoGPA",
-    "Architecture diagram: geometry foundation model → distillation/alignment module → video diffusion model",
-    "Schematic of geometric-consistency losses (depth/normal overlays, correspondence arrows across frames)",
-    "Bar/line chart comparing 3D-consistency metrics (e.g., temporal correspondence score) for baseline vs. VideoGPA"
+    "High-level architecture diagram: geometry foundation model → distillation/preference-alignment → video diffusion model",
+    "Before vs after frame strip showing object deformation (baseline) and corrected 3D-consistent result (VideoGPA)",
+    "Overlayed depth maps / 3D mesh visualizations to illustrate the geometric supervisory signal",
+    "Bar/line chart showing improvement in temporal/3D-consistency metrics (e.g., drift or deformation scores) compared to baseline"
   ],
   "hashtags": [
     "#VideoGeneration",
-    "#3DConsistency",
     "#DiffusionModels",
-    "#GeometryAI",
-    "#SelfSupervisedLearning"
+    "#3DVision",
+    "#SelfSupervised",
+    "#GeometryPriors"
   ],
   "paper_id": "2026-01-30-arxiv-videogpa_distilling_geometry_priors_for_3d_consistent_video_generation",
   "paper_title": "VideoGPA: Distilling Geometry Priors for 3D-Consistent Video Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2601.23286v1"
     }
   ],
-  "generated_at": "2026-02-02T06:53:52.489469"
+  "generated_at": "2026-02-05T06:50:11.418442"
 }

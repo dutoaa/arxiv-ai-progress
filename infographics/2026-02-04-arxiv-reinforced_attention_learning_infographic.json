@@ -1,0 +1,35 @@
+{
+  "key_insight": "Instead of applying RL to output tokens or lengthy textual rationales, Reinforced Attention Learning (RAL) applies policy-gradient optimization directly to a model's internal attention distributions, producing stronger and more stable improvements for multimodal perception and reasoning.",
+  "problem_solved": "Multimodal LLMs gain little — and can even degrade — when post-trained with token-level RL using verbose rationales; RAL addresses this by optimizing the model's internal attention behavior so downstream perception and reasoning improve without relying on long text explanations.",
+  "method": [
+    "Treat attention weights/distributions as the policy actions and apply a policy-gradient objective to maximize task-specific rewards (e.g., perception accuracy, reasoning score).",
+    "Sample or perturb attention patterns during rollouts, evaluate them with downstream rewards, and update the attention policy using RL signals rather than token-level gradients.",
+    "Stabilize learning with regularization (e.g., divergence/penalty to keep near pretrained attention priors) and lightweight constraints to preserve base-model competencies."
+  ],
+  "impact": "RAL offers a more direct, sample-efficient way to tune multimodal models for perception and reasoning, reducing reliance on verbose rationales and lowering the risk of degrading pretrained capabilities — useful for practitioners tuning MLLMs for vision+language tasks.",
+  "visual_elements": [
+    "Side-by-side diagram: token-level RL (long rationale text) vs. RAL (attention map adjustments) to show where optimization happens.",
+    "Pipeline flowchart: sample attention pattern → compute downstream reward → policy-gradient update → updated attention behavior.",
+    "Bar/line chart: performance comparison on representative multimodal tasks (baseline, token-RL, RAL) showing gains and stability.",
+    "Iconography: attention-head heatmap, reward/signal icon, and a shield/lock to indicate regularization/stability."
+  ],
+  "hashtags": [
+    "#ReinforcedAttention",
+    "#MultimodalLLM",
+    "#PolicyGradient",
+    "#AttentionMechanisms",
+    "#ModelOptimization"
+  ],
+  "paper_id": "2026-02-04-arxiv-reinforced_attention_learning",
+  "paper_title": "Reinforced Attention Learning",
+  "paper_category": "Model",
+  "paper_date": "2026-02-04",
+  "paper_authors": "Bangzheng Li, Jianmo Ni, Chen Qu, Ian Miao, Liu Yang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.04884v1"
+    }
+  ],
+  "generated_at": "2026-02-05T06:48:08.519506"
+}
