@@ -1,24 +1,24 @@
 {
-  "key_insight": "Periodic 2D probing of all parallel reasoning branches reveals width-depth dynamics that enable principled, global decisions (e.g., early stopping, pruning, or reallocation) to make parallel thinking far more compute-efficient without sacrificing reasoning quality.",
-  "problem_solved": "Parallel thinking (multiple simultaneous reasoning trajectories) is powerful but computationally expensive and prior efficiency methods used only local, per-trajectory signals—this paper provides a global mechanism to exploit cross-branch dynamics and reduce wasteful computation.",
+  "key_insight": "2D probing exposes the width–depth dynamics of parallel reasoning by periodically eliciting intermediate answers from all parallel branches, enabling principled cross-branch signals that reduce redundant computation without sacrificing reasoning quality.",
+  "problem_solved": "Reduces the computational burden of parallel-thinking reasoning by providing a mechanism to exploit global dynamics across branches (rather than relying only on local, per-trajectory signals).",
   "method": [
-    "Introduce a 2D probing interface that periodically elicits intermediate answers from every branch to expose both width (number of branches) and depth (step-wise progress) dynamics.",
-    "Aggregate cross-branch signals to compute global metrics that drive lightweight policies for early stopping, pruning low-value branches, or reallocating compute across depths and branches.",
-    "Use these global decisions to adaptively truncate or continue branches, preserving end-task performance while reducing overall compute cost."
+    "Introduce a 2D probing interface that samples intermediate outputs across both width (many parallel branches) and depth (progression over steps).",
+    "Periodically elicit and aggregate intermediate answers from all branches to reveal global patterns in branch behavior.",
+    "Use cross-branch signals (e.g., consensus, divergence, confidence trends) to drive efficiency controls such as early stopping, selective continuation, or resource reallocation."
   ],
-  "impact": "Provides a practical, model-agnostic way to cut compute for parallel reasoning workflows and makes large-scale, multi-trajectory reasoning feasible in resource-constrained or latency-sensitive settings.",
+  "impact": "Provides a practical, general-purpose tool for making parallel reasoning (e.g., multi-trajectory LLM pipelines) much more compute-efficient while retaining performance, enabling broader deployment of multi-branch reasoning strategies in research and production.",
   "visual_elements": [
-    "2D grid diagram (width vs depth) showing periodic probe points and intermediate answers collected from all branches",
-    "Flowchart: probe → aggregate global score → decision policy (stop/prune/continue) → updated branch set",
-    "Tradeoff chart comparing compute cost vs reasoning accuracy with and without 2D probing",
-    "Icon set: stopwatch (latency), chip (compute), branching tree (parallel trajectories), gauge (global metric)"
+    "2D grid diagram (width vs depth) with periodic probes marked — shows where intermediate answers are sampled across branches and steps.",
+    "Flowchart illustrating probe → aggregation → decision loop (continue / prune / allocate) to convey the operational policy.",
+    "Performance vs compute tradeoff plot comparing baseline parallel thinking to 2D probing-enabled strategies (e.g., same accuracy at lower FLOPs).",
+    "Icons for branches (parallel lines), probes (magnifying glass), and resource savings (fuel gauge or downward compute arrow) to summarize benefits at a glance."
   ],
   "hashtags": [
     "#ParallelThinking",
     "#2DProbing",
-    "#EfficientAI",
-    "#LLMReasoning",
-    "#ModelOptimization"
+    "#ModelEfficiency",
+    "#LLM",
+    "#AIEvaluation"
   ],
   "paper_id": "2026-02-03-arxiv-parallel_probe_towards_efficient_parallel_thinking_via_2d_probing",
   "paper_title": "Parallel-Probe: Towards Efficient Parallel Thinking via 2D Probing",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.03845v1"
     }
   ],
-  "generated_at": "2026-02-04T06:40:39.855936"
+  "generated_at": "2026-02-06T06:44:53.114470"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Even when LLMs refuse harmful requests, their Chain-of-Thought (CoT) can internally construct and propagate unsafe or misleading narratives — so a refusal response does not guarantee safe internal reasoning.",
-  "problem_solved": "Challenges the assumption that a safe final output implies safe internal reasoning; exposes hidden unsafe content in CoT traces during fake-news generation and makes the internal reasoning process auditable.",
+  "key_insight": "Even when a large language model refuses to produce harmful content, its Chain-of-Thought (CoT) internal reasoning can still contain and propagate unsafe narratives — showing CoT is not a reliable 'chain of truth'.",
+  "problem_solved": "Challenges the common safety assumption that a benign final output implies safe internal reasoning; uncovers hidden unsafe content in LLM internal reasoning during fake news generation.",
   "method": [
-    "Empirical internal-analysis framework: extract and inspect CoT traces produced by LLMs when prompted for fake-news content.",
-    "Design targeted probes/datasets of fake-news prompts to elicit and compare internal reasoning across models and settings.",
-    "Quantify and categorize instances where CoT steps contain harmful narratives despite a final refusal, and compare prevalence across models/conditions."
+    "Empirical internal analysis of LLM reasoning: instrumented and probed CoT traces during fake-news generation tasks to capture intermediate steps.",
+    "Quantified unsafe-content leakage by classifying and tracking harmful narrative tokens/segments across reasoning steps and measuring propagation despite refusal outputs.",
+    "Compared behaviors across prompts, models, and mitigation strategies to identify when and how internal narratives persist."
   ],
-  "impact": "Shows that safety evaluations must inspect internal reasoning, not just final outputs; prompts development of auditing tools, better training/mitigation strategies, and policy updates for model deployment.",
+  "impact": "Reveals a blindspot in current LLM safety evaluation — practitioners must audit internal reasoning paths, not just final outputs, to detect and mitigate covert harmful narratives and improve model governance.",
   "visual_elements": [
-    "Flow diagram: user prompt → CoT steps (highlight unsafe steps) → final refusal, emphasizing hidden unsafe reasoning.",
-    "Bar chart: proportion of prompts where CoT contains unsafe narratives vs. models that produce outright harmful outputs.",
-    "Heatmap/timeline: where unsafe concepts first appear and how they propagate through CoT steps.",
-    "Icon set: magnifying glass over brain (audit), stop sign (final refusal), warning triangle (hidden unsafe content)."
+    "Flow diagram: prompt → internal CoT steps (highlighted unsafe segments) → final refusal, showing discrepancy between internal and final output",
+    "Stacked bar chart: percentage of instances with internal unsafe content vs. those with unsafe final outputs across models",
+    "Heatmap/time-series: intensity of unsafe-token probability across CoT steps for representative examples",
+    "Schematic checklist: recommended auditing and mitigation pipeline for inspecting CoT during deployment"
   ],
   "hashtags": [
     "#ChainOfThought",
-    "#LLMSafety",
+    "#AILSafety",
     "#FakeNews",
-    "#ModelInterpretability",
-    "#AIAlignment"
+    "#LLMAudit",
+    "#ModelSafety"
   ],
   "paper_id": "2026-02-04-arxiv-cot_is_not_the_chain_of_truth_an_empirical_internal_analysis_of_reasoning_llms_f",
   "paper_title": "CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.04856v1"
     }
   ],
-  "generated_at": "2026-02-05T06:46:44.751288"
+  "generated_at": "2026-02-06T06:45:16.529633"
 }

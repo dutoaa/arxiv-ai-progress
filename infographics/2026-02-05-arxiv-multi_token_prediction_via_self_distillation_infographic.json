@@ -1,0 +1,35 @@
+{
+  "key_insight": "A pretrained autoregressive LM can be converted into a fast standalone multi-token predictor by using an online self-distillation objective, enabling multi-token generation in one pass without training separate speculator models or changing the model implementation.",
+  "problem_solved": "Reduces inference latency and deployment complexity caused by slow single-token autoregressive decoding and by approaches (e.g., speculative decoding) that require auxiliary speculator models and complex pipelines.",
+  "method": [
+    "Use the original pretrained model's outputs as targets in an online self-distillation loop so the model learns to predict multiple future tokens in a single forward pass.",
+    "Train with a multi-token prediction objective that aligns student multi-token outputs with teacher autoregressive continuations, while preserving the pretrained model architecture and deployment code.",
+    "Produce a single standalone model that at inference time emits several tokens per step, avoiding external speculators or pipeline orchestration."
+  ],
+  "impact": "Delivers simpler, faster language-model inference with no additional models or special serving pipelines, making high-throughput deployment and real-time applications easier for practitioners.",
+  "visual_elements": [
+    "Before vs After pipeline diagram: (left) autoregressive + speculative decoding with multiple models; (right) single distilled model producing multiple tokens per step",
+    "Training flowchart showing online self-distillation: teacher autoregressive rollouts -> distillation loss -> student learns k-token outputs",
+    "Bar chart illustrating reduced decoding steps / latency (conceptual) comparing single-token vs multi-token prediction",
+    "Icon set: single-model deployment, speedometer (latency), compact pipeline (fewer components)"
+  ],
+  "hashtags": [
+    "#SelfDistillation",
+    "#EfficientInference",
+    "#LanguageModels",
+    "#MultiTokenPrediction",
+    "#ModelDeployment"
+  ],
+  "paper_id": "2026-02-05-arxiv-multi_token_prediction_via_self_distillation",
+  "paper_title": "Multi-Token Prediction via Self-Distillation",
+  "paper_category": "Model",
+  "paper_date": "2026-02-05",
+  "paper_authors": "John Kirchenbauer, Abhimanyu Hans, Brian Bartoldson, Micah Goldblum, Ashwinee Panda",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.06019v1"
+    }
+  ],
+  "generated_at": "2026-02-06T06:41:53.112353"
+}

@@ -1,0 +1,35 @@
+{
+  "key_insight": "AP-OOD replaces simple average pooling with a learned attention-pooling mechanism over token embeddings to produce a single, more informative OOD score — leveraging token-level signals to better separate in-distribution and out-of-distribution inputs.",
+  "problem_solved": "How to aggregate high-dimensional token embeddings from language models into a single scalar OOD score that reliably identifies out-of-distribution text, while preserving interpretability and using limited supervision.",
+  "method": [
+    "Learned attention pooling: train a lightweight attention module that assigns importance weights to token embeddings and pools them into a single representation for scoring.",
+    "Semi-supervised calibration: use limited in-/out-of-distribution supervision (or proxy negatives) to shape attention weights and the final OOD scoring function without retraining the backbone LM.",
+    "Token-level contributions: compute per-token OOD contributions (attention × token score) to enable interpretability and localized anomaly signals, and derive a final scalar OOD score from the pooled representation."
+  ],
+  "impact": "Provides practitioners a plug-in, interpretable OOD detector that improves sensitivity to localized anomalies in text, is compatible with pre-trained language models, and reduces reliance on blunt average-based aggregation for safer deployment.",
+  "visual_elements": [
+    "Model diagram: token embeddings → attention pooling layer → pooled representation → scalar OOD score (annotate trainable attention weights).",
+    "Text heatmap: example sentence with token-level attention/OOD contributions highlighted to show where the model detects anomalies.",
+    "Performance sketch: bar or line chart comparing AP-OOD vs average pooling and other baselines on standard OOD metrics (e.g., AUROC) — emphasize relative improvement without numeric claims.",
+    "Training flowchart: semi-supervised setup showing in-distribution, limited OOD examples/proxies, and how they shape attention calibration."
+  ],
+  "hashtags": [
+    "#OODDetection",
+    "#NLP",
+    "#AttentionPooling",
+    "#RobustAI",
+    "#SemiSupervised"
+  ],
+  "paper_id": "2026-02-05-arxiv-ap_ood_attention_pooling_for_out_of_distribution_detection",
+  "paper_title": "AP-OOD: Attention Pooling for Out-of-Distribution Detection",
+  "paper_category": "Model",
+  "paper_date": "2026-02-05",
+  "paper_authors": "Claus Hofmann, Christian Huber, Bernhard Lehner, Daniel Klotz, Sepp Hochreiter",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.06031v1"
+    }
+  ],
+  "generated_at": "2026-02-06T06:42:57.035786"
+}

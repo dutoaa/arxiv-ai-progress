@@ -1,0 +1,35 @@
+{
+  "key_insight": "Share learns a compact, shared low-rank LoRA subspace that new-task updates project into and occasionally consolidate into, enabling near-zero forgetting continual adaptation of large pretrained models without data replay or growing per-task adapters.",
+  "problem_solved": "Efficient continual adaptation of large pretrained models while avoiding catastrophic forgetting, replay buffers, and the memory/compute bloat of separate adapters per task.",
+  "method": [
+    "Maintain a small shared low-rank LoRA subspace for parameter-efficient updates; represent new-task updates as coefficients in that subspace instead of independent adapters.",
+    "When necessary, expand or consolidate the shared subspace by integrating important task directions (with orthogonality/regularization constraints) so knowledge is merged rather than kept in separate modules.",
+    "Train/update only the low-rank coefficients (and occasional compact basis updates), enabling almost strict continual learning without replay and with bounded memory/computation."
+  ],
+  "impact": "Practitioners can continually adapt large models on-device or in constrained infra with much lower memory and compute, reducing deployment complexity (single adapter) while preserving prior task performance—critical for real-world, multi-task systems.",
+  "visual_elements": [
+    "Schematic of transformer block showing a shared LoRA subspace module and per-task coefficient vectors (small boxes vs. large backbone).",
+    "Timeline of tasks illustrating near-zero forgetting: performance curves for Share vs. full fine-tuning and per-task LoRA across sequential tasks.",
+    "Bar chart comparing memory & compute cost: full fine-tune, per-task adapters, and Share (shared subspace).",
+    "Flowchart of the consolidate/expand step: project new update → evaluate importance → merge into shared subspace (or keep coefficients)."
+  ],
+  "hashtags": [
+    "#ContinualLearning",
+    "#LoRA",
+    "#ParameterEfficient",
+    "#AIInfrastructure",
+    "#EdgeAI"
+  ],
+  "paper_id": "2026-02-05-arxiv-shared_lora_subspaces_for_almost_strict_continual_learning",
+  "paper_title": "Shared LoRA Subspaces for almost Strict Continual Learning",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-02-05",
+  "paper_authors": "Prakhar Kaushik, Ankit Vaidya, Shravan Chaudhari, Rama Chellappa, Alan Yuille",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.06043v1"
+    }
+  ],
+  "generated_at": "2026-02-06T06:44:12.273795"
+}

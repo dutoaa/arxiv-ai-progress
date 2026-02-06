@@ -1,24 +1,24 @@
 {
-  "key_insight": "PAR is the first multi-scale autoregressive framework that generates protein backbones in a coarse-to-fine fashion—producing a global topology first and then autoregressively refining structural details across scales to improve realism and coherence.",
-  "problem_solved": "Enables scalable, coherent generation of 3D protein backbone structures by explicitly modeling hierarchical (multi-scale) geometry, addressing limitations of single-scale generative methods in capturing global topology and local detail together.",
+  "key_insight": "Protein Autoregressive Modeling (PAR) generates protein backbones by sculpting structures in a coarse-to-fine, multiscale autoregressive fashion—predicting finer-scale geometry conditioned on coarser topology to capture hierarchical protein structure efficiently.",
+  "problem_solved": "Addresses the challenge of generating realistic protein backbone structures that require modeling long-range and hierarchical dependencies across multiple spatial scales, which single-scale generative methods struggle to capture.",
   "method": [
-    "Multi-scale downsampling: represent protein backbones at several spatial scales (coarse to fine) to capture hierarchy.",
-    "Autoregressive next-scale prediction: generate finer-scale structure conditioned on the immediately coarser scale in a sequential coarse→fine pipeline.",
-    "Iterative refinement: repeat downsample + predict steps so the model sculpts global topology first and incrementally adds structural details."
+    "Multi-scale downsampling to represent backbone geometry at multiple resolutions (coarse → fine).",
+    "Autoregressive next-scale prediction: at each scale, generate finer-scale coordinates conditioned on the current coarser representation.",
+    "Iterative coarse-to-fine refinement with structure-aware objectives to preserve topology while adding geometric detail."
   ],
-  "impact": "Introduces a practical coarse-to-fine autoregressive paradigm for structured 3D generation, improving sample fidelity and long-range consistency for protein design and suggesting a transferable approach for other hierarchical generative tasks in ML.",
+  "impact": "Provides a scalable, interpretable framework for protein structure generation that better models hierarchical geometry, enabling more realistic backbone sampling and easier integration into protein design and generative ML workflows.",
   "visual_elements": [
-    "Pipeline diagram: multi-scale downsampling + autoregressive next-scale prediction loop (coarse→fine).",
-    "Sequence of 3D renderings showing one protein progressing from coarse topology to fully refined backbone.",
-    "Bar/line chart comparing reconstruction quality and generation speed vs single-scale baselines.",
-    "Architecture block diagram highlighting scale-conditioned prediction module and data flow between scales."
+    "Sculpting analogy diagram: a statue progressing from blocky coarse form to detailed final structure (coarse→fine stages).",
+    "Pipeline flowchart: multi-scale downsampling → autoregressive next-scale generator → refinement loop.",
+    "Sequence of snapshots showing the same protein backbone at 3–4 scales to illustrate added detail per step.",
+    "Schematic comparing single-scale vs. multiscale generation to highlight improved hierarchical modeling (icon or bar/arrow graphic)."
   ],
   "hashtags": [
     "#ProteinDesign",
-    "#GenerativeModels",
-    "#Autoregressive",
-    "#Multiscale",
-    "#StructuralBiology"
+    "#GenerativeAI",
+    "#AutoregressiveModels",
+    "#StructuralBiology",
+    "#MultiscaleLearning"
   ],
   "paper_id": "2026-02-04-arxiv-protein_autoregressive_modeling_via_multiscale_structure_generation",
   "paper_title": "Protein Autoregressive Modeling via Multiscale Structure Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.04883v1"
     }
   ],
-  "generated_at": "2026-02-05T06:47:55.975311"
+  "generated_at": "2026-02-06T06:45:40.936168"
 }
