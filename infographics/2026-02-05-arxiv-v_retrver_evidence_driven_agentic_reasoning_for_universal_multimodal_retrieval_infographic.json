@@ -1,24 +1,24 @@
 {
-  "key_insight": "V-Retrver replaces static, language-only Chain-of-Thought reranking with an agentic, evidence-driven loop that actively verifies fine-grained visual cues, reducing speculative reasoning and improving multimodal retrieval accuracy.",
-  "problem_solved": "Existing multimodal retrieval methods rely on static visual encodings and language-centric CoT, which can produce hallucinations or wrong reranks when visual evidence is ambiguous or requires fine-grained verification.",
+  "key_insight": "V-Retrver converts multimodal retrieval into an evidence-driven agentic reasoning loop, letting the model actively verify fine-grained visual cues rather than relying on static language-centered Chain-of-Thought, which reduces speculative answers and improves reranking accuracy.",
+  "problem_solved": "Current multimodal reranking methods are largely language-driven and use static visual encodings, causing hallucination and poor handling of visually ambiguous or fine-grained evidence during retrieval.",
   "method": [
-    "Agentic evidence extraction: the system issues focused visual queries (e.g., region probes or attribute checks) instead of relying solely on frozen global encodings.",
-    "Multimodal verifier & iterative reranking: an agentic verifier cross-checks retrieved candidates against extracted visual evidence and iteratively refines rankings.",
-    "Evidence-aware CoT: combine explicit visual grounding with reasoning traces so reranking decisions are supported by verifiable image evidence rather than pure language speculation."
+    "Agentic evidence loop: reformulate retrieval as an agentic process where an MLLM issues visual probes, inspects the image (or visual tokens/regions), and iteratively verifies candidate evidence.",
+    "Dynamic visual grounding: combine on-demand visual extraction (e.g., region crops, attention/heatmaps) with multimodal reasoning to produce grounded justifications for reranking.",
+    "Evidence-driven rerank: score and reorder retrieval candidates based on explicit, verifiable visual evidence and chainable reasoning steps instead of static text-only CoT outputs."
   ],
-  "impact": "Makes multimodal retrieval more reliable and interpretable by grounding reranking decisions in explicit visual evidence, which helps practitioners build safer, higher-precision retrieval systems and diagnose failures more easily.",
+  "impact": "Provides more accurate, robust, and explainable multimodal retrieval by reducing speculative reasoning and enabling fine-grained visual verification — useful for retrieval systems, VQA, and downstream vision-language tasks.",
   "visual_elements": [
-    "Pipeline diagram showing image → agentic visual probes → verifier → iterative reranking loop",
-    "Before/after example: query with top-k candidates where speculative vs. evidence-backed reranks are highlighted",
-    "Heatmap/region overlays illustrating focused visual queries and the evidence used for verification",
-    "Bar chart or precision@k plot comparing V-Retrver to language-only CoT baselines"
+    "Pipeline diagram of the agentic loop: query → candidate retrieval → visual probes → evidence verification → rerank",
+    "Before/after comparison chart showing error reduction or accuracy lift from language-driven CoT to V-Retrver",
+    "Example image with highlighted regions/heatmaps used as visual probes alongside the model's evidence-backed reasoning steps",
+    "Flowchart illustrating one iteration of the probe-verify-score cycle with icons for 'see', 'reason', and 'score'"
   ],
   "hashtags": [
-    "#MultimodalRetrieval",
+    "#MultimodalAI",
+    "#Retrieval",
     "#VisionLanguage",
-    "#AgenticAI",
     "#ExplainableAI",
-    "#EvidenceBasedAI"
+    "#MLLM"
   ],
   "paper_id": "2026-02-05-arxiv-v_retrver_evidence_driven_agentic_reasoning_for_universal_multimodal_retrieval",
   "paper_title": "V-Retrver: Evidence-Driven Agentic Reasoning for Universal Multimodal Retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06034v1"
     }
   ],
-  "generated_at": "2026-02-06T06:43:05.985857"
+  "generated_at": "2026-02-07T06:31:34.874039"
 }

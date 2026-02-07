@@ -1,24 +1,24 @@
 {
-  "key_insight": "Share learns a compact, shared low-rank LoRA subspace that new-task updates project into and occasionally consolidate into, enabling near-zero forgetting continual adaptation of large pretrained models without data replay or growing per-task adapters.",
-  "problem_solved": "Efficient continual adaptation of large pretrained models while avoiding catastrophic forgetting, replay buffers, and the memory/compute bloat of separate adapters per task.",
+  "key_insight": "Constraining task updates to a shared low‑rank LoRA subspace lets a single, tiny adapter continually learn new tasks with almost no forgetting and without replay or storing multiple adapters.",
+  "problem_solved": "Enables strict (or near‑strict) continual learning for large pretrained models while avoiding catastrophic forgetting, replay buffers, and the storage/compute overhead of many separate adapters.",
   "method": [
-    "Maintain a small shared low-rank LoRA subspace for parameter-efficient updates; represent new-task updates as coefficients in that subspace instead of independent adapters.",
-    "When necessary, expand or consolidate the shared subspace by integrating important task directions (with orthogonality/regularization constraints) so knowledge is merged rather than kept in separate modules.",
-    "Train/update only the low-rank coefficients (and occasional compact basis updates), enabling almost strict continual learning without replay and with bounded memory/computation."
+    "Introduce Share: a single parameter‑efficient LoRA adapter whose update space is a shared low‑rank subspace across tasks.",
+    "For each new task, project updates into the shared subspace (and optionally a small task‑specific component), using orthogonalization/regularization to preserve earlier task directions.",
+    "Train only the low‑rank factors (kept small) so adaptation is cheap in compute and memory, and knowledge integrates into the shared subspace instead of isolated adapters."
   ],
-  "impact": "Practitioners can continually adapt large models on-device or in constrained infra with much lower memory and compute, reducing deployment complexity (single adapter) while preserving prior task performance—critical for real-world, multi-task systems.",
+  "impact": "Practitioners can continually adapt large models on-device or in constrained infra with minimal memory and compute, achieving near zero‑forgetting without data replay or proliferating adapters — simplifying deployment and maintenance.",
   "visual_elements": [
-    "Schematic of transformer block showing a shared LoRA subspace module and per-task coefficient vectors (small boxes vs. large backbone).",
-    "Timeline of tasks illustrating near-zero forgetting: performance curves for Share vs. full fine-tuning and per-task LoRA across sequential tasks.",
-    "Bar chart comparing memory & compute cost: full fine-tune, per-task adapters, and Share (shared subspace).",
-    "Flowchart of the consolidate/expand step: project new update → evaluate importance → merge into shared subspace (or keep coefficients)."
+    "Diagram: pretrained model + single LoRA adapter with arrows showing multiple tasks projecting into a shared low‑rank subspace",
+    "Chart: forgetting curves comparing Share vs standard LoRA and replay methods (Share showing near‑flat loss/accuracy across tasks)",
+    "Schematic: training pipeline per task (task data → project into shared subspace → update low‑rank factors) highlighting no replay and small memory footprint",
+    "Bar chart/table: memory & compute cost vs accuracy for Share, multi‑adapter LoRA, and full fine‑tuning"
   ],
   "hashtags": [
     "#ContinualLearning",
     "#LoRA",
     "#ParameterEfficient",
-    "#AIInfrastructure",
-    "#EdgeAI"
+    "#ModelAdaptation",
+    "#AIInfrastructure"
   ],
   "paper_id": "2026-02-05-arxiv-shared_lora_subspaces_for_almost_strict_continual_learning",
   "paper_title": "Shared LoRA Subspaces for almost Strict Continual Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06043v1"
     }
   ],
-  "generated_at": "2026-02-06T06:44:12.273795"
+  "generated_at": "2026-02-07T06:32:39.536590"
 }

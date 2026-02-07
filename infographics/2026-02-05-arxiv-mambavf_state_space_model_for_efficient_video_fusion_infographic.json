@@ -1,23 +1,23 @@
 {
-  "key_insight": "MambaVF replaces costly optical-flow-based fusion with a State Space Model (SSM) formulation that treats video fusion as a sequential state update, enabling temporal modeling without explicit motion estimation and greatly reducing compute overhead.",
-  "problem_solved": "Removes dependency on optical flow estimation and feature warping in video fusion pipelines, addressing high computational cost, latency, and poor scalability in multi-frame video processing.",
+  "key_insight": "MambaVF reformulates video fusion as a sequential state-update process using state space models (SSMs), enabling temporal fusion without explicit optical flow or feature warping. This approach yields much lower computational overhead and better scalability for multi-frame fusion.",
+  "problem_solved": "Existing video fusion methods depend on costly optical flow estimation and feature warping, which limits runtime efficiency and scalability to long sequences or high-resolution video. MambaVF removes that bottleneck by performing temporal modeling through SSMs.",
   "method": [
-    "Reformulate video fusion as a sequential state update process where a compact latent state summarizes past frames and is updated per-frame using an SSM.",
-    "Apply efficient SSM-based temporal modeling to fuse multi-frame information without explicit motion estimation or costly feature warping.",
-    "Design an end-to-end fusion pipeline that yields competitive visual quality with lower compute and better scalability for longer sequences."
+    "Recast video fusion as a sequential state update problem where a learned SSM evolves a compact state carrying temporal information across frames.",
+    "Use the SSM to aggregate temporal context and produce fused frame representations directly, eliminating optical-flow-based motion estimation and explicit warping.",
+    "Train the pipeline end-to-end to decode fused outputs from the evolving state, focusing on compute- and parameter-efficient SSM modules for real-time-friendly inference."
   ],
-  "impact": "Enables faster, more scalable video fusion suitable for real-time and resource-constrained settings, making multi-frame enhancement/filtering more practical for researchers and deployed systems.",
+  "impact": "For practitioners, MambaVF offers a path to faster, more scalable video fusion pipelines that reduce runtime and memory cost while retaining temporal coherence — enabling deployment on resource-constrained hardware and longer sequences.",
   "visual_elements": [
-    "Side-by-side pipeline diagram: conventional optical-flow + warping vs. MambaVF SSM state-update pipeline",
-    "State update schematic: latent state propagation and per-frame update (boxes/arrows showing no motion vectors)",
-    "Bar chart: compute (FLOPs/latency) and accuracy (PSNR/SSIM) comparisons vs optical-flow baselines",
-    "Before/after frame triplet: input frames, fused result by baseline, fused result by MambaVF (qualitative improvements)"
+    "Architecture diagram showing input frames → SSM state updates → decoder → fused output (highlight absence of optical flow and warping)",
+    "Side-by-side bar chart comparing computational cost (FLOPs, latency) of MambaVF vs. typical flow+warp methods",
+    "Sequence timeline illustrating how a single compact state accumulates temporal information across multiple frames",
+    "Icon set: speedometer (efficiency), stacked frames (temporal fusion), gear without airflow icon (no optical flow), mobile device (deployability)"
   ],
   "hashtags": [
     "#VideoFusion",
     "#StateSpaceModels",
-    "#TemporalModeling",
     "#EfficientAI",
+    "#TemporalModeling",
     "#ComputerVision"
   ],
   "paper_id": "2026-02-05-arxiv-mambavf_state_space_model_for_efficient_video_fusion",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06017v1"
     }
   ],
-  "generated_at": "2026-02-06T06:41:39.661030"
+  "generated_at": "2026-02-07T06:33:25.001318"
 }

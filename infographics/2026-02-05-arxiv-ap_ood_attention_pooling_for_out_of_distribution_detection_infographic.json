@@ -1,24 +1,24 @@
 {
-  "key_insight": "AP-OOD replaces simple average pooling with a learned attention-pooling mechanism over token embeddings to produce a single, more informative OOD score — leveraging token-level signals to better separate in-distribution and out-of-distribution inputs.",
-  "problem_solved": "How to aggregate high-dimensional token embeddings from language models into a single scalar OOD score that reliably identifies out-of-distribution text, while preserving interpretability and using limited supervision.",
+  "key_insight": "AP-OOD uses attention-weighted pooling over token embeddings to produce a single, more informative OOD score, capturing token-level signals that simple averaging misses.",
+  "problem_solved": "How to aggregate token-level representations from language models into a robust scalar OOD score—average pooling dilutes informative tokens and hurts detection; AP-OOD addresses this with a token-aware, semi-supervised pooling strategy.",
   "method": [
-    "Learned attention pooling: train a lightweight attention module that assigns importance weights to token embeddings and pools them into a single representation for scoring.",
-    "Semi-supervised calibration: use limited in-/out-of-distribution supervision (or proxy negatives) to shape attention weights and the final OOD scoring function without retraining the backbone LM.",
-    "Token-level contributions: compute per-token OOD contributions (attention × token score) to enable interpretability and localized anomaly signals, and derive a final scalar OOD score from the pooled representation."
+    "Compute token embeddings from a pre-trained language model and learn attention weights that emphasize OOD-relevant tokens.",
+    "Pool token embeddings via the learned attention to obtain a compact representation and derive a scalar OOD score from it.",
+    "Train attention and scoring components in a semi-supervised setup that leverages labeled in-distribution data plus unlabeled or proxy OOD signals to shape attention."
   ],
-  "impact": "Provides practitioners a plug-in, interpretable OOD detector that improves sensitivity to localized anomalies in text, is compatible with pre-trained language models, and reduces reliance on blunt average-based aggregation for safer deployment.",
+  "impact": "Provides NLP practitioners a simple, plug-in method to improve OOD detection reliability by leveraging token-level cues—leading to better uncertainty estimation and safer model deployment.",
   "visual_elements": [
-    "Model diagram: token embeddings → attention pooling layer → pooled representation → scalar OOD score (annotate trainable attention weights).",
-    "Text heatmap: example sentence with token-level attention/OOD contributions highlighted to show where the model detects anomalies.",
-    "Performance sketch: bar or line chart comparing AP-OOD vs average pooling and other baselines on standard OOD metrics (e.g., AUROC) — emphasize relative improvement without numeric claims.",
-    "Training flowchart: semi-supervised setup showing in-distribution, limited OOD examples/proxies, and how they shape attention calibration."
+    "Schematic: tokens → embeddings → attention weights (heatmap) → attention-pooled vector → scalar OOD score",
+    "Side-by-side bar/line chart: AP-OOD vs. average pooling on standard OOD metrics (e.g., AUROC / FPR95) to show performance gain",
+    "Example text with attention overlay highlighting tokens driving the OOD decision (attention heatmap on words)",
+    "Training-flow diagram showing semi-supervised signals: labeled ID data + unlabeled/proxy OOD data → attention learning → scoring head"
   ],
   "hashtags": [
     "#OODDetection",
     "#NLP",
     "#AttentionPooling",
-    "#RobustAI",
-    "#SemiSupervised"
+    "#SemiSupervised",
+    "#ModelReliability"
   ],
   "paper_id": "2026-02-05-arxiv-ap_ood_attention_pooling_for_out_of_distribution_detection",
   "paper_title": "AP-OOD: Attention Pooling for Out-of-Distribution Detection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06031v1"
     }
   ],
-  "generated_at": "2026-02-06T06:42:57.035786"
+  "generated_at": "2026-02-07T06:31:23.982894"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "A pretrained autoregressive LM can be converted into a fast standalone multi-token predictor by using an online self-distillation objective, enabling multi-token generation in one pass without training separate speculator models or changing the model implementation.",
-  "problem_solved": "Reduces inference latency and deployment complexity caused by slow single-token autoregressive decoding and by approaches (e.g., speculative decoding) that require auxiliary speculator models and complex pipelines.",
+  "key_insight": "A pretrained autoregressive language model can be converted into a fast, standalone multi-token predictor by training it to self-distill its own next-token behavior into multi-token outputs, avoiding auxiliary speculator models and complex pipelines.",
+  "problem_solved": "Reduces inference latency and system complexity caused by single-step next-token generation and multi-model speculative decoding approaches, enabling simpler, faster deployment of language models.",
   "method": [
-    "Use the original pretrained model's outputs as targets in an online self-distillation loop so the model learns to predict multiple future tokens in a single forward pass.",
-    "Train with a multi-token prediction objective that aligns student multi-token outputs with teacher autoregressive continuations, while preserving the pretrained model architecture and deployment code.",
-    "Produce a single standalone model that at inference time emits several tokens per step, avoiding external speculators or pipeline orchestration."
+    "Online self-distillation: continue training the pretrained autoregressive model so it predicts multiple future tokens in one forward pass using its own predictions as targets.",
+    "Multi-token objective: replace or augment the standard single-token loss with a multi-token prediction loss that encourages accurate short sequence outputs.",
+    "No auxiliary models or special inference code: retain the original model architecture/implementation while changing only the training objective to produce a standalone multi-token predictor."
   ],
-  "impact": "Delivers simpler, faster language-model inference with no additional models or special serving pipelines, making high-throughput deployment and real-time applications easier for practitioners.",
+  "impact": "Enables substantial inference speedups and simpler deployment for practitioners without adding extra models or complex decoding pipelines; useful for latency-sensitive applications and production systems.",
   "visual_elements": [
-    "Before vs After pipeline diagram: (left) autoregressive + speculative decoding with multiple models; (right) single distilled model producing multiple tokens per step",
-    "Training flowchart showing online self-distillation: teacher autoregressive rollouts -> distillation loss -> student learns k-token outputs",
-    "Bar chart illustrating reduced decoding steps / latency (conceptual) comparing single-token vs multi-token prediction",
-    "Icon set: single-model deployment, speedometer (latency), compact pipeline (fewer components)"
+    "Before vs After pipeline diagram: (left) autoregressive single-token loop + speculative speculator, (right) single multi-token model producing k tokens per step",
+    "Training schematic: teacher (original model) generating targets → student (same-architecture model) learning multi-token outputs via self-distillation",
+    "Speed/throughput chart: tokens-per-second or latency comparison between standard decoding, speculative decoding, and the distilled multi-token model",
+    "Illustrative icon set: single-model-only deployment, no extra services, and a speedometer showing lower latency"
   ],
   "hashtags": [
     "#SelfDistillation",
     "#EfficientInference",
     "#LanguageModels",
-    "#MultiTokenPrediction",
-    "#ModelDeployment"
+    "#SpeculativeDecoding",
+    "#ModelOptimization"
   ],
   "paper_id": "2026-02-05-arxiv-multi_token_prediction_via_self_distillation",
   "paper_title": "Multi-Token Prediction via Self-Distillation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06019v1"
     }
   ],
-  "generated_at": "2026-02-06T06:41:53.112353"
+  "generated_at": "2026-02-07T06:33:34.433403"
 }

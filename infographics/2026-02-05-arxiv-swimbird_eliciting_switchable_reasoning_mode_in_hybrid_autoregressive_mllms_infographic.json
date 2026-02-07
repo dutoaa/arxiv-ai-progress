@@ -1,22 +1,22 @@
 {
-  "key_insight": "SwimBird enables a hybrid autoregressive MLLM to dynamically switch between textual chain-of-thought and visual latent \"thoughts,\" preserving strong text reasoning while boosting vision-intensive reasoning through a learned mode switch.",
-  "problem_solved": "Most MLLMs either rely on text-based chain-of-thought (weak for vision-heavy tasks) or inject fixed visual latent states (which can harm text reasoning); SwimBird resolves this trade-off by making reasoning mode switchable and task-adaptive.",
+  "key_insight": "SwimBird enables hybrid autoregressive MLLMs to dynamically switch between visual latent ‘thoughts’ and textual chain-of-thought, preserving strong visual reasoning without degrading text-based logical reasoning.",
+  "problem_solved": "Existing MLLMs either rely on text-based CoT (weak for vision-intensive tasks) or inject fixed visual latent states (which help vision but harm text reasoning); SwimBird addresses the need for a controllable, switchable reasoning mode that supports both modalities.",
   "method": [
-    "Augment a hybrid autoregressive multimodal LLM with a lightweight learned mode switch that selects between textual CoT decoding and injected visual latent states during generation.",
-    "Condition the switch on input cues (e.g., task type, prompt signals, or visual features) so the model uses visual \"thoughts\" only when beneficial while defaulting to textual reasoning otherwise.",
-    "Train/finetune with mixed-task objectives and targeted supervision so both modes remain performant and the model learns when to transition smoothly between them."
+    "Hybrid autoregressive backbone with two reasoning paths: continuous visual-latent ‘visual thoughts’ and discrete textual CoT, accessible during generation.",
+    "A lightweight mode controller (mode tokens/gating) and mode-conditioned training to elicit and switch the appropriate reasoning process per task or prompt.",
+    "Joint training objectives and auxiliary supervision to maintain performance in each mode and reduce cross-mode interference (mode-specific losses and distillation/regularization)."
   ],
-  "impact": "Provides a practical way to get the best of textual and visual reasoning in one MLLM without sacrificing either capability, making multimodal systems more reliable across both language-centric and vision-intensive tasks.",
+  "impact": "Practitioners get a single MLLM that can be flexibly steered toward vision-heavy or text-heavy reasoning without retraining separate models—improving robustness on mixed multimodal workloads and simplifying deployment.",
   "visual_elements": [
-    "Pipeline diagram showing two decoding branches (Textual CoT vs Visual latent states) with a central learned switch/gate controlling flow",
-    "Before/after comparison chart illustrating trade-off: fixed-visual method (improved vision, degraded text) vs SwimBird (balanced performance)",
-    "Sequence-level example: stepwise generation for a vision-heavy question showing visual thoughts injected only where needed",
-    "Iconography: toggle/switch, brain (text reasoning) and eye (visual reasoning) to reinforce the switchable modes concept"
+    "Architecture diagram showing dual reasoning paths (visual-latent vs textual CoT) and a mode controller/gate.",
+    "Before/after examples: same multimodal input with visual-mode output vs text-mode output to illustrate behavior differences.",
+    "Bar chart or radar comparing vision-task vs text-reasoning performance for baseline MLLMs, fixed-visual-latent models, and SwimBird.",
+    "Flowchart of inference that shows manual (prompt) vs automatic controller switching between modes."
   ],
   "hashtags": [
     "#SwimBird",
-    "#MultimodalAI",
-    "#LLM",
+    "#MultimodalLLM",
+    "#SwitchableReasoning",
     "#ChainOfThought",
     "#VisionLanguage"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06040v1"
     }
   ],
-  "generated_at": "2026-02-06T06:44:00.716669"
+  "generated_at": "2026-02-07T06:32:23.550817"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Streaming tuning creates a structural student–teacher mismatch: teachers that only see short windows cannot teach students to produce globally consistent long rollouts. \"Context Forcing\" bridges this gap by giving the teacher access to long context during supervision so the student learns temporally consistent autoregressive generation.",
-  "problem_solved": "Existing real-time long-video generation methods train long-rollout students from short-context (memoryless) teachers, causing poor global temporal consistency and drift over extended sequences.",
+  "key_insight": "Context Forcing aligns teacher supervision with the student's long rollouts by conditioning the teacher on extended history, removing the student–teacher mismatch and enabling consistent autoregressive video generation over long contexts.",
+  "problem_solved": "Existing streaming tuning methods train long‑context students from short‑window (memoryless) teachers, which cannot teach global temporal coherence; this mismatch causes drift and inconsistency in long video rollouts.",
   "method": [
-    "Context Forcing: during training, provide the teacher model with the long historical context (or a proxy of it) used by the student so the teacher's supervision reflects long-term dependencies.",
-    "Consistency supervision: add losses that align student long-rollout predictions with teacher outputs across extended time windows to reduce drift and improve global coherence.",
-    "Deploy an autoregressive video generator with explicit long-context memory and streaming-compatible tuning so inference remains real-time while generation stays consistent over long horizons."
+    "Context Forcing: modify the distillation/teacher pipeline so the teacher has access to extended history (or the student's state) when supervising long rollouts, making guidance consistent with the student's operating conditions.",
+    "Streaming-friendly training with overlapping context windows and a consistency/distillation loss that enforces agreement across short and long context supervision.",
+    "Architectural and optimization choices that preserve real-time inference efficiency while improving long-range temporal coherence (e.g., conditioned autoregressive rollout protocol and lightweight state passing)."
   ],
-  "impact": "Enables real-time autoregressive video models to produce longer, more coherent videos without sacrificing streaming performance—useful for live synthesis, long-horizon simulation, and applications requiring stable temporal consistency.",
+  "impact": "Enables real-time autoregressive video models to generate coherent, long-duration videos without temporal drift, improving reliability for applications like live synthesis, streaming avatars, and long-horizon simulation.",
   "visual_elements": [
-    "Two-panel schematic showing the student performing a long rollout vs the teacher limited to short windows (illustrates the mismatch).",
-    "Flow diagram of Context Forcing: student context -> teacher conditioned on same long context -> consistency loss back to student.",
-    "Before/after frame strip comparing long-rollout temporal drift (baseline) vs stable continuity (Context Forcing).",
-    "Plot of evaluation metrics over rollout length (e.g., fidelity/consistency vs time) showing reduced degradation."
+    "Before vs After diagram showing short-context teacher→student mismatch (drift) contrasted with Context Forcing alignment producing consistent long rollouts.",
+    "Pipeline schematic: teacher + student with 'context forcing' arrow indicating extended-history conditioning and the distillation/consistency loss.",
+    "Timeline visualization of a long video rollout with frame-by-frame quality/coherence metrics (shows reduced drift over time).",
+    "Icon set illustrating real-time streaming, memory/state passing, and temporal consistency (for quick at-a-glance understanding)."
   ],
   "hashtags": [
+    "#ContextForcing",
     "#VideoGeneration",
     "#AutoregressiveModels",
     "#LongContext",
-    "#TemporalConsistency",
-    "#ContextForcing"
+    "#ModelDistillation"
   ],
   "paper_id": "2026-02-05-arxiv-context_forcing_consistent_autoregressive_video_generation_with_long_context",
   "paper_title": "Context Forcing: Consistent Autoregressive Video Generation with Long Context",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06028v1"
     }
   ],
-  "generated_at": "2026-02-06T06:42:43.522316"
+  "generated_at": "2026-02-07T06:31:12.541893"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "By tracing a beta hairpin and using counterfactual interventions on latents, the paper shows ESMFold implements folding in two computational stages: early blocks inject pairwise biochemical signals (residue identity, charge flow) from sequence representations, and later blocks convert those signals into 3D geometry.",
-  "problem_solved": "Explains how a large protein structure model internally performs folding—providing causal, layer-wise mechanistic attribution rather than black‑box predictions.",
+  "key_insight": "ESMFold folds a beta hairpin via two computational stages: early blocks inject pairwise biochemical signals (residue identities, charge flow) from sequence latents into pair representations, and later blocks integrate and refine those pairwise cues to produce the final folded geometry.",
+  "problem_solved": "Explains how a state-of-the-art protein structure prediction model internally constructs structural motifs, addressing the black‑box gap in mechanistic understanding of protein folding in large language-model–based predictors.",
   "method": [
-    "Trace folding dynamics of a beta hairpin through ESMFold’s blocks and representations (sequence latents → pairwise latents → structure).",
-    "Apply counterfactual interventions on latent features to test causal roles (e.g., swap/ablate residue or charge signals) and observe structural consequences.",
-    "Layer-wise analysis to identify two computational stages: initialization of biochemical pairwise signals in early blocks and geometric refinement in later blocks."
+    "Target a canonical motif (beta hairpin) to keep mechanistic analysis tractable.",
+    "Perform counterfactual interventions on model latents to trace where and when biochemical information (residue identity, charge flow) moves from sequence to pairwise representations.",
+    "Analyze block‑wise behavior to separate an early initialization stage from a later refinement/integration stage in the model trunk."
   ],
-  "impact": "Gives practitioners causal, actionable insight into where and how biochemical information is encoded in folding models—enabling targeted debugging, architecture improvements, and principled interventions for design and efficiency.",
+  "impact": "Provides actionable mechanistic insight for researchers and engineers to interpret, debug, and potentially improve protein folding models — enabling more transparent model design and targeted interventions.",
   "visual_elements": [
-    "Two-stage flow diagram: (1) early blocks: sequence → pairwise biochemical signals (residue identity, charge flow), (2) later blocks: pairwise → 3D coordinates.",
-    "Schematic of counterfactual latent intervention showing before/after structure when specific latent signals are altered.",
-    "Layer-wise heatmap/timeline showing emergence and propagation of pairwise biochemical signals across model blocks.",
-    "Overlay of predicted beta hairpin vs. counterfactual-altered predictions to illustrate causal effect on fold."
+    "Two‑stage timeline diagram of the model trunk (early blocks: sequence→pairwise signal injection; later blocks: integration/refinement → coordinates).",
+    "Heatmap or matrix showing emergence of pairwise biochemical signals (residue identity, charge/biochemical flow) across layers.",
+    "Schematic of the beta hairpin structure annotated with arrows indicating information flow from specific residues to pairwise contacts.",
+    "Counterfactual intervention cartoon: swap/modify latents at a layer and show resulting change/no‑change in predicted structure."
   ],
   "hashtags": [
     "#ProteinFolding",
     "#ESMFold",
     "#ModelInterpretability",
-    "#ComputationalBiology",
-    "#AIBio"
+    "#Counterfactuals",
+    "#AI4Science"
   ],
   "paper_id": "2026-02-05-arxiv-mechanisms_of_ai_protein_folding_in_esmfold",
   "paper_title": "Mechanisms of AI Protein Folding in ESMFold",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06020v1"
     }
   ],
-  "generated_at": "2026-02-06T06:42:08.890909"
+  "generated_at": "2026-02-07T06:30:47.078272"
 }
