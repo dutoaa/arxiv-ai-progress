@@ -1,24 +1,24 @@
 {
-  "key_insight": "ESMFold folds a beta hairpin via two computational stages: early blocks inject pairwise biochemical signals (residue identities, charge flow) from sequence latents into pair representations, and later blocks integrate and refine those pairwise cues to produce the final folded geometry.",
-  "problem_solved": "Explains how a state-of-the-art protein structure prediction model internally constructs structural motifs, addressing the black‑box gap in mechanistic understanding of protein folding in large language-model–based predictors.",
+  "key_insight": "ESMFold folds a beta hairpin via two computational stages: early transformer blocks initialize pairwise biochemical signals (residue identity and charge flow) from sequence representations, and later blocks consolidate those signals into the final structural predictions.",
+  "problem_solved": "Explains how internal computations of a state‑of‑the‑art protein folding model generate and transform biochemical signals to produce 3D structure, improving interpretability of model mechanisms.",
   "method": [
-    "Target a canonical motif (beta hairpin) to keep mechanistic analysis tractable.",
-    "Perform counterfactual interventions on model latents to trace where and when biochemical information (residue identity, charge flow) moves from sequence to pairwise representations.",
-    "Analyze block‑wise behavior to separate an early initialization stage from a later refinement/integration stage in the model trunk."
+    "Trace folding of a prototypical motif (beta hairpin) through ESMFold’s transformer layers.",
+    "Apply counterfactual interventions on model latents to test causal roles of representations (e.g., altering sequence-derived features and observing pairwise representation changes).",
+    "Layer‑wise analysis to identify two-stage computation: initialization of pairwise biochemical features in early blocks and subsequent refinement/consolidation in later blocks."
   ],
-  "impact": "Provides actionable mechanistic insight for researchers and engineers to interpret, debug, and potentially improve protein folding models — enabling more transparent model design and targeted interventions.",
+  "impact": "Clarifies internal mechanisms of large protein folding models, enabling practitioners to better diagnose, trust, and guide model design (e.g., targeted interventions, architecture choices, or incorporating biochemical priors).",
   "visual_elements": [
-    "Two‑stage timeline diagram of the model trunk (early blocks: sequence→pairwise signal injection; later blocks: integration/refinement → coordinates).",
-    "Heatmap or matrix showing emergence of pairwise biochemical signals (residue identity, charge/biochemical flow) across layers.",
-    "Schematic of the beta hairpin structure annotated with arrows indicating information flow from specific residues to pairwise contacts.",
-    "Counterfactual intervention cartoon: swap/modify latents at a layer and show resulting change/no‑change in predicted structure."
+    "Two‑stage schematic: early blocks (sequence → biochemical pair signals) vs. later blocks (refinement → 3D fold).",
+    "Flow diagram showing information flow: amino acid sequence → sequence embeddings → pairwise representations → predicted structure.",
+    "Heatmap or matrix visual of pairwise biochemical signals (charge/identity) evolving across layers.",
+    "Counterfactual intervention cartoon: altering a latent and showing change/no‑change in downstream pair signals and final structure."
   ],
   "hashtags": [
     "#ProteinFolding",
     "#ESMFold",
     "#ModelInterpretability",
-    "#Counterfactuals",
-    "#AI4Science"
+    "#CausalML",
+    "#ComputationalBiology"
   ],
   "paper_id": "2026-02-05-arxiv-mechanisms_of_ai_protein_folding_in_esmfold",
   "paper_title": "Mechanisms of AI Protein Folding in ESMFold",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06020v1"
     }
   ],
-  "generated_at": "2026-02-07T06:30:47.078272"
+  "generated_at": "2026-02-08T06:38:47.155084"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "V-Retrver converts multimodal retrieval into an evidence-driven agentic reasoning loop, letting the model actively verify fine-grained visual cues rather than relying on static language-centered Chain-of-Thought, which reduces speculative answers and improves reranking accuracy.",
-  "problem_solved": "Current multimodal reranking methods are largely language-driven and use static visual encodings, causing hallucination and poor handling of visually ambiguous or fine-grained evidence during retrieval.",
+  "key_insight": "V-Retrver turns multimodal retrieval from passive, language-driven reranking into an agentic, evidence-driven loop where the model actively verifies fine-grained visual evidence—reducing speculative reasoning in ambiguous cases and improving candidate selection.",
+  "problem_solved": "Current MLLM-based retrieval methods rely on static visual encodings and CoT-style language reasoning without actively checking visual evidence, which causes hallucination and poor reranking on visually ambiguous or detail-sensitive queries.",
   "method": [
-    "Agentic evidence loop: reformulate retrieval as an agentic process where an MLLM issues visual probes, inspects the image (or visual tokens/regions), and iteratively verifies candidate evidence.",
-    "Dynamic visual grounding: combine on-demand visual extraction (e.g., region crops, attention/heatmaps) with multimodal reasoning to produce grounded justifications for reranking.",
-    "Evidence-driven rerank: score and reorder retrieval candidates based on explicit, verifiable visual evidence and chainable reasoning steps instead of static text-only CoT outputs."
+    "Reformulate retrieval as an agentic evidence-gathering and verification process: the model iteratively requests and inspects fine-grained visual evidence tied to retrieval candidates.",
+    "Combine chain-of-thought style reasoning with active visual grounding to validate or refute candidate matches rather than relying solely on language priors.",
+    "Score and rerank candidates using integrated multimodal evidence (visual cues + reasoning trace) to produce more reliable retrieval decisions."
   ],
-  "impact": "Provides more accurate, robust, and explainable multimodal retrieval by reducing speculative reasoning and enabling fine-grained visual verification — useful for retrieval systems, VQA, and downstream vision-language tasks.",
+  "impact": "This approach makes multimodal retrieval more robust and interpretable by grounding decisions in verifiable visual evidence—helpful for developers building retrieval systems, VQA, and any application where minimizing hallucination and improving fine-grained accuracy matters.",
   "visual_elements": [
-    "Pipeline diagram of the agentic loop: query → candidate retrieval → visual probes → evidence verification → rerank",
-    "Before/after comparison chart showing error reduction or accuracy lift from language-driven CoT to V-Retrver",
-    "Example image with highlighted regions/heatmaps used as visual probes alongside the model's evidence-backed reasoning steps",
-    "Flowchart illustrating one iteration of the probe-verify-score cycle with icons for 'see', 'reason', and 'score'"
+    "Pipeline diagram of the agentic loop: candidate set → visual evidence queries → grounded reasoning → reranking.",
+    "Before vs after example: an ambiguous query showing speculative rerank vs evidence-verified rerank with visual highlights.",
+    "Heatmap/overlay visualization of fine-grained visual evidence used to support or reject candidates.",
+    "Bar chart or precision/recall illustration (schematic) showing qualitative improvement in reranking reliability and interpretability."
   ],
   "hashtags": [
     "#MultimodalAI",
     "#Retrieval",
     "#VisionLanguage",
-    "#ExplainableAI",
-    "#MLLM"
+    "#AgenticAI",
+    "#ExplainableAI"
   ],
   "paper_id": "2026-02-05-arxiv-v_retrver_evidence_driven_agentic_reasoning_for_universal_multimodal_retrieval",
   "paper_title": "V-Retrver: Evidence-Driven Agentic Reasoning for Universal Multimodal Retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06034v1"
     }
   ],
-  "generated_at": "2026-02-07T06:31:34.874039"
+  "generated_at": "2026-02-08T06:39:35.402543"
 }

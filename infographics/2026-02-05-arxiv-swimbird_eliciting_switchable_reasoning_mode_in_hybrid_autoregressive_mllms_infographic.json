@@ -1,24 +1,24 @@
 {
-  "key_insight": "SwimBird enables hybrid autoregressive MLLMs to dynamically switch between visual latent ‘thoughts’ and textual chain-of-thought, preserving strong visual reasoning without degrading text-based logical reasoning.",
-  "problem_solved": "Existing MLLMs either rely on text-based CoT (weak for vision-intensive tasks) or inject fixed visual latent states (which help vision but harm text reasoning); SwimBird addresses the need for a controllable, switchable reasoning mode that supports both modalities.",
+  "key_insight": "SwimBird enables a hybrid autoregressive MLLM to dynamically switch between text-based Chain-of-Thought and continuous \"visual thoughts,\" retaining strong logical text reasoning while improving vision-intensive performance.",
+  "problem_solved": "Most MLLMs either rely on textual CoT (weak on vision-heavy tasks) or inject fixed visual hidden states (which hurt text reasoning). SwimBird solves the trade-off by letting the model choose the appropriate reasoning mode per query, avoiding cross-modal interference.",
   "method": [
-    "Hybrid autoregressive backbone with two reasoning paths: continuous visual-latent ‘visual thoughts’ and discrete textual CoT, accessible during generation.",
-    "A lightweight mode controller (mode tokens/gating) and mode-conditioned training to elicit and switch the appropriate reasoning process per task or prompt.",
-    "Joint training objectives and auxiliary supervision to maintain performance in each mode and reduce cross-mode interference (mode-specific losses and distillation/regularization)."
+    "Introduce a switchable reasoning mechanism that toggles between textual CoT and injected continuous visual states during autoregressive decoding.",
+    "Use a lightweight controller/policy and conditioning signals (special tokens or gating) so the model selects the optimal mode per input rather than using a fixed strategy.",
+    "Train with multimodal supervision and regularization to preserve textual logical capabilities while enabling expressive visual representations when needed."
   ],
-  "impact": "Practitioners get a single MLLM that can be flexibly steered toward vision-heavy or text-heavy reasoning without retraining separate models—improving robustness on mixed multimodal workloads and simplifying deployment.",
+  "impact": "Practitioners get a single MLLM that handles both logic-heavy text queries and vision-intensive tasks without sacrificing one for the other, simplifying deployment and improving robustness across multimodal benchmarks.",
   "visual_elements": [
-    "Architecture diagram showing dual reasoning paths (visual-latent vs textual CoT) and a mode controller/gate.",
-    "Before/after examples: same multimodal input with visual-mode output vs text-mode output to illustrate behavior differences.",
-    "Bar chart or radar comparing vision-task vs text-reasoning performance for baseline MLLMs, fixed-visual-latent models, and SwimBird.",
-    "Flowchart of inference that shows manual (prompt) vs automatic controller switching between modes."
+    "Architecture diagram showing the hybrid decoder with a mode switch (textual CoT path vs. visual-thought path) and the controller gating mechanism.",
+    "Flowchart of a sample query illustrating dynamic mode selection: image+question → controller decision → chosen reasoning path → final answer.",
+    "Bar chart comparing performance across vision-heavy tasks and text-only reasoning for baseline MLLMs vs. SwimBird, highlighting reduced trade-offs.",
+    "Annotated step-by-step example of an image-based logical problem with both textual CoT outputs and visual-thought representations."
   ],
   "hashtags": [
-    "#SwimBird",
     "#MultimodalLLM",
-    "#SwitchableReasoning",
+    "#VisualReasoning",
     "#ChainOfThought",
-    "#VisionLanguage"
+    "#SwimBird",
+    "#HybridModels"
   ],
   "paper_id": "2026-02-05-arxiv-swimbird_eliciting_switchable_reasoning_mode_in_hybrid_autoregressive_mllms",
   "paper_title": "SwimBird: Eliciting Switchable Reasoning Mode in Hybrid Autoregressive MLLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06040v1"
     }
   ],
-  "generated_at": "2026-02-07T06:32:23.550817"
+  "generated_at": "2026-02-08T06:40:18.337126"
 }

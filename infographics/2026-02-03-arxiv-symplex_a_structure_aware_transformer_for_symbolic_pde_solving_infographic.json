@@ -1,24 +1,24 @@
 {
-  "key_insight": "SymPlex discovers analytical, human-readable symbolic solutions to PDEs without ground-truth expressions by framing symbolic formula generation as a tree-structured decision process and optimizing candidates directly with PDE residuals and boundary conditions.",
-  "problem_solved": "Automatically finding closed-form symbolic solutions to partial differential equations is hard because search spaces are combinatorial, syntax must be respected, and no paired symbolic ground-truth is available; SymPlex addresses these challenges by combining reinforcement learning with a structure-aware Transformer to produce valid, physics-consistent expressions.",
+  "key_insight": "SymPlex discovers analytic symbolic solutions to PDEs without ground-truth formulas by casting expression generation as tree-structured decision-making and using a structure-aware Transformer (SymFormer) that captures hierarchical symbolic dependencies and enforces syntactic validity.",
+  "problem_solved": "Current symbolic PDE solvers either require supervised examples or fail to model the hierarchical, syntactic structure of analytic expressions; SymPlex finds interpretable closed-form solutions using only the PDE and its boundary conditions.",
   "method": [
-    "Formulate symbolic PDE solving as tree-structured decision-making and apply reinforcement learning where rewards come from PDE residuals and boundary-condition satisfaction (no ground-truth expressions needed).",
-    "Introduce SymFormer, a structure-aware Transformer that uses tree-relative self-attention to model hierarchical dependencies and enforces syntactic/grammar constraints during expression generation.",
-    "Iteratively generate, evaluate and refine candidate symbolic trees using physics-based rewards to discover analytical solutions that satisfy the PDE and boundary conditions."
+    "Formulate symbolic PDE solving as a tree-structured reinforcement learning problem where candidate expression trees are generated and scored by PDE residuals and boundary-condition satisfaction.",
+    "Introduce SymFormer, a structure-aware Transformer with tree-relative self-attention and syntax constraints to model hierarchical token dependencies and ensure syntactically valid expressions.",
+    "Iterative search/optimization loop that refines candidate analytic expressions using only the PDE + boundary conditions as reward signals (no ground-truth expressions needed)."
   ],
-  "impact": "Provides a practical route to automatically discover interpretable analytic PDE solutions, enabling better scientific insight, symbolic generalization, and reduced reliance on labeled symbolic data—useful for scientific ML, physics-informed modeling, and symbolic reasoning research.",
+  "impact": "Enables data-free discovery of interpretable analytic PDE solutions, reducing reliance on labeled symbolic datasets and accelerating scientific modeling, verification, and compact surrogate creation for ML-driven engineering.",
   "visual_elements": [
-    "Pipeline diagram: RL loop showing expression tree generation → PDE residual & boundary-condition evaluation → reward → policy update.",
-    "Illustration of a symbolic expression tree with tree-relative attention arcs highlighting hierarchical dependencies captured by SymFormer.",
-    "Before/after comparison chart: numeric PDE solution vs discovered symbolic closed-form showing error, compactness, and interpretability.",
-    "Icon set: PDE equation, tree (syntax), transformer block (attention), and a reward gauge to convey optimization without ground-truth."
+    "RL feedback loop diagram: PDE + boundary conditions → generator (tree actions) → candidate symbolic expression → PDE residual & BC reward → policy update",
+    "SymFormer architecture sketch highlighting tree-relative self-attention and syntactic masking over an expression tree",
+    "Before/after comparison: numeric PDE solution vs discovered analytic solution (plots and residual heatmap)",
+    "Expression-tree visualization showing tokens, hierarchical structure, and enforced syntax (valid/invalid examples)"
   ],
   "hashtags": [
     "#SymbolicAI",
-    "#PDEsolving",
+    "#PDE",
     "#Transformers",
     "#ReinforcementLearning",
-    "#PhysicsInformedML"
+    "#ScientificML"
   ],
   "paper_id": "2026-02-03-arxiv-symplex_a_structure_aware_transformer_for_symbolic_pde_solving",
   "paper_title": "SymPlex: A Structure-Aware Transformer for Symbolic PDE Solving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.03816v1"
     }
   ],
-  "generated_at": "2026-02-07T06:34:01.893994"
+  "generated_at": "2026-02-08T06:41:35.161073"
 }

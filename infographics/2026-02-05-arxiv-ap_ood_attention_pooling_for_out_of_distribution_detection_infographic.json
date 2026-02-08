@@ -1,24 +1,24 @@
 {
-  "key_insight": "AP-OOD uses attention-weighted pooling over token embeddings to produce a single, more informative OOD score, capturing token-level signals that simple averaging misses.",
-  "problem_solved": "How to aggregate token-level representations from language models into a robust scalar OOD score—average pooling dilutes informative tokens and hurts detection; AP-OOD addresses this with a token-aware, semi-supervised pooling strategy.",
+  "key_insight": "AP-OOD uses learned attention-based pooling over token embeddings to produce a single, more informative OOD score for natural language inputs, outperforming naive average pooling by leveraging token-level signals.",
+  "problem_solved": "How to effectively aggregate token-level representations from language models into a single scalar OOD score, so models can better detect out-of-distribution text.",
   "method": [
-    "Compute token embeddings from a pre-trained language model and learn attention weights that emphasize OOD-relevant tokens.",
-    "Pool token embeddings via the learned attention to obtain a compact representation and derive a scalar OOD score from it.",
-    "Train attention and scoring components in a semi-supervised setup that leverages labeled in-distribution data plus unlabeled or proxy OOD signals to shape attention."
+    "Introduce an attention-pooling module that weights token embeddings before aggregation, emphasizing tokens that signal distributional shift.",
+    "Train the pooling mechanism in a semi-supervised setup (leveraging available in-distribution data and limited supervision) to produce a calibrated scalar OOD score.",
+    "Apply the method on top of pretrained language-model embeddings, replacing simple average/max pooling for improved OOD sensitivity."
   ],
-  "impact": "Provides NLP practitioners a simple, plug-in method to improve OOD detection reliability by leveraging token-level cues—leading to better uncertainty estimation and safer model deployment.",
+  "impact": "Provides practitioners a plug-in approach to improve OOD detection for NLP systems with minimal changes to existing pipelines, increasing safety and reliability when deployed in the wild.",
   "visual_elements": [
-    "Schematic: tokens → embeddings → attention weights (heatmap) → attention-pooled vector → scalar OOD score",
-    "Side-by-side bar/line chart: AP-OOD vs. average pooling on standard OOD metrics (e.g., AUROC / FPR95) to show performance gain",
-    "Example text with attention overlay highlighting tokens driving the OOD decision (attention heatmap on words)",
-    "Training-flow diagram showing semi-supervised signals: labeled ID data + unlabeled/proxy OOD data → attention learning → scoring head"
+    "Diagram: token sequence → embeddings → attention weights → pooled OOD score (flowchart showing attention pooling vs. average pooling).",
+    "Heatmap overlay on example text showing which tokens get high attention for OOD scoring.",
+    "Comparison chart: detection metrics (e.g., AUROC/FPR95) for average pooling vs AP-OOD (illustrative bars).",
+    "Icon set: pretrained LM, attention/head icon, warning/shield for OOD detection and reliability."
   ],
   "hashtags": [
     "#OODDetection",
     "#NLP",
     "#AttentionPooling",
-    "#SemiSupervised",
-    "#ModelReliability"
+    "#TrustworthyAI",
+    "#AnomalyDetection"
   ],
   "paper_id": "2026-02-05-arxiv-ap_ood_attention_pooling_for_out_of_distribution_detection",
   "paper_title": "AP-OOD: Attention Pooling for Out-of-Distribution Detection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06031v1"
     }
   ],
-  "generated_at": "2026-02-07T06:31:23.982894"
+  "generated_at": "2026-02-08T06:39:26.764010"
 }

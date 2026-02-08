@@ -1,24 +1,24 @@
 {
-  "key_insight": "CommCP combines LLM-based inter-agent language reasoning with conformal prediction to calibrate uncertainty, enabling agents to communicate selectively — sending only low-confidence or critical information — which cuts communication overhead while preserving task success.",
-  "problem_solved": "Efficient, reliable multi-robot coordination for language-specified manipulation tasks where heterogeneous agents must gather scene information and cooperate under limited communication bandwidth and uncalibrated LLM outputs.",
+  "key_insight": "Combining LLM-driven natural-language communication with conformal prediction lets heterogeneous robots coordinate more efficiently by only exchanging high-confidence, task-relevant messages—reducing bandwidth and improving reliability.",
+  "problem_solved": "Enables robust multi-robot coordination for complex, language-specified assignments where agents must gather information, ask/answer scene questions, and allocate manipulation tasks under limited or noisy communication.",
   "method": [
-    "Use LLMs as local communicative reasoning modules for question generation, scene-query answering, and plan proposals among heterogeneous robots.",
-    "Apply conformal prediction to calibrate LLM uncertainty and impose a selective-communication gate: only messages below a confidence threshold (or flagged as critical) are transmitted.",
-    "Coordinate task allocation and execution via a lightweight multi-agent protocol that leverages selective messages to synchronize actions while minimizing bandwidth."
+    "Use LLMs to generate & interpret natural-language plans, questions, and answers for scene understanding and task allocation across heterogeneous agents.",
+    "Apply conformal prediction to produce calibrated confidence scores for LLM outputs and filter/flag low-confidence messages before transmission or execution.",
+    "Design a lightweight communication protocol that transmits concise, high-confidence assertions and targeted queries to minimize bandwidth and reduce erroneous actions."
   ],
-  "impact": "Enables scalable, bandwidth-efficient multi-robot deployments that leverage large language models safely by making their outputs reliability-aware; useful for practitioners building distributed robotic systems or multi-agent decision pipelines where communication cost and trust in LLM outputs matter.",
+  "impact": "Provides a practical framework for deploying LLM-enabled multi-robot systems in real-world, bandwidth-constrained settings—improving coordination efficiency and safety by making communication selective and uncertainty-aware.",
   "visual_elements": [
-    "System pipeline diagram: Human instruction → per-robot LLM reasoning → conformal prediction gate (calibration) → selective messages → coordinated action",
-    "Bar/line chart: message volume vs task success comparing naive broadcast, thresholded (CommCP), and no-communication baselines",
-    "Sequence diagram: example interaction showing when an agent queries, when conformal gate permits transmission, and how others react",
-    "Icon set: heterogeneous robots, LLM/brain icon, confidence gauge/threshold, and low-bandwidth/network icon"
+    "Architecture diagram: multiple robot agents + onboard LLM modules + conformal prediction filter + central or peer-to-peer comms links.",
+    "Sequence flow: example task showing question generation, confidence scoring, filtered message passing, and task assignment.",
+    "Bar/line chart: messages transmitted vs. task success or completion time comparing standard LLM comms vs. CommCP (shows reduced traffic with maintained/improved success).",
+    "Icon set: heterogeneous robots (arm, gripper, mobile), speech/chat bubbles with confidence badges, and a warning flag for low-confidence outputs."
   ],
   "hashtags": [
-    "#MultiAgent",
+    "#MultiAgentSystems",
     "#Robotics",
-    "#LLMs",
+    "#LLM",
     "#ConformalPrediction",
-    "#Coordination"
+    "#EfficientCommunication"
   ],
   "paper_id": "2026-02-05-arxiv-commcp_efficient_multi_agent_coordination_via_llm_based_communication_with_confo",
   "paper_title": "CommCP: Efficient Multi-Agent Coordination via LLM-Based Communication with Conformal Prediction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06038v1"
     }
   ],
-  "generated_at": "2026-02-07T06:32:06.760246"
+  "generated_at": "2026-02-08T06:40:06.897883"
 }

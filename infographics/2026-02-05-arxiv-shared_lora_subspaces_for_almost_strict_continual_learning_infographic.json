@@ -1,23 +1,23 @@
 {
-  "key_insight": "Constraining task updates to a shared low‑rank LoRA subspace lets a single, tiny adapter continually learn new tasks with almost no forgetting and without replay or storing multiple adapters.",
-  "problem_solved": "Enables strict (or near‑strict) continual learning for large pretrained models while avoiding catastrophic forgetting, replay buffers, and the storage/compute overhead of many separate adapters.",
+  "key_insight": "Introduce a shared low-rank LoRA subspace that captures and reuses task knowledge, enabling near-strict continual learning without task-specific adapters or data replay. This consolidates new tasks into a compact, extensible parameter subspace that prevents catastrophic forgetting.",
+  "problem_solved": "How to adapt large pretrained models to a stream of new tasks efficiently and continually while avoiding catastrophic forgetting, high retraining costs, and the proliferation of separate adapters or replay buffers.",
   "method": [
-    "Introduce Share: a single parameter‑efficient LoRA adapter whose update space is a shared low‑rank subspace across tasks.",
-    "For each new task, project updates into the shared subspace (and optionally a small task‑specific component), using orthogonalization/regularization to preserve earlier task directions.",
-    "Train only the low‑rank factors (kept small) so adaptation is cheap in compute and memory, and knowledge integrates into the shared subspace instead of isolated adapters."
+    "Learn a shared low-rank LoRA subspace (basis) across tasks so new tasks are represented by lightweight coefficient vectors rather than full adapters.",
+    "Incrementally update and expand the subspace only when necessary, with orthogonalization/regularization to preserve previously encoded directions and prevent forgetting.",
+    "Train task-specific coefficients in the shared subspace (few parameters), enabling strict continual updates without access to past data or multiple adapter copies."
   ],
-  "impact": "Practitioners can continually adapt large models on-device or in constrained infra with minimal memory and compute, achieving near zero‑forgetting without data replay or proliferating adapters — simplifying deployment and maintenance.",
+  "impact": "Drastically reduces storage and compute overhead for continual adaptation of large models while preserving past task performance, making deployment of continually updated models practical for production systems and hardware-constrained environments.",
   "visual_elements": [
-    "Diagram: pretrained model + single LoRA adapter with arrows showing multiple tasks projecting into a shared low‑rank subspace",
-    "Chart: forgetting curves comparing Share vs standard LoRA and replay methods (Share showing near‑flat loss/accuracy across tasks)",
-    "Schematic: training pipeline per task (task data → project into shared subspace → update low‑rank factors) highlighting no replay and small memory footprint",
-    "Bar chart/table: memory & compute cost vs accuracy for Share, multi‑adapter LoRA, and full fine‑tuning"
+    "Architecture diagram: pretrained model + shared LoRA subspace module with per-task coefficient vectors.",
+    "Process flow: sequential task arrival → coefficient update → conditional subspace expansion (illustrate orthogonalization/regularization).",
+    "Performance chart: accuracy vs. task index comparing Share vs. baseline LoRA, full fine-tuning, and replay (highlight reduced forgetting).",
+    "Resource bar graph: parameters/storage and compute for Share versus multiple adapters and replay-based methods."
   ],
   "hashtags": [
     "#ContinualLearning",
     "#LoRA",
     "#ParameterEfficient",
-    "#ModelAdaptation",
+    "#CatastrophicForgetting",
     "#AIInfrastructure"
   ],
   "paper_id": "2026-02-05-arxiv-shared_lora_subspaces_for_almost_strict_continual_learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06043v1"
     }
   ],
-  "generated_at": "2026-02-07T06:32:39.536590"
+  "generated_at": "2026-02-08T06:40:26.294878"
 }

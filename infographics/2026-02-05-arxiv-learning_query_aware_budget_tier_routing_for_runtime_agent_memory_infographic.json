@@ -1,24 +1,24 @@
 {
-  "key_insight": "BudgetMem introduces a runtime, query-aware budget-tier routing mechanism that dynamically selects which memories to access per query, giving explicit control over the performance–cost trade-off while preserving query-critical information.",
-  "problem_solved": "Addresses inefficiency and information loss from offline, query-agnostic memory construction in LLM agents and the high overhead / poor cost-control of prior runtime memory methods.",
+  "key_insight": "BudgetMem lets an LLM agent decide at runtime which memory items to use or store by routing queries through cost-aware memory tiers, preserving query-critical information while explicitly controlling latency/cost trade-offs.",
+  "problem_solved": "Addresses inefficient, offline and query-agnostic memory construction for LLM agents that can discard information important to specific queries and lacks explicit control over runtime cost vs. performance.",
   "method": [
-    "Query-aware routing: a lightweight controller scores incoming queries and routes relevant memory items into budgeted access tiers (e.g., hot/warm/cold) per query.",
-    "Budget-tier design: memories are organized into tiers with explicit compute/latency budgets to trade off retrieval depth and cost.",
-    "Low-overhead runtime policy: an adaptive retrieval and storage pipeline that enforces budget constraints, prioritizes query-critical information, and reduces unnecessary accesses."
+    "Introduce a budget-tier routing architecture that partitions memory into cost/latency tiers (e.g., short-term, mid-term, long-term) and dynamically routes queries to the appropriate tier.",
+    "Use a lightweight query-aware scoring/policy module at runtime to assess informativeness and retrieval/storage value for each memory item under current budget constraints.",
+    "Enforce an explicit budget controller that allocates retrieval/storage effort per query, providing a tunable knob for the performance–cost trade-off without heavy offline preprocessing."
   ],
-  "impact": "Allows AI practitioners to run LLM agents that use memory more efficiently and predictably—reducing latency and compute cost without sacrificing task performance—while providing explicit knobs to tune the cost-performance trade-off.",
+  "impact": "Provides practitioners a practical way to deploy memory-augmented LLM agents that retain query-relevant context while meeting latency and compute budgets; useful for production systems requiring predictable cost and flexible accuracy. It enables fine-grained control over memory use and reduces waste from blanket offline memory construction.",
   "visual_elements": [
-    "Architecture flow: query → routing controller → tiered memory (hot/warm/cold) → retrieval, showing decision points and budgets.",
-    "Cost vs. performance chart: Pareto curve comparing BudgetMem to offline and prior runtime baselines.",
-    "Tiered memory diagram: visual of memory items sorted into budgets (hot = expensive/high-relevance, cold = cheap/low-relevance).",
-    "Example timeline: single query lifecycle highlighting which memories were selected, stored, or pruned under a given budget."
+    "Schematic pipeline: query → lightweight scorer → budget-tier router → selected memory tier → LLM, showing decision flow",
+    "Tiered memory diagram: icons for short/mid/long-term tiers annotated with cost/latency and example items",
+    "Trade-off chart: curve or cost vs. task performance with a slider illustrating the budget knob shifting operating points",
+    "Sequence example: before/after query where BudgetMem keeps a small critical memory item that offline methods would drop"
   ],
   "hashtags": [
-    "#LLMAgents",
+    "#MemoryForLLMs",
     "#RuntimeMemory",
-    "#QueryAware",
     "#BudgetedAI",
-    "#MemoryEfficiency"
+    "#LLMAgents",
+    "#EfficientAI"
   ],
   "paper_id": "2026-02-05-arxiv-learning_query_aware_budget_tier_routing_for_runtime_agent_memory",
   "paper_title": "Learning Query-Aware Budget-Tier Routing for Runtime Agent Memory",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06025v1"
     }
   ],
-  "generated_at": "2026-02-07T06:30:59.136331"
+  "generated_at": "2026-02-08T06:38:57.481224"
 }

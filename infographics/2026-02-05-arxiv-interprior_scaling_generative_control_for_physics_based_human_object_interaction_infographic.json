@@ -1,23 +1,23 @@
 {
-  "key_insight": "InterPrior introduces a scalable, physics-aware generative prior that lets high-level intentions (e.g., affordances) drive physically coherent whole-body human–object interactions without hand-designing low-level motion plans. By scaling this prior, coordinated balance, contact, and manipulation emerge naturally from the model rather than from explicit per-task controllers.",
-  "problem_solved": "Bridges the gap between high-level intent and low-level, physically consistent whole-body loco-manipulation by removing the need to plan explicit joint-level movements for every interaction and enabling generalization across objects and contexts.",
+  "key_insight": "InterPrior introduces a scalable generative prior that lets high-level intentions (e.g., affordances) drive physically coherent whole-body human–object interactions, allowing balance, contact, and manipulation to emerge rather than be explicitly planned.",
+  "problem_solved": "Bridges the gap between high-level task intentions and low-level physically plausible whole-body motions by scaling motor and physics priors so humanoid agents can compose and generalize loco‑manipulation skills across diverse contexts.",
   "method": [
-    "Learn a large-scale generative prior over human–object interaction dynamics that captures contact, balance, and manipulation patterns from simulated and/or recorded interaction data.",
-    "Use a hierarchical control pipeline: condition the prior on high-level affordance/intention and sample candidate motions, then enforce physics-aware constraints (contact consistency, balance, object dynamics) to produce executable whole-body trajectories.",
-    "Design the system for scalability and compositionality so the learned prior generalizes across diverse objects, tasks, and environments, enabling reuse of motor primitives for novel interactions."
+    "Learn a large-scale generative prior over whole-body dynamics and contact-conditioned motor behavior from interaction data (simulation and/or real).",
+    "Condition the generative controller on high-level affordances/intention inputs to produce contact-aware, balanced trajectories rather than hand-crafted motion plans.",
+    "Use compact latent or hierarchical representations to scale the prior for compositional control and generalization across objects, tasks, and environments."
   ],
-  "impact": "Enables practitioners to build controllers and simulators that convert simple intent signals into realistic, physically plausible whole-body interactions—reducing manual engineering and improving generalization for robotics, animation, and embodied AI.",
+  "impact": "Enables researchers and practitioners to build humanoid controllers that require less explicit motion engineering, generalize better to new objects and contexts, and produce physically plausible interactions—accelerating development of robust embodied agents and robot manipulation systems.",
   "visual_elements": [
-    "Pipeline diagram: high-level affordance → InterPrior generative sampler → physics constraint/refinement → whole-body motion",
-    "Before/after comparisons: manually planned motion vs. InterPrior-generated motion showing better balance and contact",
-    "Contact and center-of-mass heatmaps over time to illustrate emergent balance and contact patterns",
-    "Scalability chart: performance/generalization vs. prior dataset/model scale (number of tasks, object types)"
+    "Pipeline diagram: intention/affordance → InterPrior (latent prior) → physics-based renderer/simulator → whole-body motion",
+    "Before/after gallery: explicit planned motions vs. InterPrior emergent contact-rich interactions",
+    "Contact & balance visualization: heatmaps or force vectors showing emergent contact points and center-of-mass stability over time",
+    "Scaling chart: performance/generalization vs. prior model size or dataset scale (illustrating improved compositionality)"
   ],
   "hashtags": [
-    "#HumanMotion",
+    "#HumanRobotInteraction",
     "#PhysicsBasedAI",
-    "#GenerativeModels",
-    "#Robotics",
+    "#GenerativeControl",
+    "#EmbodiedAI",
     "#LocoManipulation"
   ],
   "paper_id": "2026-02-05-arxiv-interprior_scaling_generative_control_for_physics_based_human_object_interaction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06035v1"
     }
   ],
-  "generated_at": "2026-02-07T06:31:49.008169"
+  "generated_at": "2026-02-08T06:39:47.286247"
 }
