@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introducing a 2D probing interface that periodically elicits intermediate answers from all parallel reasoning branches reveals the joint width–depth dynamics of parallel thinking, enabling principled, global decisions (e.g., pruning or allocation) to reduce compute without blindly relying on local trajectory signals.",
-  "problem_solved": "Parallel-thinking reasoning (multiple simultaneous reasoning branches) is computationally expensive and current efficiency methods use only local, per-trajectory cues—missing global patterns across branches that could drive better early stopping and resource allocation.",
+  "key_insight": "2D probing exposes the width–depth dynamics of parallel thinking by periodically collecting intermediate answers from all branches, enabling principled, global decisions (e.g., pruning or reallocation) that significantly improve efficiency without relying only on local per-trajectory signals.",
+  "problem_solved": "Parallel-thinking reasoning methods are computationally expensive and current efficiency techniques use only local signals per trajectory, failing to exploit cross-branch/global dynamics to reduce compute while preserving reasoning quality.",
   "method": [
-    "2D probing interface: treat parallel reasoning as a width × depth grid and periodically query intermediate answers from every branch and step.",
-    "Aggregate cross-branch signals to capture global width–depth dynamics (e.g., non-monotonic scaling and phase transitions) rather than relying on single-trajectory heuristics.",
-    "Use these 2D signals to inform principled efficiency controls such as branch pruning, adaptive depth allocation, or dynamic reweighting of computation budget."
+    "Introduce a 2D probing interface that periodically elicits intermediate answers across both width (parallel branches) and depth (step/time) dimensions.",
+    "Analyze the collected probes to reveal width–depth dynamics and non-monotonic behaviors, then derive signals for global control (early stopping, branch pruning, compute reallocation).",
+    "Use those global signals to guide resource allocation across branches, enabling efficient parallel reasoning without sacrificing output quality."
   ],
-  "impact": "Practitioners can use 2D probing to make parallel reasoning systems much more compute-efficient and interpretable, enabling scalable deployment of multi-branch reasoning strategies without sacrificing solution quality.",
+  "impact": "Provides a practical, general-purpose mechanism to reduce the compute cost of parallel reasoning methods and gives ML practitioners a principled way to monitor and control multi-branch inference for better efficiency and robustness.",
   "visual_elements": [
-    "2D grid diagram (width vs depth) with periodic probe points highlighted to show where intermediate answers are sampled.",
-    "Heatmap over the grid showing aggregated signal strength or utility across branches and steps to visualize where computation is most valuable.",
-    "Flowchart illustrating how 2D probe signals drive decisions: keep, prune, or reallocate branches/depth.",
-    "Tradeoff chart (compute cost vs performance) showing how 2D-guided controls move the system toward lower compute for similar performance."
+    "2D grid diagram (width x depth) with periodic probe points highlighted to show where intermediate answers are collected.",
+    "Flowchart showing how probe signals feed into global controllers (prune / reallocate / continue) that affect branch execution.",
+    "Line or heatmap showing non-monotonic accuracy/utility across depth for different widths to illustrate width–depth tradeoffs.",
+    "Bar chart comparing compute vs. reasoning quality for baseline parallel thinking vs. 2D probing-enabled control."
   ],
   "hashtags": [
     "#ParallelThinking",
+    "#2DProbing",
     "#EfficientAI",
-    "#ModelPruning",
-    "#Interpretability",
-    "#AIOptimization"
+    "#Reasoning",
+    "#ModelEvaluation"
   ],
   "paper_id": "2026-02-03-arxiv-parallel_probe_towards_efficient_parallel_thinking_via_2d_probing",
   "paper_title": "Parallel-Probe: Towards Efficient Parallel Thinking via 2D Probing",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.03845v1"
     }
   ],
-  "generated_at": "2026-02-08T06:41:56.115112"
+  "generated_at": "2026-02-09T06:58:40.122258"
 }

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Large language models can internally resist externally applied activation steering during inference — a phenomenon called Endogenous Steering Resistance (ESR). Llama-3.3-70B shows substantial ESR while smaller Llama-3 and Gemma-2 family models exhibit it less frequently.",
+  "problem_solved": "Addresses the surprising unreliability of activation-steering interventions: models can recover mid-generation toward task-aligned outputs even while steering remains active, undermining assumptions about steerability and intervention effectiveness.",
+  "method": [
+    "Apply sparse autoencoder (SAE) latent vectors to steer model activations during inference and observe behavioral effects.",
+    "Compare model responses across families and sizes (e.g., Llama-3.3-70B vs smaller Llama-3 and Gemma-2 variants) to quantify ESR prevalence.",
+    "Identify and analyze SAE latents that correlate with resistance and locate where in the model internal recovery emerges."
+  ],
+  "impact": "Practitioners should not assume activation steering will always control model behavior; ESR implies steering can be transiently bypassed, so robustness, evaluation protocols, and steering strategies must account for model-size-dependent endogenous resistance.",
+  "visual_elements": [
+    "Timeline diagram showing steering applied during generation and the model's mid-generation recovery (before, during, after steering).",
+    "Bar chart comparing ESR occurrence rates across model sizes/families (e.g., Llama-3.3-70B vs smaller models).",
+    "Schematic of SAE latent injection into transformer activations (input → SAE latents → activation modulation → output).",
+    "Activation heatmap highlighting SAE latents correlated with resistance and their layerwise influence."
+  ],
+  "hashtags": [
+    "#ActivationSteering",
+    "#LanguageModels",
+    "#ModelRobustness",
+    "#Interpretability",
+    "#LLMs"
+  ],
+  "paper_id": "2026-02-06-arxiv-endogenous_resistance_to_activation_steering_in_language_models",
+  "paper_title": "Endogenous Resistance to Activation Steering in Language Models",
+  "paper_category": "Model",
+  "paper_date": "2026-02-06",
+  "paper_authors": "Alex McKenzie, Keenan Pepper, Stijn Servaes, Martin Leitgab, Murat Cubuktepe",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.06941v1"
+    }
+  ],
+  "generated_at": "2026-02-09T06:55:00.385903"
+}

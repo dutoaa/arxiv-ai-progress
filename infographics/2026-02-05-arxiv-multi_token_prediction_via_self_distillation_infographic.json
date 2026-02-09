@@ -1,24 +1,24 @@
 {
-  "key_insight": "A pretrained autoregressive language model can be converted into a fast, standalone multi-token predictor by training it to self-distill its own next-token behavior into multi-token outputs, avoiding auxiliary speculator models and complex pipelines.",
-  "problem_solved": "Reduces inference latency and system complexity caused by single-step next-token generation and multi-model speculative decoding approaches, enabling simpler, faster deployment of language models.",
+  "key_insight": "A pretrained autoregressive language model can be converted into a fast standalone multi-token predictor by training it with a simple online self-distillation objective, removing the need for auxiliary speculator models or complex inference pipelines.",
+  "problem_solved": "Reduces autoregressive generation latency and deployment complexity by enabling a single pretrained model to predict multiple future tokens per forward pass without adding extra models or changing the runtime implementation.",
   "method": [
-    "Online self-distillation: continue training the pretrained autoregressive model so it predicts multiple future tokens in one forward pass using its own predictions as targets.",
-    "Multi-token objective: replace or augment the standard single-token loss with a multi-token prediction loss that encourages accurate short sequence outputs.",
-    "No auxiliary models or special inference code: retain the original model architecture/implementation while changing only the training objective to produce a standalone multi-token predictor."
+    "Initialize from a pretrained autoregressive LM and keep the same model architecture and runtime.",
+    "Apply an online self-distillation loss that teaches the model to predict multiple future tokens (multi-token prediction) using its own next-token outputs as targets.",
+    "Train the model end-to-end so the final model can generate several tokens per step, enabling faster standalone inference without auxiliary speculators or complex pipelines."
   ],
-  "impact": "Enables substantial inference speedups and simpler deployment for practitioners without adding extra models or complex decoding pipelines; useful for latency-sensitive applications and production systems.",
+  "impact": "Simplifies production deployment and speeds up text generation by converting existing pretrained LMs into efficient multi-token generators while preserving the original implementation and avoiding extra models.",
   "visual_elements": [
-    "Before vs After pipeline diagram: (left) autoregressive single-token loop + speculative speculator, (right) single multi-token model producing k tokens per step",
-    "Training schematic: teacher (original model) generating targets → student (same-architecture model) learning multi-token outputs via self-distillation",
-    "Speed/throughput chart: tokens-per-second or latency comparison between standard decoding, speculative decoding, and the distilled multi-token model",
-    "Illustrative icon set: single-model-only deployment, no extra services, and a speedometer showing lower latency"
+    "Before vs After pipeline diagram: standard next-token + speculative speculator pipeline contrasted with a single-model multi-token pipeline",
+    "Training loop sketch: self-distillation flow showing model producing targets and learning to predict k future tokens",
+    "Latency/throughput bar chart: tokens/sec (baseline) vs tokens/sec (self-distilled multi-token model)",
+    "Icon set: single-model deployment, no extra components, faster generation"
   ],
   "hashtags": [
     "#SelfDistillation",
+    "#MultiTokenPrediction",
     "#EfficientInference",
-    "#LanguageModels",
-    "#SpeculativeDecoding",
-    "#ModelOptimization"
+    "#ModelAcceleration",
+    "#LanguageModels"
   ],
   "paper_id": "2026-02-05-arxiv-multi_token_prediction_via_self_distillation",
   "paper_title": "Multi-Token Prediction via Self-Distillation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06019v1"
     }
   ],
-  "generated_at": "2026-02-07T06:33:34.433403"
+  "generated_at": "2026-02-09T06:57:17.891849"
 }

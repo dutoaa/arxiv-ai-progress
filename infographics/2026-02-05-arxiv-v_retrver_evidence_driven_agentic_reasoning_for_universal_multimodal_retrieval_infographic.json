@@ -1,24 +1,24 @@
 {
-  "key_insight": "V-Retrver turns multimodal retrieval from passive, language-driven reranking into an agentic, evidence-driven loop where the model actively verifies fine-grained visual evidence—reducing speculative reasoning in ambiguous cases and improving candidate selection.",
-  "problem_solved": "Current MLLM-based retrieval methods rely on static visual encodings and CoT-style language reasoning without actively checking visual evidence, which causes hallucination and poor reranking on visually ambiguous or detail-sensitive queries.",
+  "key_insight": "V-Retrver adds an agentic, evidence-driven verification loop to multimodal retrieval: the model actively extracts and checks fine-grained visual evidence during reasoning, reducing speculative Chain-of-Thought and improving reranking reliability.",
+  "problem_solved": "Existing MLLM-based retrieval methods rely on static visual encodings and language-only CoT, which can produce speculative or incorrect reranking in visually ambiguous cases; V-Retrver enables active visual verification to ground decisions in concrete evidence.",
   "method": [
-    "Reformulate retrieval as an agentic evidence-gathering and verification process: the model iteratively requests and inspects fine-grained visual evidence tied to retrieval candidates.",
-    "Combine chain-of-thought style reasoning with active visual grounding to validate or refute candidate matches rather than relying solely on language priors.",
-    "Score and rerank candidates using integrated multimodal evidence (visual cues + reasoning trace) to produce more reliable retrieval decisions."
+    "Agentic evidence acquisition: the system selects image regions or formulates focused visual queries to extract fine-grained evidence instead of using only global/static encodings.",
+    "Iterative evidence-driven reasoning: integrate retrieved visual evidence into an agentic Chain-of-Thought loop that verifies, refines, or rejects hypotheses about candidate matches.",
+    "Evidence-aware reranking: use the outcome of verification steps to score and rerank retrieval candidates, prioritizing those supported by concrete visual evidence."
   ],
-  "impact": "This approach makes multimodal retrieval more robust and interpretable by grounding decisions in verifiable visual evidence—helpful for developers building retrieval systems, VQA, and any application where minimizing hallucination and improving fine-grained accuracy matters.",
+  "impact": "Grounding multimodal retrieval in verifiable visual evidence yields more reliable, interpretable reranking—beneficial for search, VQA, and any vision–language application that needs precise, trustworthy retrieval.",
   "visual_elements": [
-    "Pipeline diagram of the agentic loop: candidate set → visual evidence queries → grounded reasoning → reranking.",
-    "Before vs after example: an ambiguous query showing speculative rerank vs evidence-verified rerank with visual highlights.",
-    "Heatmap/overlay visualization of fine-grained visual evidence used to support or reject candidates.",
-    "Bar chart or precision/recall illustration (schematic) showing qualitative improvement in reranking reliability and interpretability."
+    "Pipeline diagram showing the agent loop: select region → extract evidence → verify (CoT) → rerank candidates",
+    "Side-by-side example: speculative (static-encoding) vs evidence-verified reranking for the same query",
+    "Image with attention heatmaps and annotated region crops used as evidence",
+    "Simple bar/line chart illustrating improved precision or reduced ambiguity after evidence-driven reranking"
   ],
   "hashtags": [
     "#MultimodalAI",
     "#Retrieval",
     "#VisionLanguage",
     "#AgenticAI",
-    "#ExplainableAI"
+    "#EvidenceBasedAI"
   ],
   "paper_id": "2026-02-05-arxiv-v_retrver_evidence_driven_agentic_reasoning_for_universal_multimodal_retrieval",
   "paper_title": "V-Retrver: Evidence-Driven Agentic Reasoning for Universal Multimodal Retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06034v1"
     }
   ],
-  "generated_at": "2026-02-08T06:39:35.402543"
+  "generated_at": "2026-02-09T06:57:59.455396"
 }

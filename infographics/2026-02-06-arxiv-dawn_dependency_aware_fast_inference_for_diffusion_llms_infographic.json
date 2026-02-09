@@ -1,0 +1,35 @@
+{
+  "key_insight": "DAWN enables much faster inference for diffusion-based LLMs by explicitly modeling token dependencies and using that information to run safe, aggressive parallel decoding without sacrificing generation quality.",
+  "problem_solved": "Existing diffusion LLM inference treats positions as independent and therefore uses overly conservative parallel strategies; this wastes latency headroom because semantically coupled tokens cause quality degradation when decoded independently.",
+  "method": [
+    "Extract cross-token dependency signals (e.g., attention/interaction metrics or learned dependency predictors) to build a lightweight dependency graph over positions.",
+    "Use the graph to form dependency-aware groups and an adaptive scheduling policy that parallelizes independent positions while sequentially refining tightly coupled ones.",
+    "Apply selective refinement steps and confidence/uncertainty checks so the model preserves output quality while reducing overall decoding iterations."
+  ],
+  "impact": "DAWN unlocks practical speedups for diffusion LLMs, making their parallel-decoding advantages usable in latency-sensitive applications and large-scale deployment without trading off generation quality.",
+  "visual_elements": [
+    "Side-by-side schematic: standard conservative parallel decoding vs DAWN's dependency-aware parallelism (shows fewer iterations for same text).",
+    "Token-sequence with overlaid dependency graph highlighting independent groups that can be decoded in parallel.",
+    "Latency vs quality scatter or bar chart showing DAWN reduces latency at comparable quality (illustrative, not numeric).",
+    "Algorithm flowchart: dependency extraction → grouping → adaptive scheduler → selective refinement (compact pipeline view)."
+  ],
+  "hashtags": [
+    "#DiffusionLLM",
+    "#EfficientInference",
+    "#ParallelDecoding",
+    "#DAWN",
+    "#LLMDeployment"
+  ],
+  "paper_id": "2026-02-06-arxiv-dawn_dependency_aware_fast_inference_for_diffusion_llms",
+  "paper_title": "DAWN: Dependency-Aware Fast Inference for Diffusion LLMs",
+  "paper_category": "Model",
+  "paper_date": "2026-02-06",
+  "paper_authors": "Lizhuo Luo, Zhuoran Shi, Jiajun Luo, Zhi Wang, Shen Ren",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.06953v1"
+    }
+  ],
+  "generated_at": "2026-02-09T06:55:27.920965"
+}

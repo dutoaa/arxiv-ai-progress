@@ -1,22 +1,22 @@
 {
-  "key_insight": "SymPlex discovers analytic symbolic solutions to PDEs without ground-truth formulas by casting expression generation as tree-structured decision-making and using a structure-aware Transformer (SymFormer) that captures hierarchical symbolic dependencies and enforces syntactic validity.",
-  "problem_solved": "Current symbolic PDE solvers either require supervised examples or fail to model the hierarchical, syntactic structure of analytic expressions; SymPlex finds interpretable closed-form solutions using only the PDE and its boundary conditions.",
+  "key_insight": "SymPlex discovers analytical symbolic solutions to PDEs without ground-truth by framing expression generation as tree-structured decision-making and optimizing candidate formulas directly against the PDE and boundary conditions using a structure-aware Transformer (SymFormer).",
+  "problem_solved": "Automates discovery of closed-form symbolic PDE solutions when no labeled expressions exist, navigating the vast, syntax-constrained search space of mathematical expressions while satisfying PDE residuals and boundary conditions.",
   "method": [
-    "Formulate symbolic PDE solving as a tree-structured reinforcement learning problem where candidate expression trees are generated and scored by PDE residuals and boundary-condition satisfaction.",
-    "Introduce SymFormer, a structure-aware Transformer with tree-relative self-attention and syntax constraints to model hierarchical token dependencies and ensure syntactically valid expressions.",
-    "Iterative search/optimization loop that refines candidate analytic expressions using only the PDE + boundary conditions as reward signals (no ground-truth expressions needed)."
+    "Formulate symbolic PDE solving as a reinforcement learning problem over expression trees, using PDE residuals and boundary-condition satisfaction as the reward signal.",
+    "Introduce SymFormer, a structure-aware Transformer employing tree-relative self-attention to model hierarchical symbolic dependencies and enforce syntactic constraints during generation.",
+    "Iteratively generate, evaluate, and optimize candidate symbolic expressions (no ground-truth supervision) to produce analytical solutions that minimize PDE residuals."
   ],
-  "impact": "Enables data-free discovery of interpretable analytic PDE solutions, reducing reliance on labeled symbolic datasets and accelerating scientific modeling, verification, and compact surrogate creation for ML-driven engineering.",
+  "impact": "Enables automated discovery of interpretable, closed-form PDE solutions directly from governing equations, benefiting scientific ML, model interpretability, and domains where analytic expressions are preferred over black-box numeric solvers.",
   "visual_elements": [
-    "RL feedback loop diagram: PDE + boundary conditions → generator (tree actions) → candidate symbolic expression → PDE residual & BC reward → policy update",
-    "SymFormer architecture sketch highlighting tree-relative self-attention and syntactic masking over an expression tree",
-    "Before/after comparison: numeric PDE solution vs discovered analytic solution (plots and residual heatmap)",
-    "Expression-tree visualization showing tokens, hierarchical structure, and enforced syntax (valid/invalid examples)"
+    "Diagram of tree-structured symbolic expression generation (nodes = operators/operands) with arrows showing sequential decisions",
+    "Architecture schematic of SymFormer highlighting tree-relative self-attention and how hierarchical dependencies are encoded",
+    "RL optimization loop: generate expression → evaluate PDE residual & boundary conditions → reward → update policy",
+    "Before/after comparison: numeric solution heatmap vs discovered symbolic solution + residual error plot"
   ],
   "hashtags": [
-    "#SymbolicAI",
-    "#PDE",
-    "#Transformers",
+    "#SymPlex",
+    "#SymFormer",
+    "#SymbolicPDE",
     "#ReinforcementLearning",
     "#ScientificML"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.03816v1"
     }
   ],
-  "generated_at": "2026-02-08T06:41:35.161073"
+  "generated_at": "2026-02-09T06:58:29.967384"
 }
