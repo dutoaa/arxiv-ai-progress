@@ -1,0 +1,35 @@
+{
+  "key_insight": "ArcFlow shows that distilling diffusion teachers into a 2-step text-to-image generator is possible by learning a high-precision non-linear flow that follows the teacher's changing trajectory and tangent directions instead of using crude linear shortcuts.",
+  "problem_solved": "Reduces the high inference cost of diffusion models by addressing the mismatch caused by linear shortcut distillation methods, enabling very few (2) denoising steps while preserving generation quality.",
+  "method": [
+    "Non-Linear Flow Distillation: learn a smooth, high-precision non-linear mapping (flow) that tracks the teacher diffusion trajectory and its evolving tangent/velocity vectors rather than approximating with linear shortcuts.",
+    "2-Step Student Design: parametrize a compact 2-step generator that uses the distilled flow to perform two high-fidelity denoising steps conditioned on text, effectively bridging large timestep gaps.",
+    "Teacher–Student Coupling & Losses: train with objectives that align trajectories, velocities (tangent directions), and perceptual/image quality (e.g., reconstruction and feature-level losses) to preserve fidelity in very low-step regimes."
+  ],
+  "impact": "Enables practical, low-latency text-to-image generation with diffusion-quality outputs using only two steps, making deployment and interactive applications (web, mobile, real-time) much more feasible for ML practitioners.",
+  "visual_elements": [
+    "Trajectory diagram: teacher diffusion path (curved) vs. linear shortcut vs. learned non-linear flow (closer match) with tangent vectors shown.",
+    "Before/After image panel: side-by-side outputs from full-step diffusion, linear-distilled 2-step, and ArcFlow 2-step to show quality improvements.",
+    "Performance chart: quality metric (e.g., FID/CLIP) vs. number of steps highlighting ArcFlow at 2 steps near teacher performance.",
+    "Architecture sketch: high-level blocks showing teacher model, flow distillation module, and compact 2-step student inference pipeline."
+  ],
+  "hashtags": [
+    "#TextToImage",
+    "#DiffusionModels",
+    "#ModelDistillation",
+    "#GenerativeAI",
+    "#LowLatency"
+  ],
+  "paper_id": "2026-02-09-arxiv-arcflow_unleashing_2_step_text_to_image_generation_via_high_precision_non_linear",
+  "paper_title": "ArcFlow: Unleashing 2-Step Text-to-Image Generation via High-Precision Non-Linear Flow Distillation",
+  "paper_category": "Model",
+  "paper_date": "2026-02-09",
+  "paper_authors": "Zihan Yang, Shuyuan Tu, Licheng Zhang, Qi Dai, Yu-Gang Jiang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.09014v1"
+    }
+  ],
+  "generated_at": "2026-02-10T06:55:50.360813"
+}
