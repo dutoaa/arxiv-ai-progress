@@ -1,24 +1,24 @@
 {
-  "key_insight": "ShapeCond condenses time-series datasets by explicitly preserving local discriminative motifs (shapelets), producing a tiny synthetic training set that retains classification performance while being much faster to train on.",
-  "problem_solved": "Standard dataset condensation methods are image-centric and miss time-series temporal structure, causing loss of local motifs (shapelets) that are critical for classification; ShapeCond addresses efficient, faithful condensation tailored to time series.",
+  "key_insight": "ShapeCond leverages time-series-specific shapelets (local discriminative motifs) to guide synthesis of a tiny, high-fidelity training set, enabling fast dataset condensation that preserves temporal structure image-centric methods miss.",
+  "problem_solved": "Existing dataset condensation approaches are designed for images and often fail on time series because they ignore local temporal motifs; ShapeCond addresses the challenge of creating compact, informative synthetic time-series datasets that retain class-discriminative temporal patterns.",
   "method": [
-    "Extract or learn class-discriminative shapelets (local motifs) to identify what information must be retained from the original series.",
-    "Synthesize a small set of representative time-series exemplars via a shapelet-guided objective that aligns condensed examples with extracted motifs and class decision boundaries.",
-    "Optimize the condensed set with a fast, gradient-based procedure designed for time-series models, yielding strong accuracy vs compression trade-offs with low compute overhead."
+    "Extract class-discriminative shapelets (local motifs) from the original time-series data to capture temporal signatures.",
+    "Optimize a small set of synthetic time-series so their shapelet activations (or shapelet-guided gradients) match those of the full dataset, ensuring preserved discriminative structure.",
+    "Use shapelet-aware initialization and lightweight optimization to make condensation fast and scalable for time-series classification tasks."
   ],
-  "impact": "ShapeCond enables practitioners to drastically reduce dataset size for time-series classification without sacrificing accuracy, speeding up training, lowering storage and compute costs, and making model iteration and deployment more efficient.",
+  "impact": "Allows ML practitioners to train and iterate time-series classifiers much faster using far smaller synthesized datasets while preserving classification-relevant temporal motifs—reducing storage, compute, and deployment costs.",
   "visual_elements": [
-    "Pipeline diagram: original time-series → shapelet extraction → shapelet-guided synthesis → condensed set → classifier",
-    "Overlay illustration: original series with highlighted shapelets and matching motifs in condensed exemplars",
-    "Bar/line chart: accuracy vs. condensation ratio comparing ShapeCond to baselines",
-    "Runtime and memory comparison: training time and storage savings (ShapeCond vs full dataset)"
+    "Shapelet extraction diagram: raw time series with highlighted local motifs and extracted shapelets per class.",
+    "Before/After condensation chart: dataset size vs. classification accuracy (or performance retained) illustrating compression with minimal loss.",
+    "Condensed-sample schematic: a few synthetic series annotated to show embedded shapelets that drive class decisions.",
+    "Performance summary bar chart: training time and memory savings (speedup) compared to full-data training and image-centric condensation baselines."
   ],
   "hashtags": [
     "#TimeSeries",
     "#DatasetCondensation",
     "#Shapelets",
     "#EfficientML",
-    "#ModelCompression"
+    "#DataCompression"
   ],
   "paper_id": "2026-02-09-arxiv-shapecond_fast_shapelet_guided_dataset_condensation_for_time_series_classificati",
   "paper_title": "ShapeCond: Fast Shapelet-Guided Dataset Condensation for Time Series Classification",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.09008v1"
     }
   ],
-  "generated_at": "2026-02-10T06:55:11.648305"
+  "generated_at": "2026-02-11T06:55:47.653903"
 }

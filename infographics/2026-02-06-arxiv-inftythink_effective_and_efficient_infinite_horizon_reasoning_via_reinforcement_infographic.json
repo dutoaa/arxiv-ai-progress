@@ -1,24 +1,24 @@
 {
-  "key_insight": "Train a reinforcement learning policy to decide when to summarize, what to keep, and how to resume, enabling efficient, infinite-horizon chain-of-thought reasoning that avoids quadratic cost and lost-in-the-middle failures.",
-  "problem_solved": "Scaling chain-of-thought inference is costly (quadratic in length), limited by context windows, and prone to degraded reasoning midway; prior iterative summarization methods use supervised labels or fixed heuristics and cannot optimally trade off cost, fidelity, and long-horizon continuity.",
+  "key_insight": "InftyThink+ uses reinforcement learning to adaptively manage iterative chain-of-thought reasoning, learning when to summarize, what to keep, and how to resume so models can reason indefinitely with far lower cost and less degradation.",
+  "problem_solved": "Addresses the quadratic cost, context-length limits, and \"lost-in-the-middle\" degradation of scaled chain-of-thought inference by replacing fixed or supervised summarization heuristics with an RL-driven, memory-aware control policy.",
   "method": [
-    "Formulate iterative reasoning as an infinite-horizon RL problem where the agent decides summarize vs continue and how to compress intermediate thoughts.",
-    "Optimize a lightweight policy with reward signals that balance downstream reasoning accuracy and inference cost (token/time), learning when to summarize and what content to preserve.",
-    "Integrate the learned policy with large language models so reasoning proceeds in compressed iterative steps and resumes reliably across arbitrarily long chains."
+    "Train an RL controller that decides when to compress intermediate thoughts, what content to store in a compact memory, and how to resume reasoning from summaries.",
+    "Use a learnable summarization/compression module to produce compact, relevant memory entries and a resumption strategy that integrates preserved context with ongoing chain-of-thought.",
+    "Optimize a reward balancing final-answer accuracy and computational/memory cost to enable long-horizon, efficient reasoning."
   ],
-  "impact": "Provides a practical way to scale multi-step reasoning beyond context limits with lower cost and more robust long-horizon performance, useful for long-form QA, planning, theorem proving, and any task requiring sustained multi-step thought.",
+  "impact": "Enables LLMs to perform long, iterative reasoning with much lower compute and reduced degradation, making reliable multi-step inference practical for resource-constrained or long-context applications.",
   "visual_elements": [
-    "Pipeline diagram: LLM <-> RL controller with loop showing 'reason → decide (summarize/continue) → compress → resume' to illustrate interaction and control flow.",
-    "Timeline comparison: naive chain-of-thought (growing tokens, lost-in-the-middle) vs InftyThink+ (bounded context, steady accuracy) to visualize cost vs performance tradeoff.",
-    "Decision flowchart: RL policy's summarize vs continue decision conditioned on intermediate state, with examples of preserved summary items.",
-    "Bar/stacked chart: qualitative advantages (cost reduction, context usage, accuracy retention) comparing fixed-heuristic, supervised summarization, and InftyThink+."
+    "Pipeline diagram: input → iterative reasoning loop → RL controller (decide summarize/resume) → compressed memory → resumed reasoning",
+    "Timeline illustration: long chain-of-thought with periodic summaries vs. naive expanding context (showing cost growth and lost-in-the-middle)",
+    "Performance vs. cost chart: accuracy or reasoning quality vs. token/context cost comparing InftyThink+, fixed heuristics, and no-summarize baselines",
+    "Icon set: RL policy (agent), memory/compression (archive), accuracy (target), efficiency (speedometer)"
   ],
   "hashtags": [
-    "#ReinforcementLearning",
     "#ChainOfThought",
-    "#LongContext",
-    "#EfficientAI",
-    "#Reasoning"
+    "#ReinforcementLearning",
+    "#LongContextAI",
+    "#EfficientML",
+    "#MemoryAugmentedModels"
   ],
   "paper_id": "2026-02-06-arxiv-inftythink_effective_and_efficient_infinite_horizon_reasoning_via_reinforcement",
   "paper_title": "InftyThink+: Effective and Efficient Infinite-Horizon Reasoning via Reinforcement Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.06960v1"
     }
   ],
-  "generated_at": "2026-02-10T06:58:49.594038"
+  "generated_at": "2026-02-11T06:56:06.215223"
 }

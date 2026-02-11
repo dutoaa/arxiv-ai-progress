@@ -1,0 +1,35 @@
+{
+  "key_insight": "The paper introduces Step-Decomposed Influence (SDI), which breaks a single scalar TracIn score into a length-τ sequence that reveals when (which recurrent iteration) a training example affects a looped transformer’s computation. This exposes the temporal footprint of training-data influence during latent iterative reasoning.",
+  "problem_solved": "Existing influence estimators collapse influence across all recurrent iterations, hiding when during the looped (τ-step) computation a training example is important.",
+  "method": [
+    "Decompose TracIn into per-step contributions by computing influence at each of the τ recurrent iterations of the shared transformer block.",
+    "Produce an influence trace (length-τ vector) for each training example showing its step-resolved effect on model states or loss.",
+    "Use these traces for attribution analyses, debugging, and targeted dataset/model interventions (e.g., censoring or editing examples that matter at specific steps)."
+  ],
+  "impact": "SDI gives practitioners temporal resolution on data influence in looped transformers, enabling precise debugging, targeted data curation, and more interpretable reasoning-chain analyses without changing the training setup.",
+  "visual_elements": [
+    "Timeline/line plot: influence magnitude vs. iteration step (length-τ) for selected training examples to show when each example matters.",
+    "Heatmap: examples (rows) × steps (columns) colored by influence to reveal patterns (early vs. late influence, clustered behaviors).",
+    "Schematic diagram: looped transformer with a shared block repeated τ times and arrows mapping a training example to per-step influence signals.",
+    "Bar chart comparison: aggregated TracIn scalar vs. SDI summary (e.g., max-step or step-of-peak) to illustrate information lost by aggregation."
+  ],
+  "hashtags": [
+    "#StepDecomposedInfluence",
+    "#LoopedTransformers",
+    "#ModelAttribution",
+    "#Interpretability",
+    "#DatasetAuditing"
+  ],
+  "paper_id": "2026-02-10-arxiv-step_resolved_data_attribution_for_looped_transformers",
+  "paper_title": "Step-resolved data attribution for looped transformers",
+  "paper_category": "Model",
+  "paper_date": "2026-02-10",
+  "paper_authors": "Georgios Kaissis, David Mildenberger, Juan Felipe Gomez, Martin J. Menten, Eleni Triantafillou",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.10097v1"
+    }
+  ],
+  "generated_at": "2026-02-11T06:52:44.089469"
+}

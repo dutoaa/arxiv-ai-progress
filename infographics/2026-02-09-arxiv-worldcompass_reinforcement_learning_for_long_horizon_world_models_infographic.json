@@ -1,17 +1,17 @@
 {
-  "key_insight": "WorldCompass is a post-training RL framework that steers autoregressive, video-based world models to explore and generate more accurate, temporally consistent long-horizon rollouts by evaluating and optimizing multiple clip-level continuation candidates using interaction signals.",
-  "problem_solved": "Reduces compounding errors and inconsistent behavior in long-horizon, interactive video world models by enabling targeted, reward-driven exploration and selection of better continuations at the clip level.",
+  "key_insight": "WorldCompass is an RL-based post-training framework that steers autoregressive video world models to explore and generate more accurate, consistent long-horizon rollouts by sampling and selecting clip-level predictions guided by interaction signals.",
+  "problem_solved": "Long-horizon, interactive video-based world models suffer from drift, inconsistency, and poor exploration when generating extended trajectories; WorldCompass addresses how to actively guide and improve these models after training so their long-term predictions align better with interaction outcomes.",
   "method": [
-    "Clip-level rollout strategy: generate multiple candidate continuations for a target clip and evaluate/select among them rather than committing to a single autoregressive sample.",
-    "RL-based post-training objective: use interaction/reward signals to score rollouts and update the generation policy (sampling/latent choices) to prefer accurate, consistent trajectories.",
-    "Temporal-coherence steering: mechanisms for credit assignment and autoregressive constraint handling to preserve frame-to-frame consistency across long horizons."
+    "RL post-training controller: treat the world model's rollouts as decision points and learn a policy that steers sampling/conditioning to improve long-horizon fidelity.",
+    "Clip-level rollout strategy: generate multiple candidate samples for each target clip, evaluate them, and select or weight clips to reduce accumulation of errors across time.",
+    "Interaction-aware reward/selection mechanism: use signals from simulated interactions (consistency, realism, task-relevance) to score rollouts and update the steering policy."
   ],
-  "impact": "Makes long-horizon video world models more reliable for planning and downstream control tasks, improving simulated rollouts, data efficiency, and robustness when models are used interactively or for multi-step decision making.",
+  "impact": "Provides a practical, model-agnostic way to improve long-term video/world-model predictions without retraining from scratch, enabling better planning, simulation, and downstream control in robotics, agents, and simulation-heavy applications.",
   "visual_elements": [
-    "Timeline diagram showing clip-level rollouts: multiple candidate continuations per clip with a selection step",
-    "Pipeline flowchart: autoregressive video model → candidate generation → reward evaluation → RL update loop",
-    "Performance chart: long-horizon accuracy/consistency comparison (baseline vs WorldCompass) as horizon increases",
-    "Icon trio: sample pool (many rollouts), reward/critic icon (evaluation), lock/chain icon (temporal consistency)"
+    "Pipeline diagram: pretrained autoregressive video model + RL post-training controller → clip sampling → evaluation & selection → refined long-horizon rollouts.",
+    "Clip-level rollout schematic: timeline showing multiple candidate clips at a single step and the selection/scoring process.",
+    "Before/after trajectories: side-by-side visualization of long-horizon rollouts without WorldCompass (drift) vs. with WorldCompass (consistent, accurate).",
+    "Metric chart: improvement vs. horizon length (e.g., accuracy or consistency score across timesteps) to highlight long-horizon gains."
   ],
   "hashtags": [
     "#WorldModels",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.09022v1"
     }
   ],
-  "generated_at": "2026-02-10T06:56:39.866562"
+  "generated_at": "2026-02-11T06:55:35.238180"
 }

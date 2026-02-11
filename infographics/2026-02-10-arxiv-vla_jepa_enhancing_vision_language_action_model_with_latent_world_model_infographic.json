@@ -1,0 +1,35 @@
+{
+  "key_insight": "VLA-JEPA introduces leakage-free state prediction in a JEPA-style pretraining framework so the model learns action-relevant latent dynamics instead of low-level pixel variation.",
+  "problem_solved": "Existing latent-action objectives latch onto pixel changes and nuisance motion (appearance bias and information leakage), producing representations that do not reliably capture true action/state transitions for vision-language-action policies.",
+  "method": [
+    "Use a JEPA-style pretraining objective where a predictor forecasts target latent states rather than raw pixels, removing shortcuts to appearance cues.",
+    "Design a target encoder and training constraints (bottleneck/stop-gradient/architectural choices) that prevent pixel-level information leakage into the predicted latent.",
+    "Train a latent world model on large-scale video to capture action-relevant transitions, integrating vision-language-action inputs for downstream policy learning."
+  ],
+  "impact": "Produces more robust, generalizable VLA policies that are less sensitive to appearance changes and nuisance motions—improving downstream action prediction, imitation, and control from video-scale pretraining.",
+  "visual_elements": [
+    "Pipeline diagram: input video + language → encoder → latent world model predictor → leakage-free target encoder (show stop-gradient/bottleneck icon).",
+    "Before/After comparison: two panels showing pixel-anchored representations failing under appearance change vs. leakage-free latents preserving action semantics.",
+    "Latent-space visualization: t-SNE or UMAP showing clustered action states learned by VLA-JEPA versus dispersed pixel-driven features.",
+    "Bar chart or robustness plot: metrics (e.g., generalization accuracy, sensitivity to appearance/nuisance motion) comparing baseline latent-action methods to VLA-JEPA."
+  ],
+  "hashtags": [
+    "#VLA",
+    "#JEPA",
+    "#SelfSupervised",
+    "#RepresentationLearning",
+    "#VideoML"
+  ],
+  "paper_id": "2026-02-10-arxiv-vla_jepa_enhancing_vision_language_action_model_with_latent_world_model",
+  "paper_title": "VLA-JEPA: Enhancing Vision-Language-Action Model with Latent World Model",
+  "paper_category": "Model",
+  "paper_date": "2026-02-10",
+  "paper_authors": "Jingwen Sun, Wenyao Zhang, Zekun Qi, Shaojie Ren, Zezhi Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.10098v1"
+    }
+  ],
+  "generated_at": "2026-02-11T06:52:58.939212"
+}

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Temporal (causal) reasoning in video diffusion models can be separated from the multi-step denoising procedure: causal attention need not run at every layer and step and can be implemented as a lightweight, modular component.",
+  "problem_solved": "Current causal diffusion models entangle temporal reasoning with iterative denoising—leading to high compute, tight coupling across layers/steps, and reduced modularity; this work shows how to decouple causality from denoising while preserving generation quality.",
+  "method": [
+    "Introduce a separable causal module that encapsulates temporal (uni-directional) reasoning independent of the denoiser.",
+    "Apply causal attention sparsely (e.g., at select layers/steps or in a single pass) instead of across all layers and every denoising iteration.",
+    "Train/design the pipeline so the denoiser and causal module can operate modularly, maintaining sample quality with reduced computation and context entanglement."
+  ],
+  "impact": "Makes video (and other temporally-structured) diffusion models more compute-efficient, scalable, and easier to transfer or adapt—beneficial for practitioners needing temporally coherent generative models with lower resource cost.",
+  "visual_elements": [
+    "Architecture diagram: separate blocks for 'Causal Reasoning Module' and 'Denoiser' with arrows showing modular interaction.",
+    "Timeline/comparison: baseline (causal attention at every step) vs separable approach (causal applied sparsely) illustrating fewer attention invocations.",
+    "Bar/line chart: compute (FLOPs or latency) vs generation quality (temporal consistency / FID) showing similar or better quality at lower cost.",
+    "Example frames + attention maps: show temporal consistency maintained with the separable causal module."
+  ],
+  "hashtags": [
+    "#VideoDiffusion",
+    "#Causality",
+    "#DiffusionModels",
+    "#EfficientAI",
+    "#GenerativeModels"
+  ],
+  "paper_id": "2026-02-10-arxiv-causality_in_video_diffusers_is_separable_from_denoising",
+  "paper_title": "Causality in Video Diffusers is Separable from Denoising",
+  "paper_category": "Model",
+  "paper_date": "2026-02-10",
+  "paper_authors": "Xingjian Bai, Guande He, Zhengqi Li, Eli Shechtman, Xun Huang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.10095v1"
+    }
+  ],
+  "generated_at": "2026-02-11T06:52:32.085143"
+}
