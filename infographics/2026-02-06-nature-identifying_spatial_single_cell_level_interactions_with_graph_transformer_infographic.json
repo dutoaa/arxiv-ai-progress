@@ -1,23 +1,23 @@
 {
-  "key_insight": "A self-supervised graph-transformer infers spatial, single-cell-level interactions directly from imaging-based spatial transcriptomics—working robustly with limited gene panels and without needing known ligand–receptor pairs.",
-  "problem_solved": "Overcomes the inability of imaging-based spatial transcriptomics to resolve cell–cell communication when gene panels are limited and ligand–receptor priors are incomplete or unavailable.",
+  "key_insight": "A self-supervised graph transformer can infer spatial, single-cell–level interactions directly from imaging-based spatial transcriptomics data, overcoming limited gene panels and without needing known ligand–receptor pairs.",
+  "problem_solved": "Existing methods for detecting cell–cell interactions rely on large gene panels or curated ligand–receptor lists, which are unavailable or incomplete in imaging-based spatial transcriptomics—this method infers interactions despite those limitations.",
   "method": [
-    "Build a spatial graph where nodes = single cells (position + measured genes) and edges = proximity/neighborhood relationships.",
-    "Pretrain a graph transformer with self-supervised objectives to learn interaction-aware cell representations from sparse gene panels.",
-    "Decode pairwise interaction scores from learned representations to identify spatial cell–cell interactions without relying on curated ligand–receptor lists."
+    "Build a spatial graph where nodes = imaged single cells and edges capture local neighborhood relationships.",
+    "Train a graph transformer with self-supervised objectives to learn cell representations and interaction scores from spatial and limited-expression signals (no LR priors required).",
+    "Use learned attention/interaction outputs to identify and localize putative cell–cell interactions at single-cell resolution."
   ],
-  "impact": "Enables AI/ML practitioners to apply representation learning and graph transformer architectures to infer biological interactions from sparse spatial data, improving downstream analysis and transferability across assays and tissues.",
+  "impact": "Provides a generalizable, label-free approach for extracting interaction networks from sparse spatial transcriptomic data, enabling AI/ML practitioners to apply transformer-based graph models for biological discovery and downstream analyses without curated ligand–receptor annotations.",
   "visual_elements": [
-    "Pipeline schematic: tissue image → cells as nodes → spatial graph → graph transformer → interaction map",
-    "Spatial heatmap overlay on tissue showing inferred pairwise interaction strengths",
-    "Bar/line chart comparing interaction recovery vs. ligand–receptor-based and other baselines across varying gene panel sizes",
-    "Embedding visualization (UMAP/t-SNE) of learned cell representations colored by interaction communities or cell types"
+    "Schematic: tissue image → spatial graph construction (cells as nodes, edges by proximity) → graph transformer pipeline",
+    "Attention map overlay on tissue showing inferred interaction strengths between neighboring cells",
+    "Comparison chart: interaction recovery accuracy or qualitative examples vs ligand–receptor-based baselines",
+    "Workflow icon strip: input (imaging + limited genes) → self-supervised training → inferred interactions → biological interpretation"
   ],
   "hashtags": [
+    "#GraphTransformer",
     "#SpatialTranscriptomics",
-    "#GraphTransformers",
-    "#SelfSupervisedLearning",
     "#SingleCell",
+    "#SelfSupervisedLearning",
     "#ComputationalBiology"
   ],
   "paper_id": "2026-02-06-nature-identifying_spatial_single_cell_level_interactions_with_graph_transformer",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01191-2"
     }
   ],
-  "generated_at": "2026-02-11T06:54:50.022245"
+  "generated_at": "2026-02-12T06:52:36.410489"
 }

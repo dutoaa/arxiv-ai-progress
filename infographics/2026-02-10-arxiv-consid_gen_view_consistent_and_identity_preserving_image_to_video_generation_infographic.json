@@ -1,24 +1,24 @@
 {
-  "key_insight": "ConsID-Gen combines data-level multi-view enrichment with model-level identity and view-consistency objectives to generate temporally coherent videos from a single image while preserving fine-grained object identity across viewpoint changes.",
-  "problem_solved": "Addresses appearance drift and geometric distortion in image-to-video generation where single-view inputs and weak cross-modal alignment cause loss of identity and inconsistent views over time.",
+  "key_insight": "ConsID-Gen combines data-level multi-view augmentation with model-level identity- and view-consistency constraints to generate temporally coherent videos from a single image while preserving fine-grained object identity across changing viewpoints.",
+  "problem_solved": "Addresses appearance drift and geometric distortion in image-to-video (I2V) generation caused by sparse single-view observations and weak cross-modal alignment, enabling stable identity preservation as viewpoint and motion change.",
   "method": [
-    "Augment training data with synthesized or multi-view examples to reduce single-view sparsity and expose varied viewpoints.",
-    "Introduce view-consistency and identity-preserving losses that explicitly penalize appearance drift and geometric inconsistency across generated frames.",
-    "Improve cross-modal alignment between image, text instruction, and video representations (e.g., via attention/feature matching) so animations follow instructions while retaining object identity."
+    "Data augmentation: synthesize or mine pseudo multi-view observations from the single input to densify geometric and appearance supervision.",
+    "Model constraints: introduce identity-preserving and view-consistency losses (cross-frame feature matching / perceptual identity regularizers) to prevent appearance drift.",
+    "Cross-modal & temporal alignment: strengthen image–text alignment and temporal modeling (e.g., sequence-conditioned generator) so animations follow instructions while remaining consistent over time."
   ],
-  "impact": "Enables more reliable, identity-faithful I2V pipelines useful for avatar animation, film VFX, and content creation where preserving object/person likeness across camera motion is critical. Practitioners get a practical recipe (data + loss + alignment) to reduce common I2V artifacts.",
+  "impact": "Makes I2V outputs more reliable for applications that require faithful identity preservation (avatars, digital doubles, AR/VR, visual effects) and reduces common artifacts, improving usability for practitioners deploying generative video systems.",
   "visual_elements": [
-    "Before/After frame sequence: static input image → baseline I2V (shows drift) → ConsID-Gen output (maintained identity) to illustrate improvement.",
-    "Pipeline diagram: data augmentation (multi-view) → model with identity & view-consistency losses → generated video, annotated with loss icons.",
-    "Frame-level consistency chart: quantitative plot showing reduced identity/appearance error over time compared to baselines.",
-    "Attention/feature-map visualization: overlays showing where the model preserves identity features across frames."
+    "Before/after strip: single input image on the left, generated video frames across time on the right to show preserved identity under viewpoint change.",
+    "Pipeline diagram: blocks for multi-view augmentation → consistency & identity losses → temporally-conditioned generator, with arrows showing information flow.",
+    "Metric chart: ID-similarity-over-time or identity-drift curve comparing ConsID-Gen vs baseline (qualitative or quantitative trend illustration).",
+    "Feature-space visualization: t-SNE/embedding trajectories of features from frames demonstrating tighter identity clustering with ConsID-Gen."
   ],
   "hashtags": [
     "#ImageToVideo",
     "#ViewConsistency",
     "#IdentityPreservation",
-    "#GenerativeAI",
-    "#VideoSynthesis"
+    "#VideoGeneration",
+    "#MultimodalAI"
   ],
   "paper_id": "2026-02-10-arxiv-consid_gen_view_consistent_and_identity_preserving_image_to_video_generation",
   "paper_title": "ConsID-Gen: View-Consistent and Identity-Preserving Image-to-Video Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.10113v1"
     }
   ],
-  "generated_at": "2026-02-11T06:53:47.115699"
+  "generated_at": "2026-02-12T06:53:29.491708"
 }

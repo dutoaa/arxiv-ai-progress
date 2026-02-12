@@ -1,0 +1,35 @@
+{
+  "key_insight": "Individual tokens in diffusion language models often converge earlier than the whole sequence; a training-free, token-level early stopping rule based on lightweight signals lets the model finalize tokens independently, saving compute without retraining.",
+  "problem_solved": "Diffusion text generation is computationally inefficient because many token positions stabilize well before the final denoising step and there is no effective per-token stopping mechanism.",
+  "method": [
+    "Detect per-token convergence using lightweight signals derived from the model's predictions and local context (e.g., prediction consistency, local stability metrics).",
+    "Apply a dynamic, training-free stopping criterion at each diffusion step to finalize tokens and exclude them from further refinement.",
+    "Maintain full-generation quality by using conservative, context-aware thresholds while substantially reducing iterations for stable tokens."
+  ],
+  "impact": "Practical way to reduce inference time, compute cost, and latency for diffusion LMs with minimal engineering and no retraining—useful for deployed generation systems and research experiments.",
+  "visual_elements": [
+    "Flow diagram of diffusion generation where tokens drop out progressively as per-token stop signals trigger.",
+    "Line chart showing per-token confidence/stability over steps and the moment each token is finalized versus full-model stopping.",
+    "Bar chart comparing inference time / FLOPs between standard diffusion, sequence-level stopping, and token-level early stopping.",
+    "Icon set: token symbol + stop flag, clock/speedometer for latency, and a shield or checkmark for preserved quality."
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#LanguageModels",
+    "#EfficientInference",
+    "#TokenLevel",
+    "#EarlyStopping"
+  ],
+  "paper_id": "2026-02-11-arxiv-just_on_time_token_level_early_stopping_for_diffusion_language_models",
+  "paper_title": "Just on Time: Token-Level Early Stopping for Diffusion Language Models",
+  "paper_category": "Model",
+  "paper_date": "2026-02-11",
+  "paper_authors": "Zahar Kohut, Severyn Shykula, Dmytro Khamula, Mykola Vysotskyi, Taras Rumezhak",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.11133v1"
+    }
+  ],
+  "generated_at": "2026-02-12T06:51:34.851222"
+}

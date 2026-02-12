@@ -1,24 +1,24 @@
 {
-  "key_insight": "WorldCompass is an RL-based post-training framework that steers autoregressive video world models to explore and generate more accurate, consistent long-horizon rollouts by sampling and selecting clip-level predictions guided by interaction signals.",
-  "problem_solved": "Long-horizon, interactive video-based world models suffer from drift, inconsistency, and poor exploration when generating extended trajectories; WorldCompass addresses how to actively guide and improve these models after training so their long-term predictions align better with interaction outcomes.",
+  "key_insight": "WorldCompass is an RL post-training framework that steers autoregressive, video-based world models by using interaction signals to explore and prefer accurate, consistent long-horizon continuations via targeted clip-level rollouts.",
+  "problem_solved": "Video world models degrade over long horizons because autoregressive sampling compounds errors and lacks a mechanism to use interaction feedback; WorldCompass addresses how to explore and select long-horizon trajectories that remain accurate and coherent.",
   "method": [
-    "RL post-training controller: treat the world model's rollouts as decision points and learn a policy that steers sampling/conditioning to improve long-horizon fidelity.",
-    "Clip-level rollout strategy: generate multiple candidate samples for each target clip, evaluate them, and select or weight clips to reduce accumulation of errors across time.",
-    "Interaction-aware reward/selection mechanism: use signals from simulated interactions (consistency, realism, task-relevance) to score rollouts and update the steering policy."
+    "Clip-level rollout strategy: generate multiple candidate continuations for a single target clip, evaluate them, and use those evaluations to guide longer rollouts.",
+    "RL-based post-training policy: frame sample selection/steering as a reinforcement learning problem using interaction-derived rewards (accuracy, consistency) to update a steering policy without retraining the base video model.",
+    "Long-horizon aggregation: compose clip-level decisions into coherent long-horizon trajectories and optimize the steering objective to reduce drift and improve consistency over many steps."
   ],
-  "impact": "Provides a practical, model-agnostic way to improve long-term video/world-model predictions without retraining from scratch, enabling better planning, simulation, and downstream control in robotics, agents, and simulation-heavy applications.",
+  "impact": "Provides a practical way to make autoregressive video world models more reliable for long-horizon simulation, improving downstream planning, model-based RL, and any application that needs consistent multi-step visual predictions.",
   "visual_elements": [
-    "Pipeline diagram: pretrained autoregressive video model + RL post-training controller → clip sampling → evaluation & selection → refined long-horizon rollouts.",
-    "Clip-level rollout schematic: timeline showing multiple candidate clips at a single step and the selection/scoring process.",
-    "Before/after trajectories: side-by-side visualization of long-horizon rollouts without WorldCompass (drift) vs. with WorldCompass (consistent, accurate).",
-    "Metric chart: improvement vs. horizon length (e.g., accuracy or consistency score across timesteps) to highlight long-horizon gains."
+    "Diagram of clip-level rollouts: one input clip branching into multiple candidate continuations with scores and a selected path.",
+    "Before vs after long-horizon trajectories: side-by-side timelines showing drift/error accumulation vs stabilized predictions.",
+    "RL feedback loop: interaction signals → reward computation → steering policy → sampling decisions (post-training layer).",
+    "Bar/line chart: prediction error or task performance as a function of horizon (short → long) comparing baseline and WorldCompass."
   ],
   "hashtags": [
-    "#WorldModels",
-    "#ReinforcementLearning",
+    "#WorldCompass",
+    "#ModelBasedRL",
     "#VideoPrediction",
-    "#LongHorizonPlanning",
-    "#ModelBasedRL"
+    "#LongHorizon",
+    "#ReinforcementLearning"
   ],
   "paper_id": "2026-02-09-arxiv-worldcompass_reinforcement_learning_for_long_horizon_world_models",
   "paper_title": "WorldCompass: Reinforcement Learning for Long-Horizon World Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.09022v1"
     }
   ],
-  "generated_at": "2026-02-11T06:55:35.238180"
+  "generated_at": "2026-02-12T06:53:47.952088"
 }

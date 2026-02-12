@@ -1,24 +1,24 @@
 {
-  "key_insight": "Adding differential privacy to federated learning degrades the clarity and fidelity of model explanations; this paper quantifies that trade-off and provides practical guidance to balance privacy and interpretability.",
-  "problem_solved": "Addresses the gap in understanding how Differential Privacy (DP) applied in Federated Learning (FL) affects explainability (XAI) of models and what adjustments practitioners can make to preserve interpretable outputs while maintaining privacy.",
+  "key_insight": "Applying differential privacy in federated learning measurably degrades common explanation signals (feature attributions and model sparsity), but the paper quantifies that trade-off and offers practical mitigation strategies (e.g., privacy-aware feature selection and DP-budget tuning) to recover interpretability without sacrificing required privacy guarantees.",
+  "problem_solved": "Clarifies how adding Differential Privacy (DP) to Federated Learning (FL) affects explainability (XAI) — quantifying loss of attribution fidelity, stability, and sparsity — and provides actionable guidance to balance privacy and interpretability.",
   "method": [
-    "Systematic evaluation of FL models trained with varying DP privacy budgets to measure changes in explainability.",
-    "Apply feature-attribution XAI methods (e.g., SHAP/LIME-style analyses) and concrete explainability metrics (fidelity, sparsity, stability) to compare private vs. non-private models.",
-    "Analyze trade-offs and derive practical recommendations (e.g., budget tuning, model simplification, feature selection) to mitigate explainability loss under DP."
+    "Controlled empirical evaluation of FL models with DP (varying ε, clipping) across tasks, comparing XAI techniques (e.g., SHAP/LIME/feature importance).",
+    "Define and measure explainability metrics (attribution fidelity, stability/variance across clients, and feature sparsity) to quantify DP impact.",
+    "Propose and test mitigation strategies: privacy-aware feature selection, adaptive DP budget allocation, and model simplification to improve explanations under privacy constraints."
   ],
-  "impact": "Gives ML practitioners actionable insight on how privacy mechanisms affect interpretability, enabling informed choices of DP settings and model design to retain useful explanations in privacy-preserving FL deployments.",
+  "impact": "Gives AI/ML practitioners concrete metrics and recipes to choose DP parameters and XAI tools in FL systems so they can meet privacy requirements while retaining usable explanations for debugging, compliance, and end-user trust.",
   "visual_elements": [
-    "Trade-off curve: privacy budget (ε) on x-axis vs. explainability metric (fidelity/stability) on y-axis showing degradation as privacy increases.",
-    "Pipeline diagram: FL clients → local training + DP noise → secure aggregator → global model → XAI module producing explanations.",
-    "Bar/heatmap comparison: explainability metrics across multiple privacy budgets and model architectures (with/without feature selection).",
-    "Checklist/decision flow: recommended mitigation steps (tune ε, simplify model, reduce features) to recover explainability under DP."
+    "Privacy vs Explainability trade-off curve: x-axis = DP strength (lower ε = more private), y-axis = explanation quality (e.g., attribution fidelity).",
+    "Schematic of federated system: client nodes → DP mechanism (noise, clipping) → central model, annotated where explanations are computed and degraded.",
+    "Bar/heatmap comparing XAI metrics (stability, sparsity, fidelity) across DP settings and XAI methods (SHAP, LIME, feature importance).",
+    "Checklist/flow diagram of mitigation steps: feature selection → DP-budget tuning → model simplification → re-evaluate explanations."
   ],
   "hashtags": [
     "#FederatedLearning",
     "#DifferentialPrivacy",
     "#XAI",
-    "#ExplainableAI",
-    "#PrivacyPreservingML"
+    "#PrivacyPreservingML",
+    "#ExplainableAI"
   ],
   "paper_id": "2026-02-10-arxiv-towards_explainable_federated_learning_understanding_the_impact_of_differential",
   "paper_title": "Towards Explainable Federated Learning: Understanding the Impact of Differential Privacy",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.10100v1"
     }
   ],
-  "generated_at": "2026-02-11T06:53:18.745523"
+  "generated_at": "2026-02-12T06:53:37.647672"
 }

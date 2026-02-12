@@ -1,17 +1,17 @@
 {
-  "key_insight": "FedLG integrates a Lanczos-based projection into a federated graph learning pipeline to align and aggregate heterogeneous molecular graph representations across parties, enabling collaborative molecular discovery without sharing raw data. The approach yields robust, improved performance across diverse molecular tasks.",
-  "problem_solved": "Enables multi-party collaboration for molecular discovery while preserving data privacy and handling heterogeneity in graph structures and feature distributions that typically degrade federated model performance.",
+  "key_insight": "FedLG introduces a federated graph learning framework that uses Lanczos-based projection to align and aggregate heterogeneous molecular graph information across parties, enabling effective multi-party collaboration without sharing raw data.",
+  "problem_solved": "Overcomes the challenge of privacy, data heterogeneity, and communication overhead in collaborative molecular discovery by providing a topology-aware, communication-efficient aggregation method that preserves local data confidentiality.",
   "method": [
-    "Federated graph learning: train local GNNs on private molecular graphs and share only compressed representations or model updates.",
-    "Lanczos-based projection: project high-dimensional local graph embeddings into a low-dimensional, aligned subspace to enable efficient, robust aggregation across heterogeneous parties.",
-    "Global aggregation and optional fine-tuning: aggregate projected representations centrally (or via secure protocols) and fine-tune global models for downstream molecular tasks."
+    "Federated graph learning: each site trains local graph encoders on molecular graphs and sends compressed updates instead of raw molecules.",
+    "Lanczos-based projection: projects local graph representations into a low-dimensional, topology-preserving subspace to align heterogeneous client features and reduce communication cost.",
+    "Robust aggregation & evaluation: a centralized aggregation scheme combines projected updates and is validated across diverse molecular discovery benchmarks to ensure stability and performance."
   ],
-  "impact": "Permits chemistry and drug-discovery teams to collaboratively train GNNs without centralizing sensitive molecular datasets, improving generalization across datasets and reducing communication/heterogeneity bottlenecks for real-world federated deployments.",
+  "impact": "Enables privacy-preserving, scalable collaboration across institutions for molecular modeling and drug discovery, improving robustness to heterogeneous datasets and lowering communication/computation barriers for practitioners.",
   "visual_elements": [
-    "Pipeline schematic: local GNNs → Lanczos projection → federated aggregation → global model",
-    "Illustration of Lanczos projection compressing diverse graph embeddings into a shared low‑dimensional subspace",
-    "Benchmark bar/heatmap comparing FedLG vs. baseline federated and centralized methods across multiple molecular tasks",
-    "Privacy/lock icon overlay showing no raw molecule exchange between parties"
+    "Architecture diagram: local graph encoders at multiple clients → Lanczos projection → central aggregator (federated rounds)",
+    "Flowchart of a federated training round showing local training, projection/compression, upload, aggregation, and broadcast",
+    "Performance comparison chart (bar or radar) showing FedLG vs baseline federated and centralized methods across several molecular tasks",
+    "Icon-based schematic illustrating privacy-preservation (molecule icons with locks), reduced communication (compressed vectors), and cross-institution collaboration"
   ],
   "hashtags": [
     "#FederatedLearning",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01184-1"
     }
   ],
-  "generated_at": "2026-02-11T06:55:11.277942"
+  "generated_at": "2026-02-12T06:52:50.747736"
 }
