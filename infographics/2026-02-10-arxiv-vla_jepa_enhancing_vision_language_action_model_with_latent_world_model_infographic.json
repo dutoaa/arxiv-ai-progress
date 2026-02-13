@@ -1,23 +1,23 @@
 {
-  "key_insight": "VLA-JEPA replaces pixel-anchored latent-action objectives with a JEPA-style, leakage-free latent world model that predicts action-relevant future states in latent space, preventing appearance bias and nuisance motion from driving the representation.",
-  "problem_solved": "Pretraining VLA policies often learn spurious pixel-level correlations and leak irrelevant visual information into action representations, harming robustness and downstream control; this work prevents that leakage and focuses learning on action-relevant state transitions.",
+  "key_insight": "VLA-JEPA introduces a JEPA-style latent world model that learns leakage-free state predictions, focusing representations on action-relevant transitions rather than pixel-level changes.",
+  "problem_solved": "Addresses the tendency of latent-action objectives to latch onto superficial pixel variation and nuisance motion, which causes appearance bias and information leakage in vision-language-action pretraining.",
   "method": [
-    "Leakage-free state prediction: train a predictor to forecast target-encoder latents while blocking information flow (stop-grad / bottleneck) so predictions must capture dynamics, not pixels.",
-    "JEPA-style latent world model: operate entirely in compact latent space (no pixel reconstruction), conditioning predictions on past observations and actions to model transitions.",
-    "Action-focused objective design: losses and architectural choices prioritize transition-consistent features and mitigate appearance/nuisance motion influence during pretraining."
+    "JEPA-style pretraining: learn to predict future latent states rather than raw pixels, forming a compact world model.",
+    "Leakage-free state prediction: use a target encoder design that prevents low-level appearance information from leaking into action representations.",
+    "Action-relevant alignment: optimize objectives that prioritize state transitions tied to agent actions and downstream control tasks, reducing sensitivity to nuisance motions."
   ],
-  "impact": "By shifting pretraining to leakage-resistant latent prediction, VLA-JEPA yields representations that better reflect controllable dynamics — improving robustness and transfer for downstream vision-language-action tasks and policy learning.",
+  "impact": "Makes VLA pretraining more robust and generalizable by producing action-focused latent representations, improving downstream policy transfer and reducing sensitivity to appearance changes in large-scale video data.",
   "visual_elements": [
-    "Pipeline diagram: encoder → latent bottleneck → predictor → target encoder (with stop-gradient) showing leakage-free flow",
-    "Before vs After comparison: pixel-anchored features capturing appearance vs latent world model capturing state transitions",
-    "Temporal dynamics visualization: sequence of latent states with predicted vs actual next-state arrows",
-    "Performance schematic: robustness metrics or downstream task icons (robot arm, navigation) illustrating improved transfer"
+    "Pipeline diagram comparing pixel-prediction vs. VLA-JEPA latent prediction (input video → encoder → leakage-free latent → predictor → target latent).",
+    "Before/after illustration showing susceptibility to appearance bias (confusing background motion) vs. correct action-relevant transitions.",
+    "Latent-space visualization (t-SNE/UMAP) showing tighter clustering by action/state rather than by appearance.",
+    "Ablation-style bar chart summarizing robustness gains (reduced leakage, improved transfer) across representative metrics."
   ],
   "hashtags": [
-    "#VLA",
+    "#VLAJEPA",
     "#LatentWorldModel",
-    "#SelfSupervisedLearning",
     "#RepresentationLearning",
+    "#SelfSupervised",
     "#Robotics"
   ],
   "paper_id": "2026-02-10-arxiv-vla_jepa_enhancing_vision_language_action_model_with_latent_world_model",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.10098v1"
     }
   ],
-  "generated_at": "2026-02-12T06:53:16.807664"
+  "generated_at": "2026-02-13T06:49:41.313871"
 }

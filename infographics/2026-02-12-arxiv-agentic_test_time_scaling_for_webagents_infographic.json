@@ -1,0 +1,35 @@
+{
+  "key_insight": "CATTS (a simple test-time scaling scheme) dynamically allocates compute across steps of multi-step agents so that scarce inference budget targets high-risk steps, avoiding the diminishing returns of uniform scaling and reducing compounded errors over long horizons.",
+  "problem_solved": "How to improve reliability and efficiency of agentic, multi-step models at inference: small per-step errors compound over long tasks, and naively increasing compute uniformly per step gives poor returns and wasted budget.",
+  "method": [
+    "Empirically characterize per-step error/uncertainty patterns for multi-step web agents to identify where mistakes concentrate.",
+    "Dynamically reallocate inference compute (e.g., sampling, search, or repeated queries) to steps flagged as high-uncertainty or high-impact instead of uniformly scaling every step.",
+    "Use a budget-aware policy (thresholds or learned controller) to trade off overall compute and end-to-end task performance."
+  ],
+  "impact": "CATTS improves end-to-end performance and reliability of long-horizon agents while using inference budget more efficiently, enabling practitioners to get better results without linearly increasing cost. It’s immediately applicable to production web agents and multi-step LM workflows.",
+  "visual_elements": [
+    "Pipeline diagram showing an agent executing multiple steps with variable-size compute bubbles (bigger bubbles on high-uncertainty steps) vs uniform bubbles for baseline.",
+    "Line chart comparing task success vs total inference compute for uniform scaling and CATTS (CATTS reaches higher success with same or less compute).",
+    "Heatmap or bar chart of per-step uncertainty/error rates, annotated to show where CATTS reallocates resources.",
+    "Budget-allocation infographic (pie or stacked bar) illustrating how compute is shifted from low-impact steps to high-impact steps under a fixed budget."
+  ],
+  "hashtags": [
+    "#AgenticAI",
+    "#TestTimeScaling",
+    "#AdaptiveCompute",
+    "#EfficientInference",
+    "#WebAgents"
+  ],
+  "paper_id": "2026-02-12-arxiv-agentic_test_time_scaling_for_webagents",
+  "paper_title": "Agentic Test-Time Scaling for WebAgents",
+  "paper_category": "Model",
+  "paper_date": "2026-02-12",
+  "paper_authors": "Nicholas Lee, Lutfi Eren Erdogan, Chris Joseph John, Surya Krishnapillai, Michael W. Mahoney",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.12276v1"
+    }
+  ],
+  "generated_at": "2026-02-13T06:48:32.146758"
+}
