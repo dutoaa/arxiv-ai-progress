@@ -1,17 +1,17 @@
 {
-  "key_insight": "Treat the corruption level (masking/noise ratio) as a controllable, continuous degree of freedom and learn a Flow-Guided Neural Operator (FGNO) that maps corrupted time-series to clean signals, yielding more flexible and effective self-supervised representations than fixed-mask MAEs.",
-  "problem_solved": "Standard masked autoencoders use a fixed, predetermined masking ratio, which can be suboptimal for diverse temporal scales, noise conditions, and downstream tasks; this paper addresses the lack of adaptability in corruption modeling for SSL on time-series data.",
+  "key_insight": "Instead of using a fixed masking/corruption ratio for time-series masked reconstruction, the paper treats corruption level as a controllable degree of freedom and trains a Flow-Guided Neural Operator (FGNO) to learn representations that generalize across a continuum of corruption intensities. This yields more flexible and robust self-supervised features for time-series data.",
+  "problem_solved": "Current time-series SSL methods use static, predetermined corruption levels (e.g., a fixed masking ratio), which limits adaptability and representation quality across different downstream tasks and noise regimes.",
   "method": [
-    "Introduce FGNO: a neural operator architecture guided by learned flow fields that conditions reconstruction on a continuous corruption parameter (masking/noise level).",
-    "Train with a spectrum of corruption levels so the model learns a mapping across the corruption continuum, enabling interpolation and extrapolation between corruption settings.",
-    "Integrate FGNO into a self-supervised reconstruction objective for time-series, producing robust, adaptable representations without hand-tuning a single masking ratio."
+    "Introduce FGNO: a neural operator architecture that models the mapping between corrupted and original time-series across varying corruption levels (a continuous corruption-control input).",
+    "Use a flow-guided mechanism to steer corruption intensity during pretraining, exposing the encoder to a spectrum of difficulties rather than a single fixed mask ratio.",
+    "Train with a self-supervised reconstruction (or related) objective across the corruption continuum so learned representations are robust and transferable to diverse downstream tasks."
   ],
-  "impact": "FGNO reduces the need to tune a single masking ratio, improves robustness across varying temporal dynamics and noise levels, and offers practitioners a more flexible pretraining paradigm that transfers better to diverse time-series tasks.",
+  "impact": "By making corruption level a learned/control variable and training a neural operator over that continuum, practitioners get more adaptable, robust time-series representations that reduce sensitivity to mask hyperparameters and improve performance across varied downstream settings.",
   "visual_elements": [
-    "Schematic: input time-series + corruption-level control → Flow-Guided Neural Operator → reconstructed output (annotate conditioning signal).",
-    "Continuum diagram: varying masking/noise ratios along a slider showing interpolation of learned reconstructions.",
-    "Comparison bar/line graphic: static-mask MAE vs FGNO across multiple downstream tasks (robustness/transferability) — qualitative labels rather than exact numbers.",
-    "Flow field illustration: stylized vector/flow overlay on time-series to convey how FGNO models temporal transformations across corruption levels."
+    "Architecture diagram: FGNO block showing encoder, neural operator taking corruption-level input, and decoder/reconstruction head.",
+    "Continuum illustration: a slider or spectrum depicting corruption intensity from low to high with example time-series reconstructions along it.",
+    "Performance chart: downstream task accuracy/robustness vs. fixed-mask baselines across varied noise/masking regimes.",
+    "Ablation heatmap: effect of corruption scheduling and flow guidance on representation quality (or transfer performance)."
   ],
   "hashtags": [
     "#SelfSupervisedLearning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12267v1"
     }
   ],
-  "generated_at": "2026-02-13T06:47:52.550871"
+  "generated_at": "2026-02-14T06:33:25.135628"
 }

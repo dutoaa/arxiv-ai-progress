@@ -1,24 +1,24 @@
 {
-  "key_insight": "CATTS (a simple test-time scaling scheme) dynamically allocates compute across steps of multi-step agents so that scarce inference budget targets high-risk steps, avoiding the diminishing returns of uniform scaling and reducing compounded errors over long horizons.",
-  "problem_solved": "How to improve reliability and efficiency of agentic, multi-step models at inference: small per-step errors compound over long tasks, and naively increasing compute uniformly per step gives poor returns and wasted budget.",
+  "key_insight": "CATTS (Conditionally Allocated Test-Time Scaling) dynamically assigns extra inference compute to the most consequential steps of multi-step agent tasks, reducing error compounding and yielding higher returns than uniformly increasing sampling at every step.",
+  "problem_solved": "Uniform test-time scaling (e.g., more sampling everywhere) gives diminishing returns on agentic, multi-step tasks because small per-step errors compound over long horizons; the paper addresses how to allocate scarce inference compute where it most reduces downstream failure.",
   "method": [
-    "Empirically characterize per-step error/uncertainty patterns for multi-step web agents to identify where mistakes concentrate.",
-    "Dynamically reallocate inference compute (e.g., sampling, search, or repeated queries) to steps flagged as high-uncertainty or high-impact instead of uniformly scaling every step.",
-    "Use a budget-aware policy (thresholds or learned controller) to trade off overall compute and end-to-end task performance."
+    "Empirical analysis showing per-step errors compound over agent rollouts and that naive uniform scaling has diminishing marginal benefit.",
+    "A dynamic compute-allocation scheme (CATTS) that detects high-impact or high-uncertainty steps and concentrates extra sampling/compute on them instead of spreading budget uniformly.",
+    "Budget-aware deployment so overall inference cost is respected while improving end-to-end task success."
   ],
-  "impact": "CATTS improves end-to-end performance and reliability of long-horizon agents while using inference budget more efficiently, enabling practitioners to get better results without linearly increasing cost. It’s immediately applicable to production web agents and multi-step LM workflows.",
+  "impact": "CATTS makes multi-step agents (e.g., web agents, planners) more reliable and compute-efficient by focusing resources where they most reduce failures, enabling better performance without a proportional increase in inference cost.",
   "visual_elements": [
-    "Pipeline diagram showing an agent executing multiple steps with variable-size compute bubbles (bigger bubbles on high-uncertainty steps) vs uniform bubbles for baseline.",
-    "Line chart comparing task success vs total inference compute for uniform scaling and CATTS (CATTS reaches higher success with same or less compute).",
-    "Heatmap or bar chart of per-step uncertainty/error rates, annotated to show where CATTS reallocates resources.",
-    "Budget-allocation infographic (pie or stacked bar) illustrating how compute is shifted from low-impact steps to high-impact steps under a fixed budget."
+    "Flow diagram of an agent executing multiple steps with variable-width bars showing per-step compute allocation (uniform vs CATTS).",
+    "Line chart comparing task success vs total inference compute for uniform scaling and CATTS (showing higher slope for CATTS).",
+    "Schematic illustrating error compounding over steps and how targeted extra compute clips the error growth.",
+    "Icon set: compute budget (chip), uncertainty gauge (meter), checklist for end-to-end task success (trophy)."
   ],
   "hashtags": [
-    "#AgenticAI",
     "#TestTimeScaling",
     "#AdaptiveCompute",
-    "#EfficientInference",
-    "#WebAgents"
+    "#AgenticAI",
+    "#WebAgents",
+    "#EfficientInference"
   ],
   "paper_id": "2026-02-12-arxiv-agentic_test_time_scaling_for_webagents",
   "paper_title": "Agentic Test-Time Scaling for WebAgents",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12276v1"
     }
   ],
-  "generated_at": "2026-02-13T06:48:32.146758"
+  "generated_at": "2026-02-14T06:33:59.581510"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "OPCD trains a student language model on its own generated (on-policy) trajectories and aligns it to a context-conditioned teacher by minimizing reverse KL, letting the model internalize in‑context knowledge into its parameters.",
-  "problem_solved": "How to reliably distill contextual (in‑context) behavior into model weights without relying solely on teacher-generated trajectories or off‑policy mismatch—so models can retain and use example-driven knowledge from their parameters.",
+  "key_insight": "On-Policy Context Distillation (OPCD) trains a student LM on its own generated trajectories while minimizing reverse KL against a context-conditioned teacher, enabling the student to internalize in‑context knowledge into its parameters.",
+  "problem_solved": "Reduces reliance on long in-context prompts by converting transient in-context knowledge into model parameters, improving efficiency and robustness of language models when using or deploying contextual knowledge.",
   "method": [
-    "On‑policy data collection: student model generates its own context-conditioned trajectories.",
-    "Alignment objective: minimize reverse Kullback–Leibler divergence between the student's trajectory distribution and a context‑conditioned teacher.",
-    "Parameter update: train the student to internalize contextual patterns so fewer or shorter external prompts are needed at inference."
+    "On-policy generation: the student model produces its own trajectories (responses) conditioned on contexts.",
+    "Reverse KL distillation: optimize the student to minimize reverse Kullback–Leibler divergence to a context-conditioned teacher distribution, aligning student outputs with teacher behavior while preserving mode-seeking properties.",
+    "Bridging paradigms: combine on-policy distillation techniques with context distillation to internalize experiential/in-context knowledge into model weights."
   ],
-  "impact": "Enables language models to absorb example-based behaviors into weights, improving robustness and reducing dependence on long prompting—useful for deployment efficiency, personalization, and tasks requiring experiential knowledge.",
+  "impact": "OPCD helps LMs learn and retain context-specific information within their parameters, lowering inference-time prompting costs and improving downstream performance for tasks that rely on ephemeral or experiential knowledge.",
   "visual_elements": [
-    "Pipeline diagram: context → student generates trajectories → compute reverse KL vs context-conditioned teacher → update student weights",
-    "Two‑distribution schematic: overlapping probability curves illustrating reverse KL minimization (student → teacher alignment)",
-    "Before/after bar chart: performance or prompt‑length required pre‑ and post‑OPCD",
-    "Icon set: prompt → brain/weights (internalization), shield (robustness), speedometer (efficiency)"
+    "Pipeline diagram: teacher (context-conditioned) → loss (reverse KL) ← student, with student generating trajectories looped back to training.",
+    "Before/After graphic: long prompt usage vs. compact model with internalized context (showing reduced prompt length or latency).",
+    "Bar/line chart: performance or calibration gains across tasks (e.g., experiential knowledge) comparing baseline, standard distillation, and OPCD.",
+    "Icon set: 'memory' chip for internalized knowledge, 'loop' for on-policy training, and 'KL' symbol for the loss objective."
   ],
   "hashtags": [
     "#ContextDistillation",
-    "#OnPolicy",
+    "#OnPolicyLearning",
     "#LanguageModels",
-    "#KnowledgeDistillation",
-    "#InContextLearning"
+    "#InContextLearning",
+    "#ModelCompression"
   ],
   "paper_id": "2026-02-12-arxiv-on_policy_context_distillation_for_language_models",
   "paper_title": "On-Policy Context Distillation for Language Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12275v1"
     }
   ],
-  "generated_at": "2026-02-13T06:48:26.657995"
+  "generated_at": "2026-02-14T06:33:53.107274"
 }

@@ -1,22 +1,22 @@
 {
-  "key_insight": "MonarchRT introduces an attention design tailored for few-step, autoregressive video diffusion that drastically reduces the quadratic cost of 3D self-attention while preserving the temporal fidelity needed for high-quality, real-time denoising.",
-  "problem_solved": "Addresses the computational bottleneck of standard 3D self-attention in Diffusion Transformers for real-time, few-step autoregressive video generation, where prior sparse-attention approximations fail and errors compound across time.",
+  "key_insight": "MonarchRT replaces expensive 3D self-attention with a compact, autoregressive-aware attention design that keeps crucial cross-frame signals while cutting compute and memory, enabling few-step diffusion transformers to run in real time without quality collapse.",
+  "problem_solved": "The paper addresses the quadratic compute/memory bottleneck of spatio-temporal (3D) self-attention in Diffusion Transformers for real-time, few-step autoregressive video generation—where prior sparse approximations fail because errors compound across limited denoising steps.",
   "method": [
-    "Factorized spatio-temporal attention that avoids full 3D quadratic computation by decomposing attention into efficient spatial and temporal components.",
-    "Temporal caching / recurrence of key-value summaries across frames and denoising steps to reuse past context and cut per-step cost.",
-    "Adaptive, motion-aware sparsity that prioritizes tokens/regions critical for denoising in few-step autoregressive regimes, maintaining robustness where prior sparsity patterns break down."
+    "Hybrid spatio-temporal attention: factorize attention into causal temporal kernels plus local spatial windows augmented with sparse global tokens to retain long-range context.",
+    "Adaptive key/value reduction: content-aware sampling or low-rank approximations prune irrelevant keys per query so each denoising step attends to fewer but more informative elements.",
+    "Latency-focused engineering: fused kernels and memory-efficient causal implementations tailored to few-step autoregressive denoising for lower runtime and memory footprint."
   ],
-  "impact": "Enables practical real-time video diffusion by lowering latency and compute for autoregressive, few-step denoising—making interactive and edge-capable generative video systems more feasible for researchers and practitioners.",
+  "impact": "Makes high-quality, autoregressive diffusion video generation practical in real-time settings and on constrained hardware—enabling live synthesis, interactive video tools, and broader deployment of diffusion-based video models.",
   "visual_elements": [
-    "Cost comparison chart: quadratic 3D attention vs MonarchRT (showing compute/latency reduction)",
-    "Pipeline diagram: autoregressive diffusion loop with attention caching and factorized attention blocks",
-    "Attention heatmaps: prior sparse patterns failing vs MonarchRT’s motion-aware, adaptive patterns",
-    "Latency vs quality trade-off curve showing real-time regime improvements (few-step denoising)"
+    "Bar chart comparing compute/memory (quadratic 3D attention vs MonarchRT) across sequence length and spatial resolution.",
+    "Architecture diagram showing hybrid attention blocks: causal temporal kernels, local spatial windows, and sparse global token paths.",
+    "Side-by-side attention heatmaps (standard 3D attention vs MonarchRT) across consecutive frames to show preserved cross-frame signals.",
+    "Latency vs perceptual quality curve or example frame-strip showing comparable video quality at far fewer denoising steps."
   ],
   "hashtags": [
     "#VideoGeneration",
-    "#DiffusionModels",
     "#EfficientAttention",
+    "#DiffusionModels",
     "#RealTimeAI",
     "#Transformers"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12271v1"
     }
   ],
-  "generated_at": "2026-02-13T06:48:11.422560"
+  "generated_at": "2026-02-14T06:33:40.405899"
 }

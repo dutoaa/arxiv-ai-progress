@@ -1,24 +1,24 @@
 {
-  "key_insight": "Differential privacy in federated learning measurably degrades the quality and stability of model explanations; this work quantifies that trade-off and identifies practical mitigation strategies to retain explainability while preserving user privacy.",
-  "problem_solved": "Shows how adding DP noise to federated model updates impacts XAI outputs (feature importance, explanation fidelity and stability) and provides guidance to balance privacy guarantees with interpretable, trustworthy models.",
+  "key_insight": "Adding differential privacy to federated learning creates a measurable trade-off: stronger privacy noise reduces accuracy and destabilizes feature-attribution explanations, but model simplification and careful DP tuning can recover interpretable behavior without sacrificing much utility.",
+  "problem_solved": "Clarifies how differential privacy affects model explainability in federated learning and provides empirical guidance to balance privacy, accuracy and interpretability in distributed ML systems.",
   "method": [
-    "Empirical study: run federated experiments varying DP budgets (ε) across datasets and model families, collecting explanation metrics (stability, fidelity, sparsity).",
-    "Comparative analysis: evaluate local vs. global explanations, different aggregation strategies and model complexities to isolate where DP harms interpretability most.",
-    "Mitigation evaluation: test strategies such as calibrated/adaptive noise, feature selection, model simplification and aggregated explanation techniques to recover explanation quality."
+    "Systematic empirical study comparing FL models trained with and without DP across datasets, measuring accuracy, feature-attribution stability (e.g., SHAP/LIME-style metrics) and feature sparsity.",
+    "Analysis of model complexity (feature count, architecture depth) and DP noise levels to identify configurations that preserve explainability.",
+    "Derive practical recommendations for configuring DP parameters and model design to mitigate negative impacts on explanations."
   ],
-  "impact": "Provides ML practitioners with quantitative trade-offs and actionable recommendations for tuning DP and model design in FL deployments, enabling privacy-preserving systems that remain interpretable and auditable.",
+  "impact": "Enables ML engineers and researchers to make informed trade-offs when deploying privacy-preserving federated models, helping maintain trustworthy, interpretable predictions in privacy-sensitive applications.",
   "visual_elements": [
-    "Privacy–explainability curve: line chart of privacy budget (ε) vs explanation fidelity/stability showing the trade-off.",
-    "Federated pipeline diagram: client-server schematic indicating where DP noise is injected and where XAI modules extract explanations.",
-    "Bar/heatmap comparison: explanation quality across models, datasets and aggregation strategies at multiple ε values.",
-    "Mitigation flowchart: steps to choose DP settings, apply feature selection or model simplification, and aggregate explanations for better interpretability."
+    "3‑axis trade-off plot (privacy ε vs. accuracy vs. explanation stability) showing Pareto frontier",
+    "Side‑by‑side feature‑attribution heatmaps before and after applying DP to illustrate explanation drift",
+    "Bar chart of feature importance stability or sparsity as DP noise increases",
+    "Pipeline diagram of a federated learning system with DP injection points and XAI evaluation module"
   ],
   "hashtags": [
     "#FederatedLearning",
-    "#DifferentialPrivacy",
-    "#XAI",
     "#ExplainableAI",
-    "#PrivacyPreservingML"
+    "#DifferentialPrivacy",
+    "#ModelInterpretability",
+    "#PrivacyML"
   ],
   "paper_id": "2026-02-10-arxiv-towards_explainable_federated_learning_understanding_the_impact_of_differential",
   "paper_title": "Towards Explainable Federated Learning: Understanding the Impact of Differential Privacy",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.10100v1"
     }
   ],
-  "generated_at": "2026-02-13T06:49:49.274519"
+  "generated_at": "2026-02-14T06:35:16.755320"
 }

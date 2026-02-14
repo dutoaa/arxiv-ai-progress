@@ -1,23 +1,23 @@
 {
-  "key_insight": "VLA-JEPA introduces a JEPA-style latent world model that learns leakage-free state predictions, focusing representations on action-relevant transitions rather than pixel-level changes.",
-  "problem_solved": "Addresses the tendency of latent-action objectives to latch onto superficial pixel variation and nuisance motion, which causes appearance bias and information leakage in vision-language-action pretraining.",
+  "key_insight": "VLA-JEPA trains a latent world model that predicts future task-relevant states without leaking pixel-level cues, so the model learns action-relevant dynamics instead of appearance or nuisance motion.",
+  "problem_solved": "Current VLA pretraining objectives get anchored to pixel variation and nuisance motion, causing appearance bias and information leakage that hurt downstream action-conditioned policies.",
   "method": [
-    "JEPA-style pretraining: learn to predict future latent states rather than raw pixels, forming a compact world model.",
-    "Leakage-free state prediction: use a target encoder design that prevents low-level appearance information from leaking into action representations.",
-    "Action-relevant alignment: optimize objectives that prioritize state transitions tied to agent actions and downstream control tasks, reducing sensitivity to nuisance motions."
+    "JEPA-style latent prediction: learn to predict future latent states (a compact world model) rather than raw pixels.",
+    "Leakage-free targets: design the target encoder and training pipeline so predicted latents cannot access appearance/nuisance signals from target frames.",
+    "Action-conditioned dynamics & alignment: condition latent predictions on action/context and align latent space with language and policy objectives for VLA tasks."
   ],
-  "impact": "Makes VLA pretraining more robust and generalizable by producing action-focused latent representations, improving downstream policy transfer and reducing sensitivity to appearance changes in large-scale video data.",
+  "impact": "Leads to more robust, generalizable vision-language-action representations that reduce appearance bias and improve performance of action-conditioned policies from internet-scale video pretraining.",
   "visual_elements": [
-    "Pipeline diagram comparing pixel-prediction vs. VLA-JEPA latent prediction (input video → encoder → leakage-free latent → predictor → target latent).",
-    "Before/after illustration showing susceptibility to appearance bias (confusing background motion) vs. correct action-relevant transitions.",
-    "Latent-space visualization (t-SNE/UMAP) showing tighter clustering by action/state rather than by appearance.",
-    "Ablation-style bar chart summarizing robustness gains (reduced leakage, improved transfer) across representative metrics."
+    "Architecture diagram: encoders -> latent bottleneck -> JEPA predictor with a 'no-leak' barrier shown between target pixels and target latents.",
+    "Before vs after comparison: bar or line charts showing reduced sensitivity to appearance change and improved downstream policy metrics.",
+    "Latent trajectory visualization: sequence of latent states illustrating action-conditioned transitions vs pixel-space motion.",
+    "Icon panel: small icons for ‘video data’, ‘language’, ‘actions’, and ‘robust policies’ to show modalities and outcomes."
   ],
   "hashtags": [
-    "#VLAJEPA",
+    "#VLA",
+    "#JEPA",
     "#LatentWorldModel",
     "#RepresentationLearning",
-    "#SelfSupervised",
     "#Robotics"
   ],
   "paper_id": "2026-02-10-arxiv-vla_jepa_enhancing_vision_language_action_model_with_latent_world_model",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.10098v1"
     }
   ],
-  "generated_at": "2026-02-13T06:49:41.313871"
+  "generated_at": "2026-02-14T06:35:10.451173"
 }

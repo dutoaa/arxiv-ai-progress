@@ -1,24 +1,24 @@
 {
-  "key_insight": "Step-Decomposed Influence (SDI) breaks a single TracIn score into a length-τ vector of per-iteration influence, revealing exactly which loop iteration(s) a training example affects during latent reasoning.",
-  "problem_solved": "Existing influence estimators collapse all recurrent iterations into one scalar, hiding when during a shared-block (looped) transform the training data matter; SDI makes influence step-resolved and interpretable.",
+  "key_insight": "Step‑Decomposed Influence (SDI) breaks a single training‑data influence score into a length‑τ vector aligned with each recurrent iteration, revealing when (which loop step) a training example actually affects a looped transformer’s computation.",
+  "problem_solved": "Existing influence estimators (e.g., TracIn) aggregate influence across all recurrent iterations, hiding the temporal/iteration structure of influence in looped transformers and preventing step‑level attribution and debugging.",
   "method": [
-    "Decompose TracIn by evaluating gradient contributions at each of the τ recurrent iterations of the shared transformer block to produce a per-step influence vector.",
-    "Aggregate and normalize these per-step gradient inner products to form a length-τ influence trace (SDI) that sums to the original TracIn score.",
-    "Use checkpoints / efficient approximations to compute SDI in practice and provide visual summaries (e.g., heatmaps, cumulative vs stepwise plots) for analysis."
+    "Derive SDI by decomposing the TracIn influence score into per‑iteration contributions across the τ recurrent applications of the shared block.",
+    "Compute a length‑τ influence trace for each training example (instead of a single scalar), enabling identification of which iteration(s) drive the influence.",
+    "Provide practical computation strategy and diagnostics to visualize and compare per‑step contributions for target examples and datasets."
   ],
-  "impact": "SDI lets practitioners localize dataset influence in time across recurrent inference, enabling finer-grained debugging, targeted data interventions (pruning/augmentation/label fixes), and better understanding of latent reasoning dynamics.",
+  "impact": "SDI gives practitioners fine‑grained, step‑level attribution useful for debugging, dataset curation, targeted data editing, and understanding where and when training data steer latent reasoning in looped transformers.",
   "visual_elements": [
-    "Schematic of a looped transformer: one shared block unrolled over τ iterations with per-step influence scores annotated on each pass",
-    "Heatmap: training examples (rows) × loop steps (columns) showing magnitude and sign of SDI to identify which examples matter at which steps",
-    "Bar / line plots comparing aggregated (scalar) TracIn vs. cumulative and per-step SDI for representative examples",
-    "Flowchart showing SDI computation: checkpoint gradient extraction → per-step inner products → normalization → visualization"
+    "Schematic of a looped transformer showing a single shared block applied τ times with arrows labeled by step index (1..τ).",
+    "Example per‑step influence vector: a horizontal bar/line plot showing influence magnitude across steps for one training example.",
+    "Heatmap (steps × training examples) highlighting which examples matter at which iterations.",
+    "Workflow diagram: compute SDI → visualize top per‑step influencers → apply targeted data edits or diagnostics."
   ],
   "hashtags": [
-    "#Transformers",
     "#Interpretability",
+    "#Transformers",
     "#DataAttribution",
-    "#ModelDebugging",
-    "#LoopedTransformers"
+    "#TracIn",
+    "#LoopedModels"
   ],
   "paper_id": "2026-02-10-arxiv-step_resolved_data_attribution_for_looped_transformers",
   "paper_title": "Step-resolved data attribution for looped transformers",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.10097v1"
     }
   ],
-  "generated_at": "2026-02-13T06:49:27.281959"
+  "generated_at": "2026-02-14T06:34:56.932276"
 }

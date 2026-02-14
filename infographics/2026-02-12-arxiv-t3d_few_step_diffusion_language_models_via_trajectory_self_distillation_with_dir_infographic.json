@@ -1,24 +1,24 @@
 {
-  "key_insight": "T3D teaches a diffusion language model to reproduce high-quality multi-step generation in only a few refinement steps by distilling its own decoding trajectories and directly optimizing for discriminative sequence quality.",
-  "problem_solved": "Diffusion-based LLMs require many refinement steps for good text quality; reducing steps greatly impairs generation, limiting practical inference speed and latency.",
+  "key_insight": "Distill a diffusion LLM's own multi-step generative trajectories into a model that can produce high-quality text in only a few refinement steps using a direct discriminative optimization objective.",
+  "problem_solved": "Diffusion large language models need many refinement steps for good quality; aggressively reducing steps drastically harms generation quality. This work enables reliable few-step (fast) decoding without that quality drop.",
   "method": [
-    "Trajectory self-distillation: use the model's long-step generative trajectories as supervision so a compact few-step student mimics later trajectory states.",
-    "Direct discriminative optimization: incorporate sequence-level discriminative objectives (ranking/quality-aware loss) to align few-step outputs with high-quality long-step outputs.",
-    "Training recipe for few-step decoding: combine trajectory matching, reconstruction losses, and discriminative penalties to retain generation quality while enabling parallel multi-token decoding in very few steps."
+    "Trajectory self-distillation: use the model's longer-generation trajectories as targets to teach a short-step student to reproduce high-quality outputs.",
+    "Direct discriminative optimization: train the student with an objective that directly favors final-sequence quality (rather than only matching intermediate denoising states).",
+    "Integrate into DLLM parallel decoding pipeline so the distilled model performs accurate multi-token updates in far fewer refinement iterations."
   ],
-  "impact": "Enables much faster, parallel token generation from diffusion language models with minimal quality loss, making DLLMs viable for low-latency and resource-constrained deployment in production NLP systems.",
+  "impact": "Enables practical, low-latency parallel text generation from diffusion LLMs by cutting inference steps while retaining output quality — useful for deployment-sensitive applications (real-time, cost-limited).",
   "visual_elements": [
-    "Pipeline diagram: long-step diffusion trajectory (teacher) → distilled few-step model (student)",
-    "Line chart: generation quality (y) vs number of refinement steps (x) comparing baseline DLLM and T3D",
-    "Before/after example: same prompt showing multi-step output vs T3D few-step output highlighting fidelity",
-    "Icon set: speed (clock), quality (star), parallel tokens (grid), training loop (circular arrows)"
+    "Flow diagram: long-step teacher trajectory → trajectory distillation → few-step student inference",
+    "Line chart: number of refinement steps vs. generation quality (teacher vs. distilled student)",
+    "Architecture block: DLLM decoding loop annotated with parallel token updates and distilled objective",
+    "Before/after examples: same prompt with outputs from many-step diffusion vs. T3D few-step output"
   ],
   "hashtags": [
-    "#DiffusionModels",
-    "#LLM",
-    "#SelfDistillation",
-    "#FewStepDecoding",
-    "#ModelEfficiency"
+    "#DiffusionLLM",
+    "#TrajectoryDistillation",
+    "#EfficientGeneration",
+    "#ModelDistillation",
+    "#T3D"
   ],
   "paper_id": "2026-02-12-arxiv-t3d_few_step_diffusion_language_models_via_trajectory_self_distillation_with_dir",
   "paper_title": "T3D: Few-Step Diffusion Language Models via Trajectory Self-Distillation with Direct Discriminative Optimization",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12262v1"
     }
   ],
-  "generated_at": "2026-02-13T06:47:42.081690"
+  "generated_at": "2026-02-14T06:33:17.968367"
 }

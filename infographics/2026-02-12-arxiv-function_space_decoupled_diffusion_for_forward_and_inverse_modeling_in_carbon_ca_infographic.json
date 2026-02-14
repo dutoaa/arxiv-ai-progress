@@ -1,24 +1,24 @@
 {
-  "key_insight": "Fun-DDPS couples a function-space diffusion prior over geological fields with a differentiable neural-operator surrogate to decouple forward physics from prior learning, enabling fast, gradient-based posterior sampling for both forward and inverse CCS tasks.",
-  "problem_solved": "Addresses the ill-posed, computationally expensive inverse problem in Carbon Capture and Storage (CCS): recovering high-dimensional subsurface geological parameters from sparse observations while quantifying uncertainty efficiently.",
+  "key_insight": "Fun-DDPS combines a function-space diffusion prior with a differentiable neural-operator surrogate to decouple geometry/parameter generation from physics solvers, enabling fast, accurate forward predictions and well-calibrated inverse/posterior sampling for subsurface CCS problems.",
+  "problem_solved": "Addresses ill-posed inverse problems in carbon storage where sparse observations and costly PDE solvers make uncertainty-aware parameter estimation and posterior sampling impractical.",
   "method": [
-    "Train a single-channel function-space diffusion model to learn a realistic prior distribution over geomodels (geological parameter fields).",
-    "Train a differentiable neural operator surrogate to approximate the expensive PDE-based forward simulator (flow/transport) for fast predictions and gradients.",
-    "Combine the diffusion prior with the neural operator to perform conditioned sampling/inference (posterior estimation) for inverse problems and to accelerate forward uncertainty propagation."
+    "Train a single-channel function-space diffusion model to learn a prior over geological fields (geomodels) rather than finite-dimensional parameter vectors.",
+    "Use a differentiable neural operator surrogate (fast, PDE-aware forward model) to map generated geomodels to observable flow/pressure fields for both forward prediction and likelihood evaluation.",
+    "Decouple sampling and physics by combining diffusion-based prior samples with neural-operator-driven conditioning or gradient-based posterior refinement to produce calibrated inverse solutions and uncertainty quantification."
   ],
-  "impact": "Provides a scalable, differentiable framework for fast forward simulations and principled posterior inference under sparse data—useful for practitioners needing uncertainty-aware, physics-informed generative models and rapid inverse solutions in geoscience and other physical domains.",
+  "impact": "Provides a scalable template for combining generative diffusion priors and neural operators to solve expensive, ill-posed physical inverse problems — useful for ML researchers building physics-aware generative/inverse pipelines and practitioners needing fast uncertainty-aware predictions.",
   "visual_elements": [
-    "Architecture diagram: diffusion prior module + neural operator surrogate + conditioning loop for inverse sampling",
-    "Before/after map: example geomodel samples with uncertainty bands versus recovered posterior samples given sparse observations",
-    "Performance chart: speed and accuracy comparison against traditional PDE solvers and non-differentiable priors",
-    "Flow diagram contrasting forward prediction (geomodel → observables) and inverse inference (observations → posterior geomodels)"
+    "Pipeline diagram: function-space diffusion prior -> neural-operator surrogate -> conditioning/posterior sampling",
+    "Before/after map: true subsurface field vs posterior ensemble mean and spread (uncertainty heatmap)",
+    "Performance chart: compute time vs accuracy comparing Fun-DDPS, traditional PDE inversion, and parameter-space diffusion",
+    "Schematic illustrating decoupling: sampling in function space vs parameter space (icons showing better sample diversity and efficiency)"
   ],
   "hashtags": [
     "#DiffusionModels",
     "#NeuralOperators",
+    "#InverseProblems",
     "#CarbonCapture",
-    "#InverseModeling",
-    "#ScientificML"
+    "#UncertaintyQuantification"
   ],
   "paper_id": "2026-02-12-arxiv-function_space_decoupled_diffusion_for_forward_and_inverse_modeling_in_carbon_ca",
   "paper_title": "Function-Space Decoupled Diffusion for Forward and Inverse Modeling in Carbon Capture and Storage",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12274v1"
     }
   ],
-  "generated_at": "2026-02-13T06:48:18.822066"
+  "generated_at": "2026-02-14T06:33:46.491128"
 }
