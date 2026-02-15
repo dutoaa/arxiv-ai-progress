@@ -1,24 +1,24 @@
 {
-  "key_insight": "Generative approaches (e.g., diffusion models) that optimize hypervolume can still fail on other MOO metrics because of an \"offline-frontier shift\": the learned distribution shifts away from the true Pareto front represented in the offline dataset, reducing accuracy and coverage.",
-  "problem_solved": "Diagnoses why state-of-the-art generative methods for offline multi-objective optimization underperform on established metrics (like generational distance and coverage) despite strong hypervolume scores, exposing a distributional limit tied to static training data.",
+  "key_insight": "Generative MOO methods (including diffusion-based generators) can achieve high hypervolume but systematically fail on other metrics (e.g., generational distance) because they reproduce a dataset-induced Pareto surface rather than the true Pareto frontier — a phenomenon the authors call the \"offline-frontier shift.\"",
+  "problem_solved": "Diagnoses why state-of-the-art generative approaches for offline multi-objective optimization perform well under hypervolume yet underperform on other established metrics, by identifying and characterizing a distributional failure mode caused by limited, static datasets.",
   "method": [
-    "Systematic empirical comparison of generative models (including diffusion-based) against evolutionary baselines across multiple MOO metrics and benchmarks.",
-    "Characterization and quantification of the \"offline-frontier shift\"—the distributional gap between dataset frontier and true Pareto front—via targeted diagnostics and metric analyses.",
-    "Provide practical evaluation guidelines and diagnostic tests to reveal when generative MOO models produce misleadingly high hypervolume but poor Pareto accuracy/diversity."
+    "Empirical comparison of generative (including diffusion) and evolutionary baselines across multiple MOO metrics (hypervolume, generational distance, coverage, etc.).",
+    "Define and analyze the \"offline-frontier shift\": how the dataset’s Pareto frontier diverges from the true frontier and biases generated solutions.",
+    "Diagnostic analyses linking dataset support and model behavior to metric-specific failures (coverage, closeness, and diversity)."
   ],
-  "impact": "Alerts practitioners to the danger of relying on hypervolume alone when evaluating generative MOO methods, and provides diagnostics and guidance to choose or design models and datasets that better recover true Pareto solutions.",
+  "impact": "Gives practitioners a clearer evaluation framework and a warning: high hypervolume alone can be misleading for generative MOO. Use multiple metrics and inspect dataset-induced biases when selecting or trusting offline generative optimizers.",
   "visual_elements": [
-    "Schematic diagram of the offline-frontier shift: dataset frontier vs true Pareto front with arrows showing learned distribution drift.",
-    "Side-by-side bar chart comparing methods on hypervolume vs generational distance vs coverage to highlight metric-specific trade-offs.",
-    "Pareto scatter plots showing example outputs from a generative model and an evolutionary baseline to visualize gaps in accuracy and diversity.",
-    "Flowchart of the recommended diagnostic pipeline (metrics to compute, decision thresholds, and follow-up steps)."
+    "Side-by-side bar chart: hypervolume vs generational distance for generative and evolutionary methods.",
+    "Schematic diagram: true Pareto frontier vs offline (dataset) frontier and arrow indicating the offline-frontier shift.",
+    "Heatmap or scatter of dataset support in objective space showing regions underrepresented in the offline data.",
+    "Flowchart of the diagnostic pipeline: dataset → model → multi-metric evaluation → identification of offline-frontier shift."
   ],
   "hashtags": [
     "#MultiObjectiveOptimization",
     "#GenerativeModels",
-    "#DiffusionModels",
     "#OfflineLearning",
-    "#AIForDesign"
+    "#ModelEvaluation",
+    "#DiffusionModels"
   ],
   "paper_id": "2026-02-11-arxiv-the_offline_frontier_shift_diagnosing_distributional_limits_in_generative_multi",
   "paper_title": "The Offline-Frontier Shift: Diagnosing Distributional Limits in Generative Multi-Objective Optimization",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.11126v1"
     }
   ],
-  "generated_at": "2026-02-14T06:35:03.744204"
+  "generated_at": "2026-02-15T06:41:29.739289"
 }

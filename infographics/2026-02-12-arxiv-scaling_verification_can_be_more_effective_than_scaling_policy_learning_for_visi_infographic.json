@@ -1,24 +1,24 @@
 {
-  "key_insight": "Scaling a test-time verifier (a model that evaluates candidate actions) reduces the intention–action gap in vision-language-action tasks more effectively than proportionally scaling the policy model itself. A larger verifier can reliably detect and select better actions from a policy’s outputs at test time.",
-  "problem_solved": "Addresses misalignment between natural-language instructions and generated actions in embodied agents by reducing incorrect or unsafe actions without solely relying on larger policy models.",
+  "key_insight": "Scaling a test-time verifier (a scorer/reranker that checks candidate action trajectories) reduces the instruction→action misalignment more effectively and efficiently than continuing to scale the policy model itself.",
+  "problem_solved": "Shrinks the 'intention-action gap' in Vision–Language–Action models by providing a compute-efficient, test-time mechanism to detect and correct actions that don't match natural-language instructions.",
   "method": [
-    "Empirically characterize test-time scaling laws for embodied instruction following to quantify how verifier size affects alignment.",
-    "Use a separate verifier to score/rank candidate action sequences produced by a policy at test time (rescoring, reject/accept, or selection of top candidates).",
-    "Compare resource allocation strategies (scale policy vs. scale verifier) and demonstrate that scaling verification yields higher instruction-action alignment per compute."
+    "Characterize test-time scaling laws for embodied instruction following to compare how performance improves with increased verifier vs policy compute/size.",
+    "Use a two-stage pipeline: a base policy generates candidate action trajectories; a larger multimodal verifier scores/reranks or filters those candidates at test time.",
+    "Empirically evaluate alignment, compute-efficiency, and robustness across embodied instruction-following benchmarks to show verifier scaling outperforms policy scaling."
   ],
-  "impact": "Shows practitioners a more compute-efficient strategy to improve instruction-following and safety: invest in verification at test time rather than only enlarging the policy. This enables modular, scalable pipelines for aligned VLA systems.",
+  "impact": "Practitioners can allocate compute to test-time verification to achieve stronger alignment and safer behavior without retraining or massively scaling policies, enabling more reliable deployment of embodied agents.",
   "visual_elements": [
-    "Scaling-law plot: alignment/error rate vs. model size for policy-only vs. verifier-enhanced setups.",
-    "Pipeline diagram: policy generates candidate actions → verifier scores/ranks → final action selected.",
-    "Bar chart: alignment improvement per unit compute when scaling verifier vs. scaling policy.",
-    "Before/after example: instruction, policy-chosen action (misaligned), and verifier-selected action (aligned)."
+    "Scaling-law chart: performance (alignment accuracy) vs model size/compute comparing policy-scaling and verifier-scaling curves.",
+    "Pipeline diagram: instruction → policy generates candidates → verifier scores/reranks → selected action (with icons for robot and magnifying glass).",
+    "Before/after example: instruction + environment snapshots showing a misaligned action from the base policy and the corrected action after verification.",
+    "Cost-effectiveness bar chart: compute cost vs alignment gain for policy scaling vs verifier scaling."
   ],
   "hashtags": [
-    "#VisionLanguage",
-    "#Robotics",
+    "#VisionLanguageAction",
+    "#ScalingLaws",
     "#ModelVerification",
-    "#Alignment",
-    "#ScalingLaws"
+    "#Robotics",
+    "#Alignment"
   ],
   "paper_id": "2026-02-12-arxiv-scaling_verification_can_be_more_effective_than_scaling_policy_learning_for_visi",
   "paper_title": "Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12281v1"
     }
   ],
-  "generated_at": "2026-02-14T06:34:12.453446"
+  "generated_at": "2026-02-15T06:40:53.655098"
 }

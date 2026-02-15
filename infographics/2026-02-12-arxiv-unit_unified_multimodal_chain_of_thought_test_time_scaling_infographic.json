@@ -1,24 +1,24 @@
 {
-  "key_insight": "UniT applies test-time scaling to create a multimodal chain-of-thought: by running a unified vision+language model iteratively at inference, it decomposes tasks, verifies intermediate results, and refines outputs to solve complex compositional and spatial problems.",
-  "problem_solved": "Single-pass unified multimodal models struggle with tasks that require stepwise decomposition, verification, and iterative correction (e.g., complex spatial compositions or multi-step instructions); this work enables iterative reasoning at test time without retraining the model.",
+  "key_insight": "UniT enables unified multimodal models to perform chain-of-thought style iterative reasoning at test time, using extra inference compute to decompose, verify, and correct multimodal outputs for harder spatial and multi-step tasks.",
+  "problem_solved": "Unified single-pass multimodal architectures struggle with complex spatial compositions, interacting objects, and evolving instructions because they lack an iterative refinement/verification loop at inference time.",
   "method": [
-    "Test-Time Scaling (TTS): allocate extra inference compute to perform multiple reasoning passes rather than a single forward pass.",
-    "Multimodal Chain-of-Thought (MM-CoT): generate and carry intermediate, interpretable reasoning states across vision and language modalities to guide subsequent refinement.",
-    "Verify-and-Correct Loop: use a lightweight verifier/planner during inference to detect errors in intermediate outputs and trigger targeted corrective iterations until a stopping criterion or compute budget is met."
+    "Introduce test-time scaling (TTS) for unified multimodal models: run multiple inference steps (decompose → reason → verify → correct) without retraining the base model.",
+    "Use a lightweight controller and cross-modal feedback buffer to aggregate intermediate multimodal predictions and guide subsequent reasoning passes.",
+    "Leverage multimodal chain-of-thought prompts/representations so the model can expose intermediate decisions (textual and visual) that are checked and iteratively refined."
   ],
-  "impact": "Practitioners can substantially improve performance on complex multimodal tasks using existing unified models without retraining—trading extra inference compute for higher reliability and interpretability. This makes high-stakes or composition-heavy applications (robotics, design, VQA) more dependable.",
+  "impact": "Practitioners can improve robustness and accuracy of multimodal systems by allocating extra test-time compute instead of redesigning or retraining models, making high-stakes or compositional tasks (e.g., VQA, scene editing, robotics instructions) more reliable and interpretable.",
   "visual_elements": [
-    "Iterative loop diagram showing input (image+text) → reasoning steps (CoT) → verifier → corrected output, highlighting repeated passes",
-    "Before vs after example: a complex spatial composition task showing single-pass failure and multi-pass corrected result",
-    "Performance vs inference compute chart: accuracy (or task metric) rising with more TTS iterations, annotated with diminishing returns",
-    "Pipeline sketch of the unified model handling multimodal inputs and producing intermediate textual/visual reasoning states"
+    "Pipeline diagram: single-pass vs UniT iterative loop (decompose → predict → verify → correct → finalize)",
+    "Before/after examples: complex image+instruction solved after multiple refinement steps with intermediate annotations",
+    "Scaling chart: performance (accuracy/IoU) vs number of test-time iterations (TTS curve)",
+    "Attention/overlay visualization: intermediate heatmaps and textual chain-of-thought bubbles showing verification/correction"
   ],
   "hashtags": [
-    "#MultimodalAI",
+    "#Multimodal",
     "#ChainOfThought",
     "#TestTimeScaling",
     "#UnifiedModels",
-    "#AIInference"
+    "#AIInfrastructure"
   ],
   "paper_id": "2026-02-12-arxiv-unit_unified_multimodal_chain_of_thought_test_time_scaling",
   "paper_title": "UniT: Unified Multimodal Chain-of-Thought Test-time Scaling",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12279v1"
     }
   ],
-  "generated_at": "2026-02-14T06:34:07.016080"
+  "generated_at": "2026-02-15T06:40:43.967392"
 }

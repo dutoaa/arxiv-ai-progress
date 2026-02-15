@@ -1,24 +1,24 @@
 {
-  "key_insight": "Fun-DDPS combines a function-space diffusion prior with a differentiable neural-operator surrogate to decouple geometry/parameter generation from physics solvers, enabling fast, accurate forward predictions and well-calibrated inverse/posterior sampling for subsurface CCS problems.",
-  "problem_solved": "Addresses ill-posed inverse problems in carbon storage where sparse observations and costly PDE solvers make uncertainty-aware parameter estimation and posterior sampling impractical.",
+  "key_insight": "Fun-DDPS couples a function-space diffusion prior over geological fields with a differentiable neural-operator surrogate, enabling fast, accurate forward simulations and efficient inverse (posterior) sampling for subsurface flow in CCS from sparse observations.",
+  "problem_solved": "Addresses ill-posed, computationally expensive inverse problems in Carbon Capture and Storage where sparse observations and complex geological priors make uncertainty-aware subsurface characterization difficult.",
   "method": [
-    "Train a single-channel function-space diffusion model to learn a prior over geological fields (geomodels) rather than finite-dimensional parameter vectors.",
-    "Use a differentiable neural operator surrogate (fast, PDE-aware forward model) to map generated geomodels to observable flow/pressure fields for both forward prediction and likelihood evaluation.",
-    "Decouple sampling and physics by combining diffusion-based prior samples with neural-operator-driven conditioning or gradient-based posterior refinement to produce calibrated inverse solutions and uncertainty quantification."
+    "Learn a function-space (single-channel) diffusion model as a prior over spatial geological parameters (geomodels).",
+    "Train a differentiable neural operator surrogate to approximate the physics-based forward map (PDE solver) for fast, gradient-enabled predictions.",
+    "Decouple sampling of geomodels from expensive solvers by combining the diffusion prior with the neural operator in a conditional/inference pipeline for forward and inverse modeling."
   ],
-  "impact": "Provides a scalable template for combining generative diffusion priors and neural operators to solve expensive, ill-posed physical inverse problems — useful for ML researchers building physics-aware generative/inverse pipelines and practitioners needing fast uncertainty-aware predictions.",
+  "impact": "Enables scalable, differentiable inference and uncertainty quantification for PDE-governed geoscience problems; practitioners can get orders-of-magnitude faster inversion and easy integration of learned priors into downstream decision workflows.",
   "visual_elements": [
-    "Pipeline diagram: function-space diffusion prior -> neural-operator surrogate -> conditioning/posterior sampling",
-    "Before/after map: true subsurface field vs posterior ensemble mean and spread (uncertainty heatmap)",
-    "Performance chart: compute time vs accuracy comparing Fun-DDPS, traditional PDE inversion, and parameter-space diffusion",
-    "Schematic illustrating decoupling: sampling in function space vs parameter space (icons showing better sample diversity and efficiency)"
+    "Pipeline diagram: diffusion prior -> sampled geomodels -> neural-operator forward surrogate -> simulated observations -> inverse sampling loop",
+    "Before/after map pair: prior geological samples and posterior uncertainty maps around wells",
+    "Bar/line chart comparing runtime and sample efficiency (Fun-DDPS vs traditional MCMC + physics solver)",
+    "Icons: diffusion kernel, neural operator (network), observation wells/sensors, CO2 storage reservoir"
   ],
   "hashtags": [
     "#DiffusionModels",
     "#NeuralOperators",
     "#InverseProblems",
     "#CarbonCapture",
-    "#UncertaintyQuantification"
+    "#ScientificML"
   ],
   "paper_id": "2026-02-12-arxiv-function_space_decoupled_diffusion_for_forward_and_inverse_modeling_in_carbon_ca",
   "paper_title": "Function-Space Decoupled Diffusion for Forward and Inverse Modeling in Carbon Capture and Storage",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12274v1"
     }
   ],
-  "generated_at": "2026-02-14T06:33:46.491128"
+  "generated_at": "2026-02-15T06:40:18.634489"
 }

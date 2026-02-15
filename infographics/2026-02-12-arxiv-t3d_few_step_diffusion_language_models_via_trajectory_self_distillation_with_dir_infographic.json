@@ -1,24 +1,24 @@
 {
-  "key_insight": "Distill a diffusion LLM's own multi-step generative trajectories into a model that can produce high-quality text in only a few refinement steps using a direct discriminative optimization objective.",
-  "problem_solved": "Diffusion large language models need many refinement steps for good quality; aggressively reducing steps drastically harms generation quality. This work enables reliable few-step (fast) decoding without that quality drop.",
+  "key_insight": "Distill a model's own multi-step generative trajectories into a compact few-step diffusion decoder, and use direct discriminative optimization to preserve final-output quality — enabling fast parallel token generation with far fewer refinement steps.",
+  "problem_solved": "Diffusion LLMs need many iterative refinement steps for high-quality text, making inference slow; cutting steps drastically reduces generation quality. The paper tackles improving few-step decoding quality without expensive inference.",
   "method": [
-    "Trajectory self-distillation: use the model's longer-generation trajectories as targets to teach a short-step student to reproduce high-quality outputs.",
-    "Direct discriminative optimization: train the student with an objective that directly favors final-sequence quality (rather than only matching intermediate denoising states).",
-    "Integrate into DLLM parallel decoding pipeline so the distilled model performs accurate multi-token updates in far fewer refinement iterations."
+    "Trajectory self-distillation: record high-quality multi-step generative trajectories from the teacher (same model or long-run sampler) and train a student to emulate the effective mapping in far fewer steps.",
+    "Direct discriminative optimization: optimize a discriminative objective focused on final output quality (rather than only reconstruction of intermediate states) so the few-step model produces better end results.",
+    "Joint training/inference design that preserves parallel token decoding while minimizing the number of refinement steps needed for acceptable fluency and fidelity."
   ],
-  "impact": "Enables practical, low-latency parallel text generation from diffusion LLMs by cutting inference steps while retaining output quality — useful for deployment-sensitive applications (real-time, cost-limited).",
+  "impact": "Enables practical, low-latency deployment of diffusion-based language models by maintaining quality with dramatically fewer refinement steps — useful for real-time applications and cost-sensitive inference.",
   "visual_elements": [
-    "Flow diagram: long-step teacher trajectory → trajectory distillation → few-step student inference",
-    "Line chart: number of refinement steps vs. generation quality (teacher vs. distilled student)",
-    "Architecture block: DLLM decoding loop annotated with parallel token updates and distilled objective",
-    "Before/after examples: same prompt with outputs from many-step diffusion vs. T3D few-step output"
+    "Trajectory diagram: long multi-step diffusion path vs. compressed few-step distilled path, highlighting removed steps.",
+    "Bar/line chart: quality (e.g., BLEU/ROUGE/perplexity) and latency trade-off across step counts, showing improved few-step performance with T3D.",
+    "Training flowchart: collect trajectories → distillation loss + discriminative objective → student few-step model.",
+    "Icons: parallel token generation (many tokens at once), speedometer (latency), and quality check (final-output discriminative loss)."
   ],
   "hashtags": [
-    "#DiffusionLLM",
-    "#TrajectoryDistillation",
-    "#EfficientGeneration",
+    "#DiffusionModels",
+    "#LanguageModels",
     "#ModelDistillation",
-    "#T3D"
+    "#EfficientInference",
+    "#NLP"
   ],
   "paper_id": "2026-02-12-arxiv-t3d_few_step_diffusion_language_models_via_trajectory_self_distillation_with_dir",
   "paper_title": "T3D: Few-Step Diffusion Language Models via Trajectory Self-Distillation with Direct Discriminative Optimization",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12262v1"
     }
   ],
-  "generated_at": "2026-02-14T06:33:17.968367"
+  "generated_at": "2026-02-15T06:39:46.574656"
 }

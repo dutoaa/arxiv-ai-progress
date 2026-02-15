@@ -1,24 +1,24 @@
 {
-  "key_insight": "SurfPhase reconstructs sharp, deformable liquid–vapor interfaces from sparse video views by representing the interface explicitly and optimizing a differentiable rendering pipeline, enabling accurate 3D interfacial dynamics where prior neural-rendering methods fail.",
-  "problem_solved": "Addresses the difficulty of measuring and reconstructing 3D interfacial dynamics in two-phase flows from limited camera views—classical techniques struggle near moving interfaces and existing neural-rendering methods assume diffuse, single-phase boundaries.",
+  "key_insight": "SurfPhase recovers sharp, deforming 3D liquid–vapor interfaces from a few camera views by using a surface-aware neural representation and rendering pipeline, enabling accurate interfacial dynamics reconstruction where prior neural methods fail.",
+  "problem_solved": "Existing imaging and neural-rendering techniques cannot robustly reconstruct sharp, moving two-phase interfaces from sparse video viewpoints, limiting measurement of interfacial dynamics in experiments.",
   "method": [
-    "Represent the interface using dynamic Gaussian surface primitives (compact, learnable kernels) that can move and deform over time.",
-    "Use a differentiable rendering objective to fit sparse multi-view video frames, aligning appearance and geometry while preserving a sharp boundary.",
-    "Incorporate physics-inspired regularization (e.g., surface continuity, normal consistency, temporal smoothness) to stabilize reconstruction from sparse observations."
+    "Represent the interface with surface-aware dynamic primitives (e.g., Gaussian surface elements) that capture sharp, deformable boundaries instead of diffuse volumetric fields.",
+    "Train a differentiable rendering pipeline that fits the primitives to sparse multi-view video frames, enforcing camera consistency and temporal coherence.",
+    "Incorporate physics-informed regularization and geometry constraints (two-phase interface priors) to stabilize reconstruction from limited views."
   ],
-  "impact": "Enables accurate 3D reconstruction of sharp two-phase interfaces from sparse cameras, benefiting experimental fluid dynamics, data-driven modeling, and simulation-to-real transfer by providing high-quality volumetric/ surface training data and diagnostics.",
+  "impact": "SurfPhase provides a practical way to extract 3D interfacial geometry and motion from sparse experimental video, enabling data-driven analysis, validation of simulations, and improved learning of fluid dynamics where direct measurement is impractical.",
   "visual_elements": [
-    "Pipeline diagram: video frames → dynamic Gaussian surface model → differentiable rendering → reconstructed 3D interface",
-    "Side-by-side comparison: ground-truth video frame vs. rendered reconstruction highlighting a sharp vs. diffuse interface",
-    "Time-lapse sequence: evolving 3D surface meshes or iso-surfaces showing interfacial dynamics across frames",
-    "Quantitative bar/line chart: reconstruction error or interface sharpness vs. number of input views (sparse → dense)"
+    "Pipeline diagram: sparse multi-view video -> surface-aware primitives -> differentiable rendering -> 3D reconstructed interface",
+    "Before/after comparison: diffuse neural-rendering result vs SurfPhase sharp interface reconstruction",
+    "Time series: sequence of reconstructed 3D surfaces showing interface evolution (animated frames or stacked snapshots)",
+    "Quantitative chart: reconstruction error or metric vs number of views / ablation of key components"
   ],
   "hashtags": [
+    "#SurfPhase",
     "#TwoPhaseFlow",
     "#NeuralRendering",
-    "#3DReconstruction",
-    "#FluidDynamics",
-    "#ScientificAI"
+    "#PhysicsBasedML",
+    "#ComputationalFluidDynamics"
   ],
   "paper_id": "2026-02-11-arxiv-surfphase_3d_interfacial_dynamics_in_two_phase_flows_from_sparse_videos",
   "paper_title": "SurfPhase: 3D Interfacial Dynamics in Two-Phase Flows from Sparse Videos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.11154v1"
     }
   ],
-  "generated_at": "2026-02-12T06:52:19.521143"
+  "generated_at": "2026-02-15T06:41:37.054211"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "On-Policy Context Distillation (OPCD) trains a student LM on its own generated trajectories while minimizing reverse KL against a context-conditioned teacher, enabling the student to internalize in‑context knowledge into its parameters.",
-  "problem_solved": "Reduces reliance on long in-context prompts by converting transient in-context knowledge into model parameters, improving efficiency and robustness of language models when using or deploying contextual knowledge.",
+  "key_insight": "On-Policy Context Distillation (OPCD) trains a student on its own generated contexts and aligns it to a context-conditioned teacher by minimizing reverse KL, allowing the model to internalize in‑context knowledge into its parameters.",
+  "problem_solved": "Bridges the distribution mismatch between teacher-generated contexts and student usage: existing context distillation methods struggle to transfer in‑context (experiential) knowledge effectively into model parameters, limiting generalization and requiring large prompts or teacher rollouts.",
   "method": [
-    "On-policy generation: the student model produces its own trajectories (responses) conditioned on contexts.",
-    "Reverse KL distillation: optimize the student to minimize reverse Kullback–Leibler divergence to a context-conditioned teacher distribution, aligning student outputs with teacher behavior while preserving mode-seeking properties.",
-    "Bridging paradigms: combine on-policy distillation techniques with context distillation to internalize experiential/in-context knowledge into model weights."
+    "On-policy rollouts: the student generates its own context-conditioned trajectories to train on the distributions it will actually encounter.",
+    "Reverse KL alignment: minimize KL(student || teacher) between student-generated conditionals and a context-conditioned teacher to encourage the student to match teacher behavior while using its own outputs.",
+    "Context-conditioned teacher targets: use a teacher that provides conditional distributions given contexts so the student internalizes experiential knowledge into weights rather than relying on external prompts."
   ],
-  "impact": "OPCD helps LMs learn and retain context-specific information within their parameters, lowering inference-time prompting costs and improving downstream performance for tasks that rely on ephemeral or experiential knowledge.",
+  "impact": "Enables language models to absorb in-context knowledge into model weights, reducing reliance on long prompting or teacher rollouts and improving sample efficiency for downstream tasks and model compression/fine-tuning workflows.",
   "visual_elements": [
-    "Pipeline diagram: teacher (context-conditioned) → loss (reverse KL) ← student, with student generating trajectories looped back to training.",
-    "Before/After graphic: long prompt usage vs. compact model with internalized context (showing reduced prompt length or latency).",
-    "Bar/line chart: performance or calibration gains across tasks (e.g., experiential knowledge) comparing baseline, standard distillation, and OPCD.",
-    "Icon set: 'memory' chip for internalized knowledge, 'loop' for on-policy training, and 'KL' symbol for the loss objective."
+    "Pipeline diagram: student generates on-policy trajectories -> compute reverse KL vs context-conditioned teacher -> update student (loop)",
+    "Before/After bar chart: performance on experiential knowledge tasks (baseline vs OPCD)",
+    "Probability-distribution schematic: student vs teacher distributions with arrow labeled 'minimize reverse KL'",
+    "Icon set: prompt length reduced, faster inference, and model size / compression"
   ],
   "hashtags": [
     "#ContextDistillation",
     "#OnPolicyLearning",
     "#LanguageModels",
-    "#InContextLearning",
-    "#ModelCompression"
+    "#ModelCompression",
+    "#ReverseKL"
   ],
   "paper_id": "2026-02-12-arxiv-on_policy_context_distillation_for_language_models",
   "paper_title": "On-Policy Context Distillation for Language Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12275v1"
     }
   ],
-  "generated_at": "2026-02-14T06:33:53.107274"
+  "generated_at": "2026-02-15T06:40:28.082729"
 }
