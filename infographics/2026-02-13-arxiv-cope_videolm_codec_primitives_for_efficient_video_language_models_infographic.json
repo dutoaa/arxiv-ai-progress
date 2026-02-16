@@ -1,0 +1,35 @@
+{
+  "key_insight": "CoPE-VideoLM uses video codec primitives (e.g., motion vectors and residuals) as compact, semantically meaningful inputs to Video Language Models, enabling dense temporal coverage with far lower compute than processing full RGB frames.",
+  "problem_solved": "Current VideoLMs rely on sparse keyframe sampling or expensive per-frame image processing, which either misses short-lived events or incurs high computational cost and limits temporal context.",
+  "method": [
+    "Extract codec primitives (motion vectors + residual/transform coefficients) from compressed video and convert them into compact tokens/features instead of decoding full frames.",
+    "Use motion vectors to propagate and align features across time, and combine residual tokens for appearance/detail, feeding the combined representation into a lightweight VideoLM backbone.",
+    "Operate in the compressed domain to increase effective temporal coverage within the same context window and reduce per-frame token/computation overhead."
+  ],
+  "impact": "This approach enables VideoLMs to cover longer temporal contexts and capture both macro events and micro details while lowering compute and memory needs—making video-language tasks (QA, captioning, retrieval) more scalable and practical.",
+  "visual_elements": [
+    "Pipeline diagram: raw compressed video → codec primitive extraction (motion vectors, residuals) → tokenization → VideoLM, highlighting avoided full-frame decoding.",
+    "Before/after timeline: sparse keyframe sampling missing short events versus dense codec-primitive coverage capturing micro-events.",
+    "Computation comparison chart (conceptual): per-frame RGB processing vs. compressed-domain pipeline showing relative compute/memory savings.",
+    "Attention/flow visualization: motion-vector-guided feature propagation across frames (arrows showing temporal alignment) with residual tokens overlayed for detail."
+  ],
+  "hashtags": [
+    "#VideoLM",
+    "#CompressedDomain",
+    "#MotionVectors",
+    "#EfficientAI",
+    "#Multimodal"
+  ],
+  "paper_id": "2026-02-13-arxiv-cope_videolm_codec_primitives_for_efficient_video_language_models",
+  "paper_title": "CoPE-VideoLM: Codec Primitives For Efficient Video Language Models",
+  "paper_category": "Model",
+  "paper_date": "2026-02-13",
+  "paper_authors": "Sayan Deb Sarkar, Rémi Pautrat, Ondrej Miksik, Marc Pollefeys, Iro Armeni",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.13191v1"
+    }
+  ],
+  "generated_at": "2026-02-16T06:54:31.735711"
+}

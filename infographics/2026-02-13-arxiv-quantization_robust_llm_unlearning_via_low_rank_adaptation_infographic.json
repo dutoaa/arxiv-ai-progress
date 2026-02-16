@@ -1,0 +1,35 @@
+{
+  "key_insight": "Unlearning updates made with standard full-parameter fine-tuning are often too small to survive aggressive 4-bit post-training quantization (PTQ); encoding unlearning as quantization-aware, low-rank adapter updates preserves removal of targeted knowledge after PTQ.",
+  "problem_solved": "How to reliably remove targeted knowledge from a trained LLM while still applying aggressive low-bit post-training quantization for efficient deployment, without the model reverting to pre-unlearning behavior.",
+  "method": [
+    "Encode unlearning as compact low-rank adapter updates (LoRA-style) that concentrate parameter changes in a small subspace.",
+    "Train adapters with quantization-aware objectives or simulated PTQ (e.g., simulate 4-bit rounding during adapter optimization) and apply reparameterization/scaling so updates remain representable after quantization.",
+    "Deploy adapter-only unlearning: keep the base model quantized (PTQ) and apply/fuse quantization-robust low-rank updates to maintain unlearning while preserving downstream performance."
+  ],
+  "impact": "Enables practical, compliant LLM unlearning that survives aggressive 4-bit quantization—so practitioners can remove sensitive or proprietary knowledge without sacrificing model compression or inference efficiency.",
+  "visual_elements": [
+    "Pipeline diagram: base LLM → low-rank adapter training (with PTQ simulation) → PTQ on base model → fused quantization-robust unlearning",
+    "Bar chart: unlearning retention (y-axis) vs quantization bitwidth (x-axis) comparing full fine-tune vs quantization-robust LoRA",
+    "Schematic of transformer block showing low-rank adapter injecting larger, localized deltas that survive 4-bit rounding",
+    "Before/after examples table: sample prompts where pre-unlearning, post-unlearning (quantized) and ideal behavior are contrasted"
+  ],
+  "hashtags": [
+    "#LLMUnlearning",
+    "#ModelQuantization",
+    "#LoRA",
+    "#ModelSafety",
+    "#EfficientAI"
+  ],
+  "paper_id": "2026-02-13-arxiv-quantization_robust_llm_unlearning_via_low_rank_adaptation",
+  "paper_title": "Quantization-Robust LLM Unlearning via Low-Rank Adaptation",
+  "paper_category": "Model",
+  "paper_date": "2026-02-13",
+  "paper_authors": "João Vitor Boer Abitante, Joana Meneguzzo Pasquali, Luan Fonseca Garcia, Ewerton de Oliveira, Thomas da Silva Paula",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.13151v1"
+    }
+  ],
+  "generated_at": "2026-02-16T06:53:46.739170"
+}

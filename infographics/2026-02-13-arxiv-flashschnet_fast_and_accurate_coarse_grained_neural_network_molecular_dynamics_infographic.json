@@ -1,0 +1,35 @@
+{
+  "key_insight": "FlashSchNet makes GNN-driven molecular dynamics IO-aware: by minimizing and reorganizing reads/writes between GPU high-bandwidth memory (HBM) and on-chip SRAM, it dramatically improves GPU utilization and delivers SchNet-level accuracy at much higher throughput.",
+  "problem_solved": "GNN potentials (e.g., SchNet) are accurate but slow because fragmented kernels and memory-bound pipelines underutilize GPUs; the paper addresses this by treating GNN-MD as an IO-bound workload and optimizing memory traffic and kernel structure.",
+  "method": [
+    "Design an IO-aware execution model that explicitly accounts for HBM↔SRAM reads and writes and optimizes data movement.",
+    "Apply kernel fusion, on-chip tiling/buffering, and compute/communication overlap to raise arithmetic intensity and reduce memory stalls.",
+    "Optimize data layout and batch/neighbor processing to preserve SchNet-level accuracy while maximizing GPU throughput."
+  ],
+  "impact": "Enables much faster coarse-grained MD simulations with GNN accuracy, making larger and longer simulations cost- and time-feasible for AI/ML practitioners and HPC applications; the IO-aware principles generalize to other memory-bound GNN workloads.",
+  "visual_elements": [
+    "Diagram of GPU memory hierarchy (HBM ↔ SRAM) showing reduced read/write paths after IO-aware optimization.",
+    "Before/after bar chart comparing throughput and GPU utilization for baseline SchNet vs FlashSchNet.",
+    "Kernel fusion / tiling schematic illustrating reduced kernel fragmentation and on-chip buffering.",
+    "Accuracy vs speed scatterplot showing FlashSchNet retains SchNet accuracy while shifting far-right (higher speed)."
+  ],
+  "hashtags": [
+    "#MolecularDynamics",
+    "#GraphNeuralNetworks",
+    "#GPUOptimization",
+    "#HighPerformanceComputing",
+    "#AIPhysics"
+  ],
+  "paper_id": "2026-02-13-arxiv-flashschnet_fast_and_accurate_coarse_grained_neural_network_molecular_dynamics",
+  "paper_title": "FlashSchNet: Fast and Accurate Coarse-Grained Neural Network Molecular Dynamics",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-02-13",
+  "paper_authors": "Pingzhi Li, Hongxuan Li, Zirui Liu, Xingcheng Lin, Tianlong Chen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.13140v1"
+    }
+  ],
+  "generated_at": "2026-02-16T06:53:38.085304"
+}

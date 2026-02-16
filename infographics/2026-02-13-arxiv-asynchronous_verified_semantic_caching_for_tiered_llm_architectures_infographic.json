@@ -1,0 +1,35 @@
+{
+  "key_insight": "Decouple cache hits from correctness by returning optimistic cached responses immediately and verifying them asynchronously, enabling higher semantic-cache hit rates in tiered static/dynamic LLM caches without sacrificing response fidelity.",
+  "problem_solved": "Production tiered semantic caches use a single embedding-similarity threshold, forcing a tradeoff between conservative thresholds (low hits, high safety) and permissive thresholds (high hits, noisy/unsafe responses). The paper solves how to increase hit rates while still ensuring cached responses are verified and trustworthy.",
+  "method": [
+    "Serve optimistic hits from static/dynamic tiers immediately when similarity passes a permissive threshold, then verify correctness asynchronously using lightweight verifiers or validation checks.",
+    "If asynchronous verification fails, revoke or replace the cached response and optionally re-request a fresh LLM inference; apply tier-aware policies (e.g., stricter static cache rules, adaptive thresholds for dynamic cache).",
+    "Maintain correctness metadata and verification state so the system can audit, roll back, or refresh cached entries without blocking user-facing latency."
+  ],
+  "impact": "Enables production LLM systems to substantially reduce latency and inference cost while preserving response quality and safety—making semantic caching practical at higher hit rates for search, assistants, and agent workflows.",
+  "visual_elements": [
+    "Flow diagram of tiered cache: static cache + dynamic cache → optimistic serve → asynchronous verifier → revoke/refresh loop",
+    "Timeline illustrating instant response vs background verification (showing no user-facing latency impact)",
+    "Tradeoff plot: single-threshold (accuracy vs hit-rate) vs asynchronous-verified approach shifting curve toward higher hit-rate without accuracy loss",
+    "Before/after bar chart of latency and cost per request comparing traditional single-threshold cache vs asynchronous verified caching"
+  ],
+  "hashtags": [
+    "#LLM",
+    "#SemanticCaching",
+    "#AIInfrastructure",
+    "#LowLatency",
+    "#ModelServing"
+  ],
+  "paper_id": "2026-02-13-arxiv-asynchronous_verified_semantic_caching_for_tiered_llm_architectures",
+  "paper_title": "Asynchronous Verified Semantic Caching for Tiered LLM Architectures",
+  "paper_category": "Model",
+  "paper_date": "2026-02-13",
+  "paper_authors": "Asmit Kumar Singh, Haozhe Wang, Laxmi Naga Santosh Attaluri, Tak Chiam, Weihua Zhu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.13165v1"
+    }
+  ],
+  "generated_at": "2026-02-16T06:53:53.184249"
+}

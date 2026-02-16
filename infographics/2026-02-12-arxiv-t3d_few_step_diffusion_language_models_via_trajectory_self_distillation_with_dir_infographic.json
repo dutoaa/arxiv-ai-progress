@@ -1,24 +1,24 @@
 {
-  "key_insight": "Distill a model's own multi-step generative trajectories into a compact few-step diffusion decoder, and use direct discriminative optimization to preserve final-output quality — enabling fast parallel token generation with far fewer refinement steps.",
-  "problem_solved": "Diffusion LLMs need many iterative refinement steps for high-quality text, making inference slow; cutting steps drastically reduces generation quality. The paper tackles improving few-step decoding quality without expensive inference.",
+  "key_insight": "T3D uses the model's own multi-step generative trajectories to self-distill a few-step decoder, combined with a direct discriminative optimization objective, enabling diffusion LLMs to generate high-quality text with far fewer refinement steps.",
+  "problem_solved": "Diffusion LLMs can decode tokens in parallel but require many refinement steps for good quality; aggressively reducing steps degrades generation. T3D addresses how to retain high-quality outputs while drastically cutting the number of refinement steps.",
   "method": [
-    "Trajectory self-distillation: record high-quality multi-step generative trajectories from the teacher (same model or long-run sampler) and train a student to emulate the effective mapping in far fewer steps.",
-    "Direct discriminative optimization: optimize a discriminative objective focused on final output quality (rather than only reconstruction of intermediate states) so the few-step model produces better end results.",
-    "Joint training/inference design that preserves parallel token decoding while minimizing the number of refinement steps needed for acceptable fluency and fidelity."
+    "Trajectory self-distillation: collect the model's multi-step generative trajectories and use them as targets to train a few-step student decoder.",
+    "Direct discriminative optimization: apply a discriminative loss to directly encourage the student to prefer higher-quality trajectory states and correct errors from aggressive step reduction.",
+    "Jointly align parallel-token diffusion decoding with distilled trajectories so the student learns to reproduce the teacher's final-quality outputs in far fewer steps."
   ],
-  "impact": "Enables practical, low-latency deployment of diffusion-based language models by maintaining quality with dramatically fewer refinement steps — useful for real-time applications and cost-sensitive inference.",
+  "impact": "Enables practical, low-latency deployment of diffusion-based language models by preserving generation quality while reducing inference steps — important for real-time systems and cost-efficient large-model serving.",
   "visual_elements": [
-    "Trajectory diagram: long multi-step diffusion path vs. compressed few-step distilled path, highlighting removed steps.",
-    "Bar/line chart: quality (e.g., BLEU/ROUGE/perplexity) and latency trade-off across step counts, showing improved few-step performance with T3D.",
-    "Training flowchart: collect trajectories → distillation loss + discriminative objective → student few-step model.",
-    "Icons: parallel token generation (many tokens at once), speedometer (latency), and quality check (final-output discriminative loss)."
+    "Schematic: teacher multi-step trajectory → student few-step trajectory (arrows showing distillation)",
+    "Chart: quality (e.g., perplexity/ROUGE) vs. number of refinement steps comparing baseline DLLM and T3D",
+    "Flow diagram of the training objective combining trajectory distillation and discriminative loss",
+    "Icon set: parallel token decoding, speedometer (inference latency), and quality shield (accuracy/fluency)"
   ],
   "hashtags": [
     "#DiffusionModels",
     "#LanguageModels",
-    "#ModelDistillation",
+    "#SelfDistillation",
     "#EfficientInference",
-    "#NLP"
+    "#FewStepGeneration"
   ],
   "paper_id": "2026-02-12-arxiv-t3d_few_step_diffusion_language_models_via_trajectory_self_distillation_with_dir",
   "paper_title": "T3D: Few-Step Diffusion Language Models via Trajectory Self-Distillation with Direct Discriminative Optimization",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12262v1"
     }
   ],
-  "generated_at": "2026-02-15T06:39:46.574656"
+  "generated_at": "2026-02-16T06:55:26.086758"
 }

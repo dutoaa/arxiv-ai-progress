@@ -1,24 +1,24 @@
 {
-  "key_insight": "MonarchRT shows that by redesigning attention for the few-step, autoregressive diffusion setting, you can avoid the failure modes of prior sparse approximations and retain high-quality video generation while sharply reducing attention cost and latency.",
-  "problem_solved": "Addresses the quadratic cost and brittleness of 3D self-attention in real-time, few-step autoregressive video diffusion where errors compound across frames and denoising steps.",
+  "key_insight": "MonarchRT introduces an attention design for diffusion Transformers that preserves essential long-range video context while reducing the quadratic 3D self-attention bottleneck, enabling high-quality, few-step autoregressive video generation in real time.",
+  "problem_solved": "Quadratic cost of 3D self-attention makes diffusion-based video generation too slow and memory-intensive for real-time, few-step autoregressive pipelines; prior sparse approximations collapse under the strict information-per-step demands of this regime.",
   "method": [
-    "Reformulate spatio-temporal attention to prioritize information that must be preserved across few-step, autoregressive denoising (e.g., compress global context, strengthen temporally-critical keys).",
-    "Combine lightweight local spatial attention with an efficient global/temporal routing or memory mechanism so cross-frame coherence is preserved without full 3D quadratic attention.",
-    "Design attention primitives and routing heuristics that are robust to compounding errors typical of few-step autoregressive diffusion, enabling faster denoising with minimal quality loss."
+    "Design of a streaming-friendly attention module that combines temporal recurrence/summary with spatially local + selectively global attention to keep key video context while avoiding full 3D quadratic costs.",
+    "Attention factorization and compact key/value caching across timesteps so each denoising step reuses compressed global context, yielding near-linear time/memory scaling in practice.",
+    "Routing/selection mechanism (learned or structured) that preserves critical cross-frame dependencies for few-step autoregressive diffusion, robust where previous sparse patterns fail."
   ],
-  "impact": "Enables practical real-time video diffusion by reducing latency and compute while maintaining generation fidelity in low-step, autoregressive regimes — useful for live applications, edge deployment, and interactive content creation.",
+  "impact": "Enables practical real-time video generation with diffusion Transformers by dramatically reducing latency and memory without sacrificing generation fidelity—useful for interactive systems, live content creation, and deployment on resource-constrained hardware.",
   "visual_elements": [
-    "Architecture diagram showing replacement of full 3D self-attention with MonarchRT's hybrid attention (local spatial + compressed global/temporal routing).",
-    "Latency vs. quality plot comparing full 3D attention, prior sparse approximations, and MonarchRT in few-step autoregressive generation.",
-    "Sequence visualization illustrating how MonarchRT preserves frame-to-frame coherence and prevents error accumulation across denoising steps.",
-    "Icon set showing benefits: lower compute (chip icon), lower latency (stopwatch), maintained quality (film/frame icon)."
+    "Cost comparison chart: quadratic 3D attention vs MonarchRT near-linear scaling (compute & memory vs sequence length).",
+    "Pipeline diagram: autoregressive diffusion loop showing cached keys/values and compressed global context reused across steps.",
+    "Attention pattern illustrations: prior dense/sparse failure modes vs MonarchRT selective global + local patterns preserving key cross-frame links.",
+    "Latency vs quality plot showing same or better visual fidelity at much lower inference time/steps."
   ],
   "hashtags": [
-    "#MonarchRT",
-    "#EfficientAttention",
     "#VideoGeneration",
+    "#EfficientAttention",
     "#DiffusionModels",
-    "#RealTimeAI"
+    "#RealtimeAI",
+    "#Transformers"
   ],
   "paper_id": "2026-02-12-arxiv-monarchrt_efficient_attention_for_real_time_video_generation",
   "paper_title": "MonarchRT: Efficient Attention for Real-Time Video Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12271v1"
     }
   ],
-  "generated_at": "2026-02-15T06:40:10.516351"
+  "generated_at": "2026-02-16T06:55:31.596996"
 }

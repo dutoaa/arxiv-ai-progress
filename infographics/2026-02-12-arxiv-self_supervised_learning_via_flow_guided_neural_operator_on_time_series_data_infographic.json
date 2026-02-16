@@ -1,17 +1,17 @@
 {
-  "key_insight": "Treat the corruption level (masking ratio) as a controllable, continuous degree of freedom and learn a flow-guided neural operator that maps time-series under varying corruption levels to consistent representations, yielding more flexible and robust self-supervised learning than fixed-ratio MAEs.",
-  "problem_solved": "Fixed, predetermined masking/corruption ratios in existing SSL methods (e.g., MAEs) limit representation quality and robustness for time-series data; the paper addresses the need for adaptive corruption handling and better modeling of temporal dynamics during pretraining.",
+  "key_insight": "Instead of using a single, fixed masking/corruption ratio for self-supervised time-series learning, treat the corruption level as a controllable degree of freedom and learn representations by modeling the entire corruption \"flow\" with a Flow-Guided Neural Operator (FGNO). This yields more flexible, robust representations across corruption levels.",
+  "problem_solved": "Most SSL methods for time-series (e.g., MAE-style) rely on a predetermined, static masking/corruption ratio, which limits robustness, requires costly hyperparameter tuning, and can fail to capture multi-scale temporal dynamics.",
   "method": [
-    "Introduce a Flow-Guided Neural Operator (FGNO) that conditions on a continuous corruption-level variable (the \"flow\") to learn mappings between corrupted and clean time-series across a spectrum of corruption intensities.",
-    "Use operator-style architectures to capture functional relationships in time-series so the model generalizes across masking ratios rather than being trained for a single static ratio.",
-    "Train in a self-supervised manner by reconstructing/predicting signals across multiple corruption levels, encouraging representations that are robust and transferable to downstream tasks."
+    "Introduce FGNO: a neural-operator-style module that models mappings across a continuum of corruption levels (the \"flow\") rather than a single fixed mask.",
+    "Use self-supervised reconstruction / prediction objectives over corrupted-to-clean flows so the model learns representations stable across varying corruption strengths and time scales.",
+    "Train end-to-end with flow-guided sampling (varying corruption levels during training) to produce transferable, robust time-series embeddings without per-task masking tuning."
   ],
-  "impact": "Enables more flexible, robust pretraining for time-series models, improving downstream performance and reducing sensitivity to a single masking choice—useful for practitioners working with diverse temporal signals and limited labels.",
+  "impact": "FGNO reduces sensitivity to masking hyperparameters and produces flexible, robust time-series representations that transfer better across downstream tasks and corruption regimes, simplifying SSL pipelines for practitioners.",
   "visual_elements": [
-    "Schematic comparing static MAE (single fixed masking ratio) vs FGNO (continuous corruption flow) with arrows showing learned mappings across ratios",
-    "Block diagram of FGNO: input time-series + corruption-level conditioning → neural operator → reconstructed/predicted output",
-    "Performance chart: downstream task accuracy (y-axis) vs masking ratio (x-axis) showing FGNO stable/high performance vs MAE drop-off",
-    "Reconstruction examples: original, heavily masked, FGNO-reconstructed time-series overlays to illustrate robustness"
+    "Schematic comparing static masking (single ratio) vs. flow-guided corruption (continuum) — arrow showing learned mapping across corruption levels.",
+    "Architecture block: FGNO module inserted between corrupted input and representation head, with icons for time-series, operator, and learned flow.",
+    "Performance chart: downstream accuracy/robustness vs. masking ratio showing FGNO maintaining high performance across a wide range versus baselines.",
+    "Timeline/flow diagram: sampling various corruption levels during training and producing a unified embedding space (illustrates curriculum/flow sampling)."
   ],
   "hashtags": [
     "#SelfSupervisedLearning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12267v1"
     }
   ],
-  "generated_at": "2026-02-15T06:39:56.607704"
+  "generated_at": "2026-02-16T06:55:37.610350"
 }

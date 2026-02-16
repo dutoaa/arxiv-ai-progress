@@ -1,21 +1,21 @@
 {
-  "key_insight": "Scaling a test-time verifier (a scorer/reranker that checks candidate action trajectories) reduces the instruction→action misalignment more effectively and efficiently than continuing to scale the policy model itself.",
-  "problem_solved": "Shrinks the 'intention-action gap' in Vision–Language–Action models by providing a compute-efficient, test-time mechanism to detect and correct actions that don't match natural-language instructions.",
+  "key_insight": "At test time, investing compute into verification (sampling + scoring/reranking) reduces instruction–action misalignment more effectively than further scaling the policy model or its training data. A dedicated verifier and more verification compute follow a favorable scaling law for embodied instruction following.",
+  "problem_solved": "Bridges the \"intention–action gap\" in Vision–Language–Action models by reducing incorrect or misaligned actions produced in response to natural language instructions without retraining or heavily scaling the policy.",
   "method": [
-    "Characterize test-time scaling laws for embodied instruction following to compare how performance improves with increased verifier vs policy compute/size.",
-    "Use a two-stage pipeline: a base policy generates candidate action trajectories; a larger multimodal verifier scores/reranks or filters those candidates at test time.",
-    "Empirically evaluate alignment, compute-efficiency, and robustness across embodied instruction-following benchmarks to show verifier scaling outperforms policy scaling."
+    "Characterize test-time scaling laws for embodied instruction following and show verifier compute/size yields larger marginal gains than policy scaling.",
+    "Generate multiple candidate action trajectories from a policy, then use a learned verifier to score alignment between each trajectory, the visual observations, and the instruction.",
+    "Select or rerank actions at inference based on verifier scores (sampling + reranking / search), allowing better alignment with fixed policies."
   ],
-  "impact": "Practitioners can allocate compute to test-time verification to achieve stronger alignment and safer behavior without retraining or massively scaling policies, enabling more reliable deployment of embodied agents.",
+  "impact": "Enables practitioners to improve robot instruction-following accuracy by allocating inference-time compute to verification rather than costly policy retraining or scaling. This provides a practical, modular path to safer and more reliable VLA systems.",
   "visual_elements": [
-    "Scaling-law chart: performance (alignment accuracy) vs model size/compute comparing policy-scaling and verifier-scaling curves.",
-    "Pipeline diagram: instruction → policy generates candidates → verifier scores/reranks → selected action (with icons for robot and magnifying glass).",
-    "Before/after example: instruction + environment snapshots showing a misaligned action from the base policy and the corrected action after verification.",
-    "Cost-effectiveness bar chart: compute cost vs alignment gain for policy scaling vs verifier scaling."
+    "Two-line plot comparing scaling curves: verifier compute vs. policy size showing steeper gains for verification",
+    "Pipeline diagram: policy generates candidate trajectories → verifier scores each → best action selected (sample-and-rerank)",
+    "Bar chart or heatmap of alignment error before/after verification across benchmarks/environments",
+    "Icon set illustrating components: language instruction, visual input, policy, verifier, final action"
   ],
   "hashtags": [
-    "#VisionLanguageAction",
-    "#ScalingLaws",
+    "#VisionLanguage",
+    "#EmbodiedAI",
     "#ModelVerification",
     "#Robotics",
     "#Alignment"
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.12281v1"
     }
   ],
-  "generated_at": "2026-02-15T06:40:53.655098"
+  "generated_at": "2026-02-16T06:55:44.409234"
 }

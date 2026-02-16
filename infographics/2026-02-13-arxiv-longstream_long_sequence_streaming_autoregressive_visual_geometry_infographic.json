@@ -1,0 +1,35 @@
+{
+  "key_insight": "LongStream removes dependence on a fixed first-frame anchor and introduces a gauge-decoupled, streaming autoregressive representation that preserves metric scale and accuracy over thousands of frames. This prevents attention decay, scale drift, and extrapolation errors common in long-sequence 3D reconstruction.",
+  "problem_solved": "Addresses failure modes of existing autoregressive visual geometry models on long sequences—specifically attention decay, scale drift, and extrapolation caused by first-frame anchoring.",
+  "method": [
+    "Discard the first-frame anchor and predict poses/states in a gauge-decoupled (scale- and orientation-separable) representation to avoid propagating anchor-induced errors.",
+    "Use a streaming autoregressive architecture with bounded-state memory and targeted attention patterns to maintain long-range consistency without attention decay.",
+    "Enforce metric-scale constraints and state-decoupling during streaming updates so reconstruction remains accurate across thousands of frames."
+  ],
+  "impact": "Enables robust, metric-scale 3D reconstruction over very long sequences, improving reliability for robotics, SLAM, AR/VR mapping, and any application requiring long-term spatial consistency.",
+  "visual_elements": [
+    "Before/After comparison: reconstruction with first-frame anchor (drift) vs LongStream (stable scale)",
+    "Sequence timeline showing consistent scale across thousands of frames",
+    "Architecture diagram: streaming autoregressive block, bounded state buffer, and gauge-decoupled pose representation",
+    "Charts: scale drift and reconstruction error vs sequence length (baseline vs LongStream)"
+  ],
+  "hashtags": [
+    "#LongStream",
+    "#3DReconstruction",
+    "#AutoregressiveModels",
+    "#VisualGeometry",
+    "#SpatialAI"
+  ],
+  "paper_id": "2026-02-13-arxiv-longstream_long_sequence_streaming_autoregressive_visual_geometry",
+  "paper_title": "LongStream: Long-Sequence Streaming Autoregressive Visual Geometry",
+  "paper_category": "Model",
+  "paper_date": "2026-02-13",
+  "paper_authors": "Chong Cheng, Xianda Chen, Tao Xie, Wei Yin, Weiqiang Ren",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.13172v1"
+    }
+  ],
+  "generated_at": "2026-02-16T06:54:01.641355"
+}
