@@ -1,23 +1,23 @@
 {
-  "key_insight": "Unlearning updates made with standard full-parameter fine-tuning are often too small to survive aggressive 4-bit post-training quantization (PTQ); encoding unlearning as quantization-aware, low-rank adapter updates preserves removal of targeted knowledge after PTQ.",
-  "problem_solved": "How to reliably remove targeted knowledge from a trained LLM while still applying aggressive low-bit post-training quantization for efficient deployment, without the model reverting to pre-unlearning behavior.",
+  "key_insight": "Applying low-rank adaptation (LoRA-style) for targeted LLM unlearning produces parameter updates that survive aggressive post-training quantization (e.g., 4-bit), avoiding the reversion to pre-unlearning behavior seen with full-parameter fine-tuning.",
+  "problem_solved": "Standard full-parameter unlearning updates are often too small and get masked or erased by aggressive post-training quantization, so quantized deployments revert to their pre-unlearning behavior—this work makes unlearning robust to low-bit quantization.",
   "method": [
-    "Encode unlearning as compact low-rank adapter updates (LoRA-style) that concentrate parameter changes in a small subspace.",
-    "Train adapters with quantization-aware objectives or simulated PTQ (e.g., simulate 4-bit rounding during adapter optimization) and apply reparameterization/scaling so updates remain representable after quantization.",
-    "Deploy adapter-only unlearning: keep the base model quantized (PTQ) and apply/fuse quantization-robust low-rank updates to maintain unlearning while preserving downstream performance."
+    "Perform unlearning via low-rank adapters (LoRA) instead of full-parameter fine-tuning to concentrate updates in structured, higher-magnitude low-rank deltas.",
+    "Design/scale adapters and training objectives so the resulting parameter deltas are quantization-resilient (optionally combined with lightweight quantization-aware tuning).",
+    "Deploy by either keeping adapters as runtime patches or merging them into weights with a quantization-preserving merge strategy so the unlearning effect persists after PTQ."
   ],
-  "impact": "Enables practical, compliant LLM unlearning that survives aggressive 4-bit quantization—so practitioners can remove sensitive or proprietary knowledge without sacrificing model compression or inference efficiency.",
+  "impact": "Enables compliant, privacy-preserving LLM unlearning that survives aggressive low-bit quantization, making unlearning practical for memory- and compute-constrained deployments without full model retraining or retaining full‑precision checkpoints.",
   "visual_elements": [
-    "Pipeline diagram: base LLM → low-rank adapter training (with PTQ simulation) → PTQ on base model → fused quantization-robust unlearning",
-    "Bar chart: unlearning retention (y-axis) vs quantization bitwidth (x-axis) comparing full fine-tune vs quantization-robust LoRA",
-    "Schematic of transformer block showing low-rank adapter injecting larger, localized deltas that survive 4-bit rounding",
-    "Before/after examples table: sample prompts where pre-unlearning, post-unlearning (quantized) and ideal behavior are contrasted"
+    "Pipeline diagram: pretrained LLM → (a) full-parameter unlearning → PTQ → failure vs (b) LoRA unlearning → PTQ → success",
+    "Bar chart: unlearning retention (e.g., metric or error) across quantization bits (8-bit, 6-bit, 4-bit) comparing full-finetune vs LoRA",
+    "Heatmap or vector norm plot: magnitude/distribution of parameter deltas for full-finetune vs low-rank adapters",
+    "Icons: lock/privacy (data removal), chip/quantization (efficient inference), puzzle piece (adapter modularity)"
   ],
   "hashtags": [
     "#LLMUnlearning",
-    "#ModelQuantization",
+    "#Quantization",
     "#LoRA",
-    "#ModelSafety",
+    "#ModelPrivacy",
     "#EfficientAI"
   ],
   "paper_id": "2026-02-13-arxiv-quantization_robust_llm_unlearning_via_low_rank_adaptation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.13151v1"
     }
   ],
-  "generated_at": "2026-02-16T06:53:46.739170"
+  "generated_at": "2026-02-17T06:49:20.712742"
 }

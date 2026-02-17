@@ -1,24 +1,24 @@
 {
-  "key_insight": "Combine human video imitation for post-grasp motion with a simulation-based filter and a modular policy that separately handles grasping and after-grasp behaviors, enabling robots with non-human hands to learn prehensile tasks from human videos.",
-  "problem_solved": "Bridges the gap between abundant human video data (good for post-grasp motions) and robot-specific grasping requirements, addressing how to learn complete prehensile manipulation (grasp + post-grasp) when human demonstrations may be infeasible for robot morphologies.",
+  "key_insight": "Use simulation to filter which segments of human videos are physically executable by a target robot, then learn modular policies (grasp + post-grasp) from the filtered data so robots can imitate realistic human motions even with non-human hands.",
+  "problem_solved": "Human videos provide rich signals for post-grasp manipulation but often contain grasps that robots cannot physically perform; this work solves how to reliably leverage human video data for robot prehensile manipulation by selecting only simulation-feasible demonstrations and training modular controllers.",
   "method": [
-    "Modular policy decomposition: separate grasping module (robot-feasible) and post-grasp skill module (learned from human videos).",
-    "Simulation-filtering: use a physics simulator to evaluate and filter human-derived candidate grasps/trajectories to keep only those feasible for the target robot.",
-    "Joint training/assembly: train modules with filtered demonstrations and sim-to-real adaptation so the composed policy performs end-to-end prehensile tasks on the robot."
+    "Automatically parse human videos into grasp and post-grasp segments and propose candidate robot grasps.",
+    "Simulate candidate grasps and filter out video segments that are not physically executable by the target robot (simulation-filtering).",
+    "Train modular policies: a grasping policy (from simulation/robot data) and a post-grasp imitation policy (from filtered human video segments), then combine them for execution."
   ],
-  "impact": "Enables scalable use of large human video datasets to teach robotic manipulation while ensuring robot feasibility, reducing reliance on costly robot demonstrations and improving sample efficiency for real-world deployment.",
+  "impact": "Enables large-scale use of widely available human video data for robot manipulation while avoiding infeasible demonstrations, lowering the need for costly robot-specific data and speeding development of practical manipulation policies.",
   "visual_elements": [
-    "Pipeline diagram: human video → extract post-grasp motion → simulation filter → grasp module + post-grasp module → robot execution",
-    "Side-by-side comparison: human hand video frame vs. feasible robot grasp overlay (shows filtering effect)",
-    "Flowchart of simulation-filter: candidate grasp generation → physics check → accept/reject",
-    "Bar/line chart: performance or sample-efficiency gains of modular + sim-filtered approach vs. baselines"
+    "Pipeline diagram: human video -> segmentation (grasp/post-grasp) -> simulation filter -> modular policy -> robot execution",
+    "Before/after comparison: success rates or qualitative outcomes with vs. without simulation filtering",
+    "Illustration comparing human hand pose to robot gripper mapping and filtered vs. rejected video frames",
+    "Sequence visualization of a single task: human clip, filtered grasp, learned robot execution"
   ],
   "hashtags": [
     "#Robotics",
     "#ImitationLearning",
-    "#Sim2Real",
+    "#Simulation",
     "#Manipulation",
-    "#VideoLearning"
+    "#ComputerVision"
   ],
   "paper_id": "2026-02-13-arxiv-imitating_what_works_simulation_filtered_modular_policy_learning_from_human_vide",
   "paper_title": "Imitating What Works: Simulation-Filtered Modular Policy Learning from Human Videos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.13197v1"
     }
   ],
-  "generated_at": "2026-02-16T06:54:46.903565"
+  "generated_at": "2026-02-17T06:49:12.659119"
 }

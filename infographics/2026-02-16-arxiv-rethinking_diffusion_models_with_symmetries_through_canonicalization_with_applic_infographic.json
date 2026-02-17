@@ -1,0 +1,35 @@
+{
+  "key_insight": "Instead of building symmetry-aware (equivariant/invariant) diffusion architectures, map each sample to a canonical pose/order and train a standard (non-equivariant) diffusion model on these representatives — recovering symmetry by undoing canonicalization at generation time.",
+  "problem_solved": "Removes the need for complex equivariant network designs to handle group symmetries (e.g., permutations, rotations) in generative tasks such as molecular graph generation, simplifying modeling and training while preserving symmetry-aware outputs.",
+  "method": [
+    "Canonicalize: compute a deterministic canonical representative for each sample (fixed pose/order within its symmetry orbit).",
+    "Train: use a standard, unconstrained diffusion/denoising model on canonicalized data instead of enforcing equivariance in the architecture.",
+    "Decode: at generation, sample in canonical space and apply inverse or randomized group actions to restore full orbit diversity and achieve symmetry-invariant outputs."
+  ],
+  "impact": "Makes it easier to apply powerful off-the-shelf diffusion models to symmetry-rich domains (e.g., molecules, physical systems) without custom equivariant layers, lowering engineering cost and expanding model reuse across tasks.",
+  "visual_elements": [
+    "Pipeline diagram: raw symmetric samples → canonicalization → standard diffusion model → inverse transform → symmetric outputs",
+    "Before/after molecular graphs: same molecule in different poses mapped to identical canonical representation",
+    "Comparison chart: model complexity & training cost for equivariant architectures vs canonicalization + standard diffusion",
+    "Orbit illustration: group orbit of a sample with a highlighted canonical representative and arrows showing transform/inverse-transform"
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#Equivariance",
+    "#MolecularGeneration",
+    "#Canonicalization",
+    "#GenerativeAI"
+  ],
+  "paper_id": "2026-02-16-arxiv-rethinking_diffusion_models_with_symmetries_through_canonicalization_with_applic",
+  "paper_title": "Rethinking Diffusion Models with Symmetries through Canonicalization with Applications to Molecular Graph Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-02-16",
+  "paper_authors": "Cai Zhou, Zijie Chen, Zian Li, Jike Wang, Kaiyi Jiang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.15022v1"
+    }
+  ],
+  "generated_at": "2026-02-17T06:47:06.108814"
+}

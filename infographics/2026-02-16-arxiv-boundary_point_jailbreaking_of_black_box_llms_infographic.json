@@ -1,0 +1,35 @@
+{
+  "key_insight": "Boundary Point Jailbreaking (BPJ) demonstrates that automated, black‑box attacks can find inputs near a model’s accept/reject decision boundary using only final outputs, enabling robust evasion of classifier‑based safeguards without white‑box signals.",
+  "problem_solved": "Addresses the gap in security evaluations where industry‑deployed classifier defenses were thought robust against red‑teaming by showing they can be bypassed by automated black‑box methods that do not require scores, gradients, or model internals.",
+  "method": [
+    "Conceptually treat the model + filter as a binary black‑box and probe it to identify input regions that lie close to the accept/reject decision boundary.",
+    "Automatically generate and iteratively refine prompts by observing only final accept/reject outputs, steering examples toward boundary points that flip the filter decision.",
+    "Operate without access to classifier confidences, gradients, or internal states—relying solely on outcome observations to guide attack refinement."
+  ],
+  "impact": "Demonstrates a practical weakness in real‑world classifier‑based safeguards and motivates defense redesigns (e.g., multi‑modal checks, randomized or stateful filtering, robust evaluation protocols) and stronger adversarial testing for LLM deployments.",
+  "visual_elements": [
+    "Schematic: black‑box LLM+filter as a sealed box with query arrows in and binary outputs out, illustrating no internal access.",
+    "Decision boundary diagram: 2D plot showing accept/reject regions with probes moving toward boundary points that flip decisions.",
+    "Flowchart: automated loop of generate → query → observe outcome → refine (high-level, non‑operational).",
+    "Bar/line chart: comparative success rates showing BPJ vs prior white/grey‑box attacks against deployed classifier defenses (conceptual, not raw data)."
+  ],
+  "hashtags": [
+    "#AIsecurity",
+    "#AdversarialML",
+    "#LLMsafety",
+    "#ModelRobustness",
+    "#RedTeam"
+  ],
+  "paper_id": "2026-02-16-arxiv-boundary_point_jailbreaking_of_black_box_llms",
+  "paper_title": "Boundary Point Jailbreaking of Black-Box LLMs",
+  "paper_category": "Model",
+  "paper_date": "2026-02-16",
+  "paper_authors": "Xander Davies, Giorgi Giglemiani, Edmund Lau, Eric Winsor, Geoffrey Irving",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.15001v1"
+    }
+  ],
+  "generated_at": "2026-02-17T06:46:00.747536"
+}
