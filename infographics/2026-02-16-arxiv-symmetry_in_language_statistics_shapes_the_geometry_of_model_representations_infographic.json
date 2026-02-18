@@ -1,24 +1,24 @@
 {
-  "key_insight": "Statistics of language exhibit a translation symmetry in token co-occurrence that forces learned embeddings to adopt simple geometric structures (e.g., months on a circle, years on a 1D manifold); the embedding geometry can be predicted from these statistical symmetries.",
-  "problem_solved": "Explains why seemingly simple, low-dimensional geometric patterns repeatedly appear in large language model representations and links those patterns to corpus-level co-occurrence structure rather than idiosyncratic model artifacts.",
+  "key_insight": "Translation symmetries in language co-occurrence statistics impose strong constraints on learned representations, causing simple geometric structures (e.g., circles for months, smooth 1D manifolds for years, linearly decodeable spatial coordinates) to emerge naturally in model embedding space.",
+  "problem_solved": "Explains why pretrained language models develop crisp, low-dimensional geometric organization in their representations despite complex training dynamics—linking observable geometric phenomena to concrete statistical symmetries in language data.",
   "method": [
-    "Theoretical analysis: show how translation symmetry in co-occurrence statistics constrains the eigenspectrum/eigenfunctions of associated matrices and thus the geometry of learned representations.",
-    "Empirical validation: measure co-occurrence matrices from text, perform spectral decompositions, and verify predicted geometries in model embeddings (e.g., circular month layout, smooth year manifold).",
-    "Probing & diagnostics: use linear probes and reconstruction tests to demonstrate decodeability of structured features (e.g., lat/long, time) that follow from the symmetry-driven geometry."
+    "Theoretical analysis: derive how a translation symmetry in token co-occurrence probabilities constrains the space of optimal representations.",
+    "Empirical validation: probe multiple models and corpora with linear decoders, PCA and manifold visualizations to recover circles, 1D manifolds, and linearly-decodable coordinates.",
+    "Controlled experiments: synthetic data and ablations that add/remove symmetry to demonstrate causality between statistical symmetry and emergent geometry."
   ],
-  "impact": "Provides a principled, data-driven explanation for common geometric motifs in LLM embeddings, improving interpretability and giving practitioners a diagnostic and predictive tool to anticipate which features will be linearly decodable from representations.",
+  "impact": "Provides a principled explanation for common geometric patterns in LLM representations, improving interpretability and informing better probing, diagnostics, and dataset or architecture choices that exploit or avoid such symmetries.",
   "visual_elements": [
-    "Circular arrangement of month tokens in embedding space (colored points on a circle) annotated with decoded month labels.",
-    "1D smooth manifold (curve) visualization for year tokens showing monotonic mapping and low-dimensional projection.",
-    "Heatmap of token co-occurrence matrix highlighting translation symmetry (repeating bands) alongside its spectral decomposition (leading eigenvectors).",
-    "Scatter plot showing linear probe decoding of geographic coordinates from embeddings with regression lines and decode-error metrics."
+    "Token-token co-occurrence heatmap showing a translation-invariant pattern (visual cue for symmetry).",
+    "Embedding-space schematic: labeled points arranged on a circle (months) and a smooth 1D curve (years) to illustrate emergent geometry.",
+    "Scatterplots with linear-probe fits decoding latitude/longitude and month labels from embeddings.",
+    "Pipeline flow: dataset symmetry → theoretical constraint → model training → empirical probes/ablations (showing causal link)."
   ],
   "hashtags": [
     "#RepresentationLearning",
+    "#LLMInterpretability",
     "#Symmetry",
-    "#LanguageModels",
-    "#Interpretability",
-    "#GeometricML"
+    "#GeometricDeepLearning",
+    "#ModelAnalysis"
   ],
   "paper_id": "2026-02-16-arxiv-symmetry_in_language_statistics_shapes_the_geometry_of_model_representations",
   "paper_title": "Symmetry in language statistics shapes the geometry of model representations",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.15029v1"
     }
   ],
-  "generated_at": "2026-02-17T06:47:15.194778"
+  "generated_at": "2026-02-18T06:54:37.410307"
 }

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Selecting D‑optimal low‑dimensional summary statistics (projections) produces stable, highly informative objectives for test‑time adaptation of high‑dimensional simulation surrogates, reducing catastrophic drift and improving accuracy under distribution shift.",
+  "problem_solved": "Conventional Test‑Time Adaptation methods are unstable for high‑dimensional, unstructured simulation outputs (e.g., fields or meshes) because self‑supervised objectives are noisy or uninformative, causing poor or divergent adaptation when deployed on unseen geometries/configurations.",
+  "method": [
+    "Derive D‑optimal statistics from the surrogate’s training Jacobian/feature space (select projections that maximize information / determinant of the Fisher/design matrix).",
+    "Use those selected low‑dimensional summaries as the adaptation objective at test time (match predicted vs. observed statistics or minimize a summary loss) to produce informative, low‑variance gradients.",
+    "Stabilize online updates with regularization and small-step/uncertainty weighting, and perform efficient selection/updating of statistics to keep computation tractable."
+  ],
+  "impact": "Makes online adaptation of simulation surrogates reliable in real deployment scenarios (e.g., CFD, structural analysis), reducing the need for expensive retraining or additional simulations and improving predictive fidelity across unseen conditions.",
+  "visual_elements": [
+    "Pipeline diagram: simulator inputs → surrogate → D‑optimal projection module → low‑dimensional adaptation loss → online parameter update loop.",
+    "Illustration of high‑dimensional field (mesh/field) and its D‑optimal low‑dimensional summaries (few projection vectors) to show compression of informative content.",
+    "Before/after error bar or heatmap comparing surrogate performance under domain shift with and without D‑optimal TTA.",
+    "Schematic showing the D‑optimal criterion (maximizing determinant) on a design matrix and selected projection directions."
+  ],
+  "hashtags": [
+    "#TestTimeAdaptation",
+    "#SimulationSurrogates",
+    "#DOptimalDesign",
+    "#DomainAdaptation",
+    "#RobustML"
+  ],
+  "paper_id": "2026-02-17-arxiv-stabilizing_test_time_adaptation_of_high_dimensional_simulation_surrogates_via_d",
+  "paper_title": "Stabilizing Test-Time Adaptation of High-Dimensional Simulation Surrogates via D-Optimal Statistics",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-02-17",
+  "paper_authors": "Anna Zimmel, Paul Setinek, Gianluca Galletti, Johannes Brandstetter, Werner Zellinger",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.15820v1"
+    }
+  ],
+  "generated_at": "2026-02-18T06:52:45.315258"
+}

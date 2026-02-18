@@ -1,0 +1,35 @@
+{
+  "key_insight": "Fine-tuning an already-aligned language model on benign tasks can unexpectedly break its safety guards because the assumed orthogonality between task updates and safety-critical directions is not robust — gradient-descent dynamics cause that orthogonality to collapse.",
+  "problem_solved": "Explains why safety guardrails degrade unpredictably after benign fine-tuning and debunks the common reassurance that fine-tuning updates remain harmlessly orthogonal to safety directions; identifies a geometric and dynamical mechanism behind alignment collapse.",
+  "method": [
+    "Geometric analysis of parameter-space directions to characterize ‘safety-critical’ subspaces and the structural instability of orthogonality assumptions.",
+    "Dynamical study of gradient-descent trajectories showing how small perturbations and optimization dynamics cause collapse of orthogonality.",
+    "Empirical validation on language models: fine-tuning on benign tasks leads to measurable drops in safety metrics despite no harmful training data; propose diagnostics and mitigation directions."
+  ],
+  "impact": "Practitioners can’t rely on orthogonality as a safety guarantee — fine-tuning may silently erode alignment even when data is benign. This calls for active safety monitoring, robustness-aware fine-tuning methods (e.g., constrained optimization, regularization or safety checkpoints), and new diagnostics for alignment stability.",
+  "visual_elements": [
+    "Parameter-space diagram showing an aligned model, a safety-critical subspace, and the idealized orthogonal update vs the collapsed (non-orthogonal) update.",
+    "Trajectory plot of gradient-descent steps illustrating how optimization dynamics move updates into safety directions (alignment collapse over time).",
+    "Before/after bar chart of safety metrics (e.g., harmful-response rate) showing degradation after benign fine-tuning.",
+    "Flowchart of practical mitigations: detect → diagnose (alignment stability test) → apply constrained fine-tuning or rollback."
+  ],
+  "hashtags": [
+    "#AIAlignment",
+    "#ModelSafety",
+    "#FineTuning",
+    "#RobustML",
+    "#GradientDynamics"
+  ],
+  "paper_id": "2026-02-17-arxiv-the_geometry_of_alignment_collapse_when_fine_tuning_breaks_safety",
+  "paper_title": "The Geometry of Alignment Collapse: When Fine-Tuning Breaks Safety",
+  "paper_category": "Model",
+  "paper_date": "2026-02-17",
+  "paper_authors": "Max Springer, Chung Peng Lee, Blossom Metevier, Jane Castleman, Bohdan Turbal",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.15799v1"
+    }
+  ],
+  "generated_at": "2026-02-18T06:52:03.720334"
+}

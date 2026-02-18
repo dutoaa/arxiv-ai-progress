@@ -1,24 +1,24 @@
 {
-  "key_insight": "Pretrained protein language models (pLMs) can introduce hidden data leakage into protein–protein interaction (PPI) inference workflows, producing artificially inflated performance metrics; rigorous evaluation controls are needed to detect and prevent this artifact.",
-  "problem_solved": "Exposes and characterizes how pLM-derived features can leak information across training and test sets in PPI prediction, leading to misleading model assessment and overoptimistic claims.",
+  "key_insight": "Pretrained protein language models (pLMs) can leak information from training data into downstream protein–protein interaction (PPI) inference models, causing artificially inflated performance metrics. This means reported gains may reflect data leakage rather than true predictive power.",
+  "problem_solved": "Identifies and documents a source of hidden data leakage in PPI inference workflows that undermines reliable evaluation of models using pretrained pLM embeddings.",
   "method": [
-    "Empirical comparisons of PPI models trained with and without pLM-derived embeddings to quantify performance inflation.",
-    "Diagnostic analyses to trace leakage sources (e.g., shared pretraining data, embedding similarity, homologous sequences) using controlled splits and ablation studies.",
-    "Recommendations of mitigation and evaluation practices (e.g., homology-aware splits, embedding deconfounding, stricter benchmarking) to obtain honest performance estimates."
+    "Systematic evaluation of PPI inference models that use pLM embeddings to detect when pretrained knowledge boosts apparent performance.",
+    "Controlled experiments comparing model performance with and without pretraining-derived signals or with stricter train/test splits to quantify inflation from leakage.",
+    "Analysis of how overlap between sequences seen during pLM pretraining and downstream evaluation can produce misleading results and proposed evaluation controls."
   ],
-  "impact": "Alerts AI/ML practitioners in computational biology that off-the-shelf pretrained embeddings can distort evaluation, motivating stricter dataset design and reproducible benchmarking so PPI models reflect real generalization.",
+  "impact": "Alerts AI/ML practitioners and bioinformaticians that using off‑the‑shelf pLM embeddings can introduce subtle data leakage, so benchmarks and model choices must be adjusted to ensure valid PPI evaluation. Encourages adoption of stricter splitting strategies and leakage-aware baselines.",
   "visual_elements": [
-    "Flow diagram showing how pretraining data and embeddings can propagate into training/test sets and create leakage paths.",
-    "Bar chart comparing reported (inflated) vs. corrected PPI performance scores with and without pLM embeddings or with proper controls.",
-    "Schematic illustrating dataset splitting strategies (random split vs. homology-aware split) and their effect on leakage.",
-    "Icon cluster: warning/shield symbol, protein chain illustrations, and an embedding/model icon to signal caution with pretrained models."
+    "Flow diagram showing pipeline: pLM pretraining → embedding extraction → PPI model → evaluation, with a highlighted leakage path from pretraining to evaluation.",
+    "Bar chart comparing PPI performance scores with 'standard' vs 'leakage-controlled' evaluation to show score inflation.",
+    "Dataset split schematic (train/validation/test) illustrating safe vs unsafe splitting (sequence overlap vs no-overlap).",
+    "Icon set: protein chains, model/embedding vector, warning/exclamation to signal leakage risk."
   ],
   "hashtags": [
     "#ProteinLanguageModels",
-    "#ProteinInteractions",
     "#DataLeakage",
+    "#ProteinInteractions",
     "#ModelEvaluation",
-    "#Bioinformatics"
+    "#BioML"
   ],
   "paper_id": "2026-02-13-nature-a_flaw_in_using_pretrained_protein_language_models_in_protein_protein_interactio",
   "paper_title": "A flaw in using pretrained protein language models in protein–protein interaction inference models",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-025-01176-7"
     }
   ],
-  "generated_at": "2026-02-17T06:47:39.492275"
+  "generated_at": "2026-02-18T06:53:36.673991"
 }

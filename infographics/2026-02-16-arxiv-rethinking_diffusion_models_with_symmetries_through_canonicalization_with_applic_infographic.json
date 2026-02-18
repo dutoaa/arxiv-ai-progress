@@ -1,24 +1,24 @@
 {
-  "key_insight": "Instead of building symmetry-aware (equivariant/invariant) diffusion architectures, map each sample to a canonical pose/order and train a standard (non-equivariant) diffusion model on these representatives — recovering symmetry by undoing canonicalization at generation time.",
-  "problem_solved": "Removes the need for complex equivariant network designs to handle group symmetries (e.g., permutations, rotations) in generative tasks such as molecular graph generation, simplifying modeling and training while preserving symmetry-aware outputs.",
+  "key_insight": "Instead of building equivariant diffusion architectures, canonicalize each sample to a unique pose/order (an orbit representative) and train a standard (non‑equivariant) diffusion model on those canonicalized data; invert the canonicalization at generation time to recover symmetry‑invariant outputs.",
+  "problem_solved": "Avoids the complexity, computational cost, and engineering difficulty of designing and training equivariant/invariant generative models for data with group symmetries (e.g., permutation of graph nodes, 3D rotations of molecular structures).",
   "method": [
-    "Canonicalize: compute a deterministic canonical representative for each sample (fixed pose/order within its symmetry orbit).",
-    "Train: use a standard, unconstrained diffusion/denoising model on canonicalized data instead of enforcing equivariance in the architecture.",
-    "Decode: at generation, sample in canonical space and apply inverse or randomized group actions to restore full orbit diversity and achieve symmetry-invariant outputs."
+    "Canonicalization: map each sample to a deterministic (or learned) canonical pose/order that represents its symmetry orbit (e.g., fix node ordering or align coordinates).",
+    "Diffusion training: train a standard, unconstrained diffusion denoiser on the canonicalized dataset instead of enforcing equivariance in the model architecture.",
+    "Reprojection: at generation time, sample in canonical space with the diffusion model and apply the inverse transform (or random symmetry) to produce symmetry‑correct outputs in original space."
   ],
-  "impact": "Makes it easier to apply powerful off-the-shelf diffusion models to symmetry-rich domains (e.g., molecules, physical systems) without custom equivariant layers, lowering engineering cost and expanding model reuse across tasks.",
+  "impact": "Provides a simpler, modular alternative to equivariant models that preserves symmetry in the generated distribution while reducing model complexity and engineering overhead—making high‑quality molecular and scientific generative modeling more accessible and scalable.",
   "visual_elements": [
-    "Pipeline diagram: raw symmetric samples → canonicalization → standard diffusion model → inverse transform → symmetric outputs",
-    "Before/after molecular graphs: same molecule in different poses mapped to identical canonical representation",
-    "Comparison chart: model complexity & training cost for equivariant architectures vs canonicalization + standard diffusion",
-    "Orbit illustration: group orbit of a sample with a highlighted canonical representative and arrows showing transform/inverse-transform"
+    "Pipeline diagram: input sample → canonicalizer → diffusion model → inverse transform → symmetric output.",
+    "Orbit illustration: set of symmetric variants (rotations/permutations) collapsing to a single canonical representative.",
+    "Comparison chart: model complexity/training cost vs. sample quality for equivariant vs. canonicalization-based diffusion.",
+    "Molecular examples: before/after canonicalization and generated 3D molecule renderings to show invariance preserved."
   ],
   "hashtags": [
     "#DiffusionModels",
-    "#Equivariance",
-    "#MolecularGeneration",
     "#Canonicalization",
-    "#GenerativeAI"
+    "#MolecularGeneration",
+    "#Equivariance",
+    "#GeometricML"
   ],
   "paper_id": "2026-02-16-arxiv-rethinking_diffusion_models_with_symmetries_through_canonicalization_with_applic",
   "paper_title": "Rethinking Diffusion Models with Symmetries through Canonicalization with Applications to Molecular Graph Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.15022v1"
     }
   ],
-  "generated_at": "2026-02-17T06:47:06.108814"
+  "generated_at": "2026-02-18T06:54:12.443693"
 }
