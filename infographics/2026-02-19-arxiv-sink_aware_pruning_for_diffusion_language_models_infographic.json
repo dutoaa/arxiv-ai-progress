@@ -1,0 +1,35 @@
+{
+  "key_insight": "Attention 'sink' tokens that are stable anchors in autoregressive LLMs are highly unstable across the denoising trajectory of diffusion language models (DLMs); pruning must account for this sink dynamics to be effective.",
+  "problem_solved": "Reduces inefficient or harmful pruning in DLMs caused by reusing autoregressive sink-preservation heuristics that assume static attention sinks.",
+  "method": [
+    "Measure attention-sink location and importance variance across the full diffusion/denoising trajectory to quantify instability in DLMs.",
+    "Derive a sink-aware pruning criterion that aggregates token/channel importance over timesteps (or adapts masks to sink dynamics) rather than preserving static sink positions.",
+    "Apply this pruning strategy to prune weights/heads/neurons while validating that generation quality and inference efficiency are preserved."
+  ],
+  "impact": "Enables more reliable and effective compression of diffusion language models, lowering iterative denoising inference cost without relying on brittle AR-derived heuristics—useful for deploying DLMs in resource-constrained settings.",
+  "visual_elements": [
+    "Side-by-side diagram: AR model showing a single stable attention sink vs DLM showing shifting sinks over timesteps.",
+    "Line chart of attention-sink position/importance variance across timesteps for AR vs DLM.",
+    "Before/after scatter or bar chart comparing compute (latency/FLOPs) and generation quality (e.g., BLEU/perplexity) under standard vs sink-aware pruning.",
+    "Pipeline schematic: measure sink dynamics → compute sink-aware importance → apply pruning masks → validate generation."
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#ModelPruning",
+    "#EfficientAI",
+    "#LanguageModels",
+    "#MLResearch"
+  ],
+  "paper_id": "2026-02-19-arxiv-sink_aware_pruning_for_diffusion_language_models",
+  "paper_title": "Sink-Aware Pruning for Diffusion Language Models",
+  "paper_category": "Model",
+  "paper_date": "2026-02-19",
+  "paper_authors": "Aidar Myrzakhan, Tianyi Li, Bowei Guo, Shengkun Tang, Zhiqiang Shen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.17664v1"
+    }
+  ],
+  "generated_at": "2026-02-20T06:44:58.546963"
+}

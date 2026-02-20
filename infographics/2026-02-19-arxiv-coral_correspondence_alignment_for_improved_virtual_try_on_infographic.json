@@ -1,0 +1,35 @@
+{
+  "key_insight": "Explicitly enforcing person–garment correspondence inside a Diffusion-Transformer (DiT) — by aligning 3D attention and feature maps — preserves fine garment details in unpaired virtual try-on, producing more accurate and realistic results.",
+  "problem_solved": "Existing VTON methods (especially unpaired) fail to preserve fine garment patterns and structure because they do not explicitly enforce or explain how person–garment correspondence emerges inside DiT attention, causing misalignment and detail loss.",
+  "method": [
+    "Analyze full 3D attention in DiT architectures and identify that correct person–garment correspondence depends on precise alignment of attention and spatial features.",
+    "Introduce CORAL (Correspondence Alignment): an alignment module/loss that supervises and regularizes cross-attention / feature correspondence between person and garment representations so that detail is correctly transferred.",
+    "Integrate CORAL into the DiT-based VTON pipeline (with feature warping and attention refinement) to produce high-fidelity try-on outputs in unpaired training settings."
+  ],
+  "impact": "Makes DiT-based virtual try-on much better at preserving fine textures, seams, and patterns without requiring paired training data — useful for realistic garment rendering, e-commerce, and downstream image-synthesis tasks that need precise cross-object correspondence.",
+  "visual_elements": [
+    "Architecture diagram: DiT backbone with highlighted 3D attention tensors and the CORAL alignment module inserted into the attention flow.",
+    "Attention heatmaps: side-by-side before vs after CORAL showing improved person–garment correspondences.",
+    "Qualitative results: input person + garment, baseline VTON output, CORAL output (zoomed crops showing preserved textures and seams).",
+    "Pipeline sketch: how correspondence supervision and warping feed into the diffusion/transformer generation loop."
+  ],
+  "hashtags": [
+    "#VirtualTryOn",
+    "#DiffusionModels",
+    "#CorrespondenceAlignment",
+    "#ComputerVision",
+    "#ImageSynthesis"
+  ],
+  "paper_id": "2026-02-19-arxiv-coral_correspondence_alignment_for_improved_virtual_try_on",
+  "paper_title": "CORAL: Correspondence Alignment for Improved Virtual Try-On",
+  "paper_category": "Model",
+  "paper_date": "2026-02-19",
+  "paper_authors": "Jiyoung Kim, Youngjin Shin, Siyoon Jin, Dahyun Chung, Jisu Nam",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.17636v1"
+    }
+  ],
+  "generated_at": "2026-02-20T06:43:29.824007"
+}

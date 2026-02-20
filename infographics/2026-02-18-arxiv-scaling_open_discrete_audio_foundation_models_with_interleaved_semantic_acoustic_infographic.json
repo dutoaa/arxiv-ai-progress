@@ -1,24 +1,24 @@
 {
-  "key_insight": "Jointly modeling interleaved semantic, acoustic, and text tokens with native next-token audio prediction enables a single foundation model to capture both high-level content and low-level audio detail, improving general audio generation and cross-modal capabilities.",
-  "problem_solved": "Overcomes limitations of text-first or semantic-only audio models that fail to represent fine acoustic detail and restrict general audio modeling and generation.",
+  "key_insight": "Interleaving discrete semantic, acoustic, and text tokens in a single next-token prediction model enables scalable native audio foundation models that jointly capture content, timbre, and language for both high-fidelity audio generation and cross-modal tasks.",
+  "problem_solved": "Overcomes limitations of text-first or semantic-only audio approaches by providing a unified, native-audio modeling approach that preserves acoustic detail while supporting semantic/text alignment and generation at scale.",
   "method": [
-    "Train a native audio foundation model using autoregressive next-token prediction applied to audio, not just text.",
-    "Encode audio as interleaved token streams that combine semantic tokens, acoustic-detail tokens, and optional text tokens for joint modeling.",
-    "Scale and systematically evaluate the approach across tasks to quantify trade-offs between semantic fidelity, acoustic realism, and cross-modal performance."
+    "Discretize audio into separate token streams for semantic content and acoustic/details, plus text tokens, then interleave them into a single sequence for autoregressive next-token prediction.",
+    "Scale transformer training on large paired audio–text and unlabeled audio corpora to learn joint representations that support generation, transcription, and cross-modal tasks.",
+    "Evaluate empirically across fidelity, semantic accuracy, and downstream tasks to demonstrate trade-offs and scaling behavior between acoustic detail and semantic modeling."
   ],
-  "impact": "Provides a scalable, unified approach for richer audio synthesis and better multimodal integration, enabling practitioners to build generative and cross-modal audio systems that preserve both meaning and acoustic nuance.",
+  "impact": "Provides practitioners a unified modeling recipe to build open, scalable audio foundation models that improve generation fidelity and multimodal capabilities, enabling more capable speech, music, and general audio systems.",
   "visual_elements": [
-    "Schematic timeline showing interleaved token streams (semantic | acoustic | text) aligned with waveform/spectrogram.",
-    "Side-by-side bar chart comparing semantic-only vs interleaved models on metrics for content accuracy and acoustic realism.",
-    "Pipeline diagram: raw audio → tokenization (semantic/acoustic/text) → next-token model → decoded audio/text.",
-    "Qualitative audio example panel: waveform/spectrogram + decoded semantic transcript + listening-quality indicator."
+    "Architecture diagram showing three token streams (semantic, acoustic, text) being interleaved into one transformer input and producing mixed outputs.",
+    "Timeline view illustrating token interleaving over a short audio clip (labels for semantic vs acoustic vs text tokens).",
+    "Scaling/ablation plots: model size or data scale vs metrics for acoustic fidelity and semantic accuracy to show trade-offs.",
+    "Examples panel with input prompt/text → generated waveform/spectrogram + transcription and semantic labels."
   ],
   "hashtags": [
-    "#AudioAI",
+    "#AudioML",
     "#FoundationModels",
     "#GenerativeAudio",
     "#Multimodal",
-    "#AudioML"
+    "#Tokenization"
   ],
   "paper_id": "2026-02-18-arxiv-scaling_open_discrete_audio_foundation_models_with_interleaved_semantic_acoustic",
   "paper_title": "Scaling Open Discrete Audio Foundation Models with Interleaved Semantic, Acoustic, and Text Tokens",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.16687v1"
     }
   ],
-  "generated_at": "2026-02-19T06:50:31.973266"
+  "generated_at": "2026-02-20T06:46:30.321737"
 }

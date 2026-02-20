@@ -1,23 +1,23 @@
 {
-  "key_insight": "VETime fuses 1D temporal signals with 2D vision representations so a single zero-shot model can detect both fine-grained point anomalies and long-range contextual anomalies, avoiding the usual trade-off between temporal precision and global context.",
-  "problem_solved": "Bridges the gap between temporal models (good at pointwise localization) and vision models (good at global patterns) by resolving temporal alignment and coarse-grained detection issues for zero-shot time-series anomaly detection.",
+  "key_insight": "VETime fuses vision foundation models with time-series processing by converting signals into visual representations and aligning vision features back to timestamps, enabling zero-shot detection that captures both pointwise and long-range context anomalies.",
+  "problem_solved": "Bridges the trade-off between 1D temporal models (good at fine-grained localization) and 2D vision models (good at global context) to detect both immediate point anomalies and long-range context anomalies without task-specific labeled data.",
   "method": [
-    "Render time-series windows into 2D visual representations (e.g., spectrograms / recurrence plots / windowed renderings) to expose global patterns to vision backbones.",
-    "Fuse pre-trained 2D vision features with 1D temporal features via a temporal-vision alignment module and multi-scale feature fusion to preserve pointwise localization and global context.",
-    "Perform zero-shot anomaly scoring using pre-trained vision embeddings combined with temporal consistency/distance metrics (no target anomaly labels required)."
+    "Visual encoding: transform time series into 2D visual representations (e.g., spectrogram/recurrence-like views) to leverage pretrained vision models.",
+    "Temporal alignment module: map vision-derived features back to original timestamps for fine-grained pointwise localization.",
+    "Zero-shot anomaly scoring and multi-scale fusion: use pretrained vision foundation models and multi-scale aggregation to identify both local and contextual anomalies without retraining."
   ],
-  "impact": "Enables practitioners to deploy anomaly detectors that require no anomaly-specific training while improving detection of both immediate and contextual anomalies—reducing labeling costs and improving robustness for monitoring and alerting systems.",
+  "impact": "Allows ML practitioners to leverage powerful vision foundation models for time-series anomaly detection with minimal or no labeled data, improving detection quality across short-term spikes and long-range contextual shifts while reducing annotation effort.",
   "visual_elements": [
-    "Pipeline diagram: time series -> 2D rendering -> vision encoder + temporal encoder -> alignment & fusion -> anomaly score",
-    "Side-by-side comparison: 1D temporal vs 2D vision vs VETime showing localization and context coverage",
-    "Timeline heatmap: example series annotated with point anomalies and longer context anomalies to show detection granularity",
-    "Architecture block: alignment/fusion module details (multi-scale feature fusion and scoring head)"
+    "Pipeline diagram: time series -> 2D visual encoder -> vision model -> temporal alignment -> anomaly scores over time",
+    "Before/after overlay: raw signal with highlighted point anomalies and shaded regions for context anomalies",
+    "Trade-off comparison chart: 1D temporal vs 2D vision vs VETime (localization vs global context)",
+    "Architecture block: zoom-in on the temporal alignment module and multi-scale fusion"
   ],
   "hashtags": [
     "#TimeSeries",
     "#AnomalyDetection",
     "#ZeroShot",
-    "#VisionPlusTemporal",
+    "#VisionFoundationModels",
     "#MultimodalAI"
   ],
   "paper_id": "2026-02-18-arxiv-vetime_vision_enhanced_zero_shot_time_series_anomaly_detection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.16681v1"
     }
   ],
-  "generated_at": "2026-02-19T06:49:57.361269"
+  "generated_at": "2026-02-20T06:46:19.819625"
 }

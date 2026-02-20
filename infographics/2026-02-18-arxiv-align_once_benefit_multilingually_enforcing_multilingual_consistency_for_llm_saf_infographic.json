@@ -1,24 +1,24 @@
 {
-  "key_insight": "You can align an LLM for safety in a single (high-resource) language and enforce multilingual consistency so the safety behavior transfers to many other languages without heavy per-language supervision.",
-  "problem_solved": "Scalable multilingual safety alignment: current methods require large target-language datasets or costly pairwise alignment, which limits deployment across many languages.",
+  "key_insight": "A single safety alignment step can be propagated across languages by enforcing multilingual consistency, enabling LLMs to behave safely in many languages without large per-language supervision.",
+  "problem_solved": "Scaling safety alignment to many languages is costly and brittle: existing approaches require extensive target-language supervision or pairwise alignment with high-resource languages, limiting scalability and coverage.",
   "method": [
-    "Perform safety alignment once in a source language using existing supervised/alignment procedures.",
-    "Create multilingual views (via translation or parallel data) and add a consistency/agreement objective that enforces the aligned safety behavior across languages.",
-    "Leverage synthetic translations and consistency regularization to avoid large-scale, high-quality annotations or exhaustive pairwise alignment."
+    "Perform alignment once (e.g., in a high-resource language) and enforce multilingual consistency so aligned behavior is preserved under translation or cross-lingual prompts.",
+    "Leverage resource-efficient consistency objectives and lightweight cross-lingual data (e.g., translated or synthetic examples) to propagate safety signals instead of collecting large target-language annotations.",
+    "Validate transfer of safety via multilingual evaluation to ensure aligned behaviors hold across diverse languages and threat scenarios."
   ],
-  "impact": "Makes multilingual safety practical and cost-efficient: practitioners can extend aligned LLM behavior to many languages with far less annotation and engineering overhead, improving global safe deployment.",
+  "impact": "Practitioners can achieve broader multilingual safety with far lower annotation and engineering cost, making safe LLM deployment across linguistic communities more practical and scalable.",
   "visual_elements": [
-    "Flow diagram: 'Align once' (single-language) → consistency module → multiple target languages (many arrows)",
-    "Agreement/consistency icon: parallel inputs (same prompt in different languages) mapped to the same safe response with a loss/regularizer symbol",
-    "Bar chart comparing resource cost: per-language supervised alignment vs. single-source + consistency approach",
-    "World map with language icons showing widespread deployment from one alignment step"
+    "Pipeline diagram: single-language alignment -> multilingual consistency module -> multilingual-safe model",
+    "Before/after heatmap or world map showing frequency of unsafe responses per language",
+    "Bar chart comparing annotation cost vs. number of languages covered for pairwise alignment vs. the proposed method",
+    "Illustration of consistency constraint: original prompt, translated prompts, and unified safe response"
   ],
   "hashtags": [
     "#MultilingualAI",
     "#LLMSafety",
     "#ModelAlignment",
-    "#EfficientML",
-    "#CrossLingual"
+    "#CrossLingual",
+    "#AIAlignment"
   ],
   "paper_id": "2026-02-18-arxiv-align_once_benefit_multilingually_enforcing_multilingual_consistency_for_llm_saf",
   "paper_title": "Align Once, Benefit Multilingually: Enforcing Multilingual Consistency for LLM Safety Alignment",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.16660v1"
     }
   ],
-  "generated_at": "2026-02-19T06:49:10.090527"
+  "generated_at": "2026-02-20T06:46:59.158696"
 }
