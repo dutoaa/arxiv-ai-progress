@@ -1,24 +1,24 @@
 {
-  "key_insight": "Controlling the variance of off-policy importance ratios stabilizes asynchronous, critic-free policy-gradient training for LLMs, allowing high-throughput asynchronous RL without a few stale samples dominating updates.",
-  "problem_solved": "Asynchronous RL with critic-free policy gradients (e.g., REINFORCE, GRPO) suffers from very high gradient variance because stale rollouts produce heavy-tailed importance ratios, causing unstable updates and poor scalability.",
+  "key_insight": "High asynchrony in off-policy policy-gradient RL for LLMs creates heavy-tailed importance ratios from stale rollouts, which dramatically increases gradient variance; controlling the tails of those ratios enables stable, high-throughput asynchronous training.",
+  "problem_solved": "Reduces the extreme variance and instability that arise when widely-used critic-free policy-gradient methods (e.g., REINFORCE, GRPO) train on stale, off-policy rollouts in asynchronous LLM training pipelines.",
   "method": [
-    "Variance-controlled off-policy corrections: limit heavy tails in importance ratios via clipping, regularization, and adaptive reweighting to reduce estimator variance.",
-    "Staleness-aware data handling: schedule or reweight stale rollouts and manage replay buffers to prevent a small fraction of stale samples from dominating gradients.",
-    "Asynchronous protocol adjustments: integrate lightweight variance control into the async worker←→learner pipeline to preserve throughput while improving stability."
+    "Diagnose variance source: show stale rollouts produce heavy-tailed importance ratios that let a few samples dominate updates.",
+    "Introduce variance-control for off-policy gradients (staleness-aware weighting / tail-bounding of importance ratios) to suppress heavy tails and limit per-sample influence.",
+    "Integrate the variance-controlled estimator into an asynchronous training pipeline to preserve end-to-end throughput while stabilizing learning."
   ],
-  "impact": "Enables scalable, stable asynchronous RL for LLM fine-tuning (e.g., RLHF, reasoning tasks) by reducing catastrophic, high-variance updates—improving sample efficiency and end-to-end throughput in practical training systems.",
+  "impact": "Enables more reliable and scalable RL fine-tuning of LLMs by keeping asynchronous throughput high without sacrificing stability—reducing catastrophic gradient spikes and improving sample efficiency and convergence.",
   "visual_elements": [
-    "System diagram: asynchronous workers generating rollouts -> central learner with a 'variance control' module (iconic pipeline).",
-    "Distribution chart: importance-ratio histogram before (heavy tail) vs after variance control (trimmed/regularized).",
-    "Line plot: training variance and performance vs asynchrony level showing improved stability and throughput.",
-    "Annotated flow: replay-buffer/staleness reweighting schematic highlighting sample weighting and clipping steps."
+    "Pipeline diagram: asynchronous data producers → replay/staleness buffer → policy update, annotated to show stale rollouts feeding the learner.",
+    "Side-by-side density plots: heavy-tailed importance-ratio distribution before vs. compacted/tail-bounded distribution after variance control.",
+    "Line chart: training stability metrics (variance or reward curves) vs. throughput, showing improved stability at high asynchrony with the proposed method.",
+    "Icon set: LLM + policy gradient symbol, warning/explosion icon for variance spikes, and shield icon for variance control/stability."
   ],
   "hashtags": [
     "#ReinforcementLearning",
-    "#LLM",
+    "#LLMs",
     "#AsynchronousTraining",
-    "#OffPolicy",
-    "#RLHF"
+    "#OffPolicyRL",
+    "#StableTraining"
   ],
   "paper_id": "2026-02-19-arxiv-stable_asynchrony_variance_controlled_off_policy_rl_for_llms",
   "paper_title": "Stable Asynchrony: Variance-Controlled Off-Policy RL for LLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.17616v1"
     }
   ],
-  "generated_at": "2026-02-20T06:43:13.565483"
+  "generated_at": "2026-02-21T06:31:53.718856"
 }

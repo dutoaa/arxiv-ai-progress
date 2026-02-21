@@ -1,23 +1,23 @@
 {
-  "key_insight": "Crop-level transfer strategies for black-box LVLM attacks induce high-variance, nearly orthogonal gradients (partly due to ViT translation sensitivity). Targeting fine-grained, consistent visual details and reducing gradient variance yields much more stable and effective transfer attacks.",
-  "problem_solved": "Addresses instability and low transferability of black-box adversarial attacks on Large Vision-Language Models caused by incoherent local alignment and high-variance gradients from crop-level matching.",
+  "key_insight": "Targeting fine-grained image details and enforcing coherent patch-level alignment mitigates the high-variance, nearly-orthogonal gradients caused by crop-based transfer attacks (e.g., M-Attack), producing more stable and effective black-box attacks on LVLMs.",
+  "problem_solved": "Stabilizes and improves transfer-based black-box adversarial attacks on Large Vision–Language Models by addressing missing gradients, ViT translation sensitivity, and the high-variance gradients induced by local crop-level matching.",
   "method": [
-    "Diagnose source of instability: show ViT translation sensitivity and crop-level matching produce inconsistent gradient directions across iterations.",
-    "Fine-grained detail targeting: prioritize consistent patch-/detail-level features instead of coarse crop matches to preserve alignment across updates.",
-    "Variance-aware stabilization: incorporate mechanisms to reduce inter-iteration gradient variance and enforce coherent local alignment for more reliable transfer."
+    "Analyze failure mode: show crop-level local matching yields high-variance, near-orthogonal gradient directions across iterations, exacerbated by ViT translation sensitivity.",
+    "Fine-grained detail targeting: align and optimize at patch/texture level instead of coarse crops to preserve coherent local correspondence between source and target.",
+    "Optimization stabilization: aggregate cross-crop consistency and gradient-smoothing/aggregation so updates point in consistent directions and improve transferability with limited queries."
   ],
-  "impact": "Enables more reliable evaluation of LVLM vulnerabilities and guides practitioners toward stronger robustness testing and defense design; highlights the importance of fine-grained alignment when assessing multimodal model security.",
+  "impact": "Provides a more reliable way to evaluate and perform black-box attacks on LVLMs, improving transferability and query efficiency; the insights also guide defenses and robustness testing for multimodal models.",
   "visual_elements": [
-    "Side-by-side schematic: crop-level matching vs fine-grained detail targeting with overlaid gradient vectors showing coherence vs orthogonality.",
-    "Line chart: attack success rate / loss vs iterations comparing baseline (M-Attack) and proposed method (stability and faster convergence).",
-    "Heatmaps: perturbation or attention maps showing where fine-grained targeting concentrates changes versus diffuse crop-based perturbations.",
-    "Pipeline diagram: high-level flow from diagnosis → detail-targeting module → variance stabilization → attack outcome."
+    "Schematic comparing M-Attack (crop-level matching) vs Fine-Grained Detail Targeting (patch-level alignment)",
+    "Gradient vector-field diagram showing high-variance/orthogonal gradients vs coherent stabilized gradients over iterations",
+    "Image heatmap/overlay highlighting targeted patches and perturbation magnitudes",
+    "Bar/line chart comparing attack success rate and query efficiency across methods"
   ],
   "hashtags": [
     "#LVLM",
-    "#AdversarialML",
-    "#VisionLanguage",
-    "#ModelRobustness",
+    "#AdversarialAttacks",
+    "#ViT",
+    "#Robustness",
     "#AIsecurity"
   ],
   "paper_id": "2026-02-19-arxiv-pushing_the_frontier_of_black_box_lvlm_attacks_via_fine_grained_detail_targeting",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.17645v1"
     }
   ],
-  "generated_at": "2026-02-20T06:44:11.301323"
+  "generated_at": "2026-02-21T06:32:36.520147"
 }

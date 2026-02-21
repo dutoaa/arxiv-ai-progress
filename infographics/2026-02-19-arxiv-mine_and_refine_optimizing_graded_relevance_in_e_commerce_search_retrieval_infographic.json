@@ -1,24 +1,24 @@
 {
-  "key_insight": "A two-stage \"Mine and Refine\" contrastive framework that first harvests scalable weak supervision and then refines embeddings to explicitly model graded relevance (exact match, substitutes, complements), improving multi-category e‑commerce retrieval for long‑tail and noisy queries.",
-  "problem_solved": "How to train semantic text embeddings for large‑scale, multi‑category e‑commerce search so they generalize to long‑tail/noisy queries while capturing graded relevance and remaining compatible with production and policy constraints.",
+  "key_insight": "A two-stage contrastive training pipeline — first mining large-scale, diverse weak signals then refining with graded relevance — produces embeddings that better separate exact matches, substitutes, complements and negatives for multi-category e‑commerce search.",
+  "problem_solved": "Scalable production-ready embeddings that capture graded relevance in noisy, long-tail e‑commerce queries while respecting product and policy constraints, improving retrieval beyond binary relevance labels.",
   "method": [
-    "Mine: automatically extract large‑scale weak positives and negatives across categories using scalable heuristics (e.g., logs, co‑purchase, catalog signals) to form initial contrastive pairs.",
-    "Refine: apply a graded contrastive training stage that re‑weights and uses curated hard negatives to separate exact matches, acceptable substitutes/complements, and non‑relevant items.",
-    "Production focus: design supervision and training that respect product/policy constraints and enable efficient embedding inference for retrieval at scale."
+    "Mine: gather large-scale weak/pseudo supervision from production signals and heuristics to capture diverse candidate positives (substitutes, complements, noisy matches).",
+    "Refine: contrastive fine-tuning using graded relevance (multi-level labels or sampled margins) to explicitly separate exact matches, acceptable substitutes/complements, and negatives.",
+    "Production-aware training: incorporate hard negatives, sampling strategies and policy/product filters to keep supervision scalable and compliant for deployment."
   ],
-  "impact": "Provides practitioners a scalable recipe to produce embeddings that better recover relevant and substitute products for noisy, long‑tail queries and integrate cleanly into production retrieval systems, improving overall search quality and robustness.",
+  "impact": "Delivers more robust, production-ready embeddings that improve retrieval quality across head and long-tail queries and enable better ranking/UX in e‑commerce systems; applicable to other domains needing graded relevance.",
   "visual_elements": [
-    "Two‑stage pipeline diagram (Mine → Refine) showing data sources, mined pairs, and contrastive loss flow",
-    "Graded relevance spectrum visualization (exact match → substitute → complement → irrelevant) with example item pairs",
-    "Performance chart (Precision@K / Recall) comparing baseline vs Mine‑and‑Refine, with a separate curve for long‑tail queries",
-    "Concrete query → retrieved items mockup highlighting exact matches vs acceptable substitutes and failure cases"
+    "Pipeline diagram showing two stages: Mine (collect weak signals) → Refine (contrastive fine-tune with graded labels).",
+    "Graded relevance spectrum graphic (Exact match → Substitute → Complement → Irrelevant) with example query–product pairs.",
+    "Before/after retrieval bar chart comparing metrics on head vs long‑tail queries (e.g., recall@k, nDCG).",
+    "Embedding space visualization (UMAP/t-SNE) illustrating tighter clusters for exacts and controlled proximity for substitutes/complements."
   ],
   "hashtags": [
-    "#EcommerceSearch",
-    "#SemanticEmbeddings",
-    "#ContrastiveLearning",
     "#InformationRetrieval",
-    "#GradedRelevance"
+    "#ContrastiveLearning",
+    "#EcommerceAI",
+    "#Embeddings",
+    "#SearchRanking"
   ],
   "paper_id": "2026-02-19-arxiv-mine_and_refine_optimizing_graded_relevance_in_e_commerce_search_retrieval",
   "paper_title": "Mine and Refine: Optimizing Graded Relevance in E-commerce Search Retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.17654v1"
     }
   ],
-  "generated_at": "2026-02-20T06:44:26.345637"
+  "generated_at": "2026-02-21T06:34:34.576376"
 }
