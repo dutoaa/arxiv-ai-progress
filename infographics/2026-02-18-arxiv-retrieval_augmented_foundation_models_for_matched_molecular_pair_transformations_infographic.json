@@ -1,24 +1,24 @@
 {
-  "key_insight": "A retrieval-augmented foundation model trained on large-scale matched molecular pair transformations can generate diverse, controllable analogs that reproduce medicinal chemistry intuition by operating in a variable-to-variable edit space.",
-  "problem_solved": "Bridges the gap between whole-molecule generative models (which lack fine-grained edit control) and small, restricted MMP learners by enabling scalable, controllable MMP-style transformations from large data.",
+  "key_insight": "Training a retrieval-augmented foundation model on large-scale matched molecular pair transformations (MMPTs) lets the model generate diverse, controllable analog edits that recapitulate medicinal chemistry intuition. The variable-to-variable formulation focuses on local edits rather than whole-molecule rewriting, improving edit fidelity and transferability.",
+  "problem_solved": "Existing ML approaches either model whole molecules with poor controllability over local edits or learn MMP-style edits only from small, restricted datasets; this work scales MMPT learning and adds retrieval context to recover chemists' intuitive transformations.",
   "method": [
-    "Formulate analog design as a variable-to-variable mapping between molecular fragments/contexts (matched molecular pairs) rather than whole-molecule generation.",
-    "Pretrain a foundation model on a large corpus of matched molecular pair transformations (MMPTs) to learn generic edit patterns and produce diverse outputs conditioned on an input variable.",
-    "Augment generation with a retrieval mechanism that supplies similar historical transformations or context snippets to improve edit relevance, controllability, and sample efficiency."
+    "Formulate analog generation as a variable-to-variable task that directly models local chemical edits (matched molecular pairs) instead of full-molecule generation.",
+    "Train a foundation model on large-scale MMPT data so it learns diverse edit patterns and conditional generation of analog variables.",
+    "Augment generation with a retrieval component that provides relevant historical MMP examples as context to guide controllable, chemistry-aware transformations."
   ],
-  "impact": "Provides a scalable, interpretable tool for medicinal chemistry-aware molecular design that improves controllability of edits and accelerates analog exploration, making it practical to integrate large pre-trained models into drug discovery workflows.",
+  "impact": "Enables scalable, controllable analog design that aligns with medicinal chemists' reasoning, improving iteration speed in lead optimization. Demonstrates that retrieval-augmented foundation models can capture domain-specific edit operators useful for broader AI-driven molecular design.",
   "visual_elements": [
-    "Schematic: variable-to-variable mapping showing input fragment → edit region → generated analogs",
-    "Architecture diagram: retrieval-augmented pipeline (query → retrieve relevant MMPT examples → foundation model → candidate outputs)",
-    "Before/after examples: a few concrete matched molecular pair edits with chemist-style annotations (e.g., potency, lipophilicity changes)",
-    "Performance chart: comparisons of diversity, edit accuracy, and controllability vs baseline whole-molecule and small MMP models"
+    "Schematic of variable-to-variable mapping: input substructure -> edit model -> output analog with highlighted substitution",
+    "Architecture diagram showing retriever + foundation model pipeline (retrieved examples feeding conditional generation)",
+    "Before/after molecular examples illustrating typical matched molecular pair edits with annotated properties or intuition",
+    "Bar/line chart comparing edit diversity, controllability, or success rate versus prior whole-molecule and small-model baselines"
   ],
   "hashtags": [
-    "#DrugDiscovery",
-    "#MolecularAI",
+    "#MatchedMolecularPairs",
     "#FoundationModels",
-    "#RetrievalAugmented",
-    "#Chemoinformatics"
+    "#RetrievalAugmentation",
+    "#DrugDiscovery",
+    "#Cheminformatics"
   ],
   "paper_id": "2026-02-18-arxiv-retrieval_augmented_foundation_models_for_matched_molecular_pair_transformations",
   "paper_title": "Retrieval-Augmented Foundation Models for Matched Molecular Pair Transformations to Recapitulate Medicinal Chemistry Intuition",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.16684v1"
     }
   ],
-  "generated_at": "2026-02-20T06:47:23.700459"
+  "generated_at": "2026-02-22T06:38:46.704144"
 }

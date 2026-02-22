@@ -1,24 +1,24 @@
 {
-  "key_insight": "The Self-Supervised Semantic Bridge (SSB) learns to align semantic representations between source and target domains so unpaired image-to-image translation can retain high visual fidelity and better generalize—without depending on target-domain adversarial losses or perfect diffusion inversion.",
-  "problem_solved": "Bridges the gap between adversarial and diffusion-inversion approaches: it avoids the generalization limits of target-domain adversarial training while overcoming the low-fidelity outputs caused by imperfect inversion into diffusion latents.",
+  "key_insight": "SSB (Self-Supervised Semantic Bridge) enables high-fidelity unpaired image-to-image translation by learning a domain-agnostic semantic latent space that bridges source and target domains, avoiding reliance on target-domain adversarial losses or imperfect diffusion inversions.",
+  "problem_solved": "Addresses poor generalization of adversarial methods and low-fidelity outputs from diffusion-inversion by providing a self-supervised semantic mapping that enables robust, high-quality translations between unpaired domains.",
   "method": [
-    "Learn a self-supervised semantic bridge that aligns high-level features across source and target domains, creating a shared semantic space for translation.",
-    "Use the bridge to guide a diffusion-based generation pipeline (or hybrid adversarial-diffusion setup), reducing reliance on exact noise-latent inversion and on target adversarial loss during training.",
-    "Train with domain-agnostic, self-supervised objectives (feature consistency, semantic reconstruction) to preserve content and improve out-of-distribution generalization."
+    "Learn a shared semantic latent space via self-supervised objectives so content is preserved while style/appearance can be changed across domains.",
+    "Use an encoder-to-bridge-to-decoder pipeline that conditions a diffusion generator (or decoder) on semantic latents, removing the need for target-domain adversarial training and reducing inversion error.",
+    "Integrate contrastive/consistency losses and cross-domain reconstruction to disentangle semantics from domain-specific appearance and stabilize translation."
   ],
-  "impact": "SSB enables practitioners to produce more faithful and generalizable unpaired translations, improving workflows in image editing, domain adaptation, and data augmentation while reducing sensitivity to target-domain supervision or imperfect inversion.",
+  "impact": "Enables practitioners to perform unpaired translations with better fidelity and stronger generalization to unseen data, reducing the need for adversarial target-domain supervision and improving reliability of diffusion-based generative pipelines.",
   "visual_elements": [
-    "Architecture diagram: source image → encoder → semantic bridge (shared space) → decoder/generator → translated image, with diffusion guidance annotated.",
-    "Before/after image triplet grid showing source, naive diffusion-inversion result, and SSB result to highlight fidelity improvements.",
-    "Trade-off chart: fidelity vs. generalization comparing adversarial, diffusion-inversion, and SSB methods.",
-    "Latent/feature-space illustration (t-SNE) showing aligned semantic clusters across domains after applying the bridge."
+    "Schematic of the semantic bridge: encoder (source) → shared semantic latent → decoder/diffusion (target), with loss icons for self-supervision and consistency.",
+    "Before/after image pairs showing preserved content and changed style across domains (several examples).",
+    "Bar chart comparing fidelity/generalization metrics (e.g., FID/LPIPS or qualitative scores) between adversarial, diffusion-inversion, and SSB approaches.",
+    "Illustration comparing failure modes: adversarial overfitting vs diffusion-inversion artifacts vs SSB stable translation."
   ],
   "hashtags": [
-    "#UnpairedTranslation",
+    "#ImageTranslation",
     "#DiffusionModels",
-    "#SelfSupervised",
-    "#ImageToImage",
-    "#DomainAdaptation"
+    "#SelfSupervisedLearning",
+    "#UnpairedLearning",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-02-18-arxiv-unpaired_image_to_image_translation_via_a_self_supervised_semantic_bridge",
   "paper_title": "Unpaired Image-to-Image Translation via a Self-Supervised Semantic Bridge",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.16664v1"
     }
   ],
-  "generated_at": "2026-02-20T06:46:04.212154"
+  "generated_at": "2026-02-22T06:39:07.661930"
 }

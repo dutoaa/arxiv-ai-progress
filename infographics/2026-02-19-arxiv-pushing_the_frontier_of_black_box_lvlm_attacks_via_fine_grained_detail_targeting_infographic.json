@@ -1,24 +1,24 @@
 {
-  "key_insight": "Targeting fine-grained image details and enforcing coherent patch-level alignment mitigates the high-variance, nearly-orthogonal gradients caused by crop-based transfer attacks (e.g., M-Attack), producing more stable and effective black-box attacks on LVLMs.",
-  "problem_solved": "Stabilizes and improves transfer-based black-box adversarial attacks on Large Vision–Language Models by addressing missing gradients, ViT translation sensitivity, and the high-variance gradients induced by local crop-level matching.",
+  "key_insight": "Attacks that target stable, fine-grained image details (rather than matching large local crops) reduce high-variance, nearly-orthogonal gradient signals in transfer-based black-box LVLM attacks, producing more coherent and effective adversarial perturbations.",
+  "problem_solved": "Improves transfer-based black-box adversarial attacks on Large Vision–Language Models by addressing instability caused by ViT translation sensitivity and inconsistent local crop-level matching, which previously produced noisy, non-coherent optimization steps.",
   "method": [
-    "Analyze failure mode: show crop-level local matching yields high-variance, near-orthogonal gradient directions across iterations, exacerbated by ViT translation sensitivity.",
-    "Fine-grained detail targeting: align and optimize at patch/texture level instead of coarse crops to preserve coherent local correspondence between source and target.",
-    "Optimization stabilization: aggregate cross-crop consistency and gradient-smoothing/aggregation so updates point in consistent directions and improve transferability with limited queries."
+    "Diagnose instability: show that crop-level matching yields high-variance, almost-orthogonal gradients across iterations due to ViT translation sensitivity and multimodal alignment mismatches.",
+    "Fine-grained detail targeting: concentrate perturbations on semantically stable, small-scale image details (attention/patch-aware selection) to preserve coherent local alignment across crops and iterations.",
+    "Stabilize optimization: enforce cross-crop and cross-iteration consistency (e.g., momentum/gradient-smoothing and multi-scale constraints) to improve transferability to black-box LVLMs."
   ],
-  "impact": "Provides a more reliable way to evaluate and perform black-box attacks on LVLMs, improving transferability and query efficiency; the insights also guide defenses and robustness testing for multimodal models.",
+  "impact": "Enables more reliable and higher-success-rate black-box attacks on LVLMs, improving robustness evaluation and guiding better defenses and secure deployment practices for multimodal models.",
   "visual_elements": [
-    "Schematic comparing M-Attack (crop-level matching) vs Fine-Grained Detail Targeting (patch-level alignment)",
-    "Gradient vector-field diagram showing high-variance/orthogonal gradients vs coherent stabilized gradients over iterations",
-    "Image heatmap/overlay highlighting targeted patches and perturbation magnitudes",
-    "Bar/line chart comparing attack success rate and query efficiency across methods"
+    "Side-by-side illustration: crop-level matching vs fine-grained detail targeting with overlaid gradient vectors (showing high-variance/orthogonal vs coherent vectors).",
+    "Pipeline flowchart: diagnosis → detail selection → consistency-regularized optimization → improved attack transfer.",
+    "Bar/line chart: attack success rate and stability (variance) comparison between baseline crop-based methods and the proposed fine-grained approach.",
+    "Icon set: magnifying glass on image details, patch/grid overlay, momentum/arrow symbol, and a shield representing robustness evaluation."
   ],
   "hashtags": [
     "#LVLM",
-    "#AdversarialAttacks",
-    "#ViT",
-    "#Robustness",
-    "#AIsecurity"
+    "#AdversarialAI",
+    "#BlackBoxAttacks",
+    "#VisionLanguage",
+    "#Robustness"
   ],
   "paper_id": "2026-02-19-arxiv-pushing_the_frontier_of_black_box_lvlm_attacks_via_fine_grained_detail_targeting",
   "paper_title": "Pushing the Frontier of Black-Box LVLM Attacks via Fine-Grained Detail Targeting",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.17645v1"
     }
   ],
-  "generated_at": "2026-02-21T06:32:36.520147"
+  "generated_at": "2026-02-22T06:36:58.761767"
 }

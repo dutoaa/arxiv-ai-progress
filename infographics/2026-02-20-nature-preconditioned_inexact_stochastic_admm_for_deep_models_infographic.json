@@ -1,24 +1,24 @@
 {
-  "key_insight": "PISA introduces a preconditioned, inexact stochastic ADMM optimizer for deep models that supports heterogeneous data and a wide range of preconditioners, offering provable convergence under weak assumptions and strong empirical gains over standard optimizers.",
-  "problem_solved": "Bridges the gap between theoretically-sound ADMM-style optimization and practical deep learning: handling data heterogeneity, allowing inexpensive (inexact) subproblem solves, and integrating flexible preconditioning without sacrificing convergence or scalability.",
+  "key_insight": "PISA (Preconditioned Inexact Stochastic ADMM) is an optimizer that lets deep models be trained with heterogeneous data and a wide range of preconditioners, providing provable convergence under weak assumptions while empirically outperforming popular optimizers.",
+  "problem_solved": "Bridges the gap between practical optimizer flexibility (heterogeneous data, custom preconditioners, approximate subproblem solves) and rigorous convergence guarantees for nonconvex deep learning models.",
   "method": [
-    "Formulates a preconditioned inexact stochastic ADMM framework tailored for deep networks, where subproblems may be solved approximately to reduce cost.",
-    "Introduces flexible preconditioners (user-defined or adaptive) inside the ADMM updates to improve conditioning across heterogeneous data and model layers.",
-    "Provides theoretical convergence guarantees under minimal assumptions and validates empirical performance across diverse tasks versus standard baselines."
+    "Formulate training as a stochastic ADMM scheme with preconditioning to decouple model subproblems and accommodate heterogeneous data sources.",
+    "Allow inexact (approximate) inner solves and stochastic updates to keep computation scalable, while carefully controlling errors to preserve convergence.",
+    "Provide unified theory proving convergence under minimal assumptions and demonstrate empirical gains across diverse tasks and preconditioners."
   ],
-  "impact": "Offers practitioners a scalable, robust optimizer that reduces tuning and computation while improving convergence and performance on heterogeneous datasets and distributed setups—useful for federated, multi-domain, and large-scale training.",
+  "impact": "Offers practitioners a flexible, scalable optimizer that supports custom preconditioning and heterogeneous/distributed data with theoretical guarantees—leading to more reliable training and better empirical performance.",
   "visual_elements": [
-    "Algorithm flowchart: ADMM update loop showing preconditioner and inexact subproblem solve steps",
-    "Comparison bar chart: validation accuracy or loss vs Adam/SGD/ADMM baselines across multiple tasks",
-    "Convergence plot: training loss vs iterations showing theoretical vs empirical behavior and effect of preconditioning",
-    "Schematic: heterogeneous-data setup (multiple clients/domains) with centralized variable fusion to illustrate applicability"
+    "Algorithm flowchart: ADMM split showing primal/dual updates, preconditioner blocks, and inexact inner solvers.",
+    "Benchmark chart: convergence curves (loss vs. iterations) comparing PISA to Adam/SGD across several tasks/datasets.",
+    "System diagram: heterogeneous data sources or clients feeding into a central model with different preconditioners (illustrates federated/distributed use).",
+    "Summary panel: compact table of assumptions vs. guarantees (what is required and what is proved)."
   ],
   "hashtags": [
-    "#PISA",
-    "#ADMM",
     "#Optimization",
     "#DeepLearning",
-    "#HeterogeneousData"
+    "#ADMM",
+    "#Preconditioning",
+    "#FederatedLearning"
   ],
   "paper_id": "2026-02-20-nature-preconditioned_inexact_stochastic_admm_for_deep_models",
   "paper_title": "Preconditioned inexact stochastic ADMM for deep models",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01182-3"
     }
   ],
-  "generated_at": "2026-02-21T06:34:21.600552"
+  "generated_at": "2026-02-22T06:38:34.630503"
 }

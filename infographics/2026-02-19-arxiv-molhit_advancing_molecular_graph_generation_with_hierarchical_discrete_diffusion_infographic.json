@@ -1,24 +1,24 @@
 {
-  "key_insight": "MolHIT introduces a hierarchical discrete diffusion framework for molecular graphs that closes the performance gap between graph-based and 1D molecular generative models, substantially improving chemical validity and property fidelity. It generates molecules in a coarse-to-fine, chemically-aware manner to better respect discrete chemistry constraints.",
-  "problem_solved": "Existing graph diffusion models produce many invalid molecules and struggle to match target properties, limiting their usefulness for drug discovery and materials design; MolHIT addresses these shortcomings by combining multi-scale graph representation with discrete, chemistry-aware diffusion dynamics.",
+  "key_insight": "MolHIT introduces a hierarchical discrete diffusion framework that generates molecular graphs in a coarse‑to‑fine manner, enabling more chemically valid and property‑aligned molecules than prior graph diffusion approaches.",
+  "problem_solved": "Existing graph diffusion models for molecular generation suffer from low chemical validity and poor control of desired molecular properties, limiting their usefulness compared with 1D (SMILES) models.",
   "method": [
-    "Hierarchical representation: generate molecular graphs across multiple scales (coarse structure → fine atom/bond details) using a coarse-to-fine diffusion pipeline.",
-    "Discrete diffusion on graph tokens: perform diffusion steps in a discrete atom/bond vocabulary with chemistry constraints (e.g., valence-aware transitions) to maintain validity during sampling.",
-    "Conditioning & sampling strategy: joint property-conditioning and specialized denoising/sampling routines to better match target molecular properties while preserving structural chemistry."
+    "Hierarchical discrete diffusion: generate molecular graphs progressively from coarse structure to fine atom/bond details to stabilize sampling and capture multi-scale structure.",
+    "Discrete denoising tailored to categorical graph features (nodes/edges) with a specially designed noise schedule and denoiser network.",
+    "Training and architectural strategies to preserve chemical constraints and steer generation toward target properties (e.g., valency-aware modules, conditional guidance)."
   ],
-  "impact": "MolHIT makes graph-based molecular generation more reliable and competitive with 1D approaches, enabling practitioners to produce higher-quality candidate molecules for downstream property optimization and experimental validation. It reduces the gap between graph expressiveness and chemical validity, accelerating AI-driven discovery workflows.",
+  "impact": "MolHIT makes graph-based molecular generation more reliable and controllable, helping AI/ML practitioners produce chemically realistic candidates for drug discovery and materials design while enabling property-focused generation workflows.",
   "visual_elements": [
-    "Pipeline diagram: coarse-to-fine hierarchical diffusion flow from scaffold to full molecule (graph nodes/edges) with labelled stages.",
-    "Bar/line chart: comparison of chemical validity, uniqueness, and property-matching metrics vs. baseline graph and 1D models.",
-    "Schematic of discrete diffusion: timestep illustration showing token corruption and valence-aware denoising on atoms/bonds.",
-    "Icon set: molecule, graph, diffusion clock, target property gauge (to represent conditioning/optimization)."
+    "Pipeline diagram: coarse-to-fine hierarchical diffusion stages (graph levels) with arrows showing denoising flow.",
+    "Before/after bar chart: chemical validity and property-alignment metrics comparing MolHIT vs prior graph diffusion baselines.",
+    "Molecule gallery: example molecules generated at each hierarchical stage (coarse structure → final molecule) to illustrate refinement.",
+    "Ablation/heatmap: effect of key components (hierarchy, discrete noise, constraint modules) on validity and property scores."
   ],
   "hashtags": [
-    "#MolecularAI",
-    "#GraphDiffusion",
-    "#GenerativeModels",
+    "#MolecularGeneration",
+    "#DiffusionModels",
+    "#GraphML",
     "#DrugDiscovery",
-    "#MolHIT"
+    "#GenerativeAI"
   ],
   "paper_id": "2026-02-19-arxiv-molhit_advancing_molecular_graph_generation_with_hierarchical_discrete_diffusion",
   "paper_title": "MolHIT: Advancing Molecular-Graph Generation with Hierarchical Discrete Diffusion Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.17602v1"
     }
   ],
-  "generated_at": "2026-02-21T06:31:29.862127"
+  "generated_at": "2026-02-22T06:39:23.529931"
 }

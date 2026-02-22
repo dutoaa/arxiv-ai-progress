@@ -1,24 +1,24 @@
 {
-  "key_insight": "Explicitly enforcing person–garment correspondence within Diffusion Transformer (DiT) architectures enables much better preservation of fine garment details in virtual try-on, and CORAL shows how to induce and align these correspondences rather than leaving them to emerge implicitly.",
-  "problem_solved": "Existing virtual try-on models—especially in unpaired settings—fail to preserve fine-grained garment details because they do not explicitly enforce or explain person↔garment correspondence inside DiT-based generators.",
+  "key_insight": "Explicitly enforcing person–garment correspondence inside Diffusion Transformers (DiTs) causes correspondence to emerge reliably and preserves fine garment details in unpaired virtual try-on. CORAL analyzes 3D attention and injects alignment constraints so DiT-based VTONs better map garment pixels to the correct body regions.",
+  "problem_solved": "Virtual try-on systems (especially DiT-based) struggle to preserve fine garment detail and lack explicit mechanisms or explanations for person–garment correspondence in unpaired settings, producing misaligned or blurred clothing outputs.",
   "method": [
-    "Analyze full 3D attention in Diffusion Transformers to reveal how and when person–garment correspondence emerges (diagnostic study of attention patterns).",
-    "Introduce CORAL, an alignment mechanism that supervises and guides DiT attention toward explicit person–garment correspondence (attention guidance + alignment loss / correspondence maps).",
-    "Integrate CORAL into a DiT-based VTON pipeline to produce higher-fidelity try-on results that retain texture, seams, and fine shape details in unpaired scenarios."
+    "Analyze full 3D attention patterns in Diffusion Transformer architectures to identify how and when person–garment correspondence forms or degrades.",
+    "Introduce CORAL — a correspondence alignment module/constraint that enforces precise person–garment alignment within the attention mechanism (via attention regularization and correspondence supervision), so mappings emerge robustly without paired training data.",
+    "Train the model with combined generative diffusion objectives plus correspondence-alignment signals to preserve fine details and improve realism in the synthesized try-on images."
   ],
-  "impact": "CORAL improves realism and controllability of virtual try-on systems and offers a practical recipe for practitioners to enforce and interpret correspondence in attention-based generative models, making DiT-based synthesis more reliable for garment-aware applications.",
+  "impact": "Enables more realistic, detail-preserving virtual try-on results and makes DiT attention more interpretable and controllable. Useful for practitioners building conditioned image synthesis, fashion applications, and any pipeline that needs robust spatial correspondence from generative transformers.",
   "visual_elements": [
-    "Side-by-side before/after try-on images highlighting preserved textures and seams (baseline vs CORAL).",
-    "Attention-map overlays showing emergent vs. CORAL-aligned person→garment correspondences.",
-    "Block diagram of the DiT-based VTON pipeline with the CORAL module and alignment loss annotated.",
-    "Bar chart or table summarizing improvements on key fidelity/compatibility metrics (e.g., texture, shape, user preference)."
+    "Before/after try-on image pairs highlighting improved preservation of fine garment details (e.g., logos, seams, textures).",
+    "Heatmap visualizations of DiT 3D attention with and without CORAL to show improved person–garment correspondence.",
+    "Architecture diagram showing where CORAL integrates into the DiT pipeline (input, attention module, alignment supervision).",
+    "Bar/line chart comparing quantitative metrics (detail-preservation, perceptual quality, alignment scores) for baseline vs CORAL-enhanced models."
   ],
   "hashtags": [
     "#VirtualTryOn",
     "#DiffusionModels",
+    "#CorrespondenceAlignment",
     "#ComputerVision",
-    "#AttentionAlignment",
-    "#CORAL"
+    "#AIFashion"
   ],
   "paper_id": "2026-02-19-arxiv-coral_correspondence_alignment_for_improved_virtual_try_on",
   "paper_title": "CORAL: Correspondence Alignment for Improved Virtual Try-On",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.17636v1"
     }
   ],
-  "generated_at": "2026-02-21T06:32:07.615398"
+  "generated_at": "2026-02-22T06:36:17.982203"
 }

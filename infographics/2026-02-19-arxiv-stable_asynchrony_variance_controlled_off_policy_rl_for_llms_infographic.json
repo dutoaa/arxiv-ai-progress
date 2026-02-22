@@ -1,24 +1,24 @@
 {
-  "key_insight": "High asynchrony in off-policy policy-gradient RL for LLMs creates heavy-tailed importance ratios from stale rollouts, which dramatically increases gradient variance; controlling the tails of those ratios enables stable, high-throughput asynchronous training.",
-  "problem_solved": "Reduces the extreme variance and instability that arise when widely-used critic-free policy-gradient methods (e.g., REINFORCE, GRPO) train on stale, off-policy rollouts in asynchronous LLM training pipelines.",
+  "key_insight": "Introducing variance-controlled off-policy corrections lets asynchronous, critic-free policy-gradient training remain stable: by detecting and down-weighting heavy-tailed importance ratios from stale rollouts, updates stop being dominated by a few bad samples and variance is controlled.",
+  "problem_solved": "Asynchrony in off-policy, critic-free policy-gradient methods (e.g., REINFORCE, GRPO) produces heavy-tailed importance ratios from stale rollouts, causing very high gradient variance and unstable or inefficient LLM fine-tuning.",
   "method": [
-    "Diagnose variance source: show stale rollouts produce heavy-tailed importance ratios that let a few samples dominate updates.",
-    "Introduce variance-control for off-policy gradients (staleness-aware weighting / tail-bounding of importance ratios) to suppress heavy tails and limit per-sample influence.",
-    "Integrate the variance-controlled estimator into an asynchronous training pipeline to preserve end-to-end throughput while stabilizing learning."
+    "Detect and mitigate heavy-tailed importance ratios from stale rollouts using per-sample variance-aware reweighting and adaptive clipping to limit any single sample's influence.",
+    "Apply off-policy correction that is aware of staleness (timestamped rollouts) and dynamically adjusts importance weights to trade off bias and variance.",
+    "Integrate these variance-control steps into asynchronous worker pipelines so throughput gains are retained while training stability is restored."
   ],
-  "impact": "Enables more reliable and scalable RL fine-tuning of LLMs by keeping asynchronous throughput high without sacrificing stability—reducing catastrophic gradient spikes and improving sample efficiency and convergence.",
+  "impact": "Enables higher asynchrony and throughput for RL-based LLM tuning (e.g., RLHF) without sacrificing stability; practitioners can train faster with lower compute waste from high-variance updates and fewer training collapses.",
   "visual_elements": [
-    "Pipeline diagram: asynchronous data producers → replay/staleness buffer → policy update, annotated to show stale rollouts feeding the learner.",
-    "Side-by-side density plots: heavy-tailed importance-ratio distribution before vs. compacted/tail-bounded distribution after variance control.",
-    "Line chart: training stability metrics (variance or reward curves) vs. throughput, showing improved stability at high asynchrony with the proposed method.",
-    "Icon set: LLM + policy gradient symbol, warning/explosion icon for variance spikes, and shield icon for variance control/stability."
+    "Flow diagram: asynchronous workers → central learner, showing 'stale rollouts' feeding into policy updates",
+    "Histogram or heavy-tail plot: raw importance-ratio distribution (long tail) vs. post-reweighting/clipping (trimmed tail)",
+    "Line chart: training stability comparison (gradient variance or reward curve) across synchronous, naive asynchronous, and variance-controlled asynchronous",
+    "Icon set: clock (asynchrony), scale/balance (variance control), lightning bolt (throughput), shield (stability)"
   ],
   "hashtags": [
     "#ReinforcementLearning",
-    "#LLMs",
+    "#LLM",
+    "#OffPolicy",
     "#AsynchronousTraining",
-    "#OffPolicyRL",
-    "#StableTraining"
+    "#RLHF"
   ],
   "paper_id": "2026-02-19-arxiv-stable_asynchrony_variance_controlled_off_policy_rl_for_llms",
   "paper_title": "Stable Asynchrony: Variance-Controlled Off-Policy RL for LLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.17616v1"
     }
   ],
-  "generated_at": "2026-02-21T06:31:53.718856"
+  "generated_at": "2026-02-22T06:35:59.250464"
 }
