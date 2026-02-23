@@ -1,24 +1,24 @@
 {
-  "key_insight": "A two-stage \"Mine and Refine\" contrastive training pipeline first mines large-scale, scalable weak supervision and then refines embeddings with graded relevance signals, producing semantic vectors that better distinguish exact matches, substitutes, and complements for e-commerce search.",
-  "problem_solved": "Scalable retrieval for multi-category e-commerce where relevance is graded (users accept substitutes/complements), queries are noisy/long-tail, and supervision must respect product and policy constraints.",
+  "key_insight": "A two-stage contrastive training pipeline—\"Mine\" then \"Refine\"—produces semantic embeddings that capture graded relevance (exact matches, substitutes, complements) at scale, improving multi-category e-commerce search retrieval robustness for long-tail and noisy queries.",
+  "problem_solved": "E-commerce retrieval needs embeddings that generalize to long-tail, noisy queries while respecting scalable supervision and product/policy constraints; existing approaches struggle to represent graded relevance where users accept substitutes or complements beyond exact matches.",
   "method": [
-    "Mine: automatically generate large-scale candidate positive/negative pairs from logs/catalog (co-clicks, co-purchases, rewrites) while enforcing product/policy filters to create scalable weak supervision.",
-    "Refine: contrastive fine-tuning using graded relevance (multi-level labels, adaptive margins or reweighting) to separate exact matches from substitutes/complements and reduce noise.",
-    "Production-ready pipeline: curriculum/reweighting for long-tail queries and efficient embedding training to integrate with existing retrieval stacks."
+    "Mine: gather large-scale, scalable supervision (weak/silver positives and negatives across categories) suitable for production constraints.",
+    "Refine: contrastive fine-tuning that explicitly models graded relevance, separating exact matches, substitutes, complements and true negatives in embedding space.",
+    "End-to-end design prioritizes scalability and compatibility with product/policy requirements so embeddings can be deployed across multi-category search systems."
   ],
-  "impact": "Produces more robust, generalizable embeddings that improve retrieval relevance and conversion across categories while reducing reliance on costly manual labels and remaining compatible with production and policy constraints.",
+  "impact": "Provides a practical way to train embedding models that better rank items for nuanced user intent in production search systems—improving relevance for long-tail queries while remaining scalable and policy-aware.",
   "visual_elements": [
-    "Flow diagram: Mine stage (data sources + policy filters) → Refine stage (graded contrastive training) → Embedding store",
-    "Embedding-space sketch: clusters showing exact matches, substitutes, complements with graded distances",
-    "Before/after metrics: bar or line chart of retrieval metrics (recall@k, NDCG) on long-tail vs head queries",
-    "Pipeline/icon map: data sources (logs, catalog), policy shield icon, training GPU icon, deployment/search icon"
+    "Pipeline diagram showing two stages: Mine (data/weak labels) → Refine (contrastive fine-tuning) → Embedding space",
+    "Graded relevance spectrum graphic (Exact match → Substitute → Complement → Irrelevant) with distances in embedding space",
+    "Before/After retrieval example: same query with results ranked by baseline vs. Mine-and-Refine embeddings",
+    "Bar/line chart illustrating gains in retrieval metrics (e.g., recall@k or relevance separation) conceptually"
   ],
   "hashtags": [
     "#ContrastiveLearning",
-    "#Embeddings",
     "#EcommerceSearch",
-    "#GradedRelevance",
-    "#InformationRetrieval"
+    "#RepresentationLearning",
+    "#InformationRetrieval",
+    "#ScalableAI"
   ],
   "paper_id": "2026-02-19-arxiv-mine_and_refine_optimizing_graded_relevance_in_e_commerce_search_retrieval",
   "paper_title": "Mine and Refine: Optimizing Graded Relevance in E-commerce Search Retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.17654v1"
     }
   ],
-  "generated_at": "2026-02-22T06:37:11.159311"
+  "generated_at": "2026-02-23T06:57:44.450216"
 }

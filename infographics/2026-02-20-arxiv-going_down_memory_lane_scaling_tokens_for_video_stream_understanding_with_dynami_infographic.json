@@ -1,0 +1,35 @@
+{
+  "key_insight": "Increasing the per-frame token budget and managing those tokens with a dynamic key-value (KV) cache lets streaming models retain fine-grained spatiotemporal details, improving retrieval and question answering over long video streams without treating memory as a fixed low-resolution summary.",
+  "problem_solved": "Streaming video understanding and VQA suffer when per-frame representations are compressed into too few tokens, losing fine-grained visual detail and temporal context; this work addresses how to scale and manage token memory so models can store and retrieve richer frame information over time.",
+  "method": [
+    "Scale per-frame tokenization to produce more spatially and temporally granular tokens, then write those tokens into a KV-cache rather than discarding details.",
+    "Introduce dynamic KV-cache memory management (importance-based allocation, eviction, and aggregation) so the cache grows/contracts with stream demands while controlling compute and latency.",
+    "Efficient retrieval for question answering via selective attention/lookup over the cached keys and values, enabling the model to combine long-range context with high-resolution frame detail."
+  ],
+  "impact": "Provides a practical recipe for building streaming video models that keep richer history without catastrophic memory bloat—improving accuracy on long-horizon VQA and other continuous-vision tasks while offering controllable trade-offs between fidelity, latency, and memory.",
+  "visual_elements": [
+    "Pipeline diagram: live video frames → dense tokenization → dynamic KV-cache (write/evict) → query/retrieve → VQA output",
+    "Before/After comparison: low-token per-frame (blurry/aggregated) vs. scaled-token per-frame (fine-grained spatial detail) illustrations",
+    "Performance chart: accuracy vs. token budget and memory usage (showing gains as tokens scale with dynamic caching)",
+    "Timeline/memory visualization: video stream with highlighted important tokens kept, less-relevant tokens evicted, and retrieval arrows to show query readout"
+  ],
+  "hashtags": [
+    "#VideoUnderstanding",
+    "#KVCache",
+    "#StreamingVQA",
+    "#EfficientMemory",
+    "#MultimodalAI"
+  ],
+  "paper_id": "2026-02-20-arxiv-going_down_memory_lane_scaling_tokens_for_video_stream_understanding_with_dynami",
+  "paper_title": "Going Down Memory Lane: Scaling Tokens for Video Stream Understanding with Dynamic KV-Cache Memory",
+  "paper_category": "Model",
+  "paper_date": "2026-02-20",
+  "paper_authors": "Vatsal Agarwal, Saksham Suri, Matthew Gwilliam, Pulkit Kumar, Abhinav Shrivastava",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.18434v1"
+    }
+  ],
+  "generated_at": "2026-02-23T06:56:45.776198"
+}

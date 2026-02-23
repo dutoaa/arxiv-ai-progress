@@ -1,24 +1,24 @@
 {
-  "key_insight": "Vision-Language-Action models often ignore instruction intent and default to vision-driven shortcuts; this paper systematically measures those 'counterfactual failures' and introduces targeted interventions to make VLAs obey language more faithfully.",
-  "problem_solved": "VLAs fail to ground language instructions when scene cues or dataset biases encourage repeated, well-learned visual behaviors—leading robots to act on what they expect to see rather than what the instruction requires.",
+  "key_insight": "Vision-Language-Action models often ignore instructions and fall back on visual shortcuts learned from biased data; the paper identifies these \"counterfactual failures\" and shows how targeted evaluation and simple mitigation reduce vision-overrides of language.",
+  "problem_solved": "VLAs can repeatedly execute visually frequent behaviors or pick commonly seen objects regardless of language intent, compromising instruction following and robustness. The paper diagnoses these failures systematically and provides methods to measure and reduce them.",
   "method": [
-    "Define and quantify 'counterfactual failures' with a focused evaluation protocol and metrics that reveal when behavior is driven by vision shortcuts rather than language.",
-    "Perform diagnostic experiments across tasks/datasets to expose bias patterns (e.g., frequent-object selection, repeated actions) and identify failure modes.",
-    "Mitigate failures via targeted interventions such as counterfactual data augmentation, rebalancing training examples, and training objectives/regularizers that strengthen language grounding."
+    "Introduce a counterfactual evaluation protocol that tests instruction adherence by swapping scene elements or command targets to reveal vision-driven shortcuts.",
+    "Define metrics that quantify language override (how often vision-leaning actions contradict instructions) and analyze dataset biases driving failures.",
+    "Propose mitigation strategies (e.g., counterfactual data augmentation, bias-aware training objectives, and alignment regularizers) to strengthen language grounding in action policies."
   ],
-  "impact": "Provides practitioners with concrete tools to detect and reduce vision-driven bias in language-grounded control, improving reliability and safety of robot behavior and language grounding in multimodal models.",
+  "impact": "Provides practical diagnostics and fixes so practitioners can better evaluate VLA systems for instruction fidelity and robustness, improving safe and reliable robot behavior in real-world, ambiguous scenes.",
   "visual_elements": [
-    "Side-by-side schematic: 'vision-driven' vs 'language-compliant' agent behavior on the same instruction",
-    "Flowchart of the evaluation protocol showing input (instruction+scene) → failure metrics → diagnostic outputs",
-    "Bar/line chart comparing counterfactual failure rates before and after mitigation across tasks",
-    "Illustration of counterfactual data augmentation: swapping objects/instructions to break spurious correlations"
+    "Side-by-side scenario diagram: same scene + different instruction where model picks wrong object (visual shortcut) vs. corrected behavior after mitigation",
+    "Bar chart: failure rate on counterfactual tests for baseline vs. mitigated models",
+    "Pipeline flowchart: evaluation protocol → bias analysis → mitigation loop",
+    "Attention/activation heatmap overlaid on scene showing vision-dominant focus vs. language-aligned focus"
   ],
   "hashtags": [
     "#VisionLanguage",
     "#Robotics",
-    "#Counterfactuals",
     "#DatasetBias",
-    "#AIAlignment"
+    "#AIAlignment",
+    "#VLAs"
   ],
   "paper_id": "2026-02-19-arxiv-when_vision_overrides_language_evaluating_and_mitigating_counterfactual_failures",
   "paper_title": "When Vision Overrides Language: Evaluating and Mitigating Counterfactual Failures in VLAs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.17659v1"
     }
   ],
-  "generated_at": "2026-02-22T06:37:21.737255"
+  "generated_at": "2026-02-23T06:57:58.524852"
 }
