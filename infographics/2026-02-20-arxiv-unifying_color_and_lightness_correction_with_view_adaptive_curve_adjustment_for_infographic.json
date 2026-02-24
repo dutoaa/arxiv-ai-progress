@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single, learnable view-adaptive curve module jointly corrects color (chromatic) and lightness (photometric) differences across views, restoring photometric consistency and enabling robust novel view synthesis from real-world captures.",
-  "problem_solved": "Multi-view images captured in the wild suffer from illumination, sensor and ISP differences that break photometric consistency assumptions of modern NVS/NeRF methods, producing color and brightness artifacts in synthesized views.",
+  "key_insight": "A single, view-adaptive curve adjustment module jointly corrects both color (chromatic) and lightness (photometric) differences across multi-view captures, enabling robust novel view synthesis without relying on strict photometric consistency. Integrating learnable per-view curves into the NVS pipeline reduces color/lightness mismatch and improves rendered view fidelity.",
+  "problem_solved": "Photometric and chromatic inconsistencies from lighting, sensor responses, and ISP settings break the photometric-consistency assumptions of modern NeRF-style novel view synthesis, causing artifacts and poor generalization on real multi-view captures.",
   "method": [
-    "Learn a parametric curve-based correction that models both chromatic (color) and lightness adjustments, applied in image space.",
-    "Predict view-adaptive curve parameters conditioned on per-view features (and geometry/latent scene cues) so each capture gets a tailored correction.",
-    "Integrate the differentiable curve module into the NVS training loop so corrected inputs and synthesis are jointly optimized for improved rendering quality."
+    "Learnable, differentiable per-view curve adjustments that jointly correct color channels and lightness (a unified color+lightness correction operation).",
+    "View-adaptive conditioning: curves are predicted or optimized per view (from image features or view metadata) and applied within the NVS/NeRF pipeline to normalize inputs or intermediate radiance.",
+    "End-to-end training / joint optimization so the curve module and the novel-view synthesis model co-adapt, preserving geometry while removing photometric/chromatic variation."
   ],
-  "impact": "Makes NeRF-style and other novel-view synthesis systems much more robust to real-world capture variability, reducing color/brightness artifacts and improving fidelity without complex pre-processing — accelerating deployment on unconstrained multi-view datasets.",
+  "impact": "Makes 3D novel view synthesis far more robust for real-world, multi-camera captures by removing a common source of reconstruction and rendering error, reducing the need for manual color calibration and improving downstream quality metrics and visual realism. This enables more reliable NeRF deployment in uncontrolled capture scenarios.",
   "visual_elements": [
-    "Pipeline diagram: multi-view inputs → view-adaptive curve module → corrected images → NeRF synthesis (novel view output).",
-    "Before/after image triplets showing color/lightness mismatches and corrected synthesized view.",
-    "Example learned per-view curves (RGB + lightness axes) illustrating how different captures are adjusted.",
-    "Quantitative bar chart or table comparing metrics (PSNR/SSIM/LPIPS) and error maps before vs after correction."
+    "Pipeline diagram: input multi-view images → per-view curve predictor → corrected images → NeRF/NVS renderer, with arrows showing joint optimization loop.",
+    "Before/after image triplet: an original mis-colored/mismatched view, the corrected view after curve adjustment, and the final rendered novel view.",
+    "Curve visualization: example learned RGB/lightness transfer curves (plots) showing how different views are warped to a common photometric space.",
+    "Bar/line chart: quantitative improvements (e.g., PSNR / LPIPS / SSIM deltas) or qualitative metric icons illustrating robustness gains across datasets."
   ],
   "hashtags": [
-    "#NovelViewSynthesis",
     "#NeRF",
+    "#NovelViewSynthesis",
     "#ColorCorrection",
-    "#PhotometricConsistency",
-    "#3DReconstruction"
+    "#DifferentiableRendering",
+    "#ComputerVision"
   ],
   "paper_id": "2026-02-20-arxiv-unifying_color_and_lightness_correction_with_view_adaptive_curve_adjustment_for",
   "paper_title": "Unifying Color and Lightness Correction with View-Adaptive Curve Adjustment for Robust 3D Novel View Synthesis",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.18322v1"
     }
   ],
-  "generated_at": "2026-02-23T06:54:29.233182"
+  "generated_at": "2026-02-24T06:51:49.385577"
 }

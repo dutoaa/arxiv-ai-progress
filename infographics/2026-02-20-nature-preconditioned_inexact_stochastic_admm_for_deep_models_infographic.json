@@ -1,24 +1,24 @@
 {
-  "key_insight": "PISA is a preconditioned inexact stochastic ADMM optimizer that delivers provable convergence for deep nonconvex models under minimal assumptions while supporting heterogeneous data and flexible preconditioners, and it empirically outperforms standard optimizers.",
-  "problem_solved": "Training deep models reliably and efficiently when data is heterogeneous and when one wants to use varied preconditioners—settings where existing optimizers lack both practical robustness and theoretical convergence guarantees.",
+  "key_insight": "PISA integrates preconditioning into an inexact stochastic ADMM framework for deep learning, yielding provable convergence under minimal assumptions while handling heterogeneous data and flexible preconditioners.",
+  "problem_solved": "Provides a robust, theoretically grounded optimizer that accelerates and stabilizes training of deep nonconvex models with heterogeneous data and imperfect/approximate subproblem solves.",
   "method": [
-    "Preconditioned stochastic ADMM framework: splits optimization into modular subproblems and applies per-block preconditioners to handle heterogeneity across data/parameters.",
-    "Inexact subproblem solves with controlled error: permits cheaper, approximate updates (e.g., truncated inner solvers) while maintaining global convergence.",
-    "Theoretical convergence under minimal assumptions: rigorous analysis for nonconvex objectives that guides practical choices of preconditioners and step rules."
+    "Preconditioned stochastic ADMM backbone: embeds configurable preconditioners into ADMM updates to rescale and stabilize gradients across layers/tasks.",
+    "Inexact subproblem solves: allows approximate (cheap) inner updates instead of exact minimization, reducing per-step cost while preserving convergence.",
+    "Theoretical guarantees + practical tuning: proves convergence under mild assumptions for nonconvex problems and demonstrates empirical gains across diverse tasks and data heterogeneity."
   ],
-  "impact": "Provides practitioners a robust, general-purpose optimizer that reduces tuning and instability when training across heterogeneous datasets or architectures, offering theoretical guarantees plus better empirical performance compared with common baselines.",
+  "impact": "Gives practitioners a scalable optimizer that is more robust to data heterogeneity and hyperparameter sensitivity, enabling faster and more reliable training for large/decentralized deep models.",
   "visual_elements": [
-    "Algorithm flow diagram: ADMM split with stochastic updates and preconditioner blocks annotated (showing per-block updates and information flow).",
-    "Performance chart: loss/accuracy vs. epochs comparing PISA to Adam/SGD/ADAMW across several tasks (highlight faster/stabler convergence).",
-    "Heterogeneous-data schematic: multiple data sources/devices feeding into a shared model with per-block preconditioning icons.",
-    "Icon set: badges for 'Provable Convergence', 'Low Inner Solve Cost (Inexact)', and 'Flexible Preconditioning' to summarize strengths."
+    "Algorithm flowchart showing sampling → preconditioner application → inexact ADMM update → model parameter update",
+    "Convergence plot: training loss vs. epochs comparing PISA, SGD/Adam, and baseline ADMM (faster/stabler curve for PISA)",
+    "Bar chart of downstream task performance (accuracy/throughput) across heterogeneous data settings",
+    "Icon set: preconditioner (matrix/gear), inexact solve (clock/approximation), heterogeneous data (cluster of varied devices)"
   ],
   "hashtags": [
-    "#PISA",
-    "#DeepLearning",
-    "#ADMM",
     "#Optimization",
-    "#StochasticOptimization"
+    "#ADMM",
+    "#Preconditioning",
+    "#DeepLearning",
+    "#StochasticMethods"
   ],
   "paper_id": "2026-02-20-nature-preconditioned_inexact_stochastic_admm_for_deep_models",
   "paper_title": "Preconditioned inexact stochastic ADMM for deep models",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01182-3"
     }
   ],
-  "generated_at": "2026-02-23T06:57:21.730922"
+  "generated_at": "2026-02-24T06:51:05.722129"
 }

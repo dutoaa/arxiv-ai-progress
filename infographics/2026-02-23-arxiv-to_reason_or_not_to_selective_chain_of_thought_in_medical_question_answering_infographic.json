@@ -1,0 +1,35 @@
+{
+  "key_insight": "Selective Chain-of-Thought (Selective CoT) first predicts whether a medical question needs step-by-step reasoning and only generates a rationale when required, preserving answer accuracy while reducing unnecessary compute and latency.",
+  "problem_solved": "LLMs waste time and compute by producing chain-of-thought explanations for every medical question, even when many questions can be answered directly; this approach avoids unnecessary reasoning without degrading performance.",
+  "method": [
+    "Use an inference-time classifier to predict if a question requires chain-of-thought reasoning.",
+    "Conditionally generate a detailed rationale only for questions flagged as needing reasoning; otherwise output a direct answer.",
+    "Evaluate the strategy with open-source LLMs (Llama-3.1-8B, Qwen-2.5-7B) on biomedical QA benchmarks (e.g., HeadQA, MedQA-USMLE, MedMCQA, etc.) to measure accuracy vs. efficiency trade-offs."
+  ],
+  "impact": "Enables more efficient, lower-latency deployment of LLMs in medical QA by cutting needless reasoning steps while maintaining clinical-grade accuracy—important for scalable, cost-sensitive healthcare applications.",
+  "visual_elements": [
+    "Flowchart showing: Input question → Classifier (Needs reasoning? Yes/No) → {Generate CoT + Answer | Direct Answer}",
+    "Bar chart comparing accuracy, latency, and token/compute usage for Always-CoT vs Selective CoT",
+    "Before/after example QA pair: one requiring CoT (with rationale) and one solved directly, annotated to highlight differences",
+    "Savings infographic (icon + % compute/time saved) to emphasize efficiency gains"
+  ],
+  "hashtags": [
+    "#SelectiveCoT",
+    "#ChainOfThought",
+    "#MedicalAI",
+    "#LLMs",
+    "#EfficientInference"
+  ],
+  "paper_id": "2026-02-23-arxiv-to_reason_or_not_to_selective_chain_of_thought_in_medical_question_answering",
+  "paper_title": "To Reason or Not to: Selective Chain-of-Thought in Medical Question Answering",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-02-23",
+  "paper_authors": "Zaifu Zhan, Min Zeng, Shuang Zhou, Yiran Song, Xiaoyi Chen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.20130v1"
+    }
+  ],
+  "generated_at": "2026-02-24T06:48:38.350037"
+}
