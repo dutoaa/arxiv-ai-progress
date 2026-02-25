@@ -1,24 +1,24 @@
 {
-  "key_insight": "JUCAL is a post-hoc calibration method that jointly calibrates aleatoric (data) and epistemic (model) uncertainty in classifier ensembles, producing more balanced and accurate predictive probabilities than methods that treat uncertainty monolithically.",
-  "problem_solved": "Standard calibration techniques (e.g., temperature scaling, conformal methods) do not distinguish or balance aleatoric and epistemic contributions, causing misattributed uncertainty and suboptimal decision thresholds for downstream tasks; this paper provides a way to correct that at the ensemble level after training.",
+  "key_insight": "JUCAL is a post-hoc calibration method that jointly calibrates aleatoric (label) and epistemic (model) uncertainty for classifier ensembles, producing better-balanced, more trustworthy predictive uncertainty than standard temperature-scaling or conformal approaches.",
+  "problem_solved": "Existing calibration techniques treat prediction confidence as a single quantity and fail to balance how much uncertainty is attributed to inherent label noise versus model uncertainty, which can lead to misleading decisions, poor OOD detection, and suboptimal active learning or risk assessment.",
   "method": [
-    "Decompose ensemble predictive uncertainty into aleatoric and epistemic components (e.g., via predictive entropy and inter-model variance) to quantify each source separately.",
-    "Optimize a joint, post-hoc calibration transform that adjusts the balance between aleatoric and epistemic terms (e.g., separate scaling/temperature factors or a small calibration network) using a validation set or holdout conformal-style procedure.",
-    "Evaluate calibration and coverage metrics for both components and tune transforms to improve overall reliability while preserving sharpness and coverage guarantees."
+    "Decompose an ensemble's predictive uncertainty into aleatoric (intra-model predictive spread) and epistemic (inter-model disagreement) components using ensemble outputs on a validation set.",
+    "Learn a post-hoc joint calibration mapping that adjusts both the overall predictive confidence and the relative proportions of aleatoric vs. epistemic uncertainty to match empirical frequencies/coverage on held-out data.",
+    "Design the calibration to be compatible with existing post-processing tools (e.g., temperature scaling, conformal methods) so it can be applied to trained ensembles without retraining models."
   ],
-  "impact": "By yielding better-separated and calibrated uncertainty estimates, JUCAL improves trustworthiness for risk-sensitive applications (e.g., medical diagnosis, autonomous systems), enhances OOD detection and active learning, and can be applied to existing trained ensembles without retraining.",
+  "impact": "By providing calibrated, well-balanced uncertainty decompositions, JUCAL improves decision-making in safety- and cost-sensitive applications (OOD detection, selective prediction, active learning) and increases trust in ensemble-based systems with minimal deployment cost.",
   "visual_elements": [
-    "Two-part diagram: predictive distribution split into aleatoric vs epistemic components (icons for data noise vs model disagreement).",
-    "Before/after reliability diagrams (calibration curves) side-by-side for aleatoric and epistemic uncertainty.",
-    "Bar chart comparing ECE/Coverage metrics across methods (temperature scaling, conformal, JUCAL).",
-    "Pipeline flowchart showing: trained ensemble -> uncertainty decomposition -> joint calibration step -> calibrated outputs."
+    "Pipeline diagram: ensemble → decomposition into aleatoric & epistemic branches → joint calibration module → calibrated predictions",
+    "Before/after reliability diagrams showing calibration of total confidence and separate curves for aleatoric vs epistemic components",
+    "Stacked bar charts comparing proportion of aleatoric vs epistemic uncertainty across methods (uncalibrated, temperature scaling, conformal, JUCAL)",
+    "Scatter or ROC-style plot showing improved OOD detection/coverage vs. false alarm trade-off after JUCAL"
   ],
   "hashtags": [
-    "#Calibration",
-    "#UncertaintyQuantification",
-    "#EnsembleLearning",
-    "#ModelReliability",
-    "#AITrust"
+    "#UncertaintyCalibration",
+    "#Aleatoric",
+    "#Epistemic",
+    "#Ensembles",
+    "#ReliableAI"
   ],
   "paper_id": "2026-02-23-arxiv-jucal_jointly_calibrating_aleatoric_and_epistemic_uncertainty_in_classification",
   "paper_title": "JUCAL: Jointly Calibrating Aleatoric and Epistemic Uncertainty in Classification Tasks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.20153v1"
     }
   ],
-  "generated_at": "2026-02-24T06:49:56.854810"
+  "generated_at": "2026-02-25T06:56:38.368379"
 }

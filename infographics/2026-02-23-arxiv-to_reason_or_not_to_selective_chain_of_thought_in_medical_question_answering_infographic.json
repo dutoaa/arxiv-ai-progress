@@ -1,24 +1,24 @@
 {
-  "key_insight": "Selective Chain-of-Thought (Selective CoT) first predicts whether a medical question needs step-by-step reasoning and only generates a rationale when required, preserving answer accuracy while reducing unnecessary compute and latency.",
-  "problem_solved": "LLMs waste time and compute by producing chain-of-thought explanations for every medical question, even when many questions can be answered directly; this approach avoids unnecessary reasoning without degrading performance.",
+  "key_insight": "Selective Chain-of-Thought (Selective CoT) first predicts whether a medical question needs step-by-step reasoning and generates a rationale only when required, cutting unnecessary reasoning without hurting answer accuracy.",
+  "problem_solved": "Reduces wasted compute, latency, and token cost from generating chain-of-thought for straightforward MedQA items by selectively invoking reasoning only for questions that truly need it.",
   "method": [
-    "Use an inference-time classifier to predict if a question requires chain-of-thought reasoning.",
-    "Conditionally generate a detailed rationale only for questions flagged as needing reasoning; otherwise output a direct answer.",
-    "Evaluate the strategy with open-source LLMs (Llama-3.1-8B, Qwen-2.5-7B) on biomedical QA benchmarks (e.g., HeadQA, MedQA-USMLE, MedMCQA, etc.) to measure accuracy vs. efficiency trade-offs."
+    "Inference-time binary predictor classifies each question as ‘needs reasoning’ vs ‘direct answer’.",
+    "Conditional CoT: generate chain-of-thought rationale only when the predictor signals reasoning is required; otherwise return a concise answer.",
+    "Empirical evaluation on two open LLMs (Llama-3.1-8B, Qwen-2.5-7B) across four biomedical benchmarks (HeadQA, MedQA-USMLE, MedMCQA, …) to measure accuracy vs efficiency trade-offs."
   ],
-  "impact": "Enables more efficient, lower-latency deployment of LLMs in medical QA by cutting needless reasoning steps while maintaining clinical-grade accuracy—important for scalable, cost-sensitive healthcare applications.",
+  "impact": "Enables faster, cheaper, and scalable MedQA deployments by avoiding unnecessary reasoning while preserving diagnostic-quality answers — useful for production LLM pipelines in healthcare and resource-constrained settings.",
   "visual_elements": [
-    "Flowchart showing: Input question → Classifier (Needs reasoning? Yes/No) → {Generate CoT + Answer | Direct Answer}",
-    "Bar chart comparing accuracy, latency, and token/compute usage for Always-CoT vs Selective CoT",
-    "Before/after example QA pair: one requiring CoT (with rationale) and one solved directly, annotated to highlight differences",
-    "Savings infographic (icon + % compute/time saved) to emphasize efficiency gains"
+    "Decision-flow diagram: question → predictor → (yes) generate CoT → answer OR (no) direct answer",
+    "Bar chart comparing inference cost (tokens/latency) and accuracy for Always-CoT vs Selective-CoT",
+    "Latency/throughput timeline showing throughput gains from skipping CoT on easy questions",
+    "Side-by-side sample QA: direct-answer example vs. selective CoT example with rationale"
   ],
   "hashtags": [
     "#SelectiveCoT",
+    "#MedQA",
     "#ChainOfThought",
-    "#MedicalAI",
-    "#LLMs",
-    "#EfficientInference"
+    "#EfficientAI",
+    "#HealthcareAI"
   ],
   "paper_id": "2026-02-23-arxiv-to_reason_or_not_to_selective_chain_of_thought_in_medical_question_answering",
   "paper_title": "To Reason or Not to: Selective Chain-of-Thought in Medical Question Answering",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.20130v1"
     }
   ],
-  "generated_at": "2026-02-24T06:48:38.350037"
+  "generated_at": "2026-02-25T06:55:59.661993"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "tttLRM introduces a Test-Time Training (TTT) layer as a fast-weight memory that compresses many input views into an implicit latent 3D representation, enabling long-context autoregressive reconstruction with linear computational complexity. This latent can be decoded into explicit formats (e.g., Gaussian Splats) for downstream use.",
-  "problem_solved": "Scales 3D reconstruction to long input contexts and many observations without quadratic compute/memory blowup, allowing autoregressive generation from large image sets.",
+  "key_insight": "tttLRM uses a Test‑Time Training (TTT) layer to compress multiple image observations into fast weights, forming an implicit 3D latent representation that supports autoregressive reconstruction with linear computational complexity. This enables long‑context multi‑view 3D reconstruction that can be decoded into explicit formats like Gaussian Splats.",
+  "problem_solved": "Existing multi‑view and autoregressive 3D reconstruction methods struggle to scale to long input sequences because of quadratic compute/memory growth or limited context; tttLRM addresses this by encoding observations into compact fast weights at test time to keep complexity linear while preserving reconstruction fidelity.",
   "method": [
-    "Add a Test-Time Training (TTT) layer whose fast weights are produced from multiple image observations, forming a compressed implicit 3D latent.",
-    "Perform autoregressive decoding in the latent/fast-weight space with linear computational complexity w.r.t. context length.",
-    "Render or convert the implicit latent into explicit representations (e.g., Gaussian Splats) for downstream consumption and evaluation."
+    "Introduce a TTT layer that stores and updates fast weights at test time to compress multiple image observations into a compact implicit 3D latent state.",
+    "Perform autoregressive decoding from the TTT latent state so reconstruction complexity grows linearly with the number of views/steps.",
+    "Decode the implicit latent into explicit downstream formats (e.g., Gaussian Splats) for rendering and application-specific use."
   ],
-  "impact": "Makes large-context, high-capacity 3D reconstruction practical by reducing compute and memory costs, enabling practitioners to process many views and deploy autoregressive 3D models more efficiently and flexibly.",
+  "impact": "Enables scalable, compute‑efficient 3D reconstruction from many images, making large‑context multi‑view pipelines practical for mapping, AR/VR, robotics, and other real‑world applications. Practitioners can handle longer sequences without prohibitive memory or runtime costs.",
   "visual_elements": [
-    "Pipeline diagram: multiple input images → TTT fast-weight encoder → autoregressive latent decoder → explicit outputs (Gaussian Splats).",
-    "Complexity plot comparing linear scaling (tttLRM) vs. quadratic or worse scaling of prior methods as number of views increases.",
-    "Illustration of fast-weight compression: many images summarized into a compact TTT layer (iconography showing compression/memory).",
-    "Before/after or side-by-side reconstruction gallery showing decoded Gaussian Splat outputs and fidelity across varying context lengths."
+    "Architecture diagram: encoder images → TTT layer (fast weights) → autoregressive decoder → explicit outputs (Gaussian Splats).",
+    "Sequence/flowchart showing how multiple views are compressed into fast weights at test time and then decoded autoregressively.",
+    "Complexity plot comparing linear (tttLRM) vs quadratic scaling (baseline) as number of views increases.",
+    "Before/after renders: input image set alongside reconstructed Gaussian Splat outputs to show qualitative gains."
   ],
   "hashtags": [
-    "#tttLRM",
     "#TestTimeTraining",
     "#3DReconstruction",
-    "#AutoregressiveModels",
-    "#EfficientML"
+    "#LongContext",
+    "#AutoregressiveAI",
+    "#FastWeights"
   ],
   "paper_id": "2026-02-23-arxiv-tttlrm_test_time_training_for_long_context_and_autoregressive_3d_reconstruction",
   "paper_title": "tttLRM: Test-Time Training for Long Context and Autoregressive 3D Reconstruction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.20160v1"
     }
   ],
-  "generated_at": "2026-02-24T06:50:29.895440"
+  "generated_at": "2026-02-25T06:55:43.402251"
 }

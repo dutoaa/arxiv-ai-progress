@@ -1,24 +1,24 @@
 {
-  "key_insight": "AdaEvolve introduces an adaptive controller for LLM-driven evolutionary program search that dynamically reallocates inference budget based on non-stationary search dynamics, cutting wasted compute on stagnating populations while focusing effort on promising candidates.",
-  "problem_solved": "Static schedules for using LLMs as semantic mutation operators in inference-time evolutionary search waste compute because they cannot respond to changing search progress or population stagnation.",
+  "key_insight": "AdaEvolve replaces fixed, static schedules in LLM-driven evolutionary program search with an adaptive controller that reallocates inference-time compute based on non-stationary search dynamics, substantially reducing wasted evaluations while preserving or improving search outcomes.",
+  "problem_solved": "Fixed evaluation schedules in LLM-as-mutation evolutionary loops ignore changing population dynamics, causing compute to be wasted on stagnating populations and slowing down program-generation searches.",
   "method": [
-    "Frame LLM-driven program generation as a zeroth-order optimization loop where an LLM proposes mutations and a fitness evaluator ranks candidates.",
-    "Monitor search dynamics (e.g., improvement rate, diversity, stagnation) and use an adaptive controller to reallocate inference budget, mutation intensity, or selection pressure in real time.",
-    "Prioritize promising subpopulations and throttle or suspend effort on stagnating ones to improve sample-efficiency and reduce wasted LLM queries."
+    "Treat LLMs as semantic mutation operators inside an evolutionary (zeroth-order) search loop during inference-time search.",
+    "Continuously monitor search dynamics (e.g., progress, diversity, stagnation) and adapt the allocation of inference/evaluation budget across populations.",
+    "Use an adaptive scheduling policy to prioritize promising subpopulations and throttle or reallocate resources away from stagnating ones."
   ],
-  "impact": "Makes inference-time LLM search far more compute-efficient and practical for automated program synthesis and similar tasks, enabling higher-quality results for the same or lower inference cost.",
+  "impact": "For AI/ML practitioners, AdaEvolve means more cost-efficient program synthesis and optimization using LLMs—reducing unnecessary compute and accelerating search without changing the underlying model. It enables scalable, practical deployment of LLM-driven search in resource-constrained settings.",
   "visual_elements": [
-    "Pipeline diagram: evolutionary loop with LLM mutation, fitness evaluation, selection and an adaptive controller that adjusts budget arrows.",
-    "Before vs after bar/stacked chart: compute spent on promising vs stagnating populations comparing static vs adaptive schedules.",
-    "Timeline/heatmap: search progress over time showing faster improvement and fewer wasted queries under AdaEvolve.",
-    "Icon set: LLM (brain), budget meter (coin/clock), mutation operator (DNA/gear), and fitness gauge (speedometer)"
+    "Flowchart of the evolutionary loop showing LLM as mutation operator and an adaptive scheduler that monitors populations and reallocates compute.",
+    "Before vs. after bar chart comparing compute spent on stagnating vs. promising populations (static schedule vs. AdaEvolve).",
+    "Line plot illustrating non-stationary search dynamics (progress/diversity over time) with adaptive intervention points marked.",
+    "Icon set: LLM model, clock/compute budget, population clusters, and a reallocation arrow to convey adaptive resource shifting."
   ],
   "hashtags": [
-    "#AdaEvolve",
     "#LLM",
-    "#EvolutionaryAI",
-    "#ZerothOrderOptimization",
-    "#AutoProgramSynthesis"
+    "#ZerothOrder",
+    "#EvolutionarySearch",
+    "#AdaptiveAlgorithms",
+    "#ProgramSynthesis"
   ],
   "paper_id": "2026-02-23-arxiv-adaevolve_adaptive_llm_driven_zeroth_order_optimization",
   "paper_title": "AdaEvolve: Adaptive LLM Driven Zeroth-Order Optimization",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.20133v1"
     }
   ],
-  "generated_at": "2026-02-24T06:48:51.631199"
+  "generated_at": "2026-02-25T06:56:23.442729"
 }
