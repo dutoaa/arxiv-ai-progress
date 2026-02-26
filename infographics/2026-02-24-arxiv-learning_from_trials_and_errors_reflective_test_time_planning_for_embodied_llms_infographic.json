@@ -1,24 +1,23 @@
 {
-  "key_insight": "Introduce Reflective Test-Time Planning: an approach that lets embodied LLM agents both deliberate during action selection and learn from each failed trial at test time, turning repeated mistakes into accumulated experience. This two-mode reflection (in-action and on-action) improves decision quality and sample efficiency without expensive offline retraining.",
-  "problem_solved": "Embodied LLMs repeatedly make the same mistakes at deployment because they lack mechanisms to analyze failures and incorporate lessons on the fly.",
+  "key_insight": "Introduce Reflective Test-Time Planning, enabling embodied LLM agents to turn repeated trials into accumulated experience by combining immediate candidate scoring with post-trial reflection to avoid repeating mistakes.",
+  "problem_solved": "Embodied agents often repeat the same failures at deployment because they treat each attempt independently; this work enables agents to diagnose, learn from, and adapt after mistakes without full offline retraining.",
   "method": [
-    "Reflection-in-action: at test time, generate multiple candidate actions via scaled internal rollouts and score them to choose better immediate behavior.",
-    "Reflection-on-action: after each trial, analyze outcomes to identify failure modes, extract corrective heuristics or updated priors, and use them to bias future planning.",
-    "Integrate both modes into a test-time planning loop for embodied LLMs so the agent accumulates experience during deployment without offline retraining."
+    "Reflection-in-action: at test time, scale internal generation to propose multiple candidate actions and score/rank them with an internal critic before execution.",
+    "Reflection-on-action: after attempts, run a post-hoc analysis of failures to extract corrective insights (e.g., failure causes, better examples or prompts) and update planning heuristics or few-shot context for subsequent trials."
   ],
-  "impact": "Makes embodied agents more robust, sample-efficient, and safer in real-world deployment by enabling continuous, online learning from mistakes—useful for robotics, embodied simulation, and interactive AI systems.",
+  "impact": "Makes embodied LLMs more robust and sample-efficient in real-world deployments by converting errors into adaptive knowledge, reducing repeated failures and improving task success over repeated trials.",
   "visual_elements": [
-    "Two-panel flow diagram: left 'Reflection-in-action' (multiple candidate rollouts → scoring → select action), right 'Reflection-on-action' (post-trial analysis → update priors/memory → next trial).",
-    "Before vs. After bar chart: success rate or error repetition frequency dropping after applying reflective planning.",
-    "Trajectory visualization: example robot attempt with candidate action overlays and final chosen path highlighted.",
-    "Icon set: robot + brain (LLM), checklist with X→check (failure→learning), clock/loop to indicate test-time iterative process."
+    "Loop diagram: trial → execute candidate actions → reflect (in-action) → execute chosen action → reflect (on-action) → update planner",
+    "Before/after bar chart showing reduced failure repetition and improved success rate across trials",
+    "Timeline/accumulation graphic showing knowledge or prompt/context updates across successive trials",
+    "Icons: robot arm, LLM/brain, checklist/critic scorecard to represent generation, scoring, and reflection"
   ],
   "hashtags": [
     "#EmbodiedAI",
+    "#LLM",
     "#Robotics",
-    "#LLMs",
-    "#TestTimePlanning",
-    "#LearningFromFailure"
+    "#TestTimeAdaptation",
+    "#ReflectiveAI"
   ],
   "paper_id": "2026-02-24-arxiv-learning_from_trials_and_errors_reflective_test_time_planning_for_embodied_llms",
   "paper_title": "Learning from Trials and Errors: Reflective Test-Time Planning for Embodied LLMs",
@@ -31,5 +30,5 @@
       "url": "https://arxiv.org/pdf/2602.21198v1"
     }
   ],
-  "generated_at": "2026-02-25T06:52:19.534403"
+  "generated_at": "2026-02-26T06:51:14.222214"
 }

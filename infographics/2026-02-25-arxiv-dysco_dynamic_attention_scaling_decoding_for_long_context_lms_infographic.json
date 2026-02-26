@@ -1,0 +1,35 @@
+{
+  "key_insight": "DySCO is a decoding algorithm that dynamically scales attention during autoregressive generation by leveraging specialized 'retrieval heads', keeping the model focused on the most relevant parts of very long contexts and improving reasoning accuracy as context length grows.",
+  "problem_solved": "Autoregressive LMs lose alignment with relevant long-context information during decoding, causing accuracy to deteriorate as input length increases. DySCO addresses this by adaptively amplifying or suppressing attention to maintain relevance throughout generation.",
+  "method": [
+    "Identify and use a subset of attention heads (retrieval heads) that are specialized for retrieving long-range context signals.",
+    "Dynamically scale attention weights from those heads during each decoding step to emphasize relevant context spans and de-emphasize distractors.",
+    "Apply the procedure as a lightweight decoding-layer intervention compatible with existing long-context LMs (no full model retraining required)."
+  ],
+  "impact": "DySCO offers a practical, model-agnostic way to improve reasoning and QA accuracy over very long inputs, enabling more reliable use of long-context LMs in document-level tasks, multi-document QA, and retrieval-augmented generation.",
+  "visual_elements": [
+    "Architecture diagram showing retrieval heads within the attention mechanism and where DySCO applies dynamic scaling during decoding.",
+    "Before/After attention heatmaps illustrating attention drift vs. focused attention maintained by DySCO across decoding steps.",
+    "Line chart comparing task accuracy (or F1) vs. input length for baseline decoding and DySCO to show robustness at long contexts.",
+    "Sequence timeline visualization showing a decoding step where DySCO boosts relevant context tokens and suppresses irrelevant ones."
+  ],
+  "hashtags": [
+    "#LongContext",
+    "#Attention",
+    "#Decoding",
+    "#RetrievalAugmented",
+    "#NLP"
+  ],
+  "paper_id": "2026-02-25-arxiv-dysco_dynamic_attention_scaling_decoding_for_long_context_lms",
+  "paper_title": "DySCO: Dynamic Attention-Scaling Decoding for Long-Context LMs",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-02-25",
+  "paper_authors": "Xi Ye, Wuwei Zhang, Fangcong Yin, Howard Yen, Danqi Chen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.22175v1"
+    }
+  ],
+  "generated_at": "2026-02-26T06:47:58.220571"
+}

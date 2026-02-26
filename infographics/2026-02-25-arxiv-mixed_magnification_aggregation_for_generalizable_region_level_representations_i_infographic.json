@@ -1,0 +1,35 @@
+{
+  "key_insight": "Aggregating tile features sampled at multiple microscopy magnifications produces region-level representations that generalize better than models trained only on 20× tiles, capturing both fine cellular detail and larger tissue context in a single embedding.",
+  "problem_solved": "Most computational pathology foundation models are trained exclusively on 20× tiles and therefore miss histologic features that are only visible at other scales, reducing robustness and cross-dataset generalization for region-level tasks.",
+  "method": [
+    "Sample corresponding tiles from multiple magnifications (e.g., 5×, 10×, 20×) for each region and extract features with a foundation encoder.",
+    "Fuse multi-scale features with a learnable aggregation module (attention-weighted pooling or scale-aware projector) to produce a single region-level representation.",
+    "Train the aggregation end-to-end (or with contrastive/self-supervised objectives) to encourage scale-robust, generalizable embeddings across tissue types and datasets."
+  ],
+  "impact": "Provides AI/ML practitioners a straightforward way to leverage multi-scale information using existing foundation encoders, improving downstream task performance and cross-dataset robustness in digital pathology without needing entirely new backbone models.",
+  "visual_elements": [
+    "Multi-scale tile schematic: same region sampled at 5×, 10×, 20× to show complementary information across scales.",
+    "Model pipeline diagram: encoders → per-scale features → aggregation module → region embedding.",
+    "Performance chart: bar/line plot comparing single-magnification vs mixed-magnification models across tasks/datasets.",
+    "Embedding visualization (UMAP/t-SNE): mixed-magnification representations show tighter, more separable clusters than 20×-only."
+  ],
+  "hashtags": [
+    "#ComputationalPathology",
+    "#MultiScale",
+    "#RepresentationLearning",
+    "#DigitalPathology",
+    "#FoundationModels"
+  ],
+  "paper_id": "2026-02-25-arxiv-mixed_magnification_aggregation_for_generalizable_region_level_representations_i",
+  "paper_title": "Mixed Magnification Aggregation for Generalizable Region-Level Representations in Computational Pathology",
+  "paper_category": "Model",
+  "paper_date": "2026-02-25",
+  "paper_authors": "Eric Zimmermann, Julian Viret, Michal Zelechowski, James Brian Hall, Neil Tenenholtz",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.22176v1"
+    }
+  ],
+  "generated_at": "2026-02-26T06:48:11.725786"
+}

@@ -1,24 +1,24 @@
 {
-  "key_insight": "A targeted pipeline that directly segments regions of interest (ROIs) for membranes in cryo-ET volumes and extracts morphological descriptors, enabling focused quantitative analysis without requiring full-structure segmentation.",
-  "problem_solved": "Current cryo-ET workflows derive ROIs indirectly via complete structure segmentation, which is time-consuming, error-prone in noisy tomograms, and limits precise morphological quantification of membranes.",
+  "key_insight": "A focused pipeline that segments regions of interest (membrane patches) directly from cryo‑ET volumes and computes membrane‑centric morphological descriptors, enabling quantitative analysis without first producing full‑structure segmentations.",
+  "problem_solved": "ROIs in cryo‑ET are usually obtained indirectly by segmenting entire volumes then post‑filtering, which is inefficient, error‑prone and hampers accurate morphological measurements of membranes in noisy, 3D tomograms.",
   "method": [
-    "Direct ROI segmentation from tomograms using a learning-based model tailored to membrane appearance and contextual cues.",
-    "Automated morphological analysis computing per-ROI metrics (e.g., curvature, thickness, connectivity/topology) for quantitative characterization.",
-    "Integrated preprocessing and visualization steps (denoising/normalization, ROI filtering, 3D rendering) to support interpretation and downstream analysis."
+    "ROI‑focused 3D segmentation model (e.g., 3D U‑Net / volumetric CNN) trained with expert and/or synthetic annotations to detect membrane patches directly in tomograms.",
+    "Geometric post‑processing pipeline (mesh reconstruction, skeletonization) that extracts membrane morphology metrics: curvature, thickness, orientation and topology; plus ROI filtering and confidence scoring.",
+    "Validation on cryo‑ET datasets comparing direct ROI outputs vs full‑segmentation workflows, showing improved precision, faster downstream analysis and measurement‑ready outputs."
   ],
-  "impact": "Enables AI/ML practitioners to train and evaluate models on compact, biologically meaningful labels (ROIs) and to incorporate rich morphological features into downstream tasks (classification, phenotyping, generative modelling), improving efficiency and interpretability in cryo-ET analysis.",
+  "impact": "Enables ML practitioners to build leaner, task‑specific segmentation models that produce analysis‑ready ROIs and reliable morphological measurements, reducing compute and annotation overhead while improving biological interpretability.",
   "visual_elements": [
-    "Pipeline diagram: tomogram → ROI segmentation → morphology extraction → visualization/metrics",
-    "Before/after tomogram slice with overlayed ROI masks to show targeted segmentation vs full segmentation",
-    "3D membrane rendering colored by morphological metrics (curvature, thickness) for intuitive spatial interpretation",
-    "Summary charts (box/violin plots or heatmaps) comparing key morphological descriptors across conditions or ROIs"
+    "Pipeline flowchart: raw tomogram → ROI segmentation → mesh/reconstruction → morphological metrics",
+    "Side‑by‑side image panels: raw slice, ROI mask overlay, morphology heatmap (curvature/thickness)",
+    "Schematic membrane cross‑section showing measured descriptors (thickness, curvature, orientation)",
+    "Summary plot (box/violin) comparing metric distributions and precision/recall between direct ROI and full‑segmentation approaches"
   ],
   "hashtags": [
     "#CryoET",
     "#MembraneSegmentation",
-    "#ROI",
-    "#BioImageAnalysis",
-    "#DeepLearning"
+    "#3DDeepLearning",
+    "#ROIAnalysis",
+    "#ComputationalBiology"
   ],
   "paper_id": "2026-02-24-arxiv-region_of_interest_segmentation_and_morphological_analysis_for_membranes_in_cryo",
   "paper_title": "Region of Interest Segmentation and Morphological Analysis for Membranes in Cryo-Electron Tomography",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.21195v1"
     }
   ],
-  "generated_at": "2026-02-25T06:52:08.614128"
+  "generated_at": "2026-02-26T06:52:28.939137"
 }
