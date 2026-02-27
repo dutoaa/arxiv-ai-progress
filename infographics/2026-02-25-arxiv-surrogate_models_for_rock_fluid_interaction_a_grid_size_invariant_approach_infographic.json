@@ -1,24 +1,24 @@
 {
-  "key_insight": "A grid-size-invariant surrogate model predicts rock–fluid interaction and interface reactions accurately across different discretizations, delivering high-fidelity outputs at a fraction of the computational cost.",
-  "problem_solved": "High-resolution PDE-based rock–fluid interaction models are computationally expensive and impractical for multi-query tasks (uncertainty quantification, optimization, real-time workflows) because results depend strongly on grid resolution.",
+  "key_insight": "A grid-size-invariant surrogate model accurately predicts rock–fluid interaction (interface fluxes and reactions) across resolutions, delivering high-fidelity results at a fraction of the computational cost.",
+  "problem_solved": "Removes the need for extremely fine numerical grids to capture rock–fluid PDE behaviour, enabling fast multi-query tasks (uncertainty quantification, optimisation) that are infeasible with conventional high-fidelity solvers.",
   "method": [
-    "Train a resolution-agnostic surrogate on multi-resolution simulation data so the learned mapping generalizes across grid sizes.",
-    "Incorporate interface-aware/physics-consistent representations or losses to preserve reaction and flow behavior at rock–fluid boundaries.",
-    "Validate the surrogate across coarse and fine grids and quantify speed/accuracy trade-offs for multi-query applications."
+    "Train a surrogate that maps rock/fluid states to interface fluxes/reaction outcomes while explicitly enforcing invariance across grid resolutions.",
+    "Use multi-resolution training and scale-aware consistency losses (or an upscaling/downscaling operator) so outputs remain accurate when inputs are coarsened or refined.",
+    "Validate surrogate predictions against a high-fidelity PDE solver and measure trade-offs between accuracy and runtime to demonstrate speedups."
   ],
-  "impact": "Enables AI/ML practitioners to plug accurate, fast surrogates into UQ, optimization, and real-time decision pipelines without re-running expensive high-resolution PDE solvers. Reduces compute and accelerates exploration of parameter spaces while maintaining interface fidelity.",
+  "impact": "Enables AI/ML practitioners to replace expensive PDE solves with a reliable, resolution-robust surrogate for large-scale sensitivity analyses, optimisation, and real-time decision-making in subsurface applications.",
   "visual_elements": [
-    "Comparison chart: computation time vs accuracy for high-fidelity solver vs grid-invariant surrogate (log-scale speedup annotation).",
-    "Schematic showing predictions on coarse and fine grids mapped to the same interface output (illustrates grid-size invariance).",
-    "Workflow diagram: multi-resolution simulation data -> interface-aware training -> surrogate -> many fast queries (UQ/optimization).",
-    "Heatmap/contour examples of concentration/pressure at rock–fluid interface: high-fidelity reference vs surrogate prediction (difference/error map)."
+    "Schematic domain showing rock–fluid interface with arrows for fluxes and a caption 'PDE boundary interactions'.",
+    "Side-by-side comparison: high-fidelity vs surrogate prediction maps at multiple grid sizes (error heatmap).",
+    "Runtime vs accuracy plot showing large speedups for similar error across grid sizes.",
+    "Flow diagram of training: multi-resolution data → scale-consistent surrogate → validation against PDE solver."
   ],
   "hashtags": [
     "#SurrogateModel",
-    "#RockFluidInteraction",
-    "#PhysicsInformedML",
     "#MultiscaleModeling",
-    "#ComputationalGeoscience"
+    "#PhysicsInformedML",
+    "#ComputationalGeoscience",
+    "#GridInvariant"
   ],
   "paper_id": "2026-02-25-arxiv-surrogate_models_for_rock_fluid_interaction_a_grid_size_invariant_approach",
   "paper_title": "Surrogate models for Rock-Fluid Interaction: A Grid-Size-Invariant Approach",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.22188v1"
     }
   ],
-  "generated_at": "2026-02-26T06:48:26.804485"
+  "generated_at": "2026-02-27T06:43:41.680673"
 }

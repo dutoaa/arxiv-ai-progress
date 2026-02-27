@@ -1,24 +1,24 @@
 {
-  "key_insight": "Mac-Diff is a conditional diffusion model that uses locality-aware cross-modal attention to generate diverse, realistic conformational ensembles for unseen proteins, capturing both local flexibility and global structural heterogeneity.",
-  "problem_solved": "Existing generative methods typically produce a single static structure or fail to capture the range of realistic protein conformations; this work addresses the need to model protein structural ensembles and dynamic variability from limited inputs.",
+  "key_insight": "Mac-Diff combines conditional diffusion with a locality-aware cross-modal attention mechanism to generate diverse conformational ensembles for unseen proteins, capturing both dynamic flexibility and structural heterogeneity in a single generative framework.",
+  "problem_solved": "Existing structure prediction approaches often produce single static models and fail to represent the range of biologically relevant conformations; Mac-Diff addresses the challenge of generating diverse, realistic conformational ensembles conditioned on input modalities for proteins not seen during training.",
   "method": [
-    "Conditional diffusion generative model that samples full conformational ensembles given protein inputs (sequence and/or backbone anchors).",
-    "Locality-aware cross-modal attention mechanism that aligns and prioritizes nearby residue interactions across modalities to preserve local geometry while enabling global diversity.",
-    "Training objective and sampling strategy designed to encourage multimodality and capture structural heterogeneity for unseen proteins."
+    "Conditional diffusion generative model that stochastically samples protein conformations conditioned on input modalities (e.g., sequence and structural cues).",
+    "Locality-aware cross-modal attention aligns information across modalities while emphasizing neighborhood (local) interactions to preserve realistic local geometry during generation.",
+    "Training on known structures/ensembles and using the diffusion reverse process to produce diverse, physically plausible conformers for unseen proteins."
   ],
-  "impact": "Provides a practical generative framework for modeling protein dynamics and uncertainty, useful for ML practitioners working on structure prediction, ensemble-based design, and downstream tasks that require diverse plausible conformations.",
+  "impact": "Introduces transferable modeling components (conditional diffusion + locality-aware cross-modal attention) that advance generative modeling of biomolecular ensembles and can be applied to other conditional diversity-sensitive tasks in AI/ML, improving downstream design and simulation workflows.",
   "visual_elements": [
-    "Architecture diagram of Mac-Diff showing conditional diffusion pipeline and locality-aware cross-modal attention blocks.",
-    "Side-by-side comparison: single predicted structure vs. generated conformational ensemble (multiple overlayed structures).",
-    "Projection (e.g., t-SNE/PCA) of sampled conformations illustrating increased coverage/diversity in conformational space.",
-    "Attention heatmap highlighting locality-aware alignment between modalities (residues/positions)."
+    "Pipeline schematic: conditional diffusion forward/reverse process with input modalities (sequence, structural cues) and ensemble outputs.",
+    "Diagram of locality-aware cross-modal attention showing alignment between modalities and focus on local neighborhoods.",
+    "Protein ensemble overlay: multiple generated conformers superimposed on a reference to illustrate structural diversity and flexibility.",
+    "Bar/line chart comparing ensemble diversity and fidelity metrics vs baseline methods (e.g., RMSD distribution, coverage of known states)."
   ],
   "hashtags": [
-    "#MacDiff",
+    "#ProteinDesign",
     "#DiffusionModels",
-    "#ProteinEnsembles",
     "#StructuralBiology",
-    "#GenerativeAI"
+    "#GenerativeAI",
+    "#AIforScience"
   ],
   "paper_id": "2026-02-25-nature-conditional_diffusion_with_locality_aware_modal_alignment_for_generating_diverse",
   "paper_title": "Conditional diffusion with locality-aware modal alignment for generating diverse protein conformational ensembles",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01198-9"
     }
   ],
-  "generated_at": "2026-02-26T06:51:04.985471"
+  "generated_at": "2026-02-27T06:43:31.179284"
 }

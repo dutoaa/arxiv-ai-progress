@@ -1,23 +1,23 @@
 {
-  "key_insight": "KNIGHT combines topic-specific knowledge graphs with LLM-based generation to produce multiple-choice question datasets with controllable difficulty, enabling fast, grounded assessment data creation.",
-  "problem_solved": "Reduces the time, cost, and effort of building specialized MCQ evaluation datasets for LLMs and RAG systems, while addressing difficulty control and factual grounding from external sources.",
+  "key_insight": "KNIGHT combines topic-specific knowledge graphs with LLM generation and an adaptive hardness calibration to produce controllable, high-quality multiple-choice questions at scale for evaluating RAG and other LLM systems.",
+  "problem_solved": "Building specialized MCQ assessment datasets for evaluating LLMs and RAG systems is time-consuming and costly. KNIGHT automates dataset creation while providing fine-grained control over question difficulty and provenance.",
   "method": [
-    "Construct a parsimonious, topic-specific knowledge graph from external sources to capture entities and relations as a structured summary.",
-    "Use LLMs to generate MCQ components (stems, correct answers, distractors) grounded in the knowledge graph to ensure factual consistency.",
-    "Apply adaptive hardness calibration to tune distractor quality and question difficulty, producing datasets with controllable difficulty distributions."
+    "Construct a topic-specific knowledge graph from external sources to create a structured, concise representation of entities and relations.",
+    "Use the KG as structured context to prompt an LLM to generate question stems, a correct answer, and plausible distractors with provenance links.",
+    "Apply adaptive hardness calibration—score difficulty, select/adjust distractors, and iteratively refine questions—to produce a targeted distribution of easy/medium/hard MCQs."
   ],
-  "impact": "Allows AI/ML practitioners to rapidly create grounded, difficulty-calibrated MCQ benchmarks for model evaluation and RAG testing, lowering evaluation bottlenecks and improving reproducibility.",
+  "impact": "Enables scalable, cost-effective generation of MCQ benchmarks with controllable difficulty and traceable provenance, improving the robustness and speed of LLM/RAG evaluation and dataset creation workflows.",
   "visual_elements": [
-    "Pipeline diagram: data sources → knowledge graph construction → LLM-driven MCQ generation → hardness calibration → dataset output",
-    "Example knowledge graph snippet showing entities and relations used to generate a sample MCQ",
-    "Difficulty calibration chart showing distributions of easy/medium/hard questions before and after adaptive tuning",
-    "Sample MCQ card (stem, correct answer, distractors) annotated with graph provenance"
+    "Pipeline flowchart: Sources → Knowledge Graph construction → LLM-based MCQ generation → Adaptive hardness calibration → MCQ dataset",
+    "Sample MCQ card showing stem, options, correct answer, difficulty label, and provenance link",
+    "Knowledge graph node-edge visualization highlighting topic entities and relations used to seed questions",
+    "Difficulty calibration visualization (slider or distribution histogram) showing how question hardness is tuned and aggregated"
   ],
   "hashtags": [
     "#KNIGHT",
-    "#MCQGeneration",
+    "#QuestionGeneration",
     "#KnowledgeGraph",
-    "#LLMs",
+    "#LLM",
     "#RAG"
   ],
   "paper_id": "2026-02-23-arxiv-knight_knowledge_graph_driven_multiple_choice_question_generation_with_adaptive",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.20135v1"
     }
   ],
-  "generated_at": "2026-02-25T06:57:03.837426"
+  "generated_at": "2026-02-27T06:44:19.465372"
 }
