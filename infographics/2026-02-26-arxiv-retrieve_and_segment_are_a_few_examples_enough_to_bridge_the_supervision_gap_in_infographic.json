@@ -1,24 +1,24 @@
 {
-  "key_insight": "A small number of retrieved visual examples used to augment text prompts can substantially close the gap between open‑vocabulary segmentation and fully supervised methods, by reducing semantic ambiguity and providing pixel‑level cues missing from image‑level VLM supervision.",
-  "problem_solved": "Open‑vocabulary segmentation suffers from coarse image‑level supervision and ambiguous natural language prompts; the paper asks whether adding a few visual examples (few‑shot) can bridge that supervision gap and improve pixel‑level predictions for arbitrary text‑specified categories.",
+  "key_insight": "A small number of labeled exemplars, retrieved and used alongside textual prompts, can substantially close the gap between zero-shot vision-language segmentation and fully supervised segmentation by providing visual grounding for ambiguous text cues.",
+  "problem_solved": "Open-vocabulary segmentation suffers from coarse image-level VLM supervision and semantic ambiguity in text prompts; this work tackles whether a few concrete visual examples are enough to bridge that supervision gap for pixel-level predictions.",
   "method": [
-    "Retrieve a few class‑relevant visual exemplars via VLM embeddings to enrich each textual prompt with concrete visual context.",
-    "Use exemplar‑conditioned segmentation (integrating exemplar visuals with VLM pixel features) to produce refined masks for open‑vocabulary categories.",
-    "Systematically evaluate few‑shot trade‑offs and perform ablations to quantify how many examples are needed and where gains plateau."
+    "Retrieve a few visually relevant exemplars (images or region crops) for each text query from an external bank using vision-language embeddings.",
+    "Augment textual prompts with the retrieved exemplars (or their masks) and use them to guide a segmentation model — via similarity-based pixel classification or lightweight adaptors — so predictions are grounded in concrete visual instances.",
+    "Refine or post-process segmentations to reconcile exemplar-specific cues with open-vocabulary categories, improving pixel-level alignment without full dense supervision."
   ],
-  "impact": "Makes open‑vocabulary segmentation far more practical by reducing the need for dense annotations and enabling fast domain adaptation with only a handful of examples — lowering cost and accelerating deployment for real‑world tasks.",
+  "impact": "Enables practitioners to achieve near-supervised segmentation performance with only a handful of labeled examples, reducing annotation cost and making open-vocabulary segmentation more practical for real-world, long-tail categories.",
   "visual_elements": [
-    "Pipeline diagram: retrieve exemplars → augment prompt → exemplar‑conditioned segmentation (show data flow between text, exemplars, image features).",
-    "Before/after mask visual: same image segmented with vanilla VLM prompt vs. with retrieved exemplars to show qualitative improvement.",
-    "Bar/line chart: performance (mIoU) vs. number of retrieved examples to illustrate diminishing returns and the few‑shot sweet spot.",
-    "A compact table or icons summarizing benefits: fewer labels, faster adaptation, better precision/recall."
+    "Pipeline diagram: text prompt → retrieve exemplars → exemplar-augmented prompt → segmentation output",
+    "Before/after image pairs showing zero-shot vs few-shot segmentation masks for ambiguous categories",
+    "Bar chart comparing performance (zero-shot, few-shot, fully supervised) highlighting the gap closure",
+    "Illustration of the retrieval bank and attention from exemplars to image regions (iconic thumbnails and bounding masks)"
   ],
   "hashtags": [
-    "#OpenVocabulary",
+    "#OpenVocabularySegmentation",
     "#FewShotLearning",
-    "#Segmentation",
     "#VisionLanguage",
-    "#DataEfficientML"
+    "#Segmentation",
+    "#WeakSupervision"
   ],
   "paper_id": "2026-02-26-arxiv-retrieve_and_segment_are_a_few_examples_enough_to_bridge_the_supervision_gap_in",
   "paper_title": "Retrieve and Segment: Are a Few Examples Enough to Bridge the Supervision Gap in Open-Vocabulary Segmentation?",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23339v1"
     }
   ],
-  "generated_at": "2026-02-27T06:40:51.356888"
+  "generated_at": "2026-02-28T06:26:38.249966"
 }

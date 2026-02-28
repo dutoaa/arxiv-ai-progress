@@ -1,24 +1,24 @@
 {
-  "key_insight": "You can align frozen vision and language models with high-quality cross-modal correspondences using optimal transport and only a small fraction of paired data by leveraging unpaired data in a semi‑supervised framework.",
-  "problem_solved": "Reduces the reliance on millions of paired image–text examples for aligning unimodal pretrained models, enabling efficient cross-modal alignment with far less supervision.",
+  "key_insight": "SOTAlign frames cross-modal alignment as an optimal transport problem and uses semi-supervised OT-based matching to align frozen vision and language models, achieving strong alignment with far fewer paired examples than contrastive methods.",
+  "problem_solved": "Reduces dependence on millions of labeled image–text pairs and heavy contrastive training to align pretrained unimodal vision and language models, enabling effective alignment with limited supervision and frozen backbones.",
   "method": [
-    "Compute distributional correspondences between vision and language embedding clouds using optimal transport to obtain soft matchings (transport plans) between modalities.",
-    "Train lightweight alignment layers on top of frozen unimodal encoders in a semi‑supervised setup: supervise alignment with a small set of paired examples and regularize with OT-based distribution alignment using abundant unpaired samples.",
-    "Iteratively refine alignment by combining local supervised losses (paired points) and global OT objectives to produce coherent, low-cost cross-modal mappings."
+    "Formulate alignment as an optimal transport (OT) problem between sets of vision and language embeddings and compute a transport coupling (e.g., Sinkhorn) to match modalities.",
+    "Train lightweight alignment/mapping layers semi-supervisedly: a small number of labeled pairs supervise the OT coupling while large unlabeled sets inform global matching and consistency.",
+    "Keep pretrained unimodal encoders frozen to preserve representations and minimize training cost; only optimize small alignment modules for downstream cross-modal tasks."
   ],
-  "impact": "Makes multimodal alignment practical when paired data is scarce, lowering annotation costs and enabling fast adaptation of pretrained encoders for downstream cross-modal retrieval, transfer, or multi‑modal reasoning tasks.",
+  "impact": "Allows practitioners to build aligned multimodal systems with much lower annotation and compute cost, improving sample efficiency for cross-modal retrieval, zero-shot transfer, and modular model reuse.",
   "visual_elements": [
-    "Side-by-side latent-space diagram showing vision and language embedding clouds with OT transport lines (thicker lines = stronger matches).",
-    "Semi-supervised data schematic: few solid paired links between modalities plus many unpaired points contributing to a global OT alignment.",
-    "Before/after performance bar or line chart illustrating improved alignment quality or retrieval accuracy as paired data decreases.",
-    "Icon set: lightweight adapter layer, Earth Mover's Distance/OT symbol, and a data-efficiency badge (e.g., small dataset icon)."
+    "Diagram of two embedding clouds (vision vs language) with an OT coupling matrix (flows) showing matched mass between clusters",
+    "Schematic of frozen vision and language encoders with lightweight alignment layers in-between",
+    "Line chart comparing performance vs number of paired examples: SOTAlign vs contrastive baselines (showing steep sample-efficiency gains)",
+    "t-SNE/UMAP before-and-after alignment illustrating cluster overlap improvement"
   ],
   "hashtags": [
     "#OptimalTransport",
-    "#VisionLanguage",
     "#SemiSupervised",
-    "#RepresentationLearning",
-    "#DataEfficientAI"
+    "#VisionLanguage",
+    "#RepresentationAlignment",
+    "#FewShotLearning"
   ],
   "paper_id": "2026-02-26-arxiv-sotalign_semi_supervised_alignment_of_unimodal_vision_and_language_models_via_op",
   "paper_title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23353v1"
     }
   ],
-  "generated_at": "2026-02-27T06:41:40.872597"
+  "generated_at": "2026-02-28T06:27:20.506744"
 }

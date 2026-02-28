@@ -1,24 +1,24 @@
 {
-  "key_insight": "Anchoring—regularizing independently trained predictors toward a common reference—controls and can drive down expected squared disagreement between models while preserving standard training workflows.",
-  "problem_solved": "Reduces unpredictable model-to-model variation (disagreement) that arises when the same learning procedure is run on independent samples, improving consistency and trustworthiness of real-valued predictions.",
+  "key_insight": "Anchoring — adding a simple penalty that pulls independently trained predictors toward a common reference — can provably and practically reduce model disagreement (expected squared prediction difference) while controlling the usual training parameters like regularization and sample size.",
+  "problem_solved": "Reduces unpredictable divergence between independently trained models (model disagreement), which undermines reliability, reproducibility, and downstream decision-making when models are trained without coordination.",
   "method": [
-    "Introduce an anchoring objective: add a penalty that pulls model parameters or predictions toward a shared anchor (e.g., an initial estimator or ensemble mean) during training.",
-    "Provide theoretical analysis linking anchor strength and data/sample properties to upper bounds on expected squared disagreement between independently trained models.",
-    "Empirically evaluate the trade-off between accuracy and agreement across datasets and show how tuning the anchoring parameter can reduce disagreement with minimal loss in predictive performance."
+    "Formalize model disagreement as the expected squared difference in real-valued predictions between two models trained on independent data.",
+    "Introduce an anchoring mechanism: add a proximal/regularization term that ties each model to a common anchor (e.g., a reference predictor, public model, or averaged initialization) during training.",
+    "Provide theoretical bounds and empirical evaluation showing disagreement falls as anchor strength (and/or sample size/regularization) increases, with explicit trade-offs against predictive accuracy."
   ],
-  "impact": "Gives practitioners a simple, tunable mechanism to make models more consistent across retrainings or deployments, aiding reproducibility, fairness checks, and downstream system stability.",
+  "impact": "Gives practitioners a simple, tunable tool to make independent training runs more consistent without heavy coordination — improving reproducibility, safer model updates, and more stable ensemble or multi-stakeholder deployment.",
   "visual_elements": [
-    "Schematic: two pipelines showing independent training vs. anchored training (arrow from anchor to both models).",
-    "Plot: disagreement (expected squared difference) on y-axis vs. anchoring strength on x-axis, with accuracy as a secondary curve.",
-    "Diagram: theoretical bound cartoon—anchor strength + sample size => disagreement upper bound.",
-    "Icon grid: use-cases (reproducibility, ensemble reduction, auditing, stable deployments) with short captions."
+    "Side-by-side schematic: two independently trained models with large prediction gaps vs. two anchored models with aligned predictions.",
+    "Line chart: disagreement (y) vs. anchor strength or sample size (x) showing monotonic decrease and a small accuracy trade-off curve.",
+    "Block diagram: training loop showing original loss + anchoring/proximal term highlighting the anchor source (public model, average, or prior).",
+    "Icon set: reliability (shield), reproducibility (repeat arrows), and trade-off (scale) to summarize benefits and costs."
   ],
   "hashtags": [
     "#ModelAgreement",
     "#Anchoring",
-    "#MLRobustness",
+    "#RobustML",
     "#Reproducibility",
-    "#AIResearch"
+    "#AIStability"
   ],
   "paper_id": "2026-02-26-arxiv-model_agreement_via_anchoring",
   "paper_title": "Model Agreement via Anchoring",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23360v1"
     }
   ],
-  "generated_at": "2026-02-27T06:42:01.924218"
+  "generated_at": "2026-02-28T06:27:44.446160"
 }

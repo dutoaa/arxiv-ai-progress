@@ -1,24 +1,24 @@
 {
-  "key_insight": "Incorporating a mask prior into denoising diffusion models enables more accurate and controllable inverse protein folding — the model better recovers masked residues and respects partial constraints when designing sequences for a target backbone.",
-  "problem_solved": "Addresses inverse protein folding: predicting amino-acid sequences that fold to a given backbone while handling partial information and design constraints. Improves sequence recovery, constraint adherence and conditional design diversity compared to unconstrained generative approaches.",
+  "key_insight": "Author Correction: The corrected study demonstrates that incorporating mask-based priors into denoising-diffusion sequence generators guides sampling to better respect target backbone constraints, improving the quality and controllability of inverse protein folding.",
+  "problem_solved": "Generative models for inverse protein folding must search a huge sequence space while satisfying site-specific and structural constraints; this work addresses the difficulty of enforcing local constraints and structural fidelity during sequence generation.",
   "method": [
-    "Denoising diffusion generative model conditioned on target 3D backbone geometry.",
-    "Mask prior encodes which residues or regions are fixed/unknown and guides diffusion sampling to enforce constraints during reconstruction.",
-    "Training and sampling procedures integrate mask-conditioning to improve recovery of masked positions and enable controlled sequence design under partial specifications."
+    "Train a denoising diffusion probabilistic model to generate amino-acid sequences conditioned on a target protein backbone.",
+    "Introduce mask priors (position-specific constraints such as fixed residues or allowed residue classes) that influence the reverse denoising trajectory to steer generation toward constraint-compliant sequences.",
+    "Adapt sampling/conditioning mechanisms so the model balances structural compatibility, diversity, and user-specified constraints during sequence design."
   ],
-  "impact": "Provides practitioners a practical, controllable generative strategy for sequence design that better respects structural constraints — useful for protein engineering, therapeutic design and downstream ML pipelines that require conditionally generated sequences.",
+  "impact": "Provides a practical, controllable generative framework for protein design that improves sequence–structure agreement and enables targeted edits; valuable for protein engineers, computational biologists, and ML researchers working on generative models for structured outputs.",
   "visual_elements": [
-    "Pipeline diagram: input backbone + mask → mask-prior-guided diffusion model → sampled sequences (annotated flow arrows showing conditioning).",
-    "Before/after comparison chart: sequence recovery accuracy and constraint satisfaction for baseline vs mask-prior diffusion.",
-    "Schematic illustrating the mask prior influencing diffusion steps (mask overlays on structure with guided sampling arrows).",
-    "Structural overlay or sequence logo showing native vs predicted sequences highlighting recovered masked regions."
+    "Pipeline diagram: noisy sequence → mask-prior conditioning at each denoising step → final designed sequence mapped onto target backbone",
+    "Side-by-side comparison (without vs with mask prior) showing sequence recovery, contact maps, or structural overlays to highlight improved fidelity",
+    "Schematic showing types of mask priors (fixed residues, permissive sets, positional constraints) and where they integrate into the model",
+    "Icon set: protein backbone, noise/sampling process, mask/constraint symbol, and a validation/checkmark for structural agreement"
   ],
   "hashtags": [
     "#ProteinDesign",
     "#DenoisingDiffusion",
     "#InverseFolding",
-    "#ProteinEngineering",
-    "#GenerativeModels"
+    "#StructuralBiology",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-02-24-nature-author_correction_mask_prior_guided_denoising_diffusion_improves_inverse_protein",
   "paper_title": "Author Correction: Mask-prior-guided denoising diffusion improves inverse protein folding",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01209-9"
     }
   ],
-  "generated_at": "2026-02-27T06:43:21.154723"
+  "generated_at": "2026-02-28T06:29:13.014307"
 }
