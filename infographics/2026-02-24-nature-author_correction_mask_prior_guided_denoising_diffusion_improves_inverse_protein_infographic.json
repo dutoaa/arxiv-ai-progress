@@ -1,23 +1,23 @@
 {
-  "key_insight": "Author Correction: The corrected study demonstrates that incorporating mask-based priors into denoising-diffusion sequence generators guides sampling to better respect target backbone constraints, improving the quality and controllability of inverse protein folding.",
-  "problem_solved": "Generative models for inverse protein folding must search a huge sequence space while satisfying site-specific and structural constraints; this work addresses the difficulty of enforcing local constraints and structural fidelity during sequence generation.",
+  "key_insight": "A mask-prior-guided denoising diffusion model for inverse protein folding uses structured masks of known/important residues to steer generative sampling, yielding more accurate and function-preserving sequence designs for a given backbone.",
+  "problem_solved": "Designing amino-acid sequences that fold to a target backbone (inverse protein folding) is difficult due to multimodal sequence distributions and the need to preserve functional residues and structural constraints.",
   "method": [
-    "Train a denoising diffusion probabilistic model to generate amino-acid sequences conditioned on a target protein backbone.",
-    "Introduce mask priors (position-specific constraints such as fixed residues or allowed residue classes) that influence the reverse denoising trajectory to steer generation toward constraint-compliant sequences.",
-    "Adapt sampling/conditioning mechanisms so the model balances structural compatibility, diversity, and user-specified constraints during sequence design."
+    "Train a denoising diffusion generative model to produce protein sequences conditioned on a target backbone structure.",
+    "Introduce a mask prior that encodes known residues, motif constraints, or confidence regions and biases the denoising trajectory to respect those constraints.",
+    "Use guided sampling and refinement to improve sequence recovery, motif preservation, and structural compatibility with the target backbone."
   ],
-  "impact": "Provides a practical, controllable generative framework for protein design that improves sequence–structure agreement and enables targeted edits; valuable for protein engineers, computational biologists, and ML researchers working on generative models for structured outputs.",
+  "impact": "Provides a practical generative approach for structure-conditioned protein design that improves sequence fidelity and constraint satisfaction; relevant for ML practitioners building conditional generative models and applications in protein engineering.",
   "visual_elements": [
-    "Pipeline diagram: noisy sequence → mask-prior conditioning at each denoising step → final designed sequence mapped onto target backbone",
-    "Side-by-side comparison (without vs with mask prior) showing sequence recovery, contact maps, or structural overlays to highlight improved fidelity",
-    "Schematic showing types of mask priors (fixed residues, permissive sets, positional constraints) and where they integrate into the model",
-    "Icon set: protein backbone, noise/sampling process, mask/constraint symbol, and a validation/checkmark for structural agreement"
+    "Pipeline diagram: backbone structure input → mask prior overlay → guided diffusion denoising → candidate sequences mapped onto structure.",
+    "Before/after comparison chart: metrics such as sequence recovery, motif preservation, and structure RMSD for baseline vs. mask-guided diffusion.",
+    "Illustration of mask prior concept: protein ribbon with highlighted masked residues and examples of how masks steer sampling.",
+    "Sequence-structure overlay: example designed sequence colored on the 3D backbone (confidence/compatibility heatmap)."
   ],
   "hashtags": [
     "#ProteinDesign",
-    "#DenoisingDiffusion",
+    "#DiffusionModels",
     "#InverseFolding",
-    "#StructuralBiology",
+    "#ComputationalBiology",
     "#GenerativeAI"
   ],
   "paper_id": "2026-02-24-nature-author_correction_mask_prior_guided_denoising_diffusion_improves_inverse_protein",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01209-9"
     }
   ],
-  "generated_at": "2026-02-28T06:29:13.014307"
+  "generated_at": "2026-03-01T06:37:01.996923"
 }

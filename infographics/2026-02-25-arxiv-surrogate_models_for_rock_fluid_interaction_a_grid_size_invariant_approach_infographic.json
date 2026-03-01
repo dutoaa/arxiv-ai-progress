@@ -1,24 +1,24 @@
 {
-  "key_insight": "A grid-size-invariant surrogate model that predicts rock–fluid interaction dynamics accurately across different discretizations, cutting the runtime of high-fidelity PDE simulations by orders of magnitude while preserving interface physics.",
-  "problem_solved": "High-resolution PDE-based rock–fluid interaction models are computationally expensive, limiting their use in multi-query tasks (uncertainty quantification, optimization, design) because many scenarios must be run at prohibitive cost.",
+  "key_insight": "A surrogate modeling strategy that remains accurate across different numerical grid resolutions enables fast, reliable prediction of rock–fluid interaction without the need for costly high-resolution PDE solves.",
+  "problem_solved": "High-fidelity numerical models for coupled rock–fluid interaction require very fine spatial resolution, making repeated runs (for uncertainty quantification, optimization, or design) computationally prohibitive.",
   "method": [
-    "Train ML-based surrogates on multi-resolution simulation data so the model learns to generalize across grid sizes (grid-size invariance).",
-    "Incorporate physics-aware constraints or interface-aware features to preserve flow and reaction behavior at rock–fluid boundaries.",
-    "Validate/calibrate against high-fidelity runs to quantify error and enable reliable, fast replacements for expensive solvers in multi-query workflows."
+    "Develop a grid-size-invariant surrogate model trained on multi-resolution simulation data so it generalizes across discretizations without retraining for each grid.",
+    "Incorporate interface-aware physics constraints and/or PDE-consistent losses to preserve key reaction and flow behaviors at rock–fluid boundaries.",
+    "Use dimensionality reduction / operator-style learning to map inputs (geometry, boundary conditions, properties) to outputs (flow fields, reaction rates) efficiently for many-query tasks."
   ],
-  "impact": "Provides AI/ML practitioners with fast, reliable surrogates usable in UQ, optimization, and real-time decision loops for subsurface problems, enabling many-query analyses that were previously infeasible due to computational cost.",
+  "impact": "Provides AI/ML practitioners with a way to replace expensive PDE solvers by a fast, generalizable surrogate that supports large-scale uncertainty quantification, optimization, and real-time decision-making in subsurface and geoscience applications.",
   "visual_elements": [
-    "Bar chart comparing runtime and error of high-fidelity solver vs grid-size-invariant surrogate across multiple grid resolutions",
-    "Schematic showing the same surrogate applied to coarse and fine grids with consistent interface predictions (grid-size invariance)",
-    "Training pipeline flowchart: multi-resolution data → physics-aware model → validation against high-fidelity simulations",
-    "Spatial map (heatmap/contour) of predicted fluid concentration or saturation at the rock–fluid interface for surrogate vs ground truth"
+    "Side-by-side schematic: high-fidelity PDE solver (dense grid, slow) vs. surrogate model (coarse or variable grid, fast) with timing and accuracy callouts.",
+    "Flowchart of the training pipeline showing multi-resolution data input → grid-size-invariant model → predictions on unseen grid sizes.",
+    "Heatmaps or contour plots comparing predicted vs. reference flow/reaction fields across different grid resolutions with error overlays.",
+    "Bar chart or log plot of compute cost (runtime or FLOPs) vs. accuracy for high-fidelity solver and surrogate across multiple scenarios."
   ],
   "hashtags": [
-    "#SurrogateModeling",
-    "#MultiscaleML",
-    "#PDE",
-    "#ComputationalGeoscience",
-    "#UncertaintyQuantification"
+    "#SurrogateModel",
+    "#PhysicsInformedML",
+    "#MultiscaleModeling",
+    "#UncertaintyQuantification",
+    "#ComputationalGeoscience"
   ],
   "paper_id": "2026-02-25-arxiv-surrogate_models_for_rock_fluid_interaction_a_grid_size_invariant_approach",
   "paper_title": "Surrogate models for Rock-Fluid Interaction: A Grid-Size-Invariant Approach",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.22188v1"
     }
   ],
-  "generated_at": "2026-02-28T06:29:53.497171"
+  "generated_at": "2026-03-01T06:37:44.550185"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Anchoring — adding a simple penalty that pulls independently trained predictors toward a common reference — can provably and practically reduce model disagreement (expected squared prediction difference) while controlling the usual training parameters like regularization and sample size.",
-  "problem_solved": "Reduces unpredictable divergence between independently trained models (model disagreement), which undermines reliability, reproducibility, and downstream decision-making when models are trained without coordination.",
+  "key_insight": "Introducing an anchoring mechanism (a shared reference/penalty) lets independently trained predictors dramatically reduce their expected squared prediction disagreement; disagreement can be driven to (near) zero by tuning natural training parameters like anchor strength and sample size.",
+  "problem_solved": "How to control and certify model disagreement — the expected squared difference in predictions between two models trained on independent data without coordinating training — so models behave consistently across training runs and datasets.",
   "method": [
-    "Formalize model disagreement as the expected squared difference in real-valued predictions between two models trained on independent data.",
-    "Introduce an anchoring mechanism: add a proximal/regularization term that ties each model to a common anchor (e.g., a reference predictor, public model, or averaged initialization) during training.",
-    "Provide theoretical bounds and empirical evaluation showing disagreement falls as anchor strength (and/or sample size/regularization) increases, with explicit trade-offs against predictive accuracy."
+    "Define model disagreement as the expected squared difference in predictions between two independently trained models.",
+    "Add an anchoring component to the training objective (a penalty or constraint that pulls model predictions toward a common anchor/predictor or reference estimator).",
+    "Provide theoretical bounds and empirical evaluation showing disagreement decreases as a function of anchor strength and data/sample parameters, without requiring coordination between training processes."
   ],
-  "impact": "Gives practitioners a simple, tunable tool to make independent training runs more consistent without heavy coordination — improving reproducibility, safer model updates, and more stable ensemble or multi-stakeholder deployment.",
+  "impact": "Practitioners get a simple, tuneable way to make models more consistent and reproducible across independent trainings, improving reliability for deployment, audits, and downstream decision-making while preserving standard training workflows.",
   "visual_elements": [
-    "Side-by-side schematic: two independently trained models with large prediction gaps vs. two anchored models with aligned predictions.",
-    "Line chart: disagreement (y) vs. anchor strength or sample size (x) showing monotonic decrease and a small accuracy trade-off curve.",
-    "Block diagram: training loop showing original loss + anchoring/proximal term highlighting the anchor source (public model, average, or prior).",
-    "Icon set: reliability (shield), reproducibility (repeat arrows), and trade-off (scale) to summarize benefits and costs."
+    "Schematic: two training pipelines fed independent data that both connect to a common 'anchor' node, illustrating the anchoring penalty.",
+    "Line chart: disagreement (expected squared difference) on the y-axis vs anchor strength and/or sample size on the x-axis, showing decline to near zero.",
+    "Heatmap or scatter of prediction differences across input space before vs after anchoring to show reduced variance in outputs.",
+    "Icon set: anchor symbol (stability), twin-model silhouettes (agreement), and theoretical bound formula snippet (rigor)."
   ],
   "hashtags": [
     "#ModelAgreement",
     "#Anchoring",
+    "#Stability",
     "#RobustML",
-    "#Reproducibility",
-    "#AIStability"
+    "#Reproducibility"
   ],
   "paper_id": "2026-02-26-arxiv-model_agreement_via_anchoring",
   "paper_title": "Model Agreement via Anchoring",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23360v1"
     }
   ],
-  "generated_at": "2026-02-28T06:27:44.446160"
+  "generated_at": "2026-03-01T06:35:38.469280"
 }

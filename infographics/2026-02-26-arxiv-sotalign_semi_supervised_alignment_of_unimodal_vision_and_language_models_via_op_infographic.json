@@ -1,24 +1,24 @@
 {
-  "key_insight": "SOTAlign frames cross-modal alignment as an optimal transport problem and uses semi-supervised OT-based matching to align frozen vision and language models, achieving strong alignment with far fewer paired examples than contrastive methods.",
-  "problem_solved": "Reduces dependence on millions of labeled image–text pairs and heavy contrastive training to align pretrained unimodal vision and language models, enabling effective alignment with limited supervision and frozen backbones.",
+  "key_insight": "SOTAlign shows that frozen unimodal vision and language models can be meaningfully aligned using a semi‑supervised optimal transport objective, achieving strong cross‑modal alignment with substantially fewer paired examples than contrastive-only methods.",
+  "problem_solved": "Reducing the heavy reliance on millions of paired image–text samples for aligning pretrained vision and language encoders by enabling effective alignment from a small set of paired examples plus abundant unpaired data.",
   "method": [
-    "Formulate alignment as an optimal transport (OT) problem between sets of vision and language embeddings and compute a transport coupling (e.g., Sinkhorn) to match modalities.",
-    "Train lightweight alignment/mapping layers semi-supervisedly: a small number of labeled pairs supervise the OT coupling while large unlabeled sets inform global matching and consistency.",
-    "Keep pretrained unimodal encoders frozen to preserve representations and minimize training cost; only optimize small alignment modules for downstream cross-modal tasks."
+    "Keep pretrained vision and language backbones frozen and add lightweight alignment heads that map each modality into a shared space.",
+    "Use a semi‑supervised training objective that combines a small supervised pairing loss (for available image–text pairs) with an optimal transport (OT) alignment term computed on unpaired batches to match empirical distributions across modalities.",
+    "Solve OT with an entropic regularization (e.g., Sinkhorn) for efficient, differentiable coupling estimates and integrate the resulting transport plan as a supervision signal for the alignment layers."
   ],
-  "impact": "Allows practitioners to build aligned multimodal systems with much lower annotation and compute cost, improving sample efficiency for cross-modal retrieval, zero-shot transfer, and modular model reuse.",
+  "impact": "Enables practitioners to align large unimodal models for multimodal tasks with far fewer paired examples, lowering data collection costs and making cross‑modal transfer and retrieval feasible in low‑label regimes.",
   "visual_elements": [
-    "Diagram of two embedding clouds (vision vs language) with an OT coupling matrix (flows) showing matched mass between clusters",
-    "Schematic of frozen vision and language encoders with lightweight alignment layers in-between",
-    "Line chart comparing performance vs number of paired examples: SOTAlign vs contrastive baselines (showing steep sample-efficiency gains)",
-    "t-SNE/UMAP before-and-after alignment illustrating cluster overlap improvement"
+    "Architecture diagram: frozen ViT and frozen LLM/text encoder feeding lightweight alignment heads into a shared embedding space.",
+    "Optimal transport schematic: two point clouds (vision, language) with transport arrows and a heatmap of the transport plan/coupling matrix.",
+    "Performance curve: retrieval or alignment metric vs. number of paired samples, showing SOTAlign maintaining performance with much fewer pairs.",
+    "Pipeline icon set: 'Frozen models' icon, 'Small heads' icon, 'Few pairs + many unpaired' icon, and a 'Sinkhorn/OT' algorithm icon."
   ],
   "hashtags": [
     "#OptimalTransport",
+    "#MultimodalLearning",
     "#SemiSupervised",
     "#VisionLanguage",
-    "#RepresentationAlignment",
-    "#FewShotLearning"
+    "#RepresentationAlignment"
   ],
   "paper_id": "2026-02-26-arxiv-sotalign_semi_supervised_alignment_of_unimodal_vision_and_language_models_via_op",
   "paper_title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23353v1"
     }
   ],
-  "generated_at": "2026-02-28T06:27:20.506744"
+  "generated_at": "2026-03-01T06:35:17.393300"
 }

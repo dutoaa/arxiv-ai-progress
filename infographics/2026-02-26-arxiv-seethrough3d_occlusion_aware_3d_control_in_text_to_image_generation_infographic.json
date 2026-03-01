@@ -1,24 +1,24 @@
 {
-  "key_insight": "SeeThrough3D explicitly models inter-object occlusions in 3D layout-conditioned text-to-image generation, enabling synthesis of partially occluded objects with depth-consistent geometry and correct scale. This occlusion-aware conditioning closes a key gap where prior layout-based methods produced inconsistent occlusions and depth artifacts.",
-  "problem_solved": "Existing 3D layout-conditioned generators often fail to reason about precise inter-object occlusions, producing objects that violate depth ordering, incorrect partial visibility, and inconsistent scale when placed in multi-object scenes.",
+  "key_insight": "Explicitly modeling inter-object occlusions within a 3D layout-conditioned generator produces depth-consistent, correctly scaled partially-occluded objects, improving realism where existing methods fail.",
+  "problem_solved": "Prior 3D layout-conditioned text-to-image methods often ignore precise occlusion reasoning, producing incorrect depth/overlap and scale when objects partially occlude each other; this work addresses that gap by making occlusion an explicit part of the scene representation and generation pipeline.",
   "method": [
-    "Introduce an occlusion-aware 3D scene representation and a differentiable compositing module that encodes object depth, visibility ordering, and partial coverage.",
-    "Condition a text-to-image generative model on the 3D layout plus explicit occlusion/depth maps so the generator synthesizes objects with correct partial visibility and scale.",
-    "Optimize with depth- and occlusion-consistency objectives (and layout-aligned supervision) to enforce geometry-aware, occlusion-correct synthesis across scenes."
+    "Introduce an occlusion-aware 3D scene representation that encodes per-object depth and visibility (occlusion masks) alongside layout conditioning.",
+    "Integrate occlusion information into the generative model (e.g., layout-conditioned diffusion) with differentiable compositing so occluded geometry and appearance are synthesized consistently.",
+    "Train with losses and supervision that enforce depth consistency, correct occlusion ordering, and visual fidelity (using rendered occluded examples or self-supervision)."
   ],
-  "impact": "Makes layout-conditioned image generation far more reliable for multi-object scenes by ensuring depth-consistent, realistically occluded outputs — useful for content creation, AR/VR, simulation, and any pipeline needing controllable scene composition.",
+  "impact": "Improves realism and controllability of multi-object scene synthesis, enabling reliable partial-occlusion rendering for content creation, AR/VR, and simulation; reduces manual post-editing and enables physically plausible layouts.",
   "visual_elements": [
-    "Pipeline diagram: 3D layout -> occlusion-aware scene representation -> differentiable compositing -> text-to-image generator",
-    "Before/after gallery: examples where prior methods fail on occlusion vs SeeThrough3D results",
-    "Overlaid maps: per-pixel depth and occlusion/visibility heatmaps next to final rendered images",
-    "Occlusion ordering schematic: object boxes/arrows showing depth ordering and partial coverage to illustrate reasoning"
+    "Before/After image triplet: input layout, generation without occlusion reasoning, generation with SeeThrough3D (highlight corrected overlaps)",
+    "Pipeline diagram: occlusion-aware 3D representation → occlusion mask/depth module → differentiable compositing → layout-conditioned generator",
+    "Overlay visualizations: predicted depth maps and per-object occlusion masks over generated images",
+    "Bar/chart: quantitative metrics (occlusion accuracy, depth error, FID) comparing baseline vs SeeThrough3D"
   ],
   "hashtags": [
     "#SeeThrough3D",
-    "#OcclusionReasoning",
+    "#OcclusionAware",
     "#3DGeneration",
     "#TextToImage",
-    "#DiffusionModels"
+    "#SceneSynthesis"
   ],
   "paper_id": "2026-02-26-arxiv-seethrough3d_occlusion_aware_3d_control_in_text_to_image_generation",
   "paper_title": "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23359v1"
     }
   ],
-  "generated_at": "2026-02-28T06:27:34.717167"
+  "generated_at": "2026-03-01T06:35:28.624516"
 }

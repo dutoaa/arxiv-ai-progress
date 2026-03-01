@@ -1,24 +1,24 @@
 {
-  "key_insight": "Vision–language models underperform on certain reasoning tasks not because of model size but because caption-style training data systematically omits tacit information (reporting bias); scaling models or data alone does not fix this gap.",
-  "problem_solved": "Explains why large VLMs struggle at reasoning tasks that require facts people normally leave unstated in captions, and quantifies how reporting bias in pretraining data (e.g., OpenCLIP corpora) limits learned visual reasoning.",
+  "key_insight": "Large vision-language models still struggle at certain kinds of visual reasoning because training captions routinely omit tacit, supervisory details (reporting bias); increasing scale alone does not recover that missing supervision.",
+  "problem_solved": "Explains why state-of-the-art VLMs fail on fine-grained or compositional visual reasoning by identifying reporting bias in real-world caption data as a core barrier to learning those capabilities.",
   "method": [
-    "Quantitative analysis of caption and web-image corpora to measure how often information needed for reasoning (counts, spatial relations, material attributes) is omitted.",
-    "Design of targeted probes/benchmarks that isolate reasoning types requiring tacit supervision and evaluation of VLMs of various scales on those tasks.",
-    "Controlled experiments showing the limited effect of increasing model/data scale and exploring data-focused interventions to expose the impact of reporting bias."
+    "Analyze the text–image training corpora (e.g., data behind OpenCLIP) to quantify how often captions omit concrete visual facts (reporting bias).",
+    "Design targeted evaluation/probing tasks that require the tacit information captions typically leave out, and measure model performance across scales.",
+    "Compare outcomes and run controlled interventions (e.g., enriched or synthetic captions / targeted supervision) to isolate the effect of reporting bias versus model scale."
   ],
-  "impact": "Highlights that data pragmatics—not just model capacity—drive key VLM failure modes; practitioners should prioritize targeted supervision, dataset curation, and specialized evaluation to close reasoning gaps rather than relying solely on scale.",
+  "impact": "Highlights that improving VLM reasoning requires better supervision and dataset design, not just larger models or more data; practitioners should audit caption distributions and add targeted annotations or synthetic descriptions to teach missing facts.",
   "visual_elements": [
-    "Side-by-side example: image with a typical human caption (e.g., \"at the game today!\") vs. a fully explicit caption (e.g., \"37 people standing behind a field\") to illustrate reporting bias.",
-    "Bar chart: model performance on tacit-reasoning probes vs. model/data scale, showing shallow/no improvement with increased scale.",
-    "Heatmap or histogram: frequency of omitted information types (counts, spatial relations, materials) across popular VLM pretraining corpora (e.g., OpenCLIP data).",
-    "Pipeline diagram: from biased web captions → learned gaps in reasoning → recommended fixes (targeted labeling, synthetic supervision, focused benchmarks)."
+    "Schematic illustrating reporting bias: an image with a typical caption (high-level) vs. a detailed caption (tacit facts) side-by-side.",
+    "Bar/line chart showing reasoning performance plateauing as model/data scale increases, annotated to indicate where missing supervision explains gaps.",
+    "Heatmap or histogram of caption content analysis showing frequency of omitted visual facts (e.g., counts, relationships, attributes).",
+    "Flow diagram of recommended fixes: dataset audit → targeted annotation/synthesis → retraining/evaluation."
   ],
   "hashtags": [
-    "#VisionLanguageModels",
+    "#VisionLanguage",
     "#ReportingBias",
-    "#DataCuration",
-    "#ModelScaling",
-    "#AIResearch"
+    "#DataQuality",
+    "#MultimodalAI",
+    "#DatasetDesign"
   ],
   "paper_id": "2026-02-26-arxiv-scale_can_t_overcome_pragmatics_the_impact_of_reporting_bias_on_vision_language",
   "paper_title": "Scale Can't Overcome Pragmatics: The Impact of Reporting Bias on Vision-Language Reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23351v1"
     }
   ],
-  "generated_at": "2026-02-28T06:27:03.709059"
+  "generated_at": "2026-03-01T06:35:07.685148"
 }
