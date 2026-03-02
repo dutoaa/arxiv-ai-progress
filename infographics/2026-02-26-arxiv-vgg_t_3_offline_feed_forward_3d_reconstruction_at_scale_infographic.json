@@ -1,23 +1,23 @@
 {
-  "key_insight": "The quadratic compute/memory bottleneck in offline feed-forward 3D reconstruction comes from variable-length Key-Value (KV) geometry representations; distilling that KV space into a fixed-size MLP via test-time training removes the growth and yields scalable inference.",
-  "problem_solved": "Offline feed-forward 3D reconstruction methods scale poorly: compute and memory increase roughly quadratically with the number of input images, limiting applicability to large multi-view datasets.",
+  "key_insight": "The quadratic compute/memory bottleneck in offline feed‑forward multi‑view 3D reconstruction comes from a variable‑length Key‑Value (KV) scene representation; distilling that KV space into a fixed‑size MLP via test‑time training preserves geometry while removing the quadratic scaling.",
+  "problem_solved": "Offline feed‑forward 3D reconstruction methods scale poorly: compute and memory grow roughly quadratically with the number of input images because the KV scene representation length varies with views.",
   "method": [
-    "Represent scene geometry as a variable-length KV space and learn to distill it into a compact, fixed-size Multi-Layer Perceptron (MLP).",
-    "Perform test-time training (T^3) to transfer per-scene KV information into the fixed MLP, preserving fidelity while bounding memory/compute.",
-    "Use the distilled fixed-size MLP at inference to enable feed-forward reconstruction whose cost no longer grows with image count."
+    "Encode multi‑view inputs into a variable‑length Key‑Value (KV) geometry representation as in prior feed‑forward systems.",
+    "Perform test‑time training to distill the variable KV set into a fixed‑size MLP that implicitly represents scene geometry.",
+    "Use the compact MLP for downstream feed‑forward reconstruction, reducing memory and compute growth from quadratic to constant per‑scene representation (and linear overall with views)."
   ],
-  "impact": "Enables practical, memory- and compute-efficient offline 3D reconstruction at scale, making large multi-view pipelines faster and deployable on constrained hardware without sacrificing reconstruction quality.",
+  "impact": "Enables scalable, high‑quality offline feed‑forward 3D reconstruction on large image collections by cutting memory/computation costs and simplifying deployment; useful for practitioners working with multi‑view datasets or large scene batches.",
   "visual_elements": [
-    "Schematic: KV space (variable-length) → test-time distillation → fixed-size MLP (compact) showing reduced representation size",
-    "Performance chart: memory and runtime vs. number of images, comparing quadratic growth (baseline) to flat/linear behavior (VGG-T^3)",
-    "Before/After reconstructions: side-by-side 3D scenes reconstructed by a baseline KV method and by VGG-T^3 to show quality parity",
-    "Pipeline diagram: training (KV extraction + T^3) and inference (feed-forward MLP) with icons for images, GPU/memory, and model"
+    "Pipeline diagram: many input images → KV encoder → test‑time distillation → fixed‑size MLP → reconstructed 3D output",
+    "Complexity chart: compute/memory vs. number of images comparing quadratic (KV) vs. distilled MLP (flat/linear)",
+    "Before/after reconstructions: visual comparison of surfaces/meshes from KV baseline vs VGG‑T³ distilled MLP",
+    "Icon set: images stack, key‑value pairs, small neural net (MLP) representing fixed capacity, stopwatch/memory chip indicating efficiency"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#TestTimeTraining",
     "#ScalableAI",
-    "#EfficientVision",
+    "#MultiViewGeometry",
     "#ModelDistillation"
   ],
   "paper_id": "2026-02-26-arxiv-vgg_t_3_offline_feed_forward_3d_reconstruction_at_scale",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23361v1"
     }
   ],
-  "generated_at": "2026-03-01T06:35:47.221342"
+  "generated_at": "2026-03-02T06:47:41.709787"
 }

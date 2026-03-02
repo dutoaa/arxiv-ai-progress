@@ -1,0 +1,35 @@
+{
+  "key_insight": "Introduce a lightweight 'memory caching' mechanism that lets recurrent networks grow and retain past context like Transformers, achieving transformer-style long-range recall while keeping subquadratic compute and memory costs.",
+  "problem_solved": "Addresses the trade-off between Transformers' strong long-context recall but quadratic cost and recurrent architectures' efficiency but poor recall on long/hard retrieval tasks.",
+  "method": [
+    "Attach an append-only cache (growable external memory) to an RNN so past hidden states can be stored and selectively revisited without full quadratic attention.",
+    "Use efficient indexing/aggregation (e.g., keys + compressed summaries or sparse retrieval) so reads from the cache are subquadratic and compatible with streaming/incremental processing.",
+    "Combine caching reads with standard RNN updates so the model learns when to write, retain, and attend to distant context for recall-heavy tasks."
+  ],
+  "impact": "Provides a practical pathway to get Transformer-like long-range memory with much lower compute and memory overhead, enabling scalable sequence modeling in streaming, low-resource, and real-time applications.",
+  "visual_elements": [
+    "Architecture diagram: RNN core with an append-only cache and read/write pathways, annotated with cost per step.",
+    "Complexity comparison chart: quadratic Transformer vs cached-RNN subquadratic vs standard RNN, plotted vs sequence length.",
+    "Recall/accuracy vs context length plot showing improved long-range retrieval for cached-RNNs.",
+    "Timeline/animation concept: how the cache grows over time and how selective reads retrieve distant information."
+  ],
+  "hashtags": [
+    "#MemoryCaching",
+    "#EfficientRNN",
+    "#LongContextAI",
+    "#SequenceModeling",
+    "#ScalingMemory"
+  ],
+  "paper_id": "2026-02-27-arxiv-memory_caching_rnns_with_growing_memory",
+  "paper_title": "Memory Caching: RNNs with Growing Memory",
+  "paper_category": "Model",
+  "paper_date": "2026-02-27",
+  "paper_authors": "Ali Behrouz, Zeman Li, Yuan Deng, Peilin Zhong, Meisam Razaviyayn",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.24281v1"
+    }
+  ],
+  "generated_at": "2026-03-02T06:44:30.976399"
+}

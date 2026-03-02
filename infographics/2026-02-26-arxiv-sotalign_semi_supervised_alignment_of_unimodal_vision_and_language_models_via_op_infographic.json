@@ -1,24 +1,24 @@
 {
-  "key_insight": "SOTAlign shows that frozen unimodal vision and language models can be meaningfully aligned using a semi‑supervised optimal transport objective, achieving strong cross‑modal alignment with substantially fewer paired examples than contrastive-only methods.",
-  "problem_solved": "Reducing the heavy reliance on millions of paired image–text samples for aligning pretrained vision and language encoders by enabling effective alignment from a small set of paired examples plus abundant unpaired data.",
+  "key_insight": "Optimal transport can be used to semi‑supervise lightweight alignment layers on frozen vision and language encoders to achieve strong cross‑modal alignment with far fewer paired samples than conventional contrastive approaches.",
+  "problem_solved": "Reducing the large paired-data requirement for aligning pretrained unimodal vision and language models so that meaningful multimodal alignment is achievable with limited supervision.",
   "method": [
-    "Keep pretrained vision and language backbones frozen and add lightweight alignment heads that map each modality into a shared space.",
-    "Use a semi‑supervised training objective that combines a small supervised pairing loss (for available image–text pairs) with an optimal transport (OT) alignment term computed on unpaired batches to match empirical distributions across modalities.",
-    "Solve OT with an entropic regularization (e.g., Sinkhorn) for efficient, differentiable coupling estimates and integrate the resulting transport plan as a supervision signal for the alignment layers."
+    "Freeze pretrained unimodal encoders (vision and language) and add small alignment layers mapping each modality into a shared space.",
+    "Use an optimal-transport based objective to compute soft correspondences between image and text embeddings, enabling robust matching from few labeled pairs.",
+    "Train in a semi‑supervised regime that blends a small set of paired samples with abundant unpaired data via OT regularization and marginal/distribution alignment losses."
   ],
-  "impact": "Enables practitioners to align large unimodal models for multimodal tasks with far fewer paired examples, lowering data collection costs and making cross‑modal transfer and retrieval feasible in low‑label regimes.",
+  "impact": "Enables practical multimodal alignment when paired data is scarce, lowering annotation cost and making it easier to assemble cross-modal systems from existing unimodal models.",
   "visual_elements": [
-    "Architecture diagram: frozen ViT and frozen LLM/text encoder feeding lightweight alignment heads into a shared embedding space.",
-    "Optimal transport schematic: two point clouds (vision, language) with transport arrows and a heatmap of the transport plan/coupling matrix.",
-    "Performance curve: retrieval or alignment metric vs. number of paired samples, showing SOTAlign maintaining performance with much fewer pairs.",
-    "Pipeline icon set: 'Frozen models' icon, 'Small heads' icon, 'Few pairs + many unpaired' icon, and a 'Sinkhorn/OT' algorithm icon."
+    "Model diagram: frozen vision & language encoders -> lightweight alignment layers -> shared space with an OT module between modalities",
+    "Performance curve: accuracy or retrieval vs number of paired samples comparing OT-based semi‑supervision to contrastive baselines",
+    "Transport plan heatmap: example soft matching matrix from optimal transport showing correspondence between image and text batches",
+    "Icon panel: 'fewer labels', 'faster prototyping', 'reuses pretrained models', 'robust matching'"
   ],
   "hashtags": [
     "#OptimalTransport",
-    "#MultimodalLearning",
-    "#SemiSupervised",
+    "#Multimodal",
     "#VisionLanguage",
-    "#RepresentationAlignment"
+    "#SemiSupervised",
+    "#RepresentationLearning"
   ],
   "paper_id": "2026-02-26-arxiv-sotalign_semi_supervised_alignment_of_unimodal_vision_and_language_models_via_op",
   "paper_title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23353v1"
     }
   ],
-  "generated_at": "2026-03-01T06:35:17.393300"
+  "generated_at": "2026-03-02T06:47:16.973986"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "A mask-prior-guided denoising diffusion model for inverse protein folding uses structured masks of known/important residues to steer generative sampling, yielding more accurate and function-preserving sequence designs for a given backbone.",
-  "problem_solved": "Designing amino-acid sequences that fold to a target backbone (inverse protein folding) is difficult due to multimodal sequence distributions and the need to preserve functional residues and structural constraints.",
+  "key_insight": "Incorporating mask priors into denoising diffusion models lets the generator respect known residue constraints and structural motifs, producing more accurate and diverse amino-acid sequences for a target protein backbone.",
+  "problem_solved": "Inverse protein folding—designing amino-acid sequences that reliably fold to a given 3D backbone—is hard because sequence space is vast, constraints (fixed or uncertain residues) must be respected, and conditional generative models struggle to balance accuracy and diversity.",
   "method": [
-    "Train a denoising diffusion generative model to produce protein sequences conditioned on a target backbone structure.",
-    "Introduce a mask prior that encodes known residues, motif constraints, or confidence regions and biases the denoising trajectory to respect those constraints.",
-    "Use guided sampling and refinement to improve sequence recovery, motif preservation, and structural compatibility with the target backbone."
+    "Use a denoising diffusion probabilistic model (DDPM) to generate protein sequences conditioned on a target backbone.",
+    "Introduce mask priors that encode fixed/known residues or regions of uncertainty; inject these priors into the diffusion denoising steps to guide sampling and preserve constraints.",
+    "Train and evaluate the model to optimize sequence recovery, structural compatibility, and generation diversity under masked constraints."
   ],
-  "impact": "Provides a practical generative approach for structure-conditioned protein design that improves sequence fidelity and constraint satisfaction; relevant for ML practitioners building conditional generative models and applications in protein engineering.",
+  "impact": "Provides a practical, constraint-aware generative framework for computational protein design: improves sequence accuracy and controllability, enabling better downstream experimental testing and integration into protein-engineering pipelines.",
   "visual_elements": [
-    "Pipeline diagram: backbone structure input → mask prior overlay → guided diffusion denoising → candidate sequences mapped onto structure.",
-    "Before/after comparison chart: metrics such as sequence recovery, motif preservation, and structure RMSD for baseline vs. mask-guided diffusion.",
-    "Illustration of mask prior concept: protein ribbon with highlighted masked residues and examples of how masks steer sampling.",
-    "Sequence-structure overlay: example designed sequence colored on the 3D backbone (confidence/compatibility heatmap)."
+    "Schematic of the denoising diffusion process with an overlaid mask prior guiding each denoising step (flow diagram from noisy sequence to clean sequence).",
+    "Before/after backbone-to-sequence examples showing how masked residues are preserved and how generated sequences differ when mask priors are used vs. not used.",
+    "Bar/line charts comparing metrics (sequence recovery, RMSD or structural compatibility, and diversity) across baseline methods and the mask-prior-guided model.",
+    "Architecture diagram highlighting how backbone features, mask priors, and diffusion states are fused during denoising."
   ],
   "hashtags": [
     "#ProteinDesign",
     "#DiffusionModels",
     "#InverseFolding",
     "#ComputationalBiology",
-    "#GenerativeAI"
+    "#AIforScience"
   ],
   "paper_id": "2026-02-24-nature-author_correction_mask_prior_guided_denoising_diffusion_improves_inverse_protein",
   "paper_title": "Author Correction: Mask-prior-guided denoising diffusion improves inverse protein folding",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01209-9"
     }
   ],
-  "generated_at": "2026-03-01T06:37:01.996923"
+  "generated_at": "2026-03-02T06:46:34.495688"
 }

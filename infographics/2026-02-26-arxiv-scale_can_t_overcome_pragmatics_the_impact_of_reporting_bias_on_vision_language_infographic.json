@@ -1,24 +1,24 @@
 {
-  "key_insight": "Large vision-language models still struggle at certain kinds of visual reasoning because training captions routinely omit tacit, supervisory details (reporting bias); increasing scale alone does not recover that missing supervision.",
-  "problem_solved": "Explains why state-of-the-art VLMs fail on fine-grained or compositional visual reasoning by identifying reporting bias in real-world caption data as a core barrier to learning those capabilities.",
+  "key_insight": "Vision–language models fail at many visual reasoning tasks not because they lack scale, but because their web-caption training data exhibit a reporting bias that omits tacit facts needed to supervise reasoning. Scaling up models or data alone cannot recover information that people rarely mention.",
+  "problem_solved": "Explains why large pretrained VLMs still struggle on grounded visual reasoning: the training signal (captions) systematically leaves out the facts required for certain types of inference, creating a supervision gap.",
   "method": [
-    "Analyze the text–image training corpora (e.g., data behind OpenCLIP) to quantify how often captions omit concrete visual facts (reporting bias).",
-    "Design targeted evaluation/probing tasks that require the tacit information captions typically leave out, and measure model performance across scales.",
-    "Compare outcomes and run controlled interventions (e.g., enriched or synthetic captions / targeted supervision) to isolate the effect of reporting bias versus model scale."
+    "Analyze caption distributions from large web-scale datasets (e.g., data used to train OpenCLIP) to quantify omitted/tacit visual facts.",
+    "Construct targeted visual-reasoning probes that require the tacit information and evaluate VLM performance across tasks.",
+    "Measure how model performance changes with scale to test whether more data/parameters mitigate the reporting-bias effect."
   ],
-  "impact": "Highlights that improving VLM reasoning requires better supervision and dataset design, not just larger models or more data; practitioners should audit caption distributions and add targeted annotations or synthetic descriptions to teach missing facts.",
+  "impact": "Shows practitioners that more scale is not a universal fix — addressing reporting bias via dataset design, targeted annotations, or new supervision strategies is necessary to teach VLMs robust reasoning. Guides dataset curation and evaluation practices for future VLM development.",
   "visual_elements": [
-    "Schematic illustrating reporting bias: an image with a typical caption (high-level) vs. a detailed caption (tacit facts) side-by-side.",
-    "Bar/line chart showing reasoning performance plateauing as model/data scale increases, annotated to indicate where missing supervision explains gaps.",
-    "Heatmap or histogram of caption content analysis showing frequency of omitted visual facts (e.g., counts, relationships, attributes).",
-    "Flow diagram of recommended fixes: dataset audit → targeted annotation/synthesis → retraining/evaluation."
+    "Bar chart comparing frequency of explicitly stated facts vs. tacit facts in web captions",
+    "Line/boilerplate plot showing reasoning task performance vs. model/data scale (flat or weak improvement)",
+    "Side-by-side image examples: typical human caption vs. the missing tacit facts required for reasoning",
+    "Flow diagram: reporting bias in data → missing supervision → VLM reasoning failures"
   ],
   "hashtags": [
     "#VisionLanguage",
     "#ReportingBias",
-    "#DataQuality",
-    "#MultimodalAI",
-    "#DatasetDesign"
+    "#DatasetBias",
+    "#OpenCLIP",
+    "#RobustAI"
   ],
   "paper_id": "2026-02-26-arxiv-scale_can_t_overcome_pragmatics_the_impact_of_reporting_bias_on_vision_language",
   "paper_title": "Scale Can't Overcome Pragmatics: The Impact of Reporting Bias on Vision-Language Reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23351v1"
     }
   ],
-  "generated_at": "2026-03-01T06:35:07.685148"
+  "generated_at": "2026-03-02T06:47:30.276881"
 }

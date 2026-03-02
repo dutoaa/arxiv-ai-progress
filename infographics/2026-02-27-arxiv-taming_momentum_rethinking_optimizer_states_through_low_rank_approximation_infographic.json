@@ -1,0 +1,35 @@
+{
+  "key_insight": "Exponential moving averages used by Adam-like optimizers can be viewed as online linear-regressor training via gradient flow, enabling a low-rank factorization of optimizer states that preserves optimizer behavior while drastically cutting memory.",
+  "problem_solved": "Reduces the large memory overhead caused by storing full first- and second-order momentum matrices during pre-training of large models, which limits scalability and increases training cost.",
+  "method": [
+    "Reinterpret EMA momenta as solutions of an online linear regression problem (gradient flow view) to reveal their low-dimensional structure.",
+    "Approximate optimizer states with a low-rank factorization (LoRA-Pre) and update factors in the low-dimensional subspace instead of full matrices.",
+    "Maintain optimizer performance with reduced state size via efficient low-rank updates and theoretical/empirical validation on pre-training workloads."
+  ],
+  "impact": "Enables large-model pre-training with substantially lower GPU memory and similar convergence/quality, letting practitioners scale models or batch sizes and reduce infrastructure cost without changing training recipes.",
+  "visual_elements": [
+    "Flow diagram: EMA → online linear regression (gradient-flow equivalence) showing the conceptual reframe.",
+    "Schematic: full-matrix momenta vs low-rank factorized momenta side-by-side (memory footprint callouts).",
+    "Bar chart: GPU memory / throughput / training time comparisons between Adam/Muon and LoRA-Pre across model sizes.",
+    "Curve plot: validation loss or downstream metric vs steps showing comparable convergence of LoRA-Pre and baseline optimizers."
+  ],
+  "hashtags": [
+    "#LoRAPre",
+    "#OptimizerCompression",
+    "#LowRank",
+    "#EfficientTraining",
+    "#LargeLanguageModels"
+  ],
+  "paper_id": "2026-02-27-arxiv-taming_momentum_rethinking_optimizer_states_through_low_rank_approximation",
+  "paper_title": "Taming Momentum: Rethinking Optimizer States Through Low-Rank Approximation",
+  "paper_category": "Model",
+  "paper_date": "2026-02-27",
+  "paper_authors": "Zhengbo Wang, Jian Liang, Ran He, Zilei Wang, Tieniu Tan",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2602.24283v1"
+    }
+  ],
+  "generated_at": "2026-03-02T06:44:39.697986"
+}

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introducing an anchoring mechanism (a shared reference/penalty) lets independently trained predictors dramatically reduce their expected squared prediction disagreement; disagreement can be driven to (near) zero by tuning natural training parameters like anchor strength and sample size.",
-  "problem_solved": "How to control and certify model disagreement — the expected squared difference in predictions between two models trained on independent data without coordinating training — so models behave consistently across training runs and datasets.",
+  "key_insight": "Introducing an anchoring mechanism during training aligns independently trained predictors so their expected squared prediction difference (model disagreement) can be driven to (or toward) zero by tuning natural training parameters such as anchor strength or sample size. This gives a simple, analyzable handle for controlling disagreement in real‑valued prediction tasks.",
+  "problem_solved": "How to measure and control model disagreement — the expected squared difference between predictions of models trained independently — so independently trained models produce consistent outputs without coordinating training processes.",
   "method": [
-    "Define model disagreement as the expected squared difference in predictions between two independently trained models.",
-    "Add an anchoring component to the training objective (a penalty or constraint that pulls model predictions toward a common anchor/predictor or reference estimator).",
-    "Provide theoretical bounds and empirical evaluation showing disagreement decreases as a function of anchor strength and data/sample parameters, without requiring coordination between training processes."
+    "Define model disagreement as the expected squared difference between two predictors trained on independent samples and derive conditions under which disagreement can be reduced.",
+    "Introduce an anchoring term or anchor-based training protocol that biases each model toward a common reference (anchor) during learning, producing bounds that show disagreement decreases with anchor strength and/or sample size.",
+    "Theoretical analysis (and supporting experiments) that quantify the tradeoffs between anchor strength, sample complexity, and predictive accuracy."
   ],
-  "impact": "Practitioners get a simple, tuneable way to make models more consistent and reproducible across independent trainings, improving reliability for deployment, audits, and downstream decision-making while preserving standard training workflows.",
+  "impact": "Provides a practical, theoretically grounded tool for practitioners who need reproducible, consistent predictions across independently trained models — useful for deployment stability, auditing, and reducing variance-driven failures. Anchoring can be adopted with minimal changes to standard training pipelines.",
   "visual_elements": [
-    "Schematic: two training pipelines fed independent data that both connect to a common 'anchor' node, illustrating the anchoring penalty.",
-    "Line chart: disagreement (expected squared difference) on the y-axis vs anchor strength and/or sample size on the x-axis, showing decline to near zero.",
-    "Heatmap or scatter of prediction differences across input space before vs after anchoring to show reduced variance in outputs.",
-    "Icon set: anchor symbol (stability), twin-model silhouettes (agreement), and theoretical bound formula snippet (rigor)."
+    "Schematic: two independent training pipelines both receiving data and an anchor signal, converging to similar predictors",
+    "Chart: disagreement (expected squared difference) vs. anchor strength and vs. sample size showing monotonic decrease",
+    "Equation inset: clear statement of the disagreement metric (E[(f1(x) - f2(x))^2]) and the anchoring loss term",
+    "Table/plot: tradeoff between accuracy and disagreement for several anchor strengths (small accuracy cost for large agreement gain)"
   ],
   "hashtags": [
     "#ModelAgreement",
     "#Anchoring",
-    "#Stability",
     "#RobustML",
-    "#Reproducibility"
+    "#Reproducibility",
+    "#MLTheory"
   ],
   "paper_id": "2026-02-26-arxiv-model_agreement_via_anchoring",
   "paper_title": "Model Agreement via Anchoring",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23360v1"
     }
   ],
-  "generated_at": "2026-03-01T06:35:38.469280"
+  "generated_at": "2026-03-02T06:47:06.942626"
 }
