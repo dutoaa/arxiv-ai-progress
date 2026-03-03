@@ -1,24 +1,24 @@
 {
-  "key_insight": "Optimal transport can be used to semi‑supervise lightweight alignment layers on frozen vision and language encoders to achieve strong cross‑modal alignment with far fewer paired samples than conventional contrastive approaches.",
-  "problem_solved": "Reducing the large paired-data requirement for aligning pretrained unimodal vision and language models so that meaningful multimodal alignment is achievable with limited supervision.",
+  "key_insight": "A lightweight, semi-supervised alignment strategy using Optimal Transport can align frozen unimodal vision and language models with far fewer paired samples than contrastive, fully supervised approaches, by exploiting structure in unlabeled embedding sets.",
+  "problem_solved": "Reduces the massive paired image–text data requirement for aligning pretrained vision and language models, enabling meaningful cross-modal alignment when only a small labeled set plus large unlabeled pools are available.",
   "method": [
-    "Freeze pretrained unimodal encoders (vision and language) and add small alignment layers mapping each modality into a shared space.",
-    "Use an optimal-transport based objective to compute soft correspondences between image and text embeddings, enabling robust matching from few labeled pairs.",
-    "Train in a semi‑supervised regime that blends a small set of paired samples with abundant unpaired data via OT regularization and marginal/distribution alignment losses."
+    "Freeze pretrained vision and language encoders and add small alignment layers to map embeddings into a shared space.",
+    "Use semi-supervised Optimal Transport to compute a soft coupling between image and text embedding clouds: combine a small set of ground-truth pairs as anchors with large unlabeled sets to infer correspondences and drive alignment.",
+    "Train alignment layers with the OT coupling as the supervision signal (optionally with entropic regularization and consistency/pseudo-labeling) to stabilize learning from scarce labels."
   ],
-  "impact": "Enables practical multimodal alignment when paired data is scarce, lowering annotation cost and making it easier to assemble cross-modal systems from existing unimodal models.",
+  "impact": "Makes multimodal alignment practical and data-efficient for practitioners, lowering annotation costs and enabling fast adaptation of large unimodal models to cross-modal tasks such as retrieval and zero-shot transfer.",
   "visual_elements": [
-    "Model diagram: frozen vision & language encoders -> lightweight alignment layers -> shared space with an OT module between modalities",
-    "Performance curve: accuracy or retrieval vs number of paired samples comparing OT-based semi‑supervision to contrastive baselines",
-    "Transport plan heatmap: example soft matching matrix from optimal transport showing correspondence between image and text batches",
-    "Icon panel: 'fewer labels', 'faster prototyping', 'reuses pretrained models', 'robust matching'"
+    "Pipeline diagram: frozen vision and language encoders → lightweight alignment layers → shared embedding space",
+    "Embedding-space visualization: two point clouds (images, texts) with OT couplings/arrows showing soft matches and a few labeled anchors",
+    "Sample-efficiency chart: performance vs number of paired samples comparing OT-based semi-supervised alignment to contrastive baselines",
+    "Icon set: low-data/few-shot badge, transport/flow arrows to represent Optimal Transport, and a plug-and-play alignment layer"
   ],
   "hashtags": [
     "#OptimalTransport",
-    "#Multimodal",
-    "#VisionLanguage",
+    "#MultimodalAI",
     "#SemiSupervised",
-    "#RepresentationLearning"
+    "#RepresentationAlignment",
+    "#DataEfficient"
   ],
   "paper_id": "2026-02-26-arxiv-sotalign_semi_supervised_alignment_of_unimodal_vision_and_language_models_via_op",
   "paper_title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23353v1"
     }
   ],
-  "generated_at": "2026-03-02T06:47:16.973986"
+  "generated_at": "2026-03-03T06:41:06.037290"
 }

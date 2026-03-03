@@ -1,24 +1,24 @@
 {
-  "key_insight": "Exponential moving averages used by Adam-like optimizers can be viewed as online linear-regressor training via gradient flow, enabling a low-rank factorization of optimizer states that preserves optimizer behavior while drastically cutting memory.",
-  "problem_solved": "Reduces the large memory overhead caused by storing full first- and second-order momentum matrices during pre-training of large models, which limits scalability and increases training cost.",
+  "key_insight": "Exponential moving averages used by Adam/Muon can be reformulated as training a linear regressor via online gradient flow, which enables approximating dense optimizer states with a low-rank factorization that preserves optimization dynamics while cutting memory.",
+  "problem_solved": "The large memory overhead of first- and second-order EMA momenta in modern optimizers that limits model scale, batch size, and training efficiency during large-scale pre-training.",
   "method": [
-    "Reinterpret EMA momenta as solutions of an online linear regression problem (gradient flow view) to reveal their low-dimensional structure.",
-    "Approximate optimizer states with a low-rank factorization (LoRA-Pre) and update factors in the low-dimensional subspace instead of full matrices.",
-    "Maintain optimizer performance with reduced state size via efficient low-rank updates and theoretical/empirical validation on pre-training workloads."
+    "Reinterpret EMA momenta as coefficients learned by an online linear regressor (online gradient flow equivalence).",
+    "Factorize dense optimizer state matrices into low-rank components and update these factors online (LoRA-Pre) to emulate EMA behavior.",
+    "Apply the low-rank optimizer as a drop-in replacement during pre-training to reduce memory and compute with minimal impact on convergence."
   ],
-  "impact": "Enables large-model pre-training with substantially lower GPU memory and similar convergence/quality, letting practitioners scale models or batch sizes and reduce infrastructure cost without changing training recipes.",
+  "impact": "Significantly lowers optimizer memory footprint so practitioners can train larger models or use larger batches without extra hardware; provides a practical, memory-efficient optimizer alternative for LLM pre-training.",
   "visual_elements": [
-    "Flow diagram: EMA → online linear regression (gradient-flow equivalence) showing the conceptual reframe.",
-    "Schematic: full-matrix momenta vs low-rank factorized momenta side-by-side (memory footprint callouts).",
-    "Bar chart: GPU memory / throughput / training time comparisons between Adam/Muon and LoRA-Pre across model sizes.",
-    "Curve plot: validation loss or downstream metric vs steps showing comparable convergence of LoRA-Pre and baseline optimizers."
+    "Schematic showing EMA ↔ online linear regressor equivalence (equation + intuitive diagram).",
+    "Before/after matrix visualization: dense optimizer states vs low-rank factorization (two small matrices).",
+    "Bar/line chart comparing memory use, throughput, and convergence (Adam/Muon vs LoRA-Pre).",
+    "Pipeline diagram showing LoRA-Pre as a drop-in optimizer in a standard pre-training workflow."
   ],
   "hashtags": [
-    "#LoRAPre",
-    "#OptimizerCompression",
     "#LowRank",
-    "#EfficientTraining",
-    "#LargeLanguageModels"
+    "#Optimizer",
+    "#LLMTraining",
+    "#MemoryEfficient",
+    "#AdamAlternative"
   ],
   "paper_id": "2026-02-27-arxiv-taming_momentum_rethinking_optimizer_states_through_low_rank_approximation",
   "paper_title": "Taming Momentum: Rethinking Optimizer States Through Low-Rank Approximation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.24283v1"
     }
   ],
-  "generated_at": "2026-03-02T06:44:39.697986"
+  "generated_at": "2026-03-03T06:41:29.701843"
 }

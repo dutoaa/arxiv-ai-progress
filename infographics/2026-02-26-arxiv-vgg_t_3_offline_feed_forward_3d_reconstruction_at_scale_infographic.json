@@ -1,24 +1,24 @@
 {
-  "key_insight": "The quadratic compute/memory bottleneck in offline feed‑forward multi‑view 3D reconstruction comes from a variable‑length Key‑Value (KV) scene representation; distilling that KV space into a fixed‑size MLP via test‑time training preserves geometry while removing the quadratic scaling.",
-  "problem_solved": "Offline feed‑forward 3D reconstruction methods scale poorly: compute and memory grow roughly quadratically with the number of input images because the KV scene representation length varies with views.",
+  "key_insight": "The quadratic compute/memory bottleneck of offline feed-forward 3D reconstruction comes from the varying-length Key-Value (KV) scene representation; distilling that KV space into a fixed-size MLP via test-time training (VGG-T^3) breaks the scaling barrier.",
+  "problem_solved": "Offline feed-forward 3D reconstruction methods scale poorly — memory and computation grow quadratically with the number of input images due to variable-length KV representations, limiting practicality for large image sets.",
   "method": [
-    "Encode multi‑view inputs into a variable‑length Key‑Value (KV) geometry representation as in prior feed‑forward systems.",
-    "Perform test‑time training to distill the variable KV set into a fixed‑size MLP that implicitly represents scene geometry.",
-    "Use the compact MLP for downstream feed‑forward reconstruction, reducing memory and compute growth from quadratic to constant per‑scene representation (and linear overall with views)."
+    "Compress the varying-length KV scene representation into a fixed-size Multi-Layer Perceptron (MLP) through test-time training.",
+    "Replace the variable KV-based inference path with the distilled fixed-size MLP so reconstruction is feed-forward and no longer grows quadratically with image count.",
+    "Design the pipeline to preserve reconstruction fidelity while dramatically reducing memory and compute overhead, enabling large-scale offline processing."
   ],
-  "impact": "Enables scalable, high‑quality offline feed‑forward 3D reconstruction on large image collections by cutting memory/computation costs and simplifying deployment; useful for practitioners working with multi‑view datasets or large scene batches.",
+  "impact": "Makes feed-forward 3D reconstruction practical at scale by removing quadratic scaling, so practitioners can process many-input-image scenes with lower memory/compute and simpler deployment for large datasets and offline pipelines.",
   "visual_elements": [
-    "Pipeline diagram: many input images → KV encoder → test‑time distillation → fixed‑size MLP → reconstructed 3D output",
-    "Complexity chart: compute/memory vs. number of images comparing quadratic (KV) vs. distilled MLP (flat/linear)",
-    "Before/after reconstructions: visual comparison of surfaces/meshes from KV baseline vs VGG‑T³ distilled MLP",
-    "Icon set: images stack, key‑value pairs, small neural net (MLP) representing fixed capacity, stopwatch/memory chip indicating efficiency"
+    "Pipeline schematic: input images → KV space (variable-length) → test-time distillation → fixed-size MLP → 3D reconstruction",
+    "Scaling chart: quadratic growth (KV) vs. near-constant growth (fixed-size MLP) for memory and compute as image count increases",
+    "Before/after examples: reconstructions from many images using KV-based method vs. VGG-T^3 to show quality at scale",
+    "Resource bar chart: memory and latency comparison for representative image counts"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#TestTimeTraining",
-    "#ScalableAI",
-    "#MultiViewGeometry",
-    "#ModelDistillation"
+    "#EfficientModels",
+    "#ComputerVision",
+    "#ScalableAI"
   ],
   "paper_id": "2026-02-26-arxiv-vgg_t_3_offline_feed_forward_3d_reconstruction_at_scale",
   "paper_title": "VGG-T$^3$: Offline Feed-Forward 3D Reconstruction at Scale",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2602.23361v1"
     }
   ],
-  "generated_at": "2026-03-02T06:47:41.709787"
+  "generated_at": "2026-03-03T06:41:48.626128"
 }

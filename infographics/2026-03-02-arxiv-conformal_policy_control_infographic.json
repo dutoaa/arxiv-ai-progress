@@ -1,0 +1,35 @@
+{
+  "key_insight": "Conformal Policy Control uses conformal calibration on data from a safe reference policy to build a probabilistic regulator that limits how much a new (optimized) policy can deviate, giving finite-sample coverage guarantees while avoiding excessive conservatism.",
+  "problem_solved": "Balances the need for exploration/improvement with safety in high-stakes settings by preventing catastrophic behavioral deviations from a trusted policy without forcing overly conservative imitation.",
+  "method": [
+    "Treat a trusted safe policy as a reference and collect its trajectories / conformity scores.",
+    "Apply conformal calibration to those scores to compute acceptance thresholds that guarantee a desired probabilistic bound on allowable deviation.",
+    "At deployment, run the candidate policy through the calibrated test: if it passes, allow its actions; if it fails, fall back to the safe policy (probabilistic regulator). Compatible with any optimized/unseen policy."
+  ],
+  "impact": "Gives practitioners a practical, distribution-free tool to deploy exploratory policies with explicit finite-sample safety guarantees, enabling more effective and principled exploration in real-world, high-risk domains.",
+  "visual_elements": [
+    "Flowchart: Candidate policy -> conformal test -> Accept (deploy) / Reject (fallback to safe policy)",
+    "Calibration plot showing conformity-score distribution and chosen threshold with empirical coverage",
+    "Tradeoff curve: exploration benefit vs. violation risk demonstrating reduced conservatism at fixed safety level",
+    "Trajectory heatmap or timeline marking points where regulator triggered fallback to the safe policy"
+  ],
+  "hashtags": [
+    "#ConformalInference",
+    "#SafeRL",
+    "#PolicySafety",
+    "#Exploration",
+    "#MLDeployment"
+  ],
+  "paper_id": "2026-03-02-arxiv-conformal_policy_control",
+  "paper_title": "Conformal Policy Control",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-03-02",
+  "paper_authors": "Drew Prinster, Clara Fannjiang, Ji Won Park, Kyunghyun Cho, Anqi Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.02196v1"
+    }
+  ],
+  "generated_at": "2026-03-03T06:39:44.707048"
+}

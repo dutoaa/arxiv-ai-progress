@@ -1,24 +1,24 @@
 {
-  "key_insight": "Uni-HamGNN is a single graph-neural-network model that directly predicts spin–orbit-coupled Hamiltonians across the periodic table, enabling fast, accurate electronic-structure outputs (energies/bands) without repeated expensive quantum calculations.",
-  "problem_solved": "Ab initio treatments of spin–orbit coupling (SOC) are computationally expensive and limit high-throughput discovery; there was no transferable, element-spanning ML model that outputs SOC-aware Hamiltonians for rapid materials screening.",
+  "key_insight": "Uni-HamGNN is a physics-informed graph neural network that directly predicts spin–orbit-coupled Hamiltonians and resulting electronic structure across the periodic table, delivering near-DFT+SOC accuracy at a fraction of the cost.",
+  "problem_solved": "SOC-inclusive electronic-structure calculations (DFT+SOC) are computationally expensive and slow, limiting high-throughput screening and discovery of quantum materials with strong spin–orbit effects.",
   "method": [
-    "Graph neural network maps atomic structures to a spin–orbit-coupled Hamiltonian representation that respects local chemistry and symmetry.",
-    "Predicted Hamiltonian is diagonalized to produce electronic energies and states, enabling direct comparison to quantum calculations.",
-    "Trained on diverse, labeled SOC electronic-structure data to achieve transferability across elements and compounds while remaining orders of magnitude faster than DFT with SOC."
+    "Constructs a universal spin–orbit-coupled Hamiltonian representation from atomic graphs and local environments using a GNN architecture.",
+    "Trains on high-fidelity DFT+SOC data to learn mapping from crystal/atomic structure → Hamiltonian → electronic states, preserving physical symmetries and transferability across elements.",
+    "Enables fast inference for bandstructures and SOC-driven properties, allowing orders-of-magnitude speed-up for screening while maintaining accuracy comparable to DFT+SOC."
   ],
-  "impact": "For AI/ML practitioners, Uni-HamGNN demonstrates a physics-informed surrogate that drastically reduces cost for SOC-aware electronic-structure prediction, enabling large-scale screening, active learning loops, and integration into materials-design pipelines.",
+  "impact": "AI/ML practitioners gain a scalable, physics-aware surrogate model for SOC electronic structure that enables large-scale screening, integration into design loops, and reduced reliance on costly ab initio calculations.",
   "visual_elements": [
-    "Schematic pipeline: crystal structure (graph) → Uni-HamGNN → predicted spin–orbit Hamiltonian → diagonalization → band structure / density of states",
-    "Bar chart comparing compute time and accuracy trade-off: DFT+SOC vs Uni-HamGNN (orders-of-magnitude speedup)",
-    "Periodic-table heatmap showing model transferability/coverage across elements",
-    "Use-case icons: materials screening, spintronic device discovery, quantum materials map"
+    "Schematic of Uni-HamGNN: atomic graph input → GNN layers → predicted SOC Hamiltonian → eigensolver → bandstructure/properties",
+    "Bar/line chart comparing accuracy vs DFT+SOC and prediction time (orders-of-magnitude speedup)",
+    "Periodic-table heatmap showing predicted SOC-sensitive property across elements/materials",
+    "Workflow diagram: dataset (DFT+SOC) → training → high-throughput screening → candidate discovery"
   ],
   "hashtags": [
     "#MaterialsAI",
     "#GraphNeuralNetworks",
     "#SpinOrbitCoupling",
     "#QuantumMaterials",
-    "#HighThroughput"
+    "#AcceleratedDiscovery"
   ],
   "paper_id": "2026-02-27-nature-a_universal_spin_orbit_coupled_hamiltonian_model_for_accelerated_quantum_materia",
   "paper_title": "A universal spin–orbit-coupled Hamiltonian model for accelerated quantum material discovery",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01196-x"
     }
   ],
-  "generated_at": "2026-03-02T06:46:10.795295"
+  "generated_at": "2026-03-03T06:40:23.731660"
 }

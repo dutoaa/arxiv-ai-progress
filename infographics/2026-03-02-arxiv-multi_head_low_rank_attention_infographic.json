@@ -1,0 +1,35 @@
+{
+  "key_insight": "Multi-Head Low-Rank Attention compresses per-head KV caches via low-rank factorization and a shard-friendly layout, removing the Tensor Parallelism sharding bottleneck and cutting repeated HBM→SRAM transfers during autoregressive decoding.",
+  "problem_solved": "Addresses the KV cache loading bottleneck for long-context LLM decoding — repeated off-chip HBM→SRAM transfers and TP sharding inefficiencies that limit throughput, latency, and usable context length.",
+  "method": [
+    "Per-head low-rank factorization of Key and Value tensors to store compact factor matrices instead of full KV caches.",
+    "On-chip reconstruction and attention computation from low-rank factors to minimize per-step data movement and bandwidth use.",
+    "Shard-aware cache layout and communication pattern compatible with Tensor Parallelism to eliminate cross-shard synchronization bottlenecks."
+  ],
+  "impact": "Reduces memory bandwidth, latency, and energy for long-context inference, enabling larger effective context windows and more efficient distributed decoding on existing hardware.",
+  "visual_elements": [
+    "Before/after schematic of KV cache: full dense KV vs low-rank factor storage and reduced HBM→SRAM transfers",
+    "Bar chart comparing memory footprint, bandwidth, and latency for baseline, MLA, and Multi-Head Low-Rank approaches",
+    "Shard-layout diagram showing how the shard-aware low-rank layout avoids cross-shard communication",
+    "Pipeline flowchart: decode step → load low-rank factors → on-chip reconstruction → attention output"
+  ],
+  "hashtags": [
+    "#LLMInference",
+    "#LowRank",
+    "#ModelEfficiency",
+    "#HardwareAI",
+    "#Attention"
+  ],
+  "paper_id": "2026-03-02-arxiv-multi_head_low_rank_attention",
+  "paper_title": "Multi-Head Low-Rank Attention",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-03-02",
+  "paper_authors": "Songtao Liu, Hongwu Peng, Zhiwei Zhang, Zhengyu Chen, Yue Guo",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.02188v1"
+    }
+  ],
+  "generated_at": "2026-03-03T06:39:19.274445"
+}

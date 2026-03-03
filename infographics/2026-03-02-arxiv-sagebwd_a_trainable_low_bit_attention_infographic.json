@@ -1,0 +1,35 @@
+{
+  "key_insight": "A trainable INT8 attention (SageBwd) can be made viable for pre‑training once the specific quantization‑sensitive operations and distribution shifts are diagnosed and corrected — targeted, learnable quantization fixes substantially reduce the performance gap to full‑precision attention.",
+  "problem_solved": "Bridges the gap between low‑bit attention (fast, memory‑efficient inference) and the needs of pre‑training by identifying why prior trainable INT8 attention underperforms during pre‑training and proposing remedies to preserve model quality.",
+  "method": [
+    "Systematic diagnosis of which attention matrix multiplications and distribution shifts cause degradation during pre‑training (sensitivity analysis).",
+    "Targeted, trainable quantization fixes (e.g., per‑op/per‑channel learnable scales, calibration and bias correction, selective higher precision for the most sensitive ops).",
+    "Quantization‑aware pre‑training workflow and empirical validation showing the proposed fixes reduce the gap to full‑precision attention."
+  ],
+  "impact": "Enables use of low‑bit attention during both fine‑tuning and pre‑training, cutting compute and memory costs for large models while retaining model quality — important for efficient model development and scaling.",
+  "visual_elements": [
+    "Schematic of attention computation graph with six quantized matmuls highlighted and the single spared/adjusted operation emphasized.",
+    "Sensitivity heatmap or bar chart showing which attention ops cause the largest pre‑training degradation.",
+    "Before/after bar chart comparing accuracy or loss trajectories for full‑precision vs original SageBwd vs improved SageBwd during pre‑training.",
+    "Flowchart summarizing the mitigation pipeline: diagnose → apply targeted trainable quantization → quantization‑aware pre‑training → validate."
+  ],
+  "hashtags": [
+    "#Quantization",
+    "#INT8",
+    "#EfficientTraining",
+    "#Attention",
+    "#ModelCompression"
+  ],
+  "paper_id": "2026-03-02-arxiv-sagebwd_a_trainable_low_bit_attention",
+  "paper_title": "SageBwd: A Trainable Low-bit Attention",
+  "paper_category": "Model",
+  "paper_date": "2026-03-02",
+  "paper_authors": "Jintao Zhang, Marco Chen, Haoxu Wang, Kai Jiang, Ion Stoica",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.02170v1"
+    }
+  ],
+  "generated_at": "2026-03-03T06:38:21.318958"
+}
