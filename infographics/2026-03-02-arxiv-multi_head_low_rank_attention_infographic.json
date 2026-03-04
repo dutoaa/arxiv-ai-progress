@@ -1,24 +1,24 @@
 {
-  "key_insight": "Multi-Head Low-Rank Attention compresses per-head KV caches via low-rank factorization and a shard-friendly layout, removing the Tensor Parallelism sharding bottleneck and cutting repeated HBM→SRAM transfers during autoregressive decoding.",
-  "problem_solved": "Addresses the KV cache loading bottleneck for long-context LLM decoding — repeated off-chip HBM→SRAM transfers and TP sharding inefficiencies that limit throughput, latency, and usable context length.",
+  "key_insight": "Apply a multi-head low-rank factorization to the KV cache so you keep the small cache size of latent-attention methods while avoiding the tensor-parallel sharding bottleneck—enabling much cheaper, scalable long-context decoding.",
+  "problem_solved": "Decoding with long contexts is limited by repeated KV cache transfers from off-chip HBM to on-chip SRAM and by a sharding/communication bottleneck when using Tensor Parallelism.",
   "method": [
-    "Per-head low-rank factorization of Key and Value tensors to store compact factor matrices instead of full KV caches.",
-    "On-chip reconstruction and attention computation from low-rank factors to minimize per-step data movement and bandwidth use.",
-    "Shard-aware cache layout and communication pattern compatible with Tensor Parallelism to eliminate cross-shard synchronization bottlenecks."
+    "Introduce a multi-head low-rank attention representation that compresses per-head K/V information without breaking tensor-parallel sharding patterns.",
+    "Design cache layout and decomposition so each TP shard can load and use a small on-chip low-rank KV factor locally, removing cross-shard dependencies during generation.",
+    "Hardware-aware choices (rank, layout, and quantization) to balance accuracy, on-chip SRAM footprint, and off-chip bandwidth."
   ],
-  "impact": "Reduces memory bandwidth, latency, and energy for long-context inference, enabling larger effective context windows and more efficient distributed decoding on existing hardware.",
+  "impact": "Enables faster, more memory- and bandwidth-efficient long-context inference for LLMs in both single-node and distributed setups—reducing latency and HBM traffic while scaling with TP. Practitioners can handle longer contexts or larger models without proportional increases in memory bandwidth or decoding time.",
   "visual_elements": [
-    "Before/after schematic of KV cache: full dense KV vs low-rank factor storage and reduced HBM→SRAM transfers",
-    "Bar chart comparing memory footprint, bandwidth, and latency for baseline, MLA, and Multi-Head Low-Rank approaches",
-    "Shard-layout diagram showing how the shard-aware low-rank layout avoids cross-shard communication",
-    "Pipeline flowchart: decode step → load low-rank factors → on-chip reconstruction → attention output"
+    "Before vs After diagram: full KV cache transfers per step (many HBM→SRAM moves) vs low-rank per-head factors loaded once or less frequently.",
+    "Distributed decoding schematic: show tensor-parallel shards with MLA (cross-shard communication arrows) vs multi-head low-rank (local-only arrows).",
+    "Chart: decoding latency or HBM bandwidth vs context length comparing baseline, MLA, and Multi-Head Low-Rank Attention.",
+    "Icon set: KV cache (memory), compression/low-rank (matrix with reduced rank), TPU/accelerator shard (chip icons), speed/bandwidth meter."
   ],
   "hashtags": [
+    "#LongContext",
+    "#Attention",
     "#LLMInference",
-    "#LowRank",
-    "#ModelEfficiency",
     "#HardwareAI",
-    "#Attention"
+    "#MemoryOptimization"
   ],
   "paper_id": "2026-03-02-arxiv-multi_head_low_rank_attention",
   "paper_title": "Multi-Head Low-Rank Attention",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.02188v1"
     }
   ],
-  "generated_at": "2026-03-03T06:39:19.274445"
+  "generated_at": "2026-03-04T06:39:52.531944"
 }
