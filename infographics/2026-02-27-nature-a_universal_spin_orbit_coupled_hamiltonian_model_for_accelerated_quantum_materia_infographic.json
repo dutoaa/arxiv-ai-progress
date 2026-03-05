@@ -1,24 +1,24 @@
 {
-  "key_insight": "Uni-HamGNN is a universal graph neural network that learns spin–orbit-coupled Hamiltonians across the periodic table, enabling rapid, accurate prediction of relativistic electronic structures for materials screening.",
-  "problem_solved": "First-principles calculations including spin–orbit coupling (SOC) are computationally expensive and scale poorly for high-throughput screening; there is a need for transferable, accurate surrogate models that capture SOC-driven electronic effects across many elements and crystal structures.",
+  "key_insight": "Uni-HamGNN learns a universal, spin–orbit-coupled Hamiltonian from atomic structure, enabling fast, accurate prediction of electronic structure (including spin–orbit effects) across the periodic table for high-throughput materials discovery.",
+  "problem_solved": "First-principles calculations that include spin–orbit coupling are accurate but computationally expensive and slow, limiting large-scale screening and discovery of quantum materials; there was no broadly transferable ML model that predicts spin–orbit-coupled electronic structure across diverse elements.",
   "method": [
-    "Physics-informed Hamiltonian representation: encode local atomic environments, symmetry and explicit SOC terms into a Hamiltonian form suitable for learning.",
-    "Graph neural network maps atom-centered features and pair interactions to Hamiltonian matrix elements, enforcing physical constraints (Hermiticity, rotational symmetry) for transferability.",
-    "Train on diverse DFT+SOC datasets and validate by predicting band structures, gaps, and topological indicators much faster than ab initio methods."
+    "Graph neural network that encodes atomic/crystal graphs and outputs a spin–orbit-coupled Hamiltonian representation from structure.",
+    "Trained on ab initio electronic-structure data with physics-informed inductive biases so predictions generalize across many elements and material classes.",
+    "Efficient inference pipeline that converts predicted Hamiltonians into electronic properties (bands, gaps, topology) for rapid high-throughput screening."
   ],
-  "impact": "For AI/ML practitioners, Uni-HamGNN provides a high-fidelity, fast surrogate for relativistic electronic structure that can be embedded in materials screening and inverse design pipelines, dramatically reducing compute cost and enabling larger, SOC-sensitive search spaces.",
+  "impact": "Provides AI/ML practitioners a transferable, physics-aware surrogate for costly electronic-structure calculations, enabling rapid screening, feature extraction, and downstream ML tasks for quantum/materials design.",
   "visual_elements": [
-    "Schematic of Uni-HamGNN: crystal → graph → learned Hamiltonian → predicted band structure",
-    "Bar chart comparing compute time and accuracy (Uni-HamGNN vs DFT+SOC) for multiple materials",
-    "Example band-structure plots: predicted vs reference highlighting SOC-induced band splittings and topological features",
-    "Periodic-table heatmap showing model performance/transferability across elements"
+    "Pipeline schematic: crystal structure -> GNN encoder -> predicted spin–orbit Hamiltonian -> band structure/PDOS",
+    "Parity plot: predicted vs. reference first-principles electronic energies or band gaps (accuracy and scatter)",
+    "Periodic-table heatmap showing model performance or predicted property trends across elements",
+    "Throughput/latency bar chart comparing runtime of Uni-HamGNN vs. traditional DFT with SOC"
   ],
   "hashtags": [
     "#MaterialsAI",
     "#GraphNeuralNetworks",
     "#SpinOrbitCoupling",
     "#QuantumMaterials",
-    "#AcceleratedDiscovery"
+    "#HighThroughput"
   ],
   "paper_id": "2026-02-27-nature-a_universal_spin_orbit_coupled_hamiltonian_model_for_accelerated_quantum_materia",
   "paper_title": "A universal spin–orbit-coupled Hamiltonian model for accelerated quantum material discovery",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01196-x"
     }
   ],
-  "generated_at": "2026-03-04T06:38:35.464496"
+  "generated_at": "2026-03-05T06:41:58.534628"
 }

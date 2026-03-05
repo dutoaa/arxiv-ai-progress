@@ -1,24 +1,24 @@
 {
-  "key_insight": "LoGeR enables high‑fidelity dense 3D reconstruction over minutes‑long videos by processing streams in chunks and using a hybrid memory structure that preserves local detail while efficiently carrying long‑term context — avoiding quadratic attention or expensive post‑optimization.",
-  "problem_solved": "Scales feedforward geometric reconstruction to extremely long video sequences without suffering quadratic attention cost or the limited effective memory of recurrent designs, enabling accurate dense 3D mapping across minutes of footage.",
+  "key_insight": "LoGeR enables dense 3D reconstruction over minutes-long video by processing streams in chunks and using a hybrid memory that preserves long-range context, avoiding quadratic attention and expensive post-optimization while maintaining high-fidelity reconstructions.",
+  "problem_solved": "Scales feedforward geometric reconstruction to extremely long video sequences by overcoming quadratic attention costs and the limited effective memory of recurrent designs, eliminating the need for costly post-optimization steps.",
   "method": [
-    "Stream processing in temporal chunks with bidirectional priors inside each chunk to retain high‑fidelity local reconstructions.",
-    "Hybrid memory that combines dense local feature buffers and compact long‑term memory representations to propagate context efficiently across chunks.",
-    "Memory–chunk fusion mechanism (retrieval/attention-lite) that integrates long‑term context into chunk reconstructions, eliminating need for expensive post‑optimization."
+    "Chunked bidirectional processing: split video into manageable chunks and apply strong bidirectional priors within each chunk for high-quality local reconstruction.",
+    "Hybrid memory architecture: combine short-term (intra-chunk) representations with a compact long-term memory bank to carry global scene context across many chunks without quadratic costs.",
+    "Cross-chunk retrieval & update: retrieve, fuse, and update memory summaries to maintain temporal coherence and dense geometry over minutes of footage in a feedforward pipeline."
   ],
-  "impact": "Makes dense 3D reconstruction feasible and efficient for very long video streams (minutes), benefiting applications in robotics, AR/VR, and large‑scale scene digitization by reducing compute and removing post‑hoc optimization steps.",
+  "impact": "Makes practical, real-time-capable dense 3D reconstruction from minute-scale video streams feasible for applications like robotics, AR/VR, and large-scale mapping by reducing compute/memory bottlenecks and removing post-process optimization.",
   "visual_elements": [
-    "Pipeline diagram: video stream → chunking → bidirectional chunk processor → hybrid memory (local dense + compressed long‑term) → fused 3D output",
-    "Scalability chart: compute or memory vs. sequence length comparing LoGeR, full attention, and recurrent baselines",
-    "Temporal montage: progressive 3D reconstructions across a long timeline showing preserved detail over minutes",
-    "Memory schematic: layered illustration of dense local buffer + compressed global memory and their interaction"
+    "Pipeline diagram showing: video stream → chunking → bidirectional chunk reconstructor → hybrid memory bank → merged long-term 3D output",
+    "Hybrid memory schematic: short-term per-chunk buffers + compact global memory with arrows for retrieval and update",
+    "Complexity/comparison chart: runtime/memory vs sequence length comparing LoGeR, full-attention, and recurrent baselines",
+    "Qualitative reconstructions: long-sequence 3D scenes (early, mid, late) showing consistent geometry without post-opt"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#LongContext",
-    "#HybridMemory",
+    "#ComputerVision",
     "#EfficientAI",
-    "#VideoUnderstanding"
+    "#GeometricModels"
   ],
   "paper_id": "2026-03-03-arxiv-loger_long_context_geometric_reconstruction_with_hybrid_memory",
   "paper_title": "LoGeR: Long-Context Geometric Reconstruction with Hybrid Memory",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.03269v1"
     }
   ],
-  "generated_at": "2026-03-04T06:36:48.170717"
+  "generated_at": "2026-03-05T06:43:38.593866"
 }

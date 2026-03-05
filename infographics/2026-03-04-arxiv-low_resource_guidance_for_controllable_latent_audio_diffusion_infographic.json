@@ -1,0 +1,35 @@
+{
+  "key_insight": "Controllable latent audio diffusion can be made much more compute-efficient by moving guidance into a small set of latent-control modules and applying selective, low-cost feature guidance (TFG), avoiding expensive decoder backpropagation while retaining fine-grained control.",
+  "problem_solved": "Existing guidance-based controls for generative audio are either tied to costly model retraining or require expensive per-step decoder backpropagation during inference, making fine-grained controllability impractical for low-resource or real-time use.",
+  "method": [
+    "Introduce Latent-Control Heads (LatCHs): lightweight plug-in heads attached to the latent space to receive and apply guidance signals directly without backpropagating through the full decoder.",
+    "Apply selective TFG (targeted feature guidance): restrict gradient- or signal-based guidance to targeted latent features or heads, minimizing per-step computational cost.",
+    "Combine LatCHs + selective TFG at inference to achieve effective control with far fewer backprop operations and lower latency compared to standard decoder-guided approaches."
+  ],
+  "impact": "This approach lowers the compute and latency barrier for controllable audio generation, enabling interactive or resource-constrained workflows (e.g., real-time editing, mobile deployment) and making controllable diffusion more accessible to researchers and practitioners.",
+  "visual_elements": [
+    "Side-by-side pipeline diagram: standard guidance (full decoder backprop) vs proposed (LatCHs + selective TFG) highlighting compute flow and avoided backpropagation.",
+    "Block diagram of model components: encoder, latent space with LatCHs, lightweight guidance pathway, and frozen decoder.",
+    "Bar chart or infographic showing per-step compute / latency reduction and similar control quality metrics (e.g., accuracy or fidelity) for proposed method vs baselines.",
+    "Example audio-to-spectrogram sequence illustrating controlled edits (before vs after) driven by latent guidance."
+  ],
+  "hashtags": [
+    "#AudioDiffusion",
+    "#GenerativeAudio",
+    "#EfficientAI",
+    "#ControllableGeneration",
+    "#LatentModels"
+  ],
+  "paper_id": "2026-03-04-arxiv-low_resource_guidance_for_controllable_latent_audio_diffusion",
+  "paper_title": "Low-Resource Guidance for Controllable Latent Audio Diffusion",
+  "paper_category": "Model",
+  "paper_date": "2026-03-04",
+  "paper_authors": "Zachary Novack, Zack Zukowski, CJ Carr, Julian Parker, Zach Evans",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.04366v1"
+    }
+  ],
+  "generated_at": "2026-03-05T06:40:05.396286"
+}
