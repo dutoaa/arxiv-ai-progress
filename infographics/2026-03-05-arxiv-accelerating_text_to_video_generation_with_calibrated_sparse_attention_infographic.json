@@ -1,0 +1,35 @@
+{
+  "key_insight": "A large fraction of token-to-token attention scores in spatiotemporal transformers are consistently negligible and often repeat across queries, so skipping those computations via a calibrated sparse attention mask speeds up text-to-video diffusion models with minimal quality loss.",
+  "problem_solved": "Slow inference and high compute cost of transformer-based spatiotemporal attention in text-to-video diffusion models that bottleneck practical generation throughput and scalability.",
+  "method": [
+    "Analyze attention score statistics to identify token-to-token connections that are consistently low-impact and exhibit repeating patterns across queries.",
+    "Construct a calibrated sparse attention mechanism that skips computation for those negligible connections while adjusting (calibrating) remaining weights to preserve output fidelity.",
+    "Integrate the sparse attention into the diffusion-based text-to-video transformer backbone to reduce runtime and memory without significant degradation in generated video quality."
+  ],
+  "impact": "Substantially reduces inference time and compute for text-to-video generation, lowering cost and enabling faster iteration, higher throughput, or support for longer/higher-resolution videos in research and production settings.",
+  "visual_elements": [
+    "Attention heatmap vs. sparse mask: show full dense attention heatmap alongside the sparse mask highlighting pruned (skipped) connections.",
+    "Before/after pipeline diagram: model inference flow with dense attention (slow, high compute) vs. calibrated sparse attention (faster, lower compute) and annotated speedup/memory savings.",
+    "Bar chart: quantitative tradeoff—runtime and GPU memory vs. video quality (e.g., FID or perceptual score) demonstrating minimal quality loss for large speed gains.",
+    "Token graph schematic: spatiotemporal tokens with edges colored/removed to illustrate recurring negligible connections and the pruning rationale."
+  ],
+  "hashtags": [
+    "#TextToVideo",
+    "#SparseAttention",
+    "#DiffusionModels",
+    "#EfficientAI",
+    "#VideoGeneration"
+  ],
+  "paper_id": "2026-03-05-arxiv-accelerating_text_to_video_generation_with_calibrated_sparse_attention",
+  "paper_title": "Accelerating Text-to-Video Generation with Calibrated Sparse Attention",
+  "paper_category": "Model",
+  "paper_date": "2026-03-05",
+  "paper_authors": "Shai Yehezkel, Shahar Yadin, Noam Elata, Yaron Ostrovsky-Berman, Bahjat Kawar",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.05503v1"
+    }
+  ],
+  "generated_at": "2026-03-06T06:38:22.156267"
+}

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Tether lets robots autonomously generate useful, task-directed experience by learning correspondences between past and current states and warping trajectories accordingly, enabling robust policies that generalize to diverse/out-of-distribution states.",
-  "problem_solved": "How to continuously produce informative robot experience and train policies that remain robust across diverse, potentially out-of-distribution environment states without relying on dense human demonstrations.",
+  "key_insight": "Tether enables robots to autonomously generate diverse, task-directed experience by using learned correspondences to warp trajectories into new contexts, producing policies that remain robust under out-of-distribution states.",
+  "problem_solved": "Addresses the need for scalable, self-supervised robot learning that (1) produces continually useful experience without dense human demonstrations and (2) trains policies that generalize to diverse or out-of-distribution environment states.",
   "method": [
-    "Learn cross-state correspondences (visual or latent) between previously successful trajectories and the robot's current scene.",
-    "Warp and adapt stored trajectories to new contexts using the learned correspondences, producing task-directed synthetic demonstrations.",
-    "Use the warped trajectories in a closed-loop autonomous play pipeline to self-supervise a goal-conditioned policy and collect continual, useful experience."
+    "Learn correspondences between scenes/contexts (visual or state-level) to map points and affordances across different environments.",
+    "Warp existing trajectories using these correspondences to synthesize functionally similar demonstrations in new contexts, creating high-value autonomous ‘play’ data.",
+    "Iteratively train a goal-conditioned/robust policy on the warped trajectories and deploy the policy to collect more diverse experience in a closed loop."
   ],
-  "impact": "Enables scalable, demo-light robot learning by automating meaningful data collection and improving generalization; practical for practitioners building continual learning and manipulation systems.",
+  "impact": "Enables more scalable, data-efficient robot learning by reducing dependence on human demos and improving policy generalization; useful for practitioners building autonomous data-collection pipelines and robust imitation/self-supervised systems.",
   "visual_elements": [
-    "Schematic: source trajectory mapped to target scene via correspondence-driven warping (before/after overlay).",
-    "Closed-loop diagram of autonomous play: warp → execute → collect → update policy.",
-    "Performance chart: success rate or task coverage vs autonomous play steps (showing improvement).",
-    "Heatmap/visualization of correspondences (pixel or latent mappings) between scenes."
+    "Pipeline diagram showing: correspondence model → trajectory warping → policy training → autonomous play loop",
+    "Side-by-side scene illustration: original trajectory vs. warped trajectory executing the same function in a different scene",
+    "Schematic chart/heatmap showing increased state coverage or success rate from autonomous warped-data collection",
+    "Icon set: robot arm, correspondence arrows between scenes, data loop / replay buffer"
   ],
   "hashtags": [
-    "#Robotics",
-    "#AutonomousLearning",
+    "#robotics",
+    "#SelfSupervisedLearning",
+    "#ImitationLearning",
     "#TrajectoryWarping",
-    "#SelfSupervision",
-    "#ImitationLearning"
+    "#AutonomousPlay"
   ],
   "paper_id": "2026-03-03-arxiv-tether_autonomous_functional_play_with_correspondence_driven_trajectory_warping",
   "paper_title": "Tether: Autonomous Functional Play with Correspondence-Driven Trajectory Warping",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.03278v1"
     }
   ],
-  "generated_at": "2026-03-05T06:43:04.397911"
+  "generated_at": "2026-03-06T06:40:00.003792"
 }

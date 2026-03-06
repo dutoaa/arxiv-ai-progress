@@ -1,24 +1,24 @@
 {
-  "key_insight": "A simple one-shot probe can reveal whether a vision-language foundation model's pretraining data underrepresents a niche domain or concept, without needing labeled test sets from that domain. This enables quick, low-cost auditing of VLFM coverage using a single exemplar and similarity statistics.",
-  "problem_solved": "Lack of labeled test data and practical techniques to assess whether foundation models (e.g., CLIP) learned or underrepresent specialised, novel, or Global South domains from their pretraining data.",
+  "key_insight": "A simple one‑shot probing technique can detect whether a domain is underrepresented in a vision–language foundation model's pretraining data, enabling assessment without labelled test sets.",
+  "problem_solved": "Provides a practical way to evaluate VLFM coverage for novel, specialised, or Global South domains when labelled evaluation sets are unavailable, revealing potential blind spots before deployment or adaptation.",
   "method": [
-    "One-shot exemplar: pick a single representative image/text pair from the target domain as the probe.",
-    "Embed & compare: compute VLFM image/text embeddings for the probe and a large unlabeled corpus or retrieval set, then measure similarity distributions and retrieval ranks.",
-    "Score & decide: contrast similarity/rank statistics against reference classes or calibrated thresholds to flag underrepresentation (optionally with prompt ensembling and controls)."
+    "Provide a single representative example (image or caption) from the target domain and query the VLFM to obtain embeddings or retrieval/confidence outputs.",
+    "Compare the model's responses against reference distributions or contrasted prompts (in‑domain vs out‑of‑domain) to derive a representation score or underrepresentation signal.",
+    "Use simple calibration/contrastive checks (e.g., nearest‑neighbor ranks, similarity gaps, or prompt variants) to quantify how well the model recognises the domain from one example."
   ],
-  "impact": "Provides a lightweight, scalable tool for researchers and practitioners to audit pretraining coverage and identify domains needing targeted data collection, fine-tuning, or fairness interventions—especially useful when labelled evaluation sets are unavailable.",
+  "impact": "Enables researchers and practitioners to rapidly screen foundation models for domain gaps with minimal data, guiding decisions on adaptation, data collection, or risk mitigation for underrepresented communities.",
   "visual_elements": [
-    "Pipeline diagram showing: single exemplar -> embedding with VLFM -> retrieval/similarity analysis -> underrepresentation flag",
-    "Bar chart or violin plots comparing similarity distributions for target domain vs. reference domains (shows shift/lower scores)",
-    "Heatmap or t-SNE of embeddings illustrating clustering (target exemplar far from expected cluster indicates underrepresentation)",
-    "Icon set: globe/Global South, magnifying glass (audit), single sample (one-shot), and warning/flag (underrepresented)"
+    "Schematic: one‑shot probe pipeline (single example → VLFM → embedding → comparison metric)",
+    "Bar chart: representation score across multiple domains (highlighting underrepresented Global South domains)",
+    "Heatmap: similarity/confidence of model responses across prompt variants or example types",
+    "Icon set: action outcomes (safe to use, fine‑tune, collect data, avoid deployment)"
   ],
   "hashtags": [
-    "#FoundationModels",
-    "#CLIP",
-    "#DataAuditing",
+    "#VisionLanguageModels",
     "#ModelBias",
-    "#OneShot"
+    "#FewShotLearning",
+    "#ResponsibleAI",
+    "#GlobalSouth"
   ],
   "paper_id": "2026-03-04-arxiv-underrepresented_in_foundation_model_pretraining_data_a_one_shot_probe",
   "paper_title": "Underrepresented in Foundation Model Pretraining Data? A One-Shot Probe",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.04346v1"
     }
   ],
-  "generated_at": "2026-03-05T06:38:48.211130"
+  "generated_at": "2026-03-06T06:40:31.263515"
 }

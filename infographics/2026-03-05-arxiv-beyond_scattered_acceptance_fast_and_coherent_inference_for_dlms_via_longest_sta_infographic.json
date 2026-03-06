@@ -1,0 +1,35 @@
+{
+  "key_insight": "Commit contiguous tokens as the Longest Stable Prefix (LSP) during diffusion-language-model decoding to preserve KV-cache locality and avoid costly repeated repairs—yielding much faster, more coherent inference than scattered acceptance.",
+  "problem_solved": "Diffusion LMs suffer from slow, memory-inefficient inference because 'scattered acceptance' of confident tokens fractures the KV cache, destroys memory locality, and forces repeated corrective passes across unstable boundaries.",
+  "method": [
+    "Detect the Longest Stable Prefix (LSP) across diffusion sampling steps and commit it atomically instead of accepting high-confidence tokens at disjoint positions.",
+    "Schedule decoding to maintain contiguous KV-cache state, minimizing cache invalidations and recomputation during subsequent refinement steps.",
+    "Implement lightweight checks and heuristics to balance early commit with stability, enabling practical speedups on common hardware."
+  ],
+  "impact": "Preserving KV-cache continuity significantly reduces inference latency and compute for DLMs while improving generated-text coherence—making diffusion-based LMs more practical for real-world, high-throughput deployments.",
+  "visual_elements": [
+    "Side-by-side diagram: 'Scattered acceptance' vs 'LSP commit' showing token acceptance positions and KV-cache fragmentation vs contiguous cache use.",
+    "Timeline/flowchart illustrating fewer repair iterations and reduced recomputation when using LSP scheduling.",
+    "Bar chart comparing latency, memory transfers, and generation quality (coherence/perplexity) between baseline scattered acceptance and the LSP method.",
+    "Memory-heatmap of KV-cache locality before and after LSP to highlight improved hardware utilization."
+  ],
+  "hashtags": [
+    "#DiffusionLMs",
+    "#EfficientInference",
+    "#KVCache",
+    "#HardwareAcceleration",
+    "#LanguageModels"
+  ],
+  "paper_id": "2026-03-05-arxiv-beyond_scattered_acceptance_fast_and_coherent_inference_for_dlms_via_longest_sta",
+  "paper_title": "Beyond Scattered Acceptance: Fast and Coherent Inference for DLMs via Longest Stable Prefixes",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-03-05",
+  "paper_authors": "Pengxiang Li, Joey Tsai, Hongwei Xue, Kunyu Shi, Shilin Yan",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.05454v1"
+    }
+  ],
+  "generated_at": "2026-03-06T06:36:23.901451"
+}
