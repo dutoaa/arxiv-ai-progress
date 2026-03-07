@@ -1,17 +1,17 @@
 {
-  "key_insight": "A large fraction of token-to-token attention scores in spatiotemporal transformers are consistently negligible and often repeat across queries, so skipping those computations via a calibrated sparse attention mask speeds up text-to-video diffusion models with minimal quality loss.",
-  "problem_solved": "Slow inference and high compute cost of transformer-based spatiotemporal attention in text-to-video diffusion models that bottleneck practical generation throughput and scalability.",
+  "key_insight": "A large portion of token-to-token attention connections in spatiotemporal transformers produce negligible scores repeatedly; by detecting and skipping these connections with a calibrated sparse-mask, text-to-video diffusion models can avoid much attention computation with little to no quality loss.",
+  "problem_solved": "Transformer-based spatiotemporal attention is a major runtime bottleneck in text-to-video diffusion models, causing slow inference and high compute cost.",
   "method": [
-    "Analyze attention score statistics to identify token-to-token connections that are consistently low-impact and exhibit repeating patterns across queries.",
-    "Construct a calibrated sparse attention mechanism that skips computation for those negligible connections while adjusting (calibrating) remaining weights to preserve output fidelity.",
-    "Integrate the sparse attention into the diffusion-based text-to-video transformer backbone to reduce runtime and memory without significant degradation in generated video quality."
+    "Detect repeated low-score token-to-token connections across inputs/queries and construct sparse attention masks to skip unnecessary attention computations.",
+    "Calibrate the sparsity (e.g., via thresholds or lightweight corrective steps) to retain fidelity and avoid degradation in generated video quality.",
+    "Plug calibrated sparse attention into the diffusion model backbone so spatiotemporal attention is computed only for the most relevant token pairs during generation."
   ],
-  "impact": "Substantially reduces inference time and compute for text-to-video generation, lowering cost and enabling faster iteration, higher throughput, or support for longer/higher-resolution videos in research and production settings.",
+  "impact": "Significantly reduces inference latency and compute for text-to-video generation, enabling faster experimentation, larger models, or near-real-time applications while maintaining output quality.",
   "visual_elements": [
-    "Attention heatmap vs. sparse mask: show full dense attention heatmap alongside the sparse mask highlighting pruned (skipped) connections.",
-    "Before/after pipeline diagram: model inference flow with dense attention (slow, high compute) vs. calibrated sparse attention (faster, lower compute) and annotated speedup/memory savings.",
-    "Bar chart: quantitative tradeoff—runtime and GPU memory vs. video quality (e.g., FID or perceptual score) demonstrating minimal quality loss for large speed gains.",
-    "Token graph schematic: spatiotemporal tokens with edges colored/removed to illustrate recurring negligible connections and the pruning rationale."
+    "Attention heatmap before vs after sparsification (masked negligible connections dimmed/removed)",
+    "Bar chart: runtime (or FLOPs) reduction vs minimal change in quality metric (e.g., FID/LPIPS)",
+    "Pipeline diagram showing detection → calibration → sparse-attention application inside a diffusion sampling loop",
+    "Side-by-side generated frame sequences: dense attention vs calibrated sparse attention (visual parity)"
   ],
   "hashtags": [
     "#TextToVideo",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.05503v1"
     }
   ],
-  "generated_at": "2026-03-06T06:38:22.156267"
+  "generated_at": "2026-03-07T06:29:19.323357"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "POET-X makes spectrum-preserving orthogonal reparameterization (POET) practical at scale by replacing heavy matrix operations with memory-efficient, scalable orthogonal transforms—retaining POET's training stability while greatly reducing memory and compute overhead.",
-  "problem_solved": "The original POET provided strong training stability but was too memory- and compute-intensive for large LLMs, blocking adoption in real-world large-scale training and fine-tuning.",
+  "key_insight": "POET-X scales and sparsifies orthogonal-equivalence reparameterization so you get POET's spectrum-preserving stability with much lower memory and compute overhead — enabling efficient, stable LLM training at larger scale.",
+  "problem_solved": "Original POET gives strong stability but is too memory- and compute-intensive for large LLMs; POET-X reduces that overhead while retaining spectrum preservation and training stability.",
   "method": [
-    "Design a memory-efficient POET-X implementation that applies orthogonal equivalence transforms via compact/implicit parameterizations (e.g., reflector/Householder-style factors, block/low-rank factorizations) rather than storing full orthogonal matrices.",
-    "Execute orthogonal updates and apply transforms in a streaming/batched manner with optimized kernels so spectra are preserved without materializing large intermediate matrices.",
-    "Integrate with standard LLM training stacks (mixed precision, data/model parallelism) to deliver the stability benefits of POET with much lower memory footprint and compute cost."
+    "Scale-aware orthogonal reparameterization: replace dense orthogonal transforms with scaled, factorized representations that preserve singular-value spectra but occupy far less memory.",
+    "Efficient application: apply orthogonal-equivalence implicitly (e.g., low-rank/structured factors, block or per-channel transforms) so weight updates avoid forming full rotation matrices.",
+    "Memory/compute optimizations: combine the above with cached small factors, mixed-precision-friendly updates, and layerwise sharing to minimize runtime overhead."
   ],
-  "impact": "POET-X lets practitioners get POET-level stability for training and fine-tuning large language models without prohibitive memory costs, making spectrum-preserving reparameterization a practical tool for scalable model training.",
+  "impact": "Makes spectrum-preserving, orthogonally reparameterized training practical for modern LLMs — lowering GPU memory and compute demands so practitioners can train larger, more stable models on the same hardware budget.",
   "visual_elements": [
-    "Side-by-side flow diagram comparing original POET (large matrix buffers, high memory) vs POET-X (compact transforms, low memory).",
-    "Before/after singular-value spectrum plot showing spectrum preserved by the orthogonal equivalence transform.",
-    "Bar chart comparing peak memory and compute cost for Baseline / POET / POET-X.",
-    "Icon set: memory chip with downward arrow (reduced memory), shield (stability), gear (training pipeline), matrix with orthogonal arrow (orthogonal transform)."
+    "Before/After bar chart comparing GPU memory and FLOPs for POET vs POET-X vs standard training",
+    "Schematic showing weight matrix -> orthogonal-equivalence reparam -> factorized/implicit transforms (illustrating no full rotation matrix formed)",
+    "Singular-value spectrum plot overlay demonstrating spectrum preservation for POET-X vs baseline",
+    "Flowchart of training step highlighting where memory/computation savings occur (factor storage, implicit apply, mixed-precision)"
   ],
   "hashtags": [
-    "#POETX",
     "#LLMTraining",
-    "#EfficientTraining",
-    "#OrthogonalTransforms",
-    "#ModelStability"
+    "#ModelEfficiency",
+    "#Orthogonalization",
+    "#POETX",
+    "#ScalingAI"
   ],
   "paper_id": "2026-03-05-arxiv-poet_x_memory_efficient_llm_training_by_scaling_orthogonal_transformation",
   "paper_title": "POET-X: Memory-efficient LLM Training by Scaling Orthogonal Transformation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.05500v1"
     }
   ],
-  "generated_at": "2026-03-06T06:38:04.636786"
+  "generated_at": "2026-03-07T06:29:04.152762"
 }

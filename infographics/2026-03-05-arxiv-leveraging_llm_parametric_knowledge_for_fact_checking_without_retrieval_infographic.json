@@ -1,23 +1,23 @@
 {
-  "key_insight": "Large language models can use their internal (parametric) knowledge to verify factual claims directly, enabling reliable fact checking without relying on external retrieval. This reduces dependency on noisy or unavailable evidence sources while maintaining competitive verification performance.",
-  "problem_solved": "Removes the need for retrieval-based evidence pipelines that introduce errors, latency, and brittleness when checking the factuality of natural language claims.",
+  "key_insight": "Large language models' internal (parametric) knowledge can be used directly to fact-check claims without retrieving external evidence, enabling verification that is less dependent on search quality and data availability. The paper shows effective protocols for eliciting reliable judgments from LLMs themselves.",
+  "problem_solved": "Fact-checking workflows that rely on retrieval suffer from search errors, missing or outdated evidence, and latency; this work addresses how to verify claims when external retrieval is unreliable or unavailable by leveraging the LLM's stored knowledge.",
   "method": [
-    "Formulate claim verification as a direct LLM prompting/fine-tuning task that asks the model to judge and justify a claim using its parametric knowledge.",
-    "Apply calibration and consistency techniques (e.g., few-shot prompts, structured answer formats, confidence scoring) to improve reliability and reduce hallucination.",
-    "Compare and validate the retrieval-free approach against retrieval-based baselines across standard fact-checking/evaluation datasets and scenarios."
+    "Formulate claim-centric prompts that query the LLM's parametric memory instead of fetching external documents.",
+    "Use controlled verification protocols (e.g., calibrated confidence scoring, consistency checks or multi-step deliberation) to reduce hallucination and improve answer reliability.",
+    "Aggregate or post-process model responses into binary/verdict outputs and confidence estimates suitable for downstream fact-checking."
   ],
-  "impact": "Simplifies fact-checking systems by removing external retrieval dependencies, lowering latency and engineering complexity while improving robustness when evidence is missing or inaccessible. Practitioners can deploy lighter, faster verification components for safer agentic AI.",
+  "impact": "This approach reduces dependence on external retrieval infrastructure, speeds up verification pipelines, and expands fact-checking to contexts with limited or no accessible evidence sources, while highlighting the need for careful calibration to avoid overconfidence.",
   "visual_elements": [
-    "Side-by-side pipeline diagram: Retrieval-based system vs. Retrieval-free (parametric) verifier",
-    "Bar chart comparing accuracy/robustness and latency between retrieval-based and retrieval-free methods",
-    "Flowchart of the prompting/fine-tuning verification process (claim → LLM verdict + justification → calibrated confidence)",
-    "Icons indicating benefits: lower latency, fewer external dependencies, and improved robustness"
+    "Pipeline diagram: Claim → Prompting LLM (no retrieval) → Deliberation/consistency checks → Verdict + Confidence",
+    "Side-by-side comparison chart: Retrieval-based vs Parametric LLM fact-checking (axes: latency, availability, retrieval error risk)",
+    "Confidence gauge or calibration curve showing model confidence vs empirical accuracy",
+    "Icon set: magnifying glass with cloud crossed out (no retrieval), brain/weights icon (parametric knowledge), check/flag verdict badges"
   ],
   "hashtags": [
     "#FactChecking",
-    "#LLM",
+    "#LLMs",
     "#TrustworthyAI",
-    "#NLP",
+    "#ParametricKnowledge",
     "#NoRetrieval"
   ],
   "paper_id": "2026-03-05-arxiv-leveraging_llm_parametric_knowledge_for_fact_checking_without_retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.05471v1"
     }
   ],
-  "generated_at": "2026-03-06T06:36:52.903975"
+  "generated_at": "2026-03-07T06:28:07.301765"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "SELDON uses continuous-time deep ODE latent dynamics inside a variational autoencoder to model and forecast supernova light curves, enabling millisecond-scale posterior inference per object compared with hours for legacy MCMC pipelines.",
-  "problem_solved": "How to perform fast, calibrated inference and forecasting on millions of optical-transient alerts (e.g., from LSST) when traditional physics-based MCMC methods are far too slow to scale.",
+  "key_insight": "SELDON uses a continuous-time deep ODE variational model to learn and forecast supernova light curves, delivering millisecond-scale inference for thousands of objects—replacing slow MCMC pipelines with a fast, amortized approach.",
+  "problem_solved": "How to perform accurate, uncertainty-aware inference and forecasting on irregularly sampled, high-volume transient light curves at Rubin/LSST scale (≈10M alerts/night) when traditional physics-based MCMC methods are too slow to keep up.",
   "method": [
-    "Continuous-time variational autoencoder that models latent evolution with neural ODEs to represent irregularly sampled light curves and their dynamics.",
-    "Amortized inference: an encoder maps observed photometry to a posterior over latent ODE initial conditions; the decoder/ODE generates forecasts and parameter posteriors quickly.",
-    "Trained on simulated and/or labeled transient light curves to learn a fast surrogate for physical inference while preserving uncertainty quantification."
+    "Continuous-time variational autoencoder built with Neural ODEs: encoder maps observations to a latent ODE state, latent dynamics are governed by a learned ODE, decoder reconstructs light curves and physical parameters.",
+    "Amortized inference for rapid posterior estimation and forecasting on irregularly sampled time series, with built-in uncertainty quantification (probabilistic decoder/latent posterior).",
+    "Training on simulated/observed supernova light curves to learn physical evolution and enable millisecond-scale inference for large alert streams."
   ],
-  "impact": "Provides a practical, scalable surrogate for physical inference that enables real-time classification, parameter estimation, and scheduling for follow-up observations at LSST-scale alert rates.",
+  "impact": "Enables real-time, scalable classification and parameter estimation for astronomical transients—allowing prioritized follow-up and rapid scientific discovery at survey scale while preserving uncertainty estimates. Practitioners get a template for applying Neural ODE VAEs to other irregular, high-throughput time-series problems.",
   "visual_elements": [
-    "Pipeline diagram: streaming alerts → SELDON encoder → latent ODE → fast posterior & forecasts",
-    "Time-series panel: observed irregular photometry, reconstructed light curve, and forward forecasts with uncertainty bands",
-    "Bar/line chart comparing per-object inference time and throughput (SELDON millisecond vs MCMC hours)",
-    "Latent-space visualization (e.g., 2D embedding) showing clustering of supernova types and uncertainty ellipses"
+    "Model diagram: encoder → latent Neural ODE (continuous trajectory) → decoder, showing amortized inference and sampling",
+    "Speed vs accuracy bar chart: SELDON (ms/object) vs MCMC (hours/object) with comparable reconstruction/error bars",
+    "Example light-curve panel: observed irregular samples, SELDON posterior mean and uncertainty bands, and multi-step forecasts",
+    "Pipeline schematic: LSST alerts → SELDON real-time inference → ranking/prioritization → telescope follow-up"
   ],
   "hashtags": [
     "#NeuralODE",
-    "#TimeSeries",
-    "#Astrophysics",
-    "#SurrogateModeling",
+    "#AstroML",
+    "#TimeSeriesML",
+    "#VariationalAutoencoder",
     "#LSST"
   ],
   "paper_id": "2026-03-04-arxiv-seldon_supernova_explosions_learned_by_deep_ode_networks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.04392v1"
     }
   ],
-  "generated_at": "2026-03-06T06:39:34.597240"
+  "generated_at": "2026-03-07T06:30:51.273664"
 }

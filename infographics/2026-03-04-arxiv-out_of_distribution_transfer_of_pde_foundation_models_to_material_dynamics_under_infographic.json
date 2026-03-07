@@ -1,24 +1,24 @@
 {
-  "key_insight": "PDE foundation models pretrained on fluid-like data struggle when transferred to extreme-loading material dynamics with discontinuities (shocks, evolving interfaces, fractures), but systematic benchmarking reveals specific failure modes and guidance for improving OOD transfer.",
-  "problem_solved": "Evaluates how well fluid-centric PDE foundation models generalize to two discontinuity-dominated, out-of-distribution material-dynamics regimes (perturbed layered interface — PLI — and dynamic fracture — FRAC) and frames the downstream task as terminal-state prediction to quantify transfer performance.",
+  "key_insight": "PDE foundation models pretrained on fluid-centric data struggle to generalize to extreme-loading material dynamics dominated by shocks, evolving interfaces, and fracture; benchmarking on two discontinuity-heavy regimes quantifies this out-of-distribution transfer gap.",
+  "problem_solved": "Clarifies how well (or poorly) fluid-trained PDE foundation models transfer to material-dynamics tasks with strong discontinuities and failure mechanisms—an important unknown for designers who might reuse such models outside their training domain.",
   "method": [
-    "Assemble two challenging downstream regimes (PLI and FRAC) that produce highly non-smooth fields dominated by shocks, interfaces, and fractures.",
-    "Transfer pretrained PDE foundation models to these regimes and evaluate terminal-state prediction accuracy, robustness, and failure modes versus ground truth simulations.",
-    "Analyze errors spatially and temporally to identify where and why fluid-trained models break down and suggest targeted remedies (data, loss, or architecture changes)."
+    "Define two challenging downstream regimes that produce highly non-smooth fields: shock-driven perturbed layered interface (PLI) and dynamic fracture/failure evolution (FRAC).",
+    "Benchmark out-of-distribution transfer by evaluating PDE foundation models pretrained on fluid-centric datasets on these regimes, formulating the downstream task as terminal-state (final-snapshot) prediction.",
+    "Compare performance (errors, qualitative field reconstructions) to appropriate baselines and assess where pretrained models fail or require adaptation."
   ],
-  "impact": "Provides AI/ML practitioners with a clearbenchmark and diagnostic roadmap showing the limits of fluid-trained PDE models on extreme material dynamics, informing better pretraining, data augmentation, and model design for non-smooth physics.",
+  "impact": "Provides practical, quantitative guidance on the limits of reusing fluid-pretrained PDE models for extreme material dynamics, informing whether to fine-tune, collect specialized data, or develop new architectures for discontinuity-rich domains.",
   "visual_elements": [
-    "Side-by-side schematic of the two regimes (PLI: layered interface with shock; FRAC: dynamic fracture propagation) to show physical differences",
-    "Comparison panel: ground-truth vs model-predicted terminal states with overlaid error heatmaps highlighting localized prediction failures",
-    "Bar/line chart quantifying metrics (e.g., terminal-state RMSE, structural error rates) across models and regimes to show transfer degradation",
-    "Flow diagram of transfer workflow: pretrained PDE model → fine-tuning/evaluation on PLI and FRAC → diagnostic analysis and suggested fixes"
+    "Schematic diagram contrasting the two test regimes: PLI (layered materials + shock) vs FRAC (crack initiation and propagation).",
+    "Side-by-side field visualizations (ground truth vs model prediction) highlighting failure modes and error hotspots near shocks/interfaces/fractures.",
+    "Bar/line chart showing performance drop (error or accuracy) of fluid-pretrained models on in-distribution vs out-of-distribution tasks.",
+    "Heatmap or scatter plot mapping error as a function of discontinuity strength (e.g., shock Mach number or fracture energy) to illustrate where transfer breaks down."
   ],
   "hashtags": [
     "#PDEModels",
     "#OutOfDistribution",
-    "#MaterialDynamics",
-    "#ShockPhysics",
-    "#AIforScience"
+    "#MaterialsDynamics",
+    "#FoundationModels",
+    "#ShockPhysics"
   ],
   "paper_id": "2026-03-04-arxiv-out_of_distribution_transfer_of_pde_foundation_models_to_material_dynamics_under",
   "paper_title": "Out-of-distribution transfer of PDE foundation models to material dynamics under extreme loading",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.04354v1"
     }
   ],
-  "generated_at": "2026-03-06T06:39:46.410881"
+  "generated_at": "2026-03-07T06:32:18.490089"
 }

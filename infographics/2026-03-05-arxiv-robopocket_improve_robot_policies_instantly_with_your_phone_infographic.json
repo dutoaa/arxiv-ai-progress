@@ -1,24 +1,24 @@
 {
-  "key_insight": "A lightweight phone-based, closed-loop interface lets humans provide targeted corrective demonstrations during robot operation so policies can be patched instantly — combining the scalability of handheld data collection with the effectiveness of interactive correction.",
-  "problem_solved": "Handheld demonstration collection is scalable but open‑loop and misses critical failure states; interactive imitation (e.g., DAgger) fixes covariate shift but is hard to scale physically. RoboPocket enables scalable, in‑the‑wild, corrective feedback that addresses covariate shift and inefficient coverage.",
+  "key_insight": "A smartphone-based, closed-loop interface lets users instantly identify and correct a robot policy's failure modes, enabling targeted demonstrations that improve policies far more efficiently than blind, open‑loop data collection.",
+  "problem_solved": "Scales imitation learning by addressing inefficient coverage of critical states from open‑loop handheld demonstrations and reducing covariate shift without requiring the operator to be physically co-located with the robot.",
   "method": [
-    "Phone app streams robot state and video to a human operator and allows quick corrective inputs (teleoperation labels or action overrides) in real time.",
-    "System actively identifies critical states to query or accept retroactive corrections, aggregates corrections into a dataset, and applies lightweight online policy patches for immediate improvement.",
-    "Corrective interactions are synchronized with continual offline aggregation for robust retraining, preserving scalability while delivering instant safety/skill fixes on deployment."
+    "Close the loop on handheld demonstrations: present current policy rollouts (live or replay) on a phone and let users provide targeted corrective actions where the policy fails.",
+    "Automatically incorporate corrections into the training pipeline (online or fast batch updates) so the policy improves immediately on problematic state distributions.",
+    "Lightweight mobile UI + backend that enables remote, scalable corrective data collection and rapid policy fine-tuning without extensive robot setup."
   ],
-  "impact": "Practitioners get a practical way to close the loop on large-scale, in‑the‑wild data collection: faster iteration, fewer catastrophic failures, and better sample efficiency when training robot policies without requiring expensive, co‑located supervision.",
+  "impact": "Allows practitioners to collect higher-quality, targeted demonstrations at scale and iterate on robot policies faster and cheaper, improving robustness to covariate shift and reducing sample complexity for deployment.",
   "visual_elements": [
-    "Diagram: phone ↔ robot closed loop showing video stream, operator correction, and immediate policy patch.",
-    "Before/after heatmap of state coverage or failure modes showing improved coverage after corrective collection.",
-    "Flowchart: (1) detect/query critical state → (2) human correction via phone → (3) apply instant patch → (4) aggregate for offline training.",
-    "Bar chart: success rate or failure reduction comparing open‑loop handheld collection, DAgger, and RoboPocket."
+    "Closed-loop system diagram: phone UI → policy rollout visualization → user correction → model update → robot",
+    "Before/after performance chart or heatmap showing improved state coverage and reduced failure regions",
+    "Phone UI mockup demonstrating corrective input (e.g., joystick/gesture overlay on video of robot)",
+    "Timeline/flow illustrating one-click correction to updated policy (seconds to minutes)"
   ],
   "hashtags": [
     "#Robotics",
     "#ImitationLearning",
     "#HumanInTheLoop",
     "#MobileAI",
-    "#EdgeRobotics"
+    "#PolicyImprovement"
   ],
   "paper_id": "2026-03-05-arxiv-robopocket_improve_robot_policies_instantly_with_your_phone",
   "paper_title": "RoboPocket: Improve Robot Policies Instantly with Your Phone",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.05504v1"
     }
   ],
-  "generated_at": "2026-03-06T06:38:39.008124"
+  "generated_at": "2026-03-07T06:29:32.257752"
 }
