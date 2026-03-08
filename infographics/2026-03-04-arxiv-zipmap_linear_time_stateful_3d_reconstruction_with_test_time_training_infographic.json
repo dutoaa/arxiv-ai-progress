@@ -1,24 +1,24 @@
 {
-  "key_insight": "ZipMap is a stateful feed-forward 3D reconstruction model that replaces expensive pairwise multi-image operations with an updatable scene state, delivering linear-time, bidirectional reconstructions while using test-time training to retain or improve quality over quadratic-cost transformer methods.",
-  "problem_solved": "Removes the quadratic computational scaling of state-of-the-art transformer-based multi-view methods (which become impractical for large image collections) and the quality loss seen in lightweight sequential-reconstruction approaches.",
+  "key_insight": "ZipMap introduces a stateful feed-forward architecture that converts quadratic cross-image cost into a linear-time process by maintaining and updating a compact scene map, enabling high-quality bidirectional 3D reconstruction with test-time adaptation.",
+  "problem_solved": "Existing transformer-based 3D reconstruction methods scale quadratically with the number of input images, making them computationally and memory inefficient for large image collections; ZipMap addresses this scalability-quality tradeoff.",
   "method": [
-    "Stateful feed-forward architecture that maintains a compact, updatable scene representation as new images arrive, avoiding pairwise attention between all image pairs.",
-    "Linear-time aggregation: per-image updates scale linearly with the number of inputs, enabling efficient processing of large image sets without sacrificing bidirectional reconstruction capability.",
-    "Test-time training: lightweight, on-scene adaptation to refine geometry and appearance so the model matches or surpasses higher-cost baselines."
+    "Stateful feed-forward model that maintains a compact, updatable scene representation (the 'ZipMap') across images so each new view incurs only constant additional cost.",
+    "Bidirectional reconstruction pipeline: sequentially integrates information from images while allowing refinement in both directions via the maintained state.",
+    "Test-time training/ adaptation applied on the maintained map to recover or exceed the reconstruction quality of heavy quadratic-cost methods."
   ],
-  "impact": "Enables scalable, high-quality 3D reconstruction for large image collections or streaming scenarios, reducing compute and latency for practitioners building neural reconstruction, mapping, or AR/robotics systems.",
+  "impact": "Provides a practical, scalable way to run high-quality 3D reconstruction on large photo collections or streaming inputs, cutting compute and memory costs while preserving or improving accuracy—useful for real-time systems and large-scale datasets.",
   "visual_elements": [
-    "Architecture diagram showing an updatable scene state with per-image feed-forward updates vs. a quadratic attention graph",
-    "Runtime complexity chart comparing O(N) (ZipMap) vs O(N^2) (transformer baselines) as image count grows",
-    "Before/after reconstruction visualizations (qualitative geometry and novel-view images) demonstrating preservation/improvement of quality",
-    "Flowchart of test-time training loop: input images → quick adaptation → refined output"
+    "Log–log plot comparing computational cost: quadratic (baseline transformers) vs linear (ZipMap) as number of images increases.",
+    "Pipeline diagram showing image stream → ZipMap state update → bidirectional refinement (with a test-time training loop overlay).",
+    "Side-by-side qualitative reconstructions: baseline quadratic model vs ZipMap on a large multi-view scene.",
+    "Icons/annotated callouts for speed (clock), memory efficiency (RAM chip), and reconstruction quality (3D mesh/point cloud)."
   ],
   "hashtags": [
     "#3DReconstruction",
     "#EfficientAI",
     "#TestTimeTraining",
     "#ComputerVision",
-    "#NeuralRendering"
+    "#StatefulModels"
   ],
   "paper_id": "2026-03-04-arxiv-zipmap_linear_time_stateful_3d_reconstruction_with_test_time_training",
   "paper_title": "ZipMap: Linear-Time Stateful 3D Reconstruction with Test-Time Training",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.04385v1"
     }
   ],
-  "generated_at": "2026-03-05T06:41:07.604776"
+  "generated_at": "2026-03-08T06:34:22.076265"
 }

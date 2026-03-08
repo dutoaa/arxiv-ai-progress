@@ -1,24 +1,24 @@
 {
-  "key_insight": "POET-X scales and sparsifies orthogonal-equivalence reparameterization so you get POET's spectrum-preserving stability with much lower memory and compute overhead — enabling efficient, stable LLM training at larger scale.",
-  "problem_solved": "Original POET gives strong stability but is too memory- and compute-intensive for large LLMs; POET-X reduces that overhead while retaining spectrum preservation and training stability.",
+  "key_insight": "POET-X scales the POET orthogonal-equivalence training idea to large language models by introducing memory- and compute-efficient ways to apply orthogonal transformations, preserving the spectrum of weight matrices while greatly reducing training overhead.",
+  "problem_solved": "Reduces the high memory consumption and computational overhead of the original POET implementation so orthogonally reparameterized, spectrum-preserving training becomes practical for large-scale LLM training.",
   "method": [
-    "Scale-aware orthogonal reparameterization: replace dense orthogonal transforms with scaled, factorized representations that preserve singular-value spectra but occupy far less memory.",
-    "Efficient application: apply orthogonal-equivalence implicitly (e.g., low-rank/structured factors, block or per-channel transforms) so weight updates avoid forming full rotation matrices.",
-    "Memory/compute optimizations: combine the above with cached small factors, mixed-precision-friendly updates, and layerwise sharing to minimize runtime overhead."
+    "Retain POET's spectrum-preserving orthogonal-equivalence reparameterization but replace heavy matrix operations with scalable, low-memory parameterizations and algorithmic optimizations.",
+    "Factorize or structure the orthogonal transforms (e.g., block / low-rank / streaming-friendly forms) and integrate them into standard optimizer and dataloader pipelines to avoid extra full-matrix copies.",
+    "Profile and reduce runtime/memory bottlenecks so orthogonal updates can be applied at LLM training scale with minimal overhead while preserving stability benefits."
   ],
-  "impact": "Makes spectrum-preserving, orthogonally reparameterized training practical for modern LLMs — lowering GPU memory and compute demands so practitioners can train larger, more stable models on the same hardware budget.",
+  "impact": "Makes stable, spectrum-preserving orthogonal reparameterization feasible for training large language models, enabling better training stability and potentially larger effective batch/model sizes without prohibitive memory costs.",
   "visual_elements": [
-    "Before/After bar chart comparing GPU memory and FLOPs for POET vs POET-X vs standard training",
-    "Schematic showing weight matrix -> orthogonal-equivalence reparam -> factorized/implicit transforms (illustrating no full rotation matrix formed)",
-    "Singular-value spectrum plot overlay demonstrating spectrum preservation for POET-X vs baseline",
-    "Flowchart of training step highlighting where memory/computation savings occur (factor storage, implicit apply, mixed-precision)"
+    "Before vs after memory bar chart: original POET memory footprint vs POET-X reduced footprint",
+    "Pipeline diagram: standard weight update vs POET-X orthogonal reparameterized update (showing lightweight transform blocks)",
+    "Training curves: compare loss/instability (or gradient norm) for baseline, POET, and POET-X",
+    "Schematic showing spectrum preservation (eigenvalue bars) maintained while transform representation is compressed"
   ],
   "hashtags": [
-    "#LLMTraining",
-    "#ModelEfficiency",
-    "#Orthogonalization",
     "#POETX",
-    "#ScalingAI"
+    "#LLMTraining",
+    "#MemoryEfficient",
+    "#OrthogonalTransforms",
+    "#EfficientAI"
   ],
   "paper_id": "2026-03-05-arxiv-poet_x_memory_efficient_llm_training_by_scaling_orthogonal_transformation",
   "paper_title": "POET-X: Memory-efficient LLM Training by Scaling Orthogonal Transformation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.05500v1"
     }
   ],
-  "generated_at": "2026-03-07T06:29:04.152762"
+  "generated_at": "2026-03-08T06:33:09.572015"
 }

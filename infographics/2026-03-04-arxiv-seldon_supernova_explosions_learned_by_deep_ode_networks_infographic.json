@@ -1,24 +1,24 @@
 {
-  "key_insight": "SELDON uses a continuous-time deep ODE variational model to learn and forecast supernova light curves, delivering millisecond-scale inference for thousands of objects—replacing slow MCMC pipelines with a fast, amortized approach.",
-  "problem_solved": "How to perform accurate, uncertainty-aware inference and forecasting on irregularly sampled, high-volume transient light curves at Rubin/LSST scale (≈10M alerts/night) when traditional physics-based MCMC methods are too slow to keep up.",
+  "key_insight": "SELDON uses a continuous-time deep ODE variational model to learn supernova explosion dynamics from irregular light curves, producing millisecond-scale, amortized posterior inference that replaces hours-long MCMC runs. This enables real-time parameter estimation and uncertainty quantification at LSST alert scales.",
+  "problem_solved": "How to perform fast, accurate, and uncertainty-aware inference of transient (supernova) parameters from irregularly sampled light curves when alert rates (∼10 million/night) make traditional physics-based MCMC pipelines infeasible.",
   "method": [
-    "Continuous-time variational autoencoder built with Neural ODEs: encoder maps observations to a latent ODE state, latent dynamics are governed by a learned ODE, decoder reconstructs light curves and physical parameters.",
-    "Amortized inference for rapid posterior estimation and forecasting on irregularly sampled time series, with built-in uncertainty quantification (probabilistic decoder/latent posterior).",
-    "Training on simulated/observed supernova light curves to learn physical evolution and enable millisecond-scale inference for large alert streams."
+    "Continuous-time variational autoencoder built around neural ODE latent dynamics to model light-curve evolution in continuous time.",
+    "Amortized inference (encoder → latent ODE → decoder) for millisecond-scale posterior predictions and calibrated uncertainty estimates.",
+    "End-to-end training on simulated/observed transient light curves to handle irregular sampling and deliver scalable, real-time inference."
   ],
-  "impact": "Enables real-time, scalable classification and parameter estimation for astronomical transients—allowing prioritized follow-up and rapid scientific discovery at survey scale while preserving uncertainty estimates. Practitioners get a template for applying Neural ODE VAEs to other irregular, high-throughput time-series problems.",
+  "impact": "Enables scalable, real-time transient parameter inference and uncertainty quantification for Rubin LSST-scale alert streams, allowing rapid follow-up prioritization and resource allocation. Provides a practical blueprint for ML practitioners building continuous-time, amortized inference systems for scientific time series.",
   "visual_elements": [
-    "Model diagram: encoder → latent Neural ODE (continuous trajectory) → decoder, showing amortized inference and sampling",
-    "Speed vs accuracy bar chart: SELDON (ms/object) vs MCMC (hours/object) with comparable reconstruction/error bars",
-    "Example light-curve panel: observed irregular samples, SELDON posterior mean and uncertainty bands, and multi-step forecasts",
-    "Pipeline schematic: LSST alerts → SELDON real-time inference → ranking/prioritization → telescope follow-up"
+    "Architecture diagram: encoder → latent Neural ODE block → decoder showing continuous-time latent trajectories",
+    "Latency vs accuracy chart: SELDON (ms) vs MCMC (hours) with comparable posterior quality",
+    "Example light curves: irregular observations with model fit and uncertainty bands over time",
+    "Alert-scale infographic: Rubin LSST alert flood (10M/night) processed by SELDON-enabled GPU cluster"
   ],
   "hashtags": [
-    "#NeuralODE",
     "#AstroML",
-    "#TimeSeriesML",
-    "#VariationalAutoencoder",
-    "#LSST"
+    "#NeuralODE",
+    "#TimeSeries",
+    "#LSST",
+    "#Supernova"
   ],
   "paper_id": "2026-03-04-arxiv-seldon_supernova_explosions_learned_by_deep_ode_networks",
   "paper_title": "SELDON: Supernova Explosions Learned by Deep ODE Networks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.04392v1"
     }
   ],
-  "generated_at": "2026-03-07T06:30:51.273664"
+  "generated_at": "2026-03-08T06:35:07.017942"
 }

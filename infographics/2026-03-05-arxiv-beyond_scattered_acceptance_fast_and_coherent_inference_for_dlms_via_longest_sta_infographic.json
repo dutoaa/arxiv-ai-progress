@@ -1,24 +1,24 @@
 {
-  "key_insight": "Instead of committing high-confidence tokens at scattered positions, commit the longest contiguous prefix of tokens that remain stable across diffusion steps (Longest Stable Prefix, LSP). This preserves KV-cache locality and avoids repeated expensive repairs, yielding faster and more coherent DLM inference.",
-  "problem_solved": "Existing 'scattered acceptance' schedulers for Diffusion Language Models fracture the KV cache and memory locality, forcing repeated recomputation and repair across unstable token boundaries—leading to higher latency and degraded coherence.",
+  "key_insight": "Commit contiguous, longest stable prefixes (LSP) instead of scattered high‑confidence tokens to preserve KV cache locality and avoid repeated repairs, enabling much faster and more coherent DLM inference.",
+  "problem_solved": "Diffusion Language Models suffer from 'scattered acceptance' that fractures the KV cache, destroys memory locality, and forces costly repeated recomputation and local repairs during decoding — this paper fixes the decoding scheduler to eliminate those inefficiencies.",
   "method": [
-    "Detect and commit the Longest Stable Prefix (LSP) of tokens that do not change across denoising/iteration steps, rather than accepting isolated high-confidence tokens at arbitrary positions.",
-    "Schedule decoding to preserve contiguous KV-cache use and memory locality, minimizing cache invalidations and repetitive forward passes for repaired token regions.",
-    "Design a hardware-aware scheduler that balances parallelism with contiguous commitment to reduce recomputation, lower memory bandwidth, and maintain output coherence."
+    "Detect token stability across diffusion iterations and compute the longest contiguous prefix that is stable (Longest Stable Prefix, LSP).",
+    "Commit the LSP incrementally so the KV cache can be updated and reused in-place, avoiding random writes/reads that fragment memory locality.",
+    "Schedule parallel generation only on the remaining unstable suffix and perform targeted, efficient repairs when instability appears, minimizing recomputation."
   ],
-  "impact": "Practitioners can get substantially lower latency and improved text coherence from DLMs by using LSP-based schedulers—benefiting deployment on hardware-sensitive inference stacks (lower memory traffic, fewer recomputations, better throughput).",
+  "impact": "Faster, more memory-efficient DLM decoding with improved output coherence and reduced latency — directly beneficial for hardware accelerators and large-scale deployment of diffusion-based text models.",
   "visual_elements": [
-    "Side-by-side diagram: 'Scattered Acceptance' vs 'Longest Stable Prefix' showing token commitments and resulting KV-cache continuity.",
-    "KV-cache heatmap/timechart illustrating cache hits/misses and memory locality with scattered vs LSP scheduling.",
-    "Latency and throughput bar chart showing speedups and fewer recomputations with LSP-based scheduler.",
-    "Generation example: text timeline highlighting unstable token edits under scattered acceptance versus a stable, coherent prefix under LSP."
+    "Side-by-side schematic: 'Scattered Acceptance' vs 'Longest Stable Prefix' showing token commit patterns and KV cache fragmentation vs continuity",
+    "Flowchart of the LSP scheduler: stability detection → commit prefix → parallel suffix decoding → targeted repair",
+    "Bar/line chart: latency, compute, and KV cache hit-rate comparisons (scattered vs LSP) across model sizes",
+    "Heatmap or memory-access diagram showing reduced random KV reads/writes and improved locality with LSP"
   ],
   "hashtags": [
-    "#DiffusionLM",
-    "#EfficientInference",
+    "#DiffusionLMs",
+    "#ParallelDecoding",
+    "#InferenceOptimization",
     "#KVCache",
-    "#HardwareAI",
-    "#LowLatencyNLP"
+    "#LLMAcceleration"
   ],
   "paper_id": "2026-03-05-arxiv-beyond_scattered_acceptance_fast_and_coherent_inference_for_dlms_via_longest_sta",
   "paper_title": "Beyond Scattered Acceptance: Fast and Coherent Inference for DLMs via Longest Stable Prefixes",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.05454v1"
     }
   ],
-  "generated_at": "2026-03-07T06:27:42.542137"
+  "generated_at": "2026-03-08T06:31:42.855075"
 }

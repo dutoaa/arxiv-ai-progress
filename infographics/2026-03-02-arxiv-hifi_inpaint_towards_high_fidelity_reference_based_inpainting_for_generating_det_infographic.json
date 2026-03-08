@@ -1,24 +1,24 @@
 {
-  "key_insight": "HiFi-Inpaint demonstrates that reference-based inpainting guided by product exemplars can preserve fine product textures and structure in human-product images, producing high-fidelity, realistic composites without sacrificing wearer or background realism.",
-  "problem_solved": "Generates human-product images that retain detailed product appearance (textures, patterns, logos) when inpainting occluded or replaced regions, addressing fidelity loss common in existing inpainting methods.",
+  "key_insight": "HiFi-Inpaint is a reference-based inpainting framework that preserves fine product details when generating human-product images by explicitly aligning and transferring high-frequency textures from product reference images into the inpainting pipeline.",
+  "problem_solved": "Generates realistic human-product images while overcoming loss of product detail in conventional inpainting methods, enabling faithful reproduction of textures, patterns and logos from reference product images.",
   "method": [
-    "HiFi-Inpaint: a reference-guided inpainting framework that conditions the inpainting on a product reference image to transfer fine-grained appearance.",
-    "Feature alignment and detail-refinement modules that align reference features to the target context and explicitly reconstruct high-frequency texture (multi-scale and patch-based refinement).",
-    "Training and loss design focused on perceptual fidelity (e.g., perceptual/identity/patch losses and adversarial terms) plus data/augmentation strategies to improve robustness across poses and backgrounds."
+    "Reference-guided alignment: warp or attend to a product reference image to spatially align product appearance with the target human scene.",
+    "Multi-scale refinement and detail transfer: a coarse-to-fine generator that preserves high-frequency textures via specialized fusion blocks and detail-aware losses.",
+    "Training regime & objectives: combine perceptual/LPIPS-style metrics, high-frequency/texture-preserving loss terms, and adversarial refinement, trained on a diverse human-product dataset."
   ],
-  "impact": "Provides practitioners a practical approach to produce realistic, detail-preserving human-product composites for advertising and e-commerce, improving downstream trust and visual quality for product visualization and virtual try-on tasks.",
+  "impact": "Provides a practical solution for creating high-fidelity marketing and e-commerce images where product identity must be preserved, improving realism and trustworthiness for downstream visual applications and editing workflows.",
   "visual_elements": [
-    "Pipeline diagram: show source image + product reference -> feature alignment -> detail-refinement -> final composite",
-    "Before/After gallery: side-by-side comparisons highlighting preserved textures, logos, and seams (zoomed-in crops)",
-    "Architecture block: modules for reference encoding, alignment, and high-frequency reconstruction with loss icons (perceptual, adversarial, patch)",
-    "Quantitative chart: metrics (LPIPS/SSIM/identity/texture scores) and a small user-preference bar chart"
+    "Pipeline diagram showing: input human image with missing product region + product reference → alignment module → multi-scale generator → final composite",
+    "Before / after comparison grid highlighting preservation of fine textures (logos, patterns, materials)",
+    "Attention / alignment heatmaps illustrating where the reference contributes to the target",
+    "Ablation chart (PSNR/LPIPS or perceptual score) showing benefits of alignment and detail losses"
   ],
   "hashtags": [
     "#Inpainting",
     "#ComputerVision",
     "#ImageSynthesis",
-    "#ReferenceBased",
-    "#HighFidelity"
+    "#Ecommerce",
+    "#ReferenceBased"
   ],
   "paper_id": "2026-03-02-arxiv-hifi_inpaint_towards_high_fidelity_reference_based_inpainting_for_generating_det",
   "paper_title": "HiFi-Inpaint: Towards High-Fidelity Reference-Based Inpainting for Generating Detail-Preserving Human-Product Images",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.02210v1"
     }
   ],
-  "generated_at": "2026-03-07T06:31:26.936218"
+  "generated_at": "2026-03-08T06:35:38.582438"
 }
