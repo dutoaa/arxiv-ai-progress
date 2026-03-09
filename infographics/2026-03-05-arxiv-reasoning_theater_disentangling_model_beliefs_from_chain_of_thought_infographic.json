@@ -1,24 +1,24 @@
 {
-  "key_insight": "Large reasoning models often already 'know' their final answer well before they state it: internal activations encode the answer early in the chain-of-thought (CoT), while the model continues generating tokens without revealing that belief.",
-  "problem_solved": "Shows that surface CoT tokens can be performative (masking true internal belief) and that common monitors can miss early, decodable signals—clarifying a gap between what models believe internally and what they express.",
+  "key_insight": "Large models often 'perform' chain-of-thought: their internal activations encode the final answer much earlier than the tokens reveal it, and external CoT monitors fail to detect that internal belief until later — with differences depending on task difficulty.",
+  "problem_solved": "Exposes a gap between a model's internal belief state and its generated chain-of-thought, showing that surface-level CoT can be performative and that existing monitors can miss early, decodable answers.",
   "method": [
-    "Activation probing: train decoders on hidden activations to read out the model's latent final answer during CoT.",
-    "Early forced answering: prompt the model to produce an answer at intermediate CoT steps to test when the internal belief is committed.",
-    "CoT monitor vs probes: compare a token-level CoT monitor with activation probes across two models (DeepSeek-R1 671B, GPT-OSS 120B) and varying task difficulty to identify when beliefs become decodable."
+    "Activation probing: train decoders on model activations at each token to read out the model's latent answer over time.",
+    "Early forced-answer experiments: prompt the model to output an answer at intermediate points in the CoT to test whether the internal belief is already settled.",
+    "Monitor vs probe comparison across models and tasks: evaluate a CoT monitor and probes on two LMs (DeepSeek-R1 671B, GPT-OSS 120B) and analyze task-difficulty-specific detection gaps."
   ],
-  "impact": "Highlights a fundamental interpretability gap—practitioners should not assume CoT tokens reflect internal belief timing; activation-level probes can reveal earlier commitments, affecting evaluation, alignment, and safety monitoring.",
+  "impact": "Shows that belief-tracking should rely on internal-state probes rather than surface tokens for accurate monitoring and alignment; important for trustworthy reasoning, evaluation, and safety of LLMs.",
   "visual_elements": [
-    "Timeline diagram comparing when answer is decodable from activations vs when it is verbalized in CoT tokens.",
-    "Bar/line chart showing decode accuracy over CoT steps for both DeepSeek-R1 and GPT-OSS across easy/medium/hard tasks.",
-    "Schematic of methods: model -> hidden activations -> probe decoder, plus branch for early forced answer and CoT monitor.",
-    "Icon set for implications: interpretability, safety, evaluation, and model debugging"
+    "Timeline diagram: token-by-token generation with a superimposed curve showing when the final answer becomes decodable from activations vs when the model states it in text.",
+    "Line chart: decoding accuracy (probe) and monitor confidence over token position, highlighting the temporal gap and task-difficulty differences.",
+    "Method schematic: side-by-side illustration of activation probing, early forced-answer, and CoT monitor workflows.",
+    "Heatmap or bar chart: detection lag (tokens) across tasks of varying difficulty and across the two evaluated models."
   ],
   "hashtags": [
     "#ChainOfThought",
-    "#Interpretability",
-    "#ActivationProbing",
-    "#LLMs",
-    "#ModelSafety"
+    "#ModelInterpretability",
+    "#ModelMonitoring",
+    "#AIAlignment",
+    "#LLMs"
   ],
   "paper_id": "2026-03-05-arxiv-reasoning_theater_disentangling_model_beliefs_from_chain_of_thought",
   "paper_title": "Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.05488v1"
     }
   ],
-  "generated_at": "2026-03-08T06:32:37.059775"
+  "generated_at": "2026-03-09T06:54:56.388803"
 }
