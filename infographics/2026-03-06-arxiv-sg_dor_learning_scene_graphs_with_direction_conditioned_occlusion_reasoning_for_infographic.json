@@ -1,24 +1,24 @@
 {
-  "key_insight": "SG-DOR learns scene graphs that explicitly encode which plant organs block a target fruit from a given direction, enabling direction-conditioned occlusion reasoning from instance-segmented organ point clouds.",
-  "problem_solved": "Automates identification of direction-dependent occluders in dense crop canopies so robotic harvesters can plan interventions that avoid or remove obstructing organs.",
+  "key_insight": "SG-DOR builds scene graphs from instance-segmented organ point clouds that explicitly encode physical attachments and view-dependent occlusion relations, enabling robots to rank which organs block a target fruit from a given direction.",
+  "problem_solved": "Identifies which plant organs occlude a target fruit depending on viewpoint in dense crop canopies—solving the need for direction-conditioned, relational occlusion reasoning for safe and efficient robotic harvesting.",
   "method": [
-    "Input: instance-segmented organ point clouds of pepper plants.",
-    "Graph-based model that builds a scene graph with physical-attachment edges and direction-conditioned occlusion relations using a GNN-style relational backbone.",
-    "Train with an occlusion-ranking objective (which organs most block a target from a viewpoint) to predict occlusion orderings and attachment structure for manipulation planning."
+    "Input: per-organ instance-segmented 3D point clouds of plant organs.",
+    "Graph-based model that predicts two relation types: physical attachments and direction-conditioned occlusion (formulated as an occlusion-ranking task).",
+    "Scene-graph decoder that outputs ranked occluders conditioned on a query direction for downstream planning and intervention."
   ],
-  "impact": "Provides a structured, interpretable representation (scene graphs) that improves perception-to-planning for agricultural robots and any application requiring viewpoint-aware occlusion reasoning.",
+  "impact": "Provides an interpretable, relational representation that enables occlusion-aware perception and planning for agricultural robots and other manipulation tasks in cluttered 3D environments, improving end-effector routing and success rates.",
   "visual_elements": [
-    "Pipeline diagram: point-cloud input → scene-graph construction → occlusion-ranking output with direction arrow",
-    "Overlay on a pepper-plant point cloud showing predicted attachment edges and occluder labels colored by occlusion rank",
-    "Bar/heatmap comparing predicted vs. ground-truth occlusion ranks across viewpoints",
-    "Icon set: fruit target, occluding leaf/branch, robot end-effector, viewpoint arrow"
+    "Pipeline diagram: point-cloud input → graph construction → relation prediction → ranked occluders.",
+    "Before/after illustration of a pepper plant: occluders color-coded by rank from a given viewpoint.",
+    "Model architecture block diagram highlighting direction-conditioned module and scene-graph decoder.",
+    "Bar chart comparing occlusion-ranking accuracy and manipulation success vs. baseline methods."
   ],
   "hashtags": [
     "#SceneGraphs",
     "#OcclusionReasoning",
     "#Robotics",
     "#AgriculturalAI",
-    "#GraphNeuralNetworks"
+    "#3DComputerVision"
   ],
   "paper_id": "2026-03-06-arxiv-sg_dor_learning_scene_graphs_with_direction_conditioned_occlusion_reasoning_for",
   "paper_title": "SG-DOR: Learning Scene Graphs with Direction-Conditioned Occlusion Reasoning for Pepper Plants",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.06512v1"
     }
   ],
-  "generated_at": "2026-03-09T06:50:18.792093"
+  "generated_at": "2026-03-10T06:39:58.403094"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "SurgFormer is a multiresolution gated transformer that learns to predict nodewise soft-tissue deformations on volumetric meshes from solver-generated data, enabling near real-time, scalable simulation with explicit support for tissue resection.",
-  "problem_solved": "High-fidelity biomechanical solvers are too slow for interactive surgical use; SurgFormer provides fast, accurate deformation predictions on complex volumetric meshes while handling topology changes from resections.",
+  "key_insight": "SurgFormer is a multiresolution gated transformer that learns solver-quality soft-tissue deformation on volumetric meshes, enabling near real-time, nodewise displacement prediction and explicit support for resections.",
+  "problem_solved": "High‑fidelity biomechanical simulators are too slow for interactive surgical applications and struggle to scale; SurgFormer replaces costly solvers with a data‑driven model that scales to large meshes and handles tissue cutting/resection.",
   "method": [
-    "Build a fixed mesh hierarchy and process geometry with repeated multibranch blocks.",
-    "Each block fuses local message passing (for short-range interactions), coarse global self-attention (for long-range context), and pointwise feedforward updates via gated transformers.",
-    "Train on high-fidelity solver outputs to predict nodewise displacement fields and run inference in near real-time, including resection events."
+    "Build a fixed multiresolution mesh hierarchy and process geometry at multiple scales.",
+    "Stack multibranch blocks that fuse local message passing, coarse global self‑attention, and pointwise feedforward updates.",
+    "Train on solver‑generated displacement fields so the model predicts nodewise deformations (including resections) at near real‑time speed."
   ],
-  "impact": "Provides a practical, scalable architecture for real-time soft-tissue simulation that ML practitioners can adapt for surgical planning, interactive training, and downstream control tasks where speed and handling of topology changes are critical.",
+  "impact": "Provides AI/ML practitioners a scalable, fast surrogate for biomechanical simulation suitable for interactive surgical systems, data augmentation, and downstream learning tasks—cutting computational cost while retaining solver-like fidelity.",
   "visual_elements": [
-    "Architecture diagram: mesh hierarchy → multibranch blocks showing local message passing + coarse global attention + pointwise updates",
-    "Before/after volumetric mesh renderings showing deformation with and without resection",
-    "Performance chart comparing inference latency and error vs traditional biomechanical solvers",
-    "Schematic illustrating nodewise displacement prediction pipeline (solver data → training → real-time inference)"
+    "Architecture diagram: mesh hierarchy (fine→coarse) with multibranch block showing local message passing + global attention + feedforward fusion.",
+    "Before/after mesh overlay: ground‑truth solver displacements vs SurgFormer predictions (color-coded nodewise error).",
+    "Speed vs accuracy plot: solver vs SurgFormer (latency on x, error on y) to highlight real‑time advantage.",
+    "Illustration showing resection/cutting and the model updating mesh displacements in real time."
   ],
   "hashtags": [
     "#SurgFormer",
-    "#SoftTissueSimulation",
-    "#MultiresolutionTransformer",
-    "#SurgicalAI",
-    "#RealTimeInference"
+    "#MedicalAI",
+    "#Biomechanics",
+    "#Transformers",
+    "#RealTimeSimulation"
   ],
   "paper_id": "2026-03-06-arxiv-surgformer_scalable_learning_of_organ_deformation_with_resection_support_and_rea",
   "paper_title": "SurgFormer: Scalable Learning of Organ Deformation with Resection Support and Real-Time Inference",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.06543v1"
     }
   ],
-  "generated_at": "2026-03-09T06:50:58.496235"
+  "generated_at": "2026-03-10T06:39:34.623988"
 }
