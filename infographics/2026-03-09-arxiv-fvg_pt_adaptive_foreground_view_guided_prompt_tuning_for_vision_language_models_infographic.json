@@ -1,23 +1,23 @@
 {
-  "key_insight": "Prompt tuning failures often stem from shifts in the visual encoder's foreground attention; by conditioning prompts on the model's foreground view, FVG-PT adaptively aligns text prompts with the visual focus to restore correct predictions.",
-  "problem_solved": "Standard CLIP-based prompt tuning overlooks changes in internal attention maps of the visual encoder, causing misalignment between visual features and text prompts and leading to degraded downstream performance.",
+  "key_insight": "Prompt tuning failures in CLIP-style VLMs are largely caused by shifts in the visual encoder's foreground attention; FVG-PT adaptively extracts and aligns foreground attention to guide prompt updates, stabilizing and improving downstream performance.",
+  "problem_solved": "Existing prompt tuning methods ignore internal attention shifts in the visual encoder, leading to inconsistent or degraded predictions when foreground attention drifts during adaptation; this work addresses unstable transfer and poor robustness caused by unaligned visual attention.",
   "method": [
-    "Detect and extract foreground view / attention maps from the pretrained visual encoder during tuning.",
-    "Generate or adapt prompt tokens conditioned on the extracted foreground view to better align text embeddings with the model's current visual focus.",
-    "Apply the adaptive, plug-and-play prompt module to CLIP-style VLMs for efficient downstream adaptation without heavy model finetuning."
+    "Diagnose attention shift: analyze how foreground attention maps change during prompt tuning and correlate shifts with prediction errors.",
+    "Foreground View-Guided module: extract image-specific foreground attention views and use them to condition prompt representations (attention-guided prompt generation or re-weighting).",
+    "Adaptive alignment and loss: incorporate an attention-alignment objective and a lightweight, plug-and-play prompt adapter that adjusts prompts per image or batch to preserve correct foreground focus."
   ],
-  "impact": "FVG-PT makes prompt tuning more robust and reliable by closing the gap between visual attention and textual prompts, improving few-shot and transfer performance while keeping adaptation lightweight for practitioners.",
+  "impact": "FVG-PT improves transfer accuracy, robustness, and interpretability of CLIP-based prompt tuning with minimal overhead, making prompt adaptation more reliable for real-world downstream tasks and low-data regimes.",
   "visual_elements": [
-    "Before vs after attention heatmaps overlaid on images showing corrected foreground focus",
-    "Pipeline diagram: image → extract foreground view → adaptive prompt generator → CLIP encoder → prediction",
-    "Bar chart comparing accuracy (or robustness) of standard prompt tuning vs FVG-PT across several datasets",
-    "Icon grid: plug-and-play module, lightweight compute, attention map, improved accuracy"
+    "Before/after attention heatmaps showing foreground attention drift and correction by FVG-PT",
+    "Pipeline diagram: input image -> foreground attention extractor -> prompt adapter -> VLM inference",
+    "Bar chart or table of accuracy gains across several downstream datasets (baseline vs FVG-PT)",
+    "Schematic illustrating the attention-alignment loss and how prompts are conditioned by foreground views"
   ],
   "hashtags": [
-    "#VisionLanguage",
+    "#VisionLanguageModels",
     "#PromptTuning",
+    "#AttentionMechanisms",
     "#CLIP",
-    "#Attention",
     "#TransferLearning"
   ],
   "paper_id": "2026-03-09-arxiv-fvg_pt_adaptive_foreground_view_guided_prompt_tuning_for_vision_language_models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.08708v1"
     }
   ],
-  "generated_at": "2026-03-10T06:38:49.094290"
+  "generated_at": "2026-03-11T06:43:26.000401"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "A continuously updated (live) benchmark reveals whether time-series forecasting models—especially foundation-style pretrained models—truly generalize across time, preventing test-set contamination and inflated evaluation scores.",
-  "problem_solved": "Static train/test splits mask temporal distribution shifts and enable inadvertent use of test data (or test-driven model selection), giving overoptimistic evaluations of forecasting models.",
+  "key_insight": "Static train-test splits overstate forecasting performance for foundation-style time-series models because they enable contamination and don't reflect changing realities; a live, continuously-updated benchmark reveals true temporal generalization. Impermanent provides a leak-resistant, rolling evaluation that measures how models perform on genuinely future data.",
+  "problem_solved": "Addresses evaluation contamination and unrealistic stationarity assumptions in time-series forecasting benchmarks by preventing training or model-selection on test data and by measuring model performance under temporal distribution shift.",
   "method": [
-    "Live benchmarking service that continuously rolls forward evaluation periods, keeping test data out of training and avoiding static-split leakage.",
-    "Controlled dataset curation, provenance tracking, and automated evaluation pipelines that recompute scores and leaderboards as new temporal slices arrive.",
-    "Auditable protocols for model submission and selection to ensure fair comparison across pretrained and task-specific models under realistic temporal shifts."
+    "Live rolling-evaluation protocol: continuously release new future test windows and score models on genuinely unseen time slices instead of fixed splits.",
+    "Strict data/version controls and automated evaluation pipeline: block test data access, log submissions, and compute temporal robustness metrics to avoid leakage or post-hoc tuning on test scores.",
+    "Public leaderboard and monitoring: track model performance over time, highlight degradation under distribution shifts, and enable reproducible comparisons for foundation-style forecasting models."
   ],
-  "impact": "Provides a realistic, contamination-resistant evaluation for time-series forecasting, enabling practitioners to trust model comparisons and choose models robust to temporal drift in production settings.",
+  "impact": "Provides practitioners and researchers a more trustworthy, deployment-relevant measurement of forecasting models' temporal robustness, helping select models that actually generalize to future data and avoid overstated claims from contaminated evaluations.",
   "visual_elements": [
-    "Timeline comparing static-split evaluation vs. Impermanent live rolling evaluation (showing contamination risk eliminated).",
-    "Pipeline diagram of data curation → provenance checks → live evaluation → leaderboard updates.",
-    "Heatmap or line chart showing model performance drift over successive evaluation windows (temporal generalization).",
-    "Icon set: clock (time/temporal), shield (contamination protection), leaderboard/trophy (fair comparison)."
+    "Timeline diagram showing rolling train/test windows moving forward in time (live evaluation vs static split)",
+    "Before/After illustration of data leakage: static-split contaminated model vs leak-resistant live benchmark",
+    "Leaderboard trend chart showing model scores over successive future windows to visualize temporal degradation",
+    "Evaluation pipeline schematic with icons for data versioning, locked test set, automated scoring, and public dashboard"
   ],
   "hashtags": [
     "#TimeSeries",
     "#Benchmarking",
     "#TemporalGeneralization",
-    "#MLRobustness",
-    "#DataIntegrity"
+    "#Forecasting",
+    "#MLRobustness"
   ],
   "paper_id": "2026-03-09-arxiv-impermanent_a_live_benchmark_for_temporal_generalization_in_time_series_forecast",
   "paper_title": "Impermanent: A Live Benchmark for Temporal Generalization in Time Series Forecasting",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.08707v1"
     }
   ],
-  "generated_at": "2026-03-10T06:38:41.130872"
+  "generated_at": "2026-03-11T06:42:15.318330"
 }

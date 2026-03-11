@@ -1,24 +1,24 @@
 {
-  "key_insight": "Representing Chain-of-Thought as executable code (\"Code-as-CoT\") provides precise, structured intermediate plans for text-to-image generation, enabling accurate spatial layouts, dense text, and rare concept rendering via previews and stepwise refinement.",
-  "problem_solved": "Natural-language CoT is too imprecise for complex spatial composition, structured visual elements, and rare concepts; CoCo addresses this by producing formal, executable plans that bridge language and image synthesis.",
+  "key_insight": "Representing Chain-of-Thought as executable code (Code-as-CoT) gives text-to-image systems precise, structured planning that can be rendered into previews and used to generate rare or complex visual concepts more reliably.",
+  "problem_solved": "Overcomes the imprecision of natural-language planning in CoT for T2I, which struggles with complex spatial layouts, structured visual elements, and dense textual content.",
   "method": [
-    "Translate natural-language prompts into short, executable code snippets (scene descriptions, SVG/layout primitives, or rendering instructions) that serve as explicit, inspectable CoT.",
-    "Execute or simulate the code to produce a visual preview and use the structured output to condition a T2I model, enabling iterative refinement and improved grounding of rare concepts.",
-    "Train/align the UMM to interpret code outputs and integrate code-driven planning into generation, improving fidelity for dense text, layout-sensitive scenes, and uncommon objects."
+    "Encode reasoning/planning as executable code (e.g., SVG/HTML/canvas-like scripts or scene descriptions) instead of abstract natural language.",
+    "Render the code into a visual preview that conditions a unified multimodal generator, enabling iterative refinement and tighter layout control.",
+    "Leverage the explicit code-to-visual mapping to inject and compose rare concepts and structured content more accurately during generation."
   ],
-  "impact": "Provides practitioners a practical way to get interpretable previews and fine-grained control over T2I outputs, improving reliability for design, data augmentation, and generation of rare concepts; reduces trial-and-error prompt engineering.",
+  "impact": "Provides practitioners a practical way to add precise layout control, reproducibility, and better handling of rare/structured concepts to T2I pipelines, improving fidelity for design, OCR-heavy scenes, and compositional tasks.",
   "visual_elements": [
-    "Pipeline diagram: Prompt → Code-as-CoT → Executable preview → T2I model → Final image",
-    "Side-by-side comparisons: NL-CoT outputs vs Code-as-CoT outputs highlighting layout/text fidelity and rare-concept accuracy",
-    "Code snippet + rendered preview: small code block (e.g., SVG-like) next to its visual preview to show executability",
-    "Interactive UI mock: preview + editable code pane demonstrating user-in-the-loop refinement"
+    "Pipeline diagram: text prompt → Code-as-CoT (code block) → preview renderer → image generator (final output)",
+    "Before/after examples: natural-language CoT vs Code-as-CoT showing improved layout/text fidelity and rare-concept accuracy",
+    "Code snippet + rendered preview pair to illustrate how executable instructions map to visuals",
+    "Bar chart or table comparing accuracy/fidelity on spatial, structured-text, and rare-concept benchmarks"
   ],
   "hashtags": [
     "#CodeAsCoT",
     "#TextToImage",
     "#MultimodalAI",
     "#RareConcepts",
-    "#ExplainableAI"
+    "#ImageGeneration"
   ],
   "paper_id": "2026-03-09-arxiv-coco_code_as_cot_for_text_to_image_preview_and_rare_concept_generation",
   "paper_title": "CoCo: Code as CoT for Text-to-Image Preview and Rare Concept Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.08652v1"
     }
   ],
-  "generated_at": "2026-03-10T06:37:28.968712"
+  "generated_at": "2026-03-11T06:43:05.787517"
 }

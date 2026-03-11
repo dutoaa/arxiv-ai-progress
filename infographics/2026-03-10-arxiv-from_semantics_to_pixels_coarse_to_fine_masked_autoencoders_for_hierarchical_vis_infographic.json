@@ -1,0 +1,35 @@
+{
+  "key_insight": "C2FMAE resolves the trade-off between global semantics and local textures by learning hierarchical visual representations with a coarse-to-fine masked autoencoder that moves from scene-level semantic masks to fine pixel reconstruction.",
+  "problem_solved": "Self-supervised visual pretraining methods either capture global semantics (contrastive learning) or local textures (masked image modeling); random masking in MIM causes attention drift and fails to preserve semantics. This paper addresses how to jointly learn both levels without semantic-agnostic masking.",
+  "method": [
+    "Generate semantically-aware coarse masks (scene-level) and progressively refine to instance-level and pixel/patch-level masks for masking and reconstruction.",
+    "Train a masked autoencoder in a coarse-to-fine curriculum so the model first captures global structure and then recovers instance details and local textures.",
+    "Use multi-granularity reconstruction objectives (and/or auxiliary semantic consistency losses) to align global semantics with fine-grained pixel prediction and reduce attention drift."
+  ],
+  "impact": "Provides a practical pretraining strategy that preserves both high-level semantics and low-level details, improving transfer performance on downstream vision tasks (classification, detection, segmentation) and making representations more robust and interpretable.",
+  "visual_elements": [
+    "Pipeline diagram showing coarse-to-fine masking stages (scene → instance → pixel) and the corresponding encoder/decoder flow",
+    "Before/after attention maps or reconstruction examples illustrating reduced attention drift and improved detail recovery",
+    "Bar chart comparing downstream task performance (e.g., linear probe, detection, segmentation) against CL and standard MIM baselines",
+    "Icon set: scene/semantic mask, object/instance mask, pixel/patch texture to highlight the three granularities"
+  ],
+  "hashtags": [
+    "#SelfSupervisedLearning",
+    "#MaskedAutoencoder",
+    "#RepresentationLearning",
+    "#ComputerVision",
+    "#Pretraining"
+  ],
+  "paper_id": "2026-03-10-arxiv-from_semantics_to_pixels_coarse_to_fine_masked_autoencoders_for_hierarchical_vis",
+  "paper_title": "From Semantics to Pixels: Coarse-to-Fine Masked Autoencoders for Hierarchical Visual Understanding",
+  "paper_category": "Model",
+  "paper_date": "2026-03-10",
+  "paper_authors": "Wenzhao Xiang, Yue Wu, Hongyang Yu, Feng Gao, Fan Yang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.09955v1"
+    }
+  ],
+  "generated_at": "2026-03-11T06:40:50.437759"
+}

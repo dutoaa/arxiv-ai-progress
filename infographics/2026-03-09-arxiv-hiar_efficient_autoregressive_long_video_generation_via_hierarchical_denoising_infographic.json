@@ -1,24 +1,24 @@
 {
-  "key_insight": "HiAR prevents progressive quality collapse in autoregressive diffusion video generation by replacing overly-clean context conditioning with a hierarchical denoising strategy that preserves useful uncertainty across timesteps, enabling temporally coherent and scalable long-video synthesis.",
-  "problem_solved": "Addresses temporal continuity loss and progressive quality degradation caused by error accumulation when autoregressively generating long videos with diffusion models.",
+  "key_insight": "HiAR introduces hierarchical denoising for autoregressive diffusion: by conditioning on multi-scale, partially denoised contexts rather than fully clean frames, the model preserves uncertainty and prevents progressive error accumulation, enabling longer coherent video generation.",
+  "problem_solved": "Addresses progressive quality degradation and temporal discontinuity in autoregressive long-video generation caused by conditioning on overly denoised contexts that propagate errors with high certainty.",
   "method": [
-    "Hierarchical denoising: condition future-frame generation on multi-level (coarse-to-fine) denoised contexts rather than fully-clean predictions to retain calibrated uncertainty and avoid propagating confident errors.",
-    "Autoregressive pipeline optimized for efficiency: combine coarse temporal conditioning for long-range structure with finer denoising for local detail, reducing computation and accumulation of mistakes over long sequences.",
-    "Training and inference design that balances context fidelity and uncertainty (e.g., noise-aware conditioning schedules and loss weighting) to maintain temporal continuity without amplifying previous prediction errors."
+    "Hierarchical denoising pipeline: generate and denoise video context at multiple temporal scales (coarse-to-fine) to stabilize long-range temporal structure.",
+    "Uncertainty-aware conditioning: use partially denoised / stochastic context representations instead of fully cleaned predictions to avoid overconfident error propagation.",
+    "Efficiency strategies: autoregressive scheduling in compact latent or grouped-frame space to reduce compute while maintaining temporal continuity."
   ],
-  "impact": "Makes autoregressive diffusion practical for producing longer, more coherent videos by reducing error propagation and improving efficiency—useful for tasks like video generation, prediction, and content creation where temporal consistency over extended sequences is critical.",
+  "impact": "Makes autoregressive diffusion practical for long-form video by reducing error accumulation and improving temporal consistency, enabling higher-quality, scalable video synthesis for research and production use cases.",
   "visual_elements": [
-    "Pipeline diagram: autoregressive loop showing hierarchical (coarse-to-fine) conditioning vs. conventional fully-clean conditioning.",
-    "Error-accumulation chart: quality over generated frames comparing baseline (degrading) vs. HiAR (stable).",
-    "Hierarchical denoising schematic: multi-level context boxes illustrating retained uncertainty flowing into next-step generation.",
-    "Before/after frame strip: side-by-side short sequence excerpts demonstrating reduced artifacts and better temporal coherence."
+    "Pipeline diagram showing hierarchical denoising: coarse level → intermediate → fine, with arrows indicating partial conditioning at each stage.",
+    "Side-by-side frame sequence comparison: baseline AR diffusion (degrading) vs HiAR (consistent) across many timesteps/frames.",
+    "Schematic illustrating conditioning effects: fully denoised context (high-confidence error propagation) vs partially denoised context (uncertainty preserved).",
+    "Chart: quality (FID/PSNR/consistency) vs generated video length showing slower degradation for HiAR."
   ],
   "hashtags": [
     "#VideoGeneration",
     "#DiffusionModels",
     "#Autoregressive",
-    "#LongFormVideo",
-    "#HierarchicalDenoising"
+    "#HierarchicalDenoising",
+    "#LongFormGeneration"
   ],
   "paper_id": "2026-03-09-arxiv-hiar_efficient_autoregressive_long_video_generation_via_hierarchical_denoising",
   "paper_title": "HiAR: Efficient Autoregressive Long Video Generation via Hierarchical Denoising",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.08703v1"
     }
   ],
-  "generated_at": "2026-03-10T06:38:13.816882"
+  "generated_at": "2026-03-11T06:42:53.420864"
 }

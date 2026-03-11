@@ -1,0 +1,35 @@
+{
+  "key_insight": "Early structural signals in hidden neurons, captured by the Overfitting-Underfitting Indicator (OUI), reliably predict whether a PPO actor–critic run with a given learning rate will converge, collapse, or underfit—often within the initial training steps—enabling early intervention.",
+  "problem_solved": "Addresses PPO's extreme sensitivity to learning rate and the expensive, time-consuming hyperparameter search by providing an early indicator of run stability and eventual performance.",
+  "method": [
+    "Compute the Overfitting–Underfitting Indicator (OUI) from hidden neuron activations during the first training epochs of PPO actor–critic runs.",
+    "Correlate OUI trajectories across a range of learning rates with long-term outcomes (convergence, collapse, slow learning) to identify reproducible structural signatures.",
+    "Use the early OUI signal to classify runs as stable/unstable and propose interventions (early stop, LR reduction or increase, or reinitialization) to avoid wasted compute."
+  ],
+  "impact": "Enables practitioners to detect unstable or doomed PPO runs early, reducing wasted compute and accelerating hyperparameter tuning; improves reliability of RL training by informing learning-rate choices and automated interventions.",
+  "visual_elements": [
+    "Timeline plot: early OUI trajectory (first epochs) overlaid with final return to show predictive power.",
+    "Heatmap: hidden-neuron activation patterns across different learning rates, highlighting structural differences for collapse vs successful runs.",
+    "Scatter plot: learning rate vs final performance colored by early OUI classification (stable / underfitting / collapsing).",
+    "Flowchart: suggested workflow — measure OUI early → classify run → apply intervention (stop / adjust LR / continue)."
+  ],
+  "hashtags": [
+    "#ReinforcementLearning",
+    "#PPO",
+    "#LearningRate",
+    "#RLStability",
+    "#HyperparameterTuning"
+  ],
+  "paper_id": "2026-03-10-arxiv-when_learning_rates_go_wrong_early_structural_signals_in_ppo_actor_critic",
+  "paper_title": "When Learning Rates Go Wrong: Early Structural Signals in PPO Actor-Critic",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-03-10",
+  "paper_authors": "Alberto Fernández-Hernández, Cristian Pérez-Corral, Jose I. Mestre, Manuel F. Dolz, Jose Duato",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.09950v1"
+    }
+  ],
+  "generated_at": "2026-03-11T06:40:35.095971"
+}

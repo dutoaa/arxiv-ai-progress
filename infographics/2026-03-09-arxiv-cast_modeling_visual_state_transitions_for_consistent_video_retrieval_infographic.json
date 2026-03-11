@@ -1,24 +1,24 @@
 {
-  "key_insight": "Modeling how visual states evolve across clips (state transitions and identity consistency) produces more coherent, story-preserving video retrieval than treating clips independently.",
-  "problem_solved": "Current retrieval methods match clips by local semantics and ignore whether retrieved clips keep a consistent object/actor state and identity across a sequence; this paper formalizes Consistent Video Retrieval (CVR) to address that gap.",
+  "key_insight": "Modeling visual state transitions between clips enables retrieval that preserves object/actor identity and temporal consistency, not just local semantic match. CAST frames retrieval as a consistency-aware problem and operationalizes it for long-form, multi-clip storylines.",
+  "problem_solved": "Existing video retrieval methods match clips based on local semantic similarity and ignore state/identity continuity, causing incoherent multi-clip results; this work formalizes Consistent Video Retrieval (CVR) and provides tools to benchmark and improve consistency.",
   "method": [
-    "Define the CVR task and construct a diagnostic benchmark by re-purposing clips from YouCook2, COIN, and CrossTask to evaluate state and identity consistency.",
-    "Introduce CAST, a model that explicitly represents visual state embeddings and learns transition dynamics between consecutive clips so retrieval considers how states evolve, not just per-clip similarity.",
-    "Train with objectives that combine local semantic alignment with transition- and identity-consistency losses and perform sequence-aware retrieval scoring to prioritize coherent clip sequences."
+    "Formalize the Consistent Video Retrieval (CVR) task and build a diagnostic benchmark spanning YouCook2, COIN, and CrossTask to evaluate state and identity consistency across retrieved clip sequences.",
+    "Introduce CAST, a model that explicitly represents visual state transitions between clips so retrieval decisions account for how objects/actors evolve over time rather than only per-clip semantics.",
+    "Train with transition-aware objectives and consistency constraints that encourage retrieved sequences to maintain identity and plausible state progressions."
   ],
-  "impact": "Enables retrieval systems that assemble clip sequences preserving narrative continuity and actor/object consistency—useful for long-form video editing, story-driven retrieval, and any downstream task requiring coherent multi-clip outputs.",
+  "impact": "By shifting retrieval from context-agnostic matching to transition-aware selection, CAST enables more coherent multi-clip storylines—useful for video editing, summarization, and downstream multimodal reasoning in long-form video applications.",
   "visual_elements": [
-    "Timeline diagram showing a query clip and multiple candidate clips with arrows illustrating state transitions; highlight the consistent vs. inconsistent choices.",
-    "Architecture schematic of CAST: state encoder, transition module, and sequence-aware retrieval scorer.",
-    "Benchmark comparison bar chart showing standard retrieval vs. CVR-aware retrieval on consistency metrics across YouCook2/COIN/CrossTask.",
-    "Icon set: actor/object identity badge, state-change arrow, and a coherence score meter to symbolize key concepts."
+    "Timeline diagram comparing context-agnostic retrieval vs. CAST: show how CAST preserves actor/state continuity across retrieved clips.",
+    "Architecture sketch of CAST highlighting modules for per-clip encoding, state transition modeling, and consistency-aware scoring.",
+    "Benchmark overview: table or Venn diagram of YouCook2, COIN, CrossTask splits and key diagnostic metrics for CVR.",
+    "Before/after retrieval examples: side-by-side retrieved clip sequences illustrating improvements in identity/state coherence."
   ],
   "hashtags": [
     "#VideoRetrieval",
-    "#TemporalModeling",
     "#VideoUnderstanding",
     "#MultimodalAI",
-    "#Consistency"
+    "#RepresentationLearning",
+    "#ConsistentRetrieval"
   ],
   "paper_id": "2026-03-09-arxiv-cast_modeling_visual_state_transitions_for_consistent_video_retrieval",
   "paper_title": "CAST: Modeling Visual State Transitions for Consistent Video Retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.08648v1"
     }
   ],
-  "generated_at": "2026-03-10T06:37:18.833893"
+  "generated_at": "2026-03-11T06:43:16.926830"
 }

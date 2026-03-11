@@ -1,0 +1,35 @@
+{
+  "key_insight": "Instead of reconstructing full images from undersampled k-space then analyzing them, the paper demonstrates that an end-to-end model can map undersampled k-space directly to clinical cardiac outputs (multi-task labels), avoiding reconstruction artifacts and information loss.",
+  "problem_solved": "Removes the ill-posed and artifact-prone 'reconstruct-then-analyze' bottleneck in cardiac MRI by extracting low-dimensional diagnostic information directly from undersampled k-space, enabling reliable downstream tasks despite accelerated acquisition.",
+  "method": [
+    "Train a physics-aware end-to-end network that ingests undersampled k-space and produces multiple clinical outputs without intermediate image reconstruction.",
+    "Use a shared encoder and separate task heads for segmentation, functional measurements (e.g., volumes/EF), and classification, with joint multi-task loss to enforce consistency across tasks.",
+    "Incorporate k-space/data-consistency priors and task-specific supervision so the model learns diagnostically relevant features robust to undersampling and acquisition variability."
+  ],
+  "impact": "This approach streamlines CMR pipelines, improves robustness to undersampling and reconstruction artifacts, and can accelerate clinical workflows — relevant to ML practitioners designing efficient, task-focused medical imaging systems.",
+  "visual_elements": [
+    "Side-by-side pipeline diagram: traditional reconstruct-then-analyze vs. proposed direct k-space→labels workflow.",
+    "Architecture sketch: k-space encoder with branching task heads (segmentation map, scalar measurements, disease label).",
+    "Performance chart: task accuracy or metric stability vs. acceleration factor (undersampling rate) comparing baseline and proposed method.",
+    "Illustrative example: overlay of predicted segmentation/functional output derived directly from undersampled k-space (no intermediate image)."
+  ],
+  "hashtags": [
+    "#MRI",
+    "#KSpace",
+    "#MedicalImaging",
+    "#DeepLearning",
+    "#CardiacMRI"
+  ],
+  "paper_id": "2026-03-10-arxiv-no_image_no_problem_end_to_end_multi_task_cardiac_analysis_from_undersampled_k_s",
+  "paper_title": "No Image, No Problem: End-to-End Multi-Task Cardiac Analysis from Undersampled k-Space",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-03-10",
+  "paper_authors": "Yundi Zhang, Sevgi Gokce Kafali, Niklas Bubeck, Daniel Rueckert, Jiazhen Pan",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.09945v1"
+    }
+  ],
+  "generated_at": "2026-03-11T06:40:18.175295"
+}
