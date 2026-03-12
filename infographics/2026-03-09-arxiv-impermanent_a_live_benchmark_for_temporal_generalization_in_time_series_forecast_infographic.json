@@ -1,17 +1,17 @@
 {
-  "key_insight": "Static train-test splits overstate forecasting performance for foundation-style time-series models because they enable contamination and don't reflect changing realities; a live, continuously-updated benchmark reveals true temporal generalization. Impermanent provides a leak-resistant, rolling evaluation that measures how models perform on genuinely future data.",
-  "problem_solved": "Addresses evaluation contamination and unrealistic stationarity assumptions in time-series forecasting benchmarks by preventing training or model-selection on test data and by measuring model performance under temporal distribution shift.",
+  "key_insight": "Impermanent introduces a live, continuously updated benchmark that measures how well time-series forecasting models truly generalize across time, avoiding inflated scores from static train-test splits and test-set contamination.",
+  "problem_solved": "Existing static benchmarks allow inadvertent contamination and optimistic evaluation of foundation-style forecasting models, giving poor evidence of real-world temporal generalization and robustness to distribution drift.",
   "method": [
-    "Live rolling-evaluation protocol: continuously release new future test windows and score models on genuinely unseen time slices instead of fixed splits.",
-    "Strict data/version controls and automated evaluation pipeline: block test data access, log submissions, and compute temporal robustness metrics to avoid leakage or post-hoc tuning on test scores.",
-    "Public leaderboard and monitoring: track model performance over time, highlight degradation under distribution shifts, and enable reproducible comparisons for foundation-style forecasting models."
+    "Live evaluation protocol: run models on periodically refreshed, strictly held-out future windows rather than fixed train/test splits to simulate real deployment.",
+    "Contamination controls: dataset versioning, submission rules, and isolation of test periods to prevent pretraining or model-selection on future data.",
+    "Transparent leaderboard & metrics: continuously updated public leaderboard that tracks performance over time and across drifts, emphasizing temporal generalization metrics (e.g., performance decay, robustness to regime change)."
   ],
-  "impact": "Provides practitioners and researchers a more trustworthy, deployment-relevant measurement of forecasting models' temporal robustness, helping select models that actually generalize to future data and avoid overstated claims from contaminated evaluations.",
+  "impact": "Provides practitioners and researchers with a realistic, contamination-resistant way to compare forecasting models and foundation models over time, improving trust in reported gains and guiding model selection for deployment under temporal drift.",
   "visual_elements": [
-    "Timeline diagram showing rolling train/test windows moving forward in time (live evaluation vs static split)",
-    "Before/After illustration of data leakage: static-split contaminated model vs leak-resistant live benchmark",
-    "Leaderboard trend chart showing model scores over successive future windows to visualize temporal degradation",
-    "Evaluation pipeline schematic with icons for data versioning, locked test set, automated scoring, and public dashboard"
+    "Rolling timeline diagram showing train windows, held-out live test windows, and how the benchmark updates over time",
+    "Before/after contamination example: two small charts comparing inflated scores from static splits vs. realistic scores from the live benchmark",
+    "Live leaderboard mockup tracking model rankings and performance trajectories across multiple time periods",
+    "Heatmap or line chart illustrating performance decay or robustness of several models as the forecast horizon and data regimes change"
   ],
   "hashtags": [
     "#TimeSeries",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.08707v1"
     }
   ],
-  "generated_at": "2026-03-11T06:42:15.318330"
+  "generated_at": "2026-03-12T06:44:16.602111"
 }

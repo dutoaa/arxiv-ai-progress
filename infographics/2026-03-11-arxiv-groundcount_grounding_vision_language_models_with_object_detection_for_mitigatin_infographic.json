@@ -1,0 +1,35 @@
+{
+  "key_insight": "Augmenting vision-language models with explicit spatial grounding from lightweight object-detection models (e.g., YOLO) sharply reduces counting hallucinations without retraining large VLMs.",
+  "problem_solved": "VLMs frequently hallucinate object counts—performing poorly on counting tasks even when they excel at other visual reasoning. GroundCount addresses inaccurate instance counting by providing explicit, reliable detections that the VLM can reason over.",
+  "method": [
+    "Run a fast CNN-based object detector to produce instance boxes and class labels for the input image.",
+    "Inject the detector's spatial grounding (boxes, counts, and optionally masks) into the VLM's reasoning pipeline as grounded tokens/prompts or overlays.",
+    "Fuse detector outputs with the VLM's multimodal reasoning using lightweight alignment/heuristics to produce corrected counts and grounded answers with minimal compute overhead."
+  ],
+  "impact": "Makes VLM outputs more trustworthy for tasks that require accurate instance counts (e.g., inventory, medical imaging, scene understanding) by combining the complementary strengths of detectors and VLMs in a modular, low-cost way.",
+  "visual_elements": [
+    "Pipeline diagram: image → object detector → grounding tokens → VLM → corrected answer (annotated flow)",
+    "Before/after example images: VLM-only hallucinated count vs GroundCount-corrected count with detector boxes overlaid",
+    "Bar chart: counting accuracy comparison across models/benchmarks (VLM-only vs GroundCount)",
+    "Latency vs accuracy plot or table showing minimal compute overhead of adding the detector"
+  ],
+  "hashtags": [
+    "#VisionLanguage",
+    "#ObjectDetection",
+    "#Counting",
+    "#Grounding",
+    "#MultimodalAI"
+  ],
+  "paper_id": "2026-03-11-arxiv-groundcount_grounding_vision_language_models_with_object_detection_for_mitigatin",
+  "paper_title": "GroundCount: Grounding Vision-Language Models with Object Detection for Mitigating Counting Hallucinations",
+  "paper_category": "Model",
+  "paper_date": "2026-03-11",
+  "paper_authors": "Boyuan Chen, Minghao Shao, Siddharth Garg, Ramesh Karri, Muhammad Shafique",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.10978v1"
+    }
+  ],
+  "generated_at": "2026-03-12T06:41:56.588686"
+}

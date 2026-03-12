@@ -1,24 +1,24 @@
 {
-  "key_insight": "HiAR introduces hierarchical denoising for autoregressive diffusion: by conditioning on multi-scale, partially denoised contexts rather than fully clean frames, the model preserves uncertainty and prevents progressive error accumulation, enabling longer coherent video generation.",
-  "problem_solved": "Addresses progressive quality degradation and temporal discontinuity in autoregressive long-video generation caused by conditioning on overly denoised contexts that propagate errors with high certainty.",
+  "key_insight": "HiAR prevents progressive quality degradation in autoregressive long-video diffusion by preserving calibrated uncertainty in context through hierarchical denoising, enabling temporally continuous generation over long horizons.",
+  "problem_solved": "Reduces error accumulation and loss of temporal continuity in autoregressive (AR) diffusion video generation, which otherwise degrades quality as generation proceeds.",
   "method": [
-    "Hierarchical denoising pipeline: generate and denoise video context at multiple temporal scales (coarse-to-fine) to stabilize long-range temporal structure.",
-    "Uncertainty-aware conditioning: use partially denoised / stochastic context representations instead of fully cleaned predictions to avoid overconfident error propagation.",
-    "Efficiency strategies: autoregressive scheduling in compact latent or grouped-frame space to reduce compute while maintaining temporal continuity."
+    "Hierarchical denoising: condition generation on multi-level (noisy → clean) context representations to avoid overconfident propagation of past prediction errors.",
+    "Autoregressive long-video pipeline: generate video segments sequentially while exchanging hierarchical context to maintain temporal consistency across long horizons.",
+    "Efficiency-oriented design: structured conditioning and denoising schedule that balances sampling cost with robustness to accumulated errors."
   ],
-  "impact": "Makes autoregressive diffusion practical for long-form video by reducing error accumulation and improving temporal consistency, enabling higher-quality, scalable video synthesis for research and production use cases.",
+  "impact": "Enables more stable, longer-duration video synthesis with diffusion-based AR models, making generative video systems more practical for long-form content, simulations, and downstream tasks that require temporal coherence.",
   "visual_elements": [
-    "Pipeline diagram showing hierarchical denoising: coarse level → intermediate → fine, with arrows indicating partial conditioning at each stage.",
-    "Side-by-side frame sequence comparison: baseline AR diffusion (degrading) vs HiAR (consistent) across many timesteps/frames.",
-    "Schematic illustrating conditioning effects: fully denoised context (high-confidence error propagation) vs partially denoised context (uncertainty preserved).",
-    "Chart: quality (FID/PSNR/consistency) vs generated video length showing slower degradation for HiAR."
+    "Pipeline diagram showing autoregressive segment generation with hierarchical denoising levels (noisy → intermediate → clean) passed as context between segments.",
+    "Line chart comparing quality vs. generated length: baseline AR diffusion dropping over time vs. HiAR maintaining higher quality.",
+    "Timeline/frame-strip demonstrating a long generated video with consistent appearance and motion across segments.",
+    "Schematic illustrating how preserving uncertainty in context prevents confident error propagation (iconography for noise, uncertainty, and corrected predictions)."
   ],
   "hashtags": [
     "#VideoGeneration",
     "#DiffusionModels",
     "#Autoregressive",
-    "#HierarchicalDenoising",
-    "#LongFormGeneration"
+    "#LongFormVideo",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-03-09-arxiv-hiar_efficient_autoregressive_long_video_generation_via_hierarchical_denoising",
   "paper_title": "HiAR: Efficient Autoregressive Long Video Generation via Hierarchical Denoising",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.08703v1"
     }
   ],
-  "generated_at": "2026-03-11T06:42:53.420864"
+  "generated_at": "2026-03-12T06:44:47.158961"
 }
