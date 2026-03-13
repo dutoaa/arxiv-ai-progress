@@ -1,0 +1,35 @@
+{
+  "key_insight": "AutoGaze learns to 'look' only at informative video patches before the backbone model, autoregressively selecting a minimal set of multi-scale patches so downstream ViTs or MLLMs avoid processing redundant pixels while preserving prediction quality.",
+  "problem_solved": "Scales multimodal video understanding to long, high-resolution videos by removing spatiotemporal redundancy and greatly reducing compute and memory cost of vision backbones and MLLMs.",
+  "method": [
+    "Introduce a lightweight autoregressive module (AutoGaze) that selects a sparse, multi-scale subset of patches per step/frame and feeds only those to a ViT or MLLM.",
+    "Train end-to-end with next-token prediction augmented by reinforcement learning to balance task accuracy and selection sparsity (compute budget).",
+    "Plug-and-play design: sits before existing vision encoders or MLLMs, enabling compatibility with current multimodal architectures without changing core backbones."
+  ],
+  "impact": "Enables efficient, scalable video understanding for longer and higher-resolution inputs—cutting compute and memory while retaining multimodal performance—so practitioners can deploy MLLMs on more realistic video workloads and budget-constrained environments.",
+  "visual_elements": [
+    "Pipeline diagram: AutoGaze module → sparse patch selection → ViT/MLLM, showing removed patches faded out.",
+    "Before/after compute bar chart: FLOPs or memory for full-frame processing vs AutoGaze-selected patches.",
+    "Frame sequence with gaze path: heatmap or spotlight over frames showing few selected patches per timestep.",
+    "Training schematic: combined next-token loss + RL reward balancing accuracy vs sparsity (iconography for LLM loss and RL signal)."
+  ],
+  "hashtags": [
+    "#VideoUnderstanding",
+    "#EfficientAI",
+    "#MultimodalLLM",
+    "#AutoregressiveGaze",
+    "#AutoGaze"
+  ],
+  "paper_id": "2026-03-12-arxiv-attend_before_attention_efficient_and_scalable_video_understanding_via_autoregre",
+  "paper_title": "Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing",
+  "paper_category": "Model",
+  "paper_date": "2026-03-12",
+  "paper_authors": "Baifeng Shi, Stephanie Fu, Long Lian, Hanrong Ye, David Eigen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.12254v1"
+    }
+  ],
+  "generated_at": "2026-03-13T06:40:31.799236"
+}

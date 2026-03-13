@@ -1,24 +1,24 @@
 {
-  "key_insight": "Temporal synchronization between video and music can be achieved by matching when and how much change occurs (temporal structure) rather than matching semantic content; this lets you transfer timing patterns across modalities without paired data.",
-  "problem_solved": "Generates music that is tightly time-aligned with video events despite the lack of fine-grained temporal control in existing text-to-music models and without requiring paired video–music datasets.",
+  "key_insight": "Temporal synchronization between video and music can be achieved by matching when and how much change occurs (temporal structure) rather than trying to map semantic content across modalities.",
+  "problem_solved": "Existing text-to-music and cross-modal generators lack fine-grained temporal control and cannot produce music that is time-aligned to video events without paired training data; V2M-Zero enables zero-pair, time-aligned video-to-music generation.",
   "method": [
-    "Extract modality-agnostic temporal-change signals from video (e.g., event onset/rate, motion envelopes) as a timing scaffold.",
-    "Learn a cross-modal mapping that transfers this temporal scaffold to musical dynamics and rhythm in a zero-pair setting (no paired video–music training required).",
-    "Condition a music generator on the transferred temporal structure so the produced audio aligns in time with video events (matching when/how much change, not semantic content)."
+    "Extract modality-agnostic temporal-change representations from video (motion/scene-change signals) and music (onset/intensity patterns).",
+    "Learn a zero-pair alignment that matches temporal change patterns across modalities, focusing on 'when' and 'how much' change rather than semantic correspondence.",
+    "Condition a music synthesis module with the aligned temporal-control signal to generate time-aligned audio for the input video."
   ],
-  "impact": "Provides a practical way to produce time-locked soundtracks for video editing, games, and media production without expensive paired datasets, giving ML practitioners fine-grained temporal control over generative music.",
+  "impact": "Provides a practical way to generate synchronized music for arbitrary videos without paired datasets, enabling scalable multimodal content creation and refined temporal control for audio-visual generation tasks.",
   "visual_elements": [
-    "Timeline alignment: video frames above and generated music waveform/beats below showing matched event timing.",
-    "Method block diagram: (video temporal extractor) → (cross-modal temporal mapper) → (music generator conditioned on scaffold).",
-    "Heatmap or correlation plot showing alignment strength between video-change signal and musical dynamics.",
-    "Before/after examples: same video with non-aligned vs. V2M-Zero aligned soundtrack (short visual + audio annotations)."
+    "Timeline diagram showing video events (frame thumbnails) aligned to generated music waveform/spectrogram peaks to illustrate temporal correspondence.",
+    "Schematic block diagram: video change extractor → temporal alignment module → music generator (highlight zero-pair training loop).",
+    "Before/after comparison: naive (semantic mismatch) vs. V2M-Zero (tight temporal sync) with short audio/video stills.",
+    "Icon set: clock/timeline (temporal), waveform (audio), eye/camera (video), and a 'zero' badge to denote zero-pair/zero-shot."
   ],
   "hashtags": [
     "#VideoToMusic",
-    "#ZeroPair",
+    "#CrossModal",
     "#TemporalAlignment",
-    "#GenerativeMusic",
-    "#CrossModal"
+    "#ZeroShot",
+    "#MultimodalGeneration"
   ],
   "paper_id": "2026-03-11-arxiv-v2m_zero_zero_pair_time_aligned_video_to_music_generation",
   "paper_title": "V2M-Zero: Zero-Pair Time-Aligned Video-to-Music Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.11042v1"
     }
   ],
-  "generated_at": "2026-03-12T06:43:07.117401"
+  "generated_at": "2026-03-13T06:43:46.964774"
 }

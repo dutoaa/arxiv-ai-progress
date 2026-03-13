@@ -1,24 +1,24 @@
 {
-  "key_insight": "NeFTY represents the 3D thermal diffusivity as a continuous neural field and couples it with a differentiable transient heat solver to recover quantitative subsurface material properties from surface temperature measurements, addressing lateral diffusion and optimization instability in prior methods.",
-  "problem_solved": "Enables accurate, quantitative 3D reconstruction of material diffusivity from transient thermography data, overcoming limitations of pixel-wise 1D approximations that ignore lateral heat flow and soft-constrained PINNs that struggle with gradient stiffness in transient diffusion problems.",
+  "key_insight": "NeFTY represents 3D thermal diffusivity as a continuous neural field and couples it with a differentiable transient heat solver so that surface temperature measurements can be inverted to yield accurate, quantitative 3D material property maps while accounting for lateral diffusion.",
+  "problem_solved": "Conventional thermography treats each pixel as a 1D problem (ignoring lateral heat spread) and soft-constrained PINNs struggle with transient diffusion (gradient stiffness), producing poor or non-quantitative reconstructions. NeFTY addresses robust, quantitative 3D reconstruction of material properties from transient surface temperature data for non‑destructive evaluation.",
   "method": [
-    "Parameterize the spatially-varying 3D thermal diffusivity as a continuous neural field (implicit neural representation).",
-    "Integrate a differentiable forward solver for transient heat diffusion to propagate gradients from surface temperature measurements back to the neural field parameters for end-to-end inversion.",
-    "Use physics-driven losses and training/regularization strategies to stabilize optimization and produce quantitative, high-resolution reconstructions."
+    "Parameterize the 3D thermal diffusivity field as a continuous neural field (neural network representation).",
+    "Integrate a differentiable transient heat-diffusion forward model so surface temperature predictions are differentiable w.r.t. the neural field for end-to-end inversion.",
+    "Employ training/stabilization strategies tailored to transient diffusion (e.g., multi-scale/time weighting and solver-aware differentiation) to overcome gradient stiffness and improve convergence."
   ],
-  "impact": "Provides a practical differentiable-physics toolkit for inverse thermal imaging and non-destructive evaluation, enabling ML practitioners to build more accurate, physics-consistent reconstructions and to apply neural fields to PDE-constrained inverse problems.",
+  "impact": "Provides a practical, scalable recipe for combining neural fields with differentiable physics to solve diffusion-based inverse problems—enabling more accurate, quantitative non‑destructive evaluation and offering a template for other physics-driven ML applications.",
   "visual_elements": [
-    "Schematic of experimental setup: surface heating + transient surface temperature sensors",
-    "3D volume rendering of the learned neural diffusivity field vs ground truth (side-by-side)",
-    "Comparison chart: pixel-wise 1D thermography vs PINNs vs NeFTY (accuracy, stability)",
-    "Flowchart: neural field → differentiable heat solver → loss from surface data → gradient-based update"
+    "Schematic pipeline: neural field → differentiable heat solver → simulated surface temps → loss/backprop to update field (loop diagram).",
+    "3D volume rendering: reconstructed diffusivity field vs ground truth (side-by-side) to show quantitative accuracy.",
+    "Time-series surface temperature plots: measured vs NeFTY-predicted to illustrate fit across transient windows.",
+    "Comparison panel: results of NeFTY vs pixel-wise 1D thermography and standard PINN (error maps / quantitative metrics)."
   ],
   "hashtags": [
     "#ThermalTomography",
-    "#NeuralFields",
     "#DifferentiablePhysics",
-    "#InverseProblems",
-    "#NonDestructiveEvaluation"
+    "#NeuralFields",
+    "#NDE",
+    "#InverseProblems"
   ],
   "paper_id": "2026-03-11-arxiv-neural_field_thermal_tomography_a_differentiable_physics_framework_for_non_destr",
   "paper_title": "Neural Field Thermal Tomography: A Differentiable Physics Framework for Non-Destructive Evaluation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.11045v1"
     }
   ],
-  "generated_at": "2026-03-12T06:43:30.007398"
+  "generated_at": "2026-03-13T06:43:36.743668"
 }
