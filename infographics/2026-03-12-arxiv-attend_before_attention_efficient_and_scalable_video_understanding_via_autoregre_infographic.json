@@ -1,24 +1,24 @@
 {
-  "key_insight": "AutoGaze learns to 'look' only at informative video patches before the backbone model, autoregressively selecting a minimal set of multi-scale patches so downstream ViTs or MLLMs avoid processing redundant pixels while preserving prediction quality.",
-  "problem_solved": "Scales multimodal video understanding to long, high-resolution videos by removing spatiotemporal redundancy and greatly reducing compute and memory cost of vision backbones and MLLMs.",
+  "key_insight": "AutoGaze learns to autoregressively 'gaze' at a small, informative set of spatiotemporal patches and removes redundant pixels before a ViT or MLLM, enabling efficient processing of long, high‑resolution videos without large accuracy loss.",
+  "problem_solved": "Current ViT/MLLM pipelines process every pixel/frame equally, causing excessive compute, memory, and latency on long or high‑resolution videos due to large spatiotemporal redundancy.",
   "method": [
-    "Introduce a lightweight autoregressive module (AutoGaze) that selects a sparse, multi-scale subset of patches per step/frame and feeds only those to a ViT or MLLM.",
-    "Train end-to-end with next-token prediction augmented by reinforcement learning to balance task accuracy and selection sparsity (compute budget).",
-    "Plug-and-play design: sits before existing vision encoders or MLLMs, enabling compatibility with current multimodal architectures without changing core backbones."
+    "Lightweight front-end module that autoregressively selects a minimal set of multi-scale spatiotemporal patches (gazes) and filters out redundant patches before the backbone ViT/MLLM.",
+    "Training combines next-token prediction with reinforcement learning to trade off task performance and sparsity (compute reduction) and to learn an efficient selection policy.",
+    "Design is model-agnostic and compatible with existing ViTs and MLLMs, allowing scalability to longer/higher-resolution video inputs with low overhead."
   ],
-  "impact": "Enables efficient, scalable video understanding for longer and higher-resolution inputs—cutting compute and memory while retaining multimodal performance—so practitioners can deploy MLLMs on more realistic video workloads and budget-constrained environments.",
+  "impact": "Enables practitioners to process much longer and higher-resolution videos with substantially lower compute and memory, making multimodal video understanding and retrieval more practical in resource-constrained or real-time settings.",
   "visual_elements": [
-    "Pipeline diagram: AutoGaze module → sparse patch selection → ViT/MLLM, showing removed patches faded out.",
-    "Before/after compute bar chart: FLOPs or memory for full-frame processing vs AutoGaze-selected patches.",
-    "Frame sequence with gaze path: heatmap or spotlight over frames showing few selected patches per timestep.",
-    "Training schematic: combined next-token loss + RL reward balancing accuracy vs sparsity (iconography for LLM loss and RL signal)."
+    "Pipeline diagram: video frames → AutoGaze filter (gaze sequence) → reduced patches → ViT/MLLM, highlighting dropped patches",
+    "Illustration of autoregressive gazing: sequential glimpse arrows over a video timeline/frames showing selected vs. discarded regions",
+    "Bar chart comparing compute / memory / latency and accuracy between baseline (full-patch) and AutoGaze at different sparsity levels",
+    "Icon/graphic explaining the training objective: next-token prediction + RL reward balancing accuracy and sparsity"
   ],
   "hashtags": [
     "#VideoUnderstanding",
     "#EfficientAI",
     "#MultimodalLLM",
-    "#AutoregressiveGaze",
-    "#AutoGaze"
+    "#VisionTransformers",
+    "#ReinforcementLearning"
   ],
   "paper_id": "2026-03-12-arxiv-attend_before_attention_efficient_and_scalable_video_understanding_via_autoregre",
   "paper_title": "Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12254v1"
     }
   ],
-  "generated_at": "2026-03-13T06:40:31.799236"
+  "generated_at": "2026-03-14T06:35:34.262631"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "Video Streaming Thinking (VST) lets VideoLLMs reason concurrently while they watch video, resolving the latency vs. reasoning-quality trade-off by enabling a synchronized, progressive thinking stream alongside perception.",
-  "problem_solved": "Existing streaming VideoLLMs focus on perception only and suffer from either delayed logical reasoning (high latency) or reduced answer quality; VST addresses the need for low-latency, continuous reasoning during live video understanding.",
+  "key_insight": "Video Streaming Thinking (VST) lets VideoLLMs 'think while watching' by running a reasoning stream concurrently with the visual perception stream, dramatically reducing response latency without degrading logical reasoning quality.",
+  "problem_solved": "Addresses the trade-off in online VideoLLMs where enabling synchronized logical reasoning during streaming raises unacceptable test-time latency; enables timely, coherent reasoning during live video input.",
   "method": [
-    "Introduce a \"thinking while watching\" paradigm that activates a reasoning stream during video ingestion to produce intermediate hypotheses and early answers.",
-    "Decouple and run perception and reasoning as coordinated but asynchronous streams, allowing continuous frame processing and progressive refinement of outputs.",
-    "Use adaptive scheduling/progressive refinement to allocate compute and refine early reasoning results into final answers without large test-time scaling-induced delays."
+    "Dual-stream paradigm: decouples continuous visual encoding (watching) from the logical inference pipeline (thinking) so both run concurrently and asynchronously.",
+    "Incremental reasoning: activates reasoning on partial/accumulated visual features and uses context caching to start inference early rather than waiting for full frames or long buffers.",
+    "Latency-aware synchronization: lightweight synchronization and test-time scaling strategies (progressive context aggregation and selective compute) balance responsiveness and reasoning accuracy."
   ],
-  "impact": "Enables responsive, real-time VideoLLM applications (e.g., live QA, robotics, surveillance) by reducing response latency while preserving reasoning quality, making deployment in interactive settings more practical.",
+  "impact": "Makes VideoLLMs viable for real-time interactive applications (live QA, robot perception, surveillance) by reducing response latency while retaining robust multimodal reasoning—easing deployment and improving user experience.",
   "visual_elements": [
-    "Timeline diagram showing simultaneous \"Watch (frame stream)\" and \"Think (reasoning stream)\" lanes with progressive outputs",
-    "Pipeline block diagram of perception stream ↔ reasoning stream with arrows for asynchronous coordination and refinement loop",
-    "Latency vs. accuracy trade-off chart comparing naive scaling vs. VST (VST shifts curve toward lower latency for similar accuracy)",
-    "Example UI mockup (live video + progressively refined textual responses) to illustrate incremental answers"
+    "Dual‑stream diagram showing parallel 'Watching' (visual encoder) and 'Thinking' (reasoning LLM) pipelines and their asynchronous interaction.",
+    "Latency comparison chart (VST vs. conventional streaming) illustrating lower response time and maintained accuracy.",
+    "Timeline or stepwise animation showing incremental reasoning on partial frames / cached context leading to earlier answers.",
+    "Application icons (live Q&A, robotics, surveillance) linked to a small callout explaining practical benefits."
   ],
   "hashtags": [
     "#VideoLLM",
     "#StreamingAI",
-    "#RealtimeInference",
     "#Multimodal",
+    "#RealTimeInference",
     "#EfficientAI"
   ],
   "paper_id": "2026-03-12-arxiv-video_streaming_thinking_videollms_can_watch_and_think_simultaneously",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12262v1"
     }
   ],
-  "generated_at": "2026-03-13T06:41:17.237526"
+  "generated_at": "2026-03-14T06:36:20.043268"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Spatial-TTT enables continuous, streaming spatial intelligence by applying lightweight test-time training to visual streams so the model adaptively selects, organizes, and retains spatial evidence rather than just extending context window size. This yields a compact, updatable spatial memory that stays consistent over long, unbounded video input.",
-  "problem_solved": "How to maintain and update accurate spatial representations from ongoing, potentially unbounded video streams — selecting what to keep, how to organize it, and how to adapt online to scene changes without retraining offline.",
+  "key_insight": "Spatial-TTT applies lightweight test-time training to streaming video so a model can continuously select, organize and retain spatial evidence on-the-fly, achieving long-term spatial understanding without relying on huge context windows or offline re-training.",
+  "problem_solved": "How to maintain and update spatial information from unbounded video streams — i.e., which visual cues to keep, how to organize them spatially over time, and how to adapt representations online under limited memory and distribution shifts.",
   "method": [
-    "Online test-time training (TTT): continuously adapt model parameters on incoming frames using self-supervised/geometric consistency objectives to stay aligned with the current scene.",
-    "Streaming spatial memory: a compact, queryable memory that selectively retains and organizes spatial evidence over time (eviction/prioritization policies) instead of naively storing long context windows.",
-    "Temporal-geometry constraints: leverage spatiotemporal and geometric consistency losses to fuse new observations into the memory while preventing drift and preserving useful long-term structure."
+    "Streaming architecture with a spatially-indexed memory that stores compact spatial evidence and supports prioritized insertion/retrieval.",
+    "Online test-time training (TTT) loop that adapts representation weights using self-supervised spatial consistency losses on incoming frames.",
+    "Lightweight update and retention policies to bound compute/memory while preserving important long-term spatial cues for downstream tasks."
   ],
-  "impact": "Provides a practical way to build long-duration, robust spatial reasoning for applications like robotics, AR, and mapping by enabling models to adapt online and maintain compact, reliable spatial memories from continuous video.",
+  "impact": "Enables adaptive, robust spatial perception for long-running systems (robots, AR/VR, mapping) by reducing offline retraining and improving performance under environment shifts; practical for deployed streaming vision with limited resources.",
   "visual_elements": [
-    "Pipeline diagram showing video stream → test-time training loop → spatial memory update → downstream spatial task",
-    "Timeline/memory visualization illustrating selective retention, eviction, and memory queries over a long video sequence",
-    "Before/after qualitative frames showing improved spatial predictions (e.g., maps or object locations) with TTT vs. static model",
-    "Ablation or bar chart comparing robustness and memory footprint across baselines (long context vs. Spatial-TTT)"
+    "Pipeline diagram: streaming frames → spatial memory → TTT loop → updated model & outputs",
+    "Timeline / memory-retention graphic showing which spatial cues are retained, forgotten, or updated over time",
+    "Performance chart: task accuracy (or localization/map quality) vs stream length comparing Spatial-TTT to baselines",
+    "Frame overlays / attention maps highlighting retained spatial evidence and where TTT made corrections"
   ],
   "hashtags": [
     "#SpatialAI",
     "#TestTimeTraining",
+    "#StreamingVision",
     "#ContinualLearning",
-    "#Robotics",
-    "#VideoUnderstanding"
+    "#Robotics"
   ],
   "paper_id": "2026-03-12-arxiv-spatial_ttt_streaming_visual_based_spatial_intelligence_with_test_time_training",
   "paper_title": "Spatial-TTT: Streaming Visual-based Spatial Intelligence with Test-Time Training",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12255v1"
     }
   ],
-  "generated_at": "2026-03-13T06:40:42.282769"
+  "generated_at": "2026-03-14T06:35:48.597875"
 }

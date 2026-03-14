@@ -1,24 +1,24 @@
 {
-  "key_insight": "EVATok adaptively assigns variable numbers of discrete tokens to different temporal blocks of a video based on their visual complexity, cutting wasted tokens on static/repetitive segments while preserving detail where needed to make autoregressive video generation more efficient.",
-  "problem_solved": "Fixed-length tokenization treats all video segments equally, wasting representation capacity on simple frames and inflating autoregressive computation; EVATok addresses the trade-off between reconstruction quality and generation cost by allocating tokens adaptively across time.",
+  "key_insight": "EVATok adaptively assigns variable-length discrete token sequences across temporal video blocks—using fewer tokens for static/repetitive content and more for dynamic/complex segments—cutting redundant tokens while preserving reconstruction quality for autoregressive generation.",
+  "problem_solved": "Fixed-length, uniform video tokenization wastes capacity on simple or repetitive frames and under-represents complex motion, forcing a costly trade-off between reconstruction fidelity and autoregressive generation compute.",
   "method": [
-    "Learn a per-block token allocation policy that predicts how many discrete tokens each temporal block needs based on motion/complexity indicators.",
-    "Compress video frames into variable-length discrete token sequences under a global token budget, enabling higher fidelity for complex regions and fewer tokens for simple/repetitive parts.",
-    "Plug the adaptive token sequences into standard visual autoregressive generators to reduce sequence length (and hence compute) while maintaining reconstruction and generation quality."
+    "Learn a per-block token-length predictor that estimates temporal complexity/importance and allocates a variable token budget accordingly.",
+    "Use variable-rate quantization or conditional codebook encoding to compress each temporal block into the predicted number of discrete tokens.",
+    "Integrate the adaptive-length tokenizer with an autoregressive video generator to shorten token sequences, reducing sampling/training cost while maintaining visual fidelity."
   ],
-  "impact": "By reducing unnecessary tokens and shortening autoregressive sequences, EVATok lowers compute, memory and latency for video generation, enabling higher-resolution or longer-duration outputs and faster training/inference for practitioners.",
+  "impact": "By lowering token sequence length where possible and concentrating capacity on challenging regions, EVATok reduces computation and memory for AR video models—enabling faster, more scalable generation and better-quality long or high-resolution videos with the same budget.",
   "visual_elements": [
-    "Timeline diagram showing variable-length token allocation: dense tokens over dynamic scenes and sparse tokens over static scenes.",
-    "Bar/chart comparing total token count, compute (FLOPs) and reconstruction quality for uniform vs adaptive tokenization.",
-    "Flowchart showing: input video → adaptive tokenizer → variable-length token stream → autoregressive generator → reconstructed/generated video.",
-    "Icon set for benefits: faster inference, lower memory, adjustable quality vs cost."
+    "Timeline diagram showing per-frame/per-block token allocation (color-coded bars: few tokens for static, many for dynamic segments).",
+    "Comparison chart: token count vs compute vs reconstruction quality for uniform tokenization vs EVATok.",
+    "Model flow diagram: video input → length predictor → adaptive tokenizer (variable-rate encoding) → autoregressive generator.",
+    "Before/after frame reconstructions with token-importance heatmaps overlayed to show where tokens are concentrated."
   ],
   "hashtags": [
-    "#VideoGeneration",
-    "#AutoregressiveModels",
-    "#Tokenization",
+    "#VideoTokenization",
     "#EfficientAI",
-    "#AdaptiveCompression"
+    "#AutoregressiveModels",
+    "#VideoCompression",
+    "#AdaptiveRepresentation"
   ],
   "paper_id": "2026-03-12-arxiv-evatok_adaptive_length_video_tokenization_for_efficient_visual_autoregressive_ge",
   "paper_title": "EVATok: Adaptive Length Video Tokenization for Efficient Visual Autoregressive Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12267v1"
     }
   ],
-  "generated_at": "2026-03-13T06:42:07.922934"
+  "generated_at": "2026-03-14T06:37:10.942939"
 }

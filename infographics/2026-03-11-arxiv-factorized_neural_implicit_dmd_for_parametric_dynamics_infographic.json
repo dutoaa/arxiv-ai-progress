@@ -1,24 +1,24 @@
 {
-  "key_insight": "Factorized Neural Implicit DMD combines neural implicit representations with a factorized Dynamic Mode Decomposition-style operator to learn compact, parameter-aware temporal flows, enabling accurate, continuous-time predictions across a family of system parameters with a small set of reusable modes.",
-  "problem_solved": "How to build fast, generalizable surrogate models for high-dimensional, nonlinear physical dynamics that vary with parameters—without requiring explicit governing equations or costly numerical solvers.",
+  "key_insight": "The paper fuses neural implicit representations with a factorized Dynamic Mode Decomposition (DMD) latent model to learn parametric, high‑dimensional flows—separating parameter dependence from dynamics so the system can be predicted and interpolated efficiently.",
+  "problem_solved": "How to model and predict temporal evolution of nonlinear, high‑dimensional physical systems across changing parameters without explicit governing equations or costly numerical solvers, enabling fast interpolation and real‑time use.",
   "method": [
-    "Encode high-dimensional states into a compact latent represented by a neural implicit network that supports continuous-time queries.",
-    "Learn a linear (DMD/Koopman-like) operator in the latent space whose action is factorized into shared spatial modes and parameter-conditioned coefficients.",
-    "Decode latent trajectories back to state space to produce fast, accurate, parameterized flow predictions and enable interpolation/extrapolation over time and parameter variations."
+    "Use neural implicit networks to represent high‑dimensional states/fields continuously in space and time conditioned on parameters.",
+    "Factorize the latent representation into parameter and dynamical components and learn a DMD/linear evolution operator in the latent space to capture temporal behavior.",
+    "Train end‑to‑end to reconstruct states and to enable fast parameter interpolation and rollout via the learned latent dynamics (efficient reduced‑order prediction)."
   ],
-  "impact": "Provides practitioners with a scalable reduced-order surrogate that generalizes across parameters, enabling real-time simulation, control, and design optimization for complex physical systems without hand-crafted models.",
+  "impact": "Enables ML practitioners and engineers to build scalable, model‑free reduced‑order simulators for fast prediction, control, and parameter studies of complex physical systems without re-running expensive solvers.",
   "visual_elements": [
-    "Pipeline diagram: encoder (neural implicit) → factorized latent DMD operator (shared modes + param coefficients) → decoder (reconstruction).",
-    "Trajectory grids: predicted vs ground-truth flows across several parameter settings (color-coded) to show generalization and interpolation.",
-    "Bar chart: speed and memory vs traditional solvers and non-factorized baselines (inference time and error).",
-    "Latent-mode visualization: a small set of spatial modes and how their parameter-conditioned weights change across the parameter space."
+    "Architecture diagram: encoder/decoder with factorized latent (parameter vs dynamics) and a DMD-style linear operator acting in latent space.",
+    "Schematic showing parameter interpolation: how changing a parameter moves the parameter factor and yields different predicted flows.",
+    "Comparison charts: accuracy vs baseline and runtime/speedup (real‑time inference) for multiple parameter settings.",
+    "Latent mode visualization or eigenmode plot showing dominant dynamic modes learned by the DMD component."
   ],
   "hashtags": [
     "#NeuralImplicit",
-    "#DMD",
+    "#DynamicModeDecomposition",
     "#ParametricDynamics",
-    "#ReducedOrderModeling",
-    "#ScientificML"
+    "#ModelReduction",
+    "#PhysicsInformedAI"
   ],
   "paper_id": "2026-03-11-arxiv-factorized_neural_implicit_dmd_for_parametric_dynamics",
   "paper_title": "Factorized Neural Implicit DMD for Parametric Dynamics",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.10995v1"
     }
   ],
-  "generated_at": "2026-03-12T06:42:26.372193"
+  "generated_at": "2026-03-14T06:38:38.426834"
 }

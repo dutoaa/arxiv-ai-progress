@@ -1,23 +1,23 @@
 {
-  "key_insight": "Evaluation practices and preference-trained metrics favor overly vivid generations, so the paper benchmarks color fidelity and provides calibration methods to make text-to-image outputs match real-world photographic color distributions.",
-  "problem_solved": "Text-to-image models and common evaluation paradigms produce or reward exaggerated saturation/contrast, causing outputs that look \"too vivid to be real\" even when realism is desired; there was no standard benchmark or calibration strategy to measure and correct this color bias.",
+  "key_insight": "T2I models and current evaluators prefer visually vivid, over-saturated images; this paper provides a benchmark and calibration methods to quantify and correct color fidelity so generated images better match real-world photographic color distributions.",
+  "problem_solved": "Addresses the bias in generation and evaluation that rewards exaggerated saturation/contrast—making outputs look \"too vivid to be real\"—by creating tools to measure, compare, and calibrate color realism across models.",
   "method": [
-    "Introduce a color-fidelity benchmark comparing generated images to real photography under realistic prompts and controlled variations.",
-    "Analyze biases in human ratings and preference-trained metrics to quantify the tendency to favor vividness over photographic realism.",
-    "Propose a calibration pipeline (metric recalibration and/or post-hoc color adjustment) to align generated color statistics with real-photo distributions and reweight evaluation signals toward true realism."
+    "Assemble a benchmark and evaluation protocol that pairs real photographs with prompts and computes color-fidelity statistics between real and generated sets.",
+    "Define objective color-fidelity metrics (distributional comparisons, perceptual color-difference measures) to reveal vividness bias in human ratings and learned metrics.",
+    "Provide a calibration pipeline (post-hoc color-distribution alignment, color-aware loss or fine-tuning strategies) to adjust generated images toward photographic color statistics."
   ],
-  "impact": "Provides practitioners with a principled way to evaluate and correct color biases in generative models, improving realism, model selection, and downstream user control for applications that require photorealistic outputs.",
+  "impact": "Gives researchers and practitioners a practical way to detect and correct color biases, improving realism for photographic-style T2I outputs and enabling fairer model comparisons and evaluation practices.",
   "visual_elements": [
-    "Before/after image pairs showing original vivid generations vs calibrated (color-corrected) outputs",
-    "Overlaid color-histogram or chroma/saturation distribution plots comparing real photos, uncalibrated generations, and calibrated generations",
-    "Bar chart or scatter plot showing how human/preference metrics rank vivid vs calibrated images (demonstrating the bias and its reduction)",
-    "Simple flow diagram of the benchmark + calibration pipeline (data → bias analysis → metric recalibration/color correction → evaluation)"
+    "Before/after image pairs showing typical over-saturated generation vs. calibrated (photographic) output.",
+    "Overlaid color histograms or 2D chromaticity plots comparing real vs. generated distributions.",
+    "Bar/line chart of color-fidelity metric scores across multiple SOTA models, highlighting vividness bias.",
+    "Flow diagram of the benchmark → metric → calibration pipeline (data, evaluation, correction steps)."
   ],
   "hashtags": [
-    "#TextToImage",
     "#ColorFidelity",
-    "#GenerativeAI",
-    "#EvaluationBenchmark",
+    "#TextToImage",
+    "#ImageGeneration",
+    "#Benchmarking",
     "#ModelCalibration"
   ],
   "paper_id": "2026-03-11-arxiv-too_vivid_to_be_real_benchmarking_and_calibrating_generative_color_fidelity",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.10990v1"
     }
   ],
-  "generated_at": "2026-03-13T06:43:17.889130"
+  "generated_at": "2026-03-14T06:38:15.257187"
 }

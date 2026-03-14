@@ -1,24 +1,24 @@
 {
-  "key_insight": "EndoCoT enables Multimodal LLMs to perform endogenous, multi-step Chain-of-Thought reasoning inside the diffusion denoising loop, producing evolving guidance rather than a single static encoding—leading to deeper, task-specific reasoning for complex multimodal tasks.",
-  "problem_solved": "Addresses two core limitations of current MLLM+diffusion pipelines: (1) single-step text encoding fails to trigger Chain-of-Thought reasoning, and (2) guidance from the MLLM remains invariant across diffusion steps, limiting complex spatial and compositional reasoning.",
+  "key_insight": "EndoCoT embeds an internal, evolving chain-of-thought inside the diffusion denoising loop so an MLLM provides stepwise, adaptive guidance rather than a single static encoding, enabling deeper multimodal reasoning.",
+  "problem_solved": "Fixes two limitations of current MLLM+diffusion pipelines: shallow single-step encoding that fails to trigger chain-of-thought, and guidance that remains invariant across denoising steps, reducing accuracy on complex tasks like spatial reasoning.",
   "method": [
-    "Introduce EndoCoT: activate internal CoT states within the MLLM that are iteratively updated and conditioned on during diffusion denoising.",
-    "Couple evolving MLLM reasoning outputs with diffusion steps so guidance adapts over time instead of staying fixed.",
-    "Adopt scaling strategies (e.g., stepwise conditioning and training procedures to stabilize long-form internal reasoning) to make endogenous CoT practical in large diffusion workflows."
+    "Endogenous Chain-of-Thought: generate intermediate reasoning tokens inside the diffusion denoising process so the model reasons and updates guidance at each step.",
+    "Tight coupling & lightweight adapters: integrate the MLLM and diffusion denoiser with stepwise conditioning and feedback so reasoning evolves without expensive external prompting.",
+    "Training objectives for stability: use consistency and curriculum-style losses to scale CoT depth while keeping compute and memory efficient."
   ],
-  "impact": "Provides a practical way to get deeper, dynamic reasoning from MLLMs in diffusion-based multimodal systems, improving accuracy on spatial/compositional tasks and enabling richer model guidance for downstream applications.",
+  "impact": "Makes diffusion-based multimodal models substantially better at complex, interpretable reasoning tasks by providing adaptive, stepwise guidance — improving accuracy and explainability for practitioners building spatial, planning, or multi-step vision–language applications.",
   "visual_elements": [
-    "Pipeline diagram showing a diffusion model loop with the MLLM producing evolving Chain-of-Thought tokens at multiple denoising steps (contrast with single-step static guidance).",
-    "Before/After comparison: static guidance vs. EndoCoT dynamic guidance on a spatial reasoning example (annotations showing corrections across steps).",
-    "Performance bar chart or table summarizing gains on representative benchmarks (e.g., spatial/compositional tasks).",
-    "Schematic highlighting scaling techniques (stepwise conditioning & training flow) that enable stable endogenous CoT."
+    "Pipeline diagram: diffusion denoising loop with internal CoT tokens generated and fed back each step (highlight evolving guidance).",
+    "Before vs After chart: task accuracy / reasoning depth for standard single-step encoder vs EndoCoT.",
+    "Stepwise example: a spatial-reasoning example showing intermediate CoT states and how they change the generated image/answer.",
+    "Icon set: MLLM encoder, CoT token stream, diffusion timesteps, and a final output/checkmark to denote improved correctness."
   ],
   "hashtags": [
     "#EndoCoT",
     "#ChainOfThought",
     "#DiffusionModels",
-    "#MultimodalLLMs",
-    "#AIReasoning"
+    "#MultimodalLLM",
+    "#ExplainableAI"
   ],
   "paper_id": "2026-03-12-arxiv-endocot_scaling_endogenous_chain_of_thought_reasoning_in_diffusion_models",
   "paper_title": "EndoCoT: Scaling Endogenous Chain-of-Thought Reasoning in Diffusion Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12252v1"
     }
   ],
-  "generated_at": "2026-03-13T06:40:17.703391"
+  "generated_at": "2026-03-14T06:35:22.080279"
 }
