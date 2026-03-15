@@ -1,24 +1,24 @@
 {
-  "key_insight": "EVATok adaptively assigns variable-length discrete token sequences across temporal video blocks—using fewer tokens for static/repetitive content and more for dynamic/complex segments—cutting redundant tokens while preserving reconstruction quality for autoregressive generation.",
-  "problem_solved": "Fixed-length, uniform video tokenization wastes capacity on simple or repetitive frames and under-represents complex motion, forcing a costly trade-off between reconstruction fidelity and autoregressive generation compute.",
+  "key_insight": "EVATok adaptively allocates token budget across a video's temporal blocks so simple/repetitive segments use fewer tokens while complex/dynamic segments get more, preserving reconstruction quality with fewer overall tokens.",
+  "problem_solved": "Uniform-length video tokenization wastes tokens on easy frames and under-represents complex ones, forcing a tradeoff between reconstruction fidelity and autoregressive generation cost; EVATok resolves this inefficiency by variable-rate token assignment.",
   "method": [
-    "Learn a per-block token-length predictor that estimates temporal complexity/importance and allocates a variable token budget accordingly.",
-    "Use variable-rate quantization or conditional codebook encoding to compress each temporal block into the predicted number of discrete tokens.",
-    "Integrate the adaptive-length tokenizer with an autoregressive video generator to shorten token sequences, reducing sampling/training cost while maintaining visual fidelity."
+    "Compute per-block complexity/motion cues and use them to decide token allocation rather than a fixed token count per block.",
+    "Use a variable-rate tokenizer (learned or rule-based allocator) to produce shorter discrete token sequences for simple segments and denser codes for complex segments.",
+    "Integrate the adaptive token stream with an autoregressive video generator to maintain generation quality while reducing sequence length and compute."
   ],
-  "impact": "By lowering token sequence length where possible and concentrating capacity on challenging regions, EVATok reduces computation and memory for AR video models—enabling faster, more scalable generation and better-quality long or high-resolution videos with the same budget.",
+  "impact": "Reduces token sequence length and autoregressive compute without sacrificing visual fidelity, enabling faster, more cost-effective video generation pipelines and scaling AR models to longer or higher-resolution videos.",
   "visual_elements": [
-    "Timeline diagram showing per-frame/per-block token allocation (color-coded bars: few tokens for static, many for dynamic segments).",
-    "Comparison chart: token count vs compute vs reconstruction quality for uniform tokenization vs EVATok.",
-    "Model flow diagram: video input → length predictor → adaptive tokenizer (variable-rate encoding) → autoregressive generator.",
-    "Before/after frame reconstructions with token-importance heatmaps overlayed to show where tokens are concentrated."
+    "Timeline diagram showing per-block token counts before (uniform) vs after (adaptive) EVATok",
+    "Side-by-side reconstructed frame examples: low-motion block with few tokens vs high-motion block with more tokens",
+    "Plot of reconstruction quality (e.g., PSNR/SSIM) vs token budget comparing uniform tokenizer and EVATok",
+    "Icon/infographic quantifying compute or latency reduction (e.g., % fewer tokens, % faster generation)"
   ],
   "hashtags": [
-    "#VideoTokenization",
-    "#EfficientAI",
+    "#VideoGeneration",
+    "#Tokenization",
     "#AutoregressiveModels",
-    "#VideoCompression",
-    "#AdaptiveRepresentation"
+    "#EfficientAI",
+    "#AdaptiveCompression"
   ],
   "paper_id": "2026-03-12-arxiv-evatok_adaptive_length_video_tokenization_for_efficient_visual_autoregressive_ge",
   "paper_title": "EVATok: Adaptive Length Video Tokenization for Efficient Visual Autoregressive Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12267v1"
     }
   ],
-  "generated_at": "2026-03-14T06:37:10.942939"
+  "generated_at": "2026-03-15T06:45:56.673770"
 }

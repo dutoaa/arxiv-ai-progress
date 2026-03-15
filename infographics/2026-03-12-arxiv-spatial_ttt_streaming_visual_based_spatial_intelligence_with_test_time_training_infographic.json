@@ -1,24 +1,24 @@
 {
-  "key_insight": "Spatial-TTT applies lightweight test-time training to streaming video so a model can continuously select, organize and retain spatial evidence on-the-fly, achieving long-term spatial understanding without relying on huge context windows or offline re-training.",
-  "problem_solved": "How to maintain and update spatial information from unbounded video streams — i.e., which visual cues to keep, how to organize them spatially over time, and how to adapt representations online under limited memory and distribution shifts.",
+  "key_insight": "Spatial-TTT uses test-time training on incoming video to continually adapt a compact spatial memory, selecting and retaining salient scene evidence so systems can maintain accurate spatial intelligence from an unbounded visual stream.",
+  "problem_solved": "How to streamingly select, organize, and retain spatial information from long or unbounded video streams—going beyond larger context windows to keep a concise, up-to-date spatial representation.",
   "method": [
-    "Streaming architecture with a spatially-indexed memory that stores compact spatial evidence and supports prioritized insertion/retrieval.",
-    "Online test-time training (TTT) loop that adapts representation weights using self-supervised spatial consistency losses on incoming frames.",
-    "Lightweight update and retention policies to bound compute/memory while preserving important long-term spatial cues for downstream tasks."
+    "Streaming spatial memory: maintain a compact, updateable spatial representation (e.g., metric/top-down map or memory slots) that is incrementally updated with each frame.",
+    "Test-time training (TTT): adapt model weights online using self-supervised objectives on incoming frames (e.g., view-consistency, reconstruction, contrastive signals) so representations align with the current environment.",
+    "Selective retention & organization: prioritize salient evidence via selection/pruning and balance plasticity vs stability so important spatial cues persist while noisy/obsolete data is discarded."
   ],
-  "impact": "Enables adaptive, robust spatial perception for long-running systems (robots, AR/VR, mapping) by reducing offline retraining and improving performance under environment shifts; practical for deployed streaming vision with limited resources.",
+  "impact": "Enables continual, real-world spatial reasoning for robotics, AR, and embodied agents by providing an efficient way to adapt and maintain spatial maps from live video without storing huge context windows—improving robustness to environment shifts and long-term deployment.",
   "visual_elements": [
-    "Pipeline diagram: streaming frames → spatial memory → TTT loop → updated model & outputs",
-    "Timeline / memory-retention graphic showing which spatial cues are retained, forgotten, or updated over time",
-    "Performance chart: task accuracy (or localization/map quality) vs stream length comparing Spatial-TTT to baselines",
-    "Frame overlays / attention maps highlighting retained spatial evidence and where TTT made corrections"
+    "Pipeline diagram: video stream → per-frame encoder → test-time training loop → updateable spatial memory",
+    "Timeline / streaming illustration: how memory is selected, pruned, and updated over time (before vs after adaptation)",
+    "Top-down spatial map snapshots: progressive refinement of a spatial map as frames arrive",
+    "Performance infographic: accuracy/robustness lift vs baseline when using TTT and selective retention"
   ],
   "hashtags": [
     "#SpatialAI",
     "#TestTimeTraining",
     "#StreamingVision",
     "#ContinualLearning",
-    "#Robotics"
+    "#VisualMapping"
   ],
   "paper_id": "2026-03-12-arxiv-spatial_ttt_streaming_visual_based_spatial_intelligence_with_test_time_training",
   "paper_title": "Spatial-TTT: Streaming Visual-based Spatial Intelligence with Test-Time Training",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12255v1"
     }
   ],
-  "generated_at": "2026-03-14T06:35:48.597875"
+  "generated_at": "2026-03-15T06:45:01.289145"
 }

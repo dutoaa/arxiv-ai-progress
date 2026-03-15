@@ -1,24 +1,24 @@
 {
-  "key_insight": "Video Streaming Thinking (VST) lets VideoLLMs 'think while watching' by running a reasoning stream concurrently with the visual perception stream, dramatically reducing response latency without degrading logical reasoning quality.",
-  "problem_solved": "Addresses the trade-off in online VideoLLMs where enabling synchronized logical reasoning during streaming raises unacceptable test-time latency; enables timely, coherent reasoning during live video input.",
+  "key_insight": "Video Streaming Thinking (VST) enables VideoLLMs to 'think while watching' by running a synchronized reasoning stream alongside streaming perception, achieving real-time logical reasoning with much lower response latency than naive test-time scaling.",
+  "problem_solved": "Bridges the gap between streaming perception and synchronized logical reasoning for online VideoLLMs: existing approaches either prioritize frame-level perception or incur high reasoning latency when scaled at test time.",
   "method": [
-    "Dual-stream paradigm: decouples continuous visual encoding (watching) from the logical inference pipeline (thinking) so both run concurrently and asynchronously.",
-    "Incremental reasoning: activates reasoning on partial/accumulated visual features and uses context caching to start inference early rather than waiting for full frames or long buffers.",
-    "Latency-aware synchronization: lightweight synchronization and test-time scaling strategies (progressive context aggregation and selective compute) balance responsiveness and reasoning accuracy."
+    "Dual-stream design: maintain a fast streaming perception pipeline and a parallel, synchronized reasoning stream that incrementally processes perceptual outputs.",
+    "Thinking-while-watching mechanism: trigger and continue logical inference continuously as new frames arrive, enabling early and progressive answers rather than waiting for full-context buffering.",
+    "Latency-aware scheduling and lightweight incremental state (memory/prompts) to balance throughput, accuracy, and response-time constraints in real-time deployments."
   ],
-  "impact": "Makes VideoLLMs viable for real-time interactive applications (live QA, robot perception, surveillance) by reducing response latency while retaining robust multimodal reasoning—easing deployment and improving user experience.",
+  "impact": "Enables practical, low-latency VideoLLM deployment for interactive, real-time applications (e.g., live QA, robotics, surveillance) by delivering synchronized reasoning without sacrificing responsiveness or model quality.",
   "visual_elements": [
-    "Dual‑stream diagram showing parallel 'Watching' (visual encoder) and 'Thinking' (reasoning LLM) pipelines and their asynchronous interaction.",
-    "Latency comparison chart (VST vs. conventional streaming) illustrating lower response time and maintained accuracy.",
-    "Timeline or stepwise animation showing incremental reasoning on partial frames / cached context leading to earlier answers.",
-    "Application icons (live Q&A, robotics, surveillance) linked to a small callout explaining practical benefits."
+    "Pipeline diagram showing two parallel streams: Streaming Perception -> Incremental Features, and Synchronized Reasoning -> Progressive Outputs",
+    "Timeline visualization comparing baseline (perceive-then-reason) latency vs VST's overlapping perceive+reason with earlier answers",
+    "Throughput vs Latency chart showing VST trade-off improvements over test-time scaling",
+    "Illustrative icons: camera frames flowing into a 'brain' module with early text outputs (to convey thinking-while-watching)"
   ],
   "hashtags": [
     "#VideoLLM",
     "#StreamingAI",
+    "#RealtimeML",
     "#Multimodal",
-    "#RealTimeInference",
-    "#EfficientAI"
+    "#LowLatency"
   ],
   "paper_id": "2026-03-12-arxiv-video_streaming_thinking_videollms_can_watch_and_think_simultaneously",
   "paper_title": "Video Streaming Thinking: VideoLLMs Can Watch and Think Simultaneously",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12262v1"
     }
   ],
-  "generated_at": "2026-03-14T06:36:20.043268"
+  "generated_at": "2026-03-15T06:45:26.702296"
 }

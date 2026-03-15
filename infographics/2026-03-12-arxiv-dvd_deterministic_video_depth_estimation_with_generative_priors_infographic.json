@@ -1,24 +1,24 @@
 {
-  "key_insight": "DVD turns pre-trained video diffusion models into deterministic, single-pass depth regressors by reusing diffusion timesteps as structural anchors and leveraging generative priors to remove stochastic geometric hallucinations and scale drift.",
-  "problem_solved": "Bridges the trade-off between generative models (which hallucinate geometry and drift in scale) and discriminative models (which need massive labeled datasets to resolve semantic ambiguities), enabling stable, accurate video depth estimation with far less reliance on dense supervision.",
+  "key_insight": "DVD deterministically adapts pre-trained video diffusion models into single-pass depth regressors by repurposing diffusion timesteps as structural anchors and using generative priors to resolve geometric ambiguity without stochastic hallucinations or scale drift.",
+  "problem_solved": "Addresses the trade-off in video depth estimation where generative models produce stochastic geometry and scale drift while discriminative models require massive labeled data to disambiguate semantics.",
   "method": [
-    "Deterministic adaptation of pre-trained video diffusion backbones into a single-pass depth regression head.",
-    "Repurpose diffusion timesteps as structural anchors/guidance to encode multi-scale geometric cues and stabilize predictions.",
-    "Exploit generative priors from the diffusion model to resolve semantic depth ambiguities and suppress stochastic hallucinations, reducing scale drift without heavy labeling."
+    "Deterministic conversion of pre-trained video diffusion models into a single-pass depth regression pipeline (no iterative sampling).",
+    "Repurpose the diffusion timestep as a structural anchor to encode coarse-to-fine geometry and stabilize scale across frames.",
+    "Leverage generative priors from the pre-trained diffusion model to resolve semantic ambiguities and enforce temporal consistency without stochastic hallucinations."
   ],
-  "impact": "Provides practitioners a practical way to get consistent, high-quality video depth maps using generative priors without scaling annotation costs—beneficial for robotics, AR/VR, 3D reconstruction and autonomous systems.",
+  "impact": "Delivers accurate, temporally stable depth from video without large labeled datasets, lowering the barrier for practical applications (robotics, AR/VR, 3D reconstruction) and reducing common generative failure modes like hallucination and scale drift.",
   "visual_elements": [
-    "Pipeline diagram: pre-trained video diffusion model → timestep-based structural anchor → deterministic depth regressor (single pass).",
-    "Illustration of 'timestep as anchor': timeline showing diffusion steps informing geometric structure at multiple scales.",
-    "Before/after qualitative comparisons: input video frames with depth maps from a generative baseline (hallucinations/scale drift) vs. DVD outputs (stable, consistent depth).",
-    "Quantitative chart: depth error and scale-drift curves comparing generative, discriminative, and DVD approaches."
+    "Architecture flowchart: input video → adapted diffusion backbone → timestep-as-anchor module → single-pass depth output.",
+    "Qualitative panel: side-by-side frames showing RGB input, ground-truth depth, DVD output, and outputs from a generative and a discriminative baseline.",
+    "Metric charts: error vs. frame/time showing reduced scale drift and improved temporal consistency; accuracy vs. amount of labeled data to show label-efficiency.",
+    "Concept diagram: visualization of diffusion timestep acting as a coarse-to-fine structural anchor across frames."
   ],
   "hashtags": [
-    "#VideoDepth",
+    "#VideoDepthEstimation",
     "#DiffusionModels",
-    "#DepthEstimation",
     "#GenerativePriors",
-    "#3DComputerVision"
+    "#DepthEstimation",
+    "#ComputerVision"
   ],
   "paper_id": "2026-03-12-arxiv-dvd_deterministic_video_depth_estimation_with_generative_priors",
   "paper_title": "DVD: Deterministic Video Depth Estimation with Generative Priors",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12250v1"
     }
   ],
-  "generated_at": "2026-03-14T06:35:02.160933"
+  "generated_at": "2026-03-15T06:44:33.867095"
 }

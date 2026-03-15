@@ -1,23 +1,23 @@
 {
-  "key_insight": "GroundCount augments vision-language models with explicit object-detection grounding so VLMs use concrete instance-level evidence (bounding boxes & counts) rather than relying solely on learned image-language priors, substantially reducing counting hallucinations while remaining lightweight and modular.",
-  "problem_solved": "Persistent hallucinations and low accuracy in counting tasks by VLMs, where models guess or miscount objects despite strong visual inputs.",
+  "key_insight": "Augmenting a Vision–Language Model with explicit object detections (bounding boxes and instance counts) grounds its visual inputs and substantially reduces counting hallucinations, achieving more accurate and reliable counts with minimal extra compute.",
+  "problem_solved": "VLMs often hallucinate when asked to count objects in an image—producing incorrect or inconsistent counts—even in advanced reasoning-capable models; GroundCount addresses this by providing explicit spatial grounding for accurate instance-level counting.",
   "method": [
-    "Run a fast CNN-based object detector (e.g., YOLO) to produce instance-level outputs: class labels, bounding boxes, and counts.",
-    "Convert detector outputs into a grounded input for the VLM (structured prompts, mask overlays, or region-conditioned tokens) so the VLM reasons over explicit spatial evidence.",
-    "Fuse detector-derived counts and regions with the VLM's reasoning step (post-hoc reconciliation or token-level conditioning) in a modular, low-overhead pipeline."
+    "Run a lightweight CNN-based object detector (e.g., YOLO) to produce bounding boxes, class labels, and instance counts.",
+    "Fuse detection outputs into the VLM’s input (grounding tokens, spatial prompts, or masked visual features) so the language model can reason over explicit object instances.",
+    "Aggregate/deduplicate detections and let the VLM use grounded evidence to answer counting queries, preserving reasoning while preventing hallucinated counts."
   ],
-  "impact": "Provides a practical, deployable way to reduce counting errors in multimodal systems, increasing trustworthiness and auditability of VLM outputs for real-world applications (e.g., robotics, inspection, and visual QA).",
+  "impact": "Provides a practical, low-overhead way to make multimodal systems more trustworthy for counting tasks (useful in VQA, robotics, inventory, and accessibility), while keeping the VLM’s reasoning strengths intact.",
   "visual_elements": [
-    "Pipeline diagram: image → object detector (bounding boxes) → grounding module → VLM → final answer",
-    "Before/after bar chart: counting accuracy of baseline VLM vs GroundCount across datasets",
-    "Example image overlays: detected bounding boxes + count annotations vs VLM's ungrounded hallucinated output",
-    "Modularity iconography: plug-and-play detector + VLM blocks showing minimal compute overhead"
+    "Pipeline diagram: Image → Object Detector (bounding boxes) → Grounding module → VLM → Count answer",
+    "Before/After comparison bar chart: Counting accuracy for baseline VLM vs GroundCount across benchmarks",
+    "Example image overlays: detector bounding boxes + class labels vs VLM attention map to show grounded vs hallucinated counts",
+    "Latency/compute icon chart: small overhead visualization showing detector adds minimal inference cost"
   ],
   "hashtags": [
     "#VisionLanguage",
     "#ObjectDetection",
     "#Counting",
-    "#ModelReliability",
+    "#MultimodalAI",
     "#Grounding"
   ],
   "paper_id": "2026-03-11-arxiv-groundcount_grounding_vision_language_models_with_object_detection_for_mitigatin",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.10978v1"
     }
   ],
-  "generated_at": "2026-03-14T06:37:44.544760"
+  "generated_at": "2026-03-15T06:46:26.262672"
 }

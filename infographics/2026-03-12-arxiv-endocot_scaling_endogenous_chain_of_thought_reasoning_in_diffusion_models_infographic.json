@@ -1,24 +1,24 @@
 {
-  "key_insight": "EndoCoT embeds an internal, evolving chain-of-thought inside the diffusion denoising loop so an MLLM provides stepwise, adaptive guidance rather than a single static encoding, enabling deeper multimodal reasoning.",
-  "problem_solved": "Fixes two limitations of current MLLM+diffusion pipelines: shallow single-step encoding that fails to trigger chain-of-thought, and guidance that remains invariant across denoising steps, reducing accuracy on complex tasks like spatial reasoning.",
+  "key_insight": "EndoCoT endogenizes Chain-of-Thought (CoT) inside diffusion models so the multimodal LLM provides iterative, evolving reasoning guidance during generation rather than a single static encoding.",
+  "problem_solved": "Addresses two bottlenecks in MLLM+diffusion pipelines: (1) shallow, single-step text encoding that fails to trigger CoT reasoning, and (2) invariant guidance across diffusion steps that cannot adapt to intermediate visual-linguistic states.",
   "method": [
-    "Endogenous Chain-of-Thought: generate intermediate reasoning tokens inside the diffusion denoising process so the model reasons and updates guidance at each step.",
-    "Tight coupling & lightweight adapters: integrate the MLLM and diffusion denoiser with stepwise conditioning and feedback so reasoning evolves without expensive external prompting.",
-    "Training objectives for stability: use consistency and curriculum-style losses to scale CoT depth while keeping compute and memory efficient."
+    "Embed an internal CoT loop into the diffusion sampling process so the MLLM produces multi-step reasoning updates that condition subsequent denoising steps.",
+    "Introduce a lightweight interface (adapter/prompts) between the diffusion latent states and the MLLM to enable iterative querying and conditional refinement without full model re-run.",
+    "Train with consistency and alignment objectives that encourage coherent, stepwise explanations and stable guidance across diffusion iterations, allowing scalable application to larger MLLMs."
   ],
-  "impact": "Makes diffusion-based multimodal models substantially better at complex, interpretable reasoning tasks by providing adaptive, stepwise guidance — improving accuracy and explainability for practitioners building spatial, planning, or multi-step vision–language applications.",
+  "impact": "Enables more accurate and interpretable multimodal reasoning for complex tasks (e.g., spatial planning, compositional instructions) by turning static text guidance into a dynamic, self-refining signal—improving generation quality and trustworthiness for practitioners.",
   "visual_elements": [
-    "Pipeline diagram: diffusion denoising loop with internal CoT tokens generated and fed back each step (highlight evolving guidance).",
-    "Before vs After chart: task accuracy / reasoning depth for standard single-step encoder vs EndoCoT.",
-    "Stepwise example: a spatial-reasoning example showing intermediate CoT states and how they change the generated image/answer.",
-    "Icon set: MLLM encoder, CoT token stream, diffusion timesteps, and a final output/checkmark to denote improved correctness."
+    "Pipeline diagram: diffusion loop with an internal MLLM CoT feedback arrow showing iterative guidance at multiple denoising steps",
+    "Before vs after comparison: static encoder guidance vs EndoCoT dynamic guidance on a spatial reasoning example",
+    "Flow of information: adapter/prompts between latent states and MLLM (icons for latent, model, prompt, update)",
+    "Bar/line chart: qualitative or ablation results showing gains from iterative CoT and from scaling adapters"
   ],
   "hashtags": [
     "#EndoCoT",
     "#ChainOfThought",
     "#DiffusionModels",
     "#MultimodalLLM",
-    "#ExplainableAI"
+    "#AIReasoning"
   ],
   "paper_id": "2026-03-12-arxiv-endocot_scaling_endogenous_chain_of_thought_reasoning_in_diffusion_models",
   "paper_title": "EndoCoT: Scaling Endogenous Chain-of-Thought Reasoning in Diffusion Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12252v1"
     }
   ],
-  "generated_at": "2026-03-14T06:35:22.080279"
+  "generated_at": "2026-03-15T06:44:42.467268"
 }
