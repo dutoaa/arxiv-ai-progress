@@ -1,24 +1,24 @@
 {
-  "key_insight": "Video Streaming Thinking (VST) enables VideoLLMs to 'think while watching' by running a synchronized reasoning stream alongside streaming perception, achieving real-time logical reasoning with much lower response latency than naive test-time scaling.",
-  "problem_solved": "Bridges the gap between streaming perception and synchronized logical reasoning for online VideoLLMs: existing approaches either prioritize frame-level perception or incur high reasoning latency when scaled at test time.",
+  "key_insight": "Video Streaming Thinking (VST) enables VideoLLMs to 'think while watching' by running a synchronized reasoning stream alongside a fast perception stream, reducing response latency while preserving coherent logical inference.",
+  "problem_solved": "Bridges the trade-off between low-latency streaming perception and synchronized, high-quality reasoning in online VideoLLMs, avoiding the unacceptable delay caused by naive test-time scaling.",
   "method": [
-    "Dual-stream design: maintain a fast streaming perception pipeline and a parallel, synchronized reasoning stream that incrementally processes perceptual outputs.",
-    "Thinking-while-watching mechanism: trigger and continue logical inference continuously as new frames arrive, enabling early and progressive answers rather than waiting for full-context buffering.",
-    "Latency-aware scheduling and lightweight incremental state (memory/prompts) to balance throughput, accuracy, and response-time constraints in real-time deployments."
+    "Dual-stream architecture: a fast perception stream ingests video frames continuously while a parallel reasoning (thinking) stream processes accumulated context at a controllable cadence.",
+    "Asynchronous, event-driven scheduling: selectively activate reasoning steps (or scale compute) based on perceptual cues, reducing unnecessary computation and end-to-end delay.",
+    "Incremental context fusion and memory compression: continuously align and summarize incoming visual information so the reasoning stream accesses up-to-date, compact context without waiting for full-frame batches."
   ],
-  "impact": "Enables practical, low-latency VideoLLM deployment for interactive, real-time applications (e.g., live QA, robotics, surveillance) by delivering synchronized reasoning without sacrificing responsiveness or model quality.",
+  "impact": "Enables real-time, interactive VideoLLMs that provide low-latency responses with sustained logical coherence—important for applications like live video assistant, robotics, and surveillance where both speed and reasoning matter.",
   "visual_elements": [
-    "Pipeline diagram showing two parallel streams: Streaming Perception -> Incremental Features, and Synchronized Reasoning -> Progressive Outputs",
-    "Timeline visualization comparing baseline (perceive-then-reason) latency vs VST's overlapping perceive+reason with earlier answers",
-    "Throughput vs Latency chart showing VST trade-off improvements over test-time scaling",
-    "Illustrative icons: camera frames flowing into a 'brain' module with early text outputs (to convey thinking-while-watching)"
+    "Dual-stream diagram showing fast perception stream and parallel reasoning stream with arrows illustrating asynchronous communication",
+    "Timeline comparison chart: baseline (high latency) vs VST (lower latency + maintained reasoning quality)",
+    "Flowchart of event-driven trigger: perceptual cue → selective reasoning activation → update memory/context",
+    "Icon grid showing application scenarios (live assistant, robotics, surveillance, AR) to convey practical impact"
   ],
   "hashtags": [
     "#VideoLLM",
     "#StreamingAI",
-    "#RealtimeML",
+    "#RealtimeInference",
     "#Multimodal",
-    "#LowLatency"
+    "#EfficientAI"
   ],
   "paper_id": "2026-03-12-arxiv-video_streaming_thinking_videollms_can_watch_and_think_simultaneously",
   "paper_title": "Video Streaming Thinking: VideoLLMs Can Watch and Think Simultaneously",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12262v1"
     }
   ],
-  "generated_at": "2026-03-15T06:45:26.702296"
+  "generated_at": "2026-03-16T07:08:08.669553"
 }

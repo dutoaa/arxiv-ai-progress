@@ -1,23 +1,23 @@
 {
-  "key_insight": "The Variational Autoencoder latent space of FLUX contains a coherent Latent Color Subspace (LCS) whose directions align with Hue, Saturation, and Lightness, enabling predictable and interpretable color manipulation in generated images.",
-  "problem_solved": "Lack of fine-grained, interpretable control over color in text-to-image generation due to limited understanding of how color is encoded in high-dimensional latent spaces.",
+  "key_insight": "The Variational Autoencoder latent space of FLUX.1 contains an interpretable Latent Color Subspace (LCS) whose directions correspond to Hue, Saturation, and Lightness, enabling predictable, disentangled color control from high-dimensional representations.",
+  "problem_solved": "Text-to-image models lack fine-grained, interpretable control over color because we poorly understand how color is encoded in high-dimensional latent spaces; this work identifies and isolates a color subspace that addresses that gap.",
   "method": [
-    "Analyze FLUX VAE latent vectors to identify a low-dimensional subspace correlated with color attributes (Hue, Saturation, Lightness).",
-    "Validate the LCS by predicting color outcomes from latent coordinates and by performing latent-space interventions (controlled traversals) that produce expected HSL changes in reconstructions.",
-    "Quantitatively and qualitatively evaluate alignment between subspace directions and perceptual color metrics to confirm interpretability and controllability."
+    "Analyze the VAE latent vectors of FLUX.1 to find a low-dimensional subspace aligned with perceptual color axes (Hue, Saturation, Lightness).",
+    "Use linear probes and directional analysis to validate that specific latent directions reliably predict and shift H/S/L attributes.",
+    "Demonstrate intervention by moving latents along LCS directions to produce controlled color edits and quantify the effect with correlation/accuracy metrics."
   ],
-  "impact": "Provides a practical, interpretable mechanism to predict and control color in generative models, improving editing, style control, and diagnostic tools for practitioners working with text-to-image and VAE-based systems.",
+  "impact": "Provides a practical, interpretable tool for precise color control and debugging in generative pipelines, improving editability and trustworthiness of text-to-image models for practitioners.",
   "visual_elements": [
-    "3D latent-space diagram with the LCS highlighted and axes labeled Hue, Saturation, Lightness",
-    "Before/after image grid showing controlled latent traversals that change H, S, L independently",
-    "Scatter plot linking latent coordinates to measured perceptual color metrics (e.g., hue angle vs latent direction)",
-    "Workflow icon strip: encode image → locate LCS → modify H/S/L → decode image"
+    "Latent-space diagram: 3D projection (PCA/UMAP) with overlaid H, S, L axes showing the discovered subspace.",
+    "Before/after image triplets: original, hue-shifted, saturation/lightness-adjusted outputs from controlled latent walks.",
+    "Color-wheel mapping: visualization linking latent direction vectors to perceptual hue rotations on a color wheel.",
+    "Bar/line chart: quantitative metrics (correlation or prediction accuracy) showing how well latent directions predict H/S/L values."
   ],
   "hashtags": [
-    "#LatentSpace",
+    "#LatentColorSubspace",
+    "#ModelInterpretability",
+    "#GenerativeAI",
     "#ColorRepresentation",
-    "#InterpretableAI",
-    "#GenerativeModels",
     "#TextToImage"
   ],
   "paper_id": "2026-03-12-arxiv-the_latent_color_subspace_emergent_order_in_high_dimensional_chaos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12261v1"
     }
   ],
-  "generated_at": "2026-03-15T06:45:17.480262"
+  "generated_at": "2026-03-16T07:07:24.000234"
 }

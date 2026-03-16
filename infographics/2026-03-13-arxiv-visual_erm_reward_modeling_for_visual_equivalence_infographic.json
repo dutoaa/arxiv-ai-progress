@@ -1,0 +1,35 @@
+{
+  "key_insight": "Train a learned reward that measures visual equivalence between a model's rendered output and the target visual, enabling reinforcement learning to directly optimize visual fidelity for vision-to-code tasks.",
+  "problem_solved": "Existing RL rewards for vision-to-code are misaligned: rule-based or coarse embedding similarities fail to capture fine-grained visual differences needed to reconstruct charts, tables, and SVGs accurately.",
+  "method": [
+    "Learn a visual-equivalence reward model that scores how well a generated, rendered output matches the target visual at fine granularity.",
+    "Use the learned reward to fine-tune LVLMs with reinforcement learning (policy optimization), replacing coarse or handcrafted rewards.",
+    "Design the reward training to exploit rendered comparisons and dense visual features so small structural or styling errors are penalized appropriately."
+  ],
+  "impact": "Provides a practical way to align RL objectives with visual fidelity, improving the correctness and usability of models that generate executable visual representations (e.g., chart/table/SVG code). This helps practitioners deploy LVLMs that produce visually accurate, runnable outputs.",
+  "visual_elements": [
+    "Pipeline diagram: input image → LVLM generates code → render → reward model compares render vs target → RL update loop",
+    "Before/after render pairs: examples showing improvements in chart/table/SVG fidelity",
+    "Reward model attention or heatmap over rendered pixels highlighting where mismatches are detected",
+    "Evaluation chart: fidelity metrics (visual score) comparing supervised fine-tuning vs Visual-ERM-enhanced RL"
+  ],
+  "hashtags": [
+    "#VisualERM",
+    "#RewardModeling",
+    "#VisionToCode",
+    "#VisualFidelity",
+    "#LVLM"
+  ],
+  "paper_id": "2026-03-13-arxiv-visual_erm_reward_modeling_for_visual_equivalence",
+  "paper_title": "Visual-ERM: Reward Modeling for Visual Equivalence",
+  "paper_category": "Model",
+  "paper_date": "2026-03-13",
+  "paper_authors": "Ziyu Liu, Shengyuan Ding, Xinyu Fang, Xuanlang Dai, Penghui Yang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.13224v1"
+    }
+  ],
+  "generated_at": "2026-03-16T07:06:35.874082"
+}

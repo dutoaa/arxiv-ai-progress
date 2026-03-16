@@ -1,0 +1,35 @@
+{
+  "key_insight": "MXNorm reuses block-scale metadata produced by MXFP-style low-precision matrix-multiply units to approximate RMSNorm statistics, enabling tensor normalisation without expensive high-precision reductions or extra elementwise passes.",
+  "problem_solved": "Reduces the performance and precision mismatch between highly-optimized low-precision matrix multiplication and slower, higher-precision reductions/elementwise ops used for normalization, which limit throughput on modern accelerators.",
+  "method": [
+    "Intercept and reuse MXFP block scale factors emitted during low-precision matmul to approximate per-block second-moment / RMS statistics.",
+    "Compute normalization using those reused scales (and minimal extra correction) in lower precision, avoiding full-precision global reductions and elementwise passes.",
+    "Provide a drop-in replacement for RMSNorm that preserves compatibility with existing models while shifting the reduction workload onto already-available MXFP metadata."
+  ],
+  "impact": "Enables faster and more hardware-efficient model training/inference on accelerators that use low-precision formats by removing a key software bottleneck (reductions/elementwise ops), improving throughput and energy efficiency with minimal model changes.",
+  "visual_elements": [
+    "Pipeline diagram: standard matmul + separate high-precision normalization vs. MXNorm reusing MXFP block scales (showing removed reduction path).",
+    "Before/after bar chart: latency or throughput breakdown highlighting reductions and elementwise cost savings.",
+    "Illustration of MXFP block with emitted 'scale' metadata feeding into normalization step (iconography for matmul, scale, norm).",
+    "Compatibility callout: small schematic showing MXNorm as a drop-in replacement for RMSNorm in model graphs."
+  ],
+  "hashtags": [
+    "#MXNorm",
+    "#LowPrecision",
+    "#MixedPrecision",
+    "#ModelAcceleration",
+    "#EfficientML"
+  ],
+  "paper_id": "2026-03-13-arxiv-mxnorm_reusing_mxfp_block_scales_for_efficient_tensor_normalisation",
+  "paper_title": "MXNorm: Reusing MXFP block scales for efficient tensor normalisation",
+  "paper_category": "Model",
+  "paper_date": "2026-03-13",
+  "paper_authors": "Callum McLean, Luke Y. Prince, Alexandre Payot, Paul Balança, Carlo Luschi",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.13180v1"
+    }
+  ],
+  "generated_at": "2026-03-16T07:06:02.154109"
+}
