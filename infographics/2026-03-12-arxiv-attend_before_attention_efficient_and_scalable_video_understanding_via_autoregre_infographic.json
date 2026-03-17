@@ -1,24 +1,24 @@
 {
-  "key_insight": "AutoGaze is a lightweight autoregressive module that 'looks' only at informative spatiotemporal patches before a ViT or MLLM, removing redundant pixels so long, high-resolution videos can be processed much more efficiently without retraining large vision backbones.",
-  "problem_solved": "Current MLLMs and ViTs waste compute and memory by processing every pixel of long, high-resolution videos equally, struggling with spatiotemporal redundancy and scaling to long clips.",
+  "key_insight": "AutoGaze autoregressively 'gazes' to select only the most informative spatiotemporal patches before they reach a ViT or MLLM, removing redundancy and dramatically cutting computation for long, high‑resolution videos.",
+  "problem_solved": "Current MLLMs and ViTs treat every pixel/frame region equally, causing excessive compute and memory use on long, high‑resolution videos with large spatiotemporal redundancy; AutoGaze addresses this inefficiency by pre‑filtering irrelevant patches.",
   "method": [
-    "Insert a small AutoGaze module that autoregressively selects a minimal set of spatiotemporal patches (multi-scale) to keep for downstream vision/MLLM processing.",
-    "Train selection with next-token prediction augmented by reinforcement learning to balance information retention and sparsity.",
-    "Feed only the retained patches to an off-the-shelf ViT or MLLM, enabling plug-and-play compute and memory savings while preserving video understanding performance."
+    "Lightweight AutoGaze module placed upstream of a ViT/MLLM that autoregressively selects a minimal set of multi‑scale spatiotemporal patches (gazes) per step.",
+    "Training combines next‑token prediction with reinforcement learning to balance task accuracy and the cost of selecting patches, learning where to look over time.",
+    "Selected patches are forwarded to the backbone model (ViT/MLLM) while redundant patches are skipped, enabling plug‑and‑play integration with existing video models."
   ],
-  "impact": "Makes multimodal LLMs and vision transformers practical for long, high-resolution video tasks by significantly reducing inference/training compute and memory, lowering latency and cost while retaining accuracy.",
+  "impact": "Makes large multimodal video models far more compute‑ and memory‑efficient, enabling scalable long‑form and high‑resolution video understanding in research and production settings while reducing inference cost.",
   "visual_elements": [
-    "Pipeline diagram: video frames → AutoGaze (gaze arrows) → retained patches → ViT/MLLM → output",
-    "Before/after frame: full-frame attention vs. sparse retained patches highlighted",
-    "Compute vs. sequence length chart: baseline (full) vs AutoGaze showing lower FLOPs/memory at scale",
-    "Gaze trajectory heatmap or temporal strip showing where AutoGaze attends across time"
+    "Pipeline diagram: AutoGaze module in front of ViT/MLLM showing discarded vs. forwarded patches",
+    "Before/After compute bar chart comparing FLOPs or token counts for full dense processing vs. AutoGaze filtering",
+    "Frame sequence with gaze trajectory and attention overlays highlighting selected patches across time",
+    "Training schematic showing combined next‑token loss + RL reward signal for selection efficiency"
   ],
   "hashtags": [
     "#AutoGaze",
     "#VideoUnderstanding",
     "#EfficientAI",
-    "#MultimodalLLM",
-    "#VisionTransformers"
+    "#SparseAttention",
+    "#MultimodalLLM"
   ],
   "paper_id": "2026-03-12-arxiv-attend_before_attention_efficient_and_scalable_video_understanding_via_autoregre",
   "paper_title": "Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12254v1"
     }
   ],
-  "generated_at": "2026-03-15T06:44:52.288616"
+  "generated_at": "2026-03-17T06:56:53.840723"
 }

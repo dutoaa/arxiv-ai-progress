@@ -1,0 +1,35 @@
+{
+  "key_insight": "AC-Foley uses a reference-audio-guided acoustic transfer module to inject micro-acoustic textures from an exemplar audio into video-to-audio generation, enabling fine-grained sound synthesis beyond coarse text labels and ambiguous prompts.",
+  "problem_solved": "Existing V2A methods rely on text + visuals and suffer from semantic-granularity gaps (different acoustics collapsed under coarse labels) and textual ambiguity for micro-acoustic features, making it hard to synthesize detailed, controllable sounds. AC-Foley addresses these limitations by conditioning generation on reference audio rather than relying solely on text.",
+  "method": [
+    "Reference-audio encoder: extract timbre/texture and micro-acoustic features from an exemplar audio clip to serve as a conditioning signal.",
+    "Acoustic transfer module: align and inject the extracted acoustic features into the V2A generator while preserving event semantics from video frames (disentangles semantic event vs. acoustic style).",
+    "Training strategy: paired video-audio supervision (plus contrastive/augmentation losses) to learn robust cross-modal alignment and allow style transfer across different semantic categories."
+  ],
+  "impact": "Enables practitioners to produce more realistic, controllable foley and environmental sounds for video by transferring acoustic style from examples rather than relying on limited text descriptions. This improves fidelity and user controllability in multimodal audio generation pipelines.",
+  "visual_elements": [
+    "Pipeline diagram: video frames + reference audio -> reference encoder -> acoustic transfer -> V2A generator -> synthesized audio (with spectrogram overlays).",
+    "Before/after spectrograms: side-by-side comparison showing coarse text-only generation vs. reference-guided AC-Foley output.",
+    "Embedding visualization: t-SNE/UMAP of acoustic embeddings illustrating disentanglement of event semantics vs. acoustic style.",
+    "Use-case storyboard: short video frames with corresponding waveforms/icons showing example applications (film foley, game audio, sound design)."
+  ],
+  "hashtags": [
+    "#VideoToAudio",
+    "#AudioSynthesis",
+    "#Foley",
+    "#MultimodalAI",
+    "#AcousticTransfer"
+  ],
+  "paper_id": "2026-03-16-arxiv-ac_foley_reference_audio_guided_video_to_audio_synthesis_with_acoustic_transfer",
+  "paper_title": "AC-Foley: Reference-Audio-Guided Video-to-Audio Synthesis with Acoustic Transfer",
+  "paper_category": "Model",
+  "paper_date": "2026-03-16",
+  "paper_authors": "Pengjun Fang, Yingqing He, Yazhou Xing, Qifeng Chen, Ser-Nam Lim",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.15597v1"
+    }
+  ],
+  "generated_at": "2026-03-17T06:53:21.406253"
+}

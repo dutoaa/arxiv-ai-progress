@@ -1,23 +1,23 @@
 {
-  "key_insight": "Allocate variable-length discrete token sequences across temporal video blocks according to content complexity, so dynamic/complex segments get more tokens while static/repetitive segments get fewer—preserving visual quality with fewer tokens and lower autoregressive generation cost.",
-  "problem_solved": "Uniform-length video tokenization wastes tokens on simple or repetitive frames and under-represents complex motion, forcing a costly tradeoff between reconstruction fidelity and downstream autoregressive generation efficiency.",
+  "key_insight": "EVATok adaptively assigns variable-length discrete token sequences across a video's temporal blocks, allocating more tokens to dynamic/complex segments and fewer to static/repetitive ones, thereby preserving reconstruction quality while reducing autoregressive generation cost.",
+  "problem_solved": "Fixed-rate video tokenizers waste tokens on simple frames and underrepresent complex ones, forcing a trade-off between reconstruction fidelity and generation efficiency for autoregressive video models.",
   "method": [
-    "Adaptive-length tokenizer that predicts per-temporal-block complexity and assigns a variable number of discrete latent tokens (more for complex/dynamic blocks, fewer for simple/static ones).",
-    "Joint training objective that balances reconstruction fidelity and a token-budget/bitrate constraint so token allocation is optimized end-to-end and remains compatible with AR generators.",
-    "Practical components: a lightweight complexity estimator/controller, variable-rate quantization or pooling in the latent space, and seamless integration with existing autoregressive video generation pipelines."
+    "Learn a per-block complexity estimator that predicts token budget based on motion/visual complexity and content redundancy.",
+    "Use a variable-length tokenization pipeline (e.g., adaptive VQ/VAE or entropy-constrained quantization) that emits more discrete tokens for high-complexity blocks and fewer for low-complexity blocks.",
+    "Train end-to-end with reconstruction + budget/bitrate regularization and integrate the adaptive tokens into standard autoregressive generators for efficient sampling."
   ],
-  "impact": "Cuts token sequence length and AR generation compute, enabling faster and cheaper video synthesis or longer-context generation without sacrificing visual quality—useful for research and production systems constrained by latency or compute.",
+  "impact": "Practitioners can substantially cut computation and sampling latency of autoregressive video generation without sacrificing visual quality, enabling more scalable training and deployment of high-fidelity video models.",
   "visual_elements": [
-    "Schematic comparing uniform vs adaptive token allocation across a video timeline (showing fewer tokens for static frames and more for dynamic ones).",
-    "Temporal heatmap of token density over frames aligned with motion/complexity cues.",
-    "Compute vs quality trade-off curve (tokens or FLOPs on x-axis vs reconstruction/generation metric on y-axis) showing efficiency gain.",
-    "Pipeline diagram: video frames → complexity estimator → adaptive tokenization (variable-rate quantizer) → autoregressive generator."
+    "Before/After timeline showing uniform vs adaptive token counts per frame (heatmap over time) with corresponding reconstruction frames.",
+    "Trade-off plot: reconstruction quality (PSNR/LPIPS) vs token budget or sampling FLOPs comparing EVATok to uniform tokenizers.",
+    "System diagram: adaptive complexity estimator → variable-length tokenizer → autoregressive generator, annotated with token flow and training losses.",
+    "Bar chart of latency or compute (FLOPs, memory) for generation across baselines and EVATok."
   ],
   "hashtags": [
-    "#VideoTokenization",
-    "#EfficientGeneration",
+    "#VideoGeneration",
+    "#Tokenization",
+    "#EfficientAI",
     "#AutoregressiveModels",
-    "#VisionML",
     "#AdaptiveCompression"
   ],
   "paper_id": "2026-03-12-arxiv-evatok_adaptive_length_video_tokenization_for_efficient_visual_autoregressive_ge",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.12267v1"
     }
   ],
-  "generated_at": "2026-03-16T07:08:39.087575"
+  "generated_at": "2026-03-17T06:56:13.528784"
 }

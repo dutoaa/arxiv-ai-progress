@@ -1,0 +1,35 @@
+{
+  "key_insight": "Mixture-of-Depths Attention (MoDA) lets attention heads read KV pairs from the current layer and from previous layers, preserving informative shallow-layer signals so they aren't lost as models get deeper.",
+  "problem_solved": "Addresses signal degradation in very deep LLMs, where features formed in early layers are progressively diluted by repeated residual updates and become hard to recover in later layers.",
+  "method": [
+    "Per-head mixture mechanism: each attention head attends to both current-layer KV pairs and depth KV pairs from preceding layers.",
+    "Learned or parameterized mixing across depths so heads can select/use the most informative layer-wise representations.",
+    "Design and optimizations for a hardware-efficient implementation to limit added compute and memory overhead."
+  ],
+  "impact": "Enables deeper transformer models to retain and reuse early-layer features, improving scalability and robustness of deep LLMs while keeping computational costs manageable for practitioners.",
+  "visual_elements": [
+    "Schematic of a transformer block showing an attention head attending to KV pairs from multiple previous layers (color-coded depth channels).",
+    "Line chart comparing performance or signal retention vs. model depth: baseline (signal decay) vs. MoDA (preserved signal).",
+    "Before/after diagram: residual-only propagation (dilution) vs. MoDA (direct multi-depth access).",
+    "Icon set: head-level gating (per-head selection), low-overhead hardware/efficiency badge, depth-stack illustration."
+  ],
+  "hashtags": [
+    "#MixtureOfDepths",
+    "#Attention",
+    "#LLMScaling",
+    "#DeepModels",
+    "#EfficientAI"
+  ],
+  "paper_id": "2026-03-16-arxiv-mixture_of_depths_attention",
+  "paper_title": "Mixture-of-Depths Attention",
+  "paper_category": "Model",
+  "paper_date": "2026-03-16",
+  "paper_authors": "Lianghui Zhu, Yuxin Fang, Bencheng Liao, Shijie Wang, Tianheng Cheng",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.15619v1"
+    }
+  ],
+  "generated_at": "2026-03-17T06:54:58.665615"
+}
