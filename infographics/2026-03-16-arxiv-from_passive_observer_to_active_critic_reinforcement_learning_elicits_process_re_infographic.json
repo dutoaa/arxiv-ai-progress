@@ -1,24 +1,24 @@
 {
-  "key_insight": "Applying reinforcement learning to a 7B video MLLM (PRIMO R1) converts it from a passive \"Observer\" into an active \"Critic\" that evaluates process progress relative to task goals, enabling explicit process reasoning for long-horizon robotic manipulation.",
-  "problem_solved": "Current video MLLMs trained with supervised fine-tuning mainly recognize events but cannot assess whether intermediate states satisfy the final task goal, limiting reliable monitoring and correction in long-horizon robotic tasks.",
+  "key_insight": "Reinforcement learning can turn video MLLMs from passive 'Observers' into active 'Critics' that evaluate process progress relative to a final goal, enabling explicit process reasoning for long‑horizon robotic manipulation tasks.",
+  "problem_solved": "Addresses poor process supervision in long‑horizon robotic manipulation: SFT‑trained video models recognize events but cannot judge whether the current state is on track to achieve the final task goal.",
   "method": [
-    "Start from a 7B video MLLM and augment its training objective with a reinforcement learning signal that rewards correct assessment of process state relative to goals.",
-    "Train the model to produce critic-style outputs (progress estimates, failure/risk flags, corrective recommendations) rather than only descriptive observations.",
-    "Integrate the critic into the manipulation loop so it monitors multi-step procedures and provides actionable feedback for recovery or policy adjustment."
+    "PRIMO R1: a 7B video‑MLLM framework designed to produce critic‑style evaluations rather than passive descriptions.",
+    "Use reinforcement learning objectives (instead of only SFT) to elicit process reasoning and train the model to score/evaluate intermediate states against task goals.",
+    "Integrate video inputs with critic feedback to monitor progress, flag deviations, and inform corrective actions during manipulation."
   ],
-  "impact": "Enables robust, goal-aware monitoring for long-horizon robotic manipulation, improving autonomy and reducing reliance on dense human supervision by turning recognition models into evaluative systems.",
+  "impact": "Enables models that provide actionable, goal‑aware supervision for long‑horizon robotic tasks—improving monitoring, failure detection, and closed‑loop recovery—making deployment of more robust manipulation systems practical.",
   "visual_elements": [
-    "Side-by-side schematic: \"Observer\" (descriptive captions) vs \"Critic\" (progress bar, risk flag, corrective suggestion)",
-    "Pipeline diagram showing SFT pretraining → RL fine-tuning → critic outputs integrated into robot control loop",
-    "Sequence timeline overlaid on video frames showing process reasoning (progress estimate per step and predicted failure point)",
-    "Bar/line chart summarizing improved monitoring metrics (e.g., detection of deviations, recovery success) comparing SFT vs PRIMO R1"
+    "Side‑by‑side illustration: 'Observer' (descriptive captions) vs 'Critic' (goal‑comparative evaluation)",
+    "Pipeline diagram: video input → PRIMO R1 (7B) → critic score / feedback → controller loop",
+    "Timeline with checkpoints: example manipulation sequence showing critic evaluations and corrective interventions",
+    "Bar/line chart comparing capability (e.g., process supervision accuracy or intervention rate) of SFT vs RL‑trained video MLLMs"
   ],
   "hashtags": [
     "#RoboticManipulation",
     "#VideoMLLM",
     "#ReinforcementLearning",
     "#ProcessReasoning",
-    "#AutonomousSystems"
+    "#PRIMO"
   ],
   "paper_id": "2026-03-16-arxiv-from_passive_observer_to_active_critic_reinforcement_learning_elicits_process_re",
   "paper_title": "From Passive Observer to Active Critic: Reinforcement Learning Elicits Process Reasoning for Robotic Manipulation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.15600v1"
     }
   ],
-  "generated_at": "2026-03-17T06:53:34.982856"
+  "generated_at": "2026-03-18T06:55:20.162722"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Train a Code LLM and a Test LLM adversarially via reinforcement learning so tests and solutions co-evolve, producing dynamic, verifiable rewards that scale with model ability and avoid trivial self-collusion.",
-  "problem_solved": "Addresses scarcity and stagnation of high-quality unit tests for RL-based code generation and the self-play dilemma where a single model either cheats (white-box) or generates generic, weak tests (black-box).",
+  "key_insight": "Train two separate LLMs — a Code LLM and a Test LLM — in an adversarial, co-evolving reinforcement learning loop so tests become progressively harder and code generation becomes more robust, avoiding trivial test generation or generic low-coverage suites.",
+  "problem_solved": "Addresses brittle RL rewards for code generation caused by scarce/high-quality unit tests and the self-collusion dilemma of single-model self-play (trivial tests from white‑box access vs. generic weak tests under black‑box constraints).",
   "method": [
-    "Maintain two distinct models — a Code LLM that writes solutions and a Test LLM that generates unit tests — and train them in an adversarial RL loop so each continuously challenges the other.",
-    "Use verifiable, executable pass/fail rewards from generated tests as the RL signal, while applying constraints and diversity incentives on the Test LLM to prevent trivial or collusive tests.",
-    "Periodically evaluate with held-out benchmarks and update policies to ensure test difficulty grows with capability and to preserve generalization beyond model-specific idiosyncrasies."
+    "Adversarial co-evolution: alternate/update a Test LLM that generates unit tests and a Code LLM that attempts to solve them, forming a competitive training loop.",
+    "Reinforcement learning with dynamic rewards: use execution-based signals (test pass/fail, coverage, difficulty) and diversity/hardness bonuses to adapt rewards as models improve and prevent trivialization.",
+    "Population/curriculum and access control: maintain evolving model populations or constrained interfaces (graded white/gray/black-box) to reduce self-collusion and encourage generalizable test/code behaviors."
   ],
-  "impact": "Creates a scalable, self-improving reward pipeline for code generation that reduces dependence on handcrafted test suites and yields more robust, generalizable code models — useful for researchers and engineers improving code LLM reliability.",
+  "impact": "Delivers stronger, automatically generated test suites and more robust code LLMs by replacing static, scarce rewards with an adaptive adversarial signal — improving RL training quality and real-world reliability of code generation systems.",
   "visual_elements": [
-    "Loop diagram showing Code LLM → generated code → Test LLM → test results → RL feedback to both models",
-    "Line chart comparing static-test vs co-evolving-test pass rates and difficulty over training time",
-    "Before/after bar chart of defect escape or generalization on held-out benchmarks",
-    "Icons: code file, unit test/checkmark, adversarial vs collaborative silhouettes to represent dual models"
+    "Adversarial loop diagram: two nodes (Code LLM, Test LLM) with arrows showing generation, execution, reward feedback, and model updates.",
+    "Training timeline chart: test difficulty vs. code pass rate over iterations to show co-evolution and moving reward frontier.",
+    "Pipeline flowchart: test generation → code generation → execution → reward computation → RL update (highlighting dynamic reward components).",
+    "Icons/miniatures: unit test file, running console (execution), reward/score meter, population/evolution symbol"
   ],
   "hashtags": [
     "#CodeLLM",
     "#ReinforcementLearning",
-    "#AdversarialTraining",
-    "#AIforCode",
-    "#SoftwareTesting"
+    "#SoftwareTesting",
+    "#AdversarialLearning",
+    "#AIforCode"
   ],
   "paper_id": "2026-03-16-arxiv-code_a1_adversarial_evolving_of_code_llm_and_test_llm_via_reinforcement_learning",
   "paper_title": "Code-A1: Adversarial Evolving of Code LLM and Test LLM via Reinforcement Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.15611v1"
     }
   ],
-  "generated_at": "2026-03-17T06:53:55.495794"
+  "generated_at": "2026-03-18T06:56:11.851179"
 }
