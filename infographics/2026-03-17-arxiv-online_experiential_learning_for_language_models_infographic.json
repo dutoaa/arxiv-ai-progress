@@ -1,24 +1,24 @@
 {
-  "key_insight": "Language models can continuously improve themselves by extracting and reusing transferable knowledge from their real-world interactions, enabling on-the-fly learning during deployment rather than relying solely on offline annotated datasets.",
-  "problem_solved": "Overcomes the gap where rich deployment experience (user interactions, mistakes, corrections) is ignored by traditional offline training pipelines, preventing models from adapting and improving from live usage.",
+  "key_insight": "Online Experiential Learning (OEL) enables language models to continuously improve by extracting and consolidating knowledge from their own real-world interactions, turning deployment experience into reusable training signal.",
+  "problem_solved": "Addresses the gap where deployed LLMs generate rich, useful experience but cannot leverage it for ongoing improvement because current pipelines rely on offline, human-annotated data or simulated environments.",
   "method": [
-    "Extract transferable experiential knowledge from interaction trajectories (user queries, model responses, corrections) to form compact, reusable units of experience.",
-    "Accumulate and organize these experience units into an evolving repository or memory that captures recurrent patterns, failure modes, and successful strategies.",
-    "Apply lightweight online updates or retrieval-guided adaptation so the model uses accumulated experience to improve performance continuously during deployment."
+    "Stage 1 — Experience Extraction: capture interaction trajectories (queries, responses, context, feedback) and distill transferable experiential knowledge (summaries, failure modes, corrective examples).",
+    "Stage 2 — Knowledge Accumulation & Update: store distilled experiences in a structured memory or replay buffer and use them for periodic model adaptation via retrieval-augmented prompting, selective fine-tuning, or targeted distillation.",
+    "Operational safeguards: include filtering, ranking, and privacy/safety checks to ensure high-quality, deployable experience is used for updates."
   ],
-  "impact": "Enables lower-cost, continual improvement of LLMs using real deployment data, improving robustness, personalization, and responsiveness while reducing dependence on expensive offline annotation cycles.",
+  "impact": "OEL reduces reliance on costly human annotation and enables continuous, data-efficient improvements, yielding more robust, personalized, and up-to-date language models in real deployments.",
   "visual_elements": [
-    "Pipeline diagram showing: Interaction → Experience Extraction → Experience Repository → Online Model Update",
-    "Timeline or curve chart illustrating model performance improving over deployment time as experiences accumulate",
-    "Schematic of an experience unit (e.g., user query + model response + correction) feeding into a memory bank",
-    "Icons representing users, model, storage/memory, and a refresh/loop symbol to denote continuous learning"
+    "Two-stage pipeline diagram (Experience Extraction → Knowledge Bank → Model Update) with arrows and short labels",
+    "Timeline/stream showing continuous interactions being converted into distilled entries stored in a knowledge repository",
+    "Before/after performance bar chart or curve comparing models without OEL vs. with OEL on real-world metrics (accuracy, user satisfaction, error rate)",
+    "Icons for safeguards: filter/shield for quality & safety, database for memory, gear for periodic model update"
   ],
   "hashtags": [
     "#OnlineLearning",
     "#ContinualLearning",
-    "#LLMs",
-    "#ExperientialLearning",
-    "#DeploymentAI"
+    "#LanguageModels",
+    "#SelfImprovementAI",
+    "#ExperienceDrivenAI"
   ],
   "paper_id": "2026-03-17-arxiv-online_experiential_learning_for_language_models",
   "paper_title": "Online Experiential Learning for Language Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.16856v1"
     }
   ],
-  "generated_at": "2026-03-18T06:51:38.304949"
+  "generated_at": "2026-03-19T06:48:41.579462"
 }

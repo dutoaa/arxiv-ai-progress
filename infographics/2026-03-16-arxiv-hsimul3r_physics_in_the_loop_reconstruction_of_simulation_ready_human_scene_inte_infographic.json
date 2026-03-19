@@ -1,21 +1,21 @@
 {
-  "key_insight": "HSImul3R closes the perception–simulation gap by integrating a physics-in-the-loop, bi-directional optimization so that reconstructions from casual captures (sparse views or monocular video) are not only visually plausible but also stable and simulation-ready.",
-  "problem_solved": "Existing HSI reconstruction methods produce visually plausible outputs that often violate physical constraints, causing instability or failure when used in physics engines and embodied AI tasks; HSImul3R ensures physical validity alongside visual fidelity.",
+  "key_insight": "HSImul3R closes the perception–simulation gap by integrating physics directly into the 3D reconstruction loop, producing human–scene interaction outputs that are both visually accurate and stable in physics engines.",
+  "problem_solved": "Existing HSI reconstruction methods produce visually plausible results that often violate physical constraints, causing instability or failure when used in simulators and embodied AI tasks—HSImul3R makes casual captures (sparse views, monocular video) simulation-ready.",
   "method": [
-    "Physics-in-the-loop, bi-directional optimization that jointly refines visual reconstruction and physical parameters to satisfy both appearance and simulation constraints.",
-    "Unified pipeline that reconstructs humans and scene geometry/interactions from sparse-view images or monocular video, with physics-aware losses and constraints.",
-    "Outputs are validated and adjusted for stability in downstream physics engines, producing simulation-ready assets for embodied AI and robotics."
+    "Physically-grounded bi-directional optimization: alternate perception updates with physics-based corrections to enforce contact, collision, and dynamic consistency.",
+    "Unified pipeline for casual captures: jointly optimize human pose, scene geometry, contacts, and physical parameters from sparse-view images or monocular video.",
+    "Physics-in-the-loop validation: run candidate reconstructions in a physics engine during optimization to reject/adjust physically implausible solutions."
   ],
-  "impact": "Provides practitioners with reliable, simulation-ready 3D human–scene interaction reconstructions from casual captures, improving robustness for embodied AI, robotics simulation, AR/VR content, and dataset generation.",
+  "impact": "Enables reliable, simulator-ready HSI reconstructions from everyday captures, improving downstream tasks in robotics, virtual agents, and AR/VR by ensuring interactions are physically valid and stable.",
   "visual_elements": [
-    "Pipeline diagram: input (sparse images / monocular video) → perception module → physics-in-the-loop optimizer → simulation-ready output",
-    "Before/after comparison: visually plausible but physically unstable reconstruction vs. physics-corrected stable reconstruction in a physics engine",
-    "Icon/grid showing input modalities (sparse views, monocular video) and output uses (robot simulation, AR/VR, data synthesis)",
-    "Bar/line chart showing improvements in simulation stability or task success rate compared to prior methods"
+    "Pipeline diagram showing bi-directional loop between perception module and physics engine (optimize ↔ simulate ↔ correct).",
+    "Before/after comparison: visually plausible reconstruction that fails in simulation vs. HSImul3R output that remains stable under physics.",
+    "Contact and constraint visualization: heatmap or markers for contact points, normals, and applied forces during optimization.",
+    "Metric chart: simulation stability (e.g., contact violation, collapse rate) and reconstruction fidelity across sparse-view and monocular inputs."
   ],
   "hashtags": [
-    "#PhysicsInTheLoop",
     "#HumanSceneInteraction",
+    "#PhysicsInTheLoop",
     "#3DReconstruction",
     "#SimulationReady",
     "#EmbodiedAI"
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.15612v1"
     }
   ],
-  "generated_at": "2026-03-18T06:55:08.355532"
+  "generated_at": "2026-03-19T06:49:30.146174"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Sparse, user-edited keyframes can serve as a simple, expressive control signal for video super-resolution: correcting a few frames and intelligently propagating those edits yields high-quality, consistent videos while enabling interactive correction.",
-  "problem_solved": "Traditional VSR models act like black boxes at inference time—users cannot reliably correct unexpected artifacts or guide restoration. SparkVSR addresses the need for controllable, interactive VSR that preserves temporal consistency while minimizing user effort.",
+  "key_insight": "SparkVSR makes VSR controllable by letting users provide or edit a small number of high-quality keyframes which are then propagated to the rest of the video, enabling reliable correction of artifacts with minimal user effort.",
+  "problem_solved": "Most VSR methods are black boxes at inference time—users cannot fix unexpected artifacts or guide reconstruction. This paper addresses the need for an interactive, user-controllable VSR pipeline that achieves high quality with sparse supervision.",
   "method": [
-    "Treat a small set of high-quality keyframes (optionally edited by the user) as explicit control inputs for the entire video.",
-    "Learn a sparse keyframe propagation module that transfers detail and corrections from keyframes to neighboring frames while enforcing temporal consistency.",
-    "Design for interactive use: low-latency propagation and refinement so users can iteratively edit a few frames and immediately see global improvements."
+    "Treat a sparse set of user-provided super-resolved keyframes as an explicit control signal.",
+    "Learn a propagation module that transfers high-frequency details from keyframes to neighboring frames with temporal consistency and occlusion-aware blending.",
+    "Design for interactivity and efficiency so users can iteratively edit few keyframes and quickly update the whole video."
   ],
-  "impact": "Enables human-in-the-loop VSR workflows where practitioners can fix artifacts with minimal edits, improving trust, editability, and practical deployment of VSR in production and creative tools.",
+  "impact": "Enables human-in-the-loop VSR workflows where practitioners or end-users can correct artifacts, steer output quality, and reduce compute by focusing effort on a few keyframes—improving trust and practicality of VSR systems.",
   "visual_elements": [
-    "Pipeline diagram: user edits a few sparse keyframes → propagation module → full super-resolved video (highlight flow of information).",
-    "Before/after frame comparisons showing artifact correction with and without keyframe edits.",
-    "Heatmap or arrow visualization of propagation strength/flow from keyframes across time (sparsity vs. influence).",
-    "Tradeoff chart: number of keyframes vs. quality improvement and latency (showing diminishing returns)."
+    "Pipeline diagram: keyframe selection → user edit/super-resolve → learned propagation → final frames",
+    "Before/after frame pairs or a slider showing artifact correction after keyframe propagation",
+    "UI mockup showing a timeline with sparse keyframes selected and editable (human-in-the-loop)",
+    "Flow/propagation visualization with occlusion masks and arrows indicating spatial detail transfer"
   ],
   "hashtags": [
+    "#SparkVSR",
     "#VideoSuperResolution",
     "#InteractiveAI",
-    "#SparsePropagation",
-    "#ComputerVision",
-    "#HumanInTheLoop"
+    "#HumanInTheLoop",
+    "#ComputerVision"
   ],
   "paper_id": "2026-03-17-arxiv-sparkvsr_interactive_video_super_resolution_via_sparse_keyframe_propagation",
   "paper_title": "SparkVSR: Interactive Video Super-Resolution via Sparse Keyframe Propagation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.16864v1"
     }
   ],
-  "generated_at": "2026-03-18T06:52:32.578359"
+  "generated_at": "2026-03-19T06:49:06.911143"
 }
