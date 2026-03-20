@@ -1,24 +1,24 @@
 {
-  "key_insight": "Combining data augmentation with experience replay (memory manipulation) around a Mamba-based language model enables sample-efficient generation of property-optimized small molecules — achieving strong optimization with far fewer training examples/evaluations.",
-  "problem_solved": "Generative molecular design often requires large datasets and many costly property evaluations; this work tackles low sample efficiency by reusing and augmenting useful examples so models learn to produce high-quality, property-optimized molecules faster.",
+  "key_insight": "A Mamba-based language model combined with data augmentation and experience replay (memory manipulation) enables sample-efficient generation of property-optimized small molecules, reusing promising candidates to cut down on costly evaluations.",
+  "problem_solved": "Reduces the data and evaluation budget required to train generative models for molecular design, addressing the scarcity of labeled/expensive experimental feedback in property optimization tasks.",
   "method": [
-    "Train a Mamba-based molecular language model to generate SMILES/graph representations of small molecules.",
-    "Apply targeted data augmentation to expand training signals from limited high-quality examples.",
-    "Use experience replay / memory manipulation: maintain a buffer of promising molecules and periodically replay them during training to bias generation toward desirable properties."
+    "Train a Mamba-based sequence model to generate molecular representations (e.g., SMILES/SELFIES).",
+    "Use targeted data augmentation to expand training signals and diversify candidate molecules.",
+    "Implement experience replay / memory manipulation to store high-reward molecules and replay them during training for more sample-efficient optimization."
   ],
-  "impact": "Makes property-driven molecular generation more practical by reducing data and compute needs, accelerating iterative design cycles in drug discovery and materials. Practitioners can integrate augmentation + replay to boost optimization returns from existing models without massive new datasets.",
+  "impact": "Lowering the number of required evaluations and experiments speeds up iterative molecular design and makes advanced generative approaches more accessible to teams with limited compute or lab budgets.",
   "visual_elements": [
-    "Pipeline flowchart: Mamba LM → data augmentation → memory buffer (experience replay) → optimized molecule outputs",
-    "Sample-efficiency plot: number of property-optimized molecules or score vs. training steps (ours vs baseline)",
-    "Schematic of memory buffer showing insertion, prioritization, and replay of top molecules",
-    "Before/after molecule examples annotated with improved properties (e.g., score, target metric)"
+    "Pipeline flowchart: model input → augmentation → generation → property evaluation → memory buffer → replay → model update.",
+    "Comparison chart: samples/evaluations required vs. baseline methods (showing reduced budget).",
+    "Memory replay schematic: buffer of high-reward molecules being reintroduced into training.",
+    "Before/after molecular examples: structures with property scores (e.g., activity or drug-likeness) to illustrate optimization."
   ],
   "hashtags": [
     "#MolecularDesign",
     "#GenerativeAI",
     "#SampleEfficiency",
-    "#MemoryReplay",
-    "#DrugDiscovery"
+    "#DrugDiscovery",
+    "#MachineLearning"
   ],
   "paper_id": "2026-03-17-nature-sample_efficient_generative_molecular_design_using_memory_manipulation",
   "paper_title": "Sample-efficient generative molecular design using memory manipulation",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01200-4"
     }
   ],
-  "generated_at": "2026-03-19T06:47:34.402376"
+  "generated_at": "2026-03-20T06:43:29.579819"
 }

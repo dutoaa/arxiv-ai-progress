@@ -1,24 +1,24 @@
 {
-  "key_insight": "SegviGen repurposes pretrained 3D generative models as structural priors to produce accurate part-level segmentations without training large 3D discriminative models or relying on noisy multi-view mask aggregation.",
-  "problem_solved": "Addresses inconsistent, blurred, or annotation-heavy 3D part segmentation pipelines by leveraging the inherent structure in pretrained 3D generators to obtain coherent, fine-grained part labels with far less 3D supervision.",
+  "key_insight": "SegviGen repurposes pretrained 3D generative models as structured priors to produce accurate 3D part segmentation, avoiding heavy annotation or multi-view aggregation and reducing cross-view inconsistency.",
+  "problem_solved": "Bridges the gap between costly, annotation-heavy native 3D discriminative segmentation and inconsistent 2D-to-3D distillation approaches by enabling reliable part segmentation using existing pretrained 3D generative models.",
   "method": [
-    "Extract structured shape and appearance priors from a pretrained 3D generative model to reveal consistent part cues across samples and views.",
-    "Map generative features to part labels via lightweight procedures (e.g., latent perturbation, feature clustering, or small-scale label propagation) instead of training a large discriminative network.",
-    "Optionally refine segmentation with minimal supervision or small optimization steps to improve boundary accuracy and cross-view consistency."
+    "Extract and leverage structured spatial/latent priors encoded in a pretrained 3D generative model to inform part label prediction.",
+    "Train a lightweight segmentation head or mapping that converts generative features/representation into part labels with minimal additional supervision.",
+    "Apply consistency and boundary-aware refinement to produce sharp, cross-view-consistent part boundaries without extensive 3D annotations."
   ],
-  "impact": "Enables practitioners to get high-quality 3D part segmentations with far lower annotation and training cost, improving scalability for downstream tasks like editing, simulation, and robotics.",
+  "impact": "SegviGen lowers the annotation and compute barrier for high-quality 3D part segmentation, enabling practitioners to reuse generative models for downstream segmentation tasks and improving robustness of 3D pipelines.",
   "visual_elements": [
-    "Pipeline diagram: pretrained 3D generator → feature extraction → part labeling → refinement",
-    "Before/After comparison: multi-view aggregation baseline vs. SegviGen segmented model highlighting sharper boundaries",
-    "Latent/feature-space visualization: clusters corresponding to semantic parts",
-    "Bar chart: annotation/time/training cost reduction compared to fully supervised 3D segmentation"
+    "Pipeline diagram: pretrained 3D generative model -> feature/latent extraction -> lightweight segmentation head -> refined part-labeled 3D output.",
+    "Before/after comparison: multi-view aggregated masks (blurry, inconsistent) vs SegviGen outputs (crisp, consistent part boundaries).",
+    "Color-coded 3D model gallery showing segmented parts across object categories to illustrate generalization.",
+    "Bar chart or infographic comparing annotation cost and segmentation accuracy for distillation, native discriminative training, and SegviGen."
   ],
   "hashtags": [
-    "#3D",
+    "#3DComputerVision",
     "#Segmentation",
     "#GenerativeModels",
-    "#SelfSupervised",
-    "#ComputerVision"
+    "#FewShotLearning",
+    "#3DDeepLearning"
   ],
   "paper_id": "2026-03-17-arxiv-segvigen_repurposing_3d_generative_model_for_part_segmentation",
   "paper_title": "SegviGen: Repurposing 3D Generative Model for Part Segmentation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.16869v1"
     }
   ],
-  "generated_at": "2026-03-19T06:48:53.419542"
+  "generated_at": "2026-03-20T06:44:40.277372"
 }
