@@ -1,23 +1,23 @@
 {
-  "key_insight": "MultiGP performs generative inverse rendering from a single image by jointly sampling reflectance, texture, and illumination, and resolves radiometric ambiguity by using the fact that all objects in a scene share the same illumination.",
-  "problem_solved": "Disentangling object-specific reflectance and texture from scene-wide illumination using only a single photograph, where many plausible explanations exist for observed appearance.",
+  "key_insight": "MultiGP exploits the fact that different objects in the same scene share one illumination to resolve the inherently ambiguous separation of reflectance, texture, and lighting from a single image, producing stochastic samples of plausible radiometric explanations.",
+  "problem_solved": "Disentangling material (reflectance & texture) and illumination from a single image is highly underconstrained and ambiguous; the paper addresses this by using multi-object consensus to reliably infer all radiometric constituents.",
   "method": [
-    "Probabilistic generative inverse-rendering framework that stochastically samples radiometric constituents (reflectance, texture, illumination) consistent with the image.",
-    "Enforces a multi-object consensus constraint: objects with differing materials share a single scene illumination estimate to disambiguate reflectance vs. lighting.",
-    "Uses differentiable rendering and posterior sampling to produce multiple plausible decompositions and quantify uncertainty in material and lighting estimates."
+    "Generative inverse-rendering framework that stochastically samples the latent radiometric factors (reflectance, texture, illumination) consistent with an input image.",
+    "Enforces cross-object illumination consensus: objects in the same scene share a single illumination hypothesis, which constrains and disambiguates per-object material estimates.",
+    "Produces diverse plausible explanations (uncertainty-aware outputs) rather than a single deterministic estimate, enabling robust downstream use."
   ],
-  "impact": "Provides a practical way to recover materials and lighting (with uncertainty) from single images, enabling better relighting, material editing, AR insertion, and training data generation for vision and graphics applications.",
+  "impact": "Enables more accurate and uncertainty-aware estimation of materials and lighting from single photos, improving tasks like relighting, realistic object insertion, AR, and material-aware scene understanding for AI/ML practitioners.",
   "visual_elements": [
-    "Pipeline diagram: single input image -> probabilistic sampler -> outputs: reflectance maps, textures, and shared illumination map.",
-    "Before/after comparisons: original photo vs. separated reflectance, texture layers, and reconstructed relit variants.",
-    "Illustration of the multi-object consensus: multiple objects under one inferred illumination vs. independent ambiguous solutions.",
-    "Gallery of stochastic samples showing different plausible decompositions and an uncertainty heatmap."
+    "Pipeline diagram: single input image → generative sampler → separate outputs for reflectance, texture, and shared illumination.",
+    "Consensus illustration: multiple objects in a scene pointing to a single shared illumination estimate that disambiguates their materials.",
+    "Result panel: several stochastic renderings showing different plausible decompositions and relit reconstructions.",
+    "Before/after examples: original image next to edited relit or material-modified versions to demonstrate practical uses."
   ],
   "hashtags": [
     "#InverseRendering",
-    "#GenerativePerception",
-    "#MaterialEstimation",
-    "#Relighting",
+    "#GenerativeModels",
+    "#MaterialPerception",
+    "#IlluminationEstimation",
     "#ComputerVision"
   ],
   "paper_id": "2026-03-19-arxiv-under_one_sun_multi_object_generative_perception_of_materials_and_illumination",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19226v1"
     }
   ],
-  "generated_at": "2026-03-20T06:42:21.761377"
+  "generated_at": "2026-03-21T06:31:52.915209"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "VideoAtlas represents long videos as a hierarchical, lossless grid that lets models navigate content with logarithmic compute cost, giving an immediate visual overview without captions or heavy preprocessing.",
-  "problem_solved": "Existing video-language extensions either compress visual information into lossy summaries or collapse long context into text, losing fidelity and scaling poorly for long-form video.",
+  "key_insight": "VideoAtlas represents long videos as a hierarchical, lossless spatial–temporal grid (an \"atlas\") that lets models navigate and query content with logarithmic compute cost, removing the need for captions or heavy preprocessing.",
+  "problem_solved": "Overcomes two bottlenecks in video-language scaling: lossy, low-fidelity video representations and long-context pipelines that collapse video into text, preventing scalable, high-fidelity long-form video reasoning and retrieval.",
   "method": [
-    "Encode video into a multi-scale hierarchical grid that preserves full visual information while supporting coarse-to-fine access patterns.",
-    "Provide a task-agnostic, navigable environment (no captioning or custom preprocessing) so downstream models can fetch only the needed regions.",
-    "Use multiscale indexing and navigation algorithms to achieve logarithmic compute/time complexity when querying long timelines."
+    "Hierarchical grid (atlas) representation: tile videos into multi-scale spatial–temporal cells that preserve visual fidelity and provide an at-a-glance overview.",
+    "Coarse-to-fine, indexed navigation: multi-resolution indexing enables targeted access so queries cost grows logarithmically with video length rather than linearly.",
+    "Task-agnostic, preprocessing-free interface: supports direct visual navigation and retrieval without captioning or task-specific preprocessing, enabling plug-and-play downstream use."
   ],
-  "impact": "Enables scalable, high-fidelity long-video understanding and interaction for models and applications, reducing compute and preprocessing overhead while preserving visual detail for downstream tasks.",
+  "impact": "Makes long-form video understanding and interactive applications (QA, retrieval, editing) computationally feasible at scale while preserving visual fidelity. Practitioners can integrate long videos into models with much lower compute and without lossy summarization.",
   "visual_elements": [
-    "Hierarchical grid diagram showing full-frame → tiles → zoomed tiles to illustrate lossless multiscale representation",
-    "Zoomable timeline mockup demonstrating coarse-to-fine navigation and quick overview at a glance",
-    "Compute scaling chart comparing logarithmic (VideoAtlas) vs. linear compute cost as video length increases",
-    "Before/after fidelity example: conventional captioned-summary vs. VideoAtlas tile retrieval showing preserved visual detail"
+    "Hierarchical atlas diagram: a video timeline overlaid with nested grid tiles showing coarse-to-fine zoom and reachable cells.",
+    "Compute-scaling chart: comparison of linear (traditional) vs logarithmic (VideoAtlas) compute cost as video length increases.",
+    "Pipeline comparison: side-by-side flowchart of caption/preprocessing-based pipelines vs VideoAtlas's navigable, lossless access.",
+    "Use-case icons: examples like interactive QA, retrieval, and video editing with arrows showing fast targeted access into the atlas."
   ],
   "hashtags": [
     "#VideoAtlas",
     "#LongFormVideo",
-    "#EfficientAI",
-    "#MultiscaleRepresentation",
+    "#LogarithmicCompute",
+    "#MultimodalAI",
     "#VideoUnderstanding"
   ],
   "paper_id": "2026-03-18-arxiv-videoatlas_navigating_long_form_video_in_logarithmic_compute",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.17948v1"
     }
   ],
-  "generated_at": "2026-03-20T06:44:13.570367"
+  "generated_at": "2026-03-21T06:34:13.273908"
 }

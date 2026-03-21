@@ -1,24 +1,24 @@
 {
-  "key_insight": "MonoArt progressively reasons about part structure to disentangle motion from geometry, enabling stable monocular estimation of articulation and 3D shape without heavy multi-view or retrieval supervision.",
-  "problem_solved": "The paper addresses unstable and entangled articulation regression from a single image—where motion cues and object structure are mixed—while avoiding reliance on multi-view data, retrieval-based assembly, or expensive auxiliary supervision.",
+  "key_insight": "MonoArt decouples object structure from motion by progressively reasoning about part decomposition and then estimating articulation, allowing stable monocular reconstruction of articulated 3D objects without multi-view or retrieval-heavy pipelines.",
+  "problem_solved": "How to reliably infer geometry, part structure, and motion parameters of articulated objects from a single image despite the entanglement of motion cues and object structure that destabilizes direct articulation regression.",
   "method": [
-    "Progressive structural reasoning: predict a coarse part hierarchy/graph first, then refine parts and joint topology to provide a stable structural prior.",
-    "Articulation-aware parameter estimation: condition motion regression on the inferred structure to decouple motion and geometry and produce stable joint parameters.",
-    "Geometry refinement: iteratively refine part shapes and pose to produce an articulated 3D reconstruction from a single RGB image with improved accuracy and efficiency."
+    "Progressive structural reasoning: incrementally infer a hierarchical part decomposition and refine part geometry before estimating joint parameters.",
+    "Alternating structure-and-motion estimation: use structure-aware priors and differentiable assembly to disentangle articulation from shape, improving stability of pose regression from one view.",
+    "Single-image training with structural regularizers and targeted losses (e.g., part consistency, kinematic plausibility) to avoid reliance on multi-view data, retrieval, or heavy video synthesis."
   ],
-  "impact": "Provides a scalable, efficient route to recover articulated 3D models from single images, lowering supervision and compute barriers for applications in robotics, AR/VR, and animation. Practitioners can integrate structure-first reasoning to improve robustness of single-view 3D pipelines.",
+  "impact": "Enables scalable, efficient monocular articulated 3D reconstruction suitable for AR/animation, robotic perception, and downstream shape-and-motion tasks by reducing dependence on multi-view supervision and expensive retrieval pipelines.",
   "visual_elements": [
-    "Pipeline diagram showing stages: input image → coarse part-graph prediction → articulation estimation → refined 3D articulated mesh",
-    "Before/after example: single image alongside reconstructed articulated 3D model with highlighted joints and part segmentation",
-    "Illustration of structure-motion disentanglement: part graph vs. motion vectors to show stabilized articulation estimation",
-    "Bar chart comparing accuracy and supervision/compute requirements against multi-view, retrieval, and video-auxiliary baselines"
+    "Pipeline diagram: progressive stages from input image -> part decomposition -> joint estimation -> assembled articulated 3D model.",
+    "Side-by-side reconstructions: input image, coarse part layout, final articulated 3D mesh (showing pose changes).",
+    "Part-graph / kinematic diagram: nodes = parts, edges = joints with axes and DOF visualized to show disentanglement.",
+    "Performance charts: accuracy/completeness vs baselines and ablation bars showing benefit of progressive reasoning and structural regularizers."
   ],
   "hashtags": [
+    "#MonoArt",
     "#3DReconstruction",
-    "#ComputerVision",
-    "#Monocular",
+    "#MonocularVision",
     "#ArticulatedObjects",
-    "#DeepLearning"
+    "#StructuralReasoning"
   ],
   "paper_id": "2026-03-19-arxiv-monoart_progressive_structural_reasoning_for_monocular_articulated_3d_reconstruc",
   "paper_title": "MonoArt: Progressive Structural Reasoning for Monocular Articulated 3D Reconstruction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19231v1"
     }
   ],
-  "generated_at": "2026-03-20T06:42:55.251145"
+  "generated_at": "2026-03-21T06:32:38.014955"
 }
