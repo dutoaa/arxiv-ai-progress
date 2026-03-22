@@ -1,24 +1,24 @@
 {
-  "key_insight": "A three-stage framework and MoTok — a diffusion-based discrete motion tokenizer — bridge semantic planning and kinematic control by generating discrete semantic tokens with diffusion and then synthesizing high-fidelity continuous motion conditioned on those tokens.",
-  "problem_solved": "Existing motion generation splits: continuous diffusion gives good kinematic realism but weak semantic conditioning, while discrete token models support semantics but lack fine-grained kinematic control. The paper solves how to combine strong semantic conditioning with precise kinematic synthesis in a unified pipeline.",
+  "key_insight": "Combine the strengths of continuous diffusion (precise kinematics) and discrete token generators (robust semantic conditioning) via a three-stage pipeline centered on MoTok, a diffusion-based discrete motion tokenizer that decouples semantic and kinematic factors.",
+  "problem_solved": "Existing motion generation methods excel at either kinematic fidelity (continuous diffusion) or semantic conditioning (discrete tokens) but struggle to satisfy both simultaneously; this work bridges that gap to produce motions that are both semantically aligned and kinematically accurate.",
   "method": [
-    "Perception: extract condition features (e.g., text, action labels, sensors) into semantic representations.",
-    "Planning: MoTok — a diffusion-based discrete motion tokenizer that generates discrete semantic motion tokens, decoupling semantic planning from low-level motion details.",
-    "Control: diffusion-based motion synthesis that decodes tokens into continuous, physically plausible motion trajectories with strong kinematic fidelity."
+    "Perception: extract condition features (e.g., text, intent, or scene cues) that encode semantic instructions and kinematic hints.",
+    "Planning: use MoTok — a diffusion-based discrete motion tokenizer — to generate discrete motion tokens that separate semantic content from low-level motion details.",
+    "Control: synthesize final continuous motion via a diffusion-based conditional decoder that reconstructs high-fidelity kinematics from the generated tokens and condition features."
   ],
-  "impact": "Provides a modular, interpretable pipeline enabling practitioners to plug in rich semantic conditions while retaining high-quality kinematics—useful for animation, robotics, and conditional motion generation research.",
+  "impact": "Enables controllable motion generation that is simultaneously semantically faithful and kinematically realistic, improving downstream applications like character animation, virtual avatars, and robotics motion planning.",
   "visual_elements": [
-    "3-stage pipeline diagram (Perception → Planning/MoTok → Control) with data flow arrows",
-    "Illustration of discrete token space vs continuous motion space showing token generation by diffusion",
-    "Side-by-side qualitative comparisons: semantic alignment (text→motion) and kinematic realism (continuous trajectories)",
-    "Bar/line chart of quantitative improvements (semantic alignment score vs kinematic error) and an ablation highlighting MoTok's effect"
+    "Pipeline diagram: three stacked blocks labeled Perception → Planning (MoTok) → Control, showing flow from semantic input to discrete tokens to continuous motion output.",
+    "Tokenization schematic: side-by-side animation frames and their corresponding discrete token sequence to illustrate compression and decoupling.",
+    "Comparison chart: qualitative/metric trade-offs between Continuous-only, Discrete-only, and the proposed hybrid approach (accuracy vs. semantic alignment).",
+    "Sample grid: input semantic prompts (text/labels) next to generated motion clips or pose sequences demonstrating improved alignment and kinematic fidelity."
   ],
   "hashtags": [
     "#MotionGeneration",
     "#DiffusionModels",
     "#DiscreteTokens",
-    "#GenerativeAI",
-    "#Robotics"
+    "#HumanMotion",
+    "#MoTok"
   ],
   "paper_id": "2026-03-19-arxiv-bridging_semantic_and_kinematic_conditions_with_diffusion_based_discrete_motion",
   "paper_title": "Bridging Semantic and Kinematic Conditions with Diffusion-based Discrete Motion Tokenizer",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19227v1"
     }
   ],
-  "generated_at": "2026-03-21T06:32:16.788856"
+  "generated_at": "2026-03-22T06:40:05.140267"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Translate structured skeleton data into differentiable, image-like renderings that MLLMs can directly consume, enabling universal, format-agnostic skeleton understanding while preserving end-to-end learnability.",
-  "problem_solved": "Bridges the modality gap between structured non-visual skeleton representations and multimodal LLMs, avoiding lossy vector compression or brittle discrete tokenization so models can reason about human pose and motion across heterogeneous skeleton formats.",
+  "key_insight": "SkeletonLLM converts structured, non-visual skeleton data into differentiable visual representations that MLLMs can directly understand, enabling end-to-end training and generalization across heterogeneous skeleton formats.",
+  "problem_solved": "MLLMs cannot natively process structured motion/skeleton data; prior solutions either compress dynamics into lossy vectors or quantize motions into discrete tokens that fail to generalize across different skeleton formats and semantics.",
   "method": [
-    "Differentiable rendering: convert joints, bones and motion signals into multi-channel, differentiable visual representations that retain spatial and temporal details.",
-    "MLLM integration: feed rendered skeleton views to a multimodal LLM (with light adapters or prompt tuning) so the model can perform captioning, QA, and reasoning over poses.",
-    "End-to-end training and format-agnostic alignment: optimize rendering and model adapters jointly for robustness across skeleton topologies and improved generalization without bespoke tokenization."
+    "Differentiable rendering: transform raw skeletons (varying joints/formats and temporal sequences) into canonical, learnable visual representations while keeping the pipeline differentiable.",
+    "MLLM integration: feed rendered visualizations into a pre-trained multimodal LLM to leverage its language-visual reasoning for tasks like description, querying, and editing.",
+    "End-to-end alignment & normalization: jointly optimize renderer and model with language supervision and format-agnostic normalization so the system generalizes across skeleton conventions and motion styles."
   ],
-  "impact": "Allows AI/ML practitioners to leverage powerful MLLMs for pose and motion tasks (captioning, action recognition, reasoning, editing) without hand-crafted skeleton encodings, improving interoperability across datasets and real-world systems.",
+  "impact": "Enables MLLMs to reason about and manipulate structured human-motion data without bespoke tokenization or format-specific encoders, simplifying workflows for action understanding, animation editing, human–robot interaction, and biomechanics research.",
   "visual_elements": [
-    "Pipeline diagram: skeleton (various formats) → differentiable renderer → MLLM → tasks (caption, QA, action label).",
-    "Before vs after: comparison of lossy vector/token approaches vs differentiable rendered input (accuracy/generalization bars).",
-    "Example outputs: rendered skeleton images next to MLLM-generated captions/answers and attention/heatmap overlays.",
-    "Ablation chart: effect of end-to-end differentiability and adapter training on cross-format performance."
+    "Pipeline diagram: raw heterogeneous skeletons → differentiable renderer → rendered frames/heatmaps → MLLM → language/controls (include gradient arrows for end-to-end training).",
+    "Before/after comparison: (left) lossy vector or tokenized approaches vs (right) SkeletonLLM retaining structure and temporal dynamics.",
+    "Example gallery: rendered skeleton sequences with corresponding MLLM outputs (descriptions, queries, editing commands).",
+    "Generalization chart: bar/line chart showing cross-format performance and robustness gains vs prior methods."
   ],
   "hashtags": [
-    "#MLLM",
+    "#SkeletonLLM",
     "#DifferentiableRendering",
-    "#SkeletonUnderstanding",
-    "#MultimodalAI",
-    "#HumanMotion"
+    "#MLLM",
+    "#HumanPose",
+    "#MultimodalAI"
   ],
   "paper_id": "2026-03-18-arxiv-universal_skeleton_understanding_via_differentiable_rendering_and_mllms",
   "paper_title": "Universal Skeleton Understanding via Differentiable Rendering and MLLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.18003v1"
     }
   ],
-  "generated_at": "2026-03-21T06:34:34.944749"
+  "generated_at": "2026-03-22T06:42:45.623081"
 }

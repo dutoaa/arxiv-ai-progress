@@ -1,24 +1,24 @@
 {
-  "key_insight": "Learning and equilibrium computation are possible even when the learner only observes ordinal (ranking) feedback instead of numeric utilities: the paper provides algorithms that use ranking information to achieve provable online-learning guarantees and drive game dynamics toward equilibria in adversarial environments.",
-  "problem_solved": "How to perform online learning and compute game-theoretic equilibria when the environment supplies only ranking/ordinal feedback (e.g., human preferences or privacy-restricted signals) rather than numeric rewards or utilities.",
+  "key_insight": "Online learning and equilibrium computation are possible even when the learner receives only ordinal (ranking) feedback rather than numeric rewards; the paper designs algorithms that convert rankings into usable signals and prove provable sublinear regret and game-convergence guarantees.",
+  "problem_solved": "Addresses learning and equilibrium computation when numeric utility signals are unavailable or undesirable (e.g., human-in-the-loop settings or privacy constraints) and only rankings or ordinal comparisons are observed.",
   "method": [
-    "Formalize an online-learning model with ranking (ordinal) feedback and characterize the information limitation relative to numeric feedback.",
-    "Design learning algorithms that convert ranking signals into usable update directions via pairwise-comparison estimators and partial-information (bandit-like) updates, with provable regret bounds under adversarial conditions.",
-    "Use the online-learning procedures as no-regret dynamics to obtain convergence guarantees to approximate equilibria in games, establishing a bridge between ranking feedback and equilibrium computation."
+    "Formalize an online learning model where the learner observes only rankings/ordinal feedback over actions (possibly partial or adversarial).",
+    "Design ordinal-aware online algorithms that aggregate pairwise/comparative information and adapt standard online updates (e.g., FTRL/OMD-style principles) to operate on ranking signals.",
+    "Provide theoretical analysis: prove regret bounds for the ordinal algorithms and show that repeated play under ranking feedback converges to game-theoretic equilibria (enabling equilibrium computation without numeric utilities)."
   ],
-  "impact": "Provides practitioners a pathway to deploy online learning and equilibrium-seeking systems in settings where only preference rankings are available (e.g., human-in-the-loop systems, privacy-sensitive platforms), without sacrificing theoretical performance guarantees.",
+  "impact": "Enables robust online decision-making and multi-agent equilibrium computation in settings with human preferences or privacy limits on numeric rewards, broadening applicability of online learning to real-world, ordinal-only feedback scenarios.",
   "visual_elements": [
-    "Side-by-side schematic: numeric-reward pipeline vs. ranking-feedback pipeline showing where information is missing and how the algorithm compensates.",
-    "Flowchart of the algorithm: ranking input → pairwise estimators → update rule → regret bound / equilibrium output.",
-    "Performance plot: regret or convergence rate curves comparing ranking-feedback algorithm to a baseline with full numeric feedback (conceptual illustration).",
-    "Game diagram: small multi-player game showing repeated play under ranking feedback converging to an approximate equilibrium (icons for players and preference lists)."
+    "Schematic pipeline: environment → ranking-only feedback → ordinal learning algorithm → action/update → (loop), highlighting no numeric rewards.",
+    "Comparison chart: numeric-feedback algorithms vs ranking-feedback algorithms (requirements, guarantees, typical applications).",
+    "Regret-over-time plot showing sublinear regret (log/log-linear decay) for the proposed ordinal algorithm versus baseline.",
+    "Illustration of multi-agent repeated game converging to an equilibrium under ranking feedback (trajectory of strategy profiles)."
   ],
   "hashtags": [
     "#OnlineLearning",
     "#RankingFeedback",
-    "#Bandits",
+    "#OrdinalPreferences",
     "#GameTheory",
-    "#HumanInTheLoop"
+    "#HumanCenteredAI"
   ],
   "paper_id": "2026-03-19-arxiv-online_learning_and_equilibrium_computation_with_ranking_feedback",
   "paper_title": "Online Learning and Equilibrium Computation with Ranking Feedback",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19221v1"
     }
   ],
-  "generated_at": "2026-03-21T06:31:23.474023"
+  "generated_at": "2026-03-22T06:38:53.387332"
 }

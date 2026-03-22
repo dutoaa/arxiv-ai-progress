@@ -1,24 +1,24 @@
 {
-  "key_insight": "Matryoshka Gaussian Splatting (MGS) trains a single 3D Gaussian Splatting model with nested, importance-ordered components so the same model provides smooth, continuous level-of-detail (LoD) scaling while preserving full-capacity quality.",
-  "problem_solved": "Enables adjustable-fidelity rendering from one model without the coarse operating points of discrete LoD or the quality drop commonly seen in continuous LoD approaches.",
+  "key_insight": "Matryoshka Gaussian Splatting (MGS) trains and organizes Gaussian splats into nested subsets so a single model provides smooth, continuous level-of-detail (LoD) scaling while retaining full-capacity fidelity.",
+  "problem_solved": "Existing LoD schemes either offer only a few discrete operating points or continuous scaling that degrades peak quality; MGS removes this trade-off so practitioners can choose any fidelity/compute point without sacrificing final-render quality.",
   "method": [
-    "Matryoshka (nested) parameterization: order and group Gaussians by importance so prefixes/subsets form valid lower-fidelity models.",
-    "Progressive multi-fidelity training with inter-level consistency and quality-preserving regularization to keep peak-rendering quality intact.",
-    "Runtime continuous scaling by selecting/attenuating Gaussian subsets for smooth compute-vs-quality trade-offs."
+    "Arrange Gaussians into a nested (Matryoshka-like) ordering so smaller subsets form valid lower-fidelity models and larger subsets progressively add detail.",
+    "Train with scheduling and objectives that ensure each subset approximates the full model and prevent quality drop at full capacity.",
+    "Enable runtime selection of subset size to smoothly trade compute, memory, and rendering quality across a continuous range."
   ],
-  "impact": "Provides practitioners a single, deployable 3DGS model that can seamlessly trade quality for speed or memory at runtime, simplifying streaming, real-time, and resource-constrained deployments without sacrificing top-end fidelity.",
+  "impact": "MGS simplifies deployment of 3D Gaussian Splatting by enabling a single model to serve devices and pipelines with varied compute budgets, improving interactive render performance and reducing engineering overhead for multi-fidelity support.",
   "visual_elements": [
-    "Matryoshka diagram: nested layers of Gaussians (Russian-doll style) illustrating prefixes as lower LoD",
-    "Quality vs. compute graph: MGS (smooth curve retaining full-quality) vs discrete and prior continuous baselines",
-    "Side-by-side render comparisons across multiple LoD operating points (full, mid, low)",
-    "Training pipeline flowchart showing progressive training, inter-level consistency loss, and runtime selection"
+    "Matryoshka-doll analogy overlay: nested shells of Gaussians showing increasing detail from core to outer layers.",
+    "Quality vs. compute chart: MGS curve showing smooth scaling and high peak quality versus discrete baselines and continuous methods that dip at full capacity.",
+    "Side-by-side renders at multiple LoDs: same scene rendered by small, medium, and full subsets to show fidelity progression.",
+    "Pipeline diagram: nested subset selection, training schedule, and runtime switching flow."
   ],
   "hashtags": [
-    "#MatryoshkaGS",
-    "#3DGaussianSplatting",
+    "#GaussianSplatting",
     "#LevelOfDetail",
     "#NeuralRendering",
-    "#RealTimeRendering"
+    "#3DVision",
+    "#EfficientRendering"
   ],
   "paper_id": "2026-03-19-arxiv-matryoshka_gaussian_splatting",
   "paper_title": "Matryoshka Gaussian Splatting",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19234v1"
     }
   ],
-  "generated_at": "2026-03-21T06:33:02.968563"
+  "generated_at": "2026-03-22T06:40:53.537100"
 }

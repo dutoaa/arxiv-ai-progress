@@ -1,21 +1,21 @@
 {
-  "key_insight": "MultiGP exploits the fact that different objects in the same scene share one illumination to resolve the inherently ambiguous separation of reflectance, texture, and lighting from a single image, producing stochastic samples of plausible radiometric explanations.",
-  "problem_solved": "Disentangling material (reflectance & texture) and illumination from a single image is highly underconstrained and ambiguous; the paper addresses this by using multi-object consensus to reliably infer all radiometric constituents.",
+  "key_insight": "By exploiting the fact that multiple objects in a single scene share the same illumination, MultiGP performs generative inverse rendering to stochastically disentangle reflectance, texture, and illumination from one image, yielding multiple plausible radiometric explanations.",
+  "problem_solved": "Addresses the fundamentally ambiguous task of radiometric disentanglement from a single image — recovering object materials (reflectance and texture) and scene illumination jointly and robustly.",
   "method": [
-    "Generative inverse-rendering framework that stochastically samples the latent radiometric factors (reflectance, texture, illumination) consistent with an input image.",
-    "Enforces cross-object illumination consensus: objects in the same scene share a single illumination hypothesis, which constrains and disambiguates per-object material estimates.",
-    "Produces diverse plausible explanations (uncertainty-aware outputs) rather than a single deterministic estimate, enabling robust downstream use."
+    "Generative inverse rendering that samples full radiometric constituents (reflectance, texture, illumination) to produce multiple plausible explanations for observed appearance.",
+    "Enforces a cross-object consensus constraint: different objects may have different materials/textures but are constrained to share the same scene illumination.",
+    "Probabilistic/stochastic sampling to capture ambiguity and present diverse plausible reconstructions rather than a single deterministic estimate."
   ],
-  "impact": "Enables more accurate and uncertainty-aware estimation of materials and lighting from single photos, improving tasks like relighting, realistic object insertion, AR, and material-aware scene understanding for AI/ML practitioners.",
+  "impact": "Enables more reliable single-image material and lighting estimation with uncertainty-aware outputs, improving downstream tasks like relighting, material editing, AR compositing, and scene understanding.",
   "visual_elements": [
-    "Pipeline diagram: single input image → generative sampler → separate outputs for reflectance, texture, and shared illumination.",
-    "Consensus illustration: multiple objects in a scene pointing to a single shared illumination estimate that disambiguates their materials.",
-    "Result panel: several stochastic renderings showing different plausible decompositions and relit reconstructions.",
-    "Before/after examples: original image next to edited relit or material-modified versions to demonstrate practical uses."
+    "Pipeline diagram: input single image → generative inverse renderer → sampled outputs (reflectance maps, textures, environment illumination).",
+    "Comparison grid: multiple sampled reconstructions showing different plausible material/illumination decompositions.",
+    "Schematic illustrating the shared-illumination constraint across several objects in the scene (arrows converging to one illumination map).",
+    "Before/after examples: object relighting or material swap using recovered illumination and materials."
   ],
   "hashtags": [
     "#InverseRendering",
-    "#GenerativeModels",
+    "#GenerativeModel",
     "#MaterialPerception",
     "#IlluminationEstimation",
     "#ComputerVision"
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19226v1"
     }
   ],
-  "generated_at": "2026-03-21T06:31:52.915209"
+  "generated_at": "2026-03-22T06:39:39.445011"
 }

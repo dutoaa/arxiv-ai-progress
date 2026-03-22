@@ -1,17 +1,17 @@
 {
-  "key_insight": "Introduce a unified spatio-temporal token scoring mechanism that selects and prunes uninformative vision tokens across space and time, enabling efficient video vision-language models without sacrificing downstream VLM performance.",
-  "problem_solved": "Reduces computational cost and latency in video VLMs by removing redundant visual tokens across frames while preserving the semantics needed for vision–language tasks—addressing limits of approaches that prune only within ViT or only within the LLM.",
+  "key_insight": "Introduce a unified spatio-temporal token scoring mechanism that identifies and prunes redundant visual tokens across both space and time, enabling efficient video vision-language models while preserving task-relevant information.",
+  "problem_solved": "Reduces excessive compute and temporal redundancy in video VLMs by jointly determining which spatial patches and temporal frames are essential for downstream vision-language tasks, instead of pruning independently in the ViT or LLM.",
   "method": [
-    "Compute unified importance scores for tokens that capture both spatial and temporal relevance across video frames.",
-    "Prune low-importance tokens before cross-modal fusion so the VLM processes fewer, more informative tokens.",
-    "Train or fine-tune scoring/pruning jointly with downstream VLM objectives to preserve task-specific accuracy while reducing compute."
+    "Compute unified importance scores for tokens that combine spatial and temporal cues, producing a single relevance measure per patch across frames.",
+    "Apply adaptive pruning based on those scores to discard redundant tokens early, with gating that preserves tokens critical to downstream vision-language objectives.",
+    "Integrate the scoring/pruning pipeline into the video VLM so pruning decisions are informed by end-task supervision rather than unimodal heuristics."
   ],
-  "impact": "Makes video-capable VLMs substantially more efficient and deployable (lower latency, less compute/cost) for real-world tasks like captioning, retrieval, and question answering over video, with minimal performance loss.",
+  "impact": "Makes video VLMs substantially more compute- and latency-efficient with minimal performance loss, enabling scalable deployment for real-time and large-scale multimodal applications.",
   "visual_elements": [
-    "Pipeline diagram: video frames → ViT → unified spatio-temporal token scorer → pruned tokens → VLM/LLM",
-    "Frame-level visualization: original tokens vs. retained tokens highlighted over several time steps",
-    "Bar chart: compute (FLOPs/latency) vs. accuracy trade-off comparing baseline VLM, ViT-only pruning, LLM-only pruning, and unified scoring",
-    "Icon grid: benefits (speed, cost, accuracy retention, scalability) with short captions"
+    "Pipeline diagram: video frames → ViT → unified spatio-temporal scoring → token pruning → LLM, showing where compute is saved",
+    "Heatmap overlay on sample frames showing token importance across time (high/low scoring patches)",
+    "Bar chart comparing compute/latency vs accuracy for baseline VLMs and the proposed method",
+    "Icon set illustrating key concepts: spatial patches, temporal frames, scoring/pruning gate, and preserved semantic tokens"
   ],
   "hashtags": [
     "#VideoVLM",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.18004v1"
     }
   ],
-  "generated_at": "2026-03-21T06:34:43.401698"
+  "generated_at": "2026-03-22T06:42:57.434172"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Large-scale video generation models encode rich, implicit 3D and physical priors that can be extracted and repurposed to give multimodal systems fine-grained spatial reasoning without requiring explicit 3D data.",
-  "problem_solved": "Addresses the spatial blindness of multimodal models — their inability to perform reliable geometric reasoning and physical-dynamic inference — while avoiding reliance on scarce or hard-to-generalize explicit 3D supervision.",
+  "key_insight": "Pretrained large-scale video generation models implicitly encode rich 3D spatial priors that can be extracted and reused to give models fine-grained geometric reasoning without relying on explicit 3D data.",
+  "problem_solved": "Multimodal models are spatially blind — they struggle with detailed geometry and physical dynamics — and existing solutions rely on scarce explicit 3D data or complex geometric scaffolds that limit generalization.",
   "method": [
-    "Probe and extract implicit spatial priors from pretrained video/generative models (e.g., by analyzing latent trajectories, multi-frame consistency, or learned motion/depth cues).",
-    "Distill these priors into compact modules or adapters that augment perception/LLM stacks for tasks like depth estimation, occlusion reasoning, and physical prediction.",
-    "Validate via downstream scene-understanding benchmarks, showing improved geometric accuracy and generalization without explicit multi-view or 3D training data."
+    "Probe and extract spatio-temporal latents from pretrained video generation models that contain implicit 3D structure.",
+    "Distill those implicit priors into compact geometric prediction heads (e.g., depth, normals, occupancy, dynamics) with minimal or no explicit 3D supervision.",
+    "Align generation-derived priors to downstream scene-understanding tasks via lightweight adapters and task-specific finetuning for improved generalization."
   ],
-  "impact": "Enables stronger geometric and physical reasoning for vision-language systems and robotics while reducing dependence on costly 3D data—facilitating more robust scene understanding in real-world and low-data settings.",
+  "impact": "Enables robust 3D-aware scene understanding without expensive 3D datasets or heavy geometric engineering, accelerating deployment of spatially competent multimodal systems in robotics, AR/VR, and vision-language applications.",
   "visual_elements": [
-    "Pipeline diagram: pretrained video generator → spatial-prior extraction → adapter → downstream tasks (depth, occlusion, dynamics).",
-    "Before/after examples: original image vs. inferred depth/occlusion overlays and predicted physical trajectories.",
-    "Bar chart: performance comparison on geometric benchmarks (baseline multimodal vs. augmented-with-priors).",
-    "Icon strip: benefits — less 3D data, better generalization, real-time adaptation, broader task coverage."
+    "Pipeline diagram: pretrained video generator -> latent extraction -> distillation -> geometric prediction heads (depth/occupancy/dynamics).",
+    "Before/after examples: scenes where baseline MLLM fails spatial reasoning vs. model using implicit 3D priors succeeding.",
+    "Latent-space visualization (e.g., t-SNE) showing clustering by 3D structure or viewpoint.",
+    "Performance chart: task accuracy or error vs. methods that use explicit 3D supervision, showing comparable or superior results with less 3D data."
   ],
   "hashtags": [
-    "#3DUnderstanding",
+    "#3DVision",
     "#GenerativeModels",
-    "#SpatialReasoning",
-    "#VisionLanguage",
-    "#AIForRobotics"
+    "#SceneUnderstanding",
+    "#MultimodalAI",
+    "#VideoModels"
   ],
   "paper_id": "2026-03-19-arxiv-generation_models_know_space_unleashing_implicit_3d_priors_for_scene_understandi",
   "paper_title": "Generation Models Know Space: Unleashing Implicit 3D Priors for Scene Understanding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19235v1"
     }
   ],
-  "generated_at": "2026-03-21T06:33:11.711105"
+  "generated_at": "2026-03-22T06:41:07.126750"
 }
