@@ -1,24 +1,24 @@
 {
-  "key_insight": "Progressive structural reasoning disentangles object structure from motion cues so a single image suffices to stably recover articulated 3D geometry and joint parameters.",
-  "problem_solved": "How to jointly infer object geometry, part structure, and articulation from a single image despite the entanglement between motion cues and object structure that makes direct articulation regression unstable.",
+  "key_insight": "MonoArt progressively decouples object structure from motion cues so a single image suffices to recover articulated 3D shape and joint parameters, stabilizing articulation estimation without multi-view or video supervision.",
+  "problem_solved": "Addresses the instability and entanglement between motion cues and object structure in monocular articulated 3D reconstruction, avoiding reliance on multi-view data, retrieval-based assembly, or auxiliary video generation.",
   "method": [
-    "Coarse-to-fine pipeline that first predicts part-level structure and a kinematic graph, then refines geometry and joint parameters progressively to reduce entanglement between structure and motion.",
-    "Intermediate, part-centric representations and constrained articulation regression (e.g., kinematic priors / differentiable joint transforms) to stabilize single-image pose and shape estimation without multi-view or retrieval lookups.",
-    "Efficient single-image training and inference with self-consistency / reconstruction losses to scale to diverse articulated categories while maintaining accuracy."
+    "Progressive structural reasoning: infer coarse part graph first, then refine part geometry and joint parameters in staged steps to reduce ambiguity.",
+    "Decoupling of structure and motion: learn articulation-aware representations that separate pose/motion regression from part geometry estimation for more stable optimization.",
+    "Single-image, scalable pipeline: end-to-end trainable model that reconstructs articulated 3D objects from one view using learned priors and iterative refinement rather than heavy multi-view or retrieval data."
   ],
-  "impact": "Enables accurate, scalable monocular recovery of articulated 3D objects for applications in robotics, AR/VR, and animation, reducing reliance on multi-view data or costly retrieval/video pipelines.",
+  "impact": "Enables efficient, scalable monocular reconstruction of articulated objects for downstream tasks (robotics, AR/animation) by removing the need for multi-view captures or costly retrieval/video pipelines, making 3D articulation more practical in real-world settings.",
   "visual_elements": [
-    "Pipeline diagram showing progressive stages: part prediction → kinematic graph → refined 3D mesh + joint parameters",
-    "Before/after example: input single image, naive direct regression failure vs. MonoArt’s correct articulated reconstruction (mesh + joint axes overlaid)",
-    "Kinematic/part graph overlay on object image to illustrate structural decomposition and joint definitions",
-    "Bar chart comparing MonoArt vs. prior methods on key metrics (shape IoU, joint-angle error, and runtime/efficiency)"
+    "Pipeline diagram showing progressive stages: image input → coarse part graph → refined geometry + joint estimation",
+    "Before/after comparison: unstable direct regression vs. MonoArt progressive reconstruction",
+    "Part-graph / hierarchy visualization illustrating decomposition into parts and articulation joints",
+    "Qualitative gallery of single-image inputs paired with recovered 3D articulated meshes in different poses"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#MonocularVision",
     "#ArticulatedObjects",
-    "#StructureReasoning",
-    "#ComputerVision"
+    "#ComputerVision",
+    "#3DDeepLearning"
   ],
   "paper_id": "2026-03-19-arxiv-monoart_progressive_structural_reasoning_for_monocular_articulated_3d_reconstruc",
   "paper_title": "MonoArt: Progressive Structural Reasoning for Monocular Articulated 3D Reconstruction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19231v1"
     }
   ],
-  "generated_at": "2026-03-22T06:40:24.835103"
+  "generated_at": "2026-03-23T07:02:10.973653"
 }
