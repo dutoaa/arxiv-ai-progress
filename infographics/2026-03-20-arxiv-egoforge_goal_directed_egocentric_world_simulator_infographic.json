@@ -1,24 +1,24 @@
 {
-  "key_insight": "EgoForge learns goal-conditioned egocentric world models that jointly simulate rapid camera motion, hand–object interactions, and long-horizon task evolution by inferring latent human intent—enabling realistic, goal-directed egocentric video prediction and simulation.",
-  "problem_solved": "Bridges the gap in egocentric video generation by modeling fast viewpoint changes, frequent hand–object dynamics, and latent goal-driven procedure evolution without relying on dense supervision like camera trajectories.",
+  "key_insight": "EgoForge builds a goal‑conditioned egocentric world model that jointly predicts hands, objects, and viewpoint motion so it can simulate coherent, intent‑driven first‑person video rollouts over procedure‑scale horizons.",
+  "problem_solved": "Models of egocentric video struggle with rapid camera motion, frequent hand–object interactions, and latent human intent; EgoForge addresses these to produce long‑horizon, goal‑directed egocentric simulations.",
   "method": [
-    "Goal-conditioned latent intent module that infers and propagates high-level task goals to guide future scene dynamics.",
-    "Egocentric dynamics model that explicitly represents camera motion, hands, and object interactions to produce temporally coherent, view-consistent predictions.",
-    "Generative renderer/decoder that synthesizes realistic egocentric frames over long horizons, trained with reconstruction and consistency objectives (weak or sparse supervision)."
+    "Learn a compact scene representation that separates agent (head/camera + hands) dynamics from object and environment state to handle rapid viewpoint changes and contact events.",
+    "Infer latent goals/intent from partial observations and condition a generative dynamics model to produce goal‑directed future states and rendered egocentric frames.",
+    "Train using multi‑task/self‑supervised objectives that emphasize physical consistency of interactions and temporal coherence rather than dense trajectory supervision."
   ],
-  "impact": "Provides a practical world-simulation backbone for embodied AI, AR/VR, and robot learning—improving long-horizon planning, data augmentation, and realistic training environments from first-person video.",
+  "impact": "Enables realistic, actionable first‑person video prediction useful for imitation learning, AR/VR content generation, and robotic planning from human demonstrations with less reliance on dense supervision.",
   "visual_elements": [
-    "Pipeline diagram: latent intent inference → egocentric dynamics module → generative renderer (show data flow and conditioning on goal).",
-    "Before/after sequence: short input clip vs. long-horizon simulated frames illustrating consistent camera motion and hand–object interactions.",
-    "Latent space visualization: trajectories of inferred goals/intent guiding different simulated outcomes (color-coded paths).",
-    "Comparison chart: metrics for temporal coherence and goal completion between EgoForge and prior methods (bar or line plot)."
+    "Pipeline diagram: latent goal inference → separate agent vs. scene state → goal‑conditioned rollout → rendered egocentric frames",
+    "Before/after example: input short egocentric clip vs. multi‑second simulated continuation conditioned on an inferred goal",
+    "Timeline visualization showing predicted camera trajectory, hand contact events, and object state changes over rollout",
+    "Icon set: camera/head, hands, object interactions, and a goal/flag to symbolize intent conditioning"
   ],
   "hashtags": [
     "#EgocentricAI",
     "#WorldModels",
-    "#EmbodiedAI",
-    "#VideoGeneration",
-    "#Simulation"
+    "#GoalConditioned",
+    "#VideoPrediction",
+    "#EmbodiedAI"
   ],
   "paper_id": "2026-03-20-arxiv-egoforge_goal_directed_egocentric_world_simulator",
   "paper_title": "EgoForge: Goal-Directed Egocentric World Simulator",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.20169v1"
     }
   ],
-  "generated_at": "2026-03-23T06:58:32.231750"
+  "generated_at": "2026-03-24T06:55:04.709631"
 }

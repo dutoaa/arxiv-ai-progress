@@ -1,0 +1,35 @@
+{
+  "key_insight": "UNITE unifies image tokenization and latent diffusion into a single end-to-end trainable autoencoder by using a Generative Encoder that shares weights to act as both tokenizer and latent generator, removing the need for separate tokenizer pretraining.",
+  "problem_solved": "Current latent diffusion workflows require a staged pipeline—first training a tokenizer (or VAE) and then training a diffusion model in the frozen latent space—adding engineering complexity, suboptimal latent alignment, and slow iteration cycles.",
+  "method": [
+    "Design an autoencoder (UNITE) where a Generative Encoder serves dual roles: producing discrete/continuous tokens and generating latents for denoising via weight sharing.",
+    "Train the encoder and latent diffusion denoiser jointly in an end-to-end fashion with combined reconstruction and diffusion objectives so latents are optimized for generation from the start.",
+    "Eliminate the separate tokenizer-pretraining stage, enabling tighter latent–denoiser coupling and simpler training pipelines."
+  ],
+  "impact": "Makes latent diffusion models easier and faster to develop by removing staged training and improving latent alignment with the denoiser, lowering engineering overhead and accelerating research and deployment cycles.",
+  "visual_elements": [
+    "Architecture diagram: single UNITE autoencoder showing the Generative Encoder branching to both tokenization and latent denoiser (weight-sharing highlighted).",
+    "Workflow comparison: staged pipeline (tokenizer → frozen latents → diffusion) vs. UNITE end-to-end training (single loop).",
+    "Qualitative panel: example reconstructions and generations comparing staged vs. UNITE outputs to show fidelity/alignment.",
+    "Training curves / ablation: joint-loss vs. staged baseline (convergence speed or validation quality) to illustrate practical gains."
+  ],
+  "hashtags": [
+    "#LatentDiffusion",
+    "#Autoencoder",
+    "#GenerativeAI",
+    "#EndToEndTraining",
+    "#Modeling"
+  ],
+  "paper_id": "2026-03-23-arxiv-end_to_end_training_for_unified_tokenization_and_latent_denoising",
+  "paper_title": "End-to-End Training for Unified Tokenization and Latent Denoising",
+  "paper_category": "Model",
+  "paper_date": "2026-03-23",
+  "paper_authors": "Shivam Duggal, Xingjian Bai, Zongze Wu, Richard Zhang, Eli Shechtman",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.22283v1"
+    }
+  ],
+  "generated_at": "2026-03-24T06:53:58.193408"
+}

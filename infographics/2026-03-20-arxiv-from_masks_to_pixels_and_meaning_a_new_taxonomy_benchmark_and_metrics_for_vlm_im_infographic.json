@@ -1,24 +1,24 @@
 {
-  "key_insight": "Mask-based benchmarks misrepresent image edits: many pixels inside object masks are unedited while meaningful, subtle changes outside masks are ignored. Reformulating tampering evaluation to pixel-level, meaning- and language-aware signals yields more accurate detection and evaluation for VLMs.",
-  "problem_solved": "Fixes the misalignment between coarse object-mask labels and the true edit signal by moving tampering evaluation from region masks to pixel-grounded, semantics-aware labels and metrics.",
+  "key_insight": "Coarse object masks poorly reflect where meaningful image edits occur; reframing tampering detection as a pixel-grounded, language- and meaning-aware task yields more accurate benchmarks and evaluation metrics.",
+  "problem_solved": "Addresses the mismatch between region-level masks and true edit signals—many pixels inside masks are unchanged while important edits occur outside—preventing reliable evaluation of vision-language model (VLM) tampering detection.",
   "method": [
-    "Define a taxonomy of edit primitives (replace, remove, splice, inpaint, attribute change, colorization, etc.) and link each primitive to semantic intent and language descriptions.",
-    "Build a pixel-grounded benchmark that annotates edits at pixel resolution and pairs them with natural-language edit descriptions for VLM evaluation.",
-    "Design meaning-aware metrics and evaluation protocols that score alignment between predicted edits, pixel-level changes, and language descriptions (versus conventional mask IoU-based metrics)."
+    "Define a taxonomy of edit primitives (replace, remove, splice, inpaint, attribute change, colorization, etc.) and link them to semantic/language descriptions.",
+    "Construct a pixel-grounded benchmark with per-pixel edit maps and paired language prompts/descriptions to capture where and what was changed.",
+    "Design metrics that combine pixel-level edit localization accuracy with semantic alignment between detected edits and language descriptions for VLM evaluation."
   ],
-  "impact": "Enables more faithful, interpretable evaluation of VLMs on image tampering, improving model development for multimedia forensics, content authenticity, and downstream safety/robustness tasks.",
+  "impact": "Enables more faithful training and evaluation of VLMs for tampering detection and image forensics, improving robustness to subtle and semantically meaningful edits and guiding dataset and metric design in future work.",
   "visual_elements": [
-    "Before/after image triplet with pixel-difference heatmap highlighting subtle edits missed by masks",
-    "Taxonomy diagram listing edit primitives with example icons and short language prompts",
-    "Bar/line chart comparing conventional mask-IoU metrics vs. new pixel-meaning metrics across methods",
-    "Worked example: image, natural-language edit description, ground-truth pixel map, and VLM prediction with metric scores"
+    "Side-by-side comparison: original mask-based annotation vs. pixel-grounded edit heatmap (highlighting untouched pixels inside masks and edits outside masks).",
+    "Taxonomy diagram: visual tree of edit primitives with example thumbnails for each primitive.",
+    "Metric pipeline flowchart: input image + prompt → pixel edit map → semantic alignment scoring → final tamper score (with sample metric values).",
+    "Before/after example tiles: image, language prompt, ground-truth pixel edit map, and VLM prediction overlay."
   ],
   "hashtags": [
-    "#VisionLanguageModels",
+    "#VisionLanguage",
     "#ImageForensics",
     "#TamperingDetection",
-    "#Benchmarking",
-    "#ExplainableAI"
+    "#Dataset",
+    "#PixelLevel"
   ],
   "paper_id": "2026-03-20-arxiv-from_masks_to_pixels_and_meaning_a_new_taxonomy_benchmark_and_metrics_for_vlm_im",
   "paper_title": "From Masks to Pixels and Meaning: A New Taxonomy, Benchmark, and Metrics for VLM Image Tampering",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.20193v1"
     }
   ],
-  "generated_at": "2026-03-23T07:00:41.087346"
+  "generated_at": "2026-03-24T06:54:38.437637"
 }

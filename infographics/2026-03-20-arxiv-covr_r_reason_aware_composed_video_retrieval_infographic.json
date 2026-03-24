@@ -1,24 +1,24 @@
 {
-  "key_insight": "Composed Video Retrieval must reason about implicit after-effects (motion, state transitions, viewpoint, duration) implied by a textual edit; CoVR-R is a reasoning-first, zero-shot method that uses large multimodal models to infer those consequences and produce better retrieval queries.",
-  "problem_solved": "Existing CoVR approaches assume the edit text fully specifies visual changes and miss implicit consequences, causing retrieval failures. This work addresses the gap by explicitly modeling and incorporating reasoning about after-effects so retrieved videos match both explicit edits and their implicit visual outcomes.",
+  "key_insight": "Successful composed video retrieval requires reasoning about implicit after-effects (motion, state transitions, viewpoint/duration cues) that arise from an edit; CoVR-R is a reasoning-first, zero-shot method that uses large multimodal models to predict those consequences and augment retrieval queries.",
+  "problem_solved": "Prior CoVR approaches assume the textual modification fully specifies the visual change and therefore miss implicit temporal and contextual cues (e.g., motion, state changes, viewpoint or duration) that are necessary to find the correct target video.",
   "method": [
-    "Use large multimodal models to perform zero-shot reasoning over a reference video + textual modification and predict implicit consequences (e.g., motion, state changes, viewpoint, duration).",
-    "Enrich or reformulate the retrieval query/representation with the inferred after-effects to create a more descriptive composed query.",
-    "Run zero-shot retrieval with off-the-shelf video-text encoders using the reasoning-augmented query, improving match quality without additional supervised fine-tuning."
+    "Leverage large multimodal models to perform explicit reasoning over a reference video + textual modification and predict implicit after-effects (temporal dynamics, viewpoint shifts, duration changes, etc.).",
+    "Convert the LMM's reasoning outputs into enriched retrieval signals (augmented textual prompts and/or multimodal embeddings) that capture both explicit edits and inferred consequences.",
+    "Perform zero-shot composed video retrieval by matching the enriched query against a candidate video pool using an off-the-shelf retrieval backbone or lightweight alignment module."
   ],
-  "impact": "Makes composed video retrieval more accurate and generalizable by filling in unspoken visual consequences of edits, enabling practitioners to deploy stronger zero-shot systems and gain interpretable reasoning traces without heavy dataset-specific training.",
+  "impact": "By modeling implicit consequences of edits, CoVR-R improves robustness and relevance of composed video search without requiring paired training data; this enables more reliable, user-friendly video editing and media retrieval workflows for practitioners.",
   "visual_elements": [
-    "Pipeline diagram: reference video + edit text -> LMM reasoning module -> enriched query -> retrieval results",
-    "Before/After example: thumbnail of reference video, the edit instruction, and the retrieved target video illustrating inferred changes (motion/viewpoint/duration)",
-    "Embedding/score plot: retrieval ranking comparison (baseline vs. CoVR-R) or t-SNE showing better clustering of intended targets",
-    "Icon set: motion arrow, clock (duration), camera (viewpoint), state-transition node to symbolize types of inferred after-effects"
+    "Pipeline diagram: reference video + text edit -> LMM reasoning module -> augmented query -> retrieval & ranked results",
+    "Before/after example montage: reference video, textual edit, predicted after-effects, and retrieved target video for an intuitive case study",
+    "Temporal reasoning timeline: visualization of predicted motion/state transitions and duration/viewpoint changes derived from the edit",
+    "Bar chart or table: zero-shot retrieval accuracy / relevance vs. baseline CoVR methods to highlight gains"
   ],
   "hashtags": [
-    "#ComposedVideoRetrieval",
+    "#VideoRetrieval",
     "#MultimodalAI",
     "#ZeroShot",
-    "#Reasoning",
-    "#VideoUnderstanding"
+    "#ReasoningAI",
+    "#ComputerVision"
   ],
   "paper_id": "2026-03-20-arxiv-covr_r_reason_aware_composed_video_retrieval",
   "paper_title": "CoVR-R:Reason-Aware Composed Video Retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.20190v1"
     }
   ],
-  "generated_at": "2026-03-23T07:00:16.073036"
+  "generated_at": "2026-03-24T06:55:41.223780"
 }

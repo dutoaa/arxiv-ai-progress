@@ -1,24 +1,24 @@
 {
-  "key_insight": "MonoArt progressively decouples object structure from motion cues so a single image suffices to recover articulated 3D shape and joint parameters, stabilizing articulation estimation without multi-view or video supervision.",
-  "problem_solved": "Addresses the instability and entanglement between motion cues and object structure in monocular articulated 3D reconstruction, avoiding reliance on multi-view data, retrieval-based assembly, or auxiliary video generation.",
+  "key_insight": "Progressively reason about object structure before estimating motion to decouple geometry and articulation, enabling stable monocular reconstruction of articulated 3D objects from a single image.",
+  "problem_solved": "Monocular reconstruction of articulated 3D objects is unstable because motion cues and part structure are entangled; prior solutions rely on multi-view data, retrieval, or auxiliary video, reducing scalability and efficiency.",
   "method": [
-    "Progressive structural reasoning: infer coarse part graph first, then refine part geometry and joint parameters in staged steps to reduce ambiguity.",
-    "Decoupling of structure and motion: learn articulation-aware representations that separate pose/motion regression from part geometry estimation for more stable optimization.",
-    "Single-image, scalable pipeline: end-to-end trainable model that reconstructs articulated 3D objects from one view using learned priors and iterative refinement rather than heavy multi-view or retrieval data."
+    "Progressive structural reasoning: infer coarse-to-fine part layouts and connectivity first, then regress articulation parameters conditioned on the recovered structure.",
+    "Joint geometry-and-motion optimization with articulation-aware priors and differentiable assembly to ensure consistent part shapes, joints, and plausible motions from a single image.",
+    "Lightweight monocular pipeline that avoids heavy multi-view supervision or retrieval, using self-consistency and structure-driven constraints to stabilize learning."
   ],
-  "impact": "Enables efficient, scalable monocular reconstruction of articulated objects for downstream tasks (robotics, AR/animation) by removing the need for multi-view captures or costly retrieval/video pipelines, making 3D articulation more practical in real-world settings.",
+  "impact": "Provides a scalable, efficient approach for single-image articulated 3D reconstruction useful for robotics, AR/VR, and animation; reduces data and compute requirements while improving stability of articulation estimates.",
   "visual_elements": [
-    "Pipeline diagram showing progressive stages: image input → coarse part graph → refined geometry + joint estimation",
-    "Before/after comparison: unstable direct regression vs. MonoArt progressive reconstruction",
-    "Part-graph / hierarchy visualization illustrating decomposition into parts and articulation joints",
-    "Qualitative gallery of single-image inputs paired with recovered 3D articulated meshes in different poses"
+    "Pipeline diagram showing progressive stages: image → part layout → part geometry → articulation regression → assembled 3D object",
+    "Before/after examples: raw image alongside reconstructed articulated mesh in multiple poses",
+    "Schematic illustrating decoupling of structure vs. motion (structure-first vs. direct regression)",
+    "Bar/line chart comparing reliance on supervision types (mono vs. multi-view/retrieval/video) and qualitative stability"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#MonocularVision",
     "#ArticulatedObjects",
-    "#ComputerVision",
-    "#3DDeepLearning"
+    "#StructureReasoning",
+    "#ComputerVision"
   ],
   "paper_id": "2026-03-19-arxiv-monoart_progressive_structural_reasoning_for_monocular_articulated_3d_reconstruc",
   "paper_title": "MonoArt: Progressive Structural Reasoning for Monocular Articulated 3D Reconstruction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19231v1"
     }
   ],
-  "generated_at": "2026-03-23T07:02:10.973653"
+  "generated_at": "2026-03-24T06:55:51.018416"
 }

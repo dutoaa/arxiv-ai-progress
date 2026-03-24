@@ -1,24 +1,24 @@
 {
-  "key_insight": "SAMA factorizes instruction-guided video editing into separate semantic anchoring and motion alignment components, enabling precise, localized semantic edits while preserving original motion — without relying on brittle external priors.",
-  "problem_solved": "Addresses the trade-off between making accurate semantic modifications and maintaining faithful temporal motion in instruction-guided video editing, overcoming robustness and generalization limits caused by dependence on external priors.",
+  "key_insight": "SAMA factorizes instruction-guided video editing into two complementary components—Semantic Anchoring and Motion Alignment—so the model can apply precise semantic edits while faithfully preserving original motion, without heavy reliance on external priors.",
+  "problem_solved": "Balances accurate, instruction-driven semantic changes with temporal/motion fidelity in video editing, addressing robustness and generalization limits caused by dependence on external priors (e.g., VLM features or structural conditions).",
   "method": [
-    "Factorized design: split the editing task into Semantic Anchoring (where and what to change) and Motion Alignment (how to keep motion consistent).",
-    "Semantic Anchoring: inject instruction-conditioned anchors into the model’s latent/spatio-temporal representation to localize and control semantic edits precisely.",
-    "Motion Alignment: align temporal dynamics (e.g., attention trajectories or flow-aware features) during editing to preserve original motion patterns without external structural priors."
+    "Semantic Anchoring: isolate and apply instruction-specified semantic modifications to target objects/regions while keeping anchored appearance cues to avoid drift.",
+    "Motion Alignment: explicitly model and preserve temporal motion patterns (e.g., flow or temporal features) to maintain realistic, coherent movement across frames.",
+    "Internal factorization strategy: combine the two modules in a unified pipeline that reduces reliance on external priors, improving robustness and generalization to diverse videos and instructions."
   ],
-  "impact": "Enables more robust, generalizable instruction-guided video edits that maintain temporal coherence — useful for production tools, content creation, and downstream research on controllable generative video models.",
+  "impact": "Enables practitioners to produce more faithful, instruction-guided video edits that retain original motion and temporal coherence, reducing engineering effort for external conditioning and improving performance on varied real-world inputs.",
   "visual_elements": [
-    "Pipeline diagram showing two parallel branches: Semantic Anchoring (local edit) and Motion Alignment (temporal consistency), merging into edited video output.",
-    "Before/after frame pairs emphasizing accurate semantic change with preserved motion (e.g., object appearance changed but motion trajectory unchanged).",
-    "Flow/attention visualization illustrating preserved motion fields or attention maps pre- and post-edit to show temporal alignment.",
-    "Bar/line chart comparing semantic accuracy vs motion fidelity for SAMA and baseline methods to highlight improved trade-off."
+    "Pipeline diagram showing two parallel branches: Semantic Anchoring (semantic map / text → edit) and Motion Alignment (flow / temporal stream → preserve motion), merging into edited video output.",
+    "Before/after frame triplet illustrating precise semantic change (e.g., object appearance) with preserved motion across frames.",
+    "Optical-flow or motion-consistency comparison (baseline vs SAMA) highlighting reduced temporal artifacts.",
+    "Robustness chart or example grid showing generalized edits across diverse scenes/instructions without external priors."
   ],
   "hashtags": [
     "#VideoEditing",
-    "#GenerativeAI",
-    "#DiffusionModels",
-    "#ComputerVision",
-    "#InstructionGuided"
+    "#InstructionGuided",
+    "#MotionPreservation",
+    "#SemanticEditing",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-03-19-arxiv-sama_factorized_semantic_anchoring_and_motion_alignment_for_instruction_guided_v",
   "paper_title": "SAMA: Factorized Semantic Anchoring and Motion Alignment for Instruction-Guided Video Editing",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.19228v1"
     }
   ],
-  "generated_at": "2026-03-23T07:01:59.620460"
+  "generated_at": "2026-03-24T06:55:34.170782"
 }

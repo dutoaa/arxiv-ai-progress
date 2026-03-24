@@ -1,0 +1,35 @@
+{
+  "key_insight": "WorldCache replaces naive static reuse of cached features with a content-aware, spatially adaptive caching strategy that updates and aligns intermediate activations across denoising steps, substantially reducing ghosting and motion artifacts while accelerating Diffusion Transformer video world models.",
+  "problem_solved": "Existing training-free feature caching for DiTs assumes cached features remain valid as static snapshots (Zero-Order Hold), which causes ghosting, blur, and motion inconsistency in generated videos and limits safe speedups during inference.",
+  "method": [
+    "Detect and score cacheable feature regions based on content stability and motion cues rather than assuming global invariance.",
+    "Adaptively update cached activations with spatially-varying alignment/warp and uncertainty-weighted blending across denoising steps to avoid ghosting.",
+    "Integrate the cache as a training-free module inside DiTs to reduce repeated computation of spatio-temporal attention and sequential denoising without retraining the model."
+  ],
+  "impact": "Delivers substantial inference speedups for high-fidelity video world models while preserving visual quality, enabling more practical real-time or long-horizon applications in robotics, simulation, and content generation.",
+  "visual_elements": [
+    "Side-by-side comparison: Zero-Order Hold (ghosted frame) vs WorldCache (clean frame) to illustrate artifact reduction.",
+    "Pipeline flowchart: feature extraction → cache scoring → alignment/warp → blend & reuse → denoising steps.",
+    "Bar chart: latency or FLOPs reduction vs perceptual quality (e.g., FVD/SSIM) showing favorable tradeoff.",
+    "Icons: clock for latency, memory chip for cache, motion arrows for alignment, film strip for video/world model."
+  ],
+  "hashtags": [
+    "#VideoWorldModels",
+    "#DiffusionModels",
+    "#ModelOptimization",
+    "#RealTimeAI",
+    "#ContentAwareCaching"
+  ],
+  "paper_id": "2026-03-23-arxiv-worldcache_content_aware_caching_for_accelerated_video_world_models",
+  "paper_title": "WorldCache: Content-Aware Caching for Accelerated Video World Models",
+  "paper_category": "Model",
+  "paper_date": "2026-03-23",
+  "paper_authors": "Umair Nawaz, Ahmed Heakl, Ufaq Khan, Abdelrahman Shaker, Salman Khan",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.22286v1"
+    }
+  ],
+  "generated_at": "2026-03-24T06:54:13.356153"
+}
