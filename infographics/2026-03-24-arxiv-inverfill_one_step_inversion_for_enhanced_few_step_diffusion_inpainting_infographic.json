@@ -1,0 +1,35 @@
+{
+  "key_insight": "InverFill replaces random noise initialization with a one-step inversion that yields an initial latent aligned to the visible background, enabling high-quality inpainting using only a few diffusion steps and avoiding harmonization artifacts.",
+  "problem_solved": "Bridges the gap between photorealistic diffusion inpainting and practical speed: it addresses semantic misalignment and visible artifacts that occur when few-step text-to-image diffusion samplers are naively applied to inpainting.",
+  "method": [
+    "One-step inversion: compute an informed initial latent from the masked image so the inpainted region starts semantically aligned with the background instead of random Gaussian noise.",
+    "Integrate the inverted latent with a few-step diffusion sampler and the original conditioning (mask and context) to guide generation and preserve fidelity.",
+    "Design harmonization-aware sampling to reduce boundary artifacts and maintain consistent texture and semantics between the inpainted patch and surrounding image."
+  ],
+  "impact": "Enables fast, practical image inpainting with diffusion models—delivering near-photoreal quality in far fewer sampling steps—making inpainting feasible for interactive editing, real-time applications, and resource-constrained deployments.",
+  "visual_elements": [
+    "Before/after side-by-side examples showing naive few-step inpainting vs InverFill (highlighting reduced artifacts and better harmonization).",
+    "Pipeline diagram: masked image -> one-step inversion -> few-step diffusion sampler -> final inpainted image (with annotations).",
+    "Comparison chart: quality vs number of sampling steps for baseline vs InverFill (showing higher fidelity at low steps).",
+    "Close-up boundary zooms and semantic alignment heatmap to illustrate reduced mismatch at mask edges."
+  ],
+  "hashtags": [
+    "#Inpainting",
+    "#DiffusionModels",
+    "#FewStepSampling",
+    "#ImageEditing",
+    "#ComputerVision"
+  ],
+  "paper_id": "2026-03-24-arxiv-inverfill_one_step_inversion_for_enhanced_few_step_diffusion_inpainting",
+  "paper_title": "InverFill: One-Step Inversion for Enhanced Few-Step Diffusion Inpainting",
+  "paper_category": "Model",
+  "paper_date": "2026-03-24",
+  "paper_authors": "Duc Vu, Kien Nguyen, Trong-Tung Nguyen, Ngan Nguyen, Phong Nguyen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.23463v1"
+    }
+  ],
+  "generated_at": "2026-03-25T06:52:08.747793"
+}

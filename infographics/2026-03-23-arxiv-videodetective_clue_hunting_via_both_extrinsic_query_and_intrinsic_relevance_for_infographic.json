@@ -1,24 +1,24 @@
 {
-  "key_insight": "VideoDetective jointly reasons about extrinsic query-to-segment relevance and intrinsic inter-segment affinity to identify sparse, high-value clips from very long videos, enabling multimodal LLMs to answer queries with limited context windows more accurately and efficiently.",
-  "problem_solved": "Enables accurate query-driven understanding of long videos by locating sparse, relevant segments while accounting for the video's internal structure and varying segment relevance—overcoming context-window and localization limits in current MLLM pipelines.",
+  "key_insight": "VideoDetective jointly reasons about extrinsic query-to-segment relevance and intrinsic inter-segment affinity to locate sparse, informative clips in long videos—enabling MLLMs to focus on true \"clues\" within limited context windows.",
+  "problem_solved": "How to find and prioritize sparse, query-relevant segments in very long videos while accounting for the video's internal structure and varying segment relevance so MLLMs can efficiently and accurately reason.",
   "method": [
-    "Compute extrinsic relevance: score each video segment against the input query to capture direct clue signals.",
-    "Model intrinsic affinity: build inter-segment relationships (affinity graph) to propagate relevance and reveal contextually important clips beyond direct query matches.",
-    "Fuse relevance + affinity to sparsely select and assemble the most informative clips for downstream MLLM reasoning, reducing context load and improving answer quality."
+    "Compute extrinsic relevance: score segments by how directly they match the input query (query-to-segment relevance).",
+    "Model intrinsic structure: build an inter-segment affinity graph to capture temporal/semantic relations and propagate relevance across segments.",
+    "Fuse signals and select clues: combine extrinsic and intrinsic scores to pick compact, high-value segments for downstream MLLM reasoning (efficient clue hunting)."
   ],
-  "impact": "Makes long-video QA, retrieval, and summarization scalable to real-world lengths by improving accuracy with far fewer input tokens and providing interpretable clip-level evidence—practical for deployment where compute and context are limited.",
+  "impact": "Improves accuracy and efficiency of long-video QA, retrieval, and reasoning by selecting fewer but more informative clips, making multimodal LLMs practical on long-form content and easier to interpret.",
   "visual_elements": [
-    "Pipeline diagram: query -> extrinsic scoring + intrinsic affinity -> fusion -> selected clips -> MLLM",
-    "Timeline heatmap: video timeline with color-coded relevance and propagated affinity highlights",
-    "Affinity graph inset: nodes=segments, edges=affinity scores showing propagation of relevance",
-    "Before/after bar chart: accuracy or token usage comparison vs. query-only baselines"
+    "Pipeline diagram with two parallel streams (query relevance and inter-segment affinity) that merge into a selection module feeding an MLLM.",
+    "Video timeline heatmap showing original long video with highlighted selected \"clue\" segments.",
+    "Affinity graph visualization (nodes = segments, edges = affinities) illustrating propagation of relevance and clustering of related clips.",
+    "Bar/chart comparing selection efficiency (fewer frames), model accuracy, and compute/time vs baseline methods."
   ],
   "hashtags": [
-    "#VideoUnderstanding",
-    "#MultimodalAI",
-    "#LongVideo",
-    "#MLLM",
-    "#EfficientInference"
+    "#VideoDetective",
+    "#LongVideoUnderstanding",
+    "#MultimodalLLM",
+    "#VideoQA",
+    "#EfficientAI"
   ],
   "paper_id": "2026-03-23-arxiv-videodetective_clue_hunting_via_both_extrinsic_query_and_intrinsic_relevance_for",
   "paper_title": "VideoDetective: Clue Hunting via both Extrinsic Query and Intrinsic Relevance for Long Video Understanding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.22285v1"
     }
   ],
-  "generated_at": "2026-03-24T06:54:05.340660"
+  "generated_at": "2026-03-25T06:55:57.882985"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "UniMotion is the first single model that jointly understands and generates human motion, natural language, and RGB images by representing motion as a continuous signal (not discrete tokens), preserving temporal continuity and avoiding quantization errors.",
-  "problem_solved": "Existing unified models only cover restricted modality subsets (e.g., Motion–Text or Pose–Image) and depend on discrete tokenization that introduces quantization artifacts and breaks temporal coherence; UniMotion enables fully joint, high-fidelity multimodal understanding and generation across Motion, Text, and Vision.",
+  "key_insight": "UniMotion introduces a single end-to-end model that jointly understands and generates human motion, natural language, and RGB images by representing motion as a continuous modality rather than discrete tokens, preserving temporal continuity and avoiding quantization artifacts.",
+  "problem_solved": "Existing unified models handle only limited modality subsets (e.g., Motion–Text or Pose–Image) and rely on discrete tokenization that causes quantization error and breaks temporal coherence; UniMotion enables seamless cross-modal understanding and generation across motion, text, and images without those drawbacks.",
   "method": [
-    "Single unified architecture with shared latent space and cross‑modal encoders/decoders to handle motion, language, and images within one model.",
-    "Continuous motion representation (rather than discrete tokenization) to preserve temporal continuity and reduce quantization error for generation and understanding.",
-    "Joint training objectives for both understanding (e.g., retrieval, captioning, classification) and generation (e.g., motion synthesis from text/image, image-conditioned motion), plus cross‑modal alignment mechanisms."
+    "Unified architecture that ingests and emits three modalities (motion, text, RGB) in a shared latent space to support both understanding (retrieval, classification) and generation (synthesis, captioning).",
+    "Continuous motion representation (trajectory-aware embeddings) replacing discrete tokenization to preserve fine-grained temporal dynamics and reduce quantization noise.",
+    "Multimodal training objectives (cross-modal alignment + conditional generation losses) to learn bidirectional mappings between motion, language, and images in one model."
   ],
-  "impact": "UniMotion simplifies multimodal pipelines and improves quality of motion generation, retrieval, and cross‑modal reasoning by eliminating tokenization artifacts and enabling richer joint supervision—beneficial for animation, HCI, robotics, and multimodal research.",
+  "impact": "Provides a practical, single-model solution for applications needing coherent motion–language–vision coupling (animation, embodied AI, human–robot interaction), simplifying pipelines and improving temporal fidelity in generated motion and cross-modal retrieval.",
   "visual_elements": [
-    "Pipeline diagram showing one model with three inputs/outputs (Motion, Text, Image) and a shared continuous latent space",
-    "Side‑by‑side comparison illustration: continuous motion signal vs. discrete tokenized motion highlighting temporal continuity",
-    "Example triplets: input text + image → generated motion animation frames (sequence thumbnails) and vice versa",
-    "Alignment heatmap or t-SNE of joint embeddings showing clustering across modalities and improved retrieval/generation scores"
+    "Architecture diagram showing three modality ports (motion, text, image) converging into a shared latent model and branching to understanding/generation heads.",
+    "Timeline comparison: continuous motion trajectory (smooth curve) vs discrete tokenized frames (stair-step) to illustrate reduced quantization and preserved temporal continuity.",
+    "Example triplets: input text → synthesized motion skeleton → rendered RGB frames, side-by-side with ground truth to showcase generation quality.",
+    "Evaluation chart highlighting improvements in temporal coherence and cross-modal retrieval/conditional generation metrics (e.g., coherence score, retrieval accuracy)."
   ],
   "hashtags": [
+    "#UniMotion",
     "#MultimodalAI",
     "#HumanMotion",
     "#GenerativeAI",
-    "#ComputerVision",
-    "#MotionUnderstanding"
+    "#VisionLanguage"
   ],
   "paper_id": "2026-03-23-arxiv-unimotion_a_unified_framework_for_motion_text_vision_understanding_and_generatio",
   "paper_title": "UniMotion: A Unified Framework for Motion-Text-Vision Understanding and Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.22282v1"
     }
   ],
-  "generated_at": "2026-03-24T06:53:47.604029"
+  "generated_at": "2026-03-25T06:55:21.786026"
 }

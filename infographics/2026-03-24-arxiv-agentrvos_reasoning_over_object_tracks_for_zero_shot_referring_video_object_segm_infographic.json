@@ -1,0 +1,35 @@
+{
+  "key_insight": "AgentRVOS reverses the usual pipeline by first building object-centric tracks and then letting a multimodal reasoning agent (MLLM) decide which track matches the language query, enabling better temporal reasoning and spatial coverage without any training.",
+  "problem_solved": "Existing training-free RVOS pipelines force the MLLM to pick keyframes before object-level evidence exists, hurting temporal consistency and grounding accuracy; this paper addresses zero-shot referring video object segmentation with improved spatio-temporal reasoning and robustness.",
+  "method": [
+    "Extract object-centric tracks from the video using off-the-shelf detectors/trackers to obtain per-track visual evidence across time.",
+    "Convert each track into compact multimodal representations (frame crops, embeddings, short captions) and feed them to an agent-style MLLM that reasons over tracks to identify the referred object.",
+    "Produce final masks by grounding the chosen track to frames and applying a video segmentation/mask-propagation module—no task-specific training required."
+  ],
+  "impact": "Delivers stronger, more interpretable zero-shot RVOS by shifting reasoning to object-level tracks, improving temporal coverage and accuracy for downstream tasks where training data is limited or unavailable.",
+  "visual_elements": [
+    "Pipeline diagram contrasting prior keyframe-first approach vs. AgentRVOS track-first approach (showing reversed order).",
+    "Timeline visualization with multiple object tracks (colored ribbons) and the agent selecting the correct track based on the language query.",
+    "Before/after example frames: original frames, predicted masks from prior pipeline, and masks from AgentRVOS to highlight improved temporal consistency.",
+    "Bar chart or table summarizing zero-shot performance gains and qualitative robustness (e.g., occlusion, fast motion)."
+  ],
+  "hashtags": [
+    "#ReferringVideoObjectSegmentation",
+    "#ZeroShot",
+    "#VideoUnderstanding",
+    "#MultimodalAI",
+    "#TrackBasedReasoning"
+  ],
+  "paper_id": "2026-03-24-arxiv-agentrvos_reasoning_over_object_tracks_for_zero_shot_referring_video_object_segm",
+  "paper_title": "AgentRVOS: Reasoning over Object Tracks for Zero-Shot Referring Video Object Segmentation",
+  "paper_category": "Model",
+  "paper_date": "2026-03-24",
+  "paper_authors": "Woojeong Jin, Jaeho Lee, Heeseong Shin, Seungho Jang, Junhwan Heo",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.23489v1"
+    }
+  ],
+  "generated_at": "2026-03-25T06:53:32.508963"
+}
