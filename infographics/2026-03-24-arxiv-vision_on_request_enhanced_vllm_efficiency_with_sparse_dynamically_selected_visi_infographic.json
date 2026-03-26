@@ -1,24 +1,24 @@
 {
-  "key_insight": "VISOR reduces LVLM inference cost by keeping full visual representations but making vision-language interactions sparse and dynamically requested — preserving fine-grained performance without compressing or discarding visual tokens.",
-  "problem_solved": "Existing efficiency methods compress visual tokens into a bottleneck that hurts performance on detailed reasoning and fine-grained tasks; VISOR targets compute reduction without sacrificing visual information or task accuracy.",
+  "key_insight": "Rather than compressing or discarding visual tokens, VISOR saves compute by performing vision–language interactions only when and where they are needed, using sparse, dynamically selected cross-modal connections. This preserves fine-grained visual information while substantially lowering inference cost.",
+  "problem_solved": "Reduces inference cost of Large Vision–Language Models without creating an information bottleneck from aggressive visual token reduction, which degrades performance on fine-grained and reasoning-heavy tasks.",
   "method": [
-    "Keep full visual feature maps available and avoid aggressive token reduction; do not throw away visual information.",
-    "Use a lightweight, learned request/gating mechanism that decides at runtime which queries or prompts require visual context, triggering cross-modal interactions only when needed.",
-    "Implement sparse, dynamic cross-attention paths so only a subset of tokens or layers access vision features, cutting compute and latency while retaining accuracy on hard visual-language reasoning."
+    "Maintain dense visual representations but apply a lightweight selector/gating mechanism to decide which regions/visual tokens participate in cross-modal computation.",
+    "Trigger sparse, on-request vision–language interactions (conditional cross-attention or adapters) only for selected queries or regions, avoiding costly full cross-modal processing every step.",
+    "Integrate the selector with the LVLM pipeline to balance accuracy and compute, allowing dynamic adjustment per input and task."
   ],
-  "impact": "Enables practitioners to deploy LVLMs that are both efficient and accurate on challenging multimodal tasks — reducing inference cost and latency without the accuracy trade-offs of token-compression approaches, making scalable multimodal systems more practical.",
+  "impact": "Enables practitioners to deploy high-performing LVLMs with much lower inference cost, preserving fine-detail reasoning without sacrificing throughput — useful for real-time, resource-constrained, or large-scale multimodal deployments.",
   "visual_elements": [
-    "Architecture diagram: LLM + vision encoder with an on-request/gating module that selectively opens cross-modal paths.",
-    "Cost vs. accuracy bar/line chart comparing baseline visual-token-reduction methods to VISOR (lower compute, equal/higher accuracy).",
-    "Sequence illustration: examples showing when the model skips vision vs when it requests visual context for a fine-grained question.",
-    "Sparse attention heatmap: visualizing which tokens/layers access vision features over time to convey dynamic sparsity."
+    "Schematic showing a full image feature map on the left, a lightweight gating/selector in the middle, and sparse cross-attention links to the language model on the right.",
+    "Bar chart comparing accuracy vs. inference FLOPs (or latency) for: full cross-modal, token-reduction baseline, and VISOR.",
+    "Sequence diagram showing on-request interaction: text query → selector decides regions → sparse cross-modal exchange → LLM answer.",
+    "Icon set: image sensor (vision encoder), switch/gate (selector), lightning bolt (compute savings), magnifying glass (fine-grained reasoning)"
   ],
   "hashtags": [
     "#VisionLanguage",
     "#EfficientAI",
-    "#SparseAttention",
+    "#SparseComputation",
     "#Multimodal",
-    "#VLLM"
+    "#VISOR"
   ],
   "paper_id": "2026-03-24-arxiv-vision_on_request_enhanced_vllm_efficiency_with_sparse_dynamically_selected_visi",
   "paper_title": "VISion On Request: Enhanced VLLM efficiency with sparse, dynamically selected, vision-language interactions",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.23495v1"
     }
   ],
-  "generated_at": "2026-03-25T06:53:46.519215"
+  "generated_at": "2026-03-26T07:01:20.089434"
 }

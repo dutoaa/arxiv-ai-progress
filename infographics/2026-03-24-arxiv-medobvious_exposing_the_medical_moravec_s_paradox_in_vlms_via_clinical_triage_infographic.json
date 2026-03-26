@@ -1,24 +1,24 @@
 {
-  "key_insight": "State‑of‑the‑art vision–language models generate fluent medical text but often fail simple pre‑diagnostic sanity checks (modality, anatomy, orientation, image integrity), revealing a 'Medical Moravec's Paradox' where easy visual tasks are harder than complex diagnostic ones.",
-  "problem_solved": "Identifies and measures VLM failures on basic clinical triage checks that existing benchmarks assume are solved, exposing a critical safety gap before downstream diagnostic use.",
+  "key_insight": "State-of-the-art VLMs often produce fluent diagnostic text while failing simple pre-diagnostic \"sanity checks\" (modality, anatomy, orientation, image integrity), revealing a \"Medical Moravec's Paradox\" where trivial perceptual checks are harder than high-level reasoning.",
+  "problem_solved": "Introduces a focused evaluation of clinical triage tasks to expose and quantify VLM failures on basic image-validity checks that current benchmarks implicitly assume are solved.",
   "method": [
-    "Define a clinical triage suite of sanity checks (correct modality and anatomy, plausible viewpoint/orientation, and image integrity issues).",
-    "Assemble a controlled benchmark (MedObvious) of real and corrupted medical images and prompts to probe those checks.",
-    "Evaluate SOTA VLMs quantitatively to characterize failure modes and frequency of unsafe/incorrect visual understanding."
+    "Design a triage-focused benchmark that labels common pre-diagnostic issues (wrong modality/anatomy, implausible viewpoint/orientation, integrity artifacts).",
+    "Evaluate multiple VLMs on these triage checks using automated prompts and human validation to measure failure modes and robustness.",
+    "Analyze results to identify systematic weaknesses and recommend triage-aware validation steps for clinical deployment."
   ],
-  "impact": "Highlights a practical safety blindspot for deploying VLMs in medical settings and provides a reproducible benchmark and evaluation protocol practitioners can use to harden models with pre‑diagnostic sanity checks.",
+  "impact": "Provides a practical tool and evidence for practitioners to detect unsafe visual understanding in medical VLMs, helping teams add simple but critical triage checks before downstream diagnostic use.",
   "visual_elements": [
-    "Before/after example panel: input medical image + VLM fluent diagnosis vs. failed sanity‑check (wrong modality/anatomy) with overlayed flags",
-    "Pipeline diagram showing 'image -> triage checks -> pass/fail -> diagnostic model' to illustrate where failures occur",
-    "Bar chart or heatmap of model performance across triage categories (modality, anatomy, orientation, integrity)",
-    "Icon checklist (modality, anatomy, orientation, integrity) with failure rates annotated"
+    "Side-by-side example panels: original clinical image, corrupted/incorrect variant, and VLM response (correct vs. failure)",
+    "Bar chart showing failure rates by triage category (modality, anatomy, orientation, integrity)",
+    "Pipeline diagram illustrating 'Input -> Triage checks -> Diagnostic model' emphasizing the new triage stage",
+    "Heatmap or table summarizing which VLMs fail which checks to highlight systematic weaknesses"
   ],
   "hashtags": [
     "#MedAI",
-    "#VLM",
-    "#MedicalImaging",
+    "#VisionLanguageModels",
+    "#ClinicalTriage",
     "#AISafety",
-    "#Benchmarking"
+    "#ModelEvaluation"
   ],
   "paper_id": "2026-03-24-arxiv-medobvious_exposing_the_medical_moravec_s_paradox_in_vlms_via_clinical_triage",
   "paper_title": "MedObvious: Exposing the Medical Moravec's Paradox in VLMs via Clinical Triage",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.23501v1"
     }
   ],
-  "generated_at": "2026-03-25T06:54:33.214931"
+  "generated_at": "2026-03-26T07:00:58.916323"
 }

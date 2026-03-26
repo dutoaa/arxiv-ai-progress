@@ -1,0 +1,35 @@
+{
+  "key_insight": "A lightweight, inference-time Target-Agnostic Guidance (TAG) module can stabilize object-centric grounding in Vision–Language–Action policies, preventing plausible but off-target grasps by refining or re-ranking candidate object-centric predictions.",
+  "problem_solved": "VLA policies often fail in cluttered scenes because they mis-ground which object instance to act on—producing plausible motions that land slightly off the intended object or on a distractor. TAG addresses these instance-level grounding failures without retraining the base policy.",
+  "method": [
+    "Run the base VLA policy to produce candidate object-centric predictions or action trajectories.",
+    "Apply a target-agnostic guidance mechanism at inference that evaluates and refines/reranks candidates using object-centric consistency cues (visual context, spatial priors, and language-vision alignment) rather than relying on explicit target labels.",
+    "Select the refined highest-confidence candidate to execute, improving instance-level grounding while keeping the original policy unchanged."
+  ],
+  "impact": "TAG improves robustness of language-conditioned robotic manipulation in cluttered, real-world scenes by reducing misgrasping on wrong instances, enabling safer and more reliable deployment of VLA models without costly retraining.",
+  "visual_elements": [
+    "Before/after scene comparison: same cluttered table with policy grasping the wrong object (before) versus correct object after TAG (after).",
+    "Pipeline diagram: base VLA policy → candidate proposals → TAG module (scoring/refinement) → selected action.",
+    "Heatmap overlays or attention maps showing how TAG shifts focus from distractors to the intended instance.",
+    "Bar chart showing qualitative reduction in instance-level grounding failures (misgrasp rate) and improvement in success consistency across clutter levels."
+  ],
+  "hashtags": [
+    "#VisionLanguage",
+    "#Robotics",
+    "#ObjectCentric",
+    "#AIforRobots",
+    "#RobustInference"
+  ],
+  "paper_id": "2026-03-25-arxiv-tag_target_agnostic_guidance_for_stable_object_centric_inference_in_vision_langu",
+  "paper_title": "TAG: Target-Agnostic Guidance for Stable Object-Centric Inference in Vision-Language-Action Models",
+  "paper_category": "Model",
+  "paper_date": "2026-03-25",
+  "paper_authors": "Jiaying Zhou, Zhihao Zhan, Ruifeng Zhai, Qinhan Lyu, Hao Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.24584v1"
+    }
+  ],
+  "generated_at": "2026-03-26T06:59:22.204168"
+}
