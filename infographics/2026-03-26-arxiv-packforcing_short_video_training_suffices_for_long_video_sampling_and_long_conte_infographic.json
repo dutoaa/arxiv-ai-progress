@@ -1,0 +1,35 @@
+{
+  "key_insight": "PackForcing lets models trained on short video clips generate coherent long videos by managing history with a three-partition KV-cache, avoiding linear cache growth and temporal repetition while enabling long-context inference.",
+  "problem_solved": "Autoregressive video diffusion models struggle with intractable linear KV-cache growth, temporal repetition, and compounding errors when scaling to long-video generation and long-context inference.",
+  "method": [
+    "Three-partition KV-cache: split history into Sink tokens (persistent, preserved memory), Pack tokens (condensed summaries of older content), and Window tokens (detailed recent context) to limit unbounded cache growth.",
+    "Train on short videos but apply a packing/summarization strategy at sampling time (PackForcing) so the model reuses compacted history to generate long sequences without needing full linear KV expansion.",
+    "Inference-level protocol that periodically compresses older context into Pack tokens and maintains fidelity in Window tokens, reducing repetition and compounding errors for long-rollout sampling."
+  ],
+  "impact": "Practitioners can use short-video training budgets to produce long, coherent video outputs with much lower memory and compute overhead, enabling scalable long-context video generation and downstream tasks that require extended temporal reasoning.",
+  "visual_elements": [
+    "Diagram of three-partition KV-cache (Sink / Pack / Window) showing how tokens move and compress over time",
+    "Memory-growth chart comparing naive linear KV-cache vs PackForcing (short-video training → long sampling)",
+    "Timeline visualization: short training clips feeding into long generated video with reduced repetition",
+    "Before/after qualitative frames showing reduced temporal repetition and improved long-range consistency"
+  ],
+  "hashtags": [
+    "#PackForcing",
+    "#VideoDiffusion",
+    "#LongVideo",
+    "#MemoryEfficientAI",
+    "#AutoregressiveModels"
+  ],
+  "paper_id": "2026-03-26-arxiv-packforcing_short_video_training_suffices_for_long_video_sampling_and_long_conte",
+  "paper_title": "PackForcing: Short Video Training Suffices for Long Video Sampling and Long Context Inference",
+  "paper_category": "Model",
+  "paper_date": "2026-03-26",
+  "paper_authors": "Xiaofeng Mao, Shaohao Rui, Kaining Ying, Bo Zheng, Chuanhao Li",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.25730v1"
+    }
+  ],
+  "generated_at": "2026-03-27T06:57:02.433800"
+}

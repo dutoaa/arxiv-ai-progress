@@ -1,24 +1,24 @@
 {
-  "key_insight": "DreamerAD compresses diffusion sampling from 100 steps to 1 within a latent world model, achieving an ~80× inference speedup while preserving visually interpretable reconstructions for imagination-based RL in autonomous driving.",
-  "problem_solved": "Pixel-level diffusion world models enable safe offline training but are too slow (multi-second/frame) and costly for practical RL on real-world driving data—DreamerAD removes the latency and compute bottleneck while keeping visual fidelity.",
+  "key_insight": "DreamerAD introduces a latent world model that compresses diffusion sampling from 100 steps to 1, delivering an ~80× speedup while preserving visually interpretable imagined frames for safe RL training in autonomous driving.",
+  "problem_solved": "High inference latency and prohibitive costs/safety risks of training RL policies on real-world driving data; pixel-level diffusion world models are too slow for practical imagination-based RL (≈2s/frame).",
   "method": [
-    "Learn a compact latent world model that encodes driving scenes into a lower-dimensional representation for fast rollouts.",
-    "Replace multi-step pixel diffusion with a single-step latent generative pass (100 → 1 steps), delivering ~80× speedup.",
-    "Train RL policies via imagination in latent space and decode frames for visual interpretability and safe offline policy learning."
+    "Learn a compact latent world model (encode observations → latent space → decode) so generation operates in a low-dimensional space.",
+    "Replace multi-step pixel diffusion with a single-step latent diffusion/sampling procedure to compress 100-step sampling into 1 step.",
+    "Train RL policies via imagination using the fast latent predictions, retaining visual interpretability for debugging and validation."
   ],
-  "impact": "Makes imagination-based RL practical for autonomous driving by enabling near-real-time simulation, drastically reducing compute, cost, and safety risk when training policies from real-world data.",
+  "impact": "Enables safe, large-scale and much faster imagination-based RL for autonomous driving — reducing compute and latency enough to support practical policy development, iteration, and near real-time simulation.",
   "visual_elements": [
-    "Latency bar chart comparing 100-step diffusion (multi-second/frame) vs 1-step latent sampling (~80× speedup)",
-    "Pipeline diagram: sensor input → encoder → latent single-step generator → decoder → RL agent (rollouts in latent space)",
-    "Side-by-side decoded frames (pixel-level diffusion vs DreamerAD latent decode) to show preserved visual interpretability",
-    "Icon set: autonomous car, clock/speedometer (latency), brain/network (RL/model), gear/wrench (efficiency)"
+    "Bar chart comparing inference cost/latency: 100-step diffusion (2s/frame) vs DreamerAD 1-step (~80× speedup).",
+    "Architecture diagram: encoder → latent single-step diffusion module → decoder + policy network, annotated with data flow.",
+    "Side-by-side visual examples: real camera frame vs decoded imagined frame to show maintained interpretability.",
+    "Training loop infographic: offline driving data → latent-world imagination rollouts → policy updates (safe, offline RL)."
   ],
   "hashtags": [
     "#DreamerAD",
     "#LatentWorldModel",
     "#AutonomousDriving",
     "#ReinforcementLearning",
-    "#DiffusionModels"
+    "#EfficientDiffusion"
   ],
   "paper_id": "2026-03-25-arxiv-dreamerad_efficient_reinforcement_learning_via_latent_world_model_for_autonomous",
   "paper_title": "DreamerAD: Efficient Reinforcement Learning via Latent World Model for Autonomous Driving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.24587v1"
     }
   ],
-  "generated_at": "2026-03-26T06:59:54.185774"
+  "generated_at": "2026-03-27T07:00:41.918268"
 }

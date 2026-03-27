@@ -1,0 +1,35 @@
+{
+  "key_insight": "RefAlign learns to align the reference-image representation into the diffusion model’s latent space so the generator can use a single, unified representation — improving fidelity and controllability in reference-to-video synthesis with a simpler pipeline.",
+  "problem_solved": "Current R2V methods feed separate high-level or cross-modal features alongside VAE latents into the diffusion Transformer, causing architectural complexity, misalignment between modalities, and suboptimal preservation of reference appearance and temporal consistency.",
+  "method": [
+    "Representation alignment module: project and align the reference VAE latent into the DiT-compatible latent space so the diffusion model consumes a unified reference representation.",
+    "Alignment objectives: train with reconstruction/identity-preservation and contrastive/consistency losses to keep appearance and pose while making representations diffusion-friendly.",
+    "Integrated diffusion generation: condition the video diffusion transformer on text prompts plus the aligned reference latent for temporally coherent, controllable video synthesis."
+  ],
+  "impact": "RefAlign simplifies R2V pipelines while improving visual fidelity and temporal consistency, making controllable reference-conditioned video generation more reliable and easier to integrate into real-world applications like personalized advertising and virtual try-on.",
+  "visual_elements": [
+    "Pipeline diagram showing: reference image → VAE latent → alignment module → diffusion transformer + text → generated video frames",
+    "Latent-space t-SNE/UMAP before vs. after alignment to illustrate modality unification",
+    "Qualitative frame grid comparing baseline R2V vs. RefAlign (appearance preservation and temporal stability)",
+    "Bar chart or table of key metrics (e.g., identity/appearance score, temporal consistency, computational complexity) across methods"
+  ],
+  "hashtags": [
+    "#RefAlign",
+    "#VideoSynthesis",
+    "#DiffusionModels",
+    "#RepresentationLearning",
+    "#ReferenceToVideo"
+  ],
+  "paper_id": "2026-03-26-arxiv-refalign_representation_alignment_for_reference_to_video_generation",
+  "paper_title": "RefAlign: Representation Alignment for Reference-to-Video Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-03-26",
+  "paper_authors": "Lei Wang, YuXin Song, Ge Wu, Haocheng Feng, Hang Zhou",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.25743v1"
+    }
+  ],
+  "generated_at": "2026-03-27T06:58:38.109321"
+}

@@ -1,24 +1,24 @@
 {
-  "key_insight": "State-of-the-art VLMs often produce fluent diagnostic text while failing simple pre-diagnostic \"sanity checks\" (modality, anatomy, orientation, image integrity), revealing a \"Medical Moravec's Paradox\" where trivial perceptual checks are harder than high-level reasoning.",
-  "problem_solved": "Introduces a focused evaluation of clinical triage tasks to expose and quantify VLM failures on basic image-validity checks that current benchmarks implicitly assume are solved.",
+  "key_insight": "State-of-the-art VLMs can generate fluent diagnostic text but often fail simple pre-diagnostic sanity checks (modality, anatomy, view/orientation, image integrity), exposing a \"Medical Moravec's Paradox\": models are better at high-level language than basic visual validation.",
+  "problem_solved": "Addresses the missing evaluation and failure modes around pre-diagnostic sanity checking in medical VLMs by introducing a clinical triage perspective and benchmark to reveal when inputs are unsafe or unreadable for diagnosis.",
   "method": [
-    "Design a triage-focused benchmark that labels common pre-diagnostic issues (wrong modality/anatomy, implausible viewpoint/orientation, integrity artifacts).",
-    "Evaluate multiple VLMs on these triage checks using automated prompts and human validation to measure failure modes and robustness.",
-    "Analyze results to identify systematic weaknesses and recommend triage-aware validation steps for clinical deployment."
+    "Construct a clinical triage benchmark that explicitly tests pre-diagnostic sanity checks (correct imaging modality, relevant anatomy, plausible viewpoint/orientation, and image integrity).",
+    "Systematically evaluate multiple VLMs on these triage tests using standardized metrics to quantify failure modes and expose vulnerabilities.",
+    "Analyze errors and propose a triage-first evaluation/deployment pipeline and practical recommendations to force or verify visual validity before diagnostic inference."
   ],
-  "impact": "Provides a practical tool and evidence for practitioners to detect unsafe visual understanding in medical VLMs, helping teams add simple but critical triage checks before downstream diagnostic use.",
+  "impact": "Highlights a critical safety gap in medical VLM deployment: ensuring basic visual validity before trusting diagnostic outputs. Encourages practitioners to adopt triage-first benchmarks, safer pipelines, and improved model evaluation criteria.",
   "visual_elements": [
-    "Side-by-side example panels: original clinical image, corrupted/incorrect variant, and VLM response (correct vs. failure)",
-    "Bar chart showing failure rates by triage category (modality, anatomy, orientation, integrity)",
-    "Pipeline diagram illustrating 'Input -> Triage checks -> Diagnostic model' emphasizing the new triage stage",
-    "Heatmap or table summarizing which VLMs fail which checks to highlight systematic weaknesses"
+    "Flowchart showing 'Input image → Clinical triage checks (modality, anatomy, view, integrity) → Pass/fail → Diagnostic model' to illustrate the proposed pipeline.",
+    "Bar chart comparing multiple VLMs' accuracy on each sanity-check category (modality, anatomy, view, integrity).",
+    "Annotated failure-case examples (image + model output) demonstrating common hallucinations or misreads when triage fails.",
+    "Heatmap or matrix of error types across models to visualize concentrated weaknesses (e.g., view confusion vs. anatomy misclassification)."
   ],
   "hashtags": [
-    "#MedAI",
+    "#MedObvious",
+    "#MedicalAI",
     "#VisionLanguageModels",
     "#ClinicalTriage",
-    "#AISafety",
-    "#ModelEvaluation"
+    "#AIHealthSafety"
   ],
   "paper_id": "2026-03-24-arxiv-medobvious_exposing_the_medical_moravec_s_paradox_in_vlms_via_clinical_triage",
   "paper_title": "MedObvious: Exposing the Medical Moravec's Paradox in VLMs via Clinical Triage",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.23501v1"
     }
   ],
-  "generated_at": "2026-03-26T07:00:58.916323"
+  "generated_at": "2026-03-27T07:01:02.354196"
 }
