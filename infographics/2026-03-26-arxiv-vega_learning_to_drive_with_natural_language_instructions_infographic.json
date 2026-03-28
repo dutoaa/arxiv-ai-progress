@@ -1,21 +1,21 @@
 {
-  "key_insight": "Vega trains an instruction-conditioned vision–language–action model using a large, instruction-annotated driving dataset so vehicles can follow diverse natural-language driving commands for personalized behavior.",
-  "problem_solved": "Existing vision–language driving pipelines only use language for descriptions or reasoning and cannot flexibly execute diverse user instructions; this work enables explicit instruction following and personalized driving policies.",
+  "key_insight": "Vega trains a vision–language–action policy that directly maps natural-language driving instructions and visual scenes to driving trajectories, enabling personalized, instruction-following behavior rather than just scene description.",
+  "problem_solved": "Existing driving pipelines use language for description or reasoning but cannot flexibly follow diverse user instructions or produce personalized driving behaviors; Vega addresses this gap by grounding instructions into actionable driving policies.",
   "method": [
-    "Construct InstructScene: a large-scale dataset (~100k scenes) pairing rich natural-language driving instructions with corresponding trajectories/actions.",
-    "Train a multimodal model that aligns visual observations, language instructions, and action sequences to learn instruction-conditioned driving policies.",
-    "Evaluate instruction-following performance across realistic driving scenarios to demonstrate flexible, personalized behavior driven by natural language."
+    "Constructed InstructScene: a large-scale dataset (~100,000 scenes) of driving observations paired with diverse natural-language instructions and corresponding trajectories.",
+    "Train a multimodal, instruction-conditioned driving policy that fuses visual inputs and language prompts to predict trajectories or low-level controls.",
+    "Align language and action via supervised instruction–trajectory learning and modular grounding to ensure instructions map to appropriate maneuvers and constraints."
   ],
-  "impact": "Provides a concrete dataset and modeling recipe for building instruction-driven autonomous agents, enabling more natural human–vehicle interaction and accelerating research on multimodal, policy-oriented models.",
+  "impact": "Enables more natural human–vehicle interaction and personalized autonomy by letting users specify high-level or preference-based driving instructions; provides a large benchmark and modeling recipe for follow-up research in instruction-conditioned driving.",
   "visual_elements": [
-    "Pipeline diagram showing: camera input + language instruction → multimodal encoder → policy → executed trajectory",
-    "Dataset summary chart (counts of instruction types, examples per scene, trajectory length distribution)",
-    "Before/after scene overlays: same scene with different natural-language commands producing different trajectories",
-    "Attention/activation visualization linking instruction tokens to image regions and trajectory decisions"
+    "Model flow diagram showing camera/radar + language input → multimodal encoder → policy head → trajectory/control output",
+    "Side-by-side examples of natural-language instructions and their resulting trajectories overlaid on a bird's-eye map",
+    "Dataset composition chart breaking down instruction types (goal-oriented, preference, constraint, style) and scene diversity",
+    "Evaluation bar chart comparing instruction-following success rates across instruction complexity or baseline models"
   ],
   "hashtags": [
-    "#AutonomousDriving",
     "#VisionLanguage",
+    "#AutonomousDriving",
     "#InstructionFollowing",
     "#MultimodalAI",
     "#DrivingDataset"
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.25741v1"
     }
   ],
-  "generated_at": "2026-03-27T06:58:26.436797"
+  "generated_at": "2026-03-28T06:47:33.092943"
 }

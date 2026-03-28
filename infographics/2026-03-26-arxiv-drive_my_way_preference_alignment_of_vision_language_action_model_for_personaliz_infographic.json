@@ -1,23 +1,23 @@
 {
-  "key_insight": "DMW aligns a multimodal vision–language–action driving policy to individual driver preferences by conditioning control decisions on natural-language preference descriptions and learned preference models, producing personalized and interpretable driving behaviors.",
-  "problem_solved": "Existing end-to-end driving systems optimize for generic objectives or use rigid modes and cannot adapt to individual driving habits or follow natural-language intent; DMW enables per-driver behavioral customization and intent-aware control.",
+  "key_insight": "Drive My Way (DMW) aligns a vision-language-action model to individual driving preferences, enabling a single end-to-end system to interpret natural-language intent and produce personalized driving behaviors instead of one-size-fits-all actions.",
+  "problem_solved": "Existing end-to-end driving systems optimize for generic objectives or use fixed driving modes, failing to adapt to long-term habits and short-term intentions of individual drivers or to interpret natural-language preferences.",
   "method": [
-    "Train a vision–language–action policy that ingests onboard sensory input (camera/LiDAR) plus natural-language preference prompts to produce continuous driving actions.",
-    "Learn preference alignment via paired demonstrations, preference labels or human feedback: build a preference model / reward estimator and fine-tune the policy to respect stated preferences (contrastive/reward modeling and policy fine-tuning).",
-    "Deploy real-time inference and evaluation in simulation and human-in-the-loop tests to validate personalized behaviors, safety trade-offs, and interpretability."
+    "Extend a vision-language-action (VLA) model with a preference-conditioned policy: fuse visual inputs, language intent, and a learned driver-preference embedding to produce control actions.",
+    "Train/align the model using preference signals (e.g., demonstrations, labeled comparisons, or language annotations) so behaviors reflect individual acceleration, braking, merging and overtaking styles.",
+    "Evaluate personalization and intent-following in simulation and/or real-world scenarios, comparing personalized policies to generic baselines on safety, comfort, and preference satisfaction metrics."
   ],
-  "impact": "Enables autonomous driving systems that adapt to individual users and accept natural-language instructions, improving user comfort, acceptance, and controllable behavior in safety-critical settings. Practitioners can apply the preference-alignment pattern to other embodied AI systems requiring personalized control.",
+  "impact": "Enables human-centered autonomous driving that adapts to individual styles and accepts natural-language instructions, improving user acceptance and personalization in deployed driving AI systems. Practitioners can reuse the preference-alignment pattern for other embodied V-L-A tasks.",
   "visual_elements": [
-    "Architecture diagram: vision + language input → preference encoder → action policy (show data flow and conditioning).",
-    "Before/after driving traces: same scenario driven by generic policy vs. DMW personalized policy to illustrate behavioral differences (e.g., merge timing, following distance).",
-    "Preference embedding visualization (e.g., t-SNE) showing clusters of driver styles and how language prompts map to embeddings.",
-    "Evaluation charts: alignment score vs. safety/performance trade-off and user satisfaction ratings from human-in-the-loop studies."
+    "Architecture diagram: VLA pipeline showing camera input + language intent + preference embedding → controller outputs (steering, throttle, brake).",
+    "Before/after trajectory comparison: generic policy vs. preference-conditioned policy across the same scenario (e.g., merging/overtaking) with metrics (comfort, similarity to driver).",
+    "Interface mockup: user issuing a natural-language driving preference (e.g., “be cautious and maintain larger gaps”) and corresponding policy adjustment.",
+    "Evaluation heatmap or bar chart: trade-offs among safety, comfort, and preference-satisfaction across multiple driver profiles."
   ],
   "hashtags": [
     "#PersonalizedDriving",
     "#VisionLanguage",
+    "#AutonomousDriving",
     "#HumanCenteredAI",
-    "#AutonomousVehicles",
     "#PreferenceAlignment"
   ],
   "paper_id": "2026-03-26-arxiv-drive_my_way_preference_alignment_of_vision_language_action_model_for_personaliz",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.25740v1"
     }
   ],
-  "generated_at": "2026-03-27T06:58:08.011211"
+  "generated_at": "2026-03-28T06:47:18.245484"
 }

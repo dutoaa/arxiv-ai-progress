@@ -1,24 +1,24 @@
 {
-  "key_insight": "LGTM (Less Gaussians, Texture More) replaces dense pixel-aligned Gaussian prediction with a compact set of Gaussian primitives augmented by per-primitive textures, breaking the quadratic primitive growth with resolution and enabling feed‑forward 4K synthesis.",
-  "problem_solved": "Existing feed-forward Gaussian splatting methods scale poorly: predicting pixel-aligned primitives causes primitive count to grow quadratically with image resolution, making high‑resolution (e.g., 4K) synthesis infeasible.",
+  "key_insight": "LGTM (Less Gaussians, Texture More) breaks the resolution bottleneck of feed‑forward Gaussian splatting by predicting compact geometric Gaussians and equipping each with its own texture, so fine detail is handled by textures instead of by exploding primitive counts.",
+  "problem_solved": "Existing feed‑forward 3D Gaussian Splatting methods require pixel‑aligned primitives, causing primitive count to grow quadratically with output resolution and making high‑resolution synthesis (e.g., 4K) impractical.",
   "method": [
-    "Predict a compact set of geometric Gaussian primitives instead of dense pixel-aligned Gaussians to reduce primitive count.",
-    "Attach high‑resolution, per‑primitive textures that decouple appearance detail from geometric complexity.",
-    "Render using textured splatting in a feed‑forward pipeline to synthesize high‑resolution images efficiently (4K capable)."
+    "Predict a compact set of Gaussian primitives that capture coarse geometry (far fewer primitives than pixel‑aligned approaches).",
+    "Associate each Gaussian with a per‑primitive texture to encode high‑frequency detail, decoupling appearance detail from geometric density.",
+    "Render by feed‑forward textured splatting (with texture sampling/aggregation) to efficiently synthesize high‑resolution outputs such as 4K."
   ],
-  "impact": "Enables memory- and compute-efficient high‑resolution neural rendering pipelines, making practical 4K feed‑forward synthesis for applications like content creation, AR/VR, and real‑time graphics.",
+  "impact": "Enables practical, feed‑forward high‑resolution neural rendering (4K) with much lower memory and compute costs, making high‑quality view synthesis and real‑time applications more accessible to practitioners.",
   "visual_elements": [
-    "Line chart: primitive count vs image resolution comparing quadratic growth (pixel‑aligned) to the compact LGTM curve",
-    "Pipeline diagram: input → compact Gaussians + per‑primitive textures → textured splatting → 4K output",
-    "Before/after render comparison: baseline dense splatting vs LGTM output at 4K (same scene)",
-    "Bar chart: memory and inference time comparison (baseline vs LGTM) at multiple resolutions"
+    "Before vs After comparison: dense pixel‑aligned gaussians vs LGTM's sparse textured gaussians (side‑by‑side 4K render).",
+    "Pipeline diagram: input -> compact gaussian prediction -> per‑primitive texture assignment -> textured splatting -> 4K output.",
+    "Chart of primitive count vs output resolution: quadratic growth (baseline) vs flat/sublinear curve (LGTM).",
+    "Icon set: speed (clock), memory (RAM), quality (HD/4K), and scalability (graph arrow)."
   ],
   "hashtags": [
-    "#NeuralRendering",
     "#GaussianSplatting",
-    "#4KRendering",
-    "#RealTimeGraphics",
-    "#EfficientAI"
+    "#NeuralRendering",
+    "#4K",
+    "#ViewSynthesis",
+    "#ComputerVision"
   ],
   "paper_id": "2026-03-26-arxiv-less_gaussians_texture_more_4k_feed_forward_textured_splatting",
   "paper_title": "Less Gaussians, Texture More: 4K Feed-Forward Textured Splatting",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.25745v1"
     }
   ],
-  "generated_at": "2026-03-27T06:59:08.343281"
+  "generated_at": "2026-03-28T06:48:10.145356"
 }

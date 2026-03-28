@@ -1,17 +1,17 @@
 {
-  "key_insight": "Vision foundation models contain complementary information at different input resolutions — combining low-resolution global cues with high-resolution local detail at inference unlocks stronger, more robust representations than the standard single-scale approach.",
-  "problem_solved": "Current practice restricts inference to a single input scale, losing complementary inductive biases learned at other resolutions and limiting performance, robustness, and transferability.",
+  "key_insight": "MuRF enables Vision Foundation Models to operate effectively across multiple input scales, letting them combine complementary strengths of low- and high-resolution views to produce stronger, scale-robust representations.",
+  "problem_solved": "Current VFMs are typically run at a single fixed inference scale, failing to exploit complementary inductive biases from different resolutions (global context at low-res vs. fine detail at high-res).",
   "method": [
-    "Enable multi-scale inference by routing or fusing features extracted at multiple input resolutions while keeping the base VFM weights unchanged.",
-    "Use lightweight scale-conditional modules or efficient feature-aggregation operators to combine global (low-res) and local (high-res) cues without large compute or retraining costs.",
-    "Design an inference-time strategy (e.g., selective fusion or ensembled predictions) that balances accuracy, robustness, and compute budget."
+    "Introduce a lightweight multi-scale inference framework that permits a VFM to ingest and aggregate features from multiple resolutions without re-training from scratch.",
+    "Use a compact fusion/aggregation mechanism to reconcile scale-specific features into a unified representation for downstream tasks.",
+    "Maintain compatibility with existing VFM weights to enable easy adaptation and efficient deployment across tasks and compute budgets."
   ],
-  "impact": "Practitioners can extract more task-relevant information from pretrained VFMs without full model retraining, improving downstream accuracy and robustness with modest extra compute. This makes VFMs more adaptable across tasks and resource constraints.",
+  "impact": "MuRF makes foundation models more flexible and robust by unlocking multi-scale information, improving downstream performance and deployment options while minimizing extra training cost. Practitioners can get better accuracy/robustness trade-offs and more adaptable inference strategies across vision tasks.",
   "visual_elements": [
-    "Pipeline diagram showing parallel low-res and high-res inputs into a shared VFM, followed by a lightweight fusion module and final prediction head.",
-    "Side-by-side feature-map visualization illustrating complementary global vs. local activations at different scales.",
-    "Bar chart comparing single-scale vs. multi-scale inference on accuracy and robustness metrics (no numbers required — relative bars).",
-    "Tradeoff plot of compute (latency or FLOPs) vs. performance showing Pareto improvements from the multi-scale strategy."
+    "Pipeline diagram showing multi-scale inputs (low-res and high-res) feeding into a shared VFM and a fusion module producing a single output.",
+    "Before vs. After bar chart comparing single-scale inference performance to MuRF multi-scale performance on representative tasks (no exact numbers, relative improvement).",
+    "Heatmaps/feature maps illustrating global semantic clarity from low-res and fine detail from high-res, with arrows merging into a combined map.",
+    "Icon set for benefits: improved accuracy, robustness, compute-efficiency, and plug-and-play compatibility with existing models."
   ],
   "hashtags": [
     "#VisionFoundationModels",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.25744v1"
     }
   ],
-  "generated_at": "2026-03-27T06:58:50.181893"
+  "generated_at": "2026-03-28T06:47:56.523445"
 }
