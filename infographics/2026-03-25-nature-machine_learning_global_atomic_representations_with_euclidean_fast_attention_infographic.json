@@ -1,24 +1,24 @@
 {
-  "key_insight": "Euclidean Fast Attention introduces a linear‑scaling attention mechanism using Euclidean rotary encodings, enabling accurate global atomic representations for 3D data while avoiding the quadratic cost of standard attention.",
-  "problem_solved": "Overcomes the O(N^2) computational and memory cost of standard attention for 3D atomic systems, making it feasible to model long‑range physical interactions at scale.",
+  "key_insight": "Euclidean fast attention provides a linear-scaling attention mechanism for 3D atomic data by using Euclidean rotary encodings, enabling accurate modeling of long-range physical interactions without the quadratic cost of standard attention.",
+  "problem_solved": "Standard attention is quadratic in the number of atoms and struggles to scale to large 3D systems while preserving geometric (Euclidean) structure; this paper removes that bottleneck so global atomic interactions can be modeled efficiently and equivariantly.",
   "method": [
-    "Use Euclidean rotary encodings to make attention operations compatible with 3D rotations and translations (geometric equivariance).",
-    "Reformulate attention into a fast, linearized computation that reduces complexity from quadratic to linear (or near‑linear) in the number of atoms/points.",
-    "Combine the linear attention with global atomic representations to capture long‑range physical effects efficiently and accurately."
+    "Introduce Euclidean rotary encodings to encode 3D positional and rotational relationships directly in attention operations.",
+    "Reformulate attention into a linear-scaling (fast) computation that preserves Euclidean symmetries, allowing global atomic representations at reduced cost.",
+    "Integrate the fast Euclidean attention into Transformer-style architectures to capture long-range effects in physical systems with lower compute and memory."
   ],
-  "impact": "Makes high‑fidelity, physics‑aware ML for large molecular and materials systems computationally practical, reducing compute and memory requirements while preserving accuracy for long‑range interactions.",
+  "impact": "Practitioners can scale equivariant, attention-based models to much larger molecular/material systems with lower compute and memory, improving accuracy for long-range physics (e.g., energies, forces) while enabling faster training and inference.",
   "visual_elements": [
-    "Scaling comparison plot: quadratic vs linear attention (time/memory vs number of atoms).",
-    "Illustration of Euclidean rotary encoding: vector rotations in 3D showing equivariance under rotation/translation.",
-    "Atomic system diagram: long‑range connections highlighted to show global attention vs local message passing.",
-    "Benchmark chart: accuracy vs speed/memory across baseline attention and Euclidean Fast Attention on representative datasets."
+    "Complexity comparison chart: quadratic attention vs Euclidean fast attention (compute/memory vs number of atoms).",
+    "Schematic pipeline: 3D coordinates → Euclidean rotary encodings → fast attention → global atomic representation / predictions.",
+    "Diagram showing preserved geometric equivariance: rotated molecule giving consistent encoded representation.",
+    "Example application visual: long-range interactions highlighted on a large molecule or material (arrows linking distant atoms)."
   ],
   "hashtags": [
-    "#EuclideanFastAttention",
-    "#GeometricDeepLearning",
-    "#MolecularML",
-    "#FastAttention",
-    "#EquivariantNetworks"
+    "#EuclideanAttention",
+    "#EquivariantML",
+    "#AtomicML",
+    "#ScalableTransformers",
+    "#MolecularModeling"
   ],
   "paper_id": "2026-03-25-nature-machine_learning_global_atomic_representations_with_euclidean_fast_attention",
   "paper_title": "Machine learning global atomic representations with Euclidean fast attention",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01195-y"
     }
   ],
-  "generated_at": "2026-03-28T06:49:01.234750"
+  "generated_at": "2026-03-29T06:59:18.226768"
 }

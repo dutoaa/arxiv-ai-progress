@@ -1,24 +1,24 @@
 {
-  "key_insight": "Drive My Way (DMW) aligns a vision-language-action model to individual driving preferences, enabling a single end-to-end system to interpret natural-language intent and produce personalized driving behaviors instead of one-size-fits-all actions.",
-  "problem_solved": "Existing end-to-end driving systems optimize for generic objectives or use fixed driving modes, failing to adapt to long-term habits and short-term intentions of individual drivers or to interpret natural-language preferences.",
+  "key_insight": "Drive My Way (DMW) enables a single vision-language-action model to adapt driving behavior to individual drivers by conditioning actions on natural‑language preferences and inferred long‑term habits, providing personalized, interpretable control over autonomous driving.",
+  "problem_solved": "Existing end-to-end driving systems are optimized for generic objectives or fixed modes and cannot flexibly adapt to individual driver preferences or accept natural‑language intent, limiting personalization and interpretability.",
   "method": [
-    "Extend a vision-language-action (VLA) model with a preference-conditioned policy: fuse visual inputs, language intent, and a learned driver-preference embedding to produce control actions.",
-    "Train/align the model using preference signals (e.g., demonstrations, labeled comparisons, or language annotations) so behaviors reflect individual acceleration, braking, merging and overtaking styles.",
-    "Evaluate personalization and intent-following in simulation and/or real-world scenarios, comparing personalized policies to generic baselines on safety, comfort, and preference satisfaction metrics."
+    "Train a multimodal vision–language–action (VLA) model that maps visual input and vehicle state plus a natural‑language preference token to driving actions.",
+    "Align the VLA model to individual preferences using preference-conditioned learning (combining demonstrations, preference signals or comparisons, and behavior cloning / reward modeling) so long‑term habits and short‑term intents are respected.",
+    "Enable interpretable, real‑time adaptation by exposing natural‑language controls and a preference embedding that modulates planning/action outputs."
   ],
-  "impact": "Enables human-centered autonomous driving that adapts to individual styles and accepts natural-language instructions, improving user acceptance and personalization in deployed driving AI systems. Practitioners can reuse the preference-alignment pattern for other embodied V-L-A tasks.",
+  "impact": "Makes autonomous driving systems more human‑centric by allowing per‑driver personalization and natural‑language control, improving acceptability, comfort, and transparency for deployment and research in adaptive decision-making.",
   "visual_elements": [
-    "Architecture diagram: VLA pipeline showing camera input + language intent + preference embedding → controller outputs (steering, throttle, brake).",
-    "Before/after trajectory comparison: generic policy vs. preference-conditioned policy across the same scenario (e.g., merging/overtaking) with metrics (comfort, similarity to driver).",
-    "Interface mockup: user issuing a natural-language driving preference (e.g., “be cautious and maintain larger gaps”) and corresponding policy adjustment.",
-    "Evaluation heatmap or bar chart: trade-offs among safety, comfort, and preference-satisfaction across multiple driver profiles."
+    "Pipeline diagram: camera + state + language preference → VLA model → personalized control outputs (steer/accel/brake).",
+    "Before vs After comparison: generic policy vs DMW personalized trajectories in a corner case (e.g., merging/over‑taking).",
+    "Preference embedding illustration: how long‑term habits and short‑term intent combine to produce different action distributions.",
+    "UI mockup: driver issuing natural‑language preference (e.g., “drive conservatively” or “merge assertively”) and resulting behavior preview."
   ],
   "hashtags": [
-    "#PersonalizedDriving",
-    "#VisionLanguage",
     "#AutonomousDriving",
-    "#HumanCenteredAI",
-    "#PreferenceAlignment"
+    "#VisionLanguage",
+    "#Personalization",
+    "#PreferenceAlignment",
+    "#HumanCenteredAI"
   ],
   "paper_id": "2026-03-26-arxiv-drive_my_way_preference_alignment_of_vision_language_action_model_for_personaliz",
   "paper_title": "Drive My Way: Preference Alignment of Vision-Language-Action Model for Personalized Driving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.25740v1"
     }
   ],
-  "generated_at": "2026-03-28T06:47:18.245484"
+  "generated_at": "2026-03-29T06:58:27.209359"
 }

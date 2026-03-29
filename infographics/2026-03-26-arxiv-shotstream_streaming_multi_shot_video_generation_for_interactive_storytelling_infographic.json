@@ -1,24 +1,24 @@
 {
-  "key_insight": "ShotStream reframes long video generation as a causal, next-shot streaming task: generate each upcoming shot conditioned only on past context and live user prompts, enabling real-time, interactive multi-shot narratives with far lower latency than bidirectional pipelines.",
-  "problem_solved": "Current multi-shot video generators use bidirectional or full-context architectures that are slow, non-interactive, and ill-suited to on-the-fly user instruction for ongoing stories; ShotStream solves low interactivity and high latency in long-form narrative generation.",
+  "key_insight": "ShotStream reframes multi-shot video generation as next-shot prediction conditioned on historical context, enabling a causal streaming architecture that supports low-latency, interactive on-the-fly frame generation.",
+  "problem_solved": "Addresses the limited interactivity and high latency of bidirectional multi-shot video models by allowing users to dynamically steer an ongoing narrative and receive immediate frame/shot outputs without reprocessing the entire video.",
   "method": [
-    "Causal next-shot generation: treat video as a sequence of shots and generate each new shot autoregressively conditioned on a compact representation of historical shots and streaming text prompts.",
-    "Shot-level memory and cross-shot attention: maintain a lightweight temporal memory of past shots and use targeted cross-shot attention to preserve coherence across generated segments without reprocessing the entire sequence.",
-    "Low-latency frame synthesis: incorporate an efficient decoder and incremental frame rendering pipeline to produce frames on-the-fly for interactive user control and rapid turn-taking."
+    "Reformulate multi-shot generation as next-shot generation conditioned on a compact history buffer and streaming user prompts.",
+    "Design a causal multi-shot architecture that generates shots sequentially (shot-by-shot) rather than via bidirectional passes, enabling incremental decoding and state caching.",
+    "Optimize for on-the-fly synthesis with efficient sampling and cached state updates so new instructions can be applied mid-story with low latency."
   ],
-  "impact": "Enables real-time, interactive storytelling and efficient long-form video generation workflows, lowering latency and making multi-shot narrative systems practical for creative tools, games, and live content generation.",
+  "impact": "Enables real-time, user-in-the-loop storytelling workflows (games, live content creation, interactive narratives) by reducing latency and improving interactivity for long-form video generation. Practitioners can build responsive generative systems that adapt to dynamic prompts without full re-generation.",
   "visual_elements": [
-    "Pipeline diagram: left-to-right flow showing historical shots → shot memory → streaming prompt → next-shot generator → low-latency frame renderer",
-    "Latency comparison chart: bars comparing ShotStream vs. bidirectional baselines (inference time per shot / end-to-end latency)",
-    "Timeline visualization: sequence of shots with arrows showing causal conditioning and maintained temporal coherence",
-    "Interface mockup: interactive example where user edits streaming prompts and the system updates the next shot in real time"
+    "Timeline diagram: historical shots → streaming prompt → next-shot generation (illustrates causality and incremental updates).",
+    "Architecture block diagram: history buffer, causal generator, prompt interface, state cache (shows dataflow and where low-latency gains arise).",
+    "Latency vs. interactivity chart: ShotStream vs. bidirectional baselines (throughput, average response time).",
+    "UI mockup: live prompt panel controlling an ongoing video timeline (demonstrates interactive storytelling experience)."
   ],
   "hashtags": [
+    "#ShotStream",
     "#VideoGeneration",
-    "#InteractiveAI",
-    "#StreamingModels",
-    "#GenerativeVideo",
-    "#StorytellingAI"
+    "#InteractiveStorytelling",
+    "#RealTimeAI",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-03-26-arxiv-shotstream_streaming_multi_shot_video_generation_for_interactive_storytelling",
   "paper_title": "ShotStream: Streaming Multi-Shot Video Generation for Interactive Storytelling",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.25746v1"
     }
   ],
-  "generated_at": "2026-03-28T06:48:20.225639"
+  "generated_at": "2026-03-29T07:00:04.598170"
 }
