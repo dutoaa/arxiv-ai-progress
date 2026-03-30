@@ -1,24 +1,24 @@
 {
-  "key_insight": "PackForcing shows that training autoregressive video diffusion models on short clips is sufficient for scalable long-video generation by managing generation history with a three-partition KV-cache, preventing linear memory growth and temporal degeneration.",
-  "problem_solved": "Addresses the intractable linear KV-cache growth, temporal repetition, and compounding errors that block efficient long-video sampling and long-context inference in autoregressive video diffusion models.",
+  "key_insight": "PackForcing shows that training autoregressive video diffusion models on short clips is sufficient for stable long-video sampling and long-context inference by managing history with a three-partition KV-cache.",
+  "problem_solved": "Addresses intractable linear KV-cache growth, temporal repetition, and compounding errors that prevent scalable, high-quality long-video generation.",
   "method": [
-    "Introduce a three-partition KV-cache strategy that separates history into distinct roles (e.g., long-term anchors, compressed past summaries, and recent active context) to control memory and information flow.",
-    "Train on short video segments but use the partitioned cache at sampling time to preserve necessary long-range context without unbounded KV growth.",
-    "Design sampling/inference rules that leverage the partitions to reduce temporal repetition and limit error accumulation across long generated sequences."
+    "Three-partition KV-cache that separates historical context into: sink tokens (persistent anchors), compact/packed summaries of older context, and an active recent-context cache to limit growth and repetition.",
+    "Training on short video clips with the PackForcing cache strategy so the model learns to rely on compacted history and therefore generalizes to arbitrarily long sampling without linear memory scaling.",
+    "Sampling-time mechanics that read from the three partitions to reconstruct long-range context while avoiding repeated content and reducing error propagation."
   ],
-  "impact": "Enables practical long-video generation with autoregressive diffusion models using modest memory and training compute, letting practitioners scale temporal length without retraining on long clips and with reduced artifacts.",
+  "impact": "Enables scalable long-video generation with much lower memory and compute cost, making long-context autoregressive diffusion practical for researchers and developers building video generation and long-horizon sequence models.",
   "visual_elements": [
-    "Schematic of the three-partition KV-cache (colored lanes for sink/summary/recent) showing how new frames are appended and old context is compressed/anchored",
-    "Timeline comparing training on short clips vs. long-video sampling, illustrating how PackForcing reuses short-clip-trained weights to generate long outputs",
-    "Bar chart or line graph showing memory (KV-cache) growth: standard linear vs. PackForcing sublinear/controlled scaling",
-    "Before/after frame sequence showing reduced temporal repetition and fewer compounding artifacts"
+    "Schematic of the three-partition KV-cache (sink tokens, packed summaries, active cache) with arrows showing reads/writes during sampling",
+    "Memory vs. generated video length plot comparing linear KV-cache baseline to PackForcing sublinear growth",
+    "Before/after timeline illustrating temporal repetition and compounding errors reduced by PackForcing",
+    "Flowchart showing short-clip training -> PackForcing sampling -> long-video output (emphasizing no long-clip training needed)"
   ],
   "hashtags": [
-    "#PackForcing",
     "#VideoDiffusion",
     "#LongContext",
-    "#EfficientInference",
-    "#VideoGeneration"
+    "#EfficientAI",
+    "#GenerativeVideo",
+    "#ModelScaling"
   ],
   "paper_id": "2026-03-26-arxiv-packforcing_short_video_training_suffices_for_long_video_sampling_and_long_conte",
   "paper_title": "PackForcing: Short Video Training Suffices for Long Video Sampling and Long Context Inference",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.25730v1"
     }
   ],
-  "generated_at": "2026-03-29T06:58:15.264767"
+  "generated_at": "2026-03-30T07:21:41.709846"
 }

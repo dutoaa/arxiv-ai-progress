@@ -1,17 +1,17 @@
 {
-  "key_insight": "Neural scaling laws meaningfully describe how performance of weather-emulation models improves with model size, data, and compute, and continual training (streaming updates) enables more predictable, sample-efficient scaling in an operational forecasting setting.",
-  "problem_solved": "Provides an empirical framework for understanding and optimizing how model size, dataset scale, and training strategy (especially continual updates) interact for weather-forecasting models, addressing design uncertainty for scientific ML deployments.",
+  "key_insight": "Neural scaling laws extend to weather emulation: using a minimal Swin Transformer and a continual-training protocol, performance scales predictably with model size, data, and compute—allowing reliable extrapolation of gains from increased scale.",
+  "problem_solved": "Addresses the lack of quantitative understanding about how model, data, and compute scaling (and continual training on streaming data) affect performance for weather forecasting/emulation in Scientific ML.",
   "method": [
-    "Use a minimal, scalable Swin Transformer architecture as a general-purpose backbone for weather emulation.",
-    "Run systematic scaling experiments varying model size, dataset size, and compute to measure performance trends.",
-    "Apply continual training (streaming/incremental updates) to simulate operational non-stationary data and evaluate its effect on scaling and sample efficiency."
+    "Adopt a minimal, scalable Swin Transformer as a general-purpose weather emulator to keep architectural confounders low.",
+    "Run controlled scaling experiments that sweep model size, dataset size, and compute to characterize empirical scaling laws.",
+    "Use a continual-training protocol that simulates streaming weather data to measure long-term performance, transfer, and data efficiency."
   ],
-  "impact": "Gives practitioners actionable guidance to choose model/data/compute trade-offs and adopt continual-training workflows for robust, efficient weather emulation—accelerating the path toward foundation models in scientific domains.",
+  "impact": "Gives practitioners a practical framework to predict returns from scaling and to allocate model/data/compute budgets for weather emulators; informs design of efficient continual-training strategies for Earth-system foundation models.",
   "visual_elements": [
-    "Scaling curves: performance metric (e.g., forecast error) vs. model parameters / dataset size / compute with fitted scaling-law lines",
-    "Schematic of the minimal Swin Transformer backbone highlighting patching, self-attention windows, and parameter scaling",
-    "Flow diagram of continual-training pipeline: streaming observations → incremental updates → evaluation on shifting test windows",
-    "Geographical forecast heatmaps or error-difference maps showing qualitative improvements as scale or continual training increases"
+    "Log–log plots of validation loss / forecast skill vs model size, dataset size, and compute showing scaling (power-law) trends.",
+    "Schematic diagram of the minimal Swin Transformer architecture used (patches, attention windows) to emphasize simplicity and scalability.",
+    "Timeline visualization of continual training: streaming data segments with a performance curve showing adaptation and cumulative gains.",
+    "Geospatial heatmap comparing forecast error across lead times and model scales to illustrate practical impact on predictions."
   ],
   "hashtags": [
     "#NeuralScaling",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.25687v1"
     }
   ],
-  "generated_at": "2026-03-29T06:56:42.059562"
+  "generated_at": "2026-03-30T07:21:57.210918"
 }

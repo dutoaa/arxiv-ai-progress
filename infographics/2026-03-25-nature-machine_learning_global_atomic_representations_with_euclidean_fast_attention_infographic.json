@@ -1,24 +1,24 @@
 {
-  "key_insight": "Euclidean fast attention provides a linear-scaling attention mechanism for 3D atomic data by using Euclidean rotary encodings, enabling accurate modeling of long-range physical interactions without the quadratic cost of standard attention.",
-  "problem_solved": "Standard attention is quadratic in the number of atoms and struggles to scale to large 3D systems while preserving geometric (Euclidean) structure; this paper removes that bottleneck so global atomic interactions can be modeled efficiently and equivariantly.",
+  "key_insight": "Euclidean fast attention uses Euclidean rotary encodings to make 3D attention computations scale linearly, enabling accurate, long-range-aware global atomic representations without the quadratic cost of standard attention.",
+  "problem_solved": "Overcomes the quadratic compute and memory bottleneck of standard attention for 3D/atomistic data, making it feasible to model long-range physical interactions in larger molecular and material systems.",
   "method": [
-    "Introduce Euclidean rotary encodings to encode 3D positional and rotational relationships directly in attention operations.",
-    "Reformulate attention into a linear-scaling (fast) computation that preserves Euclidean symmetries, allowing global atomic representations at reduced cost.",
-    "Integrate the fast Euclidean attention into Transformer-style architectures to capture long-range effects in physical systems with lower compute and memory."
+    "Introduce Euclidean rotary encodings that encode 3D geometric relations in a rotation-covariant/invariant way for attention keys and queries.",
+    "Reformulate attention to a linear-scaling (fast) algorithm that preserves geometry-aware interactions while reducing compute and memory from O(N^2) to O(N).",
+    "Integrate the Euclidean fast attention module into global atomic representation learning to capture long-range effects in physical systems."
   ],
-  "impact": "Practitioners can scale equivariant, attention-based models to much larger molecular/material systems with lower compute and memory, improving accuracy for long-range physics (e.g., energies, forces) while enabling faster training and inference.",
+  "impact": "Enables scalable, geometry-aware transformer-style models for molecular and materials modelling, allowing practitioners to train and deploy models that capture long-range physics faster and on larger systems than before.",
   "visual_elements": [
-    "Complexity comparison chart: quadratic attention vs Euclidean fast attention (compute/memory vs number of atoms).",
-    "Schematic pipeline: 3D coordinates → Euclidean rotary encodings → fast attention → global atomic representation / predictions.",
-    "Diagram showing preserved geometric equivariance: rotated molecule giving consistent encoded representation.",
-    "Example application visual: long-range interactions highlighted on a large molecule or material (arrows linking distant atoms)."
+    "Scaling plot: quadratic (standard attention) vs linear (Euclidean fast attention) cost curves with N (atoms) on x-axis and compute on y-axis.",
+    "Schematic: atom cloud with attention links — dense all-to-all links (crossed out) vs sparse/efficient geometry-aware links produced by Euclidean fast attention.",
+    "Diagram: how Euclidean rotary encodings transform 3D coordinates into rotation-consistent embeddings (small 3D rotation -> consistent encoding).",
+    "Benchmark snapshot: side-by-side table or bar chart showing speed/memory and accuracy improvements on representative molecular/material datasets."
   ],
   "hashtags": [
     "#EuclideanAttention",
-    "#EquivariantML",
-    "#AtomicML",
-    "#ScalableTransformers",
-    "#MolecularModeling"
+    "#AtomisticML",
+    "#FastAttention",
+    "#3DRepresentation",
+    "#MolecularAI"
   ],
   "paper_id": "2026-03-25-nature-machine_learning_global_atomic_representations_with_euclidean_fast_attention",
   "paper_title": "Machine learning global atomic representations with Euclidean fast attention",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01195-y"
     }
   ],
-  "generated_at": "2026-03-29T06:59:18.226768"
+  "generated_at": "2026-03-30T07:21:16.671212"
 }
