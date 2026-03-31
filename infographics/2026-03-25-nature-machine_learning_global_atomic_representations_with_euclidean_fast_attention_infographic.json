@@ -1,24 +1,24 @@
 {
-  "key_insight": "Euclidean fast attention uses Euclidean rotary encodings to make 3D attention computations scale linearly, enabling accurate, long-range-aware global atomic representations without the quadratic cost of standard attention.",
-  "problem_solved": "Overcomes the quadratic compute and memory bottleneck of standard attention for 3D/atomistic data, making it feasible to model long-range physical interactions in larger molecular and material systems.",
+  "key_insight": "Euclidean fast attention is a linear-scaling attention mechanism that uses Euclidean rotary encodings to encode 3D positions, enabling scalable, rotation-aware global atomic representations that accurately capture long-range interactions in physical systems.",
+  "problem_solved": "Standard attention has quadratic compute and memory cost and struggles to scale to large 3D atomic systems and long-range physical effects; this work removes that bottleneck while preserving Euclidean (rotation/translation) structure.",
   "method": [
-    "Introduce Euclidean rotary encodings that encode 3D geometric relations in a rotation-covariant/invariant way for attention keys and queries.",
-    "Reformulate attention to a linear-scaling (fast) algorithm that preserves geometry-aware interactions while reducing compute and memory from O(N^2) to O(N).",
-    "Integrate the Euclidean fast attention module into global atomic representation learning to capture long-range effects in physical systems."
+    "Introduce Euclidean rotary encodings to represent 3D coordinates in a rotation-aware manner inside attention.",
+    "Reformulate attention into a linear (fast) attention kernel that reduces compute/memory from O(N^2) to O(N) for atoms/points.",
+    "Integrate the fast Euclidean attention into global atomic representation models to capture long-range interactions efficiently."
   ],
-  "impact": "Enables scalable, geometry-aware transformer-style models for molecular and materials modelling, allowing practitioners to train and deploy models that capture long-range physics faster and on larger systems than before.",
+  "impact": "Makes transformer-style models practical for much larger molecular/material systems and long-range physics-aware predictions, lowering resource cost for training and inference and enabling more accurate ML potentials and simulation surrogates.",
   "visual_elements": [
-    "Scaling plot: quadratic (standard attention) vs linear (Euclidean fast attention) cost curves with N (atoms) on x-axis and compute on y-axis.",
-    "Schematic: atom cloud with attention links — dense all-to-all links (crossed out) vs sparse/efficient geometry-aware links produced by Euclidean fast attention.",
-    "Diagram: how Euclidean rotary encodings transform 3D coordinates into rotation-consistent embeddings (small 3D rotation -> consistent encoding).",
-    "Benchmark snapshot: side-by-side table or bar chart showing speed/memory and accuracy improvements on representative molecular/material datasets."
+    "Scaling plot: quadratic vs linear attention (time and memory) as number of atoms increases",
+    "3D schematic: Euclidean rotary encoding applied to atomic coordinates showing rotational-equivariance",
+    "Architecture diagram: fast attention module inside a global atomic representation model (inputs → fast attention → predictions)",
+    "Benchmark panel: error vs baseline on representative molecular/condensed-phase tasks highlighting improved long-range accuracy"
   ],
   "hashtags": [
     "#EuclideanAttention",
-    "#AtomisticML",
     "#FastAttention",
-    "#3DRepresentation",
-    "#MolecularAI"
+    "#EquivariantML",
+    "#MolecularML",
+    "#ScalableAI"
   ],
   "paper_id": "2026-03-25-nature-machine_learning_global_atomic_representations_with_euclidean_fast_attention",
   "paper_title": "Machine learning global atomic representations with Euclidean fast attention",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01195-y"
     }
   ],
-  "generated_at": "2026-03-30T07:21:16.671212"
+  "generated_at": "2026-03-31T07:05:50.240299"
 }

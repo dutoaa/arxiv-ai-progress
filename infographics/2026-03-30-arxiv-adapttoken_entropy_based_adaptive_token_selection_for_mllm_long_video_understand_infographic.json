@@ -1,0 +1,35 @@
+{
+  "key_insight": "AdaptToken uses an MLLM's own prediction uncertainty (entropy) as a training-free, global control signal to rank tokens/frames across long videos and to stop processing once sufficient evidence is gathered, enabling efficient long-video understanding with minimal performance loss.",
+  "problem_solved": "Reducing memory and computation for MLLMs on very long videos while providing a principled cross-clip relevance comparison and an automatic stopping criterion so the model need not process every frame.",
+  "method": [
+    "Compute per-token/frame uncertainty (entropy) from the pretrained MLLM's outputs without additional training.",
+    "Globally rank and select the most informative tokens/frames across distant clips based on entropy, rather than only within short clips.",
+    "Apply an adaptive stopping rule: halt further token/frame processing once overall uncertainty falls below a threshold, saving compute and memory."
+  ],
+  "impact": "Provides a plug-and-play, model-agnostic way to make MLLMs scalable to long videos, cutting inference cost and memory footprint while maintaining accuracy—useful for real-world video applications where compute or latency is constrained.",
+  "visual_elements": [
+    "Pipeline diagram: video → clip split → entropy scoring → global selector → adaptive stop → final answer",
+    "Timeline heatmap showing token/frame entropy across a long video, with selected segments highlighted",
+    "Bar/line chart comparing compute/time and accuracy for full processing vs AdaptToken (showing savings with minimal drop)",
+    "Icons: stopwatch (latency), chip/memory (memory savings), stop sign (adaptive stopping), magnifying glass (informative token selection)"
+  ],
+  "hashtags": [
+    "#MLLM",
+    "#LongVideoUnderstanding",
+    "#AdaptiveInference",
+    "#Entropy",
+    "#EfficientAI"
+  ],
+  "paper_id": "2026-03-30-arxiv-adapttoken_entropy_based_adaptive_token_selection_for_mllm_long_video_understand",
+  "paper_title": "AdaptToken: Entropy-based Adaptive Token Selection for MLLM Long Video Understanding",
+  "paper_category": "Model",
+  "paper_date": "2026-03-30",
+  "paper_authors": "Haozhe Qi, Kevin Qu, Mahdi Rad, Rui Wang, Alexander Mathis",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.28696v1"
+    }
+  ],
+  "generated_at": "2026-03-31T07:02:28.851652"
+}

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Assigning rewards to individual diffusion timesteps (stepwise credit assignment) for Flow-GRPO respects the temporal roles of early vs. late steps, improving learning signals compared to uniform final-image-only credit.",
+  "problem_solved": "Uniform credit assignment across all generation steps can reward or punish intermediate actions incorrectly—especially when late steps fix earlier mistakes—hindering flow-matching models trained with GRPO from learning the correct temporal structure of image generation.",
+  "method": [
+    "Introduce a stepwise credit-assignment scheme for GRPO on flow-matching diffusion models that apportions reward across timesteps according to their contribution to structure vs. detail.",
+    "Integrate per-step rewards into the GRPO optimization loop for flow-matching models, enabling more informative gradients for early (low-frequency) and late (high-frequency) generation stages.",
+    "Evaluate the modified training pipeline to show improved alignment of intermediate steps and better final sample quality (qualitative and quantitative comparisons vs. uniform credit)."
+  ],
+  "impact": "Provides a simple, widely applicable modification to RL-based training of generative diffusion/flow models that yields clearer learning signals, better intermediate behavior, and improved final generations—useful for practitioners tuning generation fidelity and stability.",
+  "visual_elements": [
+    "Timeline diagram of diffusion steps annotated with roles: early = composition/low-frequency, late = details/high-frequency, showing where credit is assigned.",
+    "Schematic comparing uniform vs. stepwise credit assignment inside the GRPO training loop (reward flow arrows to timesteps).",
+    "Before/after image pairs or step-by-step reconstructions showing corrected vs. uncorrected intermediate errors.",
+    "Bar/line chart comparing performance metrics (e.g., fidelity, stability, convergence) for uniform vs. stepwise credit strategies."
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#FlowMatching",
+    "#ReinforcementLearning",
+    "#CreditAssignment",
+    "#GenerativeModels"
+  ],
+  "paper_id": "2026-03-30-arxiv-stepwise_credit_assignment_for_grpo_on_flow_matching_models",
+  "paper_title": "Stepwise Credit Assignment for GRPO on Flow-Matching Models",
+  "paper_category": "Model",
+  "paper_date": "2026-03-30",
+  "paper_authors": "Yash Savani, Branislav Kveton, Yuchen Liu, Yilin Wang, Jing Shi",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.28718v1"
+    }
+  ],
+  "generated_at": "2026-03-31T07:03:15.043672"
+}

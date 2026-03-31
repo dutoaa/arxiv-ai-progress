@@ -1,0 +1,35 @@
+{
+  "key_insight": "A video-language reasoning model (SOLE-R1) can serve as the sole reward function for on-robot reinforcement learning by evaluating egocentric video against language task descriptions, producing robust task success signals even under partial observability and distribution shift.",
+  "problem_solved": "Current VLM-based evaluators are vulnerable to perceptual errors and distribution shift, allowing policies to exploit evaluator weaknesses rather than learning to solve tasks; SOLE-R1 addresses the need for a scalable, reliable reward source for real-world on-robot RL without human-in-the-loop labels.",
+  "method": [
+    "Train/fine-tune a video-language reasoning model that ingests egocentric video sequences plus a language task prompt and predicts task success with temporal reasoning and uncertainty estimates.",
+    "Use the model as the sole reward generator in a closed-loop on-robot RL system: robot collects trajectories, SOLE-R1 scores them, and the policy is updated from that reward signal.",
+    "Mitigate reward hacking and distribution shift via temporal consistency checks, uncertainty-aware calibration, and continual on-robot data collection for periodic model adaptation."
+  ],
+  "impact": "Enables scalable, autonomous robot learning from language-specified tasks without human labeling, improving robustness to perceptual errors and distribution shifts and making on-robot RL more practical for real-world deployment.",
+  "visual_elements": [
+    "Pipeline diagram: robot (egocentric camera) → video-language reasoning model (SOLE-R1) → scalar reward → RL policy update loop.",
+    "Before/after bar chart comparing task success rates and reward-hacking incidents for baseline VLM evaluators vs SOLE-R1.",
+    "Temporal attention/timeline visualization showing how SOLE-R1 reasons over video frames to detect task completion and avoid short-sighted cues.",
+    "Icon set: camera/frames, language prompt bubble, shield/checkmark for robust reward, robot arm executing policy."
+  ],
+  "hashtags": [
+    "#VideoLanguage",
+    "#OnRobotRL",
+    "#Robotics",
+    "#ReinforcementLearning",
+    "#VLMs"
+  ],
+  "paper_id": "2026-03-30-arxiv-sole_r1_video_language_reasoning_as_the_sole_reward_for_on_robot_reinforcement_l",
+  "paper_title": "SOLE-R1: Video-Language Reasoning as the Sole Reward for On-Robot Reinforcement Learning",
+  "paper_category": "Model",
+  "paper_date": "2026-03-30",
+  "paper_authors": "Philip Schroeder, Thomas Weng, Karl Schmeckpeper, Eric Rosen, Stephen Hart",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.28730v1"
+    }
+  ],
+  "generated_at": "2026-03-31T07:03:35.252796"
+}

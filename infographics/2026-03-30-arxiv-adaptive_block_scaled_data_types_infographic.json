@@ -1,0 +1,35 @@
+{
+  "key_insight": "NVFP4's quantization error is concentrated on near‑maximal values inside each 16‑value block; adapting the block scaling/encoding per block dramatically reduces those peak errors while staying hardware friendly.",
+  "problem_solved": "Reduces large, group‑localized quantization errors in NVFP4 4‑bit formats that degrade large language model fidelity, without requiring major hardware redesign.",
+  "method": [
+    "Characterize NVFP4 error distribution and identify systematic near‑max saturation within 16‑value groups.",
+    "Introduce Adaptive Block‑Scaled Data Types: allocate a small per‑block scale/shift (and optional correction bits) so each 16‑value block uses an optimized local exponent/offset.",
+    "Design a hardware‑friendly encoder/decoder and lightweight fallback/hybrid encoding for corner cases to keep latency/area overhead minimal."
+  ],
+  "impact": "Enables more accurate 4‑bit quantization for LLMs, improving downstream accuracy/perplexity and memory footprint with little additional hardware cost—making efficient inference and deployment of large models more practical.",
+  "visual_elements": [
+    "Schematic of a 16‑value NVFP4 block highlighting near‑maximal values and spike in quantization error (before vs after).",
+    "Heatmap or bar chart comparing per‑value quantization error for NVFP4 vs Adaptive Block‑Scaled format.",
+    "Block encoding diagram showing per‑block scale/shift metadata and decode path (minimal hardware datapath).",
+    "Performance plot: model accuracy (or perplexity) vs bitwidth/format showing gains at 4‑bit."
+  ],
+  "hashtags": [
+    "#Quantization",
+    "#LLM",
+    "#AIHardware",
+    "#4bit",
+    "#ModelCompression"
+  ],
+  "paper_id": "2026-03-30-arxiv-adaptive_block_scaled_data_types",
+  "paper_title": "Adaptive Block-Scaled Data Types",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-03-30",
+  "paper_authors": "Jack Cook, Hyemin S. Lee, Kathryn Le, Junxian Guo, Giovanni Traverso",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.28765v1"
+    }
+  ],
+  "generated_at": "2026-03-31T07:04:51.972814"
+}

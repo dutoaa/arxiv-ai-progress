@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce a 4D (space + time) latent reward computed in feature/latent space to steer pretrained video diffusion models toward geometrically/world-consistent outputs, without modifying model architectures or repeatedly decoding to RGB.",
-  "problem_solved": "Video diffusion models often produce temporally or geometrically inconsistent frames; prior fixes add modules or use costly RGB-space alignment limited to static scenes. This paper enables efficient, geometry-aware consistency for dynamic video generation while preserving pretrained model generalization.",
+  "key_insight": "Compute a geometry-aware reward in 4D latent space (space + time) to align pretrained video diffusion models to world-consistent generation, avoiding architectural changes and costly RGB reconstructions.",
+  "problem_solved": "Video diffusion models produce high-quality frames but often violate geometric/temporal consistency; prior fixes either alter model architectures (hurting generalization) or use RGB-space alignment that is slow and limited to static scenes.",
   "method": [
-    "Compute a 4D latent reward that measures spatial and temporal consistency in latent/feature space (avoiding repeated VAE → RGB decoding).",
-    "Use the latent reward to guide the diffusion sampling/optimization process (reward-guided policy/optimization) so outputs align with world-consistent priors across time.",
-    "Keep the original generator unchanged (plug-and-play with internet-scale pretrained video diffusion models), enabling applicability to dynamic scenes and efficient inference."
+    "Design a 4D (3D space + time) latent reward that measures world-consistency across frames inside the model's latent space rather than in decoded RGB.",
+    "Use the latent reward to guide optimization/alignment of pretrained video diffusion models (reward-based policy/optimization) without adding new generation modules.",
+    "Operate entirely in latent space to support dynamic scenes and avoid repeated VAE decoding, reducing compute and preserving internet-scale pretraining generalization."
   ],
-  "impact": "Provides a practical, generalizable way to improve geometric and temporal coherence in video generation without retraining or architectural hacks—useful for high-fidelity video editing, simulation, and downstream perception tasks.",
+  "impact": "Enables efficient, architecture-preserving refinement of pretrained video diffusion models for better geometric and temporal consistency, making high-quality, world-consistent video generation practical for researchers and production systems.",
   "visual_elements": [
-    "Pipeline diagram: pretrained video diffusion → compute 4D latent reward across frames → reward-guided sampling → world-consistent video",
-    "3-panel before/after visual: same prompt showing frame-to-frame inconsistency vs. improved geometric/temporal consistency",
-    "Illustration of a 4D latent volume (space x time) with arrows showing reward signals enforcing alignment across frames",
-    "Bar/line chart summarizing efficiency benefit (fewer VAE decodes) and qualitative consistency gains"
+    "Pipeline diagram: pretrained video diffusion model -> 4D latent extractor -> latent reward computation -> reward-guided optimization (no new modules).",
+    "Before/after frame sequence illustrating improved geometric consistency across frames (e.g., stable camera/object geometry).",
+    "Bar/line chart comparing consistency metrics and compute cost: RGB-space alignment vs 4D latent reward (show lower cost and higher consistency).",
+    "Conceptual 4D visualization (space-time cube) showing how rewards link spatial geometry across time rather than per-frame RGB errors."
   ],
   "hashtags": [
-    "#VideoGeneration",
-    "#DiffusionModels",
-    "#TemporalConsistency",
+    "#VideoDiffusion",
     "#LatentSpace",
-    "#AIResearch"
+    "#TemporalConsistency",
+    "#GenerativeAI",
+    "#ComputerVision"
   ],
   "paper_id": "2026-03-27-arxiv-vggrpo_towards_world_consistent_video_generation_with_4d_latent_reward",
   "paper_title": "VGGRPO: Towards World-Consistent Video Generation with 4D Latent Reward",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.26599v1"
     }
   ],
-  "generated_at": "2026-03-30T07:18:07.131810"
+  "generated_at": "2026-03-31T07:06:22.635065"
 }
