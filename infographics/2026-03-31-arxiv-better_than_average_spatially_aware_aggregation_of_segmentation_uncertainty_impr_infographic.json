@@ -1,0 +1,35 @@
+{
+  "key_insight": "Aggregating pixel-wise segmentation uncertainty with spatially-aware strategies (instead of simple averaging) produces more informative image-level uncertainty scores that significantly improve downstream tasks such as out-of-distribution and failure detection.",
+  "problem_solved": "Pixel-wise uncertainty maps must be condensed to image-level scores for decisions, but naive aggregation (e.g., mean) discards spatial structure and underperforms at detecting localized errors or OOD cases.",
+  "method": [
+    "Introduce spatially-aware aggregation schemes that weight or pool pixel uncertainties according to segmentation topology (e.g., region size, distance-to-boundary, connected components).",
+    "Compute region- and boundary-aware summary statistics (rather than global mean) to form image-level uncertainty estimates.",
+    "Empirically evaluate these aggregations across segmentation benchmarks and downstream tasks (OoD / failure detection), showing consistent performance gains on ROC/AUPR metrics."
+  ],
+  "impact": "Provides a simple, model-agnostic way to turn dense uncertainty maps into much more effective image-level signals, improving reliability and safety for practitioners deploying segmentation models in critical applications.",
+  "visual_elements": [
+    "Side-by-side panel: raw image + segmentation + pixel-wise uncertainty heatmap vs. aggregated scores (mean) vs. spatially-aware aggregated score — visually showing better localization and decision separation.",
+    "Schematic pipeline: segmentation → pixel uncertainty → spatial-aware aggregator → image-level score → downstream detector (OoD/failure).",
+    "Bar/line charts: performance comparison (AUROC / AUPR) of mean vs. several spatial aggregators across datasets/tasks.",
+    "Illustration of aggregation concepts: icons for connected components, boundary distance maps, and weighted pooling to convey the methods intuitively."
+  ],
+  "hashtags": [
+    "#UncertaintyQuantification",
+    "#Segmentation",
+    "#OODDetection",
+    "#MedicalImaging",
+    "#AITrustworthiness"
+  ],
+  "paper_id": "2026-03-31-arxiv-better_than_average_spatially_aware_aggregation_of_segmentation_uncertainty_impr",
+  "paper_title": "Better than Average: Spatially-Aware Aggregation of Segmentation Uncertainty Improves Downstream Performance",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-03-31",
+  "paper_authors": "Vanessa Emanuela Guarino, Claudia Winklmayr, Jannik Franzen, Josef Lorenz Rumberger, Manuel Pfeuffer",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2603.29941v1"
+    }
+  ],
+  "generated_at": "2026-04-01T07:09:08.629544"
+}

@@ -1,23 +1,23 @@
 {
-  "key_insight": "DreamLite demonstrates that a compact (0.39B) unified diffusion model can run on-device and support both text-to-image generation and text-guided image editing without separate heavy models, achieving a practical tradeoff between capability and efficiency.",
-  "problem_solved": "Large diffusion models enable high-quality generation and editing but are too big and slow for on-device use; existing lightweight on-device models focus mainly on T2I and lack integrated editing support.",
+  "key_insight": "DreamLite demonstrates that a unified diffusion model with only 0.39B parameters can run on-device and perform both text-to-image generation and text-guided image editing with competitive quality and low latency.",
+  "problem_solved": "Large diffusion models (billions of parameters) are costly to run and hard to deploy on-device; existing lightweight on-device diffusion work focuses on generation only and lacks unified support for editing.",
   "method": [
-    "Design a unified, lightweight diffusion backbone (0.39B parameters) that shares weights across generation and editing tasks to reduce redundancy and memory footprint.",
-    "Introduce efficiency techniques (distillation/parameter-sharing, attention and compute optimizations, and low-bit or quantized runtime) to meet on-device latency and resource constraints.",
-    "Train the model with multi-task conditioning (text + optional image/mask references) and joint losses so a single model handles both text-to-image synthesis and text-guided image editing workflows."
+    "Design a compact unified diffusion architecture (0.39B) that shares latent representations and conditioning pathways to handle both T2I generation and text-guided image editing.",
+    "Apply on-device optimizations (parameter-efficient blocks, architecture-level efficiency, and deployment-aware training) to reduce memory, compute and latency while preserving image quality.",
+    "Train with joint objectives and multimodal conditioning so the single model can switch between pure generation and editing tasks using textual prompts plus image-conditioning signals."
   ],
-  "impact": "Enables low-latency, privacy-friendly image generation and editing on edge devices, lowering deployment cost and broadening access to creative AI tools for mobile/embedded applications.",
+  "impact": "Enables practical, private, low-latency image generation and editing directly on consumer devices, lowering deployment cost and expanding real-world use cases for multimodal apps and edge AI.",
   "visual_elements": [
-    "Architecture diagram: compact unified diffusion backbone showing shared weights and task-conditioned inputs (text, image, mask).",
-    "Size vs. capability chart: model size/latency comparison (DreamLite 0.39B) against typical multi-billion-parameter diffusion models.",
-    "Pipeline illustration: two side-by-side flows for (A) text-to-image generation and (B) text-guided image editing (before/after example).",
-    "Performance/efficiency icon set: latency, memory, and on-device deployment badges (e.g., CPU/GPU/mobile compatibility)."
+    "Pipeline diagram comparing unified DreamLite workflow for T2I and text-guided editing (single model, shared latent, different conditioning inputs).",
+    "Bar chart or scatterplot: model size (parameters) vs latency vs image quality, highlighting DreamLite at 0.39B with low latency and competitive quality.",
+    "Before/after image grid showing example text-guided edits (input photo + prompt → edited output) alongside pure T2I generations.",
+    "Icon set illustrating on-device benefits: privacy shield, low-latency stopwatch, small memory chip, and single-model versatility."
   ],
   "hashtags": [
+    "#DreamLite",
     "#OnDeviceAI",
     "#DiffusionModels",
     "#ImageGeneration",
-    "#ImageEditing",
     "#ModelCompression"
   ],
   "paper_id": "2026-03-30-arxiv-dreamlite_a_lightweight_on_device_unified_model_for_image_generation_and_editing",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.28713v1"
     }
   ],
-  "generated_at": "2026-03-31T07:02:53.506536"
+  "generated_at": "2026-04-01T07:12:01.502403"
 }
