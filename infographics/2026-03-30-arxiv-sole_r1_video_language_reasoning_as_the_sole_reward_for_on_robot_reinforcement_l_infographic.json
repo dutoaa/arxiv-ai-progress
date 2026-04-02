@@ -1,24 +1,24 @@
 {
-  "key_insight": "SOLE-R1 shows that a video-language reasoning model that judges task success from egocentric robot video can be used as the sole reward signal for on-robot reinforcement learning, and that temporal/video-aware reasoning mitigates reward hacking from perceptual errors.",
-  "problem_solved": "Current vision-language models used as evaluators for RL break under partial observability and distribution shift, letting policies exploit perceptual mistakes instead of actually solving tasks; SOLE-R1 provides a robust, video-grounded evaluator that enables reliable on-robot learning without instrumented reward sources.",
+  "key_insight": "SOLE-R1 uses a video-language reasoning model that self-observes egocentric robot video to provide the sole reward signal for on-robot RL, yielding robust task learning under partial observability and distribution shift.",
+  "problem_solved": "Current vision-language evaluators used as rewards in RL are brittle: under partial observability and domain shift they produce perceptual errors that policies exploit instead of solving tasks. SOLE-R1 addresses this by grounding reward in temporal video-language reasoning tailored to on-robot data.",
   "method": [
-    "Train a video-language reasoning model (Self-Observing LEarner) to predict task success from temporally-ordered egocentric video + language goal, emphasizing temporal context to avoid single-frame perceptual errors.",
-    "Use the model's video-grounded success scores as the sole reward function for on-robot RL, with calibration and consistency checks to reduce distribution-shift failure modes.",
-    "Deploy and iterate directly on robot hardware so the evaluator and policy co-adapt to real-world sensor noise and viewpoint shifts."
+    "Train/deploy a video-language reasoning model (Self-Observing LEarner) that scores behavior by analyzing egocentric video relative to language task prompts.",
+    "Use the VLM's video-grounded score as the sole reward signal for on-robot reinforcement learning, closing the loop between perception and control.",
+    "Improve robustness via temporal reasoning and on-robot adaptation/calibration so rewards reflect true task success rather than transient perceptual artifacts."
   ],
-  "impact": "Enables scalable, instrument-free on-robot reinforcement learning by replacing hand-designed or instrumented rewards with a single video-language evaluator that is resilient to partial observation and real-world shift, lowering barriers to autonomous robot skill acquisition.",
+  "impact": "Provides a scalable way to supervise on-robot RL with language-based rewards that generalize better under real-world partial observability and distribution shift, reducing reliance on hand-designed rewards or extensive human labeling.",
   "visual_elements": [
-    "Pipeline diagram: egocentric video + language goal -> SOLE-R1 evaluator -> scalar reward -> on-robot RL loop",
-    "Before/after comparison: policy exploiting VLM evaluator (reward hacking) vs. robust SOLE-R1-enabled policy (correct behavior) with short video frames",
-    "Architecture sketch: temporal attention over video frames aligned with language prompt (illustrate temporal reasoning vs single-frame)",
-    "Results chart: success rate on real-robot tasks showing improvement and reduced failure modes under distribution shift"
+    "Pipeline diagram: egocentric video + language instruction → SOLE-R1 video-language reasoner → reward signal → on-robot RL loop",
+    "Before vs After comparison: policy exploiting VLM errors (failure) vs policy trained with SOLE-R1 (robust success) shown as side-by-side task outcomes",
+    "Temporal attention / multi-frame visualization showing how the model uses video context to avoid single-frame perceptual mistakes",
+    "Performance chart: success rate under distribution shift / partial observability comparing baseline evaluators and SOLE-R1"
   ],
   "hashtags": [
     "#Robotics",
     "#VisionLanguage",
     "#ReinforcementLearning",
-    "#VideoReasoning",
-    "#OnRobotLearning"
+    "#OnRobotLearning",
+    "#VideoReasoning"
   ],
   "paper_id": "2026-03-30-arxiv-sole_r1_video_language_reasoning_as_the_sole_reward_for_on_robot_reinforcement_l",
   "paper_title": "SOLE-R1: Video-Language Reasoning as the Sole Reward for On-Robot Reinforcement Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.28730v1"
     }
   ],
-  "generated_at": "2026-04-01T07:12:23.048026"
+  "generated_at": "2026-04-02T07:05:50.958138"
 }

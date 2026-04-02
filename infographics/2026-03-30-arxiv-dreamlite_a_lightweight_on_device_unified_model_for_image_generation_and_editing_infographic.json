@@ -1,24 +1,24 @@
 {
-  "key_insight": "DreamLite demonstrates that a unified diffusion model with only 0.39B parameters can run on-device and perform both text-to-image generation and text-guided image editing with competitive quality and low latency.",
-  "problem_solved": "Large diffusion models (billions of parameters) are costly to run and hard to deploy on-device; existing lightweight on-device diffusion work focuses on generation only and lacks unified support for editing.",
+  "key_insight": "DreamLite delivers a compact (0.39B) unified diffusion model that runs on-device and supports both text-to-image generation and text-guided image editing, achieving strong trade-offs between capability and efficiency. It enables real-time creative workflows previously restricted to multi-billion-parameter cloud models.",
+  "problem_solved": "Large diffusion models are too big and slow for on-device use, and prior lightweight on-device models focus mainly on generation while lacking integrated image-editing support—creating deployment, latency, and privacy barriers.",
   "method": [
-    "Design a compact unified diffusion architecture (0.39B) that shares latent representations and conditioning pathways to handle both T2I generation and text-guided image editing.",
-    "Apply on-device optimizations (parameter-efficient blocks, architecture-level efficiency, and deployment-aware training) to reduce memory, compute and latency while preserving image quality.",
-    "Train with joint objectives and multimodal conditioning so the single model can switch between pure generation and editing tasks using textual prompts plus image-conditioning signals."
+    "Design a parameter-efficient unified architecture that shares core denoising weights for both T2I generation and text-guided image editing to minimize model size.",
+    "Use task-aware training (joint loss for generation and editing), knowledge distillation from large teacher models, and lightweight attention/conditioning modules to retain capability.",
+    "Optimize for edge deployment via model quantization, pruning-friendly blocks, and runtime-friendly operators to reduce latency and memory footprint."
   ],
-  "impact": "Enables practical, private, low-latency image generation and editing directly on consumer devices, lowering deployment cost and expanding real-world use cases for multimodal apps and edge AI.",
+  "impact": "Makes high-quality image generation and editing feasible on consumer devices, reducing dependence on cloud services and enabling faster, private, and low-cost creative applications for ML practitioners and product teams.",
   "visual_elements": [
-    "Pipeline diagram comparing unified DreamLite workflow for T2I and text-guided editing (single model, shared latent, different conditioning inputs).",
-    "Bar chart or scatterplot: model size (parameters) vs latency vs image quality, highlighting DreamLite at 0.39B with low latency and competitive quality.",
-    "Before/after image grid showing example text-guided edits (input photo + prompt → edited output) alongside pure T2I generations.",
-    "Icon set illustrating on-device benefits: privacy shield, low-latency stopwatch, small memory chip, and single-model versatility."
+    "Bar chart comparing parameter count & latency: multi-billion models vs DreamLite (0.39B) vs baseline on-device models",
+    "Pipeline diagram showing unified model with shared encoder/denoiser and branching inputs for 'Text-to-Image' and 'Text-Guided Edit'",
+    "Before/after image-edit examples (single image with text prompt → edited result) alongside a generated sample grid",
+    "Device deployment iconography (phone/tablet) with latency & memory footprint callouts"
   ],
   "hashtags": [
-    "#DreamLite",
-    "#OnDeviceAI",
     "#DiffusionModels",
+    "#OnDeviceAI",
     "#ImageGeneration",
-    "#ModelCompression"
+    "#ModelCompression",
+    "#DreamLite"
   ],
   "paper_id": "2026-03-30-arxiv-dreamlite_a_lightweight_on_device_unified_model_for_image_generation_and_editing",
   "paper_title": "DreamLite: A Lightweight On-Device Unified Model for Image Generation and Editing",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.28713v1"
     }
   ],
-  "generated_at": "2026-04-01T07:12:01.502403"
+  "generated_at": "2026-04-02T07:05:08.678105"
 }

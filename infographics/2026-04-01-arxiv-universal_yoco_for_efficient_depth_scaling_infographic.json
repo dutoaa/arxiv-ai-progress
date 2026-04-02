@@ -1,0 +1,35 @@
+{
+  "key_insight": "Universal YOCO (YOCO-U) fuses the YOCO decoder-decoder layout with recursive computation to enable efficient test-time depth scaling — significantly reducing KV-cache growth and per-step overhead while preserving (or improving) reasoning capacity.",
+  "problem_solved": "Standard Transformer inference loops incur high computational overhead and a KV cache that grows with model depth, making test-time depth scaling expensive or infeasible for improving reasoning and agentic behavior.",
+  "method": [
+    "Integrate the YOCO decoder-decoder architecture with a recursive inference routine to reuse computation and model state across deeper virtual layers.",
+    "Design the recursion to avoid duplicating KV cache entries and to minimize per-step loop overhead, enabling dynamic adjustment of effective depth at test time.",
+    "Provide a lightweight control mechanism to scale depth at inference (more steps for harder prompts, fewer for simple ones) without linear memory growth."
+  ],
+  "impact": "YOCO-U lets practitioners cost-effectively scale inference depth to boost reasoning and agentic performance with far lower memory and compute overhead, making adaptive test-time scaling practical in production.",
+  "visual_elements": [
+    "Architecture diagram comparing (a) standard Transformer with growing KV cache vs (b) YOCO-U showing recursive reuse of KV/state.",
+    "Flowchart of recursive inference showing a single parameter block being reused across multiple virtual depth steps.",
+    "Chart of memory (KV cache) and latency vs. effective depth comparing standard looping, naive depth scaling, and YOCO-U.",
+    "Trade-off plot: inference compute vs. reasoning performance (or task accuracy) showing gains from test-time depth scaling with YOCO-U."
+  ],
+  "hashtags": [
+    "#UniversalYOCO",
+    "#DepthScaling",
+    "#EfficientInference",
+    "#LLMs",
+    "#ModelOptimization"
+  ],
+  "paper_id": "2026-04-01-arxiv-universal_yoco_for_efficient_depth_scaling",
+  "paper_title": "Universal YOCO for Efficient Depth Scaling",
+  "paper_category": "Model",
+  "paper_date": "2026-04-01",
+  "paper_authors": "Yutao Sun, Li Dong, Tianzhu Ye, Shaohan Huang, Jianyong Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.01220v1"
+    }
+  ],
+  "generated_at": "2026-04-02T07:03:57.752688"
+}

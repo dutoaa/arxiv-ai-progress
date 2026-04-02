@@ -1,0 +1,35 @@
+{
+  "key_insight": "A large language model can substantially improve its own code-generation performance by fine-tuning on its raw sampled outputs (no external teacher, verifier, or reinforcement learning required). Simple self-distillation (SSD) raises pass@1 significantly (e.g., Qwen3-30B-Instruct from 42.4% to 55.3%).",
+  "problem_solved": "How to improve LLM code generation without needing additional labeled data, a stronger teacher model, program verifiers, or RL-based pipelines—reducing engineering and compute complexity for model improvement.",
+  "method": [
+    "Generate multiple solution samples from the model using specific temperature and truncation settings to increase diversity.",
+    "Aggregate the raw sampled outputs (no external verification or teacher labels) and create a supervised fine-tuning dataset from them.",
+    "Fine-tune the same model on this self-generated dataset (simple self-distillation) to yield improved correctness, particularly on harder problems."
+  ],
+  "impact": "SSD offers a low-complexity, low-overhead recipe to boost code-generation accuracy using only the model itself, enabling practitioners to get large performance gains without extra annotation, verifiers, or RL infrastructure.",
+  "visual_elements": [
+    "Before/after bar chart: pass@1 (%) for the base model vs SSD-fine-tuned model (e.g., 42.4% → 55.3%).",
+    "Process diagram: loop showing 'model samples code' → 'assemble samples' → 'supervised fine-tune same model' → 'improved model'.",
+    "Difficulty breakdown: stacked bars or heatmap showing larger gains on harder problems.",
+    "Icon set: 'no teacher', 'no verifier', 'no RL' with cross-out symbols to emphasize simplicity."
+  ],
+  "hashtags": [
+    "#SelfDistillation",
+    "#CodeGeneration",
+    "#LLMs",
+    "#FineTuning",
+    "#AIResearch"
+  ],
+  "paper_id": "2026-04-01-arxiv-embarrassingly_simple_self_distillation_improves_code_generation",
+  "paper_title": "Embarrassingly Simple Self-Distillation Improves Code Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-04-01",
+  "paper_authors": "Ruixiang Zhang, Richard He Bai, Huangjie Zheng, Navdeep Jaitly, Ronan Collobert",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.01193v1"
+    }
+  ],
+  "generated_at": "2026-04-02T07:03:00.671909"
+}
