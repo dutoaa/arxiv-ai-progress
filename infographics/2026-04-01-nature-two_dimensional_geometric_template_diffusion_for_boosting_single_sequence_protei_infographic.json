@@ -1,24 +1,24 @@
 {
-  "key_insight": "TDFold reformulates 3D protein structure prediction as a 2D image‑like diffusion on geometric templates, enabling more accurate, faster and more efficient single‑sequence folding than leading models.",
-  "problem_solved": "Accurately predicting 3D protein structures from a single amino‑acid sequence without relying on multiple sequence alignments (MSAs) or heavy compute; reducing inference time and resource requirements while improving prediction quality.",
+  "key_insight": "TDFold reframes 3D protein structure prediction as a 2D image‑like diffusion problem (geometric template diffusion), enabling more accurate and much faster single‑sequence predictions than leading 3D and MSA‑dependent models.",
+  "problem_solved": "Addresses the challenge of accurate, efficient protein structure prediction from a single sequence without heavy reliance on multiple-sequence alignments or computationally expensive 3D diffusion pipelines.",
   "method": [
-    "Encode sequence-derived pairwise geometry (distances/angles) as 2D image‑like geometric templates.",
-    "Apply a 2D geometric template diffusion model that denoises and iteratively refines these pairwise maps.",
-    "Reconstruct 3D coordinates from the refined 2D geometry using a lightweight pipeline optimized for single‑sequence inputs, yielding faster inference and improved accuracy."
+    "Encode 3D geometric information as 2D image-like geometric templates and perform diffusion-denoising in this 2D representation.",
+    "Decode the denoised 2D templates to reconstruct physically consistent 3D backbones, using geometry-aware losses and architectural choices to preserve structural constraints.",
+    "Optimize inference for speed and efficiency, yielding competitive accuracy while reducing compute compared to MSA-based and 3D diffusion approaches."
   ],
-  "impact": "Enables accurate, high‑throughput protein structure prediction in resource‑constrained settings and simplifies integration into ML-driven design and screening pipelines by removing MSA dependence and cutting compute cost.",
+  "impact": "Provides AI/ML practitioners a computationally efficient, high-accuracy alternative for single-sequence protein prediction, enabling faster model iteration, broader deployment, and practical use in design and screening workflows.",
   "visual_elements": [
-    "Pipeline diagram: Sequence → 2D geometric template (distance/angle map) → 2D diffusion denoising → 3D coordinate reconstruction",
-    "Progression heatmaps: before/after denoising of pairwise geometry (showing noise removal over diffusion steps)",
-    "Bar chart: accuracy and inference time comparison vs. leading models (e.g., AlphaFold2, other single‑sequence methods)",
-    "Icon set: single‑sequence input, diffusion process (noise → clean), lightning bolt for speed/efficiency"
+    "Side-by-side pipeline diagram: traditional 3D diffusion/MSA-based workflow vs TDFold 2D geometric template diffusion",
+    "Illustration showing 3D protein -> 2D geometric template -> diffusion denoising -> 3D reconstruction",
+    "Benchmark chart comparing accuracy (e.g., TM-score) and inference time across TDFold and baseline models",
+    "Iconic workflow strip: input sequence → single-sequence encoder → 2D diffusion → 3D structure output"
   ],
   "hashtags": [
     "#ProteinFolding",
     "#DiffusionModels",
-    "#SingleSequence",
     "#ComputationalBiology",
-    "#AIforScience"
+    "#AIforScience",
+    "#SingleSequencePrediction"
   ],
   "paper_id": "2026-04-01-nature-two_dimensional_geometric_template_diffusion_for_boosting_single_sequence_protei",
   "paper_title": "Two-dimensional geometric template diffusion for boosting single-sequence protein structure prediction",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01210-2"
     }
   ],
-  "generated_at": "2026-04-02T07:04:33.054443"
+  "generated_at": "2026-04-03T07:00:40.743117"
 }

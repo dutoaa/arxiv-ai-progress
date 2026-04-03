@@ -1,0 +1,35 @@
+{
+  "key_insight": "Initializing new vocabulary tokens as the global mean collapses them into a low-rank/degenerate subspace; grounding each new token with distinct semantic/item signals produces diverse, well-separated embeddings that speed learning and improve generative recommendation quality.",
+  "problem_solved": "Addresses collapsed or indistinguishable embeddings for newly added tokens in LMs (e.g., Semantic-ID tokens) caused by mean initialization, which forces heavy fine-tuning, hurts token distinctiveness, and degrades generative recommendation performance.",
+  "method": [
+    "Spectral and geometric diagnostics to diagnose collapse of mean-initialized new-token embeddings (eigenvalue/spectrum analysis and embedding geometry visualization).",
+    "Introduce grounded token initialization: initialize each new token from external signals (semantic/item features or context-based prototypes) rather than the vocabulary mean to ensure distinct directions and scales.",
+    "Empirical validation demonstrating faster convergence, increased embedding diversity, and improved downstream generative recommendation metrics compared to mean initialization."
+  ],
+  "impact": "A simple, low-cost initialization change that improves representation quality, training stability, and recommendation performance for LMs extended with domain-specific tokens — immediately applicable for practitioners building generative recommender systems or other token-extended models.",
+  "visual_elements": [
+    "Spectrum (eigenvalue) plot comparing mean-init vs grounded-init showing rank collapse vs spread",
+    "2D embedding scatter (t-SNE/UMAP) with mean-init tokens clustered vs grounded-init tokens well-separated",
+    "Training curves comparing convergence speed and downstream metric (e.g., recommendation quality) for both initializations",
+    "Pipeline diagram: new-token grounding sources (item features / context prototypes) → initialization → fine-tuning → generative recommendation"
+  ],
+  "hashtags": [
+    "#LanguageModels",
+    "#RepresentationLearning",
+    "#RecommenderSystems",
+    "#TokenInitialization",
+    "#GenerativeAI"
+  ],
+  "paper_id": "2026-04-02-arxiv-grounded_token_initialization_for_new_vocabulary_in_lms_for_generative_recommend",
+  "paper_title": "Grounded Token Initialization for New Vocabulary in LMs for Generative Recommendation",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-04-02",
+  "paper_authors": "Daiwei Chen, Zhoutong Fu, Chengming Jiang, Haichao Zhang, Ran Zhou",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.02324v1"
+    }
+  ],
+  "generated_at": "2026-04-03T06:59:21.652441"
+}

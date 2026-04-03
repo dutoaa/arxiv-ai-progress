@@ -1,0 +1,35 @@
+{
+  "key_insight": "Pretrained Vision Transformers can be augmented with a lightweight steering mechanism to redirect their attention toward user-specified or less-salient concepts while retaining their general-purpose visual features, enabling controllable visual representations without full model retraining.",
+  "problem_solved": "Pretrained visual features typically focus on the most salient cues and lack a way to be directed toward less-prominent concepts; multimodal prompting shifts representations toward language and can lose visual fidelity, leaving a gap for controllable, visually faithful feature steering.",
+  "method": [
+    "Add a lightweight steering module that conditions pretrained ViT features on guidance (textual prompts or visual exemplars) to reweight or modulate attention toward target concepts.",
+    "Train with objectives that balance amplifying target-concept responses and preserving the original, general-purpose feature space (e.g., contrastive/reconstruction regularization).",
+    "Apply steering at the feature level with minimal fine-tuning so the same backbone can be reused for multiple guided tasks (retrieval, fine-grained classification, segmentation)."
+  ],
+  "impact": "Provides practitioners a practical way to control off-the-shelf visual representations for task- or user-specific needs without expensive full-model fine-tuning, improving performance and interpretability on fine-grained or low-saliency tasks.",
+  "visual_elements": [
+    "Pipeline diagram: pretrained ViT + steering module + guidance (text/image) → steered features → downstream task.",
+    "Before/after saliency or attention maps showing shift of focus from dominant cues to steered concepts.",
+    "Feature-space visualization (t-SNE/UMAP) comparing baseline vs. steered embeddings to show improved separation of target concepts.",
+    "Bar/line chart comparing downstream task metrics (retrieval, classification, segmentation) for baseline vs. steered representations."
+  ],
+  "hashtags": [
+    "#VisionTransformers",
+    "#RepresentationLearning",
+    "#SteerableAI",
+    "#Multimodal",
+    "#FeatureControl"
+  ],
+  "paper_id": "2026-04-02-arxiv-steerable_visual_representations",
+  "paper_title": "Steerable Visual Representations",
+  "paper_category": "Model",
+  "paper_date": "2026-04-02",
+  "paper_authors": "Jona Ruthardt, Manu Gaur, Deva Ramanan, Makarand Tapaswi, Yuki M. Asano",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.02327v1"
+    }
+  ],
+  "generated_at": "2026-04-03T06:59:41.585602"
+}

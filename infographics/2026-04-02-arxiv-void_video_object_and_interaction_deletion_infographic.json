@@ -1,0 +1,35 @@
+{
+  "key_insight": "VOID enables physically-plausible video object removal by explicitly modeling and correcting object–object and object–scene interactions (e.g., collisions), not just pixel-level appearance, producing coherent post-removal dynamics across frames.",
+  "problem_solved": "Existing video object removal methods can inpaint backgrounds and fix appearance artifacts but fail when the removed object has caused dynamic or physical interactions (collisions, motion perturbations, occlusion changes), yielding implausible or inconsistent results.",
+  "method": [
+    "Generate interaction-rich training data (synthetic or augmented) that includes collisions, occlusions, and secondary motion to teach the model how objects alter scene dynamics.",
+    "Learn an interaction-aware removal pipeline that predicts how the scene would evolve without the target object (motion/dynamics & occlusions) and condition an inpainting module on those predictions to produce physically consistent content.",
+    "Enforce temporal consistency and appearance refinement (shadow/reflection correction) so the completed frames remain coherent across time and visually plausible."
+  ],
+  "impact": "By restoring both appearance and interaction-consistent dynamics, VOID improves realism for video editing, VFX, and training-data cleaning/augmentation, and reduces artifacts that can mislead downstream video understanding systems.",
+  "visual_elements": [
+    "Before/after frame triplet showing (original with object) → (naive inpainting failure) → (VOID plausible result)",
+    "Pipeline diagram: interaction-rich data generation → dynamics/occlusion prediction → physics-aware inpainting → temporal refinement",
+    "Illustration of a collision scenario (sequence of frames) highlighting corrected secondary motions and removed impact artifacts",
+    "Quantitative bar chart comparing temporal consistency and perceptual quality metrics between VOID and baseline methods"
+  ],
+  "hashtags": [
+    "#VideoInpainting",
+    "#ComputerVision",
+    "#PhysicsAwareAI",
+    "#VideoEditing",
+    "#DeepLearning"
+  ],
+  "paper_id": "2026-04-02-arxiv-void_video_object_and_interaction_deletion",
+  "paper_title": "VOID: Video Object and Interaction Deletion",
+  "paper_category": "Model",
+  "paper_date": "2026-04-02",
+  "paper_authors": "Saman Motamed, William Harvey, Benjamin Klein, Luc Van Gool, Zhuoning Yuan",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.02296v1"
+    }
+  ],
+  "generated_at": "2026-04-03T06:58:13.969009"
+}
