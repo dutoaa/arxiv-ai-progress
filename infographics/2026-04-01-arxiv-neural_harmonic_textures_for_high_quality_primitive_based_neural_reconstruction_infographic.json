@@ -1,17 +1,17 @@
 {
-  "key_insight": "Augment primitive-based 3D representations (e.g., Gaussian splats) with neural harmonic textures that attach high-frequency latent features to a virtual scaffold, enabling faithful reconstruction of fine detail while preserving the scalability and flexibility of primitives.",
-  "problem_solved": "Primitive-based reconstructions struggle to represent high-frequency surface detail because individual primitives have limited expressivity; this work addresses how to encode and render fine textures from a primitive-centric representation.",
+  "key_insight": "Neural Harmonic Textures attach compact harmonic encodings to primitives (e.g., Gaussians) so each primitive can represent high-frequency appearance, enabling high-quality novel-view synthesis while retaining the scalability of primitive-based reconstructions.",
+  "problem_solved": "Primitive-based representations (like 3D Gaussian Splatting) are efficient and scalable but lack expressivity per primitive, making it hard to capture fine high-frequency texture and detail.",
   "method": [
-    "Anchor learnable latent feature vectors to a virtual scaffold tied to the primitive representation, providing localized, continuous feature support.",
-    "Use a harmonic (frequency-aware) neural texture encoding to represent high-frequency appearance information compactly and robustly.",
-    "Integrate the neural harmonic textures with primitive-based rendering (e.g., 3D Gaussian splatting) and jointly optimize geometry, feature anchors, and appearance for high-quality novel-view synthesis."
+    "Anchor latent feature vectors to a virtual multi-scale coordinate system around primitives so each primitive gains a localized feature field.",
+    "Use harmonic basis / neural decoding to synthesize high-frequency texture detail from those anchored latents, improving expressivity without increasing primitive count.",
+    "Integrate the textures into the primitive rendering/composition pipeline to produce higher-fidelity novel views while preserving scalability."
   ],
-  "impact": "Enables practitioners to get the scalability and efficiency of primitive-based neural reconstructions while recovering much finer visual detail, improving novel-view quality for large scenes and downstream tasks like relighting or editing.",
+  "impact": "Delivers significantly better visual detail for primitive-based reconstruction pipelines with modest overhead, making high-quality novel-view synthesis more practical for large scenes and production workflows.",
   "visual_elements": [
-    "Pipeline diagram: primitives (Gaussians) → anchored latent feature scaffold → harmonic texture encoding → rendered novel view",
-    "Before/after comparison of novel-view renders showing loss of detail vs. recovered high-frequency textures",
-    "Frequency-domain chart illustrating increased high-frequency energy captured by neural harmonic textures",
-    "Illustration of a primitive with overlaid texture anchors to show how features attach to the representation"
+    "Before/after novel-view render comparisons (primitive-only vs. with Neural Harmonic Textures)",
+    "Schematic showing a primitive (Gaussian) with anchored latent vectors and a harmonic decoder producing detailed texture",
+    "Frequency-spectrum chart illustrating recovered high-frequency content",
+    "Pipeline diagram: input photos → primitive optimization → attach harmonic textures → composite render"
   ],
   "hashtags": [
     "#NeuralRendering",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.01204v1"
     }
   ],
-  "generated_at": "2026-04-02T07:03:26.361299"
+  "generated_at": "2026-04-04T06:51:14.167560"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Current visual grounding benchmarks over-reward literal category matching; RSC shows that when targets must be inferred from roles, intentions, and relations, models fail — so we need benchmarks that test scenario comprehension beyond referring expressions.",
-  "problem_solved": "Addresses the gap in visual grounding evaluation by introducing scenario-based queries that require inferring targets from roles, intentions and relational context rather than from explicit object names or salient categories.",
+  "key_insight": "Visually grounding objects by their roles, intentions, and relations (scenario comprehension) is a fundamentally harder and complementary task to standard referring-expression grounding; the paper introduces RSC to expose and quantify this gap.",
+  "problem_solved": "Existing benchmarks let models succeed by matching named categories; this work targets the challenge of identifying targets that must be inferred from roles, intentions and relational context rather than explicit naming.",
   "method": [
-    "Introduce the Referring Scenario Comprehension (RSC) benchmark: images paired with queries that reference roles, intentions, and inter-object relations instead of literal names.",
-    "Collect and annotate dataset splits with role/intention labels, relation types, and grounding masks; define evaluation protocols and metrics tailored to scenario inference.",
-    "Evaluate existing state-of-the-art grounding models as baselines, quantify performance gaps, and analyze failure modes to highlight need for improved reasoning."
+    "Introduce Referring Scenario Comprehension (RSC), a benchmark of images paired with queries that require role- and relation-based inference rather than literal reference.",
+    "Annotate scenario-style queries emphasizing roles, intentions and relations, and define an evaluation protocol that contrasts RSC performance with standard referring-expression tasks.",
+    "Evaluate existing visual grounding models on RSC, analyze common failure modes, and highlight the need for better relational and pragmatic reasoning."
   ],
-  "impact": "RSC drives development of models that reason about agents, goals and relations in scenes, improving robustness for downstream tasks (e.g., human–robot interaction, assistive vision, surveillance) where targets aren't explicitly named.",
+  "impact": "RSC reveals a gap in current vision–language models and provides a focused benchmark to drive progress on relational, role-aware, and pragmatic grounding — essential for real-world scene understanding and human-like multimodal reasoning.",
   "visual_elements": [
-    "Annotated example image: scenario query (e.g., 'the person handing an object') with ground-truth mask and model prediction overlay",
-    "Bar chart comparing baseline model accuracies on standard referring benchmarks vs. RSC to show performance drop",
-    "Schema diagram of a scenario graph linking agents, roles, intentions and objects to illustrate required reasoning",
-    "Dataset composition infographic: distribution of query types (role-based, intent-based, relational) and difficulty tiers"
+    "Example image with an overlaid scenario query (e.g., “the person about to hand over an item”) and the correct target bounding box highlighted.",
+    "Bar chart comparing model accuracy on standard referring-expression benchmarks vs RSC to show the performance drop.",
+    "Pipeline diagram illustrating scenario comprehension: input image + role/intention query → relational reasoning module → grounded output.",
+    "Failure-case montage showing common errors (category-match shortcuts, wrong-role selection, relation confusion) with short captions."
   ],
   "hashtags": [
     "#VisualGrounding",
+    "#VisionLanguage",
     "#SceneUnderstanding",
-    "#Benchmark",
-    "#MultimodalAI",
-    "#RSCBenchmark"
+    "#Benchmarks",
+    "#MultimodalAI"
   ],
   "paper_id": "2026-04-02-arxiv-beyond_referring_expressions_scenario_comprehension_visual_grounding",
   "paper_title": "Beyond Referring Expressions: Scenario Comprehension Visual Grounding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02323v1"
     }
   ],
-  "generated_at": "2026-04-03T06:59:07.134238"
+  "generated_at": "2026-04-04T06:49:27.867133"
 }

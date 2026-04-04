@@ -1,24 +1,24 @@
 {
-  "key_insight": "Training 3D anomaly detectors with only normal samples plus a few labeled anomalous examples (open-set supervised setting) enables reliable detection of previously unseen defects. The paper provides a high-quality industrial 3D dataset and a generalisable framework tuned for this practical scenario.",
-  "problem_solved": "Bridges the gap between purely self-supervised 3D anomaly detection and real manufacturing needs by enabling models to learn from limited anomalous examples while still identifying unknown defects at test time.",
+  "key_insight": "Training 3D anomaly detectors with normal samples plus a small set of known defects (open-set supervised learning) substantially improves detection of previously unseen industrial defects; the paper also provides Open-Industry, a high-quality industrial 3D dataset to benchmark this setting.",
+  "problem_solved": "Bridges the gap between self-supervised 3D anomaly detection (which assumes no anomalous samples) and real manufacturing practice by enabling models trained with limited known anomalies to generalize to unknown defects at test time.",
   "method": [
-    "Collect and release Open-Industry: a curated industrial 3D point-cloud dataset containing normal parts, a small set of known defect types, and held-out unknown defects for evaluation.",
-    "Train a point-cloud anomaly detector in an open-set supervised regime: use normals + few known anomalies with specialized loss/augmentation to encourage separation of anomalous patterns while preserving generalisation to unseen defects.",
-    "Evaluate generalisability with protocols that measure detection of held-out (unknown) defect types and compare robustness across different defect scarcity settings."
+    "Introduce Open-Industry: a curated, high-precision industrial 3D point-cloud dataset containing normal parts and a small, representative set of labeled defects.",
+    "Formulate an open-set supervised training paradigm that uses normal samples plus a few known anomaly examples to learn discriminative 3D features.",
+    "Design generalisation-oriented objectives and 3D representation strategies (e.g., feature regularisation / contrastive-style separation) to improve detection of unseen defects at test time."
   ],
-  "impact": "Provides practitioners a practical paradigm and dataset to build defect-detection systems that work in real factories where collecting a few defective samples is feasible—reducing reliance on costly anomaly simulation or exhaustive labeling while improving safety and quality control.",
+  "impact": "Provides a practical, deployable approach for manufacturing anomaly detection when a limited number of defective examples are available and supplies a standardized dataset to accelerate research and benchmarking in open-set 3D anomaly detection.",
   "visual_elements": [
-    "Side-by-side 3D point-cloud examples: normal vs known anomaly vs unknown anomaly (color-coded)",
-    "Pipeline diagram: dataset → open-set training (normals + few anomalies) → test-time unknown-defect detection",
-    "Embedding visualization (e.g., t-SNE) showing separation of normal, known-anomaly, and unknown-anomaly clusters",
-    "Bar chart comparing detection rates for known vs unknown defects across methods or data-scarcity regimes"
+    "Pipeline diagram: data (normal + few known defects) → training strategy → test-time detection of unknown anomalies",
+    "Side-by-side point-cloud examples: normal vs known defect vs unknown defect (with anomaly masks/highlighted regions)",
+    "Performance chart: ROC/PR curves or bar plot comparing open-set supervised vs self-supervised baselines on the Open-Industry dataset",
+    "Feature-space visualization (e.g., t-SNE/UMAP): separation of normal, known anomalies, and clustering of unknown anomaly detections"
   ],
   "hashtags": [
     "#3DAnomalyDetection",
     "#OpenSet",
     "#IndustrialAI",
-    "#PointCloud",
-    "#DatasetRelease"
+    "#PointClouds",
+    "#FewShotLearning"
   ],
   "paper_id": "2026-04-01-arxiv-open_set_supervised_3d_anomaly_detection_an_industrial_dataset_and_a_generalisab",
   "paper_title": "Open-Set Supervised 3D Anomaly Detection: An Industrial Dataset and a Generalisable Framework for Unknown Defects",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.01171v1"
     }
   ],
-  "generated_at": "2026-04-02T07:02:48.825778"
+  "generated_at": "2026-04-04T06:51:06.798785"
 }

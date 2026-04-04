@@ -1,24 +1,24 @@
 {
-  "key_insight": "No single generative model or sampling strategy consistently produces the most diverse set of valid answers across prompts; training a lightweight router to choose which model or sampling policy to use per input yields substantially better coverage of unique high-quality responses.",
-  "problem_solved": "How to comprehensively elicit a diverse, high-quality set of valid answers for prompts that admit many correct responses, when relying on a single model or uniform sampling wastes budget and misses unique answers.",
+  "key_insight": "There is no single best model for producing diverse valid answers; training a learned \"router\" to pick among models/sampling strategies per prompt yields far better coverage of unique high-quality responses.",
+  "problem_solved": "How to comprehensively generate the full range of valid answers for prompts that admit many correct responses, avoiding redundancy and missed valid options from single-model sampling.",
   "method": [
-    "Define a metric called diversity coverage: total quality of each unique answer in a predicted set relative to an oracle set of the same size.",
-    "Train a learned router that, given an input, selects which base model and/or sampling policy should generate samples for that prompt to maximize diversity coverage under a fixed sampling budget.",
-    "Optimize allocation using validation feedback (reward signals or quality estimates) to route inputs to the model/policy mix that produces complementary, non-redundant answers."
+    "Introduce a metric called diversity coverage that scores the total quality of unique answers in a predicted set relative to the optimal set of the same size.",
+    "Train a lightweight router that, given a prompt, selects among candidate models or sampling strategies to maximize diversity coverage rather than per-sample likelihood.",
+    "Combine outputs across routed models, deduplicate by answer identity, and optimize routing using feedback derived from answer quality scores."
   ],
-  "impact": "Practitioners can get broader, higher-quality coverage of valid outputs without increasing total sampling cost by routing prompts to specialized models/policies—useful for creative generation, pluralistic QA, data curation, and systems that must satisfy diverse user intents.",
+  "impact": "Practitioners can obtain more comprehensive and non-redundant collections of valid outputs for open-ended tasks (e.g., creative generation, multi-answer QA, data augmentation) by using model routing instead of relying on a single generator or sampling heuristic.",
   "visual_elements": [
-    "Architecture diagram: prompt → learned router → multiple models/policies → aggregated unique answers",
-    "Line/bar chart: diversity coverage vs. number of samples comparing single-model, ensemble (uniform), and routed allocation",
-    "Example panel: same prompt with sets of answers from single model (redundant) vs routed approach (diverse, high-quality uniques)",
-    "Training flowchart: computing diversity coverage on validation, updating router, and re-allocating sampling budget"
+    "Schematic: prompt → learned router → multiple models/samplers → merged, deduplicated answer set",
+    "Bar chart: diversity coverage comparison (single-model vs. router) across answer-set sizes",
+    "Annotated example: side-by-side answer lists showing redundancy from one model vs. diverse unique answers from routed ensemble with quality scores",
+    "Flow diagram of metric: how diversity coverage is computed (unique answers, quality scoring, normalization vs. optimal set)"
   ],
   "hashtags": [
-    "#DiversityCoverage",
+    "#DiversityInAI",
     "#ModelRouting",
-    "#GenerativeAI",
-    "#MultiModel",
-    "#SamplingStrategies"
+    "#EnsembleLearning",
+    "#OpenEndedGeneration",
+    "#DataAugmentation"
   ],
   "paper_id": "2026-04-02-arxiv-no_single_best_model_for_diversity_learning_a_router_for_sample_diversity",
   "paper_title": "No Single Best Model for Diversity: Learning a Router for Sample Diversity",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02319v1"
     }
   ],
-  "generated_at": "2026-04-03T06:58:39.058437"
+  "generated_at": "2026-04-04T06:49:07.413647"
 }

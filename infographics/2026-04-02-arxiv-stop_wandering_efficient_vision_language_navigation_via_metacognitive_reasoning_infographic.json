@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce a lightweight metacognitive layer for training-free, foundation-model VLN agents that monitors exploration, diagnoses failures, and adaptively changes strategy—dramatically reducing wandering and redundant revisits without additional model training.",
-  "problem_solved": "Addresses inefficient exploration in vision-language navigation caused by greedy frontier selection and passive spatial memory, which leads to local oscillation and redundant revisiting.",
+  "key_insight": "Equipping training-free VLN agents with a lightweight metacognitive layer that monitors progress, diagnoses failure modes (e.g., oscillation, redundancy), and adapts exploration strategy significantly reduces wandering and improves navigation efficiency.",
+  "problem_solved": "Existing foundation-model powered VLN agents use greedy frontier selection and passive spatial memory, causing local oscillation and redundant revisits because they lack self-monitoring and adaptive decision-making.",
   "method": [
-    "Metacognitive monitoring: compute online metrics (progress, confidence, revisit counts) to detect failures or stagnation during exploration.",
-    "Adaptive strategy selection: dynamically re-rank/frontier-score candidate actions and switch exploration behaviors (exploit vs. explore) based on diagnostic signals—no extra model training required.",
-    "Active spatial memory: maintain and update a memory that penalizes oscillation and prioritizes informative, novel frontiers to guide more efficient paths."
+    "Add a metacognitive module that continuously evaluates exploration progress and detects failure patterns (stuck, oscillation, low information gain) using promptable foundation models and simple heuristics.",
+    "Use diagnosis signals to adapt frontier scoring, re-prioritize targets, and update an active spatial memory (marking visited/low-value regions) so the agent avoids revisits and oscillatory loops.",
+    "Integrate the metacognitive loop with existing training-free controllers/planners for on-the-fly re-planning—no extra end-to-end training required."
   ],
-  "impact": "Makes foundation-model VLN agents far more sample- and time-efficient by reducing wasted motion and improving success rates—provides a modular, training-free upgrade that practitioners can plug into existing systems.",
+  "impact": "Provides a practical, training-free way to make VLN agents more efficient and robust, reducing wasted steps and improving real-world deployability of embodied agents. Practitioners can integrate metacognitive checks to boost performance without costly retraining.",
   "visual_elements": [
-    "Pipeline diagram showing perception → metacognitive monitor → diagnosis → adaptive planner loop",
-    "Before/after trajectory maps: one showing oscillation and revisits, the other showing streamlined exploration",
-    "Bar chart comparing metrics (steps per task, success rate, revisits) for baseline vs. metacognitive agent",
-    "Icon set: brain/monitor (metacognition), map with pins (spatial memory), toggle/gear (strategy switching)"
+    "Agent control loop diagram showing perception → metacognitive monitor → diagnosis → adaptive planner → action",
+    "Before vs after trajectories on a floorplan illustrating wandering/oscillation vs focused exploration",
+    "Bar chart comparing metrics (path length, revisits, success rate) between baseline and metacognitive agent",
+    "Icons representing key components: brain/monitor (metacognition), map (spatial memory), compass (planning)"
   ],
   "hashtags": [
     "#VisionLanguageNavigation",
     "#Metacognition",
     "#EmbodiedAI",
     "#FoundationModels",
-    "#Robotics"
+    "#EfficientExploration"
   ],
   "paper_id": "2026-04-02-arxiv-stop_wandering_efficient_vision_language_navigation_via_metacognitive_reasoning",
   "paper_title": "Stop Wandering: Efficient Vision-Language Navigation via Metacognitive Reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02318v1"
     }
   ],
-  "generated_at": "2026-04-03T06:58:25.639730"
+  "generated_at": "2026-04-04T06:48:59.205665"
 }

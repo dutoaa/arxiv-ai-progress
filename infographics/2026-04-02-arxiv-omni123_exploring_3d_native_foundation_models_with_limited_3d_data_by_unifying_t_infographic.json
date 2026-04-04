@@ -1,24 +1,24 @@
 {
-  "key_insight": "Omni123 unifies text-to-2D and text-to-3D generation so a single 3D-native foundation model can learn strong, geometry-consistent 3D synthesis by leveraging abundant 2D data together with limited 3D assets.",
-  "problem_solved": "Addresses the scarcity of high-quality 3D training data and the geometric inconsistency of prior pipelines that rely on editing in 2D then lifting to 3D via optimization.",
+  "key_insight": "Omni123 enables a 3D-native generative foundation model by jointly leveraging abundant 2D data and scarce 3D assets, unifying text-to-2D and text-to-3D generation so 3D outputs remain geometrically consistent despite limited 3D supervision.",
+  "problem_solved": "Bridges the data gap between plentiful 2D imagery and scarce high-quality 3D assets, avoiding indirect 2D-edit-then-lift pipelines that produce inconsistent 3D geometry.",
   "method": [
-    "Train a shared multimodal backbone with separate 2D and 3D heads so text supervision can improve both image and 3D generation.",
-    "Combine large-scale 2D image-caption pairs with a small curated 3D dataset using cross-task consistency losses, differentiable rendering / multi-view supervision, and geometric regularizers to provide pseudo-3D signals from 2D data.",
-    "Design a 3D-native generative decoder (view-conditioned neural renderer / NeRF-style latent) that enforces multi-view coherence and aligns rendered 2D outputs with the 2D generation head via contrastive or reconstruction losses."
+    "Train a single generative backbone that ties text-conditioned 2D and 3D generation together so knowledge from large 2D corpora benefits 3D synthesis.",
+    "Introduce rendering-aware, view-consistent training objectives and shared latent representations to ensure geometric consistency across views and modalities.",
+    "Design data-efficient supervision and consistency losses that let the model learn 3D structure with limited explicit 3D examples while leveraging abundant 2D supervision."
   ],
-  "impact": "Enables data-efficient training of geometry-faithful 3D generative models without relying on large 3D repositories, accelerating AR/VR content creation, robotics simulation, and downstream multimodal research.",
+  "impact": "Enables reliable, geometry-consistent text-to-3D generation with far less 3D data and reduces reliance on slow optimization-based lifting — accelerating development of 3D content creation, simulation, and downstream 3D multimodal applications.",
   "visual_elements": [
-    "Pipeline diagram: text → shared backbone → parallel 2D head and 3D-native head (with differentiable renderer and consistency losses annotated)",
-    "Data-efficiency bar chart: performance vs. amount of 3D data (Omni123 vs baselines) showing gains from using 2D data",
-    "Multi-view qualitative grid: generated object from multiple camera angles demonstrating geometric consistency",
-    "Loss/consistency schematic: arrows showing cross-modal alignment (text↔2D, 2D↔rendered 3D, multi-view constraints)"
+    "Pipeline diagram showing unified training: text → shared backbone → 2D renderings and 3D outputs with consistency losses.",
+    "Before/after comparison: traditional 2D-edit-then-lift result vs Omni123’s native 3D output highlighting improved geometry.",
+    "Data composition chart: proportion of 2D vs 3D training data and how 2D data supports 3D learning.",
+    "Qualitative gallery of view-consistent 3D renders from single text prompts (multiple viewpoint thumbnails)."
   ],
   "hashtags": [
-    "#3DGeneration",
+    "#3DML",
     "#MultimodalAI",
-    "#NeuralRendering",
-    "#FoundationModels",
-    "#DataEfficiency"
+    "#GenerativeAI",
+    "#TextTo3D",
+    "#FoundationModels"
   ],
   "paper_id": "2026-04-02-arxiv-omni123_exploring_3d_native_foundation_models_with_limited_3d_data_by_unifying_t",
   "paper_title": "Omni123: Exploring 3D Native Foundation Models with Limited 3D Data by Unifying Text to 2D and 3D Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02289v1"
     }
   ],
-  "generated_at": "2026-04-03T06:57:54.978657"
+  "generated_at": "2026-04-04T06:48:26.757479"
 }
