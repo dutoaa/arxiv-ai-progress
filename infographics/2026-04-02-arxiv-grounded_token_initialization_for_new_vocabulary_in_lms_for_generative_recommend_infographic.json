@@ -1,23 +1,23 @@
 {
-  "key_insight": "Initializing new vocabulary tokens as the mean of existing embeddings collapses them into a low‑rank, indistinct subspace; grounding token initializations in item/semantic features preserves diversity and speeds learning so tokens acquire meaningful, distinct representations.",
-  "problem_solved": "How to initialize newly added vocabulary tokens (e.g., Semantic‑ID tokens for items) in pretrained LMs so they (a) avoid representational collapse from mean initialization and (b) learn useful, distinguishable embeddings with less supervised fine‑tuning.",
+  "key_insight": "Initializing new vocabulary tokens as the mean of existing embeddings collapses them into a degenerate, low-variance space; grounding new-token initialization in semantically meaningful item/context embeddings preserves representational diversity and speeds learning for generative recommendation.",
+  "problem_solved": "Addresses poor and slow learning of newly added vocabulary tokens (e.g., Semantic-ID tokens) in LMs caused by naïve mean-of-vocabulary initialization that yields collapsed, uninformative embeddings.",
   "method": [
-    "Diagnose collapse: use spectral (eigenvalue) and geometric (PCA / pairwise distance) analyses to show mean initialization drives new tokens into a degenerate low‑rank subspace.",
-    "Grounded initialization: derive initial token vectors from external signals (item metadata, content embeddings, or semantically related token anchors) and align them into the LM embedding space via a lightweight mapping.",
-    "Empirical validation: compare grounded vs. mean init on convergence speed and downstream generative recommendation quality (fewer fine‑tuning steps, more discriminative token usage)."
+    "Diagnose collapse using spectral and geometric analyses (eigenvalue spectra, PCA/variance, pairwise angles) to show mean initialization reduces embedding rank and diversity.",
+    "Introduce Grounded Token Initialization: seed new tokens with embeddings derived from external item features or context-conditioned encoders (rather than the vocabulary mean), optionally with normalization/orthogonalization to preserve variance.",
+    "Fine-tune the LM with these grounded initializations and compare convergence, embedding geometry, and downstream generative-recommendation metrics against standard initialization."
   ],
-  "impact": "Practitioners extending LMs with domain tokens can avoid slow, data‑hungry fine‑tuning and obtain more semantically meaningful tokens by grounding initial embeddings — improving convergence, interpretability, and recommendation quality with minimal extra cost.",
+  "impact": "Practitioners extending LMs with domain-specific tokens can achieve faster convergence, richer token representations, and better generative recommendation quality by using grounded initializations instead of mean-based ones.",
   "visual_elements": [
-    "Spectral plot (eigenvalue spectra) comparing mean vs. grounded initialization to show rank collapse vs. preserved spectrum.",
-    "2D PCA or t-SNE scatter of new token embeddings after initialization (and after short fine‑tuning) highlighting collapse vs. separated clusters.",
-    "Architecture diagram showing grounded initialization pipeline: item metadata → item encoder → linear alignment → token embedding in LM.",
-    "Training curves comparing convergence speed and downstream recommendation metrics for mean vs. grounded initialization."
+    "Spectral plot (eigenvalue decay) comparing mean-init vs grounded-init to show rank collapse vs preserved spectrum",
+    "2D PCA/TSNE scatter of new-token embeddings: tight cluster (mean-init) vs well-spread clusters (grounded-init)",
+    "Training curve: faster loss/metric improvement with grounded initialization",
+    "Pipeline diagram: external item/features → grounding encoder → new-token embedding → LM fine-tuning"
   ],
   "hashtags": [
     "#LanguageModels",
-    "#RecommendationSystems",
-    "#RepresentationLearning",
     "#TokenInitialization",
+    "#RecommenderSystems",
+    "#RepresentationLearning",
     "#GenerativeAI"
   ],
   "paper_id": "2026-04-02-arxiv-grounded_token_initialization_for_new_vocabulary_in_lms_for_generative_recommend",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02324v1"
     }
   ],
-  "generated_at": "2026-04-04T06:49:40.861362"
+  "generated_at": "2026-04-05T06:56:15.910954"
 }

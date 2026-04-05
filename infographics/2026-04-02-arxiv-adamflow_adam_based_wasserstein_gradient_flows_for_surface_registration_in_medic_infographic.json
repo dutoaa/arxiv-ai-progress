@@ -1,24 +1,24 @@
 {
-  "key_insight": "AdamFlow adapts the Adam optimizer to Wasserstein gradient flows for surface registration, delivering fast, robust alignment of anatomical meshes by treating surfaces as probability measures and optimizing transport-based energies with adaptive momentum.",
-  "problem_solved": "Bridges the trade-off between fast but fragile local point-matching and robust but costly global alignment methods, enabling efficient and reliable surface registration in noisy or poorly initialized medical imaging scenarios.",
+  "key_insight": "Framing surface meshes as probability measures and optimizing their Wasserstein gradient flow with an Adam-style optimizer (AdamFlow) yields fast, robust surface registration that balances speed and noise resilience.",
+  "problem_solved": "Bridges the trade-off between computational efficiency (local point matching) and robustness/global alignment (optimal-transport approaches) in medical surface registration.",
   "method": [
-    "Represent surface meshes as probability measures/point clouds and define alignment as minimizing a Wasserstein (optimal transport) discrepancy between source and target.",
-    "Formulate registration as a Wasserstein gradient flow and integrate Adam-style adaptive moment estimation into the flow updates (Adam-based Wasserstein Gradient Flows) to accelerate convergence and stabilize optimization.",
-    "Use discretized/efficient numerical approximations for the transport gradients to keep computation lightweight while preserving global alignment robustness."
+    "Represent surface meshes as probability measures / weighted point clouds and define alignment via a Wasserstein (optimal transport) energy.",
+    "Derive a discretized Wasserstein gradient flow to evolve source surfaces toward targets while preserving global structure and robustness to noise.",
+    "Introduce an Adam-based solver (AdamFlow) to accelerate convergence, stabilize noisy gradients, and reduce runtime compared with standard gradient-flow solvers."
   ],
-  "impact": "Provides AI/ML practitioners with a practical, scalable registration tool that is both fast and robust—facilitating large-scale anatomical shape analysis, improved preprocessing for downstream models, and more reliable clinical pipelines.",
+  "impact": "Provides a practical registration method that is both fast and robust for anatomical shape analysis, enabling scalable preprocessing and improved downstream ML applications in medical imaging.",
   "visual_elements": [
-    "Schematic: mesh-to-measure pipeline showing a surface mesh converted into a probability distribution",
-    "Flow visualization: sequence of intermediate meshes showing the Wasserstein gradient flow moving the source to the target",
-    "Bar/line chart: runtime vs accuracy (or robustness) comparing AdamFlow, local point matching, and global alignment baselines",
-    "Algorithm diagram: concise block diagram showing Adam-style moment estimation integrated into the Wasserstein gradient update step"
+    "Before/after overlay of two anatomical surfaces (source vs registered target) to show alignment quality.",
+    "Schematic of Wasserstein mass transport between surfaces with arrows illustrating the gradient flow evolution.",
+    "Convergence/runtime comparison chart (AdamFlow vs baseline methods) plotting registration error vs time or iterations.",
+    "Pipeline diagram: mesh → probability measure → Wasserstein gradient flow → AdamFlow optimizer → registered mesh."
   ],
   "hashtags": [
-    "#MedicalImaging",
     "#SurfaceRegistration",
-    "#Wasserstein",
-    "#Optimization",
-    "#ComputationalAnatomy"
+    "#WassersteinFlow",
+    "#AdamOptimizer",
+    "#MedicalImaging",
+    "#ShapeAnalysis"
   ],
   "paper_id": "2026-04-02-arxiv-adamflow_adam_based_wasserstein_gradient_flows_for_surface_registration_in_medic",
   "paper_title": "AdamFlow: Adam-based Wasserstein Gradient Flows for Surface Registration in Medical Imaging",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02290v1"
     }
   ],
-  "generated_at": "2026-04-04T06:48:37.369894"
+  "generated_at": "2026-04-05T06:55:11.911603"
 }

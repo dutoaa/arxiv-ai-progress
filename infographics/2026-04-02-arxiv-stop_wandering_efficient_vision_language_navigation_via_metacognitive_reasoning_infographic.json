@@ -1,24 +1,24 @@
 {
-  "key_insight": "Equipping training-free VLN agents with a lightweight metacognitive layer that monitors progress, diagnoses failure modes (e.g., oscillation, redundancy), and adapts exploration strategy significantly reduces wandering and improves navigation efficiency.",
-  "problem_solved": "Existing foundation-model powered VLN agents use greedy frontier selection and passive spatial memory, causing local oscillation and redundant revisits because they lack self-monitoring and adaptive decision-making.",
+  "key_insight": "Equipping training-free VLN agents with lightweight metacognitive reasoning lets them monitor exploration, detect failure modes (e.g., loops or stalls), and adapt frontier selection, significantly reducing wandering and redundant revisits.",
+  "problem_solved": "Addresses inefficient exploration in vision-language navigation where greedy frontier selection and passive spatial memory cause local oscillation, repeated revisits, and wasted steps—especially in zero-shot, foundation-model-driven agents.",
   "method": [
-    "Add a metacognitive module that continuously evaluates exploration progress and detects failure patterns (stuck, oscillation, low information gain) using promptable foundation models and simple heuristics.",
-    "Use diagnosis signals to adapt frontier scoring, re-prioritize targets, and update an active spatial memory (marking visited/low-value regions) so the agent avoids revisits and oscillatory loops.",
-    "Integrate the metacognitive loop with existing training-free controllers/planners for on-the-fly re-planning—no extra end-to-end training required."
+    "Add a metacognitive module that estimates exploration progress and diagnoses failure modes (looping, stalling, low-information frontiers) without extra task-specific training.",
+    "Use adaptive frontier selection that deprioritizes recently unproductive regions and prioritizes informative goals inferred from instructions and progress signals.",
+    "Maintain an active spatial memory that marks visited/low-value areas and supports replanning and corrective actions to avoid redundant revisits."
   ],
-  "impact": "Provides a practical, training-free way to make VLN agents more efficient and robust, reducing wasted steps and improving real-world deployability of embodied agents. Practitioners can integrate metacognitive checks to boost performance without costly retraining.",
+  "impact": "Improves efficiency and robustness of zero-shot VLN agents, reducing time, steps, and compute wasted on wandering—making foundation-model-driven navigation more practical for embodied AI and robotics deployments.",
   "visual_elements": [
-    "Agent control loop diagram showing perception → metacognitive monitor → diagnosis → adaptive planner → action",
-    "Before vs after trajectories on a floorplan illustrating wandering/oscillation vs focused exploration",
-    "Bar chart comparing metrics (path length, revisits, success rate) between baseline and metacognitive agent",
-    "Icons representing key components: brain/monitor (metacognition), map (spatial memory), compass (planning)"
+    "Architecture flowchart: Perception -> Metacognitive module (progress estimator + failure detector) -> Adaptive planner -> Action",
+    "Before/After trajectory map: example episode showing heavy wandering vs. compact goal-directed path",
+    "Bar chart: reductions in steps, revisits, and success rate improvements compared to greedy baseline",
+    "Icon set: 'Detect' (magnifier), 'Adapt' (gear/arrow), 'Remember' (map pin) to summarize core capabilities"
   ],
   "hashtags": [
     "#VisionLanguageNavigation",
     "#Metacognition",
-    "#EmbodiedAI",
     "#FoundationModels",
-    "#EfficientExploration"
+    "#EmbodiedAI",
+    "#ZeroShot"
   ],
   "paper_id": "2026-04-02-arxiv-stop_wandering_efficient_vision_language_navigation_via_metacognitive_reasoning",
   "paper_title": "Stop Wandering: Efficient Vision-Language Navigation via Metacognitive Reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02318v1"
     }
   ],
-  "generated_at": "2026-04-04T06:48:59.205665"
+  "generated_at": "2026-04-05T06:55:31.481575"
 }

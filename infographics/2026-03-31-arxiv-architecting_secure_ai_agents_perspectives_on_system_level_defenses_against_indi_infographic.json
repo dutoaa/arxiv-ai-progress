@@ -1,24 +1,24 @@
 {
-  "key_insight": "System-level defenses—combining dynamic, policy-aware planning with contextual isolation and provenance—can substantially reduce the risk that maliciously embedded instructions in untrusted inputs (indirect prompt injection) will cause harmful agent behavior.",
-  "problem_solved": "Protects AI agents (LLM-driven) from indirect prompt injection attacks, where malicious instructions hidden in external data can hijack agent goals or capabilities and trigger unsafe actions.",
+  "key_insight": "System-level defenses — not just model-side filters — are essential to prevent indirect prompt injection: agents need runtime architectures that enforce isolation, provenance, and dynamic security policies so untrusted data cannot covertly change agent goals or capabilities.",
+  "problem_solved": "Addresses the vulnerability where malicious instructions embedded in untrusted data (indirect prompt injection) cause AI agents to take dangerous or undesired actions, by proposing system-level design principles to reduce attack surface and limit impact.",
   "method": [
-    "Design agent architectures that support dynamic replanning and runtime security-policy updates so agents adapt safely in changing environments.",
-    "Apply contextual isolation and least-privilege execution (sandboxing, capability-limited modules) to prevent untrusted inputs from influencing critical decision paths.",
-    "Add provenance, input validation, verification checkpoints, and human-in-the-loop gating for high-risk actions to trace and block injected instructions."
+    "Design agent runtimes with isolation and capability restriction (sandboxing, fine-grained capability tokens) so untrusted inputs cannot directly alter core intent or privileged actions.",
+    "Enable dynamic replanning and runtime security-policy updates: agents monitor context and threat signals and adapt policies without relying solely on static prompts or offline filters.",
+    "Enforce provenance, strict parsing, and validation of external content to separate untrusted data from control instructions and to provide auditable traces for decisions."
   ],
-  "impact": "Gives AI/ML practitioners concrete, system-level design principles to integrate security into agent workflows—reducing attack surface and improving reliability in realistic, dynamic deployments.",
+  "impact": "Provides practitioners pragmatic, architecture-level strategies to harden deployed agents against subtle instruction-based attacks, improving safety in real-world, dynamic environments where static prompt hygiene is insufficient.",
   "visual_elements": [
-    "Architecture diagram: agent pipeline showing trusted vs untrusted data flows, policy enforcement points, and sandboxed modules.",
-    "Sequence/timeline: dynamic replanning loop with checkpoints for policy updates and human-in-the-loop interventions.",
-    "Before/after comparison: attack scenario (prompt injection leads to unsafe action) versus defended scenario (isolation + provenance prevents action).",
-    "Icon set: sandbox, shield (policy), fingerprint (provenance), and human-in-loop to denote defense building blocks."
+    "Architecture diagram showing agent components: planner, executor, sandboxed modules, provenance/validator, and security-policy manager",
+    "Flowchart contrasting a vulnerable pipeline (untrusted data → model prompt → action) vs. defended pipeline (validation + sandbox + capability checks → action)",
+    "Icon set illustrating defenses: sandbox padlock, provenance badge, dynamic policy gear, and monitoring/alert bell",
+    "Timeline or sequence diagram showing dynamic replanning & policy update loop in response to detected malicious input"
   ],
   "hashtags": [
-    "#AIsecurity",
-    "#PromptInjection",
     "#AIAgents",
-    "#SystemSecurity",
-    "#Provenance"
+    "#PromptInjection",
+    "#SecureAI",
+    "#AgentArchitecture",
+    "#AIThreatModeling"
   ],
   "paper_id": "2026-03-31-arxiv-architecting_secure_ai_agents_perspectives_on_system_level_defenses_against_indi",
   "paper_title": "Architecting Secure AI Agents: Perspectives on System-Level Defenses Against Indirect Prompt Injection Attacks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2603.30016v1"
     }
   ],
-  "generated_at": "2026-04-03T07:01:13.130227"
+  "generated_at": "2026-04-05T06:57:23.419285"
 }

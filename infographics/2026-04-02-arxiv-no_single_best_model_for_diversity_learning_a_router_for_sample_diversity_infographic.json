@@ -1,24 +1,24 @@
 {
-  "key_insight": "There is no single best model for producing diverse valid answers; training a learned \"router\" to pick among models/sampling strategies per prompt yields far better coverage of unique high-quality responses.",
-  "problem_solved": "How to comprehensively generate the full range of valid answers for prompts that admit many correct responses, avoiding redundancy and missed valid options from single-model sampling.",
+  "key_insight": "There is no single best model or decoding setting that reliably produces the most comprehensive set of valid answers; instead, learning a router that selects among models or sampling strategies per prompt maximizes the coverage of unique high-quality responses.",
+  "problem_solved": "How to elicit a comprehensive, diverse set of valid answers for prompts that admit many correct responses, overcoming limits of any single model or fixed sampling strategy.",
   "method": [
-    "Introduce a metric called diversity coverage that scores the total quality of unique answers in a predicted set relative to the optimal set of the same size.",
-    "Train a lightweight router that, given a prompt, selects among candidate models or sampling strategies to maximize diversity coverage rather than per-sample likelihood.",
-    "Combine outputs across routed models, deduplicate by answer identity, and optimize routing using feedback derived from answer quality scores."
+    "Define a new evaluation metric, diversity coverage, that scores the total quality of unique answers relative to an optimal set of the same size.",
+    "Train a learned router to select among multiple models and/or sampling configurations per prompt so the assembled output set maximizes diversity coverage.",
+    "Use an ensemble of complementary models or decoding strategies and optimize routing decisions (via supervised/meta learning or reward-guided training) to produce more unique high-quality responses."
   ],
-  "impact": "Practitioners can obtain more comprehensive and non-redundant collections of valid outputs for open-ended tasks (e.g., creative generation, multi-answer QA, data augmentation) by using model routing instead of relying on a single generator or sampling heuristic.",
+  "impact": "Practitioners can generate more comprehensive and useful answer sets by routing requests to the right model/strategy, improving user satisfaction in tasks where many valid outputs exist (e.g., creative generation, question answering, dialog). This enables modular systems that trade off quality and novelty more effectively.",
   "visual_elements": [
-    "Schematic: prompt → learned router → multiple models/samplers → merged, deduplicated answer set",
-    "Bar chart: diversity coverage comparison (single-model vs. router) across answer-set sizes",
-    "Annotated example: side-by-side answer lists showing redundancy from one model vs. diverse unique answers from routed ensemble with quality scores",
-    "Flow diagram of metric: how diversity coverage is computed (unique answers, quality scoring, normalization vs. optimal set)"
+    "Schematic: input prompt -> learned router -> multiple models/sampling strategies -> aggregated unique answers (shows routing decisions)",
+    "Bar chart: diversity coverage comparison (single best model vs. router-based ensemble) across prompt types",
+    "Before/After example: one prompt with a single-model output vs. router outputs showing multiple distinct valid answers",
+    "Flowchart: training loop for the router (metric evaluation -> routing update -> model outputs)"
   ],
   "hashtags": [
     "#DiversityInAI",
     "#ModelRouting",
-    "#EnsembleLearning",
-    "#OpenEndedGeneration",
-    "#DataAugmentation"
+    "#GenerativeAI",
+    "#EvaluationMetrics",
+    "#EnsembleLearning"
   ],
   "paper_id": "2026-04-02-arxiv-no_single_best_model_for_diversity_learning_a_router_for_sample_diversity",
   "paper_title": "No Single Best Model for Diversity: Learning a Router for Sample Diversity",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02319v1"
     }
   ],
-  "generated_at": "2026-04-04T06:49:07.413647"
+  "generated_at": "2026-04-05T06:55:40.457154"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "EventHub replaces costly active-sensor ground truth (e.g., LiDAR) with proxy annotations and synthesized event streams derived from standard color images, enabling training of accurate, generalizable event-based stereo networks without active sensors.",
-  "problem_solved": "Training event-based stereo networks typically requires expensive or hard-to-acquire ground truth from active sensors; EventHub eliminates that dependency by generating usable training data from ordinary RGB images.",
+  "key_insight": "EventHub is a \"data factory\" that enables training high-performance event-based stereo networks without costly active sensors by synthesizing proxy events and annotations from ordinary color image datasets. This lets existing RGB stereo models be repurposed for event data using scalable, inexpensive supervision.",
+  "problem_solved": "Event-based stereo learning depends on expensive, hard-to-scale active sensors or dense ground truth; EventHub removes that dependency by generating training signals from standard color images, making event-stereo training practical and generalizable.",
   "method": [
-    "Data factory: convert image datasets into training pairs by (a) synthesizing proxy events via novel view synthesis (NVS) or (b) using existing image–event pairs to produce proxy disparity/annotations.",
-    "Repurpose state-of-the-art RGB stereo architectures to work with event-derived inputs and proxy labels, enabling direct training of event-based stereo models.",
-    "Train and validate networks using the generated dataset to obtain models that generalize to real event-camera scenarios without active-sensor supervision."
+    "Generate training sets from color-image collections by producing proxy annotations and, when needed, proxy events using state-of-the-art novel view synthesis / rendering techniques or by using paired image+event data when available.",
+    "Use the synthesized proxy labels/events to supervise event-based stereo networks, allowing re-use of mature RGB stereo architectures adapted to event inputs.",
+    "Train and validate models on the generated dataset to achieve generalizable event-stereo performance without collecting active-sensor ground truth."
   ],
-  "impact": "Allows practitioners to train high-performing event-based stereo models using widely available image datasets instead of expensive active-sensor annotations, lowering cost and broadening applicability of event-vision methods.",
+  "impact": "EventHub drastically lowers the barrier to build and scale event-based stereo models by removing the need for active-sensor ground truth, enabling broader research, faster iteration, and easier domain transfer for neuromorphic and low-latency vision systems.",
   "visual_elements": [
-    "Pipeline diagram: RGB images → novel view synthesis → proxy events / proxy annotations → training data → event-stereo model",
-    "Side-by-side qualitative results: disparity maps from models trained with EventHub vs. models trained with active-sensor GT",
-    "Bar chart: performance (accuracy/generalization) comparison across supervision types (active sensors, EventHub, naive synthetic)",
-    "Iconic comparison: event camera icon + synthesized event stream overlayed on original RGB frame"
+    "Pipeline diagram: color images -> novel view synthesis -> proxy events/annotations -> training stereo network",
+    "Before/after example: raw event input and resulting disparity map vs. baseline (with/without EventHub data)",
+    "Bar chart: training cost/scale and data requirements comparing active-sensor collection vs EventHub synthesis",
+    "Icon set: camera (RGB), event sensor, data factory (gear), and trained model (neural net) to summarize flow"
   ],
   "hashtags": [
     "#EventBasedVision",
-    "#StereoMatching",
-    "#NovelViewSynthesis",
-    "#SyntheticData",
-    "#SelfSupervision"
+    "#StereoDepth",
+    "#DataFactory",
+    "#SelfSupervision",
+    "#Neuromorphic"
   ],
   "paper_id": "2026-04-02-arxiv-eventhub_data_factory_for_generalizable_event_based_stereo_networks_without_acti",
   "paper_title": "EventHub: Data Factory for Generalizable Event-Based Stereo Networks without Active Sensors",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02331v1"
     }
   ],
-  "generated_at": "2026-04-04T06:50:24.197149"
+  "generated_at": "2026-04-05T06:56:55.953285"
 }
