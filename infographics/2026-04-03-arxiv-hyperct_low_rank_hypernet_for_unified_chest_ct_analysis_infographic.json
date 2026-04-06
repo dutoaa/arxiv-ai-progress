@@ -1,0 +1,35 @@
+{
+  "key_insight": "HyperCT uses a hypernetwork to dynamically generate low-rank adapters (LoRA) that adapt a shared Vision Transformer for diverse chest CT tasks, achieving task-specific specialization with far fewer extra parameters than separate heads or full fine-tuning.",
+  "problem_solved": "Unifies heterogeneous pulmonary and opportunistic extra-pulmonary chest CT tasks in a single model while avoiding the inefficiency and suboptimal sharing of standard hard-parameter multi-task approaches.",
+  "method": [
+    "Use a Hypernetwork to regress task- and/or input-conditioned low-rank adapter weights that modify a frozen or shared Vision Transformer backbone.",
+    "Integrate Low-Rank Adaptation (LoRA) to keep per-task parameter overhead and compute low while enabling task-specific modulation of representations.",
+    "Train the system in a multi-task setting so the shared backbone learns common features and the hypernet+LoRA provide efficient task specialization."
+  ],
+  "impact": "Provides a practical, parameter-efficient path to build one unified chest CT model that handles many screening and diagnostic tasks—reducing deployment complexity and enabling scalable clinical multi-task systems without sacrificing per-task performance.",
+  "visual_elements": [
+    "Architecture diagram: Vision Transformer backbone with a Hypernetwork block that outputs LoRA adapter matrices feeding into transformer layers (annotated flow of data and parameters).",
+    "Bar chart: parameter count and compute comparison for (a) full fine-tune per task, (b) hard-shared MTL, and (c) HyperCT (hypernet + LoRA) with performance overlay.",
+    "Task map: example chest CT slice annotated with multiple prediction types (pulmonary findings, extra-pulmonary biomarkers) to show unified outputs.",
+    "Ablation table/plot: accuracy or AUC vs enabling/disabling Hypernetwork and LoRA to illustrate contribution of each component."
+  ],
+  "hashtags": [
+    "#ChestCT",
+    "#Hypernetwork",
+    "#LoRA",
+    "#MultiTaskLearning",
+    "#VisionTransformer"
+  ],
+  "paper_id": "2026-04-03-arxiv-hyperct_low_rank_hypernet_for_unified_chest_ct_analysis",
+  "paper_title": "HyperCT: Low-Rank Hypernet for Unified Chest CT Analysis",
+  "paper_category": "Model",
+  "paper_date": "2026-04-03",
+  "paper_authors": "Fengbei Liu, Sunwoo Kwak, Hao Phung, Nusrat Binta Nizam, Ilan Richter",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.03224v1"
+    }
+  ],
+  "generated_at": "2026-04-06T07:19:48.778057"
+}

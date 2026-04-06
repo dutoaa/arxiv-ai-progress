@@ -1,24 +1,24 @@
 {
-  "key_insight": "Pretraining codec-based avatar models at very large scale (mixing studio multi-view and millions of in-the-wild samples) produces representations that simultaneously achieve high-fidelity studio-level detail and strong generalization to real-world data.",
-  "problem_solved": "Addresses the fidelity vs. generalization trade-off in 3D avatar modeling: studio multi-view captures deliver high detail but fail to generalize, while in-the-wild datasets generalize but lack fidelity. The paper shows large-scale pretraining can reconcile both.",
+  "key_insight": "Pretraining codec-avatar models at very large scale (millions of samples) substantially closes the gap between studio-level fidelity and in-the-wild generalization, enabling high-quality, controllable avatars that transfer well to real-world data.",
+  "problem_solved": "Addresses the fidelity-versus-generalization trade-off: studio multi-view captures yield precise, controllable avatars but don’t generalize, while existing large-scale in-the-wild models generalize but lack studio-grade detail; large-scale avatar pretraining delivers both.",
   "method": [
-    "Pretrain a codec-avatar model on a massive, heterogeneous dataset combining multi-view studio captures and millions of in-the-wild samples to learn a compact, expressive latent representation.",
-    "Use reconstruction- and representation-learning objectives (plus domain-bridging fine-tuning) so the pretrained avatar model preserves studio-level control while adapting to real-world appearance and pose variation.",
-    "Transfer the pretrained model to downstream tasks (high-fidelity rendering, expression/pose control, personalization) with light fine-tuning to achieve studio-quality results in the wild."
+    "Assemble and pretrain a codec-avatar model on a massive, diverse dataset combining in-the-wild and studio-like samples to learn robust, high-capacity representations.",
+    "Use a compact codec-avatar representation that supports high-fidelity reconstruction and parameterized control (expressions/pose) while being amenable to large-scale learning.",
+    "Transfer or fine-tune the pretrained model to studio subjects to recover precise, controllable avatars with improved real-world robustness and reduced per-subject capture needs."
   ],
-  "impact": "Makes it practical to build photorealistic, controllable avatars that work outside controlled studios, reducing dependence on expensive capture rigs and accelerating applications in telepresence, AR/VR, and personalized content creation.",
+  "impact": "Enables scalable creation of high-quality, controllable avatars without heavy reliance on costly studio capture; useful for VR/AR, telepresence, and downstream vision/graphics tasks where both fidelity and generalization matter.",
   "visual_elements": [
-    "Pipeline diagram: dataset mixture (studio vs in-the-wild) → large-scale pretraining → fine-tuning & outputs",
-    "Side-by-side rendering grid: studio-only model vs in-the-wild model vs pretrained large-scale model (showing fidelity + generalization)",
-    "Scale infographic: number of subjects/samples used for pretraining (millions) vs typical studio datasets (thousands)",
-    "Metric chart: fidelity vs generalization trade-off with arrow showing pretrained model shifting to high on both axes"
+    "Trade-off diagram: fidelity (studio) vs generalization (in-the-wild) showing how large-scale pretraining moves the model toward the Pareto front.",
+    "Pipeline flowchart: data collection (studio + in-the-wild) → large-scale pretraining → fine-tuning/deployment.",
+    "Scaling curve: performance (reconstruction quality/generalization) vs dataset size highlighting ‘unreasonable effectiveness’ of scale.",
+    "Qualitative panel: side-by-side avatar renders—studio-only model, in-the-wild-only model, and pretrained+fine-tuned model."
   ],
   "hashtags": [
     "#CodecAvatars",
     "#AvatarPretraining",
-    "#3DAI",
     "#NeuralRendering",
-    "#RepresentationLearning"
+    "#3DComputerVision",
+    "#AIforVR"
   ],
   "paper_id": "2026-04-02-arxiv-large_scale_codec_avatars_the_unreasonable_effectiveness_of_large_scale_avatar_p",
   "paper_title": "Large-scale Codec Avatars: The Unreasonable Effectiveness of Large-scale Avatar Pretraining",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02320v1"
     }
   ],
-  "generated_at": "2026-04-05T06:55:54.008973"
+  "generated_at": "2026-04-06T07:21:26.343499"
 }
