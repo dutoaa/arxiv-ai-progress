@@ -1,0 +1,35 @@
+{
+  "key_insight": "The number of output tokens—rather than just model size or FLOPs—can dominate end-to-end latency in vision-language systems; reframing decoding as a multi-agent inference problem enables more efficient use of large-model decoders.",
+  "problem_solved": "Addresses the bottleneck of autoregressive decoding in VLMs: varying output-token requirements cause large differences in real-world latency, so optimizing only model size or compute misses a key source of inefficiency.",
+  "method": [
+    "Comprehensive latency profiling of VLM components on simulated workloads to quantify where time is spent (encoder, tokenizer, LLM decoding, I/O).",
+    "Compare different VLMs and token-output regimes to show how output length drives end-to-end latency and performance tradeoffs.",
+    "Introduce a multi-agent inference perspective (partitioned/parallelized or adaptive decoding strategies) to reduce decoding latency and better allocate token budgets across tasks."
+  ],
+  "impact": "Provides practitioners with actionable evidence that decoding/token budget management is critical for deployment latency; the multi-agent inference view suggests new system and algorithm designs to speed real-world VLM applications without necessarily changing base model size.",
+  "visual_elements": [
+    "Stacked-bar latency breakdown (encoder vs tokenizer vs LLM decoding) for multiple VLMs and output-token counts.",
+    "Scatter plot: output-token count vs end-to-end latency with performance contours to show tradeoffs.",
+    "Schematic diagram of multi-agent inference: multiple decoders/agents coordinating to generate tokens or adaptively stopping.",
+    "Before/after runtime comparison infographic showing latency reduction and token savings from the proposed multi-agent approach."
+  ],
+  "hashtags": [
+    "#ModelEfficiency",
+    "#VisionLanguage",
+    "#MultiAgent",
+    "#LLMLatency",
+    "#InferenceOptimization"
+  ],
+  "paper_id": "2026-04-06-arxiv-rethinking_model_efficiency_multi_agent_inference_with_large_models",
+  "paper_title": "Rethinking Model Efficiency: Multi-Agent Inference with Large Models",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-04-06",
+  "paper_authors": "Sixun Dong, Juhua Hu, Steven Li, Wei Wen, Qi Qian",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.04929v1"
+    }
+  ],
+  "generated_at": "2026-04-07T07:05:40.266197"
+}

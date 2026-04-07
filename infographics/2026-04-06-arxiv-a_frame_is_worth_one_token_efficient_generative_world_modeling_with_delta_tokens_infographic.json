@@ -1,0 +1,35 @@
+{
+  "key_insight": "Represent video frames as single \"delta tokens\" in a vision foundation model feature space so a compact generative model can predict diverse future states with far fewer tokens and parameters.",
+  "problem_solved": "Current generative world models are computationally expensive and discriminative models collapse to deterministic averages; this paper addresses the need for efficient, diverse video/world prediction with much lower token and model cost.",
+  "method": [
+    "Encode frames into a pre-trained vision foundation model (VFM) feature space instead of pixel latents.",
+    "Compress temporal changes into lightweight \"delta tokens\"—one token per frame representing the feature-space change from the previous frame.",
+    "Train a compact generative model (e.g., transformer/autoregressive sampler) to predict sequences of delta tokens, then reconstruct future features/frames or feed them to downstream tasks."
+  ],
+  "impact": "Enables fast, parameter-efficient generative world models that produce diverse future trajectories—useful for scaling video prediction, planning, and model-based RL in compute-constrained settings.",
+  "visual_elements": [
+    "Pipeline diagram: video frames → VFM features → delta-token encoder → compact generative model → feature decoder / predicted frames",
+    "Timeline comparison: one-token-per-frame (delta tokens) vs many-token dense representations showing token-count reduction",
+    "Bar chart: model size / inference latency / FLOPs comparison (baseline generative model vs delta-token model)",
+    "Grid of example predicted futures illustrating diversity (multiple plausible continuations from same context)"
+  ],
+  "hashtags": [
+    "#WorldModeling",
+    "#VideoPrediction",
+    "#GenerativeAI",
+    "#VisionFoundations",
+    "#EfficientML"
+  ],
+  "paper_id": "2026-04-06-arxiv-a_frame_is_worth_one_token_efficient_generative_world_modeling_with_delta_tokens",
+  "paper_title": "A Frame is Worth One Token: Efficient Generative World Modeling with Delta Tokens",
+  "paper_category": "Model",
+  "paper_date": "2026-04-06",
+  "paper_authors": "Tommie Kerssies, Gabriele Berton, Ju He, Qihang Yu, Wufei Ma",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.04913v1"
+    }
+  ],
+  "generated_at": "2026-04-07T07:04:26.820193"
+}

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Operate in the pre-RoPE vector space—where Q/K vectors concentrate around a fixed non-zero center—and use a trigonometric compression of KV representations (TriAttention) to produce rotation-stable, highly compact KV caches for long-context reasoning.",
+  "problem_solved": "KV cache memory bottlenecks and unstable top-key selection in extended LLM reasoning caused by RoPE-induced query rotation and poor importance estimation.",
+  "method": [
+    "Analyze pre-RoPE Q/K statistics and identify a stable non-zero center that makes representations rotation-invariant compared to post-RoPE queries.",
+    "Apply trigonometric-based compression to encode KV pairs (angles/magnitudes or sin/cos components) so keys can be grouped and ranked reliably despite positional rotation.",
+    "Integrate compressed KV storage with attention retrieval to keep top keys accurately while drastically reducing memory footprint for long sequences."
+  ],
+  "impact": "Enables more memory-efficient, stable long-range inference for LLMs, improving throughput and practicability of extended reasoning on existing hardware without sacrificing key-selection fidelity.",
+  "visual_elements": [
+    "Side-by-side diagram: post-RoPE queries rotating around origin vs pre-RoPE Q/K clustered around a fixed center",
+    "Pipeline schematic of TriAttention: pre-RoPE extraction → trigonometric encoding (sin/cos or angle/magnitude) → compressed KV store → retrieval & attention",
+    "Bar/line chart: memory vs context length (baseline KV cache vs TriAttention) showing reduced memory growth",
+    "Heatmap or scatter showing more stable top-key selection / attention weight consistency with TriAttention"
+  ],
+  "hashtags": [
+    "#LongContext",
+    "#KVCompression",
+    "#Attention",
+    "#LLMOptimization",
+    "#EfficientInference"
+  ],
+  "paper_id": "2026-04-06-arxiv-triattention_efficient_long_reasoning_with_trigonometric_kv_compression",
+  "paper_title": "TriAttention: Efficient Long Reasoning with Trigonometric KV Compression",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-04-06",
+  "paper_authors": "Weian Mao, Xi Lin, Wei Huang, Yuxin Xie, Tianfu Fu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.04921v1"
+    }
+  ],
+  "generated_at": "2026-04-07T07:05:31.562273"
+}

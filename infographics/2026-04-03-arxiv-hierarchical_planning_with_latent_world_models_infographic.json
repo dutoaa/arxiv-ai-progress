@@ -1,24 +1,24 @@
 {
-  "key_insight": "Learning latent world models at multiple temporal scales enables hierarchical planning that reduces prediction error accumulation and search complexity, allowing effective long-horizon control with learned models.",
-  "problem_solved": "Mitigates long-horizon failures of learned world models caused by compounding prediction errors and exponentially growing planning search spaces, improving zero-shot generalization to new environments.",
+  "key_insight": "Learning latent world models at multiple temporal scales enables coarse-to-fine hierarchical planning in latent space, reducing prediction error accumulation and drastically shrinking the search space for long-horizon control.",
+  "problem_solved": "Addresses the difficulty of long-horizon model-based control where single-scale learned models accumulate prediction errors and face an exponentially large planning search space, limiting zero-shot generalization and practical deployment.",
   "method": [
-    "Learn latent dynamics models at multiple temporal resolutions (short-horizon fine model + longer-horizon coarse models) to compress predictions and reduce error propagation.",
-    "Perform hierarchical planning: a high-level planner searches in coarse latent space for long-range subgoals, while a low-level MPC/controller executes and refines actions in fine latent dynamics.",
-    "Use latent rollouts and goal-conditioned control to connect levels, enabling efficient coarse-to-fine search and robust execution despite model imperfections."
+    "Train latent dynamics models at multiple temporal resolutions (e.g., fast short-horizon and slow long-horizon latent models) to capture both fine-grained control and abstract long-term structure.",
+    "Perform hierarchical planning: a high-level planner proposes coarse latent goals over long horizons using the slow model; a low-level MPC refines and executes short-horizon actions using the fast model.",
+    "Plan and optimize in latent space to reduce computational cost and mitigate prediction drift, enabling scalable, zero-shot-capable control in new environments."
   ],
-  "impact": "Provides a practical approach for scaling model-based control to long-horizon tasks, improving sample efficiency and generalization for robotics and embodied AI. Practitioners can integrate temporal abstraction into learned models to make planning tractable and robust.",
+  "impact": "Makes long-horizon model-based control more reliable and scalable for embodied agents and robotics by combining abstraction with concrete short-term control—improving generalization and efficiency for practitioners building real-world planners.",
   "visual_elements": [
-    "Schematic of hierarchical architecture: stacked latent models (coarse → fine) with arrows showing high-level planner producing subgoals and low-level MPC executing actions.",
-    "Timeline/temporal abstraction diagram showing different prediction horizons for each latent model and how errors accumulate less at coarse scales.",
-    "Performance chart comparing success rate or planning cost vs horizon for single-scale world model vs hierarchical latent models.",
-    "Flowchart of planning loop: observe → encode to latents → high-level plan → low-level MPC → execute → replan."
+    "Pipeline diagram showing two latent models (slow/long-horizon and fast/short-horizon) with arrows for high-level planning -> low-level MPC -> actions",
+    "Coarse-to-fine timeline visualization illustrating how long-horizon goals are refined into short-horizon action sequences",
+    "Chart comparing prediction error accumulation and planning cost: single-scale model vs. hierarchical multi-scale model",
+    "Example trajectory overlay in an environment map showing improved long-horizon success with hierarchical planning"
   ],
   "hashtags": [
     "#HierarchicalPlanning",
-    "#WorldModels",
-    "#ModelBasedRL",
-    "#LatentModels",
-    "#MPC"
+    "#LatentWorldModels",
+    "#ModelPredictiveControl",
+    "#LongHorizonRL",
+    "#EmbodiedAI"
   ],
   "paper_id": "2026-04-03-arxiv-hierarchical_planning_with_latent_world_models",
   "paper_title": "Hierarchical Planning with Latent World Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.03208v1"
     }
   ],
-  "generated_at": "2026-04-06T07:19:17.128543"
+  "generated_at": "2026-04-07T07:07:15.030232"
 }

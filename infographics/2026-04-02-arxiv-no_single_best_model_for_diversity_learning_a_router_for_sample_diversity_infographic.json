@@ -1,24 +1,24 @@
 {
-  "key_insight": "There is no single best model for producing diverse valid answers; training a lightweight router to pick models or decoding strategies per prompt yields broader, higher-quality coverage of unique answers.",
-  "problem_solved": "How to reliably generate a comprehensive set of valid responses for prompts that admit many correct answers, rather than relying on one model or one decoding run that misses important modes of the answer space.",
+  "key_insight": "There is no single best generative model for producing a diverse set of valid answers; learning a lightweight router that selects which model or sampling strategy to use per prompt yields higher \"diversity coverage\" than relying on any single model.",
+  "problem_solved": "Generative systems often miss many valid responses for prompts that admit many correct answers; existing evaluation and sampling methods don't prioritize covering unique, high-quality answers across outputs.",
   "method": [
-    "Introduce a diversity-aware evaluation metric, \"diversity coverage\", that scores the total quality of unique answers relative to an optimal set of the same size.",
-    "Train a router that selects which model(s) or decoding strategy to use for each input, aiming to maximize diversity coverage across the collected outputs.",
-    "Aggregate outputs from the routed models to produce a final answer set with improved uniqueness and overall quality."
+    "Define a new metric, diversity coverage, which measures total quality across unique answers relative to the optimal set of the same size.",
+    "Train a router that, given an input prompt, selects among multiple models or sampling configurations to maximize the diversity coverage of the produced answer set.",
+    "Combine outputs from heterogeneous models via the router and evaluate against baselines (single-model sampling, uniform mixtures) to show improved coverage."
   ],
-  "impact": "Provides a practical way to improve coverage of valid responses in conditional generation tasks—useful for dialog, creative writing, and retrieval—by combining multiple models intelligently rather than searching for one universally best model.",
+  "impact": "Provides a practical way to generate more comprehensive, non-redundant answer sets for open-ended prompts, improving user satisfaction, dataset creation, and downstream evaluation. Enables practitioners to leverage model ensembles more effectively for diversity-sensitive tasks.",
   "visual_elements": [
-    "Pipeline diagram showing an input prompt → router → multiple models → deduplicated diverse answer set",
-    "Illustration of the \"diversity coverage\" concept: unique-answer quality stacked bar compared to an optimal oracle set",
-    "Bar/chart comparison: single-model vs. routed-ensemble diversity coverage across tasks",
-    "Example answer set visualization (e.g., clustered bubbles) highlighting increased unique modes after routing"
+    "Pipeline diagram: prompt -> learned router -> pool of models/sampling strategies -> diverse unique answers (annotated with quality scores)",
+    "Bar chart comparing diversity coverage across: single model, uniform mixture, and learned router (showing router leads)",
+    "Coverage curve: number of unique high-quality answers vs. number of samples per method",
+    "Example prompt box with side-by-side diverse outputs from different routed models to illustrate qualitative difference"
   ],
   "hashtags": [
-    "#DiversityInAI",
+    "#DiversityCoverage",
     "#ModelRouting",
-    "#EvaluationMetrics",
-    "#ConditionalGeneration",
-    "#ModelEnsembles"
+    "#EnsembleLearning",
+    "#GenerativeAI",
+    "#NLP"
   ],
   "paper_id": "2026-04-02-arxiv-no_single_best_model_for_diversity_learning_a_router_for_sample_diversity",
   "paper_title": "No Single Best Model for Diversity: Learning a Router for Sample Diversity",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02319v1"
     }
   ],
-  "generated_at": "2026-04-06T07:20:58.087216"
+  "generated_at": "2026-04-07T07:07:43.388801"
 }

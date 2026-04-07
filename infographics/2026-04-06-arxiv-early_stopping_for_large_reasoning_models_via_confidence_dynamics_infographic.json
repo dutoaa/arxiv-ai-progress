@@ -1,0 +1,35 @@
+{
+  "key_insight": "Tracking the model's confidence over intermediate chain-of-thought answers reveals characteristic dynamics: correct solutions typically reach and maintain a high-confidence plateau early, enabling reliable early stopping to save compute and avoid overthinking.",
+  "problem_solved": "When should a large reasoning model stop generating long chain-of-thoughts to minimize compute and latency, while avoiding performance degradation from continued (over)reasoning?",
+  "method": [
+    "Extract and score intermediate answers produced during chain-of-thought to form a per-step confidence trajectory.",
+    "Detect stopping points via dynamics-based rules (e.g., threshold crossing + short-term stability or change-point detection) rather than fixed step counts.",
+    "Trigger early termination and output the current answer; validate across benchmarks to show compute savings with maintained or improved accuracy."
+  ],
+  "impact": "Enables practical deployment of large reasoning models with lower inference cost and latency, and reduces failure modes caused by overthinking—beneficial for real-time & resource-constrained applications.",
+  "visual_elements": [
+    "Line chart: confidence vs. reasoning step comparing correct (early plateau) and incorrect (wobbly/declining) trajectories, annotated with early-stop points.",
+    "Side-by-side example timeline: chain-of-thought tokens, extracted intermediate answers, and the moment the stopping rule fires.",
+    "Bar chart: inference cost (tokens/time/FLOPs) and accuracy with vs. without confidence-driven early stopping.",
+    "Flowchart illustrating the stopping decision (compute confidence → check threshold/stability → stop or continue)."
+  ],
+  "hashtags": [
+    "#EarlyStopping",
+    "#ChainOfThought",
+    "#ConfidenceDynamics",
+    "#ModelEfficiency",
+    "#ReasoningAI"
+  ],
+  "paper_id": "2026-04-06-arxiv-early_stopping_for_large_reasoning_models_via_confidence_dynamics",
+  "paper_title": "Early Stopping for Large Reasoning Models via Confidence Dynamics",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-04-06",
+  "paper_authors": "Parsa Hosseini, Sumit Nawathe, Mahdi Salmani, Meisam Razaviyayn, Soheil Feizi",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.04930v1"
+    }
+  ],
+  "generated_at": "2026-04-07T07:05:52.469644"
+}

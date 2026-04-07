@@ -1,24 +1,24 @@
 {
-  "key_insight": "A learned surrogate for 1-D arterial blood-flow models enables real-time, patient-specific hemodynamic predictions—preserving fidelity to physics-based simulations while reducing compute by orders of magnitude.",
-  "problem_solved": "Addresses the high computational cost and clinical impracticality of running 1-D hemodynamic simulations at scale and the difficulty of estimating hard-to-measure terminal parameters (resistance/compliance) for personalized analysis.",
+  "key_insight": "A fast ML-based surrogate replaces computationally expensive 1-D arterial solvers to deliver personalized, real-time predictions of blood flow and hemodynamic indices, while estimating hard-to-measure parameters (e.g., terminal resistance/compliance). This enables rapid, population-scale or bedside hemodynamic analysis without sacrificing clinically relevant fidelity.",
+  "problem_solved": "1-D arterial models are accurate but too slow and parameter-sensitive for large cohorts, real-time applications, or clinical personalization—especially when key boundary parameters are difficult to measure clinically.",
   "method": [
-    "Generate a wide-ranging dataset of 1-D arterial network simulations spanning physiologic variability and parameter uncertainty.",
-    "Train a fast surrogate emulator (e.g., neural-network or reduced-order model, optionally physics-informed) to map inputs (anatomy, boundary conditions, terminal R/C) to pressure/flow waveforms.",
-    "Personalize by inverting the surrogate (optimization or Bayesian inference) to estimate patient-specific terminal parameters and produce real-time hemodynamic predictions with uncertainty quantification."
+    "Train a surrogate model (data-driven emulator) to approximate a validated 1-D arterial blood-flow solver across physiologically realistic parameter ranges.",
+    "Personalize the surrogate to individuals via inverse parameter estimation/calibration (optimization or Bayesian inference) to infer terminal resistance, compliance and other patient-specific parameters from limited clinical measurements.",
+    "Validate surrogate fidelity and quantify uncertainty against the full 1-D solver and/or measured clinical data to ensure clinically relevant accuracy while enabling orders-of-magnitude speed-up."
   ],
-  "impact": "Provides AI/ML practitioners a practical template for replacing expensive physics simulators with accurate, real-time surrogates—enabling large-scale cohort generation, closed-loop personalization, and deployment in clinical decision-support or digital-twin applications.",
+  "impact": "For AI/ML practitioners this demonstrates how surrogate modeling + parameter estimation can transform physics-based biomedical simulations into real-time, scalable tools for digital twins, cohort studies, and clinical decision support, integrating seamlessly with ML pipelines and uncertainty-aware workflows.",
   "visual_elements": [
-    "Pipeline diagram: clinical inputs → surrogate model → real-time pressure/flow outputs and parameter estimates",
-    "Runtime vs. accuracy chart: surrogate (ms) vs. full 1-D solver (s–min) with error bars",
-    "Example waveforms: measured vs. surrogate-predicted pressure and flow with uncertainty bands",
-    "Parameter-estimation heatmap: inferred terminal resistance/compliance across a cohort or anatomical map"
+    "Pipeline diagram: clinical inputs → parameter calibration → surrogate model → real-time hemodynamic outputs",
+    "Speed vs accuracy chart: surrogate predictions vs 1-D solver (runtime reduction and error bars)",
+    "Parameter sensitivity heatmap: how terminal resistance/compliance affect key hemodynamic indices",
+    "Example dashboard mockup: individualized pressure/flow waveforms and derived metrics ready for clinical use"
   ],
   "hashtags": [
     "#SurrogateModeling",
-    "#ComputationalHemodynamics",
-    "#PersonalizedMedicine",
-    "#PhysicsInformedML",
-    "#DigitalTwins"
+    "#Hemodynamics",
+    "#ComputationalCardiology",
+    "#DigitalTwins",
+    "#RealTimeAI"
   ],
   "paper_id": "2026-04-03-arxiv-real_time_surrogate_modeling_for_personalized_blood_flow_prediction_and_hemodyna",
   "paper_title": "Real-Time Surrogate Modeling for Personalized Blood Flow Prediction and Hemodynamic Analysis",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.03197v1"
     }
   ],
-  "generated_at": "2026-04-06T07:18:33.772435"
+  "generated_at": "2026-04-07T07:07:02.725444"
 }

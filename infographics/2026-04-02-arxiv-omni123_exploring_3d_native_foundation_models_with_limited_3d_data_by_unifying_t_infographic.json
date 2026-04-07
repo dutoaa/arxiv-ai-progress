@@ -1,24 +1,24 @@
 {
-  "key_insight": "Omni123 unifies text-to-2D and text-to-3D generation so a single 3D-native foundation model can leverage abundant 2D image–text data to produce high-quality, geometrically consistent 3D outputs despite limited 3D training assets.",
-  "problem_solved": "Addresses the scarcity of high-quality 3D data and the geometric inconsistency caused by pipelines that edit in 2D then lift to 3D, which produce under-constrained or distorted 3D results.",
+  "key_insight": "Omni123 enables 3D-native foundation models to be trained despite scarce 3D data by unifying text→2D and text→3D generation in a shared framework, using abundant 2D supervision to bootstrap high-quality, geometry-consistent 3D synthesis.",
+  "problem_solved": "Addresses the scarcity of high-quality 3D assets and the under-constrained nature of text-to-3D generation; fixes reliance on indirect 2D-to-3D pipelines that produce inconsistent geometry by training a single 3D-native model with cross-modal supervision.",
   "method": [
-    "Train a unified model that supports both text→2D and text→3D generation, sharing representations so 2D supervision boosts 3D capabilities.",
-    "Combine limited 3D assets with large-scale 2D image–text pairs via cross-modal training or distillation, enforcing view and geometry consistency to regularize 3D synthesis.",
-    "Output 3D-native representations (rather than relying on post-hoc lifting of 2D edits), reducing dependence on optimization-based reconstruction and improving structural fidelity."
+    "Unify text-to-image and text-to-3D generation within a shared model/latent space so 2D and 3D tasks provide mutual supervision.",
+    "Leverage abundant 2D data and pre-trained 2D generative models to distill visual knowledge into the 3D branch via cross-modal losses and multi-view consistency.",
+    "Use a 3D-native decoder/representation and synthetic renderings or limited real 3D assets to enforce geometric fidelity and reduce reliance on expensive 3D datasets."
   ],
-  "impact": "Enables building robust text-to-3D systems without massive 3D datasets, improving geometric correctness and accelerating workflows in 3D content creation, AR/VR, simulation, and robotics.",
+  "impact": "Enables practitioners to develop geometry-consistent text-to-3D systems with far less 3D data, accelerating downstream adoption in AR/VR, robotics, simulation, and content creation while lowering data collection cost.",
   "visual_elements": [
-    "Pipeline diagram showing a single model with branching text→2D and text→3D flows and shared latent space",
-    "Before/after comparison: 2D-edit-then-lift result vs Omni123’s direct 3D-native output (multi-view renders)",
-    "Data composition bar/chart: tiny 3D dataset + large 2D image–text corpus and how knowledge transfers",
-    "View-consistency diagram: multiple rendered viewpoints aligning to a coherent 3D representation"
+    "Pipeline diagram showing shared encoder, dual outputs (2D image branch and 3D branch), and cross-modal supervision arrows",
+    "Bar chart comparing data availability: abundant 2D vs limited 3D, illustrating the bootstrap effect",
+    "Before/after qualitative renders: 2D-lifted 3D (inconsistent) vs Omni123 3D-native (geometry-consistent)",
+    "Schematic of multi-view / consistency loss (render → compare across views) to show geometry enforcement"
   ],
   "hashtags": [
     "#TextTo3D",
-    "#3DML",
-    "#FoundationModels",
     "#MultimodalAI",
-    "#3DGeneration"
+    "#3DFoundationModels",
+    "#FewShot3D",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-04-02-arxiv-omni123_exploring_3d_native_foundation_models_with_limited_3d_data_by_unifying_t",
   "paper_title": "Omni123: Exploring 3D Native Foundation Models with Limited 3D Data by Unifying Text to 2D and 3D Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.02289v1"
     }
   ],
-  "generated_at": "2026-04-06T07:21:13.031681"
+  "generated_at": "2026-04-07T07:07:57.421109"
 }
