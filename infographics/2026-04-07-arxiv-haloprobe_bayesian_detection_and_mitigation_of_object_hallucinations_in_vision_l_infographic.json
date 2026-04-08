@@ -1,0 +1,35 @@
+{
+  "key_insight": "Coarse attention-based signals used to detect object hallucinations in vision–language models are unreliable because hidden confounders (token position and object repetition) produce Simpson’s paradox; a Bayesian detector that conditions on these confounders (HaloProbe) yields more trustworthy detection and enables effective mitigation.",
+  "problem_solved": "Detecting and reducing object hallucinations in image descriptions produced by large vision–language models, overcoming failures of attention-based heuristics caused by confounding factors.",
+  "method": [
+    "Diagnose failure mode: show that token position and repeated object mentions confound attention statistics and can reverse or erase apparent attention–hallucination correlations (Simpson’s paradox).",
+    "Bayesian detector: build a probabilistic model that conditions on attention plus identified confounders to compute posterior probability that a mentioned object is actually grounded in the image.",
+    "Mitigation via posterior-informed interventions: use the detector’s output to rescore, filter, or adjust generation (post‑hoc or during decoding) to reduce hallucinated object mentions."
+  ],
+  "impact": "Provides a principled, reliable way to detect and reduce object hallucinations, improving trustworthiness and downstream performance of vision–language systems in evaluation and real-world deployment.",
+  "visual_elements": [
+    "Two-panel illustration of Simpson’s paradox: aggregated attention trend versus stratified (by token position/repetition) trends that reverse the signal.",
+    "Pipeline diagram of HaloProbe: inputs (image + caption) → attention & confounder extraction → Bayesian inference → mitigation (rescore/filter/adjust).",
+    "Bar/line chart comparing hallucination detection and reduction rates: attention-only baseline vs. HaloProbe (precision/recall/F1 before and after mitigation).",
+    "Icon set: image grounding (bounding box), language token sequence (positions/repetition), Bayesian posterior (probability dial), and a safety/shield icon indicating reduced hallucinations."
+  ],
+  "hashtags": [
+    "#VisionLanguageModels",
+    "#HallucinationDetection",
+    "#BayesianAI",
+    "#ModelReliability",
+    "#ExplainableAI"
+  ],
+  "paper_id": "2026-04-07-arxiv-haloprobe_bayesian_detection_and_mitigation_of_object_hallucinations_in_vision_l",
+  "paper_title": "HaloProbe: Bayesian Detection and Mitigation of Object Hallucinations in Vision-Language Models",
+  "paper_category": "Model",
+  "paper_date": "2026-04-07",
+  "paper_authors": "Reihaneh Zohrabi, Hosein Hasani, Akshita Gupta, Mahdieh Soleymani Baghshah, Anna Rohrbach",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.06165v1"
+    }
+  ],
+  "generated_at": "2026-04-08T07:08:36.366687"
+}

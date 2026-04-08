@@ -1,0 +1,35 @@
+{
+  "key_insight": "PoM (Polynomial Mixer) replaces self-attention with a learned polynomial aggregation that compresses token context into a compact representation and lets each token retrieve contextual information in linear time, preserving transformer expressivity.",
+  "problem_solved": "Reduces the quadratic time and memory cost of self-attention for long sequences while maintaining the theoretical ability to approximate sequence-to-sequence mappings.",
+  "method": [
+    "Learn a polynomial function that aggregates N input tokens into a compact fixed-size representation (linear-time aggregation).",
+    "Provide a token-wise retrieval mechanism where each token queries the polynomial embedding to obtain contextualized features.",
+    "Prove the contextual mapping property (universality) and demonstrate PoM as a drop-in replacement in transformer layers."
+  ],
+  "impact": "Enables scalable transformers for long sequences with substantially lower compute and memory overhead while retaining theoretical expressiveness—useful for practitioners working on long-context language, vision, or multimodal models.",
+  "visual_elements": [
+    "Side-by-side schematic: standard self-attention (O(N^2)) vs PoM pipeline (polynomial aggregation + retrieval, O(N)).",
+    "Complexity chart: compute and memory vs sequence length comparing attention and PoM (log-log or linear plot).",
+    "Diagram of polynomial aggregation: tokens → learned polynomial encoder → compact representation → per-token retrieval.",
+    "Proof intuition panel: simple illustration showing contextual mapping/universality (toy input → reconstructed outputs) to convey theoretical guarantee."
+  ],
+  "hashtags": [
+    "#PolynomialMixer",
+    "#LinearAttention",
+    "#EfficientTransformers",
+    "#PoM",
+    "#DeepLearning"
+  ],
+  "paper_id": "2026-04-07-arxiv-pom_a_linear_time_replacement_for_attention_with_the_polynomial_mixer",
+  "paper_title": "PoM: A Linear-Time Replacement for Attention with the Polynomial Mixer",
+  "paper_category": "Model",
+  "paper_date": "2026-04-07",
+  "paper_authors": "David Picard, Nicolas Dufour, Lucas Degeorge, Arijit Ghosh, Davide Allegro",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.06129v1"
+    }
+  ],
+  "generated_at": "2026-04-08T07:06:48.699355"
+}
