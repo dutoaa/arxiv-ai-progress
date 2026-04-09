@@ -1,0 +1,35 @@
+{
+  "key_insight": "Instead of ranking samples by their instantaneous loss, AlignPrune scores examples by how their loss evolves over time (loss-trajectory alignment), enabling dynamic pruning that distinguishes true hard examples from noisy-label outliers.",
+  "problem_solved": "Dynamic data pruning methods that rely on per-sample loss tend to retain noisy-label samples (which often exhibit high loss), degrading model performance under label noise; this work makes pruning robust to such noisy labels.",
+  "method": [
+    "Introduce Dynamic Alignment Score (DAS): a metric that compares a sample's loss trajectory to expected/typical trajectories, downweighting or removing samples whose trajectories indicate label noise rather than genuine difficulty.",
+    "Integrate DAS as a lightweight, plug-and-play module into existing dynamic pruning pipelines to guide sample retention/removal decisions over training steps.",
+    "Operate on trajectory information (temporal loss patterns) rather than single-step loss values to reduce false preservation of noisy examples."
+  ],
+  "impact": "Practitioners can apply dynamic pruning more safely in noisy-label scenarios, improving model generalization and compression decisions without manually cleaning labels; AlignPrune is a practical plug-in for robust, efficient training.",
+  "visual_elements": [
+    "Line plot comparing loss trajectories: clean example (smooth/decaying) vs noisy-label example (persistently high or erratic) with DAS illustration.",
+    "Flowchart of training loop showing standard dynamic pruning vs AlignPrune-enhanced loop (DAS computation -> prune decision).",
+    "Bar chart or table showing relative retained noisy samples and validation accuracy with/without AlignPrune under increasing label noise.",
+    "Icon set: stopwatch (temporal/trajectory), filter/pruner (pruning), shield (robustness), plug (plug-and-play module)."
+  ],
+  "hashtags": [
+    "#DynamicPruning",
+    "#NoisyLabels",
+    "#RobustML",
+    "#ModelCompression",
+    "#LossTrajectory"
+  ],
+  "paper_id": "2026-04-08-arxiv-beyond_loss_values_robust_dynamic_pruning_via_loss_trajectory_alignment",
+  "paper_title": "Beyond Loss Values: Robust Dynamic Pruning via Loss Trajectory Alignment",
+  "paper_category": "Model",
+  "paper_date": "2026-04-08",
+  "paper_authors": "Huaiyuan Qin, Muli Yang, Gabriel James Goenawan, Kai Wang, Zheng Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.07306v1"
+    }
+  ],
+  "generated_at": "2026-04-09T07:10:55.341316"
+}

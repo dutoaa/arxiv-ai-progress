@@ -1,0 +1,35 @@
+{
+  "key_insight": "Applying an elastic consolidation constraint to test-time training stabilizes inference-time updates for spatial memory, preventing catastrophic forgetting and enabling fast, chunked processing of arbitrarily long 3D sequences in a single pass.",
+  "problem_solved": "LaCT's fully plastic inference updates overfit and forget when processing long inputs, forcing use of a single large chunk and preventing scalable single-pass handling of very long sequences.",
+  "method": [
+    "Introduce Elastic Test-Time Training: add an elastic (EWC-style) regularizer during inference updates to anchor important weights and reduce forgetting.",
+    "Operate on smaller spatial chunks with a fast spatial memory module so the model can incrementally process long sequences while preserving previously learned information.",
+    "Use lightweight per-parameter importance estimates and a restricted optimization schedule to keep test-time updates both stable and computationally efficient."
+  ],
+  "impact": "Makes test-time adaptation practical and robust for long-context 3D reconstruction and related tasks, allowing deployed models to adapt on-the-fly without catastrophic forgetting and with low latency.",
+  "visual_elements": [
+    "Side-by-side diagram: fully plastic LaCT (forgetting) vs Elastic Test-Time Training (stable updates) with weight-anchoring visuals",
+    "Pipeline flowchart showing chunked input → spatial memory updates → elastic-regularized optimization → final reconstruction",
+    "Line chart: accuracy/consistency vs. sequence length comparing LaCT (single large chunk) and Elastic Test-Time Training (multiple chunks)",
+    "Icon set: memory slots, elastic band/lock on weights, stopwatch for speed/latency"
+  ],
+  "hashtags": [
+    "#TestTimeTraining",
+    "#ElasticWeights",
+    "#SpatialMemory",
+    "#LongContextAI",
+    "#3DReconstruction"
+  ],
+  "paper_id": "2026-04-08-arxiv-fast_spatial_memory_with_elastic_test_time_training",
+  "paper_title": "Fast Spatial Memory with Elastic Test-Time Training",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-04-08",
+  "paper_authors": "Ziqiao Ma, Xueyang Yu, Haoyu Zhen, Yuncong Yang, Joyce Chai",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.07350v1"
+    }
+  ],
+  "generated_at": "2026-04-09T07:13:11.807706"
+}

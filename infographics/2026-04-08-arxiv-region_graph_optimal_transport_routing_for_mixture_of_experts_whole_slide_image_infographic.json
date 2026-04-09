@@ -1,0 +1,35 @@
+{
+  "key_insight": "Introduce a region-graph guided optimal-transport routing that assigns WSI patches to specialised experts, preventing routing collapse and enabling experts to adapt to local pathological heterogeneity for improved whole-slide classification.",
+  "problem_solved": "Addresses weak specialization and unbalanced routing in Mixture-of-Experts MIL for gigapixel whole-slide images, where a single shared pathway or unconstrained softmax routing fails to capture spatially varying pathology and causes expert underuse or collapse.",
+  "method": [
+    "Construct a region-graph over WSI patches that encodes spatial proximity and local context to group related instances.",
+    "Use optimal-transport based routing to assign patch groups to experts with balance and locality constraints, promoting specialization while avoiding highly imbalanced softmax routing.",
+    "Train expert subnetworks to process their routed regions and aggregate expert outputs for slide-level prediction, using routing regularizers to enforce specialization and interpretability."
+  ],
+  "impact": "Enables more accurate, robust and interpretable WSI classification by letting experts focus on spatially coherent pathological patterns while preventing expert collapse and load imbalance — useful for scalable clinical-grade MIL systems.",
+  "visual_elements": [
+    "Schematic: WSI → patches → region-graph → OT-based routing → expert subnetworks → slide prediction",
+    "Heatmap overlay on a WSI showing per-region expert assignment (different colours) to illustrate specialization and locality",
+    "Bar chart comparing classification metrics (AUC/accuracy) and expert utilization balance vs standard MIL and softmax-MoE baselines",
+    "Diagram of the optimal transport routing objective showing cost matrix, transport plan, and balance constraint"
+  ],
+  "hashtags": [
+    "#MixtureOfExperts",
+    "#WholeSlideImage",
+    "#ComputationalPathology",
+    "#OptimalTransport",
+    "#MultipleInstanceLearning"
+  ],
+  "paper_id": "2026-04-08-arxiv-region_graph_optimal_transport_routing_for_mixture_of_experts_whole_slide_image",
+  "paper_title": "Region-Graph Optimal Transport Routing for Mixture-of-Experts Whole-Slide Image Classification",
+  "paper_category": "Model",
+  "paper_date": "2026-04-08",
+  "paper_authors": "Xin Tian, Jiuliu Lu, Ephraim Tsalik, Bart Wanders, Colleen Knoth",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.07298v1"
+    }
+  ],
+  "generated_at": "2026-04-09T07:10:44.176235"
+}
