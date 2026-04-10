@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce a region-graph guided optimal-transport routing that assigns WSI patches to specialised experts, preventing routing collapse and enabling experts to adapt to local pathological heterogeneity for improved whole-slide classification.",
-  "problem_solved": "Addresses weak specialization and unbalanced routing in Mixture-of-Experts MIL for gigapixel whole-slide images, where a single shared pathway or unconstrained softmax routing fails to capture spatially varying pathology and causes expert underuse or collapse.",
+  "key_insight": "A region-graph Optimal Transport (OT) routing mechanism assigns WSI patches to specialised experts, enforcing balanced and spatially coherent expert usage so Mixture-of-Experts (MoE) can better handle slide heterogeneity.",
+  "problem_solved": "Standard MIL aggregators and unconstrained softmax MoE routing either force all instances through a shared pathway or produce imbalanced, spatially inconsistent expert assignments—limiting specialization and interpretability for gigapixel whole-slide image classification.",
   "method": [
-    "Construct a region-graph over WSI patches that encodes spatial proximity and local context to group related instances.",
-    "Use optimal-transport based routing to assign patch groups to experts with balance and locality constraints, promoting specialization while avoiding highly imbalanced softmax routing.",
-    "Train expert subnetworks to process their routed regions and aggregate expert outputs for slide-level prediction, using routing regularizers to enforce specialization and interpretability."
+    "Build a region-graph over WSI patches to capture spatial adjacency and local context.",
+    "Use Optimal Transport to compute routing weights from regions to expert subnetworks with balance and locality constraints, preventing expert collapse and encouraging spatial coherence.",
+    "Integrate OT routing into an end-to-end Mixture-of-Experts MIL pipeline so experts specialise on distinct pathological patterns across the slide."
   ],
-  "impact": "Enables more accurate, robust and interpretable WSI classification by letting experts focus on spatially coherent pathological patterns while preventing expert collapse and load imbalance — useful for scalable clinical-grade MIL systems.",
+  "impact": "Provides a principled routing strategy that yields more balanced, interpretable, and specialised expert pathways for WSI classification—helpful for designing robust, scalable MIL/MoE systems in computational pathology and other large-instance domains.",
   "visual_elements": [
-    "Schematic: WSI → patches → region-graph → OT-based routing → expert subnetworks → slide prediction",
-    "Heatmap overlay on a WSI showing per-region expert assignment (different colours) to illustrate specialization and locality",
-    "Bar chart comparing classification metrics (AUC/accuracy) and expert utilization balance vs standard MIL and softmax-MoE baselines",
-    "Diagram of the optimal transport routing objective showing cost matrix, transport plan, and balance constraint"
+    "Region-graph overlay on a whole-slide image showing nodes (regions) and edges (spatial adjacency).",
+    "Sankey/flow diagram of Optimal Transport routing from regions to experts (thickness = routing weight).",
+    "Expert-specific attention maps / heatmaps illustrating spatially coherent specialist responses.",
+    "Compact pipeline diagram: patch extraction → region-graph → OT routing → expert ensemble → slide prediction."
   ],
   "hashtags": [
+    "#MultipleInstanceLearning",
     "#MixtureOfExperts",
-    "#WholeSlideImage",
-    "#ComputationalPathology",
     "#OptimalTransport",
-    "#MultipleInstanceLearning"
+    "#ComputationalPathology",
+    "#WholeSlideImaging"
   ],
   "paper_id": "2026-04-08-arxiv-region_graph_optimal_transport_routing_for_mixture_of_experts_whole_slide_image",
   "paper_title": "Region-Graph Optimal Transport Routing for Mixture-of-Experts Whole-Slide Image Classification",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.07298v1"
     }
   ],
-  "generated_at": "2026-04-09T07:10:44.176235"
+  "generated_at": "2026-04-10T07:19:27.475104"
 }
