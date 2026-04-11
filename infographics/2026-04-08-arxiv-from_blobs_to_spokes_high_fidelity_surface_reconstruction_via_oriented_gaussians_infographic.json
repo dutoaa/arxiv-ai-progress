@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper derives a principled occupancy field for 3D Gaussian Splatting and leverages oriented Gaussians to turn opacity-based 'blobs' into surface-aware 'spokes', enabling high-fidelity surface extraction from 3DGS representations.",
-  "problem_solved": "3D Gaussian Splatting excels at fast novel-view synthesis but lacks a global geometric field, making robust surface extraction difficult and forcing reliance on heuristic depth fusion; this work provides a theoretical and practical solution for extracting accurate surfaces from 3DGS.",
+  "key_insight": "By deriving a principled occupancy field for oriented Gaussians, the paper converts 3D Gaussian Splatting from an opacity-driven renderer into a geometry-aware representation, enabling direct, high-fidelity surface extraction.",
+  "problem_solved": "3D Gaussian Splatting lacks a global geometric field, making accurate surface reconstruction difficult and forcing heuristic workarounds (e.g., TSDF fusion of blended depth maps).",
   "method": [
-    "Formulate a principled occupancy field for Gaussian Splatting inspired by the Objects-as-Volumes framework, transforming opacity blobs into a volumetric occupancy signal.",
-    "Introduce oriented Gaussians (spokes) to capture local surface orientation and geometry more faithfully than isotropic splats.",
-    "Use the derived occupancy field together with oriented Gaussians in a reconstruction pipeline to extract high-quality surfaces (e.g., mesh extraction from occupancy) compatible with existing 3DGS workflows."
+    "Formulate an occupancy probability field for oriented Gaussians (inspired by Objects as Volumes) that aggregates per-Gaussian contributions into a global geometry field.",
+    "Provide an analytical / differentiable mapping from Gaussian parameters to occupancy so the model yields consistent volumetric values rather than only opacity splats.",
+    "Extract surfaces from the occupancy field using standard iso-surface techniques (e.g., marching cubes), producing high-fidelity meshes without heuristic depth fusion."
   ],
-  "impact": "Bridges the gap between fast neural rendering and accurate geometry: practitioners can retain 3DGS's rendering speed while obtaining reliable surface reconstructions without ad-hoc heuristics, improving downstream tasks like 3D printing, AR/VR content, and geometry-based learning.",
+  "impact": "Transforms fast, view-synthesis-focused Gaussian Splatting into a practical tool for accurate surface reconstruction, bridging the gap between real-time rendering and geometry-centric tasks (e.g., modeling, AR/VR, robotics).",
   "visual_elements": [
-    "Side-by-side comparison: original 3DGS blobs + heuristic TSDF mesh vs oriented Gaussians occupancy-derived mesh (before/after).",
-    "Diagram of an oriented Gaussian (spoke) showing center, covariance/orientation, and local surface normal alignment.",
-    "Pipeline flowchart: 3DGS model -> occupancy derivation -> oriented Gaussian fitting -> mesh extraction (marching cubes / iso-surface).",
-    "Error/quality heatmap or silhouette overlap comparing reconstructed mesh to ground-truth geometry."
+    "Before vs after comparison: blobby Gaussian splats (opacity) vs crisp reconstructed mesh (occupancy-derived)",
+    "Pipeline diagram: oriented Gaussians -> occupancy field aggregation -> iso-surface extraction",
+    "Cross-section visualization showing per-Gaussian occupancy contributions and the resulting iso-surface",
+    "Quantitative bar chart: mesh accuracy / completeness vs TSDF fusion and implicit SDF baselines"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#GaussianSplatting",
-    "#NeuralRendering",
     "#SurfaceReconstruction",
-    "#ComputerVision"
+    "#ComputerVision",
+    "#GeometryProcessing"
   ],
   "paper_id": "2026-04-08-arxiv-from_blobs_to_spokes_high_fidelity_surface_reconstruction_via_oriented_gaussians",
   "paper_title": "From Blobs to Spokes: High-Fidelity Surface Reconstruction via Oriented Gaussians",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.07337v1"
     }
   ],
-  "generated_at": "2026-04-10T07:19:00.562312"
+  "generated_at": "2026-04-11T06:54:01.074998"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "MoRight factorizes motion and viewpoint control while enforcing motion causality so user-specified actions produce physically coherent reactions from other objects across arbitrary camera views.",
-  "problem_solved": "Existing video generation methods conflate camera and object motion and fail to produce causal responses—resulting in unrealistic or pixel-shifted reactions when users try to control object actions or change viewpoints.",
+  "key_insight": "MoRight disentangles object motion from camera viewpoint and enforces motion causality, so user-specified actions trigger coherent physical reactions in the scene instead of merely displacing pixels.",
+  "problem_solved": "Existing motion-controlled video models entangle camera and object motion and fail to produce causal, physically plausible interactions—users cannot independently control viewpoint and expect other objects to respond coherently to driven actions.",
   "method": [
-    "Factorized control: separate latent controls for object motion and camera viewpoint so each can be adjusted independently.",
-    "Interaction-aware dynamics: a module that predicts object-state changes and enforces causal responses of other objects rather than mere pixel displacement.",
-    "View-consistent synthesis: a rendering/decoding component that produces physically plausible frames under freely chosen viewpoints while respecting the predicted dynamics."
+    "Disentangled representation: separate latent channels for object action control and camera viewpoint to enable independent manipulation.",
+    "Causal dynamics module: learns object–object interaction dynamics so user actions induce coherent reactions (not just pixel shifts).",
+    "Viewpoint-aware synthesis and multi-term training (reconstruction + causality-consistency + viewpoint-consistency) to produce physically plausible, controllable videos."
   ],
-  "impact": "Enables intuitive, reliable motion-conditioned video synthesis useful for interactive content creation, realistic simulation for robotics, and data augmentation where controllable, causally consistent scene dynamics across viewpoints are required.",
+  "impact": "Makes controllable video synthesis more reliable and useful for interactive applications (animation, simulation, robotics) by enabling independent viewpoint control and causally correct scene behavior—improving realism and downstream utility.",
   "visual_elements": [
-    "Schematic diagram showing factorization: separate object-motion and camera-view branches feeding a shared renderer.",
-    "Before/after comparatives: entangled pixel-shift output vs. MoRight's causally consistent reaction sequences.",
-    "Interaction graph overlaid on frames: arrows showing predicted causal influence between objects when one is controlled.",
-    "Viewpoint sweep: same controlled action rendered from multiple camera angles demonstrating view consistency."
+    "Architecture diagram: two-stream latent (action vs viewpoint) feeding a causal dynamics module and viewpoint-aware renderer",
+    "Before/after comparison: baseline output vs MoRight on the same control input showing causal reactions vs pixel displacement",
+    "Frame sequence storyboard: an action (e.g., push) causing other objects to respond under multiple camera viewpoints",
+    "Training flowchart: losses and supervision signals (reconstruction, causality-consistency, viewpoint-consistency)"
   ],
   "hashtags": [
-    "#VideoGeneration",
     "#MotionControl",
-    "#CausalModeling",
-    "#NeuralRendering",
-    "#GenerativeAI"
+    "#VideoSynthesis",
+    "#Causality",
+    "#GenerativeModels",
+    "#ComputerVision"
   ],
   "paper_id": "2026-04-08-arxiv-moright_motion_control_done_right",
   "paper_title": "MoRight: Motion Control Done Right",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.07348v1"
     }
   ],
-  "generated_at": "2026-04-10T07:19:40.415980"
+  "generated_at": "2026-04-11T06:54:44.667290"
 }

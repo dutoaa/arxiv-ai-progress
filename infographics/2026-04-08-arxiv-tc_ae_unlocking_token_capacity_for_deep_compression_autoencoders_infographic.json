@@ -1,24 +1,24 @@
 {
-  "key_insight": "Instead of enlarging channel width to preserve reconstruction under heavy compression (which causes latent collapse), TC-AE increases and optimizes capacity in the token space of a ViT-based autoencoder, maintaining fidelity and generative quality with compact latents.",
-  "problem_solved": "Latent representation collapse and degraded generative/reconstruction performance when existing deep-compression autoencoders increase channel counts or rely on complex multi-stage training to meet high compression ratios.",
+  "key_insight": "Instead of widening latent channels to preserve quality at high compression, TC-AE unlocks representational capacity by operating in the token space of a ViT-based autoencoder, preventing latent collapse and maintaining reconstruction/generative fidelity with simpler models.",
+  "problem_solved": "Latent representation collapse and degraded generative/reconstruction performance that arise when existing deep-compression AEs try to maintain quality by merely increasing latent channel counts under high compression ratios.",
   "method": [
-    "ViT-based encoder–decoder that explicitly operates on and restructures the latent token space rather than only expanding channel dimensionality.",
-    "Token-capacity mechanisms (e.g., adaptive token allocation / token reshaping) that increase representational slots while keeping per-token dimension small to avoid collapse.",
-    "Capacity-preserving training objective and lightweight modules that regularize token usage so single-stage training yields high-fidelity reconstructions at strong compression."
+    "Design a ViT-based encoder–decoder that treats the bottleneck as a token space rather than a high-channel tensor.",
+    "Increase and utilize token capacity (more informative tokens or richer token interactions) to encode compressed latents instead of scaling channel width.",
+    "Introduce token-space operations/constraints that preserve diversity and prevent collapse, enabling stable training without multi-stage schemes or extreme architectural scaling."
   ],
-  "impact": "Enables higher-compression autoencoders with better reconstruction and generative behavior without bloated channel counts or complex pipelines — useful for efficient image storage, transmission, and compact representation learning.",
+  "impact": "Enables more compact, stable deep-compression autoencoders that keep reconstruction and generative quality at high compression ratios while avoiding costly channel scaling or complicated training pipelines — useful for efficient storage, transmission, and generative tasks.",
   "visual_elements": [
-    "Architecture diagram showing encoder → token-capacity module → bottleneck tokens → decoder (highlight token flow vs channel expansion).",
-    "Chart: reconstruction quality (PSNR/LPIPS) vs compression ratio comparing channel-expansion baseline and TC-AE.",
-    "Illustration of token collapse vs preserved-token-diversity (heatmaps or attention maps) to show the preservation of information.",
-    "Icon set: small model footprint, single-stage training, improved fidelity, and faster inference."
+    "Architecture diagram: input → patch/tokenization → ViT-based encoder → token bottleneck → ViT-based decoder → output (reconstruction)",
+    "Before vs after illustration: latent collapse when increasing channels vs preserved diversity using token-capacity approach",
+    "Performance chart: reconstruction quality / FID vs compression ratio comparing channel-scaling baselines and TC-AE",
+    "Icon set: tokens (small squares) vs channels (wide bars) to convey the conceptual shift from channel width to token capacity"
   ],
   "hashtags": [
     "#Compression",
     "#Autoencoder",
     "#VisionTransformer",
     "#RepresentationLearning",
-    "#ModelEfficiency"
+    "#DeepLearning"
   ],
   "paper_id": "2026-04-08-arxiv-tc_ae_unlocking_token_capacity_for_deep_compression_autoencoders",
   "paper_title": "TC-AE: Unlocking Token Capacity for Deep Compression Autoencoders",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.07340v1"
     }
   ],
-  "generated_at": "2026-04-10T07:19:13.709935"
+  "generated_at": "2026-04-11T06:54:15.465664"
 }

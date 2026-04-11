@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce a meta-cognitive decision layer that lets agentic multimodal models judge whether to answer from internal perception or call external tools, substantially reducing reflexive (and often unnecessary) tool invocation and its associated costs.",
-  "problem_solved": "Agentic multimodal systems habitually overuse external utilities—invoking tools reflexively even when the visual context suffices—causing extra latency, cost, and brittle behaviors; the paper tackles the arbitration between internal reasoning and tool use.",
+  "key_insight": "Introduce a meta‑cognitive decision mechanism that teaches agentic multimodal models to decide when to solve a query using internal visual/linguistic reasoning versus when to call external tools, reducing reflexive and unnecessary tool invocations.",
+  "problem_solved": "Agentic multimodal models habitually overuse external tools—invoking them even when answers are available in the raw visual context—leading to excessive latency, cost, and brittle behavior due to lack of arbitration between internal knowledge and external utilities.",
   "method": [
-    "Add a meta-cognitive controller that estimates internal-confidence and compares expected internal utility vs. external-tool cost to gate tool calls.",
-    "Train/finetune agents with cost-aware objectives and self-reflection signals (e.g., calibrated confidence, contrastive examples) so they learn when to rely on perception vs. tools.",
-    "Evaluate with multimodal tasks and metrics that measure unnecessary tool calls, latency, and task accuracy to verify more efficient, reliable behavior."
+    "Add a meta‑cognitive decision module (a confidence/utility estimator) that evaluates whether internal reasoning suffices or a tool call is warranted.",
+    "Train with a cost‑aware objective and calibration signals (penalize unnecessary tool calls, reward correct internal resolution) so the agent learns a selective invocation policy.",
+    "Pipeline design: perform internal multimodal reasoning → decision gate (use internal answer vs call tool) → selective tool execution with feedback to refine the decision policy."
   ],
-  "impact": "Makes agentic multimodal systems faster, cheaper, and more robust by preventing unnecessary tool use—important for real-world deployment and scalable multi-tool agent architectures.",
+  "impact": "Makes agentic multimodal systems faster, cheaper, and more reliable by cutting unnecessary tool calls and improving on‑device problem solving; useful for real‑time, resource‑sensitive deployments and safer tool orchestration.",
   "visual_elements": [
-    "Flowchart showing decision gate: Visual input → internal reasoning (confidence) → gate → tool invocation or direct answer.",
-    "Bar chart comparing baseline vs. meta-cognitive agent on # tool calls, latency, and cost.",
-    "Calibration/ROC-style plot: confidence vs. correctness before and after meta-cognitive training.",
-    "Interaction timeline (sequence diagram) demonstrating an example query resolved internally vs. one that requires a tool."
+    "Flowchart of the agent pipeline showing internal reasoning → decision gate → optional tool call",
+    "Before/after bar chart comparing tool invocation rate, average latency, and cost",
+    "Confidence calibration heatmap illustrating when the agent chooses internal answers vs tools",
+    "Icon set contrasting 'internal reasoning' (brain/eye) and 'external tool' (gear/cloud) with a decision gate symbol"
   ],
   "hashtags": [
-    "#MultimodalAI",
-    "#AgenticModels",
+    "#AgenticAI",
+    "#Multimodal",
     "#MetaCognition",
-    "#EfficientAI",
-    "#ToolUse"
+    "#ToolUse",
+    "#EfficientAI"
   ],
   "paper_id": "2026-04-09-arxiv-act_wisely_cultivating_meta_cognitive_tool_use_in_agentic_multimodal_models",
   "paper_title": "Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08545v1"
     }
   ],
-  "generated_at": "2026-04-10T07:17:10.323425"
+  "generated_at": "2026-04-11T06:51:36.953544"
 }

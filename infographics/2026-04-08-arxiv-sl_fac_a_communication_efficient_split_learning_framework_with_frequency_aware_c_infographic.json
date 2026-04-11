@@ -1,24 +1,24 @@
 {
-  "key_insight": "SL-FAC reduces split-learning communication by compressing smashed data in the frequency domain and selectively transmitting the most informative frequency components, cutting bandwidth with little accuracy loss.",
-  "problem_solved": "High communication overhead in split learning from transmitting large activations/gradients between many edge devices and the server, which limits deployment on bandwidth- and energy-constrained devices and reduces scalability.",
+  "key_insight": "SL-FAC reduces split-learning communication by compressing smashed data in the frequency domain, removing low-impact frequency components while preserving model accuracy and training dynamics.",
+  "problem_solved": "Split learning incurs heavy communication costs from transmitting activations and gradients (smashed data) between many edge devices and the server; this limits scalability on bandwidth- and energy-constrained devices.",
   "method": [
-    "Transform smashed data (activations/gradients) into a frequency domain representation and identify the most informative coefficients.",
-    "Apply frequency-aware compression (selective retention, quantization, sparsification) with adaptive bitrate per device to minimize transmitted payloads.",
-    "Server-side reconstruction and training-compatible compensation to preserve model accuracy while significantly lowering communication volume."
+    "Transform smashed data to a frequency domain (e.g., DCT/FFT) and identify low-contribution frequency components.",
+    "Apply frequency-aware compression: selective component pruning + quantization and lightweight coding to drastically shrink transmitted payloads.",
+    "Integrate adaptive allocation and error-compensation into the split-learning pipeline to retain accuracy and stable convergence under aggressive compression."
   ],
-  "impact": "Enables scalable, bandwidth- and energy-efficient split learning for edge deployments, allowing larger models and more devices to participate without major accuracy degradation or network cost increases.",
+  "impact": "Enables scalable, bandwidth- and energy-efficient split learning for real-world edge deployments, letting practitioners train large models across many devices with much lower communication overhead and minimal accuracy loss.",
   "visual_elements": [
-    "Split-learning pipeline diagram showing device/server split, cut layer, and compressed smashed-data arrows with before/after size labels",
-    "Frequency-spectrum graphic indicating retained vs discarded frequency coefficients (e.g., heatmap or bar plot)",
-    "Trade-off chart comparing communication cost vs model accuracy for SL-FAC and baseline methods",
-    "Icon set: edge device, server, bandwidth meter, and a ‘split model’ symbol to convey infrastructure and savings"
+    "Architecture diagram: split learning pipeline showing client-side partial model, smashed data transform → compressor → network → server-side model.",
+    "Before/after frequency-spectrum heatmaps of smashed activations illustrating which bands are removed or retained.",
+    "Tradeoff chart: communication bytes vs. validation accuracy (curve) showing large reductions with small accuracy drop.",
+    "Bar chart: relative communication cost per round across baseline SL, quantization-only, and SL-FAC."
   ],
   "hashtags": [
     "#SplitLearning",
     "#ModelCompression",
     "#EdgeAI",
     "#CommunicationEfficiency",
-    "#AIInfrastructure"
+    "#FrequencyCompression"
   ],
   "paper_id": "2026-04-08-arxiv-sl_fac_a_communication_efficient_split_learning_framework_with_frequency_aware_c",
   "paper_title": "SL-FAC: A Communication-Efficient Split Learning Framework with Frequency-Aware Compression",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.07316v1"
     }
   ],
-  "generated_at": "2026-04-10T07:18:21.063318"
+  "generated_at": "2026-04-11T06:53:07.196424"
 }

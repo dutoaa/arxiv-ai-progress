@@ -1,24 +1,24 @@
 {
-  "key_insight": "A region-graph Optimal Transport (OT) routing mechanism assigns WSI patches to specialised experts, enforcing balanced and spatially coherent expert usage so Mixture-of-Experts (MoE) can better handle slide heterogeneity.",
-  "problem_solved": "Standard MIL aggregators and unconstrained softmax MoE routing either force all instances through a shared pathway or produce imbalanced, spatially inconsistent expert assignments—limiting specialization and interpretability for gigapixel whole-slide image classification.",
+  "key_insight": "Introducing a region-graph formulation with optimal transport routing lets a Mixture-of-Experts (MoE) aggregator assign spatially coherent WSI regions to specialised experts, preventing imbalanced routing and improving classification and interpretability.",
+  "problem_solved": "Standard MIL and MoE aggregators route all instances through shared or unconstrained softmax pathways, causing expert collapse, imbalanced workloads, and loss of spatial/contextual structure in gigapixel whole-slide image classification.",
   "method": [
-    "Build a region-graph over WSI patches to capture spatial adjacency and local context.",
-    "Use Optimal Transport to compute routing weights from regions to expert subnetworks with balance and locality constraints, preventing expert collapse and encouraging spatial coherence.",
-    "Integrate OT routing into an end-to-end Mixture-of-Experts MIL pipeline so experts specialise on distinct pathological patterns across the slide."
+    "Construct a region-graph over WSI patches to encode local spatial relationships and reduce noisy per-instance routing.",
+    "Use an optimal-transport-based routing layer to assign region mass to experts under capacity and balance constraints, encouraging specialised, spatially coherent expert assignments.",
+    "Train end-to-end within the MIL framework so experts learn specialised features and the routing adapts to both task loss and load regularisation."
   ],
-  "impact": "Provides a principled routing strategy that yields more balanced, interpretable, and specialised expert pathways for WSI classification—helpful for designing robust, scalable MIL/MoE systems in computational pathology and other large-instance domains.",
+  "impact": "Enables scalable, balanced MoE deployment for gigapixel pathology images with improved accuracy, interpretability, and resource efficiency—making specialised expert routing practical for real-world WSI pipelines.",
   "visual_elements": [
-    "Region-graph overlay on a whole-slide image showing nodes (regions) and edges (spatial adjacency).",
-    "Sankey/flow diagram of Optimal Transport routing from regions to experts (thickness = routing weight).",
-    "Expert-specific attention maps / heatmaps illustrating spatially coherent specialist responses.",
-    "Compact pipeline diagram: patch extraction → region-graph → OT routing → expert ensemble → slide prediction."
+    "Pipeline diagram: WSI → patches → region-graph → optimal transport flow → experts → slide-level prediction",
+    "Sankey or flow diagram showing transport mass from regions to experts (before vs after balance regularisation)",
+    "Heatmap overlays on slides showing per-expert activation/specialisation regions",
+    "Bar chart comparing expert utilization, classification accuracy, and calibration against baseline MIL/MoE methods"
   ],
   "hashtags": [
-    "#MultipleInstanceLearning",
     "#MixtureOfExperts",
+    "#WholeSlideImage",
     "#OptimalTransport",
-    "#ComputationalPathology",
-    "#WholeSlideImaging"
+    "#MultipleInstanceLearning",
+    "#ComputationalPathology"
   ],
   "paper_id": "2026-04-08-arxiv-region_graph_optimal_transport_routing_for_mixture_of_experts_whole_slide_image",
   "paper_title": "Region-Graph Optimal Transport Routing for Mixture-of-Experts Whole-Slide Image Classification",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.07298v1"
     }
   ],
-  "generated_at": "2026-04-10T07:19:27.475104"
+  "generated_at": "2026-04-11T06:54:26.858883"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Multimodal MoE models can accurately perceive visual content but fail at downstream reasoning because expert routing distracts reasoning pathways; the problem is not lack of cross-modal semantic sharing but routing behavior that misroutes visual signals.",
-  "problem_solved": "Explains and fixes the paradox where vision-language MoE models \"see\" images correctly yet \"don't think\" about them — i.e., a perception-to-reasoning gap caused by routing distraction in the mixture-of-experts architecture.",
+  "key_insight": "Multimodal MoE models can accurately \"see\" image content but fail to \"think\" — i.e., they perceive visual signals yet routing mechanisms divert computation away from reasoning experts, producing worse reasoning than equivalent text-only inputs.",
+  "problem_solved": "Explains and diagnoses why vision-language Mixture-of-Experts models succeed at perception but underperform on subsequent cross-modal reasoning, isolating routing distraction as a core failure mode.",
   "method": [
-    "Systematic diagnosis: measure perception vs. reasoning performance on matched image and text problems and probe cross-modal semantic sharing to rule out alignment failure.",
-    "Routing analysis: inspect gating decisions and token-to-expert flows to identify ‘routing distraction’ — visual tokens routed to experts that impede reasoning.",
-    "Mitigation proposals: introduce routing-aware interventions (e.g., routing regularization, expert specialization or auxiliary reasoning losses) and ablations to restore correct reasoning behavior."
+    "Systematic behavioral and routing-analysis of multimodal MoE architectures to show cross-modal semantic sharing exists and to rule out simple alignment failures.",
+    "Identify and quantify \"routing distraction\": visual tokens disproportionately activate perception-oriented experts and reduce engagement of reasoning experts.",
+    "Propose targeted mitigation strategies (e.g., routing regularization, expert-conditioning or gating constraints) to rebalance expert utilization and restore reasoning performance."
   ],
-  "impact": "Helps practitioners diagnose and remedy a critical failure mode in multimodal MoEs, improving robustness and interpretability of vision-language systems and guiding design of gating/routing mechanisms for reliable multimodal reasoning.",
+  "impact": "Clarifies a practical failure mode in large multimodal MoEs and provides actionable diagnostics and fixes, helping practitioners improve robustness and reasoning fidelity in vision–language systems.",
   "visual_elements": [
-    "Schematic of a multimodal MoE showing token routing arrows: correct vs. distracted routing (color-coded).",
-    "Side-by-side example: same problem presented with image vs. text, showing perception OK but reasoning failure for the image case.",
-    "Sankey/heatmap of routing probabilities across experts illustrating concentration of visual tokens into distracting experts.",
-    "Bar chart/ablation table: accuracy gap (perception vs. reasoning) before and after routing-aware mitigations."
+    "Side-by-side bar chart: model accuracy on reasoning tasks for image+text vs text-only inputs (showing the gap).",
+    "Schematic of MoE routing: tokens routed to different experts with arrows highlighting \"distracted\" visual-token routing away from reasoning experts.",
+    "Heatmap/timeline of expert activation: contrast activations for visual vs textual inputs to illustrate under-engaged reasoning experts.",
+    "Before/after diagram: effect of a mitigation (e.g., routing regularization) showing restored routing balance and improved reasoning performance."
   ],
   "hashtags": [
-    "#MultimodalAI",
+    "#Multimodal",
     "#MixtureOfExperts",
     "#VisionLanguage",
-    "#ModelInterpretability",
-    "#RoutingMechanisms"
+    "#ModelRobustness",
+    "#AIInterpretability"
   ],
   "paper_id": "2026-04-09-arxiv-seeing_but_not_thinking_routing_distraction_in_multimodal_mixture_of_experts",
   "paper_title": "Seeing but Not Thinking: Routing Distraction in Multimodal Mixture-of-Experts",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08541v1"
     }
   ],
-  "generated_at": "2026-04-10T07:16:14.578920"
+  "generated_at": "2026-04-11T06:50:37.214564"
 }
