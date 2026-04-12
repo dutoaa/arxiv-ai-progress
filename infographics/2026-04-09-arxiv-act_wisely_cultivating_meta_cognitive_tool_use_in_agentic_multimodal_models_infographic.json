@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce a meta‑cognitive decision mechanism that teaches agentic multimodal models to decide when to solve a query using internal visual/linguistic reasoning versus when to call external tools, reducing reflexive and unnecessary tool invocations.",
-  "problem_solved": "Agentic multimodal models habitually overuse external tools—invoking them even when answers are available in the raw visual context—leading to excessive latency, cost, and brittle behavior due to lack of arbitration between internal knowledge and external utilities.",
+  "key_insight": "Adding a lightweight meta-cognitive decision layer lets agentic multimodal models judge when to rely on internal perception/reasoning versus invoking external tools, greatly reducing unnecessary tool calls while preserving performance.",
+  "problem_solved": "Agentic multimodal systems habitually over-invoke external tools (blind tool calls) even when answers are available from raw visual/text context, causing latency, cost, and brittle behavior; this work teaches agents to arbitrate tool use.",
   "method": [
-    "Add a meta‑cognitive decision module (a confidence/utility estimator) that evaluates whether internal reasoning suffices or a tool call is warranted.",
-    "Train with a cost‑aware objective and calibration signals (penalize unnecessary tool calls, reward correct internal resolution) so the agent learns a selective invocation policy.",
-    "Pipeline design: perform internal multimodal reasoning → decision gate (use internal answer vs call tool) → selective tool execution with feedback to refine the decision policy."
+    "Introduce a meta-cognitive selector/gate that predicts necessity of tool invocation using signals such as model confidence, context features, and tool cost.",
+    "Train the selector with cost-aware objectives and mixed supervision (examples where tools are/aren't needed), plus self-reflection/fallback strategies to recover from mistaken abstentions.",
+    "Integrate the selector into the agent loop so the model can decide, reflect, and conditionally call tools with minimal changes to existing agent architectures."
   ],
-  "impact": "Makes agentic multimodal systems faster, cheaper, and more reliable by cutting unnecessary tool calls and improving on‑device problem solving; useful for real‑time, resource‑sensitive deployments and safer tool orchestration.",
+  "impact": "Makes agentic multimodal systems faster, cheaper, and more reliable by avoiding reflexive tool usage and enabling smarter, context-aware decisions about when to query external utilities—practical for deployed interactive AI.",
   "visual_elements": [
-    "Flowchart of the agent pipeline showing internal reasoning → decision gate → optional tool call",
-    "Before/after bar chart comparing tool invocation rate, average latency, and cost",
-    "Confidence calibration heatmap illustrating when the agent chooses internal answers vs tools",
-    "Icon set contrasting 'internal reasoning' (brain/eye) and 'external tool' (gear/cloud) with a decision gate symbol"
+    "Flowchart of agent loop: Perception → Meta-cognitive selector (confidence meter) → Decide: Internal answer vs Tool call → Response, showing the gating decision point.",
+    "Before/After bar chart comparing # of tool calls, average latency, and cost for baseline vs meta-cognitive agent.",
+    "Example interaction panel: a visual query with two annotated outcomes (internal solve vs unnecessary tool call) illustrating the selector's effect.",
+    "Icon set: confidence gauge, lightning bolt (latency), wrench (tool), and brain (internal reasoning) to quickly communicate trade-offs."
   ],
   "hashtags": [
     "#AgenticAI",
     "#Multimodal",
     "#MetaCognition",
-    "#ToolUse",
-    "#EfficientAI"
+    "#EfficientAI",
+    "#ToolUse"
   ],
   "paper_id": "2026-04-09-arxiv-act_wisely_cultivating_meta_cognitive_tool_use_in_agentic_multimodal_models",
   "paper_title": "Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08545v1"
     }
   ],
-  "generated_at": "2026-04-11T06:51:36.953544"
+  "generated_at": "2026-04-12T07:05:04.928233"
 }

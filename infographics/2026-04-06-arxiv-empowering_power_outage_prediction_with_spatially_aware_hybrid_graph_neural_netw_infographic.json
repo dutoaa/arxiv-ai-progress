@@ -1,17 +1,17 @@
 {
-  "key_insight": "Combining a spatially aware hybrid graph neural network with contrastive pretraining yields more accurate and robust power-outage predictions under extreme weather by capturing both grid topology and geographic proximity while improving representation quality from limited labeled events.",
-  "problem_solved": "Predicting weather-driven power outages is hard due to sparse labels, heterogeneous spatial relationships (topology vs geographic adjacency), and noisy multi-source data; this paper addresses those challenges to improve early outage detection and prioritization.",
+  "key_insight": "A spatially aware hybrid Graph Neural Network combined with contrastive pretraining significantly improves the accuracy and robustness of power outage prediction under extreme weather by learning richer, topology-informed representations.",
+  "problem_solved": "Predicting weather-driven power outages across distributed electrical networks where spatial dependencies, noisy/missing labels, and multimodal inputs (weather, grid topology, assets) make reliable forecasting difficult.",
   "method": [
-    "Hybrid spatial GNN that fuses electrical-grid topology and geographic adjacency to model both network connectivity and spatial influence.",
-    "Contrastive learning pretraining on multi-source inputs (weather, asset/location features, historical outages) to learn robust node/region representations with limited labels.",
-    "Fine-tuning downstream outage prediction with disturbance-aware loss and spatio-temporal features for improved detection and localization."
+    "Hybrid spatial GNN that models multi-scale grid topology and neighborhood interactions to capture spatial propagation of failures.",
+    "Temporal encoder (e.g., sequence model) integrated with the GNN to handle dynamic weather and time-varying load/asset states.",
+    "Contrastive learning pretraining on multimodal inputs (weather, historical outages, sensor/asset data) to produce robust, transferable node/region embeddings for downstream outage forecasting."
   ],
-  "impact": "Provides a practical blueprint for building label-efficient, spatially informed ML models for critical infrastructure — improving generalization and early-warning capability in operational power systems and other spatial networked domains.",
+  "impact": "Enables AI/ML practitioners to build more accurate, resilient infrastructure forecasting systems that leverage topology-aware representations and self-supervised learning—useful for transfer learning, operational decision support, and climate-resilience planning.",
   "visual_elements": [
-    "Map-based heatmap showing predicted vs actual outage regions over time (spatio-temporal animation frames).",
-    "Architecture diagram illustrating hybrid GNN layers (topology + geographic edges) feeding into contrastive pretraining and downstream classifier.",
-    "Bar/line chart comparing performance metrics (AUC/Recall/F1) against baselines with and without contrastive pretraining.",
-    "Data-flow infographic showing multi-source inputs (weather forecasts, grid topology, asset attributes, historical outages) into the model pipeline."
+    "Map-based diagram showing grid topology, predicted outage hotspots, and overlayed storm track.",
+    "Schematic of the hybrid model: GNN module (spatial) + temporal encoder + contrastive pretraining flow.",
+    "Embedding space visualization (t-SNE/UMAP) comparing supervised vs. contrastive-pretrained representations.",
+    "Time-series forecast chart showing predicted vs. actual outage counts with confidence bands."
   ],
   "hashtags": [
     "#GraphNeuralNetworks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.04916v1"
     }
   ],
-  "generated_at": "2026-04-08T07:11:41.829126"
+  "generated_at": "2026-04-12T07:06:58.745504"
 }

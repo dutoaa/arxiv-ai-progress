@@ -1,24 +1,24 @@
 {
-  "key_insight": "DiffHDR uses video diffusion models to plausibly reconstruct lost highlight and shadow detail from 8‑bit LDR videos, enabling realistic re‑exposure for HDR displays and post‑production. It treats re‑exposure as a generative restoration task conditioned on the input video and target exposure.",
-  "problem_solved": "Recovers realistic HDR content from saturated and quantized 8‑bit LDR videos so luminance can be accurately remapped and re‑exposed for editing and HDR display.",
+  "key_insight": "DiffHDR leverages conditional video diffusion models to re-expose 8-bit LDR videos, hallucinating plausible highlight and shadow detail lost to saturation/quantization while preserving temporal consistency and enabling controllable exposure adjustments.",
+  "problem_solved": "Converting ubiquitous 8-bit LDR videos into usable HDR for re-exposure and display—recovering realistic detail in clipped highlights and deep shadows and avoiding per-frame temporal artifacts that prior LDR→HDR expansion methods produce.",
   "method": [
-    "Train a video diffusion model to generate missing high‑dynamic‑range detail conditioned on input LDR frames and desired re‑exposure parameters.",
-    "Enforce temporal coherence across frames (spatio‑temporal denoising) so results are stable for video playback and editing.",
-    "Leverage exposure conditioning and learned priors to hallucinate plausible shadow/highlight detail while respecting original scene structure."
+    "Train a conditional video diffusion model that maps LDR frames (plus optional target exposure) to HDR outputs.",
+    "Design spatio-temporal conditioning (video-aware U-Net / temporal attention) to enforce frame-to-frame consistency and reduce flicker.",
+    "Use exposure-aware conditioning and perceptual/temporal objectives to hallucinate plausible detail in saturated regions and support interactive re-exposure control."
   ],
-  "impact": "Enables filmmakers, editors, and vision systems to convert legacy LDR footage into usable HDR video for accurate display and creative re‑exposure; advances generative inverse‑imaging techniques for temporally consistent video restoration.",
+  "impact": "Provides a practical route to restore and re-expose archived or consumer LDR video for HDR displays and post-production workflows, improving visual quality and enabling downstream vision tasks that benefit from expanded dynamic range.",
   "visual_elements": [
-    "Before/after frame pair showing LDR input, reconstructed HDR result, and difference/highlight recovery overlay.",
-    "Exposure slider mockup illustrating continuous re‑exposure control from original LDR to bright/dark targets.",
-    "Simplified architecture diagram of a video diffusion pipeline with conditioning on input frames and exposure parameters.",
-    "Timeline or animated sequence emphasizing temporal coherence (e.g., flicker comparison between framewise methods vs. DiffHDR)."
+    "Before/after slider comparing original LDR frame vs DiffHDR-restored HDR frame (showing recovered highlights/shadows).",
+    "Small UI mockup with an exposure/re-exposure slider controlling output brightness and tone mapping.",
+    "Block diagram of the video diffusion pipeline showing LDR input, temporal conditioning, diffusion denoising steps, and HDR output.",
+    "Temporal stability visualization (frame difference heatmap or flicker chart) comparing per-frame LDR→HDR baselines vs DiffHDR."
   ],
   "hashtags": [
-    "#HDR",
     "#VideoDiffusion",
-    "#ImageRestoration",
-    "#InverseImaging",
-    "#ContentCreation"
+    "#HDRReconstruction",
+    "#ComputationalPhotography",
+    "#VideoRestoration",
+    "#ReExposure"
   ],
   "paper_id": "2026-04-07-arxiv-diffhdr_re_exposing_ldr_videos_with_video_diffusion_models",
   "paper_title": "DiffHDR: Re-Exposing LDR Videos with Video Diffusion Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.06161v1"
     }
   ],
-  "generated_at": "2026-04-09T07:14:24.087486"
+  "generated_at": "2026-04-12T07:06:28.126872"
 }

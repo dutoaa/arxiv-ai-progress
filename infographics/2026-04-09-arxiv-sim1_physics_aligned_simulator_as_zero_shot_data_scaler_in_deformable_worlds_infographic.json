@@ -1,24 +1,24 @@
 {
-  "key_insight": "A physics-aligned simulator (SIM1) can generate large, realistic zero-shot training data for deformable-object manipulation, enabling policies trained purely in simulation to transfer to real-world cloth and soft-object tasks.",
-  "problem_solved": "Addresses the data scarcity and sim-to-real gap for deformable-object robotics by overcoming rigid-body–based simulators that produce mismatched geometry, unstable soft dynamics, and unsuitable motion primitives for cloth-like interactions.",
+  "key_insight": "A physics-aligned simulator for deformable objects can act as a zero-shot data scaler: by generating diverse, physically plausible soft-body interactions, it enables policies trained only in simulation to transfer to real-world deformable manipulation without additional real data.",
+  "problem_solved": "Bridges the sim-to-real gap for deformable-object manipulation caused by rigid-body-centric simulators, reducing the need for costly real-world data and brittle motion primitives.",
   "method": [
-    "Design a simulator that explicitly models deformable physics: accurate contact, topology changes, and shape evolution to produce realistic soft-body behavior.",
-    "Use the simulator as a zero-shot data scaler: generate diverse, physics-consistent manipulation trajectories and state observations at scale for policy training without real-world fine-tuning.",
-    "Incorporate motion primitives and interaction priors tailored to deformables (e.g., grasping, folding, sliding) to produce realistic demonstrations and robust policies."
+    "Design a physics-aligned simulator that models shape, contact, and topology co-evolution for soft/deformable objects (e.g., cloth, soft bodies).",
+    "Use the simulator as a zero-shot data generator: produce diverse, physically plausible rollouts and motion primitives to train policies at scale without real data.",
+    "Align and validate simulator physics with real-world priors (calibration, constrained parameterization or lightweight domain alignment) to maximize zero-shot transferability."
   ],
-  "impact": "Reduces reliance on costly real-world data collection and domain adaptation, enabling faster development and deployment of robust deformable-object manipulation policies for robotics and embodied AI.",
+  "impact": "Enables large-scale, low-cost training for deformable manipulation tasks, improving robustness of learned controllers and accelerating deployment of soft-object robotics without extensive real-data collection.",
   "visual_elements": [
-    "Side-by-side comparison: simulated cloth vs. real cloth responding to the same manipulation (visual realism & dynamics match).",
-    "Pipeline diagram: SIM1 simulator -> large synthetic dataset -> policy training -> zero-shot deployment on real robot.",
-    "Bar/line chart: success rates or task performance (sim-only vs. rigid-sim baseline vs. real-world) showing transfer gains.",
-    "Iconic schematic: physics-alignment components (contact, topology, shape) highlighting what the simulator models differently."
+    "Side-by-side comparison: rigid-body simulator failure vs. physics-aligned deformable simulator success on the same cloth task.",
+    "Pipeline diagram: physics-aligned simulator → large synthetic dataset → policy training → zero-shot deployment on real robot.",
+    "Sequence frames or GIF of cloth/soft-body manipulation from sim to real to illustrate transfer fidelity.",
+    "Bar/line chart concept: relative real-data requirements or task success rates showing reduced real-data need and improved transfer."
   ],
   "hashtags": [
-    "#DeformableRobotics",
     "#Sim2Real",
-    "#PhysicsSimulation",
+    "#DeformableManipulation",
+    "#SoftRobotics",
     "#ZeroShotLearning",
-    "#RoboticManipulation"
+    "#PhysicsBasedSimulation"
   ],
   "paper_id": "2026-04-09-arxiv-sim1_physics_aligned_simulator_as_zero_shot_data_scaler_in_deformable_worlds",
   "paper_title": "SIM1: Physics-Aligned Simulator as Zero-Shot Data Scaler in Deformable Worlds",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08544v1"
     }
   ],
-  "generated_at": "2026-04-11T06:51:19.290616"
+  "generated_at": "2026-04-12T07:04:51.744180"
 }

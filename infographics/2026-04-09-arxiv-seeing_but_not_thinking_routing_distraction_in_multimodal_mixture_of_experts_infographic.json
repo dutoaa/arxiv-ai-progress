@@ -1,24 +1,24 @@
 {
-  "key_insight": "Multimodal MoE models can accurately \"see\" image content but fail to \"think\" — i.e., they perceive visual signals yet routing mechanisms divert computation away from reasoning experts, producing worse reasoning than equivalent text-only inputs.",
-  "problem_solved": "Explains and diagnoses why vision-language Mixture-of-Experts models succeed at perception but underperform on subsequent cross-modal reasoning, isolating routing distraction as a core failure mode.",
+  "key_insight": "Multimodal Mixture-of-Experts models can perceive image content correctly yet fail to reason about it because the MoE routing mechanism gets 'distracted' by visual signals — not merely due to cross-modal semantic misalignment.",
+  "problem_solved": "Diagnoses the puzzling 'Seeing but Not Thinking' failure mode in vision‑language MoE models and identifies routing distraction as a primary contributor to correct perception but faulty downstream reasoning.",
   "method": [
-    "Systematic behavioral and routing-analysis of multimodal MoE architectures to show cross-modal semantic sharing exists and to rule out simple alignment failures.",
-    "Identify and quantify \"routing distraction\": visual tokens disproportionately activate perception-oriented experts and reduce engagement of reasoning experts.",
-    "Propose targeted mitigation strategies (e.g., routing regularization, expert-conditioning or gating constraints) to rebalance expert utilization and restore reasoning performance."
+    "Systematic empirical analysis comparing model behavior on identical problems presented as image+text versus text-only to isolate the failure mode.",
+    "Investigation of cross-modal semantic sharing and per-token expert activations to rule out simple semantic alignment failure and reveal routing patterns.",
+    "Characterization of 'routing distraction' — how visual tokens bias expert selection — and proposal of routing‑aware interventions (e.g., gating/regulation and expert re‑balancing) to mitigate the issue."
   ],
-  "impact": "Clarifies a practical failure mode in large multimodal MoEs and provides actionable diagnostics and fixes, helping practitioners improve robustness and reasoning fidelity in vision–language systems.",
+  "impact": "Provides practitioners a concrete explanation and diagnostics for multimodal reasoning failures in MoE architectures, guiding improved routing designs and mitigation strategies to restore robust vision-language reasoning.",
   "visual_elements": [
-    "Side-by-side bar chart: model accuracy on reasoning tasks for image+text vs text-only inputs (showing the gap).",
-    "Schematic of MoE routing: tokens routed to different experts with arrows highlighting \"distracted\" visual-token routing away from reasoning experts.",
-    "Heatmap/timeline of expert activation: contrast activations for visual vs textual inputs to illustrate under-engaged reasoning experts.",
-    "Before/after diagram: effect of a mitigation (e.g., routing regularization) showing restored routing balance and improved reasoning performance."
+    "Side‑by‑side example panel: same question as text-only vs image+text with model outputs illustrating 'correct' vs 'failed' reasoning.",
+    "Heatmap of MoE expert activations over tokens showing disproportionate attention to visual tokens (routing distraction).",
+    "Sankey/flow diagram of routing paths comparing 'distracted' vs 'focused' expert selection.",
+    "Bar chart comparing task accuracy for text-only, image+text (baseline), and image+text (routing‑aware fix)."
   ],
   "hashtags": [
-    "#Multimodal",
+    "#MultimodalAI",
     "#MixtureOfExperts",
     "#VisionLanguage",
-    "#ModelRobustness",
-    "#AIInterpretability"
+    "#ModelInterpretability",
+    "#RoutingMechanisms"
   ],
   "paper_id": "2026-04-09-arxiv-seeing_but_not_thinking_routing_distraction_in_multimodal_mixture_of_experts",
   "paper_title": "Seeing but Not Thinking: Routing Distraction in Multimodal Mixture-of-Experts",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08541v1"
     }
   ],
-  "generated_at": "2026-04-11T06:50:37.214564"
+  "generated_at": "2026-04-12T07:04:03.372409"
 }

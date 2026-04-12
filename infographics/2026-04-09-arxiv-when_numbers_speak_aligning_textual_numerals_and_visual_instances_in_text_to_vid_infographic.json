@@ -1,24 +1,24 @@
 {
-  "key_insight": "NUMINA is a training‑free identify‑then‑guide framework that extracts a countable latent layout from discriminative attention heads and conservatively modulates cross‑attention to fix prompt–layout mismatches, improving numerical alignment in text‑to‑video diffusion models.",
-  "problem_solved": "Text‑to‑video diffusion models frequently fail to generate the correct number of objects specified in prompts, producing prompt–layout inconsistencies and incorrect counts in synthesized videos.",
+  "key_insight": "A training-free, identify-then-guide framework (NUMINA) detects attention-heads that encode object counts, derives a countable latent layout, and conservatively modulates cross-attention during generation to correct numeric mismatches between prompt and video.",
+  "problem_solved": "Text-to-video diffusion models often fail to generate the correct number of object instances specified in prompts; NUMINA improves numerical alignment without additional model training.",
   "method": [
-    "Identify: select discriminative self‑ and cross‑attention heads to derive a countable latent layout representing object instances.",
-    "Refine: conservatively adjust the latent layout to avoid overcorrection and preserve visual fidelity.",
-    "Guide: modulate cross‑attention during regeneration to align visual instances with textual numerals — all without additional training."
+    "Identify: select discriminative self- and cross-attention heads that reveal object-localization and counting signals to extract a latent, countable layout.",
+    "Refine: conservatively post-process the extracted layout to resolve ambiguities and stabilize object locations and counts.",
+    "Guide: modulate cross-attention maps during regeneration/denoising to nudge the model toward producing the specified number of visual instances (training-free)."
   ],
-  "impact": "Enables more reliable, controllable video synthesis that respects numeric prompt constraints without retraining models, benefiting practitioners who need accurate instance counts for generation, evaluation, or downstream tasks.",
+  "impact": "Enables more reliable, controllable text-to-video synthesis for prompts with numeric constraints, improving downstream editing, data generation, and evaluation without costly retraining.",
   "visual_elements": [
-    "Before/after frame grid showing prompt with numeral vs generated video (mismatch → corrected)",
-    "Attention‑head heatmap visualizing selected self/cross heads and derived latent layout",
-    "Pipeline flowchart: Identify → Refine → Guide (illustrating data flow and modulation points)",
-    "Bar/line chart comparing count accuracy and fidelity metrics (baseline vs NUMINA)"
+    "Pipeline diagram: identify attention heads → extract latent layout → refine layout → modulate cross-attention during generation",
+    "Before/After frames: side-by-side clips showing incorrect vs corrected object counts (e.g., 3 dogs → 3 dogs generated)",
+    "Attention-head heatmaps over frames: highlight selected self- and cross-attention heads that correlate with object instances",
+    "Bar chart or table: numeric-accuracy comparison (baseline vs NUMINA) across several count ranges"
   ],
   "hashtags": [
-    "#NUMINA",
     "#TextToVideo",
     "#DiffusionModels",
-    "#Counting",
-    "#AttentionMechanisms"
+    "#NumericalReasoning",
+    "#AttentionMechanisms",
+    "#ModelAlignment"
   ],
   "paper_id": "2026-04-09-arxiv-when_numbers_speak_aligning_textual_numerals_and_visual_instances_in_text_to_vid",
   "paper_title": "When Numbers Speak: Aligning Textual Numerals and Visual Instances in Text-to-Video Diffusion Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08546v1"
     }
   ],
-  "generated_at": "2026-04-11T06:51:53.948733"
+  "generated_at": "2026-04-12T07:05:15.671489"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Scal3R introduces a scalable test-time training strategy that adapts feed-forward 3D reconstruction models on-the-fly for long video sequences, using memory-efficient streaming updates and global-context aggregation to improve accuracy and temporal consistency.",
-  "problem_solved": "Feed-forward 3D reconstruction models lose accuracy and produce inconsistent geometry over long video sequences due to limited memory and poor access to global contextual cues; Scal3R enables continual, scalable adaptation at test time to address these issues.",
+  "key_insight": "Scal3R applies scalable test-time training to feed-forward 3D reconstruction models so they can adapt online to very long video sequences by summarizing global context in a memory-efficient way, substantially improving long-range accuracy and consistency.",
+  "problem_solved": "Feed-forward 3D reconstruction models lose accuracy and produce inconsistent geometry over long video sequences because they lack mechanisms to capture global context and are constrained by limited memory during inference.",
   "method": [
-    "Memory-efficient test-time training: perform lightweight online adaptation on incoming frames rather than full offline retraining, keeping per-frame memory and compute low.",
-    "Global-context aggregation: maintain a compact scene memory or hierarchical summary to provide long-range context for consistency across distant frames.",
-    "Consistency-driven losses: apply temporal and geometric consistency constraints during adaptation to reduce drift and improve reconstruction fidelity over long sequences."
+    "Online test-time training: adapt model weights per sequence at inference time to fit scene-specific cues without full offline retraining.",
+    "Compact global context memory: maintain a bounded, low-cost scene summary (scene embeddings / buffer) that aggregates long-range information for consistency across frames.",
+    "Lightweight geometric & temporal consistency objectives: use efficient loss terms and localized optimization to enforce coherent reconstructions while keeping compute and memory low."
   ],
-  "impact": "Enables reliable large-scale 3D reconstruction from long videos without expensive offline retraining or large memory footprints—useful for mapping, AR/VR, and mobile robotics where models must adapt to long, continuous streams in real environments.",
+  "impact": "Enables reliable large-scale 3D reconstruction from long videos by improving fidelity and temporal consistency without prohibitive memory or retraining costs, facilitating robust mapping, AR, and robotics applications in real-world deployments.",
   "visual_elements": [
-    "Pipeline diagram showing live video input → streaming memory module → test-time adaptation loop → refined 3D output",
-    "Before/after reconstruction comparison (short adaptation vs. Scal3R over long sequence) highlighting reduced drift and improved detail",
-    "Chart of accuracy vs. sequence length and memory usage comparing feed-forward baseline and Scal3R",
-    "Icon set representing low-latency adaptation, compact memory, and temporal consistency"
+    "Pipeline diagram: video frames → feed-forward reconstructor → test-time training module ↔ compact scene memory → final 3D mesh/point cloud",
+    "Before/after comparison: reconstruction quality and temporal consistency for long sequences (baseline vs Scal3R)",
+    "Performance chart: reconstruction accuracy versus sequence length showing Scal3R maintaining accuracy as length grows",
+    "Resource plot: memory and latency vs baseline, illustrating bounded overhead of the compact memory approach"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#TestTimeTraining",
-    "#ScalableAI",
     "#ComputerVision",
-    "#Robotics"
+    "#ScalableAI",
+    "#VideoUnderstanding"
   ],
   "paper_id": "2026-04-09-arxiv-scal3r_scalable_test_time_training_for_large_scale_3d_reconstruction",
   "paper_title": "Scal3R: Scalable Test-Time Training for Large-Scale 3D Reconstruction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08542v1"
     }
   ],
-  "generated_at": "2026-04-11T06:50:51.273672"
+  "generated_at": "2026-04-12T07:04:19.539941"
 }

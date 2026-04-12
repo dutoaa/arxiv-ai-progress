@@ -1,24 +1,24 @@
 {
-  "key_insight": "E-3DPSM introduces an event-driven state machine tailored to asynchronous, continuous event-camera streams that significantly improves monocular egocentric 3D human pose accuracy and latency compared to prior frame-oriented or naively aggregated approaches.",
-  "problem_solved": "Existing egocentric 3D pose methods underutilize the asynchronous nature of event cameras, yielding insufficient accuracy and latency for immersive VR/AR and real-time applications; this work addresses how to process event streams natively to raise 3D estimation quality and responsiveness.",
+  "key_insight": "E-3DPSM introduces a state-machine architecture that models the asynchronous, continuous nature of event-camera streams to produce substantially more accurate egocentric 3D human poses from head-mounted devices. By explicitly handling event timing and temporal states, it closes the accuracy gap required for immersive AR/VR applications.",
+  "problem_solved": "Existing monocular egocentric 3D pose methods do not fully exploit the asynchronous, high-temporal-resolution structure of event-camera data, yielding insufficient 3D accuracy and unstable tracking for real-time immersive use.",
   "method": [
-    "Design a state-machine architecture that consumes asynchronous event streams and emits timely pose updates by switching between event-aggregation, prediction, and refinement states.",
-    "Temporally-aware modules that fuse short-term event evidence with temporal priors/consistency to stabilize 3D pose regression from monocular head-mounted viewpoints.",
-    "Training and evaluation pipeline that optimizes accuracy and latency metrics for egocentric scenarios, demonstrating improved robustness to fast motions and challenging lighting."
+    "State-machine driven processing that organizes event streams into meaningful temporal states (e.g., motion onset, steady motion, rest) to preserve asynchronous timing and reduce information loss.",
+    "Spatiotemporal feature extraction tailored to event data and a regression module that maps state-aware features to 3D joint positions with temporal/kinematic consistency constraints.",
+    "Training and evaluation strategy combining event-specific augmentations and losses to improve robustness to occlusions, fast motion, and varying illumination common in head-mounted setups."
   ],
-  "impact": "Makes event-camera-based egocentric 3D pose estimation practical for low-latency, high-dynamic-range applications (e.g., VR/AR, telepresence) by improving accuracy and responsiveness; provides a principled architectural pattern for future event-driven perception systems.",
+  "impact": "Provides a practical path to low-latency, high-accuracy egocentric 3D pose estimation using event cameras, enabling more responsive and immersive AR/VR experiences and informing future event-based perception models in robotics and HCI.",
   "visual_elements": [
-    "Pipeline diagram of the E-3DPSM state machine showing states (aggregate → predict → refine) and asynchronous event input flowing through modules to produce 3D pose outputs.",
-    "Timing diagram that contrasts raw event stream processing vs. frame-based sampling, highlighting reduced latency and denser temporal updates.",
-    "Before/after qualitative poses: side-by-side 3D skeletons from prior methods and E-3DPSM on fast head motions and low-light scenes.",
-    "Bar/line chart comparing 3D pose error and end-to-end latency across baselines, showing accuracy and responsiveness gains."
+    "Pipeline diagram showing event-camera input → state machine (temporal states) → spatiotemporal feature extractor → 3D pose output.",
+    "Side-by-side visualization comparing raw event stream vs. conventional frame data to highlight temporal resolution and reduced motion blur.",
+    "Performance chart (accuracy vs. latency) showing E-3DPSM improvement over baseline methods.",
+    "Schematic of head-mounted camera and inferred 3D skeleton in an AR scene to convey application and egocentric viewpoint."
   ],
   "hashtags": [
     "#EventCameras",
-    "#EgocentricVision",
-    "#3DPoseEstimation",
-    "#Neuromorphic",
-    "#ARVR"
+    "#EgocentricPose",
+    "#3DHumanPose",
+    "#ARVR",
+    "#ComputerVision"
   ],
   "paper_id": "2026-04-09-arxiv-e_3dpsm_a_state_machine_for_event_based_egocentric_3d_human_pose_estimation",
   "paper_title": "E-3DPSM: A State Machine for Event-Based Egocentric 3D Human Pose Estimation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08543v1"
     }
   ],
-  "generated_at": "2026-04-11T06:51:05.489975"
+  "generated_at": "2026-04-12T07:04:32.947056"
 }
