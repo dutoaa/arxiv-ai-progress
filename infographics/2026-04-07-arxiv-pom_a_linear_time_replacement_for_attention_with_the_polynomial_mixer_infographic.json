@@ -1,24 +1,24 @@
 {
-  "key_insight": "PoM (Polynomial Mixer) replaces self-attention with a learned polynomial aggregation that compresses token context into a compact representation and lets each token retrieve contextual information in linear time, preserving transformer expressivity.",
-  "problem_solved": "Reduces the quadratic time and memory cost of self-attention for long sequences while maintaining the theoretical ability to approximate sequence-to-sequence mappings.",
+  "key_insight": "PoM (Polynomial Mixer) is a learned polynomial token-mixing module that compacts tokens into a small polynomial-based summary and lets each token retrieve context from that summary, achieving attention-like contextualization in linear time. It also satisfies a provable contextual mapping property, preserving the transformer's universality as a sequence-to-sequence approximator.",
+  "problem_solved": "Replaces quadratic-cost self-attention with a linear-time token-mixing mechanism that retains expressive power while lowering compute and memory for long sequences.",
   "method": [
-    "Learn a polynomial function that aggregates N input tokens into a compact fixed-size representation (linear-time aggregation).",
-    "Provide a token-wise retrieval mechanism where each token queries the polynomial embedding to obtain contextualized features.",
-    "Prove the contextual mapping property (universality) and demonstrate PoM as a drop-in replacement in transformer layers."
+    "Learn a polynomial function that aggregates input tokens into a compact representation (polynomial summary) rather than computing pairwise attention.",
+    "Provide a retrieval operation where each token extracts contextual information from the learned polynomial summary to update its representation.",
+    "Design PoM as a drop-in module for transformer layers, yielding O(N) complexity instead of O(N^2) for sequence length N while proving the contextual mapping (universality) property."
   ],
-  "impact": "Enables scalable transformers for long sequences with substantially lower compute and memory overhead while retaining theoretical expressiveness—useful for practitioners working on long-context language, vision, or multimodal models.",
+  "impact": "Enables transformers to scale to much longer sequences with substantially reduced compute and memory overhead while preserving theoretical expressivity, making it practical for resource-constrained and large-context applications.",
   "visual_elements": [
-    "Side-by-side schematic: standard self-attention (O(N^2)) vs PoM pipeline (polynomial aggregation + retrieval, O(N)).",
-    "Complexity chart: compute and memory vs sequence length comparing attention and PoM (log-log or linear plot).",
-    "Diagram of polynomial aggregation: tokens → learned polynomial encoder → compact representation → per-token retrieval.",
-    "Proof intuition panel: simple illustration showing contextual mapping/universality (toy input → reconstructed outputs) to convey theoretical guarantee."
+    "Architecture flow diagram: tokens -> learned polynomial aggregation -> compact summary -> per-token retrieval -> updated tokens (shows single-pass linear pipeline).",
+    "Complexity chart: bar/curve comparing O(N^2) attention vs O(N) PoM across increasing sequence lengths (compute & memory axes).",
+    "Schematic of the polynomial aggregator: illustrate coefficients/learned bases compressing multiple tokens into a small set of polynomial features.",
+    "Mini example: small sequence walkthrough showing how one token retrieves context from the polynomial summary (before/after embeddings)."
   ],
   "hashtags": [
     "#PolynomialMixer",
-    "#LinearAttention",
+    "#AttentionReplacement",
     "#EfficientTransformers",
-    "#PoM",
-    "#DeepLearning"
+    "#LongContext",
+    "#SequenceModeling"
   ],
   "paper_id": "2026-04-07-arxiv-pom_a_linear_time_replacement_for_attention_with_the_polynomial_mixer",
   "paper_title": "PoM: A Linear-Time Replacement for Attention with the Polynomial Mixer",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.06129v1"
     }
   ],
-  "generated_at": "2026-04-08T07:06:48.699355"
+  "generated_at": "2026-04-13T07:51:59.134968"
 }

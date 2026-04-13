@@ -1,24 +1,24 @@
 {
-  "key_insight": "Scal3R applies scalable test-time training to feed-forward 3D reconstruction models so they can adapt online to very long video sequences by summarizing global context in a memory-efficient way, substantially improving long-range accuracy and consistency.",
-  "problem_solved": "Feed-forward 3D reconstruction models lose accuracy and produce inconsistent geometry over long video sequences because they lack mechanisms to capture global context and are constrained by limited memory during inference.",
+  "key_insight": "Scal3R applies scalable test-time training to large-scale 3D reconstruction, allowing feed-forward models to adapt on-the-fly to long video sequences so they preserve geometric accuracy and cross-sequence consistency by capturing global contextual cues.",
+  "problem_solved": "Feed-forward 3D reconstruction models lose accuracy and consistency on long video sequences because of limited memory and insufficient mechanisms to aggregate global context; Scal3R addresses how to scale adaptation and context aggregation at test time.",
   "method": [
-    "Online test-time training: adapt model weights per sequence at inference time to fit scene-specific cues without full offline retraining.",
-    "Compact global context memory: maintain a bounded, low-cost scene summary (scene embeddings / buffer) that aggregates long-range information for consistency across frames.",
-    "Lightweight geometric & temporal consistency objectives: use efficient loss terms and localized optimization to enforce coherent reconstructions while keeping compute and memory low."
+    "Run lightweight test-time training during inference so the model incrementally adapts to incoming frames rather than relying on a single static forward pass.",
+    "Maintain a memory-efficient global context representation (compressed / hierarchical aggregation) that summarizes long-range scene information without unbounded memory growth.",
+    "Use incremental / sliding-window updates and consistency regularization to stabilize reconstructions across long sequences while keeping compute and memory manageable."
   ],
-  "impact": "Enables reliable large-scale 3D reconstruction from long videos by improving fidelity and temporal consistency without prohibitive memory or retraining costs, facilitating robust mapping, AR, and robotics applications in real-world deployments.",
+  "impact": "Enables robust, consistent large-scale 3D reconstructions from long videos — important for mapping, robotics, AR/VR and any application requiring reliable scene geometry over extended captures. Practitioners get a practical route to scale test-time adaptation without prohibitive memory or compute.",
   "visual_elements": [
-    "Pipeline diagram: video frames → feed-forward reconstructor → test-time training module ↔ compact scene memory → final 3D mesh/point cloud",
-    "Before/after comparison: reconstruction quality and temporal consistency for long sequences (baseline vs Scal3R)",
-    "Performance chart: reconstruction accuracy versus sequence length showing Scal3R maintaining accuracy as length grows",
-    "Resource plot: memory and latency vs baseline, illustrating bounded overhead of the compact memory approach"
+    "Pipeline diagram: streaming video -> test-time training loop -> updated model + global context -> reconstructed 3D scene",
+    "Side-by-side reconstructions: before (no TTT) vs after (Scal3R) on a long sequence to show improved consistency and reduced drift",
+    "Chart: memory footprint vs sequence length and corresponding reconstruction accuracy to illustrate scalability",
+    "Schematic of global context memory (compressed / hierarchical) showing how local windows and global summary interact"
   ],
   "hashtags": [
     "#3DReconstruction",
     "#TestTimeTraining",
-    "#ComputerVision",
     "#ScalableAI",
-    "#VideoUnderstanding"
+    "#ComputerVision",
+    "#Robotics"
   ],
   "paper_id": "2026-04-09-arxiv-scal3r_scalable_test_time_training_for_large_scale_3d_reconstruction",
   "paper_title": "Scal3R: Scalable Test-Time Training for Large-Scale 3D Reconstruction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08542v1"
     }
   ],
-  "generated_at": "2026-04-12T07:04:19.539941"
+  "generated_at": "2026-04-13T07:52:12.737818"
 }

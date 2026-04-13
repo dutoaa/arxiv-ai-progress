@@ -1,24 +1,24 @@
 {
-  "key_insight": "ETCH-X combines a composable-dataset training strategy with a modular fitting architecture (coarse global fit + local expressive refiners) to simultaneously achieve robust alignment to clothed, noisy, or partial scans and preserve fine details (hands, face).",
-  "problem_solved": "Brings together local expressiveness and global robustness for fitting parametric body models (e.g., SMPL-X) to real-world 3D scans of clothed humans, handling clothing, pose variation, occlusion, and sensor noise without needing one monolithic dataset.",
+  "key_insight": "Combining complementary datasets in a composable training and fitting pipeline enables a single body-fitting method that is both locally expressive (hands, face, fine geometry) and globally robust (clothing, pose variation, noise, partial scans).",
+  "problem_solved": "Aligning parametric body models (e.g., SMPL) to raw 3D point clouds of clothed humans while preserving fine details and remaining robust to clothing, diverse poses, sensor noise, and incomplete scans.",
   "method": [
-    "Composable datasets: merge heterogeneous data sources (scans, mocap, partial depth, 2D annotations, synthetic clothed examples) via lightweight domain adapters and targeted augmentation so training covers diverse clothing, poses, and noise.",
-    "Modular fitting pipeline: a coarse global estimator fits the parametric body (SMPL-X backbone) and then specialized local refinement modules recover high-frequency details for hands, face, and fine shape using attention/residual fields.",
-    "Hybrid supervision & losses: multi-task training with geometric (point-to-surface, silhouette), semantic (keypoints/landmarks), and robustness losses plus differentiable registration to tolerate partial/noisy inputs."
+    "Composable dataset assembly: curate and combine specialized datasets (hands, faces, clothed scans, diverse poses, noisy/partial captures) with stratified sampling to cover complementary failure modes.",
+    "Hybrid fitting pipeline: a modular approach that couples global robust optimization/prior with local high-resolution refinements (per-part or high-frequency detail modules) to capture fine geometry while staying stable.",
+    "Cross-dataset regularization & augmentation: train with dataset-aware losses, synthetic augmentations and consistency constraints to prevent overfitting and improve generalization to real-world clothed humans."
   ],
-  "impact": "Enables practitioners to produce reliable, expressive body fits from real-world clothed scans without collecting a single massive curated dataset—improving downstream animation, virtual try-on, and AR/VR pipelines while reducing data engineering effort.",
+  "impact": "Provides a practical, generalizable body-fitting tool that reduces manual cleanup and improves downstream tasks (animation, texturing, avatar creation) by delivering more accurate and reliable fits on real, clothed scans.",
   "visual_elements": [
-    "Pipeline diagram: composable-dataset inputs → domain adapters → coarse global fit → local detail refiners → final SMPL‑X-aligned mesh",
-    "Dataset composition infographic: icons representing scans, mocap, depth, 2D labels, synthetic clothing with arrows showing how they combine",
-    "Before/After comparisons: raw point cloud + baseline fit vs ETCH‑X fit highlighting improved hands/face and robustness to occlusion",
-    "Robustness chart / heatmap: performance across clothing types, occlusion levels, and noise showing improved generalization"
+    "Pipeline diagram: composable datasets feeding a two-stage fit (global robust fit → local high-detail refinement).",
+    "Before/after overlays: raw clothed point cloud vs fitted SMPL showing improved hands/face/detail and maintained global alignment.",
+    "Robustness chart: performance comparison across datasets/conditions (clothing types, noise levels, partial scans) showing reduced failure modes.",
+    "Dataset mosaic: icons/tiles representing different dataset types (hands, faces, clothed bodies, noisy/partial captures) to illustrate composability."
   ],
   "hashtags": [
-    "#HumanReconstruction",
-    "#SMPLX",
-    "#ComposableDatasets",
-    "#3DVision",
-    "#RobustML"
+    "#3DHuman",
+    "#SMPL",
+    "#ComputerVision",
+    "#RobustFitting",
+    "#DatasetCuration"
   ],
   "paper_id": "2026-04-09-arxiv-etch_x_robustify_expressive_body_fitting_to_clothed_humans_with_composable_datas",
   "paper_title": "ETCH-X: Robustify Expressive Body Fitting to Clothed Humans with Composable Datasets",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.08548v1"
     }
   ],
-  "generated_at": "2026-04-12T07:05:36.052038"
+  "generated_at": "2026-04-13T07:50:34.331802"
 }

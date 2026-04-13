@@ -1,24 +1,24 @@
 {
-  "key_insight": "Transforming smashed data into the frequency domain and applying frequency-aware compression within a split learning pipeline dramatically cuts communication costs while preserving training fidelity.",
-  "problem_solved": "High communication overhead in split learning caused by transmitting large activations and gradients between many edge devices and the server, which limits deployment on bandwidth- and resource-constrained devices.",
+  "key_insight": "SL-FAC applies frequency-aware compression to the smashed data (activations/gradients) in split learning, reducing communication volume substantially while preserving model accuracy and training stability.",
+  "problem_solved": "High communication overhead in split learning caused by transmitting large smashed activations and gradients between many edge devices and the server, which prevents scalable deployment on bandwidth- and resource-constrained devices.",
   "method": [
-    "Partition the neural network across edge devices and an edge server (split learning) so devices only send intermediate ‘smashed’ tensors.",
-    "Apply a frequency transform (e.g., DCT/FFT) to smashed data and compress frequency components with adaptive sparsification/quantization that prioritizes perceptually/semantically important frequencies.",
-    "Use lightweight reconstruction/error compensation on the server (and optionally feedback to clients) to retain model accuracy under strong compression."
+    "Transform smashed data into a frequency domain (e.g., FFT/DCT) and identify/retain the most informative frequency components.",
+    "Apply adaptive compression/quantization and selective transmission of low-importance high-frequency components, with lightweight reconstruction at the server.",
+    "Integrate the compression pipeline into split learning training to jointly optimize compression rate and task accuracy (low overhead for edge devices)."
   ],
-  "impact": "Enables scalable, bandwidth-efficient distributed training on constrained devices, reducing network cost and latency while maintaining model performance—making split learning practical for real-world edge deployments.",
+  "impact": "Enables scalable, bandwidth-efficient split learning for edge devices and multi-client setups, making it practical to train large models across constrained networks with minimal accuracy trade-offs and improved privacy surface.",
   "visual_elements": [
-    "Pipeline diagram: client-side model → frequency transform → compression → network → server-side reconstruction & remaining model",
-    "Bar chart: communication volume (baseline SL vs frequency-aware compressed SL) showing percent reduction",
-    "Line chart: accuracy vs compression ratio to illustrate trade-off curve and optimal operating point",
-    "Icons/illustrations: edge device, bandwidth gauge, frequency spectrum (low/high freq), and server to convey components and benefits"
+    "Split-model diagram: edge device hosting early layers, server hosting remaining layers, arrow showing compressed smashed data transfer",
+    "Frequency-spectrum illustration: original vs. compressed (highlighting preserved low-frequency components and removed high-frequency noise)",
+    "Bar/line chart: communication volume vs. accuracy comparing baseline SL, quantization-only, and SL-FAC",
+    "Pipeline flow: transform → frequency selection → quantize/transmit → reconstruct → backprop (indicating where computation happens)"
   ],
   "hashtags": [
     "#SplitLearning",
-    "#EdgeAI",
     "#ModelCompression",
+    "#EdgeAI",
     "#CommunicationEfficiency",
-    "#NeuralCompression"
+    "#FrequencyCompression"
   ],
   "paper_id": "2026-04-08-arxiv-sl_fac_a_communication_efficient_split_learning_framework_with_frequency_aware_c",
   "paper_title": "SL-FAC: A Communication-Efficient Split Learning Framework with Frequency-Aware Compression",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.07316v1"
     }
   ],
-  "generated_at": "2026-04-12T07:07:09.358249"
+  "generated_at": "2026-04-13T07:50:45.701203"
 }

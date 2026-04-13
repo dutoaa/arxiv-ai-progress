@@ -1,0 +1,35 @@
+{
+  "key_insight": "Tango introduces a hybrid token-pruning strategy that explicitly accounts for multi-modal, long-tailed attention distributions and preserves rare but important visual signals, enabling much more efficient Video LLMs without sacrificing comprehension.",
+  "problem_solved": "Existing token-pruning methods (top-k attention selection and similarity-based clustering) either neglect complex attention shapes or discard low-magnitude yet semantically important tokens, causing information loss and suboptimal efficiency-accuracy trade-offs in video-language models.",
+  "method": [
+    "Attention-distribution-aware selection: replace naive top-k with adaptive thresholds and multi-modal peak detection so selection follows spatially multi-modal, long-tailed attention patterns.",
+    "Signal-preserving clustering: improve similarity-based merging by weighting clusters with attention-derived importance and preserving rare/high-value tokens via residual encoding.",
+    "Hybrid scheduler (Tango): combine the above into a lightweight, runtime-aware pruning pipeline that adaptively balances token sparsity and fidelity across frames."
+  ],
+  "impact": "Practitioners can deploy Video LLMs that run faster and use less compute while maintaining understanding of temporally and spatially subtle visual cues—useful for real-time video analysis, multimodal agents, and resource-constrained deployments.",
+  "visual_elements": [
+    "Side-by-side schematic: naive top-k selection vs Tango's attention-aware selection showing preserved multimodal peaks",
+    "Heatmap sequence: attention maps across frames illustrating long-tailed, multi-modal distributions and which tokens Tango keeps/merges",
+    "Pipeline diagram: Tango hybrid scheduler — attention analysis → importance-weighted clustering → token merging/residuals → Video LLM",
+    "Bar/line chart: compute (FLOPs or latency) vs accuracy trade-off comparing baseline pruning methods and Tango"
+  ],
+  "hashtags": [
+    "#VideoLLM",
+    "#TokenPruning",
+    "#EfficientAI",
+    "#Multimodal",
+    "#TangoPaper"
+  ],
+  "paper_id": "2026-04-10-arxiv-tango_taming_visual_signals_for_efficient_video_large_language_models",
+  "paper_title": "Tango: Taming Visual Signals for Efficient Video Large Language Models",
+  "paper_category": "Model",
+  "paper_date": "2026-04-10",
+  "paper_authors": "Shukang Yin, Sirui Zhao, Hanchao Wang, Baozhi Jia, Xianquan Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.09547v1"
+    }
+  ],
+  "generated_at": "2026-04-13T07:49:57.493842"
+}
