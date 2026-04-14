@@ -1,24 +1,24 @@
 {
-  "key_insight": "Visual features are more stable than noisy labels—guiding prompt learning with vision signals makes cross-modal prompts robust to label noise while remaining lightweight.",
-  "problem_solved": "Prompt-based vision–language models degrade when training labels are noisy because learned prompts overfit incorrect labels; this work makes prompt learning resilient to noisy supervision.",
+  "key_insight": "Use reliable visual features to guide prompt learning so the learned prompts are robust to label noise. VisPrompt fuses cross-modal signals to prevent noisy labels from corrupting text prompt optimization.",
+  "problem_solved": "Prompt tuning for vision-language models is highly sensitive to noisy training labels; this paper addresses how to make prompt learning robust when labels are corrupted or unreliable.",
   "method": [
-    "Introduce a lightweight vision-guided prompt module that conditions prompt tokens on image features (cross-modal guidance) rather than relying solely on label supervision.",
-    "Use a cross-modal alignment mechanism to decouple prompt updates from noisy textual labels, letting reliable visual semantics steer prompt learning.",
-    "Design a plug-and-play, parameter-efficient component compatible with existing vision–language backbones (e.g., CLIP-like models) for training under noisy-label regimes."
+    "Introduce a lightweight vision-guided prompt learning framework that conditions prompt updates on visual features rather than relying solely on noisy labels.",
+    "Use cross-modal guidance (e.g., attention/affinity between image features and prompt tokens) to align prompt optimization with image semantics and reduce label-noise influence.",
+    "Design parameter-efficient modules and training objectives that regularize prompts with visual context, maintaining robustness without heavy extra modeling cost."
   ],
-  "impact": "Enables practitioners to train prompt-tuned vision–language systems reliably on noisy or weakly labeled datasets without expensive label-cleaning, improving robustness in real-world deployment.",
+  "impact": "Makes prompt learning practical on real-world datasets where labels are noisy, improving reliability of vision-language systems with minimal extra parameters—beneficial for deployment and few-shot learning scenarios.",
   "visual_elements": [
-    "Pipeline diagram: image encoder -> vision-guided prompt generator -> text encoder/classifier, with noisy labels shown as weak/invalid supervision",
-    "Robustness chart: accuracy vs. label noise level comparing VisPrompt and baseline prompt-learning methods",
-    "Attention/overlay visualization: image regions that inform generated prompt tokens (visual guidance heatmap)",
-    "Icon set: lightweight plug-in module, shield for robustness, and dataset icon with noisy tags"
+    "Architecture diagram: image encoder -> visual-guidance module -> prompt tokens -> text encoder/classifier (showing cross-modal links)",
+    "Before vs. after bar chart: prompt-only tuning accuracy under increasing label noise vs. VisPrompt robustness",
+    "Attention/heatmap visualization: how visual features influence specific prompt tokens (illustrating mitigation of noisy-label effects)",
+    "Training flowchart: noisy labels + visual guidance -> contrastive/regularized prompt update -> robust classifier"
   ],
   "hashtags": [
-    "#VisionLanguage",
     "#PromptLearning",
+    "#VisionLanguage",
     "#NoisyLabels",
     "#RobustAI",
-    "#CLIP"
+    "#EfficientTuning"
   ],
   "paper_id": "2026-04-10-arxiv-seeing_is_believing_robust_vision_guided_cross_modal_prompt_learning_under_label",
   "paper_title": "Seeing is Believing: Robust Vision-Guided Cross-Modal Prompt Learning under Label Noise",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.09532v1"
     }
   ],
-  "generated_at": "2026-04-13T07:49:01.780505"
+  "generated_at": "2026-04-14T07:21:49.494671"
 }

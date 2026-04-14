@@ -1,24 +1,24 @@
 {
-  "key_insight": "Training and evaluating models with case-grounded inputs — a local case context plus explicit external evidence — reveals and reduces models' tendency to ignore evidence; the paper provides a framework to build supervision that ties decisions directly to supporting evidence.",
-  "problem_solved": "Addresses weak supervision and loose evidence–claim coupling that allow models to predict correctly without depending on the provided evidence, and the lack of evaluation protocols that directly test evidence dependence.",
+  "key_insight": "Introducing \"case-grounded evidence verification,\" a framework that forces models to condition decisions on provided evidence by pairing each decision with a local case context and evidence-sensitive supervision, revealing when models ignore supporting information.",
+  "problem_solved": "Addresses weak supervision and evaluation gaps where models make plausible predictions without actually depending on the supplied evidence, due to evidence being loosely tied to claims and tests not probing evidence dependence.",
   "method": [
-    "Introduce the case-grounded evidence verification framework: each example supplies a local case context, external evidence, and a target decision so supervision can be tied to evidence presence.",
-    "Construct evidence-sensitive supervision via controlled dataset interventions (e.g., perturbations/counterfactuals) that make labels conditional on evidence support.",
-    "Design evaluation diagnostics and metrics that measure evidence dependence (not just accuracy), exposing when models ignore or exploit spurious cues."
+    "Formulate verification examples as triplets: local case context + external evidence + target claim, so the model must integrate context and evidence when predicting.",
+    "Create evidence-sensitive supervision signals (e.g., labels and targeted interventions/counterfactuals) that penalize predictions invariant to changes in evidence.",
+    "Design evaluation protocols that directly measure evidence dependence by testing model behavior under controlled evidence manipulations."
   ],
-  "impact": "Provides practitioners with a practical recipe to build datasets and evaluations that force models to use evidence, improving reliability and interpretability in high-stakes domains (e.g., fact-checking, medical decision support).",
+  "impact": "Enables training and evaluation that reveal and reduce models' reliance on spurious cues, improving reliability, interpretability, and robustness of systems that must ground decisions in external evidence.",
   "visual_elements": [
-    "Pipeline diagram showing inputs: local case context + external evidence → model → decision, with supervision tied to evidence",
-    "Before vs after illustration: model predictions that ignore evidence vs evidence-sensitive predictions",
-    "Bar/line chart comparing standard accuracy to evidence-dependence metrics across models",
-    "Icon set for dataset interventions (perturbation, counterfactual, label-change) and evaluation checks"
+    "Flow diagram: inputs (case context, evidence, claim) → model → labeled decision, highlighting the enforced dependence on evidence.",
+    "Before/After intervention panel: same case with modified evidence showing change (or lack of change) in model prediction.",
+    "Bar chart comparing standard evaluation vs. case-grounded evaluation performance (shows overestimation of evidence use under standard tests).",
+    "Icon set: magnifying glass for evidence, shield for robustness, checklist for evaluation, and link/chain showing grounding between claim and evidence."
   ],
   "hashtags": [
     "#EvidenceVerification",
-    "#RobustAI",
     "#ExplainableAI",
-    "#DatasetConstruction",
-    "#ModelEvaluation"
+    "#RobustML",
+    "#ModelEvaluation",
+    "#NLP"
   ],
   "paper_id": "2026-04-10-arxiv-case_grounded_evidence_verification_a_framework_for_constructing_evidence_sensit",
   "paper_title": "Case-Grounded Evidence Verification: A Framework for Constructing Evidence-Sensitive Supervision",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.09537v1"
     }
   ],
-  "generated_at": "2026-04-13T07:49:22.714169"
+  "generated_at": "2026-04-14T07:22:00.493418"
 }

@@ -1,0 +1,35 @@
+{
+  "key_insight": "A simple logarithmic radiance encoding plus lightweight latent alignment lets existing generative models produce faithful HDR video without re-training large HDR-specific representations — leveraging pre-trained visual priors instead of learning HDR from scratch.",
+  "problem_solved": "Generative models are typically trained on bounded, perceptually compressed (LDR) data and fail to reproduce true scene radiance; this work addresses the mismatch between HDR radiance and those model priors, enabling HDR video synthesis with far less data and complexity.",
+  "method": [
+    "Apply a logarithmic encoding to HDR radiance so its dynamic range matches the statistics the pretrained generator expects.",
+    "Learn a compact latent alignment/mapping between encoded HDR frames and the generator's latent space (adapter network or alignment objective) rather than re-training full HDR representations.",
+    "Enforce temporal consistency in the latent domain for coherent HDR video output (temporal losses or latent smoothing) and decode back to HDR for evaluation and tone-mapped visualization."
+  ],
+  "impact": "Practitioners can generate high-fidelity HDR video using off-the-shelf generative models with minimal extra data and compute, simplifying HDR content creation and enabling better radiometric realism in downstream applications like VFX, virtual production, and image-based lighting.",
+  "visual_elements": [
+    "Pipeline diagram: HDR frame → logarithmic encoding → latent alignment module → pretrained generator → HDR output",
+    "Before/after comparison: LDR-trained generator output vs. latent-aligned HDR output (side-by-side tone-mapped)",
+    "Latent-space schematic: illustrate alignment mapping from encoded HDR distribution into generator latent manifold",
+    "Temporal consistency visualization: frame sequence strip showing smooth HDR transitions vs. baseline flicker"
+  ],
+  "hashtags": [
+    "#HDR",
+    "#VideoGeneration",
+    "#GenerativeAI",
+    "#RepresentationLearning",
+    "#ComputerVision"
+  ],
+  "paper_id": "2026-04-13-arxiv-hdr_video_generation_via_latent_alignment_with_logarithmic_encoding",
+  "paper_title": "HDR Video Generation via Latent Alignment with Logarithmic Encoding",
+  "paper_category": "Model",
+  "paper_date": "2026-04-13",
+  "paper_authors": "Naomi Ken Korem, Mohamed Oumoumad, Harel Cain, Matan Ben Yosef, Urska Jelercic",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.11788v1"
+    }
+  ],
+  "generated_at": "2026-04-14T07:18:07.712781"
+}

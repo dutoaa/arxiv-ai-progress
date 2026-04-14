@@ -1,24 +1,24 @@
 {
-  "key_insight": "EgoTL introduces egocentric \"think‑aloud\" chains that provide temporally and spatially grounded internal reasoning for minute‑long household tasks, substantially reducing noisy labels and error amplification in long‑horizon instruction following.",
-  "problem_solved": "Noisy VLM auto-labels and missing chain‑of‑thought/spatial annotations make long‑horizon egocentric task execution brittle; EgoTL fills that gap by producing grounded, human‑style reasoning traces tied to actions and locations.",
+  "key_insight": "Aligning minute‑long egocentric video with synchronized human \"think‑aloud\" verbal chains provides rich action labels, chain‑of‑thought reasoning, and spatial cues that substantially reduce noisy auto‑labeling and improve long‑horizon instruction following.",
+  "problem_solved": "VLM‑based auto‑labeling datasets lack accurate human action labels, chain‑of‑thought (CoT) transcripts, and spatial annotations, causing amplified errors when models must plan and follow multi‑step, spatially grounded household tasks.",
   "method": [
-    "Collect or synthesize egocentric video data paired with think‑aloud transcripts and spatial annotations to capture minute‑scale household plans.",
-    "Train a multimodal model (egocentric vision + language) to predict grounded chain‑of‑thought steps that align with action segments and spatial references.",
-    "Use these think‑aloud chains to supervise or refine downstream instruction‑following and planning modules, reducing compounding errors over long horizons."
+    "Collect egocentric recordings of minute‑scale household tasks with synchronized think‑aloud speech capturing stepwise planning and spatial references.",
+    "Automatically align transcripts to video frames, extract action tokens and spatial cues, and apply denoising/verification to produce high‑quality supervision (EgoTL chains).",
+    "Finetune multimodal/vision‑language models on these aligned think‑aloud chains to improve temporal planning, spatial grounding, and long‑horizon instruction following."
   ],
-  "impact": "Provides practitioners a scalable way to add interpretable, spatially grounded reasoning to embodied agents, improving robustness and traceability for long‑horizon household and robotic tasks.",
+  "impact": "EgoTL gives practitioners a scalable way to inject human reasoning and spatial grounding into embodied datasets, improving long‑horizon task performance and reducing error propagation—beneficial for robotic instruction following, dataset curation, and VLM training.",
   "visual_elements": [
-    "Pipeline diagram: egocentric video + audio → think‑aloud transcript + spatial tags → multimodal model → grounded action sequence",
-    "Before/after comparison chart: task success rate and error amplification for models without vs. with EgoTL",
-    "Timeline visualization over a minute‑long clip showing action segments with aligned thought‑bubbles and spatial annotations",
-    "Qualitative examples: egocentric frame overlays showing predicted next action, the corresponding thought step, and spatial target highlights"
+    "Pipeline diagram: egocentric video + think‑aloud audio → alignment & annotation → EgoTL dataset → model finetuning",
+    "Before/after performance chart showing reduced error growth across increasing task horizon (baseline vs EgoTL)",
+    "Example egocentric frame with overlaid think‑aloud transcript, action steps, and spatial annotations (boxes/heatmaps)",
+    "Timeline/chain diagram illustrating a think‑aloud chain of stepwise reasoning across multiple subgoals"
   ],
   "hashtags": [
     "#EgocentricAI",
     "#ChainOfThought",
     "#EmbodiedAI",
-    "#LongHorizonPlanning",
-    "#VisionLanguage"
+    "#VisionLanguage",
+    "#LongHorizonPlanning"
   ],
   "paper_id": "2026-04-10-arxiv-egotl_egocentric_think_aloud_chains_for_long_horizon_tasks",
   "paper_title": "EgoTL: Egocentric Think-Aloud Chains for Long-Horizon Tasks",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.09535v1"
     }
   ],
-  "generated_at": "2026-04-13T07:49:11.370727"
+  "generated_at": "2026-04-14T07:21:28.279437"
 }
