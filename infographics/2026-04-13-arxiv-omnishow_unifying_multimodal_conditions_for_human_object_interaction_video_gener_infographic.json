@@ -1,23 +1,23 @@
 {
-  "key_insight": "OmniShow unifies text, reference image, audio, and pose into a single controllable framework to generate coherent human–object interaction videos, enabling multimodal conditioning without sacrificing temporal consistency or object-level fidelity.",
-  "problem_solved": "Existing HOI video generators cannot simultaneously accommodate the full set of practical conditions (text, image, audio, pose) needed for realistic, controllable human–object interaction synthesis for real-world applications.",
+  "key_insight": "OmniShow unifies text, reference images, audio, and pose as joint conditioning signals to generate temporally coherent, high-fidelity human–object interaction videos, enabling fine-grained control over both human motion and object behavior in a single model.",
+  "problem_solved": "Current HOI video generation methods cannot simultaneously accept and fuse the full set of practical controls (text, image, audio, pose), leading to limited controllability, inconsistent object-hand interactions, and poor temporal coherence for real-world applications like product demos and short-form content.",
   "method": [
-    "A unified multimodal encoder that projects text, reference images, audio, and pose into a shared conditioning space for joint control.",
-    "Cross-modal fusion and temporal-consistency modules that align signals and preserve coherent object–human dynamics across frames.",
-    "A generative temporal decoder (e.g., diffusion/transformer-based) with object-aware composition to synthesize high-fidelity, controllable HOI video sequences."
+    "Multimodal encoder + fusion: Encode text, reference image(s), audio, and pose into a shared representation and fuse via cross-attention modules to produce unified conditioning.",
+    "Temporal generation backbone: Use a temporal-aware video generator (e.g., transformer/diffusion-based) that enforces frame-to-frame consistency and preserves object-hand contact dynamics.",
+    "Object- and pose-aware rendering: Inject object-centric constraints and explicit pose conditioning during decoding to maintain plausible interactions and visual fidelity."
   ],
-  "impact": "Makes it practical for AI/ML practitioners to build end-to-end controllable HOI video generators for e-commerce demos, short-form media, and interactive content, reducing engineering effort by consolidating multimodal conditioning into one architecture.",
+  "impact": "Provides a practical, unified solution for controllable HOI video synthesis, lowering the bar for automated content creation in e-commerce, social media, and entertainment while giving researchers a template for multimodal conditioning in temporal generative models.",
   "visual_elements": [
-    "Pipeline diagram showing four input modalities (text, reference image, audio, pose) → unified encoder → fusion & temporal modules → video decoder",
-    "Before/after montage: input modalities alongside generated video frames to highlight controllability",
-    "Attention / conditioning heatmaps over frames showing how each modality influences regions (e.g., object vs. human)",
-    "Qualitative grid or bar chart comparing ablations (single vs. multi-condition) to illustrate gains from unified conditioning"
+    "Pipeline diagram showing multimodal inputs (text, image, audio, pose) → fusion encoder → temporal generator → video output",
+    "Before/after frame sequence highlighting improved object-hand contact and temporal coherence",
+    "Modality-conditional grid showing how changing one input (e.g., pose or audio) alters generated video outcomes",
+    "Bar/line chart comparing quality (FID/LPIPS) and temporal consistency against prior methods"
   ],
   "hashtags": [
-    "#Multimodal",
+    "#MultimodalAI",
     "#VideoGeneration",
     "#HumanObjectInteraction",
-    "#GenerativeAI",
+    "#DiffusionModels",
     "#ContentCreation"
   ],
   "paper_id": "2026-04-13-arxiv-omnishow_unifying_multimodal_conditions_for_human_object_interaction_video_gener",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.11804v1"
     }
   ],
-  "generated_at": "2026-04-14T07:19:52.591371"
+  "generated_at": "2026-04-15T07:21:51.177404"
 }

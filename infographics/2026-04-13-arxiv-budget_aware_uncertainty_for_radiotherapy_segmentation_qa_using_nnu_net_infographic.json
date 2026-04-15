@@ -1,24 +1,24 @@
 {
-  "key_insight": "Integrating uncertainty estimates with nnU-Net enables budget-aware prioritization of manual QA so clinicians inspect the regions most likely to contain segmentation errors, improving safety and efficiency for radiotherapy planning.",
-  "problem_solved": "Reduces the time-consuming, high-risk task of manually checking Clinical Target Volume (CTV) delineations—especially for complex treatments like TMLI—by providing reliable cues about where automated segmentations may be wrong and allocating limited reviewer time effectively.",
+  "key_insight": "A budget-aware uncertainty-driven QA framework built on nnU-Net ranks regions by predicted uncertainty so clinicians can review a small, prioritized subset and catch most segmentation errors with minimal manual effort.",
+  "problem_solved": "Reduces the time and risk of manual Clinical Target Volume (CTV) correction in radiotherapy by providing reliable cues about where auto-segmentation (especially for complex TMLI cases) is likely to be wrong and should be inspected first.",
   "method": [
-    "Produce nnU-Net segmentations plus per-voxel uncertainty maps (e.g., test-time augmentation/ensembling or probabilistic outputs).",
-    "Aggregate uncertainty into region/case-level scores and rank segmentations or subregions by expected error under a reviewer time/budget constraint.",
-    "Present prioritized overlays and suggested review targets to clinicians in a human-in-the-loop QA loop to maximize error detection given limited review resources."
+    "Estimate model uncertainty from nnU-Net segmentation outputs to localize likely errors.",
+    "Translate uncertainty into a budget-aware ranking/prioritization scheme that selects slices/regions for manual QA under a fixed review time or slice budget.",
+    "Evaluate trade-offs between review budget and error detection on TMLI cases to quantify saved effort versus missed errors."
   ],
-  "impact": "Enables practical, risk-aware deployment of auto-segmentation in radiotherapy by focusing manual effort where it matters most, lowering review burden while preserving or improving clinical safety. Useful blueprint for ML teams building QA pipelines in safety-critical imaging applications.",
+  "impact": "Enables safer, more efficient clinical deployment of auto-segmentation by directing limited QA resources where they matter most; practitioners can tune review budgets to desired safety/efficiency trade-offs.",
   "visual_elements": [
-    "Pipeline diagram: nnU-Net → uncertainty map → budget-aware ranking → clinician review loop.",
-    "CT slice with segmentation and overlaid uncertainty heatmap (high uncertainty highlighted).",
-    "Bar/stacked-chart showing reviewer time budget vs. cumulative detected errors when using budget-aware ranking vs. random/naive review.",
-    "Schematic of prioritized region list or case queue presented to clinician (human-in-the-loop icon)."
+    "Pipeline flowchart: nnU-Net → uncertainty estimation → budget-aware prioritization → clinician review",
+    "Budget vs. error-detection curve (recall or IoU loss found vs. percent slices reviewed)",
+    "CT slices with overlay heatmap showing uncertainty and highlighted slices selected for review",
+    "Bar chart showing manual time saved versus residual segmentation errors across budgets"
   ],
   "hashtags": [
-    "#MedicalImaging",
     "#Radiotherapy",
-    "#UncertaintyEstimation",
+    "#MedicalImaging",
+    "#UncertaintyQuantification",
     "#nnUNet",
-    "#SegmentationQA"
+    "#AIforHealthcare"
   ],
   "paper_id": "2026-04-13-arxiv-budget_aware_uncertainty_for_radiotherapy_segmentation_qa_using_nnu_net",
   "paper_title": "Budget-Aware Uncertainty for Radiotherapy Segmentation QA Using nnU-Net",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.11798v1"
     }
   ],
-  "generated_at": "2026-04-14T07:19:24.698492"
+  "generated_at": "2026-04-15T07:22:02.067009"
 }

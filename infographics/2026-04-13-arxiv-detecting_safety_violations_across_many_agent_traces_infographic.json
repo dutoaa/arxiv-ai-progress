@@ -1,24 +1,24 @@
 {
-  "key_insight": "Failures that are rare, distributed, or adversarially hidden often only become visible when multiple agent traces are analyzed together; auditing should therefore evaluate sets of traces rather than each trace in isolation. The paper develops scalable cross-trace detection strategies that surface coordinated or emergent safety violations across many runs.",
-  "problem_solved": "Auditing agents for safety fails when judges operate on single traces: rare or distributed failure modes (e.g., coordinated misuse, covert sabotage, reward hacking, prompt injection) are missed or hidden. The paper addresses how to find these multi-trace, adversarial, and low-frequency violations efficiently across large trace corpora.",
+  "key_insight": "Failures that threaten safety can be rare, complex, or adversarially hidden and only become apparent when multiple agent traces are analyzed jointly; this paper shows that searching and judging traces at the set level—rather than individually—substantially improves detection of such violations.",
+  "problem_solved": "Auditors struggle to find rare, multi-trace, or covert safety violations (e.g., misuse campaigns, covert sabotage, reward hacking, prompt injection) when evaluating traces independently; the work addresses the need to detect failures that only emerge from relationships across many traces.",
   "method": [
-    "Formulate detection as a cross-trace problem: aggregate and compare many traces to reveal failures that are invisible per-trace.",
-    "Use scalable search and statistical/algorithmic tools (e.g., clustering, anomaly scoring, targeted sampling or combinatorial search) to prioritize trace sets likely to contain violations.",
-    "Incorporate mechanisms for adversarial robustness and human-in-the-loop verification to validate and explain discovered coordinated failures."
+    "Formulate detection as a search over large collections of agent traces and apply joint/set-level evaluation rather than per-trace judgments.",
+    "Use aggregation and cross-trace analysis techniques to surface patterns and interactions that reveal hidden or rare failures.",
+    "Design detection procedures robust to adversarial hiding—prioritizing trace subsets for inspection and amplifying signals that only appear in combination."
   ],
-  "impact": "Provides auditors and practitioners a practical way to find complex, rare, and adversarial safety violations that single-trace evaluation misses, improving red-teaming, evaluation pipelines, and pre-deployment risk assessment.",
+  "impact": "Enables more reliable, scalable safety audits by making rare, coordinated, or adversarially concealed failures discoverable; helps practitioners prioritize inspections and reduce undetected risk in deployed agents.",
   "visual_elements": [
-    "Diagram: many agent traces (parallel lines) funneled into a cross-trace judge highlighting coordinated anomalies",
-    "Heatmap or bar chart showing rarity of failures vs. detection rate for per-trace vs. cross-trace methods",
-    "Pipeline flowchart: trace collection → grouping/clustering → targeted search → human validation → mitigation",
-    "Side-by-side example: two traces that look safe individually but together reveal a hidden failure (callout boxes)"
+    "Schematic showing many agent traces as parallel timelines with a rare failure highlighted only after overlapping multiple traces are combined.",
+    "Flowchart of the joint-analysis pipeline: collect traces → group/score trace sets → prioritize subsets → human or automated review.",
+    "Bar/line chart comparing detection rates of per-trace judges vs. multi-trace/joint detectors across varying failure rarity.",
+    "Icon set: magnifying glass over a network of traces, shield (safety), and warning symbol for detected violations."
   ],
   "hashtags": [
-    "#AIAudit",
     "#AISafety",
-    "#Robustness",
-    "#AnomalyDetection",
-    "#RedTeam"
+    "#ModelAuditing",
+    "#TraceAnalysis",
+    "#AdversarialRobustness",
+    "#SafetyTesting"
   ],
   "paper_id": "2026-04-13-arxiv-detecting_safety_violations_across_many_agent_traces",
   "paper_title": "Detecting Safety Violations Across Many Agent Traces",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.11806v1"
     }
   ],
-  "generated_at": "2026-04-14T07:20:17.241728"
+  "generated_at": "2026-04-15T07:21:26.986696"
 }
