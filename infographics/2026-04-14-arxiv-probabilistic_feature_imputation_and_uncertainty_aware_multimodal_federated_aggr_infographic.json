@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce probabilistic feature imputation plus uncertainty-aware aggregation so federated models can reliably use synthesized missing modalities and weight client contributions by confidence, improving robustness under modality heterogeneity.",
-  "problem_solved": "Addresses modality heterogeneity in multimodal federated learning where many sites lack some modalities; prior imputation methods produce point estimates without reliability, hurting aggregation and downstream decisions.",
+  "key_insight": "Introduce probabilistic feature imputation that produces uncertainty-aware representations for missing modalities, and use those uncertainty estimates to weight client contributions during federated aggregation, yielding more reliable multimodal models under modality heterogeneity.",
+  "problem_solved": "Multimodal federated learning across healthcare sites where many clients lack one or more modalities; prior imputation methods give only point estimates and can make aggregation overconfident and unreliable.",
   "method": [
-    "Probabilistic feature imputation: learn conditional distributions (not just point estimates) of missing-modality features from available modalities so imputed features carry uncertainty.",
-    "Uncertainty-aware federated aggregation: use imputation uncertainty to weight client updates and synthesized features during global aggregation, reducing influence of low-confidence imputations.",
-    "Privacy-preserving FL pipeline: perform local probabilistic imputation and uncertainty quantification on clients, then communicate only model summaries/confidence-weighted updates for centralized aggregation."
+    "Train a probabilistic feature imputer (outputs distributions / uncertainty for synthesized modality features) so missing modalities are represented as mean + uncertainty.",
+    "Propagate imputed-feature uncertainty through local models and communicate uncertainty-aware summaries (not just point features) to the server.",
+    "Perform uncertainty-aware federated aggregation that weights client contributions by imputation reliability, reducing influence of uncertain syntheses."
   ],
-  "impact": "Enables more reliable, calibrated multimodal federated models in settings with missing modalities (e.g., hospitals with partial data), improving safety and performance without sharing raw data.",
+  "impact": "Makes multimodal federated learning more robust and better-calibrated in realistic, heterogeneous clinical deployments—improving safety and trustworthiness when modalities are missing while preserving privacy.",
   "visual_elements": [
-    "Schematic of federated network: multiple hospitals/clients, each labeled with which modalities they have / miss; arrows show local probabilistic imputation and sending confidence-weighted updates to server.",
-    "Imputation illustration: comparison of point-estimate imputation vs a probability distribution (mean + variance) for a missing feature.",
-    "Aggregation diagram: server combining client updates with confidence weights (thicker arrows for high confidence) and a small formula/visual showing weighting by inverse uncertainty.",
-    "Performance/uncertainty chart: bar or line plot comparing accuracy and calibration (e.g., reliability diagram or error bars) of baseline point-imputation FL vs uncertainty-aware method."
+    "System diagram: multiple clinics with partial modalities → probabilistic imputer at each client (shows mean + uncertainty) → server performing uncertainty-weighted aggregation to produce a global model.",
+    "Heatmap / mosaic showing modality availability across clients (high heterogeneity) to motivate the problem.",
+    "Line chart: downstream task performance vs. fraction of missing modalities comparing point-imputation vs. probabilistic imputation with uncertainty-aware aggregation.",
+    "Reliability diagram or bar chart showing calibration / reduction in overconfident errors when using uncertainty-aware aggregation."
   ],
   "hashtags": [
     "#FederatedLearning",
     "#MultimodalAI",
     "#Uncertainty",
-    "#HealthcareAI",
-    "#FeatureImputation"
+    "#HealthAI",
+    "#ProbabilisticImputation"
   ],
   "paper_id": "2026-04-14-arxiv-probabilistic_feature_imputation_and_uncertainty_aware_multimodal_federated_aggr",
   "paper_title": "Probabilistic Feature Imputation and Uncertainty-Aware Multimodal Federated Aggregation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.12970v1"
     }
   ],
-  "generated_at": "2026-04-15T07:18:31.925874"
+  "generated_at": "2026-04-16T07:23:20.092360"
 }

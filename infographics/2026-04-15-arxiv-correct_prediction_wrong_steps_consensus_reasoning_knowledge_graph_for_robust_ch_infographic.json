@@ -1,0 +1,35 @@
+{
+  "key_insight": "Providing ground-truth labels for reasoning traces does not improve LLM reasoning; instead, aggregating multiple chains into a Consensus Reasoning Knowledge Graph (RKG) and synthesizing consensus chains (CRAFT) mitigates both internal logical errors and step‑wise flaws.",
+  "problem_solved": "Chain-of-thought outputs from LLMs contain two varying, interrelated failure modes — Step Internal Flaws (logical errors, hallucinations) and Step-wise Flaws (overthinking, underthinking) — that make reasoning brittle and hard to correct with simple labeling.",
+  "method": [
+    "Construct a Reasoning Knowledge Graph (RKG) from multiple chain-of-thought traces, representing reasoning steps as nodes and relations as edges to capture alternative justifications and contradictions.",
+    "Detect and downweight/prune inconsistent or low-consensus nodes and step patterns across traces to reduce internal logical errors and step‑wise pathologies.",
+    "Synthesize robust chain-of-thoughts by extracting high-consensus paths from the RKG and iteratively refining them (CRAFT) to produce corrected, stable reasoning traces."
+  ],
+  "impact": "CRAFT produces more reliable, interpretable reasoning traces without relying on ground-truth step labels, improving the robustness of downstream LLM decision-making and making evaluation/debugging of reasoning behavior more actionable for practitioners.",
+  "visual_elements": [
+    "RKG diagram: graph of nodes (steps) and edges, with consensus paths highlighted and contradictory nodes faded",
+    "Before/After CoT example: original flawed trace vs. synthesized consensus trace to show error correction",
+    "Pipeline flowchart: collect traces → build RKG → prune/infer consensus → synthesize refined CoT",
+    "Performance/robustness chart: relative reduction in step-level errors or consistency improvement across sample types"
+  ],
+  "hashtags": [
+    "#ChainOfThought",
+    "#LLM",
+    "#Reasoning",
+    "#KnowledgeGraph",
+    "#RobustAI"
+  ],
+  "paper_id": "2026-04-15-arxiv-correct_prediction_wrong_steps_consensus_reasoning_knowledge_graph_for_robust_ch",
+  "paper_title": "Correct Prediction, Wrong Steps? Consensus Reasoning Knowledge Graph for Robust Chain-of-Thought Synthesis",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-04-15",
+  "paper_authors": "Zipeng Ling, Shuliang Liu, Shenghong Fu, Yuehao Tang, Seonil Son",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.14121v1"
+    }
+  ],
+  "generated_at": "2026-04-16T07:20:11.928451"
+}

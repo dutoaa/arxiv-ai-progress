@@ -1,24 +1,24 @@
 {
-  "key_insight": "ROSE reframes NL2SQL evaluation around the user's intent: it judges whether the predicted SQL answers the natural language question, rather than whether it matches a possibly flawed ground-truth SQL.",
-  "problem_solved": "Execution Accuracy (EX) is unreliable — it's sensitive to SQL syntactic variation, ignores multiple valid interpretations of a question, and can be misled by erroneous ground-truth SQL. ROSE solves this by centering evaluation on intent equivalence and answer correctness.",
+  "key_insight": "ROSE reframes NL2SQL evaluation around user intent: it judges a predicted SQL by whether it answers the natural-language question, not whether it matches a single ground-truth SQL. This makes evaluation robust to syntactic variation, ambiguous questions, and noisy labels.",
+  "problem_solved": "Execution Accuracy (EX) is brittle: it penalizes semantically-equivalent SQL rewrites, ignores multiple valid interpretations of a question, and is easily misled by incorrect ground-truth SQL—leading to unreliable model evaluation.",
   "method": [
-    "Define and formalize question intent and evaluate predicted SQL by whether its execution satisfies that intent (answer-focused evaluation).",
-    "Allow multiple plausible interpretations and tolerate syntactic/structural SQL variants instead of enforcing strict SQL matching.",
-    "Introduce a scoring scheme that rewards intent fulfillment and is robust to noisy or incorrect ground-truth SQL."
+    "Define an intent-centered evaluation objective that prioritizes whether the predicted SQL fulfills the natural-language question's intent rather than structural match to ground truth.",
+    "Compare predicted queries on the basis of their answers/semantics (e.g., execution/intent equivalence, handling multiple valid interpretations) to avoid penalizing syntactic differences and to tolerate noisy labels.",
+    "Incorporate mechanisms to detect and account for ambiguity and ground-truth errors so the metric reflects true user-facing correctness."
   ],
-  "impact": "ROSE produces more reliable, interpretable evaluations for NL2SQL systems, enabling fairer model comparisons and reducing incentives to overfit to dataset artifacts — improving development and benchmarking of semantic parsers.",
+  "impact": "ROSE gives researchers and engineers a more faithful, user-centric signal for NL2SQL model quality—improving model selection, error analysis, and dataset validation. It reduces false negatives from evaluation and encourages models that actually satisfy user intent.",
   "visual_elements": [
-    "Pipeline diagram: NL question → multiple SQL candidates → ROSE intent-checker → pass/fail or score",
-    "Side-by-side comparison chart: cases where Execution Accuracy fails vs. ROSE succeeds (example queries and outputs)",
-    "Flowchart illustrating how ROSE handles ambiguous questions and noisy ground-truth (multiple interpretations aggregated into intent score)",
-    "Icons summarizing benefits: robustness, fairness, interpretability, and reduced sensitivity to syntactic variation"
+    "Side-by-side comparison diagram: EX vs ROSE — same question, two different SQLs; EX marks one as wrong, ROSE marks both correct if they answer the intent.",
+    "Flowchart of ROSE evaluation: input question → predicted SQL → intent check/execute → pass/fail decision.",
+    "Bar chart showing divergence between EX and ROSE scores across models/datasets to highlight robustness gains.",
+    "Example panel: ambiguous question with multiple valid SQLs and annotated explanations showing how ROSE handles ambiguity and noisy ground-truth."
   ],
   "hashtags": [
     "#NL2SQL",
-    "#EvaluationMetrics",
+    "#Evaluation",
+    "#ROSEMetric",
     "#SemanticParsing",
-    "#RobustEvaluation",
-    "#ROSE"
+    "#RobustAI"
   ],
   "paper_id": "2026-04-14-arxiv-rose_an_intent_centered_evaluation_metric_for_nl2sql",
   "paper_title": "ROSE: An Intent-Centered Evaluation Metric for NL2SQL",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.12988v1"
     }
   ],
-  "generated_at": "2026-04-15T07:18:56.247438"
+  "generated_at": "2026-04-16T07:22:26.269422"
 }
