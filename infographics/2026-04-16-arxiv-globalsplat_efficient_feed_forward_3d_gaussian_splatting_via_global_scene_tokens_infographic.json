@@ -1,0 +1,35 @@
+{
+  "key_insight": "Introducing learned global scene tokens that provide scene-level awareness to a feed-forward Gaussian splatting pipeline, enabling efficient, compact allocation of 3D Gaussians without slow iterative optimization.",
+  "problem_solved": "Current Gaussian-splatting methods either rely on slow iterative optimization or local heuristics that produce suboptimal allocation of primitives, forcing a trade-off between representation compactness, reconstruction fidelity, and rendering speed.",
+  "method": [
+    "Encode an input scene into a small set of global scene tokens that capture global structure and importance.",
+    "Use a feed-forward decoder that conditions Gaussian primitive allocation (positions, scales, colors, confidences) on the global tokens to allocate primitives globally-aware and compactly.",
+    "Apply lightweight pruning/aggregation and reconstruction losses so the network produces a fast, high-fidelity Gaussian-splatting representation suitable for real-time rendering."
+  ],
+  "impact": "Enables practitioners to obtain high-quality 3D reconstructions with far fewer primitives and much faster inference than iterative methods, making Gaussian-splatting practical for real-time, large-scale, or resource-constrained applications.",
+  "visual_elements": [
+    "Architecture diagram: image(s) → encoder → global scene tokens → feed-forward Gaussian allocator → rendered output",
+    "Before vs after comparison: dense iterative allocation vs GlobalSplat compact allocation (primitives count + visual difference)",
+    "Speed vs quality chart: rendering latency on x-axis, reconstruction error or PSNR on y-axis, showing GlobalSplat Pareto improvement",
+    "Sample renders and close-ups: ground-truth photo, GlobalSplat render, and error heatmap"
+  ],
+  "hashtags": [
+    "#3DRepresentation",
+    "#GaussianSplatting",
+    "#NeRF",
+    "#RealTimeRendering",
+    "#ComputerVision"
+  ],
+  "paper_id": "2026-04-16-arxiv-globalsplat_efficient_feed_forward_3d_gaussian_splatting_via_global_scene_tokens",
+  "paper_title": "GlobalSplat: Efficient Feed-Forward 3D Gaussian Splatting via Global Scene Tokens",
+  "paper_category": "Model",
+  "paper_date": "2026-04-16",
+  "paper_authors": "Roni Itkin, Noam Issachar, Yehonatan Keypur, Yehonatan Keypur, Anpei Chen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.15284v1"
+    }
+  ],
+  "generated_at": "2026-04-17T07:20:39.302560"
+}

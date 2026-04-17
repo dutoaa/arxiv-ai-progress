@@ -1,0 +1,35 @@
+{
+  "key_insight": "RAD-2 combines diffusion-based trajectory generators with a discriminator-trained reinforcement signal to stabilize stochastic planners and provide corrective feedback in closed-loop driving, yielding more reliable multimodal planning.",
+  "problem_solved": "Diffusion planners model complex multimodal futures but are unstable and lack negative corrective feedback when trained only by imitation learning, leading to brittle closed-loop behavior in high-level autonomous driving.",
+  "method": [
+    "Use a generator (diffusion-based trajectory sampler) to produce multimodal candidate plans.",
+    "Train a discriminator/critic that judges closed-loop rollouts and supplies corrective signals or rewards, enabling reinforcement-style fine-tuning of the generator.",
+    "Jointly scale this generator–discriminator loop with closed-loop simulation data to reduce stochastic instabilities and improve robustness."
+  ],
+  "impact": "Provides a practical way for AI/ML practitioners to make generative planners robust in closed-loop control, improving safety and reliability of motion planning for autonomous systems without abandoning expressive multimodal models.",
+  "visual_elements": [
+    "Architecture diagram showing Generator (diffusion) → Candidate trajectories → Environment rollouts → Discriminator → Feedback to Generator",
+    "Before/After trajectory overlays showing multimodality with reduced spurious variance and fewer collision-prone paths",
+    "Closed-loop performance chart (success rate / collision rate) comparing imitation-only vs RAD-2 across scenarios",
+    "Flowchart of training loop: offline data → generator sampling → simulator rollouts → discriminator evaluation → update"
+  ],
+  "hashtags": [
+    "#AutonomousDriving",
+    "#ReinforcementLearning",
+    "#DiffusionModels",
+    "#MotionPlanning",
+    "#GenerativeAI"
+  ],
+  "paper_id": "2026-04-16-arxiv-rad_2_scaling_reinforcement_learning_in_a_generator_discriminator_framework",
+  "paper_title": "RAD-2: Scaling Reinforcement Learning in a Generator-Discriminator Framework",
+  "paper_category": "Model",
+  "paper_date": "2026-04-16",
+  "paper_authors": "Hao Gao, Shaoyu Chen, Yifan Zhu, Yuehao Song, Wenyu Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.15308v1"
+    }
+  ],
+  "generated_at": "2026-04-17T07:21:14.250349"
+}

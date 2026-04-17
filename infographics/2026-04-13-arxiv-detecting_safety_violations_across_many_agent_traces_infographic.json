@@ -1,24 +1,24 @@
 {
-  "key_insight": "Failures that are invisible in individual agent traces can be revealed by jointly analyzing many traces; the paper introduces scalable methods that detect rare, complex, and adversarially-hidden safety violations by reasoning across sets of trajectories.",
-  "problem_solved": "Finding rare, complex, or covert safety violations that only become apparent when multiple agent traces are analyzed together—an auditing challenge made harder by large trace corpora and adversarial hiding strategies.",
+  "key_insight": "Failures that are rare, complex, or adversarially hidden often only become visible when multiple agent traces are analyzed together; by scoring and searching over sets of traces (not just individual ones), auditors can reliably surface these cross-trace safety violations.",
+  "problem_solved": "Detecting safety violations in large collections of agent traces where failures are sparse, compositional, or intentionally concealed — situations where per-trace judges miss problems that only emerge across multiple executions.",
   "method": [
-    "Multi-trace judges: evaluate sets of traces jointly (rather than per-trace) to expose cross-trace correlations and failure modes.",
-    "Efficient search and generation: combine targeted sampling and adversarial trace generation to surface rare or hidden violations without exhaustively enumerating traces.",
-    "Scalable scoring + interpretable counterexamples: rank candidate trace-sets by violation likelihood and return compact, human-readable counterexamples for auditors."
+    "Formulate cross-trace detection: evaluate candidate sets of traces with an aggregated failure score instead of per-trace labels.",
+    "Scalable search: use sampling, pruning, and targeted search heuristics to find small groups of traces that maximize the failure score across a huge trace corpus.",
+    "Robust validation: prioritize findings that are statistically or semantically robust to rare and adversarial patterns, and provide human-in-the-loop verification for high-risk cases."
   ],
-  "impact": "Enables more effective pre-deployment auditing by surfacing subtle, emergent, or adversarially-concealed failures, reducing blind spots in safety evaluations and helping practitioners prioritize fixes and mitigations.",
+  "impact": "Enables auditors and ML teams to find hard-to-detect, multi-trace safety failures that would otherwise slip past per-trace checks, improving model auditing, risk assessment, and mitigation for deployed agents.",
   "visual_elements": [
-    "Pipeline diagram: many traces → multi-trace judge / scorer → flagged cross-trace counterexample",
-    "Heatmap or rarity chart: frequency of single-trace vs cross-trace-detected failures to show what per-trace judges miss",
-    "Graph/network view: traces as nodes with shared states/inputs highlighting emergent failure pathways across traces",
-    "Bar/line chart: detection rate and sample efficiency comparison between per-trace baselines and the proposed method"
+    "Pipeline diagram: many traces → cross-trace scorer/search → flagged trace-sets → human review",
+    "Before/After example: per-trace view showing 'no failure' vs grouped-trace view revealing the hidden violation",
+    "Heatmap or rarity chart: frequency of failures vs size of trace-set needed to detect them",
+    "Flowchart or icon set illustrating scalable search strategies (sampling, pruning, heuristics) and human-in-the-loop validation"
   ],
   "hashtags": [
     "#AISafety",
     "#ModelAudit",
-    "#TraceAnalysis",
-    "#AdversarialTesting",
-    "#RobustAI"
+    "#AnomalyDetection",
+    "#RobustML",
+    "#Policy"
   ],
   "paper_id": "2026-04-13-arxiv-detecting_safety_violations_across_many_agent_traces",
   "paper_title": "Detecting Safety Violations Across Many Agent Traces",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.11806v1"
     }
   ],
-  "generated_at": "2026-04-16T07:21:56.800903"
+  "generated_at": "2026-04-17T07:21:56.975424"
 }

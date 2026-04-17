@@ -1,0 +1,35 @@
+{
+  "key_insight": "SegWithU reframes uncertainty as a ‘perturbation energy’ predicted by a lightweight post-hoc head on a frozen segmentation backbone, enabling accurate failure ranking in one forward pass without expensive repeated inference.",
+  "problem_solved": "Reduces the cost and latency of reliable uncertainty estimation for medical image segmentation by avoiding repeated stochastic inference while improving the practical detection of risky/failed predictions.",
+  "method": [
+    "Post-hoc design: attach a small uncertainty head to a frozen pretrained segmentation backbone so the segmentation model need not be retrained.",
+    "Uncertainty-as-perturbation-energy: the head predicts a scalar field that estimates how much input perturbation would change the segmentation (higher energy → higher risk/uncertainty).",
+    "Single-forward-pass risk scoring: combine predicted perturbation energy with segmentation outputs to rank and flag likely failures for downstream review or automated safeguards."
+  ],
+  "impact": "Provides a practical, low-latency way to equip deployed segmentation models with reliable uncertainty signals, improving safety and triage in clinical pipelines without high compute overhead.",
+  "visual_elements": [
+    "Architecture diagram: frozen segmentation backbone + lightweight uncertainty head (single forward pass)",
+    "Illustration of perturbation-energy concept: small input perturbations producing segmentation changes, mapped to an uncertainty heatmap",
+    "Comparison chart: failure-ranking performance and runtime of SegWithU vs. multi-sample methods (e.g., MC dropout) and existing single-pass baselines",
+    "Workflow icon strip: model inference → uncertainty heatmap → triage/flagging → clinician review"
+  ],
+  "hashtags": [
+    "#MedicalImaging",
+    "#UncertaintyEstimation",
+    "#Segmentation",
+    "#RiskAwareAI",
+    "#SinglePassInference"
+  ],
+  "paper_id": "2026-04-16-arxiv-segwithu_uncertainty_as_perturbation_energy_for_single_forward_pass_risk_aware_m",
+  "paper_title": "SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation",
+  "paper_category": "Model",
+  "paper_date": "2026-04-16",
+  "paper_authors": "Tianhao Fu, Austin Wang, Charles Chen, Roby Aldave-Garza, Yucheng Chen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.15271v1"
+    }
+  ],
+  "generated_at": "2026-04-17T07:20:24.802483"
+}

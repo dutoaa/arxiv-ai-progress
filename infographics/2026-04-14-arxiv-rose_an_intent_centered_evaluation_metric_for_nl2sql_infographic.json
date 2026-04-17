@@ -1,24 +1,24 @@
 {
-  "key_insight": "ROSE reframes NL2SQL evaluation around user intent: it judges a predicted SQL by whether it answers the natural-language question, not whether it matches a single ground-truth SQL. This makes evaluation robust to syntactic variation, ambiguous questions, and noisy labels.",
-  "problem_solved": "Execution Accuracy (EX) is brittle: it penalizes semantically-equivalent SQL rewrites, ignores multiple valid interpretations of a question, and is easily misled by incorrect ground-truth SQL—leading to unreliable model evaluation.",
+  "key_insight": "ROSE reframes NL2SQL evaluation around user intent: it judges a predicted SQL by whether it answers the natural-language question, not by syntactic match to a possibly flawed ground-truth SQL. This produces a more robust, interpretation-aware accuracy signal.",
+  "problem_solved": "Execution Accuracy (EX) is brittle—sensitive to SQL syntax, blind to multiple valid interpretations, and easily misled by erroneous ground-truth SQL—so ROSE provides a reliable alternative that focuses on intent-level correctness.",
   "method": [
-    "Define an intent-centered evaluation objective that prioritizes whether the predicted SQL fulfills the natural-language question's intent rather than structural match to ground truth.",
-    "Compare predicted queries on the basis of their answers/semantics (e.g., execution/intent equivalence, handling multiple valid interpretations) to avoid penalizing syntactic differences and to tolerate noisy labels.",
-    "Incorporate mechanisms to detect and account for ambiguity and ground-truth errors so the metric reflects true user-facing correctness."
+    "Center evaluation on question intent: determine whether the predicted SQL fulfills the question’s intent rather than matching ground-truth SQL text.",
+    "Compare outcomes at the answer/intent level (e.g., result equivalence, intent alignment) so semantically equivalent but syntactically different SQLs are treated as correct.",
+    "Design robustness to ambiguous questions and noisy ground-truth by accommodating multiple valid interpretations and ignoring superficial SQL differences."
   ],
-  "impact": "ROSE gives researchers and engineers a more faithful, user-centric signal for NL2SQL model quality—improving model selection, error analysis, and dataset validation. It reduces false negatives from evaluation and encourages models that actually satisfy user intent.",
+  "impact": "ROSE yields more trustworthy model comparisons, uncovers evaluation false negatives caused by ground-truth errors, and guides practitioners toward models that actually satisfy user intent rather than models that mimic dataset annotations.",
   "visual_elements": [
-    "Side-by-side comparison diagram: EX vs ROSE — same question, two different SQLs; EX marks one as wrong, ROSE marks both correct if they answer the intent.",
-    "Flowchart of ROSE evaluation: input question → predicted SQL → intent check/execute → pass/fail decision.",
-    "Bar chart showing divergence between EX and ROSE scores across models/datasets to highlight robustness gains.",
-    "Example panel: ambiguous question with multiple valid SQLs and annotated explanations showing how ROSE handles ambiguity and noisy ground-truth."
+    "Flow diagram: Question -> Predicted SQL + Ground-truth SQL -> Execute -> Intent-level comparison (ROSE) vs syntactic match (EX)",
+    "Before/After example: two different SQL queries that produce the same correct answer, labeled 'EX: wrong' and 'ROSE: correct'",
+    "Bar chart: model rankings under EX vs ROSE to show reordering and reduced false negatives",
+    "Icon set: question mark (intent), SQL token cluster (syntax variance), warning bug (ground-truth error), check mark (intent-verified)"
   ],
   "hashtags": [
     "#NL2SQL",
-    "#Evaluation",
-    "#ROSEMetric",
-    "#SemanticParsing",
-    "#RobustAI"
+    "#EvaluationMetric",
+    "#ROSE",
+    "#DatasetQuality",
+    "#SemanticEvaluation"
   ],
   "paper_id": "2026-04-14-arxiv-rose_an_intent_centered_evaluation_metric_for_nl2sql",
   "paper_title": "ROSE: An Intent-Centered Evaluation Metric for NL2SQL",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.12988v1"
     }
   ],
-  "generated_at": "2026-04-16T07:22:26.269422"
+  "generated_at": "2026-04-17T07:22:29.014785"
 }

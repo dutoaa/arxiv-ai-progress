@@ -1,24 +1,24 @@
 {
-  "key_insight": "You can compress long videos to a single, highly informative token per selected frame at the final LLM layer without losing essential temporal cues, enabling extreme reduction in token budget while preserving video-level understanding.",
-  "problem_solved": "Addresses the scalability bottleneck of vision–language models for long videos, where per-frame token explosion exceeds LLM context length and forces sparse, temporally fragmented perception.",
+  "key_insight": "You can compress a long video down to a single, highly informative token per frame at the final LLM layer, preserving essential temporal information while fitting within LLM context limits.",
+  "problem_solved": "Addresses the inability of vision–language models to process long videos because per-frame expansion into many tokens exceeds LLM context windows, causing sparse perception and loss of temporal detail.",
   "method": [
-    "Highly selective frame selection: score and pick only the most informative frames across the video (learned or heuristic) to represent key moments.",
-    "Per-frame extreme compression: aggregate each selected frame into a single compact token using a learnable pooling/encoder (e.g., cross-attention or projection) that preserves semantics and temporal cues.",
-    "LLM integration with temporal priors: feed the one-token-per-frame sequence into the LLM with positional/temporal encoding and training objectives (distillation/contrastive) to retain temporal reasoning despite the slim token budget."
+    "Select highly informative frames using a high-selectivity scoring mechanism to discard redundant content early.",
+    "Compress each selected frame into a single, rich token via a learned frame encoder + pooling or attention-based summarizer so the final LLM sees one token per frame.",
+    "Integrate the one-token-per-frame stream into the VLM→LLM pipeline to enable long-range temporal reasoning within limited context budgets."
   ],
-  "impact": "Greatly lowers compute and memory costs for long-video VLMs, enabling practical LLM-based reasoning over hours of footage and broader deployment for tasks like summarization, retrieval, and long-term action understanding.",
+  "impact": "Enables scalable, cost-effective long-video understanding on existing LLMs by drastically reducing token counts while retaining temporal structure—useful for retrieval, captioning, and long-range video QA.",
   "visual_elements": [
-    "Pipeline diagram: dense frames → selective frame scorer → one-token-per-frame compressor → LLM, showing token-count reduction",
-    "Bar chart: tokens (or FLOPs) vs accuracy/latency comparing full-frame, sparse sampling, and one-token-per-frame",
-    "Timeline visualization: original video timeline with highlighted selected frames and preserved temporal order",
-    "Icon set: clock/GPU for efficiency, token compression icon, and an LLM/head for downstream reasoning"
+    "Before vs. After schematic: many tokens per frame → one token per frame, showing token count reduction and preserved timeline.",
+    "Architecture diagram: frame scorer, per-frame encoder/compressor, and LLM integration pipeline.",
+    "Compression ratio chart: tokens-per-second or tokens-per-video for baseline vs. one-token-per-frame approach and corresponding latency/resource savings.",
+    "Qualitative timeline examples: sampled frames with their single-token summaries and downstream model outputs (QA/caption)"
   ],
   "hashtags": [
     "#VideoUnderstanding",
     "#VisionLanguage",
     "#TokenCompression",
-    "#LongVideoAI",
-    "#EfficientML"
+    "#LongContext",
+    "#MultimodalAI"
   ],
   "paper_id": "2026-04-15-arxiv-one_token_per_highly_selective_frame_towards_extreme_compression_for_long_video",
   "paper_title": "One Token per Highly Selective Frame: Towards Extreme Compression for Long Video Understanding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.14149v1"
     }
   ],
-  "generated_at": "2026-04-16T07:21:37.136277"
+  "generated_at": "2026-04-17T07:22:21.107682"
 }
