@@ -1,24 +1,24 @@
 {
-  "key_insight": "R3D finds that the chief barriers to 3D policy learning are missing 3D data augmentation and harmful interactions with Batch Normalization; by combining a scalable transformer-based 3D encoder with a diffusion decoder and targeted training fixes, stable training and strong generalization become possible.",
-  "problem_solved": "Addresses training instability and severe overfitting that prevented adoption of powerful 3D perception models for policy learning and cross-embodiment transfer.",
+  "key_insight": "Careful 3D-specific training design — adding 3D data augmentation and avoiding/adapting Batch Normalization — unlocks stable, scalable 3D policy learning, enabled by a transformer-based 3D encoder paired with a diffusion decoder.",
+  "problem_solved": "Addresses training instabilities and severe overfitting that prevented adoption of powerful 3D perception models for 3D policy learning and cross-embodiment transfer.",
   "method": [
-    "Systematic diagnosis pinpointing two root causes: absence of 3D data augmentation and adverse effects of Batch Normalization on policies.",
-    "New architecture: scalable transformer-based 3D encoder coupled with a diffusion decoder, together with BatchNorm removal/replacement and 3D-specific augmentation recipes.",
-    "Training protocol and regularization (3D augmentations, normalization fixes) to stabilize learning and reduce overfitting, enabling cross-embodiment transfer."
+    "Systematic diagnosis: identify missing 3D data augmentation and harmful effects of Batch Normalization as primary failure modes.",
+    "Architecture: couple a scalable transformer-based 3D encoder with a diffusion-based decoder to improve representation robustness and downstream policy generation.",
+    "Training recipe: introduce explicit 3D augmentations and replace/adjust BN (e.g., alternatives or ablations) plus stability-focused training practices to reduce overfitting."
   ],
-  "impact": "Provides practical fixes and an architecture that let practitioners safely scale 3D perception models in policy learning, improving robustness, generalization, and transfer across robot embodiments.",
+  "impact": "Makes it practical to train robust, generalizable 3D policies that leverage modern 3D perception backbones, improving cross-embodiment transfer and accelerating deployment in robotics, simulation, and embodied AI research.",
   "visual_elements": [
-    "Pipeline diagram: 3D input -> transformer 3D encoder -> diffusion decoder -> policy output (show data-flow and training signals).",
-    "Before/after bar or line chart: metrics (overfitting gap, validation performance) comparing baseline vs R3D.",
-    "Augmentation collage: visual icons/examples of 3D augmentations (rotation, scaling, point jittering) with brief captions.",
-    "Normalization effect plot: training loss/validation curves illustrating instability with BatchNorm vs stable training after replacement."
+    "Failure diagnosis flowchart: show path from missing 3D augmentations / BN issues → instability / overfitting → blocked model adoption",
+    "Model diagram: transformer-based 3D encoder feeding a diffusion decoder with callouts for where augmentations and BN changes are applied",
+    "Training plots: learning curves and generalization metrics comparing baseline vs. proposed recipe (stability and overfitting reduction)",
+    "Qualitative panel: cross-embodiment task examples showing improved policy transfer (different robot bodies/environments)"
   ],
   "hashtags": [
     "#3DPolicy",
-    "#RobotLearning",
+    "#Robotics",
     "#DiffusionModels",
-    "#DataAugmentation",
-    "#RepresentationLearning"
+    "#Transformers",
+    "#DataAugmentation"
   ],
   "paper_id": "2026-04-16-arxiv-r3d_revisiting_3d_policy_learning",
   "paper_title": "R3D: Revisiting 3D Policy Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15281v1"
     }
   ],
-  "generated_at": "2026-04-17T07:20:33.132067"
+  "generated_at": "2026-04-18T06:57:46.598884"
 }

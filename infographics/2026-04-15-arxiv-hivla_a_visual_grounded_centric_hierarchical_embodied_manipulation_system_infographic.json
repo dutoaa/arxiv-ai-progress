@@ -1,24 +1,24 @@
 {
-  "key_insight": "HiVLA separates high-level semantic planning (handled by a VLM) from low-level motor control, using visual grounding to connect them so you can preserve VLM reasoning while learning precise manipulation.",
-  "problem_solved": "Addresses the trade-off where end-to-end fine-tuning of Vision-Language-Action models for control erodes the rich reasoning capabilities of base VLMs; enables robust, sample-efficient embodied manipulation without sacrificing semantic understanding.",
+  "key_insight": "HiVLA preserves the high-level reasoning of large vision-language models by explicitly decoupling semantic planning from low-level motor control, using visual grounding as the bridge between the two. This hierarchical design keeps VLM reasoning intact while enabling robust, fine-grained manipulation.",
+  "problem_solved": "End-to-end Vision–Language–Action fine-tuning often erodes the reasoning capabilities of base VLMs; HiVLA addresses the trade-off between preserving semantic reasoning and achieving precise motor control in embodied manipulation.",
   "method": [
-    "Hierarchical architecture: a VLM-based high-level planner produces visually grounded semantic plans (tasks, parts, subgoals).",
-    "Decoupled low-level controller: separate motor policy learns precise primitives and closed-loop visual feedback for execution.",
-    "Grounding & interface module: translates VLM plans into actionable primitives and maintains alignment between vision, language, and control (VLM largely preserved or lightly adapted)."
+    "High-level VLM planner: uses vision-language models to perform semantic task decomposition and produce visually grounded subgoals (object parts, affordances, spatial relations).",
+    "Visual-grounding interface: maps semantic subgoals to image-space references and structured subtask representations that a controller can consume.",
+    "Modular low-level controller: separately trained motor policies (or classical controllers) execute grounded subgoals, allowing targeted fine-tuning without degrading VLM reasoning."
   ],
-  "impact": "Enables practitioners to leverage powerful VLM reasoning for complex manipulation while training modular controllers that are more sample-efficient, generalize better, and are easier to maintain and update.",
+  "impact": "HiVLA enables practitioners to combine strong VLM reasoning with reliable manipulation by modularizing planning and control, improving transferability, sample efficiency, and interpretability of robotic behaviors.",
   "visual_elements": [
-    "Hierarchical pipeline diagram: VLM planner (semantic) → grounding module → low-level controller (motor) → robot execution",
-    "Before/after comparison chart: end-to-end fine-tune vs HiVLA showing preserved reasoning vs improved control metrics",
-    "Attention/grounding overlay on scene images: visualized parts/subgoals the VLM references",
-    "Sequence storyboard: semantic subgoal → primitive action → outcome (illustrate closed-loop feedback)"
+    "Two-tiered architecture diagram showing VLM planner → visual grounding layer → low-level controller with arrows and data types labeled.",
+    "Example task decomposition: input instruction + scene image → sequence of grounded subgoals overlaid on the image (object-part boxes, affordance icons).",
+    "Performance comparison chart: accuracy/success-rate or reasoning retention for HiVLA vs end-to-end VLA baselines across manipulation tasks.",
+    "Attention/grounding heatmaps on images to illustrate where the VLM focuses when generating subgoals."
   ],
   "hashtags": [
-    "#HiVLA",
     "#EmbodiedAI",
     "#VisionLanguage",
+    "#VisualGrounding",
     "#Robotics",
-    "#HierarchicalControl"
+    "#HierarchicalLearning"
   ],
   "paper_id": "2026-04-15-arxiv-hivla_a_visual_grounded_centric_hierarchical_embodied_manipulation_system",
   "paper_title": "HiVLA: A Visual-Grounded-Centric Hierarchical Embodied Manipulation System",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.14125v1"
     }
   ],
-  "generated_at": "2026-04-16T07:20:24.366698"
+  "generated_at": "2026-04-18T07:01:59.783164"
 }

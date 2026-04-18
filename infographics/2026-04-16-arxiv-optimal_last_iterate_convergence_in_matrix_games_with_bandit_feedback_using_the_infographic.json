@@ -1,24 +1,24 @@
 {
-  "key_insight": "A log‑barrier regularizer combined with a dual‑focused analysis yields the first algorithm that attains the optimal last‑iterate exploitability rate in zero‑sum matrix games under bandit (uncoupled) feedback, matching the known Omega(t^{-1/4)) lower bound.",
-  "problem_solved": "Bridges the gap between lower bounds and prior algorithms by achieving provable last‑iterate convergence (exploitability decay) in zero‑sum matrix games when players receive only bandit feedback and act uncoupled.",
+  "key_insight": "The paper shows that using a log-barrier regularizer plus a dual-focused analysis yields the first algorithm that attains the optimal last-iterate convergence rate for uncoupled zero-sum matrix games with bandit feedback, matching the known lower bound of order t^{-1/4}.",
+  "problem_solved": "How to learn minimax policies (last-iterate convergence) in zero-sum matrix games when players receive only bandit (partial) feedback and act uncoupled—previous methods failed to reach the provable optimal rate.",
   "method": [
-    "Use a log‑barrier regularizer inside an online mirror descent framework to prevent boundary collapse and stabilize iterates.",
-    "Construct a bandit gradient estimator compatible with the log‑barrier geometry so updates remain unbiased and well‑behaved near simplex boundaries.",
-    "Perform a dual‑focused convergence analysis to bound exploitability of the actual iterate and show an O(t^{-1/4)) upper bound that matches the lower bound."
+    "Introduce a log-barrier regularization inside an online mirror-descent style algorithm to stabilize iterates near the simplex boundary.",
+    "Develop a dual-focused analysis tailored to the log-barrier geometry to control the exploitability of the actual (last) iterate rather than averages.",
+    "Handle bandit feedback with appropriate gradient/importance-weighted estimators and variance control to preserve the t^{-1/4} rate under partial information."
   ],
-  "impact": "Provides a theoretically optimal, practical recipe for learning minimax policies in competitive multi‑agent and adversarial settings with limited (bandit) feedback—important where the final policy (not just the average) must perform well.",
+  "impact": "Provides the first practical/theoretical recipe to guarantee optimal last-iterate convergence under realistic partial-feedback conditions, improving stability and sample-efficiency for learning minimax strategies in adversarial settings.",
   "visual_elements": [
-    "Log‑log plot of exploitability vs. iterations comparing: (a) this method showing slope −1/4, (b) prior algorithms with slower decay, and (c) the lower bound.",
-    "Flow diagram of the uncoupled bandit interaction: each player samples, receives bandit payoff, builds estimator, applies log‑barrier OMD update.",
-    "Illustration of the simplex with log‑barrier contours showing how the regularizer pushes iterates away from the boundary.",
-    "Compact algorithm box: pseudocode steps (sampling, estimator, update) with a badge showing the O(t^{-1/4)) guarantee."
+    "Two-player zero-sum payoff matrix icon with arrows depicting uncoupled players and bandit (partial) feedback",
+    "Convergence chart comparing last-iterate vs. averaged-iterate rates, highlighting the t^{-1/4} slope and matching the lower bound",
+    "Algorithm flow: (1) sample/bandit observation → (2) importance-weighted gradient estimate → (3) log-barrier mirror-descent update",
+    "Illustration of simplex with log-barrier preventing boundary collapse (iterates staying interior)"
   ],
   "hashtags": [
-    "#BanditLearning",
-    "#GameTheory",
     "#OnlineLearning",
+    "#Bandits",
+    "#GameTheory",
     "#LogBarrier",
-    "#MultiAgentRL"
+    "#Minimax"
   ],
   "paper_id": "2026-04-16-arxiv-optimal_last_iterate_convergence_in_matrix_games_with_bandit_feedback_using_the",
   "paper_title": "Optimal last-iterate convergence in matrix games with bandit feedback using the log-barrier",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15242v1"
     }
   ],
-  "generated_at": "2026-04-17T07:20:06.868042"
+  "generated_at": "2026-04-18T06:56:54.801551"
 }

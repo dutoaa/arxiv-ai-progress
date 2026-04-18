@@ -1,24 +1,24 @@
 {
-  "key_insight": "StreamCacheVGGT replaces destructive binary token eviction with a training-free cache manager that uses cross-layer robust scoring and hybrid compression to preserve useful geometry information from video streams, enabling stable dense 3D reconstruction under a fixed memory budget.",
-  "problem_solved": "Existing O(1) streaming frameworks for continuous 3D reconstruction destroy information by evicting tokens outright and rely on noisy, single-layer scoring; this yields unstable, low-quality geometry when memory is constrained. StreamCacheVGGT addresses these failures to maintain reconstruction quality and temporal consistency within constant memory limits.",
+  "key_insight": "StreamCacheVGGT replaces binary token eviction with a training-free, inference-time cache that (1) scores tokens using cross-layer, multi-view signals to reduce noisy decisions and (2) compresses retained tokens with a hybrid scheme so constant memory budgets preserve far more geometry information.",
+  "problem_solved": "Enables stable, high-quality dense 3D reconstruction from long continuous video streams under a strict O(1) memory budget by avoiding destructive pure-eviction policies and noisy single-layer scoring.",
   "method": [
-    "Training-free cache management with two synergistic modules: (a) cross-layer robust scoring that aggregates multi-layer and temporal signals to rank token importance, reducing evaluation noise; (b) hybrid cache compression that compresses/merges low-importance tokens (e.g., quantization, residual pooling, token fusion) instead of binary deletion to retain salient information.",
-    "Streaming pipeline that integrates with existing Visual Geometry Transformers (VGGT) to perform on-the-fly cache updates and inference while keeping memory O(1), improving temporal stability and reconstruction fidelity without retraining.",
-    "Design choices emphasize low compute overhead and plug-and-play deployment: lightweight scoring aggregation, selective lossy compression, and occasional full-state refreshes to avoid drift."
+    "Cross-layer robust scoring: aggregate signals across transformer layers and temporal views to rank tokens more reliably than localized, single-layer heuristics.",
+    "Hybrid cache compression: instead of deleting tokens, apply mix of lightweight compression (quantization, low-rank/projection, or token merging) and selective eviction to retain useful geometry cues within fixed memory.",
+    "Training-free streaming integration: operate at inference time with the existing Visual Geometry Transformer pipeline to deliver constant-memory streaming reconstructions without retraining."
   ],
-  "impact": "Provides practitioners a practical, plug-and-play solution to run high-quality, temporally stable dense 3D reconstruction from video on memory-limited platforms, improving inference robustness and deployment feasibility for real-time and edge applications.",
+  "impact": "Makes continuous, real-time dense 3D reconstruction feasible on memory-limited systems (edge devices, robots) by improving reconstruction quality and temporal stability while respecting strict memory constraints. Practitioners can adopt the method as an inference-time upgrade for existing VGT-based pipelines.",
   "visual_elements": [
-    "Pipeline diagram: streaming video → VGGT encoder → cross-layer scoring → hybrid cache (compress/retain) → dense 3D output",
-    "Before/after comparison: reconstruction frames showing flicker/artifacts with pure eviction vs. smooth, accurate geometry with StreamCacheVGGT",
-    "Chart: memory budget (O(1)) vs. reconstruction quality / temporal consistency comparing pure eviction, single-layer scoring, and StreamCacheVGGT",
-    "Icon set: 'no retraining' badge, 'low-latency' clock, 'memory-limited' chip to convey practical deployment benefits"
+    "Pipeline diagram: streaming video → VGT encoder → Cross-Layer Scoring → Hybrid Cache Compression → decoder, showing information flow and where compression/retention happens.",
+    "Before/after comparison: two reconstructions from long video input (pure-eviction vs StreamCacheVGGT) highlighting preserved fine geometry and temporal stability.",
+    "Scoring heatmap: visualization across transformer layers and time showing how cross-layer aggregation produces robust token importance scores versus noisy single-layer scores.",
+    "Memory vs quality chart: fixed-memory (O(1)) curve showing higher reconstruction accuracy / lower drift for StreamCacheVGGT compared to eviction baselines as stream length increases."
   ],
   "hashtags": [
-    "#VisualGeometry",
-    "#StreamingAI",
     "#3DReconstruction",
-    "#MemoryEfficient",
-    "#Transformers"
+    "#Transformers",
+    "#StreamingAI",
+    "#ModelCompression",
+    "#ComputerVision"
   ],
   "paper_id": "2026-04-16-arxiv-streamcachevggt_streaming_visual_geometry_transformers_with_robust_scoring_and_h",
   "paper_title": "StreamCacheVGGT: Streaming Visual Geometry Transformers with Robust Scoring and Hybrid Cache Compression",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15237v1"
     }
   ],
-  "generated_at": "2026-04-17T07:19:56.590746"
+  "generated_at": "2026-04-18T07:01:16.520634"
 }

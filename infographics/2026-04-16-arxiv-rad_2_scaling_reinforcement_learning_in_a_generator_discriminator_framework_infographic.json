@@ -1,24 +1,24 @@
 {
-  "key_insight": "RAD-2 combines diffusion-based trajectory generators with a discriminator-trained reinforcement signal to stabilize stochastic planners and provide corrective feedback in closed-loop driving, yielding more reliable multimodal planning.",
-  "problem_solved": "Diffusion planners model complex multimodal futures but are unstable and lack negative corrective feedback when trained only by imitation learning, leading to brittle closed-loop behavior in high-level autonomous driving.",
+  "key_insight": "RAD-2 combines a diffusion-based trajectory generator with a discriminator that provides corrective, negative feedback in closed-loop training, enabling more stable, multimodal planning while incorporating reinforcement learning signals.",
+  "problem_solved": "Diffusion planners for high-level autonomous driving model complex, multimodal futures but suffer from stochastic instabilities and lack corrective feedback when trained only with imitation learning, leading to brittle closed-loop performance; RAD-2 addresses stability and robustness by integrating RL-style discriminator feedback.",
   "method": [
-    "Use a generator (diffusion-based trajectory sampler) to produce multimodal candidate plans.",
-    "Train a discriminator/critic that judges closed-loop rollouts and supplies corrective signals or rewards, enabling reinforcement-style fine-tuning of the generator.",
-    "Jointly scale this generator–discriminator loop with closed-loop simulation data to reduce stochastic instabilities and improve robustness."
+    "Generator: diffusion-based multimodal trajectory proposer trained to produce diverse candidate futures.",
+    "Discriminator: adversarial critic that evaluates generated trajectories in closed-loop, supplying corrective (negative) feedback and shaping gradients toward safe, robust behaviors.",
+    "Reinforcement-style integration: use discriminator signals and closed-loop rollouts to scale reinforcement learning within a generator-discriminator framework, improving stability and real-world interaction performance."
   ],
-  "impact": "Provides a practical way for AI/ML practitioners to make generative planners robust in closed-loop control, improving safety and reliability of motion planning for autonomous systems without abandoning expressive multimodal models.",
+  "impact": "Provides a practical route to scale robust, multimodal planners for autonomous driving by combining generative diffusion models with adversarial/REinforcement feedback—reducing closed-loop failures and improving safety-relevant behavior. Practitioners can adopt RAD-2 to get both diversity and stability in trajectory planning.",
   "visual_elements": [
-    "Architecture diagram showing Generator (diffusion) → Candidate trajectories → Environment rollouts → Discriminator → Feedback to Generator",
-    "Before/After trajectory overlays showing multimodality with reduced spurious variance and fewer collision-prone paths",
-    "Closed-loop performance chart (success rate / collision rate) comparing imitation-only vs RAD-2 across scenarios",
-    "Flowchart of training loop: offline data → generator sampling → simulator rollouts → discriminator evaluation → update"
+    "Pipeline diagram: generator (diffusion model) → sampled trajectories → environment simulator → discriminator (critic) → feedback loop to generator.",
+    "Before/after closed-loop plots: examples showing unstable stochastic rollouts (imitation-only) versus stabilized trajectories with RAD-2.",
+    "Metric bar chart: improvements in closed-loop success rate, collision rate, and multimodality/diversity.",
+    "Icon set: diffusion atom for generator, shield/critic icon for discriminator, steering wheel for closed-loop driving"
   ],
   "hashtags": [
     "#AutonomousDriving",
     "#ReinforcementLearning",
     "#DiffusionModels",
-    "#MotionPlanning",
-    "#GenerativeAI"
+    "#AdversarialLearning",
+    "#RobustPlanning"
   ],
   "paper_id": "2026-04-16-arxiv-rad_2_scaling_reinforcement_learning_in_a_generator_discriminator_framework",
   "paper_title": "RAD-2: Scaling Reinforcement Learning in a Generator-Discriminator Framework",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15308v1"
     }
   ],
-  "generated_at": "2026-04-17T07:21:14.250349"
+  "generated_at": "2026-04-18T06:59:06.157348"
 }
