@@ -1,24 +1,24 @@
 {
-  "key_insight": "HiVLA preserves the high-level reasoning of large vision-language models by explicitly decoupling semantic planning from low-level motor control, using visual grounding as the bridge between the two. This hierarchical design keeps VLM reasoning intact while enabling robust, fine-grained manipulation.",
-  "problem_solved": "End-to-end Vision–Language–Action fine-tuning often erodes the reasoning capabilities of base VLMs; HiVLA addresses the trade-off between preserving semantic reasoning and achieving precise motor control in embodied manipulation.",
+  "key_insight": "HiVLA separates high-level semantic reasoning (a VLM planner) from low-level motor control via explicit visual grounding, preserving VLM reasoning while enabling robust, specialized control.",
+  "problem_solved": "Addresses the trade-off where fine-tuning end-to-end Vision-Language-Action models for control degrades their VLM-inherited reasoning and generalization, making it hard to get both strong semantic planning and reliable motor execution.",
   "method": [
-    "High-level VLM planner: uses vision-language models to perform semantic task decomposition and produce visually grounded subgoals (object parts, affordances, spatial relations).",
-    "Visual-grounding interface: maps semantic subgoals to image-space references and structured subtask representations that a controller can consume.",
-    "Modular low-level controller: separately trained motor policies (or classical controllers) execute grounded subgoals, allowing targeted fine-tuning without degrading VLM reasoning."
+    "Hierarchical design: a VLM-based high-level planner generates task steps and goals in semantic, scene-aware language.",
+    "Visual-grounding module: maps planner outputs to scene-centric signals (object masks, keypoints, affordance maps) to localize goals in the current view.",
+    "Modular low-level controller: a dedicated motion/controller module consumes grounded signals to execute actions; modules are trained or fine-tuned separately to preserve VLM reasoning."
   ],
-  "impact": "HiVLA enables practitioners to combine strong VLM reasoning with reliable manipulation by modularizing planning and control, improving transferability, sample efficiency, and interpretability of robotic behaviors.",
+  "impact": "Enables modular, sample-efficient embodied manipulation that retains advanced VLM reasoning while achieving reliable motor performance—useful for building interpretable, generalizable robotic systems and reducing catastrophic fine-tuning effects.",
   "visual_elements": [
-    "Two-tiered architecture diagram showing VLM planner → visual grounding layer → low-level controller with arrows and data types labeled.",
-    "Example task decomposition: input instruction + scene image → sequence of grounded subgoals overlaid on the image (object-part boxes, affordance icons).",
-    "Performance comparison chart: accuracy/success-rate or reasoning retention for HiVLA vs end-to-end VLA baselines across manipulation tasks.",
-    "Attention/grounding heatmaps on images to illustrate where the VLM focuses when generating subgoals."
+    "Pipeline diagram: VLM planner → visual grounding → low-level controller (with arrows showing information flow).",
+    "Task storyboard: sequential frames showing a complex manipulation task decomposed into high-level steps and grounded targets.",
+    "Comparison chart: performance and reasoning retention vs. end-to-end VLA fine-tuning (e.g., success rate, reasoning score).",
+    "Grounding overlays: example camera views with object masks/keypoints/affordance heatmaps produced by the grounding module."
   ],
   "hashtags": [
     "#EmbodiedAI",
     "#VisionLanguage",
-    "#VisualGrounding",
     "#Robotics",
-    "#HierarchicalLearning"
+    "#HierarchicalLearning",
+    "#VisualGrounding"
   ],
   "paper_id": "2026-04-15-arxiv-hivla_a_visual_grounded_centric_hierarchical_embodied_manipulation_system",
   "paper_title": "HiVLA: A Visual-Grounded-Centric Hierarchical Embodied Manipulation System",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.14125v1"
     }
   ],
-  "generated_at": "2026-04-18T07:01:59.783164"
+  "generated_at": "2026-04-19T07:09:24.164002"
 }

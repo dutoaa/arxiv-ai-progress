@@ -1,24 +1,24 @@
 {
-  "key_insight": "Use model uncertainty at test time to selectively and adaptively zoom into parts of a GUI screenshot so only genuinely ambiguous regions are reprocessed at higher resolution — improving localization of small/dense elements without retraining.",
-  "problem_solved": "GUI grounding struggles with tiny icons and crowded layouts; existing test-time zoom-in methods apply fixed, uniform crops that waste compute and miss cases where zooming is or isn't needed.",
+  "key_insight": "UI-Zoomer uses model uncertainty at test time to decide whether and where to crop and re-run inference, adaptively zooming only when the model is unsure to improve localization of small icons and dense GUI layouts — without any extra training.",
+  "problem_solved": "Existing test-time zoom-in methods apply fixed, uniform crops for all inputs, wasting compute and often missing tiny or densely packed interface elements. UI-Zoomer targets zooming to only the uncertain cases, improving accuracy on small/dense elements while avoiding unnecessary inference.",
   "method": [
-    "Estimate per-query / per-region uncertainty from the base grounding model's outputs (confidence scores, probability gap or entropy) at the original scale — no additional training required.",
-    "Trigger adaptive, variable-size zoom crops only for regions/queries with high uncertainty and re-run inference on those crops (progressive or multi-scale as needed).",
-    "Fuse original-scale and zoomed predictions to produce final localizations, yielding better accuracy for small/dense elements while reducing unnecessary zooming and compute."
+    "Estimate per-instance uncertainty from the base GUI grounding model at test time (e.g., low-confidence / high-entropy predictions).",
+    "If uncertainty exceeds a threshold, compute an adaptive crop region and re-run inference at higher resolution; otherwise keep the original prediction.",
+    "Merge or replace predictions from the zoomed crop back into the full-screen coordinates to produce final localized UI elements."
   ],
-  "impact": "Provides a plug-and-play, training-free way to improve GUI grounding accuracy and efficiency; practical for deploying stronger localization of small UI elements without retraining models or uniformly increasing inference cost.",
+  "impact": "Delivers better localization for small icons and cluttered interfaces with less average compute overhead, and can be dropped into existing GUI grounding pipelines because it requires no retraining.",
   "visual_elements": [
-    "Pipeline diagram: original screenshot -> uncertainty map -> selective zoom crops -> re-inference -> fused output",
-    "Before/after GUI screenshots showing a tiny icon missed by baseline but correctly localized after adaptive zoom",
-    "Bar chart: accuracy vs compute comparing baseline, uniform zoom, and UI-Zoomer (showing better accuracy at lower cost)",
-    "Heatmap overlay of uncertainty on a dense UI to illustrate where the method chooses to zoom"
+    "Pipeline flowchart: screenshot → model inference → uncertainty check → conditional crop & zoom → fused output.",
+    "Before/after example: full-screen detection vs adaptive zoom detection highlighting recovered small icons.",
+    "Bar chart: accuracy (or mAP) and average inference cost for baseline uniform zoom, no-zoom, and UI-Zoomer.",
+    "Uncertainty heatmap overlay on a GUI screenshot showing where the system triggers zooms."
   ],
   "hashtags": [
-    "#GUI",
+    "#GUIGrounding",
+    "#UncertaintyEstimation",
+    "#TestTimeAdaptation",
     "#ComputerVision",
-    "#Uncertainty",
-    "#AdaptiveInference",
-    "#UI"
+    "#HCI"
   ],
   "paper_id": "2026-04-15-arxiv-ui_zoomer_uncertainty_driven_adaptive_zoom_in_for_gui_grounding",
   "paper_title": "UI-Zoomer: Uncertainty-Driven Adaptive Zoom-In for GUI Grounding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.14113v1"
     }
   ],
-  "generated_at": "2026-04-18T07:02:17.125612"
+  "generated_at": "2026-04-19T07:09:33.989178"
 }

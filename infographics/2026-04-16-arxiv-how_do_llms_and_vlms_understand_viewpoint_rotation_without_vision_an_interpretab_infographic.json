@@ -1,17 +1,17 @@
 {
-  "key_insight": "Large language models (LLMs) and vision-language models (VLMs) can often predict viewpoint rotation using linguistic priors alone; interpretability analyses show that they encode rotation-related transformations in identifiable attention patterns and neuron groups even without visual input.",
-  "problem_solved": "Determines whether and how text-only inputs suffice for spatial/viewpoint reasoning, and clarifies the internal mechanisms by which LLMs and VLMs perform viewpoint-rotation tasks when visual signals are removed.",
+  "key_insight": "Language-only models can partially perform viewpoint-rotation reasoning without visual inputs, and interpretability analyses reveal which internal components and linguistic cues enable this capability.",
+  "problem_solved": "Determines whether and how models reason about 3D viewpoint changes when only given text (no images), clarifying the limits and mechanisms of spatial intelligence in LLMs versus VLMs.",
   "method": [
-    "Design text-only viewpoint-rotation tasks that describe scenes and ask for rotated perspectives (egocentric ↔ allocentric transformations).",
-    "Evaluate multiple LLMs and VLMs (with visual input disabled) on these tasks to compare behavioral performance and failure modes.",
-    "Apply interpretability tools — attention-head analysis, neuron attribution/ablation, and causal tracing — to identify internal circuits encoding rotation and positional transformations."
+    "Construct a text-only benchmark of viewpoint-rotation tasks and contrast performance of LLMs and VLMs given identical linguistic descriptions.",
+    "Use interpretability tools (probing classifiers, attention and activation analysis, interventions) to identify representations, attention patterns, and neurons correlated with viewpoint transformations.",
+    "Ablation and controlled prompt experiments to test which linguistic cues and model components are necessary or sufficient for correct rotation reasoning."
   ],
-  "impact": "Provides evidence that linguistic priors alone can support key aspects of spatial reasoning and reveals model components responsible for viewpoint transformations; this guides multimodal model design, dataset creation, and targeted interventions for improving spatial generalization.",
+  "impact": "Helps practitioners understand when language models can substitute for vision in spatial tasks, guiding design of multimodal systems, benchmarks, and targeted interventions to improve spatial reasoning or avoid failure modes.",
   "visual_elements": [
-    "Example pipeline: textual scene description → rotation query → model output (before/after) with correct/incorrect annotations.",
-    "Bar chart comparing task accuracy of LLMs vs VLMs (vision disabled) across rotation difficulty levels.",
-    "Attention-head heatmaps / neuron activation maps highlighting components correlated with rotation transformations.",
-    "Flowchart of interpretability workflow: probe design → prediction analysis → attribution → targeted ablation and causal test."
+    "Pipeline diagram showing: text prompt → LLM / VLM branch → task output, with interpretability probes attached",
+    "Bar chart comparing accuracy on the text-only viewpoint benchmark across model families",
+    "Heatmaps of attention/activation highlighting components implicated in rotation reasoning",
+    "Examples panel: side-by-side input prompt, model prediction, and human-annotated ground truth"
   ],
   "hashtags": [
     "#SpatialReasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15294v1"
     }
   ],
-  "generated_at": "2026-04-18T06:58:35.014839"
+  "generated_at": "2026-04-19T07:07:52.455304"
 }

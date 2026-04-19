@@ -1,20 +1,20 @@
 {
-  "key_insight": "Careful 3D-specific training design — adding 3D data augmentation and avoiding/adapting Batch Normalization — unlocks stable, scalable 3D policy learning, enabled by a transformer-based 3D encoder paired with a diffusion decoder.",
-  "problem_solved": "Addresses training instabilities and severe overfitting that prevented adoption of powerful 3D perception models for 3D policy learning and cross-embodiment transfer.",
+  "key_insight": "Careful 3D-specific data augmentation and removing Batch Normalization unlock stable training of powerful 3D perception models for policy learning; coupling a transformer-based 3D encoder with a diffusion decoder yields robust, generalizable 3D policies.",
+  "problem_solved": "Addresses training instability and severe overfitting in 3D policy learning that prevented using scalable 3D perception backbones and limited generalization/cross-embodiment transfer.",
   "method": [
-    "Systematic diagnosis: identify missing 3D data augmentation and harmful effects of Batch Normalization as primary failure modes.",
-    "Architecture: couple a scalable transformer-based 3D encoder with a diffusion-based decoder to improve representation robustness and downstream policy generation.",
-    "Training recipe: introduce explicit 3D augmentations and replace/adjust BN (e.g., alternatives or ablations) plus stability-focused training practices to reduce overfitting."
+    "Systematic diagnosis of failure modes, identifying missing 3D data augmentation and harmful effects of Batch Normalization as primary causes.",
+    "Introduce 3D-aware augmentation pipelines and mitigate BatchNorm-related instabilities (replace/modify normalization strategy to suit small-batch 3D RL).",
+    "Design a scalable pipeline: transformer-based 3D encoder paired with a diffusion-model decoder to produce stable, generalizable policies."
   ],
-  "impact": "Makes it practical to train robust, generalizable 3D policies that leverage modern 3D perception backbones, improving cross-embodiment transfer and accelerating deployment in robotics, simulation, and embodied AI research.",
+  "impact": "Enables reliable training of large 3D perception models for control, improving generalization and cross-embodiment transfer in robotics and simulated agents; reduces the barrier to adopt modern 3D architectures in policy learning.",
   "visual_elements": [
-    "Failure diagnosis flowchart: show path from missing 3D augmentations / BN issues → instability / overfitting → blocked model adoption",
-    "Model diagram: transformer-based 3D encoder feeding a diffusion decoder with callouts for where augmentations and BN changes are applied",
-    "Training plots: learning curves and generalization metrics comparing baseline vs. proposed recipe (stability and overfitting reduction)",
-    "Qualitative panel: cross-embodiment task examples showing improved policy transfer (different robot bodies/environments)"
+    "Architecture diagram: 3D input → transformer encoder → diffusion decoder → policy output",
+    "Before/After chart: training stability and overfitting metrics with vs. without 3D augmentation & BatchNorm fixes",
+    "Illustration of 3D augmentation examples (rotations, occlusions, noise) applied to point clouds/voxels",
+    "Iconic flow showing improved cross-embodiment transfer (same policy deployed on different robot silhouettes)"
   ],
   "hashtags": [
-    "#3DPolicy",
+    "#3DPolicyLearning",
     "#Robotics",
     "#DiffusionModels",
     "#Transformers",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15281v1"
     }
   ],
-  "generated_at": "2026-04-18T06:57:46.598884"
+  "generated_at": "2026-04-19T07:07:31.761104"
 }

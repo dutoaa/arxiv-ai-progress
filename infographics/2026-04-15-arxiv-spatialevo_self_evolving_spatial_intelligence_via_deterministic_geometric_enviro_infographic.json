@@ -1,24 +1,24 @@
 {
-  "key_insight": "SpatialEvo uses deterministic, procedurally controlled 3D environments to produce reliable ground-truth signals for self-training, avoiding the consensus-based pseudo-label loop that amplifies a model's own spatial errors.",
-  "problem_solved": "Alleviates dependence on expensive geometric annotations and prevents self-supervised training from reinforcing model mistakes when learning 3D spatial reasoning.",
+  "key_insight": "Deterministic geometric environments provide provably correct, environment-derived supervision for 3D spatial tasks, enabling models to self-evolve without the consensus-based reinforcement of their own errors. This turns procedural geometry and analytic feedback into reliable pseudo-ground-truth for continuous improvement.",
+  "problem_solved": "Eliminates reliance on costly manual 3D geometric annotation and avoids the failure mode of consensus-driven pseudo-labeling that reinforces existing spatial errors in models.",
   "method": [
-    "Create deterministic geometric environments that yield exact, reproducible ground-truth geometry and spatial relations.",
-    "Run a self-evolving training loop where the model interacts with the environment to collect labeled experiences and iteratively correct its errors.",
-    "Apply curriculum and controlled perturbations to expose failure modes and prevent error reinforcement, enabling continuous improvement without human labels."
+    "Procedurally generate deterministic 3D geometric environments that yield analytic ground-truth signals (e.g., exact intersections, distances, occlusion labels).",
+    "Run the model inside these environments to collect deterministic feedback and apply geometric-consistency checks to validate or correct pseudo-labels.",
+    "Iteratively retrain the model in a self-evolving loop (with curriculum/domain randomization) so it improves autonomously while avoiding self-reinforced errors."
   ],
-  "impact": "Provides a scalable, low-cost path to continually improve 3D spatial reasoning models, boosting robustness and generalization for embodied AI, robotics, and 3D perception systems.",
+  "impact": "Makes scalable, low-cost continuous improvement of spatial reasoning models feasible, accelerating progress for robotics, AR/VR, and 3D perception systems by replacing expensive annotation with reliable environment-derived supervision.",
   "visual_elements": [
-    "Schematic of a deterministic 3D environment with agent and overlaid ground-truth geometry/relations",
-    "Flowchart of the self-evolving loop: model → environment → labeled experience → model update (iterative cycle)",
-    "Line chart comparing validation error across iterations for SpatialEvo vs consensus-based pseudo-labeling",
-    "Before/after scene visual: predicted spatial relations vs ground-truth to illustrate corrected errors"
+    "Self-evolution loop diagram: procedural environment → model action/prediction → deterministic feedback/analytic labels → model update.",
+    "Before/after overlay: ground-truth geometric primitives vs model predictions (showing correction over iterations).",
+    "Performance curve: evaluation metric across self-evolution iterations demonstrating steady improvement and stability vs consensus baselines.",
+    "Icons/mini-diagrams: 3D scene/cube, checkmark (validated labels), gear/automation to represent continuous self-training."
   ],
   "hashtags": [
-    "#SpatialAI",
-    "#SelfEvolving",
+    "#SpatialEvo",
+    "#SelfEvolvingAI",
     "#3DVision",
     "#SyntheticData",
-    "#EmbodiedAI"
+    "#Robotics"
   ],
   "paper_id": "2026-04-15-arxiv-spatialevo_self_evolving_spatial_intelligence_via_deterministic_geometric_enviro",
   "paper_title": "SpatialEvo: Self-Evolving Spatial Intelligence via Deterministic Geometric Environments",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.14144v1"
     }
   ],
-  "generated_at": "2026-04-18T07:01:42.869474"
+  "generated_at": "2026-04-19T07:09:15.850395"
 }

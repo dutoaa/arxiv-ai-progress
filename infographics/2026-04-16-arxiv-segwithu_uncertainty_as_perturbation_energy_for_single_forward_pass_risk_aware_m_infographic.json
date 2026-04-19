@@ -1,24 +1,24 @@
 {
-  "key_insight": "Treating uncertainty as a learned perturbation energy and adding a lightweight post-hoc head to a frozen segmentation backbone yields accurate, calibrated failure ranking from a single forward pass.",
-  "problem_solved": "Provides reliable uncertainty estimates for medical image segmentation without expensive repeated inference (ensembles/MC-dropout) or restrictive feature-space assumptions, enabling fast risk-aware contours for clinical use.",
+  "key_insight": "SegWithU turns uncertainty estimation into a lightweight, post-hoc \"perturbation energy\" head added to a frozen segmentation backbone, enabling reliable risk-aware segmentation with a single forward pass.",
+  "problem_solved": "Provides accurate, well-ranked failure/uncertainty estimates for medical image segmentation without costly repeated inference or restrictive feature-space assumptions.",
   "method": [
-    "Post-hoc augmentation: attach a small uncertainty head to a frozen pretrained segmentation backbone so the original model stays unchanged.",
-    "Uncertainty-as-energy: the head predicts a perturbation-energy map (sensitivity/energy to hypothetical perturbations) that correlates with segmentation failure risk and calibration.",
-    "Single-pass inference and lightweight training: train the head with energy/ranking objectives on segmentation outputs so the pipeline produces risk maps and scores in one forward pass."
+    "Post-hoc design: attach a small uncertainty head to a frozen pretrained segmentation backbone (no re-training of the backbone required).",
+    "Uncertainty as perturbation energy: the head models sensitivity to learned perturbations and converts that response into pixel-wise uncertainty scores in one forward pass.",
+    "Risk-aware output: combine segmentation logits with the perturbation-energy uncertainty map to rank failures and guide downstream decision thresholds or human review."
   ],
-  "impact": "Delivers fast, actionable uncertainty maps suitable for clinical triage and QA, reducing compute and latency compared with multi-pass methods while improving failure detection and calibration.",
+  "impact": "Delivers practical, low-cost uncertainty estimates that integrate easily into existing segmentation pipelines—helping practitioners detect likely failures and prioritize human review in clinical workflows without large compute overhead.",
   "visual_elements": [
-    "Architecture diagram: frozen segmentation backbone + lightweight uncertainty head (single forward pass) with data flow arrows",
-    "Side-by-side overlays: segmentation masks, ground-truth error map, and predicted perturbation-energy uncertainty heatmap",
-    "Performance chart: failure-detection ranking (AUROC/AUPR) comparing SegWithU vs ensembles and single-pass baselines",
-    "Efficiency bar graph: inference time / FLOPs showing single-pass cost advantage over repeated-inference methods"
+    "Architecture diagram: frozen segmentation backbone + lightweight uncertainty head, showing single-forward-pass data flow.",
+    "Heatmap overlay examples: segmentation mask vs. perturbation-energy uncertainty map highlighting failure regions.",
+    "Bar or ROC-style chart: failure-detection ranking performance comparing single-pass SegWithU to repeated-inference baselines (e.g., MC Dropout) and prior single-pass methods.",
+    "Clinical workflow sketch: automated segmentation -> uncertainty-based triage -> human review/automatic acceptance"
   ],
   "hashtags": [
     "#MedicalImaging",
-    "#Uncertainty",
+    "#UncertaintyEstimation",
     "#Segmentation",
-    "#EnergyBasedModels",
-    "#RiskAwareAI"
+    "#RiskAwareAI",
+    "#SingleForwardPass"
   ],
   "paper_id": "2026-04-16-arxiv-segwithu_uncertainty_as_perturbation_energy_for_single_forward_pass_risk_aware_m",
   "paper_title": "SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15271v1"
     }
   ],
-  "generated_at": "2026-04-18T06:57:28.112301"
+  "generated_at": "2026-04-19T07:07:23.753395"
 }

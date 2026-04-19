@@ -1,24 +1,24 @@
 {
-  "key_insight": "Bidirectional cross-modal prompting lets event and frame modalities condition each other so their complementary strengths are preserved and aligned, yielding more reliable asymmetric stereo depth under fast motion and challenging illumination.",
-  "problem_solved": "Asymmetric stereo using event and conventional frame cameras suffers from a modality gap that marginalizes one modality, causing poor correspondence and depth estimates in fast motion or low-light scenarios. This work closes that gap to improve stereo matching and disparity estimation.",
+  "key_insight": "Bidirectional cross-modal prompting lets event and frame streams actively modulate each other’s representations, closing the modality gap so asymmetric event-frame stereo produces more reliable 3D perception under fast motion and challenging illumination.",
+  "problem_solved": "Integrates high-temporal-resolution event data with rich-context frame images for asymmetric stereo while overcoming the modality gap that normally causes one modality to be marginalized, leading to poor depth estimation in dynamic or low-light scenes.",
   "method": [
-    "Learned bidirectional prompts: generate and inject compact prompt tokens from events→frames and frames→events to condition encoder features and encourage mutual guidance.",
-    "Cross-modal attention & feature alignment: lightweight attention modules fuse temporal event cues with spatial frame detail, plus losses for disparity supervision and cross-modal consistency.",
-    "Temporal aggregation for events: accumulate event information into representations compatible with frame features to improve correspondence under motion and illumination changes."
+    "Design lightweight bidirectional prompts that carry complementary cues between an event encoder and a frame encoder to align and enrich features.",
+    "Use cross-modal prompting layers to iteratively refine per-modality representations before fusion, preserving modality-specific strengths (temporal detail from events, context from frames).",
+    "Fuse the prompted features in a stereo/geometry-aware decoder to produce robust disparity/depth estimates under motion and illumination challenges."
   ],
-  "impact": "Enables robust 3D perception (depth/disparity) in robotics, autonomous driving, and AR by combining high-temporal-resolution event data with rich contextual frames, reducing motion blur and low-light failures. Makes integration of event cameras into stereo pipelines practical for real-world dynamic scenes.",
+  "impact": "Provides a practical way to combine event cameras with conventional cameras for more robust stereo/3D perception in robotics, autonomous vehicles, and computational photography without heavy architecture changes. Improves reliability in high-speed and low-light environments where traditional frame-only methods fail.",
   "visual_elements": [
-    "Flow diagram showing bidirectional prompting between event encoder and frame encoder (arrows, prompt tokens)",
-    "Side-by-side qualitative depth/disparity maps: frame-only vs event-only vs proposed method on a fast-moving/low-light scene",
-    "Bar/line chart of quantitative gains (e.g., depth error, outlier rate) across baselines under increasing motion blur or decreasing illumination",
-    "Icons/mini-illustrations: event camera, frame camera, prompt token, fused disparity map"
+    "Architecture diagram showing two encoders (event, frame) with bidirectional prompt arrows and a fusion decoder",
+    "Before/after qualitative depth maps (frame-only vs. event+prompted fusion) on a fast-motion scene",
+    "Bar/line chart comparing robustness (e.g., error) across motion speed and illumination levels for baseline vs. proposed method",
+    "Icons illustrating complementary modalities: event sensor (spikes) vs. frame camera (images) and a merged 3D pointcloud"
   ],
   "hashtags": [
     "#EventCameras",
-    "#CrossModal",
     "#StereoVision",
-    "#DepthEstimation",
-    "#SensorFusion"
+    "#CrossModal",
+    "#3DPerception",
+    "#Robotics"
   ],
   "paper_id": "2026-04-16-arxiv-bidirectional_cross_modal_prompting_for_event_frame_asymmetric_stereo",
   "paper_title": "Bidirectional Cross-Modal Prompting for Event-Frame Asymmetric Stereo",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15312v1"
     }
   ],
-  "generated_at": "2026-04-18T07:00:10.135705"
+  "generated_at": "2026-04-19T07:08:38.883366"
 }

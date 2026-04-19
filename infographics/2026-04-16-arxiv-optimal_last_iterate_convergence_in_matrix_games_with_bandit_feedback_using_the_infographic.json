@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper shows that using a log-barrier regularizer plus a dual-focused analysis yields the first algorithm that attains the optimal last-iterate convergence rate for uncoupled zero-sum matrix games with bandit feedback, matching the known lower bound of order t^{-1/4}.",
-  "problem_solved": "How to learn minimax policies (last-iterate convergence) in zero-sum matrix games when players receive only bandit (partial) feedback and act uncoupled—previous methods failed to reach the provable optimal rate.",
+  "key_insight": "A log‑barrier regularizer combined with a dual‑focused analysis yields an online algorithm for zero‑sum matrix games with bandit feedback that attains the optimal last‑iterate convergence rate matching the known t^{-1/4} lower bound (up to constants).",
+  "problem_solved": "Closing the gap between lower bounds and achievable rates for last‑iterate convergence in uncoupled zero‑sum matrix games under bandit (partial) feedback — previous algorithms failed to reach the Omega(t^{-1/4)) barrier for exploitability.",
   "method": [
-    "Introduce a log-barrier regularization inside an online mirror-descent style algorithm to stabilize iterates near the simplex boundary.",
-    "Develop a dual-focused analysis tailored to the log-barrier geometry to control the exploitability of the actual (last) iterate rather than averages.",
-    "Handle bandit feedback with appropriate gradient/importance-weighted estimators and variance control to preserve the t^{-1/4} rate under partial information."
+    "Incorporate a log‑barrier regularizer into an online mirror descent framework to maintain interior iterates on the simplex and control geometry near the boundary.",
+    "Use bandit‑style gradient/feedback estimators (importance‑weighted sampling) adapted to the log‑barrier geometry to handle partial information.",
+    "Perform a dual‑focused theoretical analysis that directly bounds last‑iterate exploitability and shows the algorithm achieves the optimal t^{-1/4} convergence rate."
   ],
-  "impact": "Provides the first practical/theoretical recipe to guarantee optimal last-iterate convergence under realistic partial-feedback conditions, improving stability and sample-efficiency for learning minimax strategies in adversarial settings.",
+  "impact": "Provides the first algorithmic recipe with matching optimal guarantees for last‑iterate convergence under limited feedback, improving reliability of practical minimax learning (e.g., adversarial training, GANs, multi‑agent RL) when only bandit feedback is available.",
   "visual_elements": [
-    "Two-player zero-sum payoff matrix icon with arrows depicting uncoupled players and bandit (partial) feedback",
-    "Convergence chart comparing last-iterate vs. averaged-iterate rates, highlighting the t^{-1/4} slope and matching the lower bound",
-    "Algorithm flow: (1) sample/bandit observation → (2) importance-weighted gradient estimate → (3) log-barrier mirror-descent update",
-    "Illustration of simplex with log-barrier preventing boundary collapse (iterates staying interior)"
+    "Line chart: exploitability vs iterations showing t^{-1/4} decay for the proposed method vs slower baselines",
+    "Schematic: zero‑sum matrix game loop with two uncoupled players, highlighting bandit feedback arrows and the log‑barrier update block",
+    "Diagram: simplex geometry illustrating how the log‑barrier keeps iterates interior and avoids boundary instability",
+    "Flowchart: algorithm steps (sample, estimate bandit feedback, log‑barrier mirror update, repeat) with a badge showing 'optimal rate'"
   ],
   "hashtags": [
-    "#OnlineLearning",
-    "#Bandits",
-    "#GameTheory",
+    "#Minimax",
+    "#BanditLearning",
     "#LogBarrier",
-    "#Minimax"
+    "#OnlineOptimization",
+    "#GameTheory"
   ],
   "paper_id": "2026-04-16-arxiv-optimal_last_iterate_convergence_in_matrix_games_with_bandit_feedback_using_the",
   "paper_title": "Optimal last-iterate convergence in matrix games with bandit feedback using the log-barrier",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15242v1"
     }
   ],
-  "generated_at": "2026-04-18T06:56:54.801551"
+  "generated_at": "2026-04-19T07:07:09.205204"
 }

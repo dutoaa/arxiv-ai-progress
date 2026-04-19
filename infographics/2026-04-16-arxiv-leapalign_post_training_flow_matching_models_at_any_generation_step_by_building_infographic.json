@@ -1,24 +1,24 @@
 {
-  "key_insight": "LeapAlign enables reward-based post-training of flow matching models to influence any generation step by building short two-step trajectories, letting gradients reach early timesteps without the memory/instability of backpropagating full long trajectories.",
-  "problem_solved": "Directly backpropagating reward gradients through long flow-matching generation trajectories is memory-intensive and prone to gradient explosion, preventing effective updates to early generation steps that determine global image structure.",
+  "key_insight": "LeapAlign enables reward-based fine-tuning of flow-matching generative models at any generation step by building two-step (leap) trajectories, allowing gradients to reach early steps without the memory blowup or gradient explosion of backpropagating through long trajectories.",
+  "problem_solved": "Directly backpropagating reward gradients through long flow-matching generation trajectories is memory-intensive and unstable, preventing effective updates to early steps that determine global image structure.",
   "method": [
-    "Construct two-step (local) trajectories that 'leap' across multiple original timesteps so each update only backpropagates through a short segment.",
-    "Use these two-step trajectories to propagate reward gradients to arbitrary generation steps, enabling post-training fine-tuning while avoiding full long-horizon backprop.",
-    "Integrate the approach into existing flow-matching pipelines so models can be aligned to human preferences with controlled memory and stabilized gradients."
+    "Construct short two-step “leap” trajectories that bridge distant generation states so gradient signals can be propagated across long horizons with only local (two-step) backpropagation.",
+    "Perform post-training reward fine-tuning through these two-step transitions to stabilize gradients and dramatically reduce memory requirements compared to full-trajectory backpropagation.",
+    "Apply the leap mechanism at arbitrary generation steps so early- and mid-stage updates are possible without retraining or truncating the full generation process."
   ],
-  "impact": "Makes alignment-fine-tuning of flow-matching image generators practical and scalable, improving global structure control and preference alignment without prohibitive compute or unstable training.",
+  "impact": "Provides a practical, memory-efficient way to align flow-matching generative models with human preferences and to improve global structure in generated outputs—useful for practitioners who need targeted post-training edits without heavy compute or instability.",
   "visual_elements": [
-    "Diagram comparing long-horizon backprop (many steps, high memory, exploding gradient) vs two-step leap trajectories (short segments, low memory, stable gradients).",
-    "Schematic showing a generation timeline with arrows indicating how reward gradients jump back to early timesteps using two-step trajectories.",
-    "Before/after examples illustrating improved global image structure or preference-aligned outputs after LeapAlign fine-tuning.",
-    "Chart of memory usage and gradient norm vs number of backpropagated steps (showing LeapAlign constant/low memory and bounded gradients)."
+    "Side-by-side diagram: full long trajectory backprop (many steps) vs LeapAlign two-step leap connecting distant states",
+    "Flowchart of the LeapAlign fine-tuning loop showing reward evaluation, two-step trajectory construction, and backpropagation",
+    "Bar/line chart comparing memory use and gradient norm or stability: full-trajectory vs LeapAlign",
+    "Before/after example images highlighting improved global structure when early steps can be updated"
   ],
   "hashtags": [
     "#FlowMatching",
-    "#ModelAlignment",
-    "#FineTuning",
-    "#ImageGeneration",
-    "#EfficientTraining"
+    "#GenerativeModels",
+    "#RewardFineTuning",
+    "#EfficientTraining",
+    "#AIAlignment"
   ],
   "paper_id": "2026-04-16-arxiv-leapalign_post_training_flow_matching_models_at_any_generation_step_by_building",
   "paper_title": "LeapAlign: Post-Training Flow Matching Models at Any Generation Step by Building Two-Step Trajectories",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15311v1"
     }
   ],
-  "generated_at": "2026-04-18T06:59:53.666555"
+  "generated_at": "2026-04-19T07:08:31.314847"
 }

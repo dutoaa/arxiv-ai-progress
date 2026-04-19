@@ -1,24 +1,24 @@
 {
-  "key_insight": "Compress each highly informative frame into a single token at the final LLM layer, keeping essential temporal information while reducing token load by orders of magnitude.",
-  "problem_solved": "Scales vision–language models to long videos by addressing token explosion and context-length limits that force sparse, temporally fragmented perception.",
+  "key_insight": "Compress each highly informative frame into a single learned token so large language models can process very long videos without losing key temporal information, enabling extreme token reduction with minimal performance loss.",
+  "problem_solved": "Addresses the scalability bottleneck of vision–language models on long videos caused by huge per-frame token counts and limited LLM context, which forces sparse sampling and loses temporal cues.",
   "method": [
-    "Highly selective frame selection: score and pick a small set of informative frames (learned scoring or attention-based selection).",
-    "Extreme per-frame compression: encode each selected frame into one compact token via a lightweight encoder + pooling/distillation so it fits the LLM context.",
-    "Temporal preservation & integration: add positional/temporal embeddings and a small aggregator so the LLM receives an ordered sequence of one-token-per-frame representations."
+    "Selective frame scoring: identify a small set of highly informative frames from the full video using learned or heuristic importance metrics.",
+    "Per-frame extreme compression: convert each selected frame into a single compact token via a learnable visual tokenizer/pooled embedding that preserves semantic and temporal signals.",
+    "Train end-to-end (or with distillation/objective constraints) so the compressed tokens retain downstream task performance while reducing token budget to ~1 token/frame at the LLM input."
   ],
-  "impact": "Enables efficient, low-memory long-video reasoning with fewer tokens and faster inference, making VLMs practical for minutes-to-hours videos while retaining temporal cues for downstream tasks.",
+  "impact": "Enables efficient, scalable long-video understanding with existing LLM backbones by drastically reducing token load, lowering compute and memory costs while maintaining temporal awareness—useful for video QA, summarization, and retrieval at scale.",
   "visual_elements": [
-    "Timeline diagram: long video frames with a few highlighted (selected) frames mapping to single-token icons.",
-    "Architecture schematic: frame encoder → single-token output → positional embedding → LLM input pipeline.",
-    "Bar chart: token count, memory and latency comparison (dense frame tokens vs. one-token-per-frame) across video lengths.",
-    "Sequence visualization: how temporal order is preserved (tokens with time-stamps) and used by the LLM to produce answers."
+    "Pipeline diagram: full-frame sequence → selective frame scorer → one-token-per-frame tokenizer → LLM",
+    "Bar chart: token count and compute vs. baseline (dense tokens) with accuracy trade-off",
+    "Timeline visualization: original frames with an overlaid importance heatmap showing selected frames",
+    "Architecture block: single-frame tokenizer / pooling module that maps an image to one compact token"
   ],
   "hashtags": [
-    "#VideoUnderstanding",
-    "#VisionLanguage",
-    "#ModelCompression",
-    "#LongVideoAI",
-    "#EfficientAI"
+    "#OneTokenPerFrame",
+    "#LongVideoUnderstanding",
+    "#EfficientVLMs",
+    "#SparseVideoTokens",
+    "#VisionLanguage"
   ],
   "paper_id": "2026-04-15-arxiv-one_token_per_highly_selective_frame_towards_extreme_compression_for_long_video",
   "paper_title": "One Token per Highly Selective Frame: Towards Extreme Compression for Long Video Understanding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.14149v1"
     }
   ],
-  "generated_at": "2026-04-18T07:01:00.584277"
+  "generated_at": "2026-04-19T07:08:57.387268"
 }

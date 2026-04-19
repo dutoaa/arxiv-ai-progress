@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introducing global scene tokens that provide scene-level awareness lets a feed-forward network allocate 3D Gaussian splats holistically, yielding compact representations with much faster, high-fidelity rendering than prior local or iterative allocation methods.",
-  "problem_solved": "How to efficiently allocate and parametrize 3D Gaussian primitives for splatting so as to balance representation compactness, reconstruction fidelity, and fast (feed‑forward) inference without costly iterative optimization or local, myopic heuristics.",
+  "key_insight": "Introduce global scene tokens that provide holistic scene awareness to a feed‑forward Gaussian splatting pipeline, enabling efficient, compact allocation of 3D primitives that preserves high-fidelity reconstruction while remaining fast to infer.",
+  "problem_solved": "Overcomes the limitations of local, heuristic-driven allocation in 3D Gaussian Splatting that force a trade-off between representation compactness, reconstruction quality, and feed‑forward inference speed.",
   "method": [
-    "Encode multi-view inputs into a small set of learned global scene tokens (attention/aggregation over views) that capture global geometry and appearance context.",
-    "Decode those tokens in a feed-forward pass to predict splat parameters (positions, covariances, colors, importance) and a compact spatial allocation, with sparsity/compactness priors and optional lightweight refinement.",
-    "Train end-to-end with a differentiable splatting renderer and reconstruction losses so the tokens learn to allocate splats where they maximize fidelity and efficiency."
+    "Learn a small set of global scene tokens that summarize global geometry and appearance, used to guide allocation and parameterization of 3D Gaussian primitives.",
+    "Use a feed‑forward network (global-token conditioning + local decoding) to predict Gaussian positions, covariances, colors and confidences in one pass, replacing iterative optimization.",
+    "Train with reconstruction loss plus regularizers for sparsity/compactness so the model balances fidelity, size, and render speed."
   ],
-  "impact": "Enables fast, scalable 3D reconstruction and real-time rendering workflows with far fewer primitives and no iterative optimization — useful for neural rendering, AR/VR, and large-scale scene capture pipelines.",
+  "impact": "Delivers a practical route to real‑time, high‑quality neural rendering with far fewer primitives and predictable inference latency, making 3D Gaussian Splatting more usable in production pipelines and interactive applications.",
   "visual_elements": [
-    "Pipeline diagram: multi-view encoder → global scene tokens → splat generator → differentiable splatting renderer",
-    "Allocation heatmap comparison: local/heuristic vs. GlobalSplat token-driven allocation (shows fewer, better-placed splats)",
-    "Speed vs. quality chart: rendering latency and memory vs. PSNR/LPIPS for GlobalSplat vs. iterative and prior feed‑forward baselines",
-    "Side-by-side renderings: input views, reconstructed images, and zoomed detail to illustrate fidelity with compact representation"
+    "Pipeline diagram: global scene tokens extracted from input images → token-conditioned decoder → resulting 3D Gaussians → fast rasterized render",
+    "Before/after comparison: local-heuristic allocation vs GlobalSplat showing fewer Gaussians with equal or better visual fidelity",
+    "Attention/token map overlay: visualization of how global tokens attend to different scene regions guiding allocation",
+    "Performance chart: trade-off plot of reconstruction quality vs number of primitives and inference time comparing prior methods and GlobalSplat"
   ],
   "hashtags": [
     "#GlobalSplat",
-    "#GaussianSplatting",
+    "#3DGaussianSplatting",
     "#NeuralRendering",
-    "#3DReconstruction",
-    "#EfficientRendering"
+    "#Efficient3D",
+    "#RealTimeRendering"
   ],
   "paper_id": "2026-04-16-arxiv-globalsplat_efficient_feed_forward_3d_gaussian_splatting_via_global_scene_tokens",
   "paper_title": "GlobalSplat: Efficient Feed-Forward 3D Gaussian Splatting via Global Scene Tokens",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15284v1"
     }
   ],
-  "generated_at": "2026-04-18T06:58:05.678018"
+  "generated_at": "2026-04-19T07:07:38.475125"
 }
