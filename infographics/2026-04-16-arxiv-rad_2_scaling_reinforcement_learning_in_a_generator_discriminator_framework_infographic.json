@@ -1,24 +1,24 @@
 {
-  "key_insight": "RAD-2 unifies a diffusion-based trajectory generator with a discriminator trained via reinforcement learning to provide corrective negative feedback, stabilizing multimodal closed-loop motion planning.",
-  "problem_solved": "Diffusion planners model rich multimodal futures but suffer stochastic instabilities and lack corrective feedback when trained only by imitation, yielding poor closed-loop robustness for high-level autonomous driving.",
+  "key_insight": "RAD-2 combines diffusion-based trajectory generators with a discriminator trained via reinforcement-learning-style corrective feedback, stabilizing stochastic planners and improving closed-loop robustness for multimodal motion planning.",
+  "problem_solved": "Addresses instability and lack of corrective negative feedback in diffusion-based motion planners trained with imitation learning, enabling reliable closed-loop behavior under multimodal future uncertainty.",
   "method": [
-    "Generator: diffusion-based sampler produces multimodal trajectory hypotheses capturing future uncertainty.",
-    "Discriminator/Critic: learned evaluator provides negative feedback (penalizes unsafe/unrealistic behaviors) and trains with RL/adversarial objectives.",
-    "Unified training loop: hybrid imitation + RL losses with closed-loop rollouts to scale stability and corrective learning."
+    "Generator: diffusion-based multimodal trajectory sampler that models complex future distributions.",
+    "Discriminator: a critic that provides corrective feedback/rewards to the generator, closing the loop and counteracting stochastic instabilities.",
+    "Unified training: adversarial / RL-style optimization in closed-loop simulation to scale reinforcement learning signals for improved robustness and failure recovery."
   ],
-  "impact": "Provides a scalable way to stabilize generative trajectory planners for robust closed-loop control, improving safety and reliability in autonomous driving and other sequential decision tasks.",
+  "impact": "Enables practitioners to deploy multimodal, diffusion-based planners that are both expressive and robust in closed-loop control, reducing catastrophic failures and improving real-world autonomous driving performance.",
   "visual_elements": [
-    "Architecture diagram showing generator (diffusion) → trajectories → discriminator (critic) → corrective signal loop back into generator",
-    "Before vs after chart of closed-loop stability / failure rate comparing pure imitation vs RAD-2",
-    "Multimodal trajectory plot: sampled futures with uncertainty cones and discriminator-highlighted corrections",
-    "Training flowchart: imitation loss + RL/adversarial loss + closed-loop environment rollouts"
+    "Block diagram of the generator–discriminator closed-loop: sensor input → diffusion generator → executed trajectory → environment → discriminator → feedback to generator",
+    "Example trajectory fan plot showing multimodal predictions with one trajectory highlighted for closed-loop correction",
+    "Bar/line chart comparing closed-loop stability metrics (e.g., collision rate, deviation) for imitation-only vs. RAD-2",
+    "Icon set: diffusion model, critic/reward signal, steering/vehicle, simulation loop to convey components at a glance"
   ],
   "hashtags": [
-    "#RAD2",
+    "#AutonomousDriving",
     "#ReinforcementLearning",
     "#DiffusionModels",
     "#MotionPlanning",
-    "#AutonomousDriving"
+    "#GeneratorDiscriminator"
   ],
   "paper_id": "2026-04-16-arxiv-rad_2_scaling_reinforcement_learning_in_a_generator_discriminator_framework",
   "paper_title": "RAD-2: Scaling Reinforcement Learning in a Generator-Discriminator Framework",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15308v1"
     }
   ],
-  "generated_at": "2026-04-19T07:08:08.189188"
+  "generated_at": "2026-04-20T07:53:27.117679"
 }

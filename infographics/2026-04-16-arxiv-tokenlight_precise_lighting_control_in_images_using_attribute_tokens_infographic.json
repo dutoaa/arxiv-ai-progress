@@ -1,24 +1,24 @@
 {
-  "key_insight": "Representing distinct lighting factors as explicit attribute tokens enables precise, continuous control over multiple illumination attributes in image relighting, yielding disentangled and editable lighting changes.",
-  "problem_solved": "Provides a practical way to manipulate complex, interdependent lighting attributes (intensity, color, ambient, diffuse, 3D light position) in photographs, addressing limited control and entanglement in prior relighting methods while leveraging synthetic annotations with real-image augmentation.",
+  "key_insight": "TokenLight encodes distinct lighting factors as compact attribute tokens, enabling precise, continuous, and independent control of multiple illumination properties in a single relighting model. This frames image relighting as conditional image generation conditioned on interpretable lighting tokens.",
+  "problem_solved": "Existing relighting methods struggle to give users fine-grained, composable control over multiple illumination attributes (intensity, color, ambient, diffuse, 3D light position) simultaneously and continuously; TokenLight provides a controllable interface to edit these factors precisely.",
   "method": [
-    "Formulate relighting as a conditional image-generation task where attribute tokens parameterize individual illumination factors (intensity, color, ambient, diffuse, 3D positions).",
-    "Encode desired lighting attributes as tokens fed to a generative model to produce relit images with continuous, disentangled control.",
-    "Train primarily on a large synthetic dataset with ground-truth lighting annotations and supplement with a small set of real images to improve real-world generalization."
+    "Formulate relighting as a conditional image generation task and introduce attribute tokens that explicitly represent lighting factors (intensity, color, ambient illumination, diffuse level, 3D light positions).",
+    "Train a generator conditioned on these tokens using a large-scale synthetic dataset with ground-truth lighting annotations, augmented with a small real-image set for better realism/domain adaptation.",
+    "Allow continuous interpolation and independent manipulation of tokens at inference to produce precise, photorealistic relighting edits."
   ],
-  "impact": "Enables fine-grained, user-controllable relighting for applications like photo editing, AR/VR content creation, and data augmentation; simplifies integration of lighting edits into generative pipelines for practitioners.",
+  "impact": "Provides ML and vision practitioners a practical, interpretable mechanism for controllable relighting—useful for photo editing, AR/VR, data augmentation, and neural rendering workflows where precise lighting manipulation is required.",
   "visual_elements": [
-    "Architecture diagram showing image input, attribute tokens, and generator producing relit output.",
-    "Before/after image grid with interactive sliders illustrating continuous control over intensity, color, ambient, diffuse, and light position.",
-    "Token-to-attribute mapping: icons for each lighting attribute (bulb/intensity, color swatch, ambient glow, surface diffuse, 3D position) linked to token vectors.",
-    "Comparison chart (qualitative examples and brief quantitative summary) vs prior relighting methods to highlight improved controllability."
+    "Before/after grid showing single-attribute edits (intensity, color, ambient, diffuse, light position) to demonstrate independent control",
+    "Schematic of the model: input image + attribute tokens → conditional generator → relit image",
+    "Interactive sliders/latent-space visualization illustrating continuous interpolation of each attribute token",
+    "Bar/chart showing dataset composition (large synthetic with GT lighting vs. small real capture set) and performance/realism improvement"
   ],
   "hashtags": [
     "#ImageRelighting",
     "#LightingControl",
-    "#GenerativeModels",
-    "#ComputerVision",
-    "#AttributeTokens"
+    "#AttributeTokens",
+    "#ConditionalGeneration",
+    "#NeuralRendering"
   ],
   "paper_id": "2026-04-16-arxiv-tokenlight_precise_lighting_control_in_images_using_attribute_tokens",
   "paper_title": "TokenLight: Precise Lighting Control in Images using Attribute Tokens",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15310v1"
     }
   ],
-  "generated_at": "2026-04-19T07:08:23.066134"
+  "generated_at": "2026-04-20T07:54:12.738511"
 }

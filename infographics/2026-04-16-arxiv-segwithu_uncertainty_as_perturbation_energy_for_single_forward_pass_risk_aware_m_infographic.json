@@ -1,24 +1,24 @@
 {
-  "key_insight": "SegWithU turns uncertainty estimation into a lightweight, post-hoc \"perturbation energy\" head added to a frozen segmentation backbone, enabling reliable risk-aware segmentation with a single forward pass.",
-  "problem_solved": "Provides accurate, well-ranked failure/uncertainty estimates for medical image segmentation without costly repeated inference or restrictive feature-space assumptions.",
+  "key_insight": "SegWithU converts model uncertainty into a single-pass \"perturbation energy\" signal by adding a lightweight post-hoc head to a frozen segmentation backbone, enabling accurate risk-aware segmentation without repeated inference.",
+  "problem_solved": "Provides reliable failure ranking and uncertainty maps for medical image segmentation while avoiding expensive multi-pass or restrictive feature-space assumptions, making uncertainty estimation practical for clinical workflows.",
   "method": [
-    "Post-hoc design: attach a small uncertainty head to a frozen pretrained segmentation backbone (no re-training of the backbone required).",
-    "Uncertainty as perturbation energy: the head models sensitivity to learned perturbations and converts that response into pixel-wise uncertainty scores in one forward pass.",
-    "Risk-aware output: combine segmentation logits with the perturbation-energy uncertainty map to rank failures and guide downstream decision thresholds or human review."
+    "Post-hoc plug-in: attach a lightweight uncertainty head to a frozen, pretrained segmentation backbone (no re-training of main model required).",
+    "Uncertainty-as-energy: compute a perturbation-energy score from the head's outputs that correlates with segmentation failure risk in a single forward pass.",
+    "Efficient, backbone-agnostic design: produces calibrated uncertainty maps and risk rankings with minimal compute overhead, compatible with existing segmentation models."
   ],
-  "impact": "Delivers practical, low-cost uncertainty estimates that integrate easily into existing segmentation pipelines—helping practitioners detect likely failures and prioritize human review in clinical workflows without large compute overhead.",
+  "impact": "Delivers efficient, single-forward-pass uncertainty estimation that improves failure detection and triage in clinical pipelines, enabling safer deployment of automated segmentation without large latency or compute costs.",
   "visual_elements": [
-    "Architecture diagram: frozen segmentation backbone + lightweight uncertainty head, showing single-forward-pass data flow.",
-    "Heatmap overlay examples: segmentation mask vs. perturbation-energy uncertainty map highlighting failure regions.",
-    "Bar or ROC-style chart: failure-detection ranking performance comparing single-pass SegWithU to repeated-inference baselines (e.g., MC Dropout) and prior single-pass methods.",
-    "Clinical workflow sketch: automated segmentation -> uncertainty-based triage -> human review/automatic acceptance"
+    "Architecture diagram: frozen segmentation backbone + lightweight uncertainty head producing segmentation and perturbation-energy uncertainty map.",
+    "Heatmap overlay: example image with predicted segmentation and corresponding uncertainty/energy map highlighting likely failure regions.",
+    "Risk-coverage/reliability plot: showing improved failure-ranking or calibration compared to single-pass baselines and multi-pass methods.",
+    "Workflow icon strip: integration into clinical pipeline with low latency (single-pass) and downstream decision/triage steps."
   ],
   "hashtags": [
     "#MedicalImaging",
-    "#UncertaintyEstimation",
+    "#Uncertainty",
     "#Segmentation",
-    "#RiskAwareAI",
-    "#SingleForwardPass"
+    "#DeepLearning",
+    "#ClinicalAI"
   ],
   "paper_id": "2026-04-16-arxiv-segwithu_uncertainty_as_perturbation_energy_for_single_forward_pass_risk_aware_m",
   "paper_title": "SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15271v1"
     }
   ],
-  "generated_at": "2026-04-19T07:07:23.753395"
+  "generated_at": "2026-04-20T07:54:20.724738"
 }

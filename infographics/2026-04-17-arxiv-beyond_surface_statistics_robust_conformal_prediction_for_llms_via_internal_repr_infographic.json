@@ -1,0 +1,35 @@
+{
+  "key_insight": "Using internal model representations as the nonconformity signal for conformal prediction yields more reliable, deployment-robust uncertainty estimates for LLM question answering than relying solely on output-level signals like token probabilities.",
+  "problem_solved": "Output-level uncertainty measures (token probs, entropy, self-consistency) become brittle under calibration–deployment mismatch; conformal prediction is valid but depends on a good nonconformity score — this paper addresses how to design such a score for LLMs to preserve coverage and reliability under shift.",
+  "method": [
+    "Extract intermediate internal representations from the LLM (hidden states, layer activations) for each QA example and derive a representation-based nonconformity score.",
+    "Apply conformal prediction calibration using these representation scores to produce predictive sets/abstention decisions with finite-sample coverage guarantees under exchangeability.",
+    "Evaluate robustness under calibration–deployment mismatch (domain or distribution shift) to show that representation-based scores maintain coverage while keeping predictive sets concise."
+  ],
+  "impact": "Provides a practical path to more trustworthy LLM uncertainty estimates in real-world deployments, enabling safer abstention and better risk management when models encounter distributional shift.",
+  "visual_elements": [
+    "Side-by-side diagram: output-level signals (token probs) vs representation-level signals (hidden states) with arrows to a conformal calibration block.",
+    "Pipeline flowchart: Input question → LLM → extract internal representation → compute nonconformity score → conformal calibration → predictive set / abstain.",
+    "Bar/line chart: coverage and average predictive-set size under in-domain vs out-of-domain conditions comparing output-based and representation-based conformal methods.",
+    "Icon set: LLM model + shield (robustness), magnifying glass over hidden layer (representation), checklist (coverage guarantees)"
+  ],
+  "hashtags": [
+    "#ConformalPrediction",
+    "#LLM",
+    "#Uncertainty",
+    "#RobustAI",
+    "#RepresentationLearning"
+  ],
+  "paper_id": "2026-04-17-arxiv-beyond_surface_statistics_robust_conformal_prediction_for_llms_via_internal_repr",
+  "paper_title": "Beyond Surface Statistics: Robust Conformal Prediction for LLMs via Internal Representations",
+  "paper_category": "Model",
+  "paper_date": "2026-04-17",
+  "paper_authors": "Yanli Wang, Peng Kuang, Xiaoyu Han, Kaidi Xu, Haohan Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.16217v1"
+    }
+  ],
+  "generated_at": "2026-04-20T07:51:08.676213"
+}

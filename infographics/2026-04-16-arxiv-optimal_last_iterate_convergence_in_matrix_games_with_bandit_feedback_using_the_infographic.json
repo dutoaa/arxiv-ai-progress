@@ -1,24 +1,24 @@
 {
-  "key_insight": "A log‑barrier regularizer combined with a dual‑focused analysis yields an online algorithm for zero‑sum matrix games with bandit feedback that attains the optimal last‑iterate convergence rate matching the known t^{-1/4} lower bound (up to constants).",
-  "problem_solved": "Closing the gap between lower bounds and achievable rates for last‑iterate convergence in uncoupled zero‑sum matrix games under bandit (partial) feedback — previous algorithms failed to reach the Omega(t^{-1/4)) barrier for exploitability.",
+  "key_insight": "Using a log-barrier regularizer inside an online mirror-descent style algorithm, together with a dual-focused analysis, yields optimal last-iterate convergence for uncoupled zero-sum matrix games under bandit feedback — matching the known Omega(t^{-1/4}) lower bound.",
+  "problem_solved": "How to learn minimax policies in zero-sum matrix games with only bandit (partial) feedback while guaranteeing fast, last-iterate convergence for uncoupled players — a setting where prior methods failed to attain the optimal rate.",
   "method": [
-    "Incorporate a log‑barrier regularizer into an online mirror descent framework to maintain interior iterates on the simplex and control geometry near the boundary.",
-    "Use bandit‑style gradient/feedback estimators (importance‑weighted sampling) adapted to the log‑barrier geometry to handle partial information.",
-    "Perform a dual‑focused theoretical analysis that directly bounds last‑iterate exploitability and shows the algorithm achieves the optimal t^{-1/4} convergence rate."
+    "Incorporate a log-barrier regularizer into a mirror-descent/online-learning update to keep iterates well-conditioned near the simplex boundary.",
+    "Develop a dual-focused convergence analysis that directly controls last-iterate exploitability (rather than averaged iterates) and matches the lower bound.",
+    "Design bandit-friendly gradient estimators and exploration/step-size choices (importance-weighting / variance control) to operate with partial payoff observations."
   ],
-  "impact": "Provides the first algorithmic recipe with matching optimal guarantees for last‑iterate convergence under limited feedback, improving reliability of practical minimax learning (e.g., adversarial training, GANs, multi‑agent RL) when only bandit feedback is available.",
+  "impact": "Provides a practical, theoretically optimal algorithm for multi-agent and adversarial learning tasks with limited feedback, enabling more stable and faster-converging strategies in applications like multi-agent RL, online auctions, and adversarial training.",
   "visual_elements": [
-    "Line chart: exploitability vs iterations showing t^{-1/4} decay for the proposed method vs slower baselines",
-    "Schematic: zero‑sum matrix game loop with two uncoupled players, highlighting bandit feedback arrows and the log‑barrier update block",
-    "Diagram: simplex geometry illustrating how the log‑barrier keeps iterates interior and avoids boundary instability",
-    "Flowchart: algorithm steps (sample, estimate bandit feedback, log‑barrier mirror update, repeat) with a badge showing 'optimal rate'"
+    "Log-barrier update schematic: diagram showing simplex, iterates, and how log-barrier prevents boundary collapse.",
+    "Convergence plot: log-log chart comparing last-iterate exploitability rates (achieved Θ(t^{-1/4}) vs slower baselines and the lower bound).",
+    "Bandit feedback flow: two-player diagram showing limited payoff observation and importance-weighted gradient estimation.",
+    "Upper vs lower bound panel: simple bar/line graphic illustrating the prior Ω(t^{-1/4}) lower bound and this paper's matching upper bound."
   ],
   "hashtags": [
-    "#Minimax",
-    "#BanditLearning",
+    "#LastIterate",
     "#LogBarrier",
-    "#OnlineOptimization",
-    "#GameTheory"
+    "#Bandits",
+    "#GameTheory",
+    "#OnlineLearning"
   ],
   "paper_id": "2026-04-16-arxiv-optimal_last_iterate_convergence_in_matrix_games_with_bandit_feedback_using_the",
   "paper_title": "Optimal last-iterate convergence in matrix games with bandit feedback using the log-barrier",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.15242v1"
     }
   ],
-  "generated_at": "2026-04-19T07:07:09.205204"
+  "generated_at": "2026-04-20T07:53:51.514836"
 }
