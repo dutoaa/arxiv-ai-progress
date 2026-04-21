@@ -1,24 +1,24 @@
 {
-  "key_insight": "Informal theorem proving improves when models are trained to recognize and produce concise \"insights\"—the core techniques or strategies that guide solution construction—bridging the gap between raw LLM output and human-like problem solving.",
-  "problem_solved": "Addresses the bottleneck that LLMs struggle to identify the key solving technique for complex informal proofs, causing inefficient or incorrect solution attempts and poor generalization.",
+  "key_insight": "The paper identifies 'insight' — the ability to recognize the core technique or trick needed to solve a problem — as the main bottleneck in informal theorem proving, and proposes a training framework to teach LLMs to acquire that insight to improve proof generation.",
+  "problem_solved": "Informal theorem proving with LLMs struggles because models often cannot identify the central idea or technique needed to solve complex problems, leading to long, unfocused or incorrect reasoning chains.",
   "method": [
-    "Design a training framework that explicitly models \"insight\" as an intermediate signal: identify or generate short strategy hints that summarize the core technique for a problem.",
-    "Train or fine-tune LLMs to both extract insight from problems and condition proof generation on those insights (supervised and/or self-supervised signal).",
-    "Use insight-guided decomposition during generation so proofs follow targeted strategies, improving correctness and interpretability."
+    "Introduce an insight-focused supervision signal (e.g., annotated hints, technique labels, or focal summaries) that highlights the core solving idea for each problem.",
+    "Train or fine-tune LLMs to predict and use these insight cues during generation via specialized prompts, curriculum learning, or iterative refinement loops so proofs are guided by the recognized technique.",
+    "Evaluate and refine with benchmarks and feedback that measure both insight recognition accuracy and downstream proof correctness, possibly incorporating retrieval of similar solved problems."
   ],
-  "impact": "Enabling models to reason via explicit insights makes informal theorem proving more accurate, sample-efficient, and interpretable—beneficial for researchers building reasoning-capable LLMs and tools that assist human mathematicians or educators.",
+  "impact": "Teaching models to recognize and use problem-specific insight makes informal theorem proving more reliable and efficient, enabling LLMs to produce shorter, more targeted proofs and improving their applicability in research-assistant and formalization workflows.",
   "visual_elements": [
-    "Pipeline diagram: Problem → Insight extractor (lightbulb) → Insight-guided proof generator → Final proof",
-    "Side-by-side example: same theorem solved without insight (long/incorrect) vs. with insight (compact/correct)",
-    "Bar chart showing performance gain (accuracy/solve rate) with insight-guided training vs. baseline",
-    "Icon set: lightbulb (insight), puzzle-piece (technique), book/proof (formal result), robot/LLM (model)"
+    "Flowchart showing: Problem -> Insight Recognizer -> Technique Hint -> Guided Proof Generation",
+    "Before/After example: a long unfocused proof vs. a concise insight-guided proof (side-by-side)",
+    "Bar chart comparing proof success rates and proof lengths with/without insight supervision",
+    "Icon set: lightbulb (insight), puzzle piece (technique), brain/LLM (model), checkmark (correct proof)"
   ],
   "hashtags": [
     "#TheoremProving",
-    "#AIReasoning",
-    "#LLMs",
+    "#LLM",
     "#ExplainableAI",
-    "#MachineLearning"
+    "#Reasoning",
+    "#AIforMath"
   ],
   "paper_id": "2026-04-17-arxiv-learning_to_reason_with_insight_for_informal_theorem_proving",
   "paper_title": "Learning to Reason with Insight for Informal Theorem Proving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.16278v1"
     }
   ],
-  "generated_at": "2026-04-20T07:52:25.191205"
+  "generated_at": "2026-04-21T07:25:18.394491"
 }

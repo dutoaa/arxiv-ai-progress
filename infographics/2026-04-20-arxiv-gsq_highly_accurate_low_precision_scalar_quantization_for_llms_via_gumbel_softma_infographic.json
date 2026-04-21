@@ -1,0 +1,35 @@
+{
+  "key_insight": "Applying differentiable Gumbel-Softmax sampling to scalar weight quantization lets simple per-parameter quantizers recover much of the accuracy previously only attainable by complex vector/trellis schemes, enabling highly accurate 2–3 bit LLM quantization without heavy algorithmic or runtime complexity.",
+  "problem_solved": "Scalar quantization methods (e.g., GPTQ/AWQ) plateau in accuracy at very low bitwidths, while more accurate second‑generation vector/trellis methods are algorithmically and computationally complex; GSQ closes this accuracy gap while keeping scalar quantization simple and efficient.",
+  "method": [
+    "Use Gumbel‑Softmax as a differentiable sampler to select discrete scalar codebook entries for weights during quantization, enabling gradient‑based recovery of quantization choices.",
+    "Combine temperature annealing and straight‑through style optimization to train per-channel/per-row scales and codebooks with minimal fine‑tuning.",
+    "Maintain a scalar quantization pipeline (no trellis/vector transforms) so the method is low‑overhead and compatible with existing deployment toolchains."
+  ],
+  "impact": "Practitioners can quantize LLMs to very low bitwidths with substantially improved accuracy while retaining the deployment simplicity and speed of scalar methods, making high‑quality local inference and edge serving more practical.",
+  "visual_elements": [
+    "Bar chart: accuracy vs bits (2–8 bpp) comparing GSQ, GPTQ/AWQ, and vector/trellis baselines.",
+    "Pipeline diagram: weight → Gumbel‑Softmax sampling block → discrete codebook → annealing/optimization loop.",
+    "Heatmap or scatter: per-layer quantization error reduction (GSQ vs baseline) to show where gains come from.",
+    "Resource/latency icon chart: deployment overhead (memory, CPU/GPU) showing GSQ matches scalar efficiency while approaching second‑gen accuracy."
+  ],
+  "hashtags": [
+    "#Quantization",
+    "#LLM",
+    "#ModelCompression",
+    "#EdgeAI",
+    "#GumbelSoftmax"
+  ],
+  "paper_id": "2026-04-20-arxiv-gsq_highly_accurate_low_precision_scalar_quantization_for_llms_via_gumbel_softma",
+  "paper_title": "GSQ: Highly-Accurate Low-Precision Scalar Quantization for LLMs via Gumbel-Softmax Sampling",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-04-20",
+  "paper_authors": "Alireza Dadgarnia, Soroush Tabesh, Mahdi Nikdan, Michael Helcig, Eldar Kurtic",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.18556v1"
+    }
+  ],
+  "generated_at": "2026-04-21T07:22:49.389610"
+}

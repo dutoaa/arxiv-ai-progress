@@ -1,0 +1,35 @@
+{
+  "key_insight": "AnchorSeg disentangles semantic reasoning from spatial localization by replacing the single implicit segmentation token with a language-grounded bank of query anchors and treating mask generation as a structured conditional generation over image tokens. This explicit separation lets the model better interpret complex, implicit textual queries and produce more precise pixel-level masks.",
+  "problem_solved": "Existing reasoning segmentation models compress both 'what to segment' and 'where to segment' into one <SEG> token, limiting interpretability and accuracy for complex, implicit language queries; AnchorSeg addresses this by providing structured, language-grounded query banks that explicitly ground reasoning into spatial predictions.",
+  "method": [
+    "Introduce a bank of language-grounded query anchors that each encode aspects of the textual query, instead of a single <SEG> token.",
+    "Reformulate segmentation as a structured conditional generation process over image tokens, where anchors guide spatial grounding and mask synthesis separately from semantic reasoning.",
+    "Train the system to map language anchors to spatial token responses and compose them into precise pixel-level masks, improving modularity and interpretability."
+  ],
+  "impact": "Makes reasoning segmentation more accurate, interpretable, and modular — enabling practitioners to debug, extend, and adapt models for complex multimodal queries and downstream tasks like VQA, robotics perception, and fine-grained scene understanding.",
+  "visual_elements": [
+    "Architecture diagram showing: (text input) → language-grounded query bank (anchors) → conditional generation over image tokens → output mask",
+    "Stepwise flowchart illustrating disentanglement of 'what' (semantic anchors) vs 'where' (spatial grounding) during mask generation",
+    "Before/after example pairs: baseline single-token segmentation vs AnchorSeg masks on the same complex query",
+    "Attention / anchor heatmap overlays on the image to visualize which anchors attend to which regions"
+  ],
+  "hashtags": [
+    "#AnchorSeg",
+    "#VisionLanguage",
+    "#Segmentation",
+    "#MultimodalAI",
+    "#Interpretability"
+  ],
+  "paper_id": "2026-04-20-arxiv-anchorseg_language_grounded_query_banks_for_reasoning_segmentation",
+  "paper_title": "AnchorSeg: Language Grounded Query Banks for Reasoning Segmentation",
+  "paper_category": "Model",
+  "paper_date": "2026-04-20",
+  "paper_authors": "Rui Qian, Chuanhang Deng, Qiang Huang, Jian Xiong, Mingxuan Li",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.18562v1"
+    }
+  ],
+  "generated_at": "2026-04-21T07:23:24.524856"
+}
