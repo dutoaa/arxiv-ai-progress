@@ -1,24 +1,24 @@
 {
-  "key_insight": "TurboQuant_mse is not a new, separate quantizer but a special case of the earlier EDEN scheme — specifically EDEN with its scalar scale parameter fixed to S=1. EDEN itself generalizes DRIVE (a 1-bit quantizer) to any b bits per coordinate and supports both biased and unbiased variants optimized by different choices of S.",
-  "problem_solved": "Clarifies the technical and historical relationship between TurboQuant and the earlier DRIVE/EDEN line of work, preventing confusion about novelty, enabling correct comparisons, and guiding proper parameter choices for quantization.",
+  "key_insight": "TurboQuant_mse is not a distinct new algorithm but a special case of the earlier EDEN family obtained by fixing EDEN's scalar scale parameter S = 1; EDEN itself generalizes DRIVE (the 1-bit case) to any b bits and supports both biased and unbiased quantization via different S choices.",
+  "problem_solved": "Clarifies the conceptual and technical relationship between TurboQuant and earlier DRIVE/EDEN work, resolving attribution/novelty questions and making it easier for practitioners to understand which parameter choices produce which algorithms.",
   "method": [
-    "EDEN: a flexible quantizer family that generalizes DRIVE (1-bit) to any b>0 bits per coordinate via a scalar scale parameter S.",
-    "Supports both biased and unbiased quantization; each mode uses a different, optimally chosen S (selection methods described in the referenced work).",
-    "TurboQuant_mse corresponds to EDEN with S fixed to 1, i.e., a particular parameter choice within the EDEN family."
+    "EDEN formulates a scalable quantizer parameterized by a scalar scale S and bit budget b; DRIVE is the b=1 instance.",
+    "By choosing S to optimize different objectives (e.g., MSE or unbiasedness), EDEN yields distinct biased/unbiased quantizers.",
+    "Fixing S=1 in EDEN reproduces TurboQuant_mse, showing TurboQuant_mse is a special-case derivation rather than an independent scheme."
   ],
-  "impact": "This clarification helps practitioners and researchers correctly interpret results, choose the right quantizer/parameterization, and avoid redundant reinvention — improving benchmarking, reproducibility, and deployment of low-bit quantization in ML systems.",
+  "impact": "Helps researchers and engineers correctly interpret TurboQuant results, pick the right scale parameter S for their accuracy vs. bias tradeoffs, and avoid redundant reinvention when designing quantizers for model compression and distributed learning.",
   "visual_elements": [
-    "Hierarchy diagram: DRIVE → EDEN (generalization) → TurboQuant_mse (EDEN with S=1) to show lineage and special-case relationship.",
-    "Parameter illustration: a simple graphic showing the scalar scale S axis with markers for 'biased-optimal S', 'unbiased-optimal S', and 'S=1 (TurboQuant_mse)'.",
-    "Performance sketch: small chart comparing error (MSE) vs bits per coordinate for DRIVE, EDEN (optimal S), and TurboQuant_mse to convey trade-offs.",
-    "Decision flowchart: how to choose b (bits) and S depending on application constraints (latency, accuracy, bias requirement)."
+    "Taxonomy diagram: DRIVE → EDEN (general b) → TurboQuant_mse (EDEN with S=1) showing containment and special-case relationships.",
+    "Schematic of the scalar scale parameter S affecting quantizer behavior (biased vs unbiased) with annotations.",
+    "Two-line plot: error (MSE) vs S for biased and unbiased settings to show optimal S differs by objective.",
+    "Flowchart: given b and objective → choose EDEN configuration (S, biased/unbiased) → yields specific quantizer (e.g., DRIVE or TurboQuant_mse)."
   ],
   "hashtags": [
     "#Quantization",
     "#ModelCompression",
     "#EfficientML",
-    "#ResearchClarity",
-    "#AIOptimization"
+    "#Reproducibility",
+    "#EdgeAI"
   ],
   "paper_id": "2026-04-20-arxiv-a_note_on_turboquant_and_the_earlier_drive_eden_line_of_work",
   "paper_title": "A Note on TurboQuant and the Earlier DRIVE/EDEN Line of Work",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.18555v1"
     }
   ],
-  "generated_at": "2026-04-21T07:22:37.167118"
+  "generated_at": "2026-04-22T07:24:11.873212"
 }
