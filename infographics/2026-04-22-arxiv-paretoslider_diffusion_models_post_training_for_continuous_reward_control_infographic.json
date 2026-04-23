@@ -1,0 +1,35 @@
+{
+  "key_insight": "ParetoSlider post-trains diffusion models to learn a continuous Pareto frontier over multiple rewards, enabling inference-time control of trade-offs (via a slider) without committing to a single weighted reward at training time.",
+  "problem_solved": "Existing RL post-training methods collapse multiple objectives into a single scalar (early scalarization), forcing a fixed trade-off chosen during training and preventing users from adjusting competing goals (e.g., prompt adherence vs. source fidelity) at inference.",
+  "method": [
+    "Post-train diffusion models with multiple reward signals so the model learns outcomes across conflicting objectives rather than a single scalar reward.",
+    "Condition the model on a continuous trade-off variable (the \"slider\") so sampling traces a learned Pareto frontier between objectives.",
+    "At inference, users set the slider to select any point on the frontier, obtaining continuous control over competing rewards without retraining."
+  ],
+  "impact": "Allows practitioners to steer generative behavior in real time along meaningful trade-offs, reducing the need for multiple specialized models or repeated fine-tuning and improving alignment in multi-criteria tasks like image editing and content safety.",
+  "visual_elements": [
+    "Pareto frontier plot with a movable slider showing positions corresponding to different trade-offs between two objectives.",
+    "Before/after example sequence (e.g., image edits) sampled at several slider values to illustrate changing trade-offs (fidelity vs. prompt adherence).",
+    "Pipeline diagram: pretrained diffusion model → Pareto post-training with multi-reward signals → slider-conditioned sampling at inference.",
+    "Metric chart/heatmap showing how objective scores vary continuously as the slider moves along the Pareto frontier."
+  ],
+  "hashtags": [
+    "#ParetoSlider",
+    "#DiffusionModels",
+    "#MultiObjectiveOptimization",
+    "#ModelAlignment",
+    "#InteractiveAI"
+  ],
+  "paper_id": "2026-04-22-arxiv-paretoslider_diffusion_models_post_training_for_continuous_reward_control",
+  "paper_title": "ParetoSlider: Diffusion Models Post-Training for Continuous Reward Control",
+  "paper_category": "Model",
+  "paper_date": "2026-04-22",
+  "paper_authors": "Shelly Golan, Michael Finkelson, Ariel Bereslavsky, Yotam Nitzan, Or Patashnik",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.20816v1"
+    }
+  ],
+  "generated_at": "2026-04-23T07:22:49.298604"
+}

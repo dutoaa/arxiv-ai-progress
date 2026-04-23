@@ -1,0 +1,35 @@
+{
+  "key_insight": "FedSIR uses the spectral structure of client feature representations to detect clients with systematically noisy labels and then relabels their data in a privacy-preserving, federated way—improving robustness beyond loss-based or per-sample heuristics.",
+  "problem_solved": "Federated learning performance degrades when clients hold noisy or corrupted labels and existing remedies (noise‑tolerant losses or loss-dynamics heuristics) fail to reliably locate and correct label noise distributed across clients.",
+  "method": [
+    "Compute a client-level similarity matrix from aggregated feature embeddings and apply spectral analysis to find clients or groups with anomalous representation patterns indicative of label noise.",
+    "Flag suspected noisy clients and generate corrected labels via a relabeling module that leverages global model predictions, class prototypes, and peer-consensus while respecting federated privacy constraints.",
+    "Integrate detection and relabeling into a multi-stage FL loop: detect → relabel locally (or via server-coordinated aggregation) → retrain, iterating until convergence."
+  ],
+  "impact": "Provides practitioners a practical, communication-efficient tool to locate and fix label noise in cross-device or cross-silo FL setups, improving model accuracy and stability without requiring access to raw client data or heavy per-sample tracking.",
+  "visual_elements": [
+    "Pipeline diagram showing stages: local feature extraction → client similarity matrix → spectral detection → relabeling → federated retraining",
+    "Heatmap / eigenvalue scree plot of the client similarity matrix highlighting anomalous clients",
+    "Before-and-after bar chart of global model accuracy (or robustness) with and without FedSIR",
+    "Schematic client map/icon set marking clean vs. noisy clients and illustrating privacy-preserving relabel flow"
+  ],
+  "hashtags": [
+    "#FederatedLearning",
+    "#NoisyLabels",
+    "#RobustML",
+    "#SpectralAnalysis",
+    "#PrivacyPreserving"
+  ],
+  "paper_id": "2026-04-22-arxiv-fedsir_spectral_client_identification_and_relabeling_for_federated_learning_with",
+  "paper_title": "FedSIR: Spectral Client Identification and Relabeling for Federated Learning with Noisy Labels",
+  "paper_category": "Model",
+  "paper_date": "2026-04-22",
+  "paper_authors": "Sina Gholami, Abdulmoneam Ali, Tania Haghighi, Ahmed Arafa, Minhaj Nur Alam",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.20825v1"
+    }
+  ],
+  "generated_at": "2026-04-23T07:23:11.072289"
+}

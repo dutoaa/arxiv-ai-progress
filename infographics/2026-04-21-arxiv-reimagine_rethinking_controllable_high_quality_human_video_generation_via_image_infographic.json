@@ -1,23 +1,23 @@
 {
-  "key_insight": "Train high-fidelity human appearance with image generation first, then use that learned appearance as a prior to drive controllable video synthesis—decoupling appearance modeling from temporal and camera modeling to boost quality and control.",
-  "problem_solved": "Addresses the challenge of jointly modeling human appearance, motion, and camera viewpoint from limited multi-view data, avoiding the trade-off between controllability and visual fidelity found in prior methods.",
+  "key_insight": "ReImagine learns high-fidelity human appearance via image generation first, then uses that learned appearance as a strong prior for video synthesis, decoupling appearance modeling from motion and camera dynamics to achieve controllable, high-quality human videos.",
+  "problem_solved": "Addresses the difficulty of jointly modeling human appearance, motion, and camera viewpoint under limited multi-view data, which previously forced trade-offs between controllability and visual quality.",
   "method": [
-    "Image-first learning: train a high-quality human appearance model on still images to capture fine-grained texture and identity.",
-    "Appearance-as-prior video synthesis: condition a temporal generation module on the learned image prior while separately modeling motion and camera to preserve appearance across frames.",
-    "Controllable conditioning and data-efficient training: use pose/camera controls and a training scheme designed to work with sparse multi-view data."
+    "Train an image-first appearance model to capture detailed, multi-view-consistent human appearance as a reusable prior.",
+    "Condition a separate temporal synthesis module on the learned appearance prior plus motion and camera controls to produce coherent videos without degrading appearance quality.",
+    "Use controllable inputs (e.g., skeletal poses, camera parameters) and multi-view/temporal losses to enforce consistency and enable fine-grained control."
   ],
-  "impact": "Enables practitioners to generate more realistic, identity-preserving, and controllable human videos (for animation, virtual avatars, VFX) while reducing dependence on large multi-view datasets and improving modularity of generation components.",
+  "impact": "Enables practitioners to generate controllable, photoreal human videos with higher visual fidelity even when multi-view data is limited, improving workflows in animation, virtual production, and downstream video editing.",
   "visual_elements": [
-    "Pipeline diagram: two-stage flow showing 'Image-first appearance learning' -> 'Appearance prior' -> 'Controllable video synthesis (motion + camera)'",
-    "Before vs After comparison: side-by-side frames highlighting improved texture/identity preservation and temporal consistency",
-    "Control grid: matrix showing same identity under varying poses and camera viewpoints to illustrate controllability",
-    "Data-efficiency chart: performance (quality/control) vs amount of multi-view data comparing ReImagine to baselines"
+    "Pipeline diagram: 'Image-first appearance training' → 'Appearance prior' → 'Temporal video synthesis with motion & camera controls'.",
+    "Before/after frames comparing joint-training methods vs. image-first approach (showing improved appearance fidelity).",
+    "Control illustration: input skeletons/camera parameters mapped to generated video frames to show controllability.",
+    "Architecture block diagram highlighting the appearance prior module and separate temporal module with loss/regulatory signals."
   ],
   "hashtags": [
     "#HumanVideoGeneration",
     "#ImageFirst",
     "#ControllableGeneration",
-    "#VideoSynthesis",
+    "#NeuralRendering",
     "#GenerativeAI"
   ],
   "paper_id": "2026-04-21-arxiv-reimagine_rethinking_controllable_high_quality_human_video_generation_via_image",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.19720v1"
     }
   ],
-  "generated_at": "2026-04-22T07:21:18.847635"
+  "generated_at": "2026-04-23T07:25:14.873066"
 }

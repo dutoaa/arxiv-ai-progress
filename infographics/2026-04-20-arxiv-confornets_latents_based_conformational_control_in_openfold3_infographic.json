@@ -1,24 +1,24 @@
 {
-  "key_insight": "ConforNets introduces a latent-variable control module inside OpenFold3 that lets the model generate and switch between biologically relevant protein conformations reliably, rather than predicting a single dominant state.",
-  "problem_solved": "AlphaFold-family models often return one predominant structure and struggle to recover alternative, functionally important conformations; prior fixes used ad-hoc inference perturbations that are inefficient and inconsistent.",
+  "key_insight": "Introducing ConforNets: a latent-space conditioning mechanism integrated into OpenFold3 that enables efficient, controllable sampling of biologically relevant alternate protein conformations, outperforming ad hoc inference-time perturbations.",
+  "problem_solved": "AlphaFold-style models reliably predict a single dominant fold but fail to recover major alternative conformational states; prior inference-time perturbation methods are inefficient and inconsistent at retrieving functionally important modes.",
   "method": [
-    "Integrate a learned latent conditioning pathway into OpenFold3 that modulates internal representations to steer conformation.",
-    "Train a latent encoder/decoder (or conditional prior) to map between latent codes and distinct conformational modes, enabling targeted sampling of alternate states.",
-    "Perform controlled latent sampling and refinement to reproducibly recover major conformational clusters far more efficiently than inference-time perturbations."
+    "Embed conformational variability into a learned latent space tied to OpenFold3 representations, enabling targeted manipulation of structural modes.",
+    "Condition OpenFold3 inference on latent vectors (learned or sampled) to generate diverse, physically plausible conformations without expensive simulation or repeated ad hoc perturbations.",
+    "Use supervised/unsupervised latent clustering and targeted sampling to recover major conformational modes and validate against experimental alternate-state structures."
   ],
-  "impact": "Provides a systematic, trainable mechanism to explore protein conformational landscapes within a high-performance folding model, improving sampling efficiency and enabling downstream tasks (e.g., drug binding, enzyme engineering) that require alternate states.",
+  "impact": "Provides a practical, scalable way for ML practitioners and structural biologists to generate and control multiple protein conformations from a single model, improving downstream tasks like drug design, functional annotation, and multi-state modeling.",
   "visual_elements": [
-    "Architecture schematic: OpenFold3 block diagram with an injected 'latent control' module and arrows showing conditioning flow.",
-    "Side-by-side 3D render: dominant AF-predicted structure vs. alternate ConforNets-generated conformation for the same sequence.",
-    "Latent space map (UMAP/t-SNE): clusters colored by recovered conformational modes with example structures.",
-    "Bar/line chart: qualitative comparison of sampling efficiency and mode-recovery consistency (ConforNets vs. inference perturbations)."
+    "Pipeline diagram: OpenFold3 architecture with a highlighted latent injection point and flow from sequence/MSA → latent control → alternate 3D structures.",
+    "Before/after structural comparison: side-by-side ribbon models showing the dominant AF prediction vs. recovered alternate conformations.",
+    "Latent-space visualization: 2D projection (t-SNE/UMAP) of latent vectors colored by recovered conformational cluster and annotated with representative structures.",
+    "Performance chart: bar/line plot comparing recovery rate, compute cost, and diversity for ConforNets vs. common inference-time perturbation baselines."
   ],
   "hashtags": [
     "#ConforNets",
     "#OpenFold3",
     "#ProteinFolding",
-    "#LatentModels",
-    "#StructuralBiology"
+    "#ConformationalDynamics",
+    "#LatentControl"
   ],
   "paper_id": "2026-04-20-arxiv-confornets_latents_based_conformational_control_in_openfold3",
   "paper_title": "ConforNets: Latents-Based Conformational Control in OpenFold3",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.18559v1"
     }
   ],
-  "generated_at": "2026-04-22T07:23:50.437537"
+  "generated_at": "2026-04-23T07:25:42.918416"
 }
