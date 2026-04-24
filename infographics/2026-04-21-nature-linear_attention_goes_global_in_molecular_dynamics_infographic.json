@@ -1,24 +1,24 @@
 {
-  "key_insight": "A symmetry-preserving linear-attention mechanism gives machine-learning force fields global, long-range awareness at linear computational cost, enabling scalable modeling of interactions across entire molecular systems.",
-  "problem_solved": "Efficiently modeling long-range interactions in ML force fields without resorting to costly quadratic attention, fragmentation heuristics, or ad-hoc physics fixes.",
+  "key_insight": "A new global linear-attention mechanism for machine-learning force fields captures long-range interactions with O(N) cost while preserving physical symmetries (equivariance/invariance). It gives global awareness without the quadratic compute of standard attention.",
+  "problem_solved": "Accurately and efficiently modeling long-range interactions in molecular dynamics is expensive or relies on fragmentation/physics-based patches; this method provides a scalable, symmetry-preserving alternative that integrates into ML force-field models.",
   "method": [
-    "Design a linear-attention kernel that aggregates global messages in O(N) time while avoiding pairwise quadratic complexity.",
-    "Integrate the linear-attention module into ML force-field architectures while preserving physical symmetries (e.g., equivariance/invariance).",
-    "Provide a flexible, plug-in alternative to fragmentation-based and physics-based long-range modules, with empirical validation on molecular dynamics tasks."
+    "Design a linear-cost attention operator that aggregates global context in O(N) time and memory instead of O(N^2).",
+    "Enforce symmetry preservation (equivariance/invariance) so forces and energies respect physical constraints.",
+    "Provide a modular implementation that can replace or augment existing long-range modules (fragmentation or physics-based fixes) in ML force fields."
   ],
-  "impact": "Enables scalable, symmetry-aware ML force fields for larger molecules and longer simulations, reducing compute and simplifying model design for practitioners working on materials and biomolecular modeling.",
+  "impact": "Enables scalable, accurate MD modeling for larger systems and longer simulations with lower compute and memory, making advanced ML force fields practical for more real-world chemistry and materials tasks.",
   "visual_elements": [
-    "Schematic of model pipeline showing local encoder + linear-attention global module and outputs (forces/energies).",
-    "Complexity chart comparing O(N) linear attention vs O(N^2) standard attention as system size grows.",
-    "Molecular visualization illustrating capture of long-range interactions (e.g., distant charge effects) with and without the new module.",
-    "Bar/line plot comparing accuracy and runtime against fragmentation and physics-based long-range baselines."
+    "Scaling plot: quadratic attention vs linear attention (compute/memory vs number of atoms).",
+    "Schematic molecule showing long-range connections captured by global linear attention (arrows connecting distant atoms).",
+    "Model block diagram highlighting the plug-in linear-attention module within an equivariant force-field architecture.",
+    "Comparison table/chart of accuracy and throughput vs fragmentation and physics-based long-range methods."
   ],
   "hashtags": [
     "#LinearAttention",
     "#MolecularDynamics",
-    "#EquivariantML",
-    "#MLForceFields",
-    "#LongRangeInteractions"
+    "#ForceFields",
+    "#EquivariantAI",
+    "#ScalableML"
   ],
   "paper_id": "2026-04-21-nature-linear_attention_goes_global_in_molecular_dynamics",
   "paper_title": "Linear attention goes global in molecular dynamics",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01222-y"
     }
   ],
-  "generated_at": "2026-04-23T07:23:57.957028"
+  "generated_at": "2026-04-24T07:50:08.912410"
 }

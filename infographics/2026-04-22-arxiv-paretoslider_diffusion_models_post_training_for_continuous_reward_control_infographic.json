@@ -1,24 +1,24 @@
 {
-  "key_insight": "ParetoSlider post-trains diffusion models to learn a continuous Pareto frontier over multiple rewards, enabling inference-time control of trade-offs (via a slider) without committing to a single weighted reward at training time.",
-  "problem_solved": "Existing RL post-training methods collapse multiple objectives into a single scalar (early scalarization), forcing a fixed trade-off chosen during training and preventing users from adjusting competing goals (e.g., prompt adherence vs. source fidelity) at inference.",
+  "key_insight": "ParetoSlider is a post-training method for diffusion models that enables continuous, inference-time control over multiple competing rewards by moving along a learned Pareto frontier, avoiding the need for fixed early scalarization.",
+  "problem_solved": "Addresses the limitation that RL post-training typically collapses multiple objectives into a single fixed weighted reward, preventing users from adjusting trade-offs (e.g., prompt adherence vs. source fidelity) at inference time.",
   "method": [
-    "Post-train diffusion models with multiple reward signals so the model learns outcomes across conflicting objectives rather than a single scalar reward.",
-    "Condition the model on a continuous trade-off variable (the \"slider\") so sampling traces a learned Pareto frontier between objectives.",
-    "At inference, users set the slider to select any point on the frontier, obtaining continuous control over competing rewards without retraining."
+    "Post-train a diffusion model with multiple reward signals instead of a single scalar, preserving multi-objective information.",
+    "Introduce a compact, parameterized control (the “slider”) that conditions generation on a continuous trade-off parameter, enabling smooth traversal of the Pareto frontier at inference.",
+    "Produce outputs along the learned Pareto frontier so practitioners can pick any point (trade-off) without retraining separate models for each preference."
   ],
-  "impact": "Allows practitioners to steer generative behavior in real time along meaningful trade-offs, reducing the need for multiple specialized models or repeated fine-tuning and improving alignment in multi-criteria tasks like image editing and content safety.",
+  "impact": "Enables flexible, interactive trade-off tuning at inference time, reducing the need to train multiple specialized models and improving practical alignment for applications with conflicting objectives.",
   "visual_elements": [
-    "Pareto frontier plot with a movable slider showing positions corresponding to different trade-offs between two objectives.",
-    "Before/after example sequence (e.g., image edits) sampled at several slider values to illustrate changing trade-offs (fidelity vs. prompt adherence).",
-    "Pipeline diagram: pretrained diffusion model → Pareto post-training with multi-reward signals → slider-conditioned sampling at inference.",
-    "Metric chart/heatmap showing how objective scores vary continuously as the slider moves along the Pareto frontier."
+    "Pareto frontier plot showing multiple objectives with a highlighted path illustrating continuous movement controlled by a slider.",
+    "A horizontal slider UI placed between two example outputs (e.g., high prompt adherence ↔ high source fidelity) demonstrating smooth interpolation.",
+    "Before/after side-by-side image edits emphasizing differences as the slider moves (illustrates trade-offs concretely).",
+    "Simplified model diagram showing a diffusion backbone plus a small control input (the slider) added during post-training."
   ],
   "hashtags": [
-    "#ParetoSlider",
     "#DiffusionModels",
-    "#MultiObjectiveOptimization",
+    "#MultiObjective",
+    "#ParetoFrontier",
     "#ModelAlignment",
-    "#InteractiveAI"
+    "#RLPostTraining"
   ],
   "paper_id": "2026-04-22-arxiv-paretoslider_diffusion_models_post_training_for_continuous_reward_control",
   "paper_title": "ParetoSlider: Diffusion Models Post-Training for Continuous Reward Control",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.20816v1"
     }
   ],
-  "generated_at": "2026-04-23T07:22:49.298604"
+  "generated_at": "2026-04-24T07:51:18.571499"
 }

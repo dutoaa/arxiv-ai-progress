@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single deep model jointly predicts bioactivity and reconstructs molecules to produce a principled, actionable measure of distribution shift—enabling discovery of active kinase inhibitors at the edge of chemical space.",
-  "problem_solved": "Addresses unreliable generalization and lack of principled out‑of‑distribution detection in molecular ML, which hinders prioritization of novel chemotypes for experimental testing.",
+  "key_insight": "A single deep learning model jointly predicts bioactivity and reconstructs molecular structures while providing a principled measure of distribution shift — enabling reliable exploration at the edge of chemical space and leading to discovery of active kinase inhibitors.",
+  "problem_solved": "Addresses unreliable generalization and hidden distribution shifts when applying molecular ML models to novel regions of chemical space, which hinders discovery of real bioactive compounds.",
   "method": [
-    "Train a unified model that reconstructs molecules (autoencoding/generative objective) and simultaneously predicts bioactivity (supervised head) from a shared latent space.",
-    "Derive a principled distribution‑shift score from reconstruction/latent statistics to quantify how far a query molecule lies from training data.",
-    "Prospectively validate by prioritizing compounds with favorable predicted activity and shift scores, experimentally discovering active inhibitors for two kinases."
+    "Train a multitask model that simultaneously performs molecular reconstruction (generative/autoencoding) and supervised bioactivity prediction to tie representation learning to prediction confidence.",
+    "Derive and use a principled metric for distribution shift/uncertainty from the joint model to identify out-of-distribution molecules and prioritize reliable predictions.",
+    "Experimentally validate the approach by screening predicted candidates and discovering active inhibitors for two clinically relevant kinase targets."
   ],
-  "impact": "Provides a practical approach to quantify and manage distribution shift in molecular models, improving trust, prioritization, and success rates when moving from in‑silico predictions to experimental validation.",
+  "impact": "Provides a practical recipe for safer, more trustworthy molecular ML: combining generative and predictive objectives improves representation robustness and gives actionable shift detection for deployment in drug discovery workflows.",
   "visual_elements": [
-    "Model schematic: encoder → latent space → decoder (reconstruction) + predictor (bioactivity) with annotated loss terms",
-    "Chemical‑space map (UMAP/t‑SNE) showing training set vs. candidate compounds colored by distribution‑shift score and experimental activity",
-    "Scatter plot: distribution‑shift score vs. predicted activity highlighting experimentally confirmed actives",
-    "Pipeline diagram: in‑silico prioritization → selection by shift score → in vitro kinase assays (prospective validation)"
+    "Schematic of model: shared encoder → reconstruction decoder + bioactivity prediction head",
+    "Chemical space map (2D projection) colored by distribution-shift score showing in-distribution vs out-of-distribution regions",
+    "Before/after bar or scatter plot showing predicted activity vs experimental validation for discovered kinase inhibitors",
+    "Icon set: molecule, confidence/uncertainty gauge, lab assay/plate to represent experimental validation"
   ],
   "hashtags": [
     "#MolecularAI",
     "#DrugDiscovery",
+    "#Chemoinformatics",
     "#DistributionShift",
-    "#DeepLearning",
-    "#Chemoinformatics"
+    "#DeepLearning"
   ],
   "paper_id": "2026-04-22-nature-molecular_deep_learning_at_the_edge_of_chemical_space",
   "paper_title": "Molecular deep learning at the edge of chemical space",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01216-w"
     }
   ],
-  "generated_at": "2026-04-23T07:24:13.552216"
+  "generated_at": "2026-04-24T07:50:22.381022"
 }

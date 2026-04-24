@@ -1,24 +1,24 @@
 {
-  "key_insight": "Parallel-SFT trains supervised fine-tuning tasks in parallel across multiple programming languages during RL training so that coding skills learned in high-resource languages transfer zero-shot to low-resource languages, improving cross-language generalization for code RL models like Llama-3.1.",
-  "problem_solved": "Reduces the failure of RL-trained code models to generalize from high-resource programming languages to lower-resource ones without requiring per-language RL data or retraining.",
+  "key_insight": "Parallel-SFT preserves universal coding skills during reinforcement learning by running supervised fine-tuning across multiple programming languages in parallel with RL updates, enabling strong zero-shot transfer to low-resource languages.",
+  "problem_solved": "RL fine-tuning on a single high-resource programming language often overfits to language-specific patterns and degrades zero-shot performance on other languages; this work reduces the need to perform expensive per-language RL by improving cross-language transfer.",
   "method": [
-    "Run supervised fine-tuning tasks for multiple source languages in parallel (Parallel-SFT) to preserve language-agnostic coding skills during RL optimization.",
-    "Combine the parallel SFT stage with RL updates performed on a high-resource language so the model learns reward-driven behaviors while retaining cross-PL generalization.",
-    "Balance data and shared parameters (or lightweight language-specific modules) to encourage transfer rather than overfitting to any single programming language."
+    "Parallel supervised fine-tuning (Parallel-SFT): maintain an ongoing SFT stream on diverse PLs concurrently with RL to anchor language-agnostic behaviors.",
+    "Mixed-language training/optimization: synchronize or mix gradients from multiple languages so RL updates on a source PL do not overwrite shared representations.",
+    "Regularization and anchoring: constrain RL updates (e.g., replay/parameter anchoring or output-level constraints) to preserve skills useful across languages."
   ],
-  "impact": "Enables practitioners to deploy RL-enhanced code models across many programming languages with far less target-language data and tuning, accelerating multilingual coding assistance and reducing maintenance cost.",
+  "impact": "Makes code-focused RL more practical for many programming languages by improving zero-shot transfer, lowering compute and data requirements for low-resource PLs and enabling broader, cost-effective deployment of code models.",
   "visual_elements": [
-    "Pipeline diagram showing: multi-language supervised fine-tuning branches running in parallel → centralized RL updates → single multilingual model for zero-shot inference.",
-    "Before/after bar chart or heatmap comparing zero-shot performance on low-resource PLs with and without Parallel-SFT.",
-    "Schematic illustrating shared parameters vs. language-specific modules to explain where transfer happens.",
-    "Example code prompt in a high-resource PL and corresponding zero-shot output in a low-resource PL to show qualitative transfer."
+    "Pipeline diagram showing parallel streams: SFT across multiple PLs running alongside RL on a source PL with an anchoring arrow to shared model weights",
+    "Bar chart comparing zero-shot performance on several target languages before vs after Parallel-SFT",
+    "Heatmap or matrix of transfer strengths between source and target languages to illustrate improved cross-language generalization",
+    "Icon cluster of multiple programming languages (Python, C++, Rust, Go, etc.) connected by arrows to a central model"
   ],
   "hashtags": [
     "#ParallelSFT",
     "#CodeRL",
-    "#ZeroShotTransfer",
-    "#MultilingualCode",
-    "#LargeLanguageModels"
+    "#CrossLanguageTransfer",
+    "#LLMs",
+    "#CodeAI"
   ],
   "paper_id": "2026-04-22-arxiv-parallel_sft_improving_zero_shot_cross_programming_language_transfer_for_code_rl",
   "paper_title": "Parallel-SFT: Improving Zero-Shot Cross-Programming-Language Transfer for Code RL",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.20835v1"
     }
   ],
-  "generated_at": "2026-04-23T07:23:22.799003"
+  "generated_at": "2026-04-24T07:51:10.299743"
 }
