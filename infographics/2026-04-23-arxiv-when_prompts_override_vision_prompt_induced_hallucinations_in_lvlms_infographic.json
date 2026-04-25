@@ -1,24 +1,24 @@
 {
-  "key_insight": "Prompts can systematically override visual evidence in large vision-language models (LVLMs), producing prompt-induced hallucinations; HalluScope quantifies and characterizes how different prompt types and model components drive these failures.",
-  "problem_solved": "Clarifies and measures the extent to which prompts (rather than vision backbones alone) cause LVLMs to hallucinate, providing a reproducible benchmark to compare models and mitigation strategies.",
+  "key_insight": "Prompts can systematically override the visual input in large vision-language models, causing hallucinations; HalluScope quantifies this prompt-induced failure mode and isolates when language instructions dominate vision.",
+  "problem_solved": "Clarifies and measures a previously ambiguous source of hallucinations in LVLMs by separating prompt-driven effects from vision-backbone and language-dominance factors.",
   "method": [
-    "Construct HalluScope: a controlled benchmark of images paired with neutral, leading, and adversarial prompts to elicit potential hallucinations.",
-    "Evaluate multiple state-of-the-art LVLMs across prompt conditions, measuring hallucination frequency, severity, and types (e.g., object insertion, attribute fabrication, false relations).",
-    "Analyze correlations between prompt characteristics, language-model dominance, and vision-backbone limitations to identify when and why prompts override visual grounding."
+    "Introduce HalluScope: a benchmark of curated image + prompt pairs designed to elicit and measure prompt-induced hallucinations.",
+    "Systematically vary prompt templates and instruction content to probe when and how prompts cause outputs that contradict the visual evidence.",
+    "Evaluate multiple LVLMs using automated metrics and human judgments to quantify hallucination rates and attribute failures to prompt vs. visual components."
   ],
-  "impact": "Gives practitioners a practical tool and evidence-based guidance to detect, compare, and reduce prompt-induced hallucinations in LVLM deployments, improving reliability for vision-grounded applications.",
+  "impact": "Provides practitioners a diagnostic tool and empirical evidence to detect, measure, and mitigate prompt-induced errors in multimodal systems, informing safer prompt engineering and model design.",
   "visual_elements": [
-    "Side-by-side example: image + neutral prompt vs leading prompt with the two model outputs annotated (ground-truth vs hallucination).",
-    "Bar chart: hallucination rate by model and prompt type (neutral / leading / adversarial).",
-    "Pipeline flowchart: HalluScope generation → evaluation metrics → taxonomy of hallucination types.",
-    "Heatmap or scatter: relationship between prompt strength and severity of hallucination across models."
+    "Flow diagram showing interaction between image encoder, prompt text, and LLM decoder with an overlay indicating 'prompt override' pathways.",
+    "Bar chart comparing hallucination rates across models and prompt types (neutral vs. leading prompts).",
+    "Side-by-side example panels: image + benign prompt → grounded answer, image + leading prompt → hallucinated answer.",
+    "Heatmap or sensitivity plot showing how small prompt changes increase hallucination probability."
   ],
   "hashtags": [
-    "#VisionLanguage",
-    "#Hallucination",
-    "#Benchmark",
     "#LVLM",
-    "#PromptEngineering"
+    "#Hallucination",
+    "#PromptEngineering",
+    "#Benchmarks",
+    "#MultimodalAI"
   ],
   "paper_id": "2026-04-23-arxiv-when_prompts_override_vision_prompt_induced_hallucinations_in_lvlms",
   "paper_title": "When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.21911v1"
     }
   ],
-  "generated_at": "2026-04-24T07:49:01.840297"
+  "generated_at": "2026-04-25T07:02:30.412026"
 }

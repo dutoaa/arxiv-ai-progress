@@ -1,23 +1,23 @@
 {
-  "key_insight": "UniGenDet unifies generative and discriminative models into a single co-evolutionary framework so that a generator and a detector improve each other via adversarial feedback, yielding higher-fidelity synthetic images and stronger detection simultaneously.",
-  "problem_solved": "Bridges the gap between independently developed image generation and generated-image detection systems by providing a joint training paradigm that prevents generators from outpacing detectors and helps detectors generalize to new synthetic artifacts.",
+  "key_insight": "UniGenDet unifies generative and discriminative models in a co-evolutionary training loop so generators improve realism while detectors become more robust to new synthetic artifacts, yielding mutually beneficial gains for both tasks.",
+  "problem_solved": "Bridges the disconnect between standalone image generators and detectors—addressing the arms-race where generators evade detectors and detectors overfit to specific synthesis methods—by enabling joint, adversarially informed learning.",
   "method": [
-    "Unified architecture with paired generator and detector modules that share learned representations while retaining specialized heads for generation and classification.",
-    "Co-evolutionary/adversarial training loop: the detector supplies hard-negative feedback to the generator, and the generator produces increasingly challenging samples to improve detector robustness.",
-    "Joint objectives and curriculum/hard-mining strategies to balance image quality (e.g., perceptual/FID-style losses) and detection accuracy (classification/adversarial loss) during training."
+    "Introduce a unified framework that trains a generator and a detector together in a co-evolutionary loop so each model continually challenges and improves the other.",
+    "Exchange adversarial signals and shared feature representations between networks (e.g., discriminative feedback to guide generator artifacts mitigation and generator-driven hard negatives to strengthen the detector).",
+    "Optimize a combined objective balancing image realism and detection sensitivity, with curriculum or adaptive weighting to stabilize training and prevent collapse."
   ],
-  "impact": "Enables practitioners to train safer, more realistic generative models while maintaining or improving detection reliability—useful for media authenticity, model evaluation, and defense against misuse of synthetic imagery.",
+  "impact": "Enables more realistic synthetic image generation while producing detectors that generalize better to novel generators—useful for safer generative models, more reliable forensics, and practitioners building robust detection pipelines.",
   "visual_elements": [
-    "Diagram of the unified pipeline showing generator ⇄ detector bidirectional feedback and shared backbone",
-    "Training loop flowchart illustrating co-evolution: sample → generate hard negatives → detector updates → generator updates",
-    "Before/after image grid comparing generation quality and detection heatmaps (early vs. co-evolved models)",
-    "Performance chart: detection accuracy and generation quality metrics (e.g., detector AUC vs. FID) across training iterations or ablation bars"
+    "Co-evolution loop diagram: generator ⇄ detector with arrows showing adversarial feedback and hard-negative generation",
+    "Before/after example grid: images from standalone generator vs UniGenDet generator with detector confidence overlays",
+    "Performance plot: detector accuracy and generation FID/quality over co-training epochs showing mutual improvement",
+    "Architecture block: shared feature exchange and loss components (realism loss, detection loss, adversarial feedback)"
   ],
   "hashtags": [
     "#GenerativeAI",
-    "#DeepFakeDetection",
+    "#AIForensics",
+    "#DeepFakes",
     "#AdversarialLearning",
-    "#ComputerVision",
     "#ModelRobustness"
   ],
   "paper_id": "2026-04-23-arxiv-unigendet_a_unified_generative_discriminative_framework_for_co_evolutionary_imag",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.21904v1"
     }
   ],
-  "generated_at": "2026-04-24T07:48:45.868287"
+  "generated_at": "2026-04-25T07:02:15.184412"
 }

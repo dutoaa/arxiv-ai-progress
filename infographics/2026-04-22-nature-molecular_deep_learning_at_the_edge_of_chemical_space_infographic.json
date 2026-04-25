@@ -1,23 +1,23 @@
 {
-  "key_insight": "A single deep learning model jointly predicts bioactivity and reconstructs molecular structures while providing a principled measure of distribution shift — enabling reliable exploration at the edge of chemical space and leading to discovery of active kinase inhibitors.",
-  "problem_solved": "Addresses unreliable generalization and hidden distribution shifts when applying molecular ML models to novel regions of chemical space, which hinders discovery of real bioactive compounds.",
+  "key_insight": "A single deep-learning model jointly predicts bioactivity and reconstructs molecules to quantify when candidates lie outside the training distribution, enabling discovery of active kinase inhibitors at the 'edge' of chemical space.",
+  "problem_solved": "Chemical ML models often fail when proposed molecules are far from the training set and lack principled ways to detect distribution shift; this work provides a method to identify out-of-distribution compounds and validate predictions experimentally.",
   "method": [
-    "Train a multitask model that simultaneously performs molecular reconstruction (generative/autoencoding) and supervised bioactivity prediction to tie representation learning to prediction confidence.",
-    "Derive and use a principled metric for distribution shift/uncertainty from the joint model to identify out-of-distribution molecules and prioritize reliable predictions.",
-    "Experimentally validate the approach by screening predicted candidates and discovering active inhibitors for two clinically relevant kinase targets."
+    "Joint objective learning: shared molecular representation trained simultaneously for bioactivity prediction and molecular reconstruction to produce robust embeddings.",
+    "Principled distribution-shift scoring: use reconstruction / representation-based signals (and associated uncertainties) to quantify when a candidate is out-of-distribution (on the edge of chemical space).",
+    "Experimental validation loop: model-guided selection of compounds followed by biochemical assays that discovered active inhibitors for two clinically relevant kinase targets."
   ],
-  "impact": "Provides a practical recipe for safer, more trustworthy molecular ML: combining generative and predictive objectives improves representation robustness and gives actionable shift detection for deployment in drug discovery workflows.",
+  "impact": "Gives ML practitioners a practical framework to detect unreliable predictions and safely explore novel chemical regions, improving hit discovery efficiency and reducing wasted experiments when venturing beyond training data.",
   "visual_elements": [
-    "Schematic of model: shared encoder → reconstruction decoder + bioactivity prediction head",
-    "Chemical space map (2D projection) colored by distribution-shift score showing in-distribution vs out-of-distribution regions",
-    "Before/after bar or scatter plot showing predicted activity vs experimental validation for discovered kinase inhibitors",
-    "Icon set: molecule, confidence/uncertainty gauge, lab assay/plate to represent experimental validation"
+    "Schematic of the model: shared encoder with two heads (bioactivity predictor + molecule reconstructor).",
+    "Chemical-space map (e.g., UMAP) showing training distribution, edge compounds, and overlayed distribution-shift scores.",
+    "Performance vs. reliability plot: predictive accuracy + calibration/uncertainty metrics and experimental hit rates for in-distribution vs edge compounds.",
+    "Example molecular structures of discovered kinase inhibitors annotated with assay outcomes (to show real experimental validation)."
   ],
   "hashtags": [
-    "#MolecularAI",
+    "#MolecularML",
     "#DrugDiscovery",
-    "#Chemoinformatics",
     "#DistributionShift",
+    "#Chemoinformatics",
     "#DeepLearning"
   ],
   "paper_id": "2026-04-22-nature-molecular_deep_learning_at_the_edge_of_chemical_space",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01216-w"
     }
   ],
-  "generated_at": "2026-04-24T07:50:22.381022"
+  "generated_at": "2026-04-25T07:03:27.794316"
 }

@@ -1,21 +1,21 @@
 {
-  "key_insight": "A single diffusion-based model can be made scale-adaptive to perform joint spatial and temporal super-resolution across multiple upscaling factors, enabling one model to generalize to different spatial resolutions and temporal cadences.",
-  "problem_solved": "Existing joint spatiotemporal SR models are typically tailored to a single pair of spatial and temporal upscaling factors, requiring separate retraining for different resolutions or frame rates—this paper removes that restriction so models transfer across scales.",
+  "key_insight": "A single diffusion-based model can be made scale-adaptive to perform joint spatial and temporal super-resolution across varying upsampling factors, enabling one model to generalize to multiple spatial resolutions and frame rates.",
+  "problem_solved": "Current joint spatiotemporal super-resolution models are typically tied to a fixed pair of spatial and temporal upscaling factors, forcing retraining for new resolutions or cadences and limiting transferability for climate and video applications.",
   "method": [
-    "Introduce a scale-adaptive framework that conditions a diffusion backbone on spatial and temporal upscaling factors so the same model handles multiple SR ratios.",
-    "Train with multi-scale (or continuous scale) conditioning and joint spatiotemporal targets so the model learns to fill both spatial detail and temporal interpolation simultaneously.",
-    "Leverage diffusion sampling tailored for spatiotemporal data to generate high-fidelity frames while preserving physical consistency important for climate applications."
+    "Use a diffusion generative model trained for joint spatiotemporal super-resolution, modeling both spatial detail and temporal dynamics.",
+    "Introduce scale-adaptive conditioning/training so the same model accepts variable spatial and temporal SR factors (or conditioning vectors) at inference, removing the need for per-scale retraining.",
+    "Train with multi-scale examples and leverage progressive or multi-resolution synthesis to preserve fidelity across a range of upsampling ratios."
   ],
-  "impact": "Practitioners can deploy one flexible model across diverse sensors and cadences instead of maintaining many specialized SR models, reducing training costs and improving interoperability for climate and video-analysis pipelines.",
+  "impact": "Enables practitioners to deploy one flexible SR model across multiple spatial resolutions and frame rates, reducing engineering cost and improving applicability to climate datasets and diverse video sources.",
   "visual_elements": [
-    "Architecture diagram: diffusion backbone with scale-conditioning inputs (spatial & temporal) feeding a joint spatiotemporal output.",
-    "Before/after montage: low-res spatiotemporal input vs. high-res reconstructed sequence (spatial zoom + temporal interpolation).",
-    "Scale-transfer chart: model performance across a range of spatial and temporal upscaling factors showing stable generalization.",
-    "Flowchart showing training strategy (multi-scale conditioning) and inference with arbitrary requested SR factors."
+    "Schematic: low-res spatiotemporal cube -> scale-adaptive diffusion model -> high-res spatiotemporal cube (showing both more pixels and frames).",
+    "Diagram: conditioning mechanism that takes arbitrary spatial/temporal scale inputs and routes them into the diffusion model.",
+    "Bar/line chart: performance (accuracy/quality) vs. upscaling factor comparing single-task models vs. the scale-adaptive model.",
+    "Use-case icons: climate maps, weather forecast timelines, and a single-model deployment box to convey transferability and reduced training burden."
   ],
   "hashtags": [
-    "#DiffusionModels",
     "#SuperResolution",
+    "#DiffusionModels",
     "#SpatioTemporal",
     "#ClimateAI",
     "#ScaleAdaptive"
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.21903v1"
     }
   ],
-  "generated_at": "2026-04-24T07:48:37.412919"
+  "generated_at": "2026-04-25T07:04:07.130639"
 }
