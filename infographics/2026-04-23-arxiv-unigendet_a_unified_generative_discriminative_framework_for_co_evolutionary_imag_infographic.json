@@ -1,24 +1,24 @@
 {
-  "key_insight": "UniGenDet unifies generative and discriminative models in a co-evolutionary training loop so generators improve realism while detectors become more robust to new synthetic artifacts, yielding mutually beneficial gains for both tasks.",
-  "problem_solved": "Bridges the disconnect between standalone image generators and detectors—addressing the arms-race where generators evade detectors and detectors overfit to specific synthesis methods—by enabling joint, adversarially informed learning.",
+  "key_insight": "UniGenDet unifies generative and discriminative models into a co-evolutionary loop so that a generator and a detector are trained together, exchanging adversarial signals to improve image realism and detection robustness simultaneously.",
+  "problem_solved": "Bridges the gap between independent development of image generation and generated-image detection—preventing detectors from lagging behind new generators and enabling generators to be evaluated/trained against realistic detection pressure.",
   "method": [
-    "Introduce a unified framework that trains a generator and a detector together in a co-evolutionary loop so each model continually challenges and improves the other.",
-    "Exchange adversarial signals and shared feature representations between networks (e.g., discriminative feedback to guide generator artifacts mitigation and generator-driven hard negatives to strengthen the detector).",
-    "Optimize a combined objective balancing image realism and detection sensitivity, with curriculum or adaptive weighting to stabilize training and prevent collapse."
+    "Unified dual-path architecture: a generative network and a discriminative detection network share features and communicate via dedicated cross-task modules.",
+    "Co-evolutionary training loop: generator and detector are trained alternately with adversarial exchange (detector provides forensic feedback; generator adapts to evade detection), balanced by multi-objective losses for realism and detectability control.",
+    "Evaluation protocol: joint metrics and benchmarks that measure generation quality, detectability, and robustness under adaptive attacks to quantify trade-offs."
   ],
-  "impact": "Enables more realistic synthetic image generation while producing detectors that generalize better to novel generators—useful for safer generative models, more reliable forensics, and practitioners building robust detection pipelines.",
+  "impact": "Enables practitioners to build generative models that are evaluated against realistic detection pressure while producing detectors that stay effective as generators evolve—improving robustness in applications like deepfake mitigation and media forensics.",
   "visual_elements": [
-    "Co-evolution loop diagram: generator ⇄ detector with arrows showing adversarial feedback and hard-negative generation",
-    "Before/after example grid: images from standalone generator vs UniGenDet generator with detector confidence overlays",
-    "Performance plot: detector accuracy and generation FID/quality over co-training epochs showing mutual improvement",
-    "Architecture block: shared feature exchange and loss components (realism loss, detection loss, adversarial feedback)"
+    "Architecture diagram showing generator and detector with bidirectional feedback arrows (co-evolution loop)",
+    "Training flowchart that alternates generator update and detector update with loss terms annotated",
+    "Trade-off plot of image quality (e.g., FID) vs detection accuracy across training iterations",
+    "Before/after image grid illustrating generator outputs and detector heatmaps highlighting forensic cues"
   ],
   "hashtags": [
     "#GenerativeAI",
-    "#AIForensics",
-    "#DeepFakes",
+    "#ImageForensics",
     "#AdversarialLearning",
-    "#ModelRobustness"
+    "#DeepFakes",
+    "#UniGenDet"
   ],
   "paper_id": "2026-04-23-arxiv-unigendet_a_unified_generative_discriminative_framework_for_co_evolutionary_imag",
   "paper_title": "UniGenDet: A Unified Generative-Discriminative Framework for Co-Evolutionary Image Generation and Generated Image Detection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.21904v1"
     }
   ],
-  "generated_at": "2026-04-25T07:02:15.184412"
+  "generated_at": "2026-04-26T07:16:27.500788"
 }

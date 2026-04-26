@@ -1,24 +1,24 @@
 {
-  "key_insight": "Time (the flow and speed of events) can be learned as a visual concept from raw video: a model can both recognize when footage is sped up or slowed down and manipulate playback speed by learning temporal transformations from multimodal and structural cues.",
-  "problem_solved": "Enables automatic perception and control of the passage of time in videos — detecting speed changes, estimating temporal scale, and generating temporally warped (slowed/speeded) video while preserving realism and temporal consistency.",
+  "key_insight": "Time is a learnable visual concept: by leveraging multimodal cues and the intrinsic temporal structure of videos, models can both perceive changes in playback speed and synthesize videos at different speeds.",
+  "problem_solved": "The paper addresses the lack of methods for perceiving and controlling the passage of time in video: detecting whether a clip has been sped up or slowed down and generating realistic speed-altered videos.",
   "method": [
-    "Learn a compact \"time-flow\" representation from unlabeled video by exploiting multimodal signals (e.g., motion, appearance, audio) and natural temporal structure.",
-    "Train discriminative heads to classify/regress video speed and generative/time-warping modules to synthesize videos at different speeds, using losses that enforce temporal coherence and perceptual realism.",
-    "Use temporal modeling networks and time-warp operators to manipulate frame rates while preserving semantically consistent motion."
+    "Learn a 'flow of time' representation from videos using multimodal signals (visual frames, audio) and temporal structure, often via self-supervised objectives.",
+    "Train predictors to estimate time-scaling factors or classify speed changes from learned temporal embeddings.",
+    "Manipulate video playback by temporal resampling/interpolation or learned temporal warping (and align audio) to synthesize realistic faster/slower versions."
   ],
-  "impact": "Provides AI practitioners with methods to reason about and control temporal scale in video — useful for robust video understanding, data augmentation, temporal editing, simulation, and downstream tasks that require temporal invariance or explicit time manipulation.",
+  "impact": "Provides tools for robust temporal reasoning and controllable video editing—beneficial for action recognition, data augmentation, video synthesis, simulation, and human-centered video analysis.",
   "visual_elements": [
-    "Timeline diagram showing original, slowed, and sped-up playback with matched semantic events",
-    "Before/after frame strips or short GIFs demonstrating speed-manipulated video synthesis",
-    "Block diagram of the model: video encoder → time-flow representation → speed classifier and time-warp generator",
-    "Bar/line chart comparing performance on speed estimation and realism metrics across baselines"
+    "Timeline diagram showing original video with arrows indicating sped-up and slowed-down directions (before/after frames aligned to timeline).",
+    "Model block diagram: multimodal encoder -> temporal embedding -> time-scale predictor + temporal warper/generator.",
+    "Side-by-side frame sequence examples: original vs slowed vs sped versions to show visual artifacts and fidelity.",
+    "Chart or infographic summarizing performance (e.g., speed-detection accuracy or qualitative realism) and a small t-SNE of learned temporal embeddings."
   ],
   "hashtags": [
+    "#TimePerception",
     "#VideoUnderstanding",
     "#TemporalModeling",
-    "#SelfSupervisedLearning",
     "#VideoSynthesis",
-    "#TimePerception"
+    "#SelfSupervisedLearning"
   ],
   "paper_id": "2026-04-23-arxiv-seeing_fast_and_slow_learning_the_flow_of_time_in_videos",
   "paper_title": "Seeing Fast and Slow: Learning the Flow of Time in Videos",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.21931v1"
     }
   ],
-  "generated_at": "2026-04-25T07:03:04.890020"
+  "generated_at": "2026-04-26T07:17:36.015821"
 }

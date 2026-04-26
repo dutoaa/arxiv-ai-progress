@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single deep-learning model jointly predicts bioactivity and reconstructs molecules to quantify when candidates lie outside the training distribution, enabling discovery of active kinase inhibitors at the 'edge' of chemical space.",
-  "problem_solved": "Chemical ML models often fail when proposed molecules are far from the training set and lack principled ways to detect distribution shift; this work provides a method to identify out-of-distribution compounds and validate predictions experimentally.",
+  "key_insight": "A single deep model jointly predicts bioactivity and reconstructs molecules while providing a principled measure of distribution shift, enabling reliable detection of out-of-distribution chemistry. Experimentally validated: the approach led to discovery of active inhibitors for two clinically relevant kinases.",
+  "problem_solved": "Addresses the challenge of making molecular ML models reliable on novel regions of chemical space by quantifying when predictions are out-of-distribution and prioritizing candidates that are both predicted active and within the model's trusted domain.",
   "method": [
-    "Joint objective learning: shared molecular representation trained simultaneously for bioactivity prediction and molecular reconstruction to produce robust embeddings.",
-    "Principled distribution-shift scoring: use reconstruction / representation-based signals (and associated uncertainties) to quantify when a candidate is out-of-distribution (on the edge of chemical space).",
-    "Experimental validation loop: model-guided selection of compounds followed by biochemical assays that discovered active inhibitors for two clinically relevant kinase targets."
+    "Train a multitask model that simultaneously learns to predict bioactivity and reconstruct molecular structures (encoder–decoder + predictor integrated objective).",
+    "Derive a principled distribution-shift/uncertainty metric from the model’s internal representations to flag out-of-distribution inputs.",
+    "Validate end-to-end by selecting high-confidence candidates and experimentally testing them, discovering active inhibitors for two kinase targets."
   ],
-  "impact": "Gives ML practitioners a practical framework to detect unreliable predictions and safely explore novel chemical regions, improving hit discovery efficiency and reducing wasted experiments when venturing beyond training data.",
+  "impact": "Provides a practical way for ML practitioners to assess and mitigate out-of-distribution risk in molecular prediction tasks, improving trustworthiness and accelerating the pipeline from in silico hits to experimental validation.",
   "visual_elements": [
-    "Schematic of the model: shared encoder with two heads (bioactivity predictor + molecule reconstructor).",
-    "Chemical-space map (e.g., UMAP) showing training distribution, edge compounds, and overlayed distribution-shift scores.",
-    "Performance vs. reliability plot: predictive accuracy + calibration/uncertainty metrics and experimental hit rates for in-distribution vs edge compounds.",
-    "Example molecular structures of discovered kinase inhibitors annotated with assay outcomes (to show real experimental validation)."
+    "Model schematic: encoder → latent space → decoder and parallel bioactivity predictor (multitask architecture)",
+    "Latent-space visualization showing in-distribution vs. out-of-distribution regions with the model’s shift/uncertainty overlay",
+    "Bar or scatter chart comparing predicted confidence vs. measured bioactivity for discovered kinase inhibitors",
+    "Workflow diagram from model scoring to experimental validation (in silico ranking → selection → lab assay)"
   ],
   "hashtags": [
     "#MolecularML",
     "#DrugDiscovery",
-    "#DistributionShift",
-    "#Chemoinformatics",
-    "#DeepLearning"
+    "#OODDetection",
+    "#DeepLearning",
+    "#Cheminformatics"
   ],
   "paper_id": "2026-04-22-nature-molecular_deep_learning_at_the_edge_of_chemical_space",
   "paper_title": "Molecular deep learning at the edge of chemical space",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01216-w"
     }
   ],
-  "generated_at": "2026-04-25T07:03:27.794316"
+  "generated_at": "2026-04-26T07:18:00.662644"
 }

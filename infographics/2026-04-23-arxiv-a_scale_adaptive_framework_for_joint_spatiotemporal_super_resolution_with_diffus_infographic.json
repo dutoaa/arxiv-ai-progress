@@ -1,21 +1,21 @@
 {
-  "key_insight": "A single diffusion-based model can be made scale-adaptive to perform joint spatial and temporal super-resolution across varying upsampling factors, enabling one model to generalize to multiple spatial resolutions and frame rates.",
-  "problem_solved": "Current joint spatiotemporal super-resolution models are typically tied to a fixed pair of spatial and temporal upscaling factors, forcing retraining for new resolutions or cadences and limiting transferability for climate and video applications.",
+  "key_insight": "A single diffusion-based model can be trained to perform joint spatial and temporal super-resolution across multiple upscaling factors by making the model scale-adaptive, eliminating the need for separate models for each resolution/cadence.",
+  "problem_solved": "Existing joint spatiotemporal super-resolution models are typically tied to a single pair of spatial and temporal upscaling factors, preventing easy transfer across different spatial resolutions and frame rates—especially problematic for climate and geoscience datasets with varying scales and cadences.",
   "method": [
-    "Use a diffusion generative model trained for joint spatiotemporal super-resolution, modeling both spatial detail and temporal dynamics.",
-    "Introduce scale-adaptive conditioning/training so the same model accepts variable spatial and temporal SR factors (or conditioning vectors) at inference, removing the need for per-scale retraining.",
-    "Train with multi-scale examples and leverage progressive or multi-resolution synthesis to preserve fidelity across a range of upsampling ratios."
+    "Introduce a scale-adaptive conditioning scheme for diffusion models so one trained model can handle multiple spatial and temporal upscaling factors.",
+    "Jointly model spatial and temporal super-resolution within the diffusion denoising process, using scale parameters (and possibly multi-resolution conditioning) to guide reconstructions.",
+    "Design training and inference protocols that enable reuse of the same model across different SR ratios, improving generalization and transfer to unseen cadences/resolutions."
   ],
-  "impact": "Enables practitioners to deploy one flexible SR model across multiple spatial resolutions and frame rates, reducing engineering cost and improving applicability to climate datasets and diverse video sources.",
+  "impact": "Enables flexible, reusable super-resolution models for video and climate data that reduce model proliferation and improve adaptability to varying sensor resolutions and sampling rates—saving training cost and improving deployment robustness.",
   "visual_elements": [
-    "Schematic: low-res spatiotemporal cube -> scale-adaptive diffusion model -> high-res spatiotemporal cube (showing both more pixels and frames).",
-    "Diagram: conditioning mechanism that takes arbitrary spatial/temporal scale inputs and routes them into the diffusion model.",
-    "Bar/line chart: performance (accuracy/quality) vs. upscaling factor comparing single-task models vs. the scale-adaptive model.",
-    "Use-case icons: climate maps, weather forecast timelines, and a single-model deployment box to convey transferability and reduced training burden."
+    "Pipeline diagram: single diffusion model receiving low-res video + scale-conditioning and outputting high-res frames at arbitrary spatial/temporal scales.",
+    "Before/after montage: low-res input, temporally interpolated frames, spatially super-resolved output, and ground truth for visual comparison.",
+    "Performance chart: error (or SSIM/PSNR) across multiple spatial and temporal upscaling factors comparing single-scale baselines vs. the scale-adaptive model.",
+    "Schema showing scale-conditioning: icons/annotations for spatial scale, temporal cadence, and how they feed into the diffusion denoiser."
   ],
   "hashtags": [
-    "#SuperResolution",
     "#DiffusionModels",
+    "#SuperResolution",
     "#SpatioTemporal",
     "#ClimateAI",
     "#ScaleAdaptive"
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.21903v1"
     }
   ],
-  "generated_at": "2026-04-25T07:04:07.130639"
+  "generated_at": "2026-04-26T07:18:51.303915"
 }

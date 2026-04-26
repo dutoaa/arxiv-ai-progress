@@ -1,23 +1,23 @@
 {
-  "key_insight": "Training a single model natively on many modalities induces a behavior called Context Unrolling, where the model explicitly iterates and reasons across modality-specific representations before emitting predictions, enabling better integration of complementary signals.",
-  "problem_solved": "Bridges the gap in multimodal fusion by enabling explicit cross-modal reasoning and aggregation, improving how heterogeneous inputs (text, images, video, 3D, hidden reps) are combined into coherent, shared multimodal knowledge.",
+  "key_insight": "Omni demonstrates \"Context Unrolling\": the model explicitly reasons across multiple modal representations (text, images, video, 3D, hidden states) in an internal iterative step before producing predictions, enabling richer cross-modal aggregation and more faithful multimodal reasoning.",
+  "problem_solved": "Addresses how to unify and faithfully reason across heterogeneous modalities so complementary and partial signals (e.g., image + text + 3D) can be combined without losing intermediate modality-specific structure or relying on brittle ad-hoc fusion.",
   "method": [
-    "Native multimodal training: train one unified model on diverse modalities (text, images, video, 3D geometry, latent/hidden representations).",
-    "Context Unrolling mechanism: iteratively expose and transform modality-specific representations so the model reasons across them before final decoding.",
-    "Cross-modal aggregation: align and fuse complementary information from heterogeneous modalities to approximate a shared multimodal manifold for prediction."
+    "Train a single unified multimodal model on diverse modalities (text, images, video, 3D geometry, and hidden representations).",
+    "Introduce Context Unrolling: an explicit internal reasoning loop that propagates and refines modality-specific representations before final decoding.",
+    "Aggregate cross-modal information via attention/aggregation modules during unrolling to produce a coherent shared multimodal representation used for prediction."
   ],
-  "impact": "Makes fusion more explicit and interpretable, improving performance and robustness when combining diverse sensory and latent inputs—useful for multimodal search, understanding, and generation in real-world systems.",
+  "impact": "Enables practitioners to build models that better exploit complementary multimodal information for more accurate and faithful outputs, improving robustness and interpretability in multimodal tasks and downstream applications.",
   "visual_elements": [
-    "Pipeline diagram showing inputs (text, image, video, 3D, hidden reps) feeding into a Context Unrolling block that iteratively exchanges representations before a final prediction head.",
-    "Sequence visualization of unrolling steps (time series of intermediate multimodal representations) to illustrate iterative reasoning.",
-    "Before/after comparison chart: standard early/late fusion vs. Context Unrolling showing improved alignment and reduced information loss.",
-    "Icon set representing each modality (text, image, video, 3D, latent) connected by arrows to emphasize cross-modal aggregation."
+    "Pipeline diagram: modality inputs → modality encoders → Context Unrolling loop → decoder/output",
+    "Icon row: small icons for text, image, video, 3D and hidden-state tokens feeding into the unrolling module",
+    "Before vs After chart: comparison of naive fusion vs Context Unrolling on task accuracy/faithfulness",
+    "Attention heatmap or flow visualization showing how information is reweighted and aggregated across modalities during unrolling"
   ],
   "hashtags": [
     "#MultimodalAI",
+    "#OmniModel",
     "#ContextUnrolling",
-    "#UnifiedModels",
-    "#RepresentationLearning",
+    "#MultimodalReasoning",
     "#AIResearch"
   ],
   "paper_id": "2026-04-23-arxiv-context_unrolling_in_omni_models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.21921v1"
     }
   ],
-  "generated_at": "2026-04-25T07:02:43.469275"
+  "generated_at": "2026-04-26T07:17:01.936311"
 }
