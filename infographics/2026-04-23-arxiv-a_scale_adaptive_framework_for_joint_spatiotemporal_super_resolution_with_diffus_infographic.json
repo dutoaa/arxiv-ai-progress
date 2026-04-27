@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single diffusion-based model can be trained to perform joint spatial and temporal super-resolution across multiple upscaling factors by making the model scale-adaptive, eliminating the need for separate models for each resolution/cadence.",
-  "problem_solved": "Existing joint spatiotemporal super-resolution models are typically tied to a single pair of spatial and temporal upscaling factors, preventing easy transfer across different spatial resolutions and frame rates—especially problematic for climate and geoscience datasets with varying scales and cadences.",
+  "key_insight": "A single diffusion-based model can be made scale-adaptive to perform joint spatial and temporal super-resolution across multiple upscaling factors, enabling transfer across spatial resolutions and frame rates without retraining a new model per scale.",
+  "problem_solved": "Existing joint spatiotemporal SR methods are typically tied to a single pair of spatial and temporal upscaling factors, which limits reuse across datasets, resolutions, and temporal cadences—especially problematic for climate applications that need flexible upscaling.",
   "method": [
-    "Introduce a scale-adaptive conditioning scheme for diffusion models so one trained model can handle multiple spatial and temporal upscaling factors.",
-    "Jointly model spatial and temporal super-resolution within the diffusion denoising process, using scale parameters (and possibly multi-resolution conditioning) to guide reconstructions.",
-    "Design training and inference protocols that enable reuse of the same model across different SR ratios, improving generalization and transfer to unseen cadences/resolutions."
+    "Scale-adaptive conditioning: parameterize desired spatial and temporal SR factors so the diffusion backbone can be steered to different upscales at inference.",
+    "Shared diffusion backbone with progressive spatiotemporal upsampling: iterative denoising/refinement that produces high-fidelity frames while scaling space and time jointly.",
+    "Training/inference strategies for cross-scale transferability (e.g., variable-scale training, resampling and time-conditioning) to reuse one model across multiple SR ratios."
   ],
-  "impact": "Enables flexible, reusable super-resolution models for video and climate data that reduce model proliferation and improve adaptability to varying sensor resolutions and sampling rates—saving training cost and improving deployment robustness.",
+  "impact": "Provides a flexible, cost-effective SR solution so practitioners can apply one model to diverse resolution and cadence requirements (e.g., multi-resolution climate datasets or heterogeneous video sources), reducing retraining and deployment complexity.",
   "visual_elements": [
-    "Pipeline diagram: single diffusion model receiving low-res video + scale-conditioning and outputting high-res frames at arbitrary spatial/temporal scales.",
-    "Before/after montage: low-res input, temporally interpolated frames, spatially super-resolved output, and ground truth for visual comparison.",
-    "Performance chart: error (or SSIM/PSNR) across multiple spatial and temporal upscaling factors comparing single-scale baselines vs. the scale-adaptive model.",
-    "Schema showing scale-conditioning: icons/annotations for spatial scale, temporal cadence, and how they feed into the diffusion denoiser."
+    "Architecture diagram: LR spatiotemporal input → scale-adapter conditioning → shared diffusion backbone → HR frames at variable spatial/temporal scales.",
+    "Before/after grid: low-res frames vs. jointly super-resolved spatial+temporal sequence (animated or stepped frames).",
+    "Bar/line chart: accuracy or perceptual quality vs. upscaling factor showing model transferability across multiple spatial and temporal ratios.",
+    "Icon set: diffusion/noise schedule, scale slider (for spatial & temporal), and a globe or climate-data icon to emphasize application."
   ],
   "hashtags": [
-    "#DiffusionModels",
     "#SuperResolution",
+    "#DiffusionModels",
     "#SpatioTemporal",
     "#ClimateAI",
-    "#ScaleAdaptive"
+    "#ScaleAdaptation"
   ],
   "paper_id": "2026-04-23-arxiv-a_scale_adaptive_framework_for_joint_spatiotemporal_super_resolution_with_diffus",
   "paper_title": "A Scale-Adaptive Framework for Joint Spatiotemporal Super-Resolution with Diffusion Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.21903v1"
     }
   ],
-  "generated_at": "2026-04-26T07:18:51.303915"
+  "generated_at": "2026-04-27T08:09:21.361058"
 }

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Distill the utility judgments of an LLM re-ranker into dense vector embeddings so retrieval behaves like LLM re-ranking but runs at dense-search speeds, combining high utility with practical efficiency.",
+  "problem_solved": "Bridges the gap between fast but imprecise dense similarity search and slow but higher-utility LLM re-ranking — mitigating compute cost and noisy perplexity-based signals while improving retrieval relevance for RAG systems.",
+  "method": [
+    "Use an LLM re-ranker as a teacher to produce utility scores / pairwise preferences over document candidates.",
+    "Train a dense encoder (student) via utility-aware distillation so embedding similarities reflect the LLM's utility judgments (contrastive/regression distillation loss).",
+    "Deploy the trained embeddings for fast nearest-neighbor retrieval, reducing dependence on expensive reranking while preserving LLM-aligned relevance."
+  ],
+  "impact": "Allows practitioners to get LLM-quality retrieval relevance at dense-search latency and cost, improving downstream RAG fidelity and scalability without continuous expensive re-ranking.",
+  "visual_elements": [
+    "Side-by-side pipeline diagram: (a) baseline dense retrieval + expensive LLM reranker vs (b) UAE pipeline where LLM teaches embeddings and retrieval is direct.",
+    "Teacher–student flowchart showing LLM utility scores -> distillation loss -> dense encoder weights update.",
+    "Bar/line chart comparing retrieval metrics (e.g., utility, precision@k, latency, cost) for dense, LLM-rerank, and UAE.",
+    "Icon set illustrating tradeoffs: speed (clock), quality (target), cost (dollar), and robustness (shield)."
+  ],
+  "hashtags": [
+    "#RetrievalAugmentedGeneration",
+    "#DenseRetrieval",
+    "#KnowledgeDistillation",
+    "#LLMAlignment",
+    "#InformationRetrieval"
+  ],
+  "paper_id": "2026-04-24-arxiv-aligning_dense_retrievers_with_llm_utility_via_distillationaligning_dense_retrie",
+  "paper_title": "Aligning Dense Retrievers with LLM Utility via DistillationAligning Dense Retrievers with LLM Utility via Distillation",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-04-24",
+  "paper_authors": "Rajinder Sandhu, Di Mu, Cheng Chang, Md Shahriar Tasjid, Himanshu Rai",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.22722v1"
+    }
+  ],
+  "generated_at": "2026-04-27T08:06:04.352272"
+}

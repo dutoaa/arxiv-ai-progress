@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single deep model jointly predicts bioactivity and reconstructs molecules while providing a principled measure of distribution shift, enabling reliable detection of out-of-distribution chemistry. Experimentally validated: the approach led to discovery of active inhibitors for two clinically relevant kinases.",
-  "problem_solved": "Addresses the challenge of making molecular ML models reliable on novel regions of chemical space by quantifying when predictions are out-of-distribution and prioritizing candidates that are both predicted active and within the model's trusted domain.",
+  "key_insight": "A single deep model jointly learns to predict bioactivity and reconstruct molecules, and uses its learned representation to quantify distribution shift—enabling reliable discovery of active compounds at the edge of chemical space, validated by prospective kinase inhibitor hits.",
+  "problem_solved": "Addresses unreliable bioactivity prediction when models encounter molecules outside their training distribution by providing a principled, model-internal measure of distribution shift and using it to guide prospective experimental discovery.",
   "method": [
-    "Train a multitask model that simultaneously learns to predict bioactivity and reconstruct molecular structures (encoder–decoder + predictor integrated objective).",
-    "Derive a principled distribution-shift/uncertainty metric from the model’s internal representations to flag out-of-distribution inputs.",
-    "Validate end-to-end by selecting high-confidence candidates and experimentally testing them, discovering active inhibitors for two kinase targets."
+    "Train a multitask encoder–decoder model that simultaneously reconstructs molecular structure and predicts bioactivity from the same latent representation.",
+    "Derive a principled distribution-shift / out-of-distribution score from the learned representation (latent-space / likelihood-based), and use it to flag predictions with low trust.",
+    "Prospectively screen and experimentally validate predictions, discovering active inhibitors for two clinically relevant kinases to demonstrate real-world utility."
   ],
-  "impact": "Provides a practical way for ML practitioners to assess and mitigate out-of-distribution risk in molecular prediction tasks, improving trustworthiness and accelerating the pipeline from in silico hits to experimental validation.",
+  "impact": "Provides a practical framework for building safer, more trustworthy molecular ML models by coupling generative reconstruction with prediction and OOD scoring—improving hit discovery reliability in drug discovery pipelines.",
   "visual_elements": [
-    "Model schematic: encoder → latent space → decoder and parallel bioactivity predictor (multitask architecture)",
-    "Latent-space visualization showing in-distribution vs. out-of-distribution regions with the model’s shift/uncertainty overlay",
-    "Bar or scatter chart comparing predicted confidence vs. measured bioactivity for discovered kinase inhibitors",
-    "Workflow diagram from model scoring to experimental validation (in silico ranking → selection → lab assay)"
+    "Schematic of the joint model: encoder -> shared latent space -> decoder (reconstruction) and predictor (bioactivity)",
+    "2D chemical-space map (latent embedding) showing training distribution, test compounds, and OOD score heatmap",
+    "Bar/ROC plots comparing predictive accuracy and OOD detection performance, plus a trust-threshold illustration",
+    "Example structures of experimentally validated kinase inhibitors with measured activity bars"
   ],
   "hashtags": [
-    "#MolecularML",
+    "#MolecularAI",
     "#DrugDiscovery",
     "#OODDetection",
     "#DeepLearning",
-    "#Cheminformatics"
+    "#Chemoinformatics"
   ],
   "paper_id": "2026-04-22-nature-molecular_deep_learning_at_the_edge_of_chemical_space",
   "paper_title": "Molecular deep learning at the edge of chemical space",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01216-w"
     }
   ],
-  "generated_at": "2026-04-26T07:18:00.662644"
+  "generated_at": "2026-04-27T08:07:52.151109"
 }

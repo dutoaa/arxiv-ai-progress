@@ -1,24 +1,24 @@
 {
-  "key_insight": "Generative (decoder-based) LLMs can be used as semantics-aware evaluators for ASR: they reliably pick better hypotheses and produce meaning-driven distances/labels that complement or improve upon WER and embedding-only metrics.",
-  "problem_solved": "WER is insensitive to meaning and can mislead ASR assessment; the paper addresses the need for evaluation metrics that reflect semantic fidelity and human perception.",
+  "key_insight": "Generative LLMs can evaluate ASR outputs in a meaning-aware way—using pairwise selection, generative embeddings, and qualitative LLM judgments—providing signals better aligned with human perception than raw WER.",
+  "problem_solved": "Standard WER is insensitive to meaning and can misrepresent perceived transcription quality; decoder-based LLMs as evaluators have been underexplored for producing semantic-aware ASR evaluation.",
   "method": [
-    "Pairwise selection: use a generative LLM to choose the better transcription from two ASR hypotheses.",
-    "Generative embeddings / semantic distance: extract LLM-derived embeddings or similarity scores to compute meaning-based distance between reference and hypothesis.",
-    "Qualitative classification/analysis: prompt the LLM to produce human-readable error categories or qualitative judgments to explain semantic failures; compare these signals to WER and embedding-based metrics."
+    "Pairwise selection: use an LLM to choose the better hypothesis between two ASR outputs.",
+    "Generative embeddings: extract embeddings from a generative LLM to compute semantic distance between reference and hypothesis.",
+    "Qualitative LLM analysis: use generative LLM outputs for classification/qualitative assessment of error types and semantic deviations."
   ],
-  "impact": "Provides practical, semantics-aware evaluation tools that align ASR scoring with human judgment, helping researchers and engineers prioritize real-world errors and improve model development/benchmarking.",
+  "impact": "Provides AI/ML practitioners with evaluation tools that reflect semantic fidelity and human judgment, enabling more meaningful benchmarking and model selection beyond WER. This can guide development toward systems that preserve intended meaning rather than just token-level accuracy.",
   "visual_elements": [
-    "Three-panel flowchart showing the three approaches (pairwise selection, semantic-distance via embeddings, qualitative classification) from audio → ASR hypotheses → LLM evaluator → score/label.",
-    "Bar chart or scatter plot comparing correlation of WER, embedding-based metrics, and LLM-based scores with human judgments.",
-    "Example pairwise comparison card (audio waveform + two transcriptions) showing the LLM's chosen preferred hypothesis and short rationale.",
-    "Embedding-space visualization (t-SNE/UMAP) or heatmap illustrating semantic distances between references and hypotheses using LLM embeddings."
+    "Side-by-side comparison diagram of WER vs. LLM-based evaluation showing different outcomes for the same ASR outputs",
+    "Bar/line chart of correlation with human judgments: WER vs. embedding-based vs. LLM pairwise scoring",
+    "Pipeline flowchart: ASR → candidate hypotheses → generative LLM (pairwise/embeddings/qualitative) → score/label",
+    "2D embedding scatterplot (UMAP/t-SNE) illustrating semantic distance between reference and multiple hypotheses"
   ],
   "hashtags": [
     "#ASR",
     "#LLM",
-    "#Evaluation",
+    "#SpeechEvaluation",
     "#SemanticMetrics",
-    "#SpeechAI"
+    "#NLP"
   ],
   "paper_id": "2026-04-23-arxiv-evaluation_of_automatic_speech_recognition_using_generative_large_language_model",
   "paper_title": "Evaluation of Automatic Speech Recognition Using Generative Large Language Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.21928v1"
     }
   ],
-  "generated_at": "2026-04-26T07:17:25.147719"
+  "generated_at": "2026-04-27T08:09:36.803807"
 }
