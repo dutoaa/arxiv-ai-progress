@@ -1,0 +1,35 @@
+{
+  "key_insight": "World-R1 uses reinforcement learning to align text-to-video generation with explicit 3D constraints, delivering more geometrically consistent videos by steering pretrained video models rather than redesigning their architectures.",
+  "problem_solved": "Text-to-video foundation models often produce geometric and multi-view inconsistencies (e.g., shape/pose drift, inconsistent depth or camera motion). Prior solutions inject 3D priors via architectural changes that increase compute and reduce scalability; World-R1 addresses consistency without heavy architectural cost.",
+  "method": [
+    "Apply a reinforcement learning loop to fine-tune or steer pretrained text-to-video models so generated frames satisfy 3D-aware objectives instead of modifying model internals.",
+    "Design 3D-aware reward functions that capture multi-view coherence, depth consistency, object permanence, and camera motion alignment (computed via differentiable cues or proxy estimators).",
+    "Introduce and train with a specialized pure-text world-simulation dataset that provides structured scenario descriptions and supervision signals for learning stable, physically plausible video dynamics."
+  ],
+  "impact": "Provides a scalable way to improve geometric fidelity in text-to-video outputs, enabling practitioners to retrofit 3D alignment onto existing models with lower engineering and compute overhead. This boosts realism and reliability for applications like content creation, AR, and simulation.",
+  "visual_elements": [
+    "Pipeline diagram: text prompt → pretrained video model → RL controller + 3D-aware reward → geometrically consistent video",
+    "Before/After frame pairs highlighting corrected geometry (multi-view alignment, consistent object shape/depth)",
+    "Reward-function schematic showing components (multi-view, depth, pose, object permanence) and how they score outputs",
+    "Dataset illustration: examples of pure-text world-simulation prompts and corresponding desired scene trajectories"
+  ],
+  "hashtags": [
+    "#TextToVideo",
+    "#3DConsistency",
+    "#ReinforcementLearning",
+    "#VideoGeneration",
+    "#WorldSimulation"
+  ],
+  "paper_id": "2026-04-27-arxiv-world_r1_reinforcing_3d_constraints_for_text_to_video_generation",
+  "paper_title": "World-R1: Reinforcing 3D Constraints for Text-to-Video Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-04-27",
+  "paper_authors": "Weijie Wang, Xiaoxuan He, Youping Gu, Yifan Yang, Zeyu Zhang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.24764v1"
+    }
+  ],
+  "generated_at": "2026-04-28T08:08:49.593670"
+}

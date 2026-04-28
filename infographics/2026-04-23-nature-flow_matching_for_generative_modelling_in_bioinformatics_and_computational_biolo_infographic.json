@@ -1,24 +1,24 @@
 {
-  "key_insight": "Flow matching provides a simple, scalable way to learn continuous deterministic flows that map between arbitrary high-dimensional biological data distributions, enabling high-quality generative modelling for molecules, cells, and other bio-data without complex noise schedules.",
-  "problem_solved": "Addresses the difficulty of learning flexible, stable generative models for complex biological data (molecular structures, single-cell profiles, etc.), where existing methods (diffusion models, CNFs) can be computationally costly, fragile, or limited in mapping paired distributions.",
+  "key_insight": "Flow matching gives a principled, flexible way to learn continuous maps between arbitrary high‑dimensional biological data distributions, enabling direct, controllable generative transformations for molecular and cellular data.",
+  "problem_solved": "Addresses the challenge of modeling and transforming complex, high‑dimensional biological data distributions (e.g., molecular conformations, cell states) where existing generative methods can be inefficient or poorly suited to paired distribution mapping.",
   "method": [
-    "Formulate generation as learning a time-dependent vector field that deterministically transports one distribution to another (flow matching) and train it by simple regression on paired endpoint samples.",
-    "Sample by integrating the learned ODE (deterministic flow) from source to target; avoids score estimation, denoising steps, and elaborate noise schedules used in diffusion models.",
-    "Apply and adapt the framework to biological tasks (molecular generation, protein/state interpolation, single-cell simulation), leveraging conditional inputs and domain-specific constraints."
+    "Formulate a flow‑matching objective that trains a vector field to transport samples from a source distribution to a target distribution by matching instantaneous flow directions.",
+    "Leverage continuous ODE/SDE-style trajectories for generation, enabling direct mapping between paired datasets (conditional or paired generation) with fewer sampling artifacts.",
+    "Demonstrate applications and variants tailored to computational biology tasks, highlighting theoretical foundations and practical implementation choices."
   ],
-  "impact": "Gives ML practitioners a computationally efficient, stable alternative for generative modelling in bioinformatics—facilitating design, simulation, and data augmentation for molecular and cellular applications with simpler training and competitive sample quality.",
+  "impact": "Provides AI/ML practitioners a versatile generative framework that can improve sample quality, enable direct distribution-to-distribution translation, and accelerate tasks like molecular design, conditional generation, and realistic biological data augmentation.",
   "visual_elements": [
-    "Schematic: two clouds of points (source and target distributions) connected by streamlines showing the learned continuous flow/ODE trajectory.",
-    "Flowchart: training loop showing paired samples → vector-field regression objective → ODE integration for sampling.",
-    "Comparison bar/spyder chart: flow matching vs diffusion vs CNF (training complexity, sampling speed, sample quality, hyperparameter sensitivity).",
-    "Application panel: small icons/mini-diagrams for molecule generation, protein conformations, and single-cell data simulation with brief annotation of benefits."
+    "Schematic of a flow field mapping: source distribution → continuous trajectories → target distribution (vector field arrows over data manifold).",
+    "Comparison chart: flow matching vs diffusion/score‑based models (sampling speed, direct mapping, training objective).",
+    "Application panels: small illustrations showing use cases (molecular conformation generation, cell state interpolation/trajectory translation).",
+    "Training objective diagram: instantaneous vector matching loss with paired samples and learned neural vector field."
   ],
   "hashtags": [
     "#FlowMatching",
-    "#GenerativeModels",
+    "#GenerativeModeling",
     "#ComputationalBiology",
     "#MolecularAI",
-    "#SingleCell"
+    "#Bioinformatics"
   ],
   "paper_id": "2026-04-23-nature-flow_matching_for_generative_modelling_in_bioinformatics_and_computational_biolo",
   "paper_title": "Flow matching for generative modelling in bioinformatics and computational biology",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01220-0"
     }
   ],
-  "generated_at": "2026-04-27T08:09:04.569925"
+  "generated_at": "2026-04-28T08:11:17.376891"
 }

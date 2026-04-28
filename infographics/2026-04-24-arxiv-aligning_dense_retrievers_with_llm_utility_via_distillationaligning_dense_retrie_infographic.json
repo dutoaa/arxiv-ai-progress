@@ -1,23 +1,23 @@
 {
-  "key_insight": "Distill the utility judgments of an LLM re-ranker into dense vector embeddings so retrieval behaves like LLM re-ranking but runs at dense-search speeds, combining high utility with practical efficiency.",
-  "problem_solved": "Bridges the gap between fast but imprecise dense similarity search and slow but higher-utility LLM re-ranking — mitigating compute cost and noisy perplexity-based signals while improving retrieval relevance for RAG systems.",
+  "key_insight": "Distill LLM-derived utility signals into dense embeddings so a retriever behaves like an expensive LLM re-ranker at retrieval time, achieving higher utility-aware precision with the speed of vector search.",
+  "problem_solved": "Bridges the gap between high-precision but costly LLM re-ranking (utility-based signals) and fast but sometimes imprecise dense vector retrieval, enabling practical Retrieval-Augmented Generation with improved relevance.",
   "method": [
-    "Use an LLM re-ranker as a teacher to produce utility scores / pairwise preferences over document candidates.",
-    "Train a dense encoder (student) via utility-aware distillation so embedding similarities reflect the LLM's utility judgments (contrastive/regression distillation loss).",
-    "Deploy the trained embeddings for fast nearest-neighbor retrieval, reducing dependence on expensive reranking while preserving LLM-aligned relevance."
+    "Use an LLM re-ranker or utility oracle to score relevance/utility for query–document pairs (generate soft/hard utility labels).",
+    "Train a dense embedding model via distillation so embedded distances reflect LLM utility (align embeddings with utility scores), possibly combining contrastive and regression-style losses.",
+    "Deploy the distilled retriever at query time to get LLM-like re-ranking quality with low-latency vector search, reducing on-the-fly LLM calls."
   ],
-  "impact": "Allows practitioners to get LLM-quality retrieval relevance at dense-search latency and cost, improving downstream RAG fidelity and scalability without continuous expensive re-ranking.",
+  "impact": "Practitioners get near-LLM re-ranking quality without the runtime cost and instability of running LLMs for every query, improving RAG throughput, cost-efficiency, and end-to-end retrieval quality.",
   "visual_elements": [
-    "Side-by-side pipeline diagram: (a) baseline dense retrieval + expensive LLM reranker vs (b) UAE pipeline where LLM teaches embeddings and retrieval is direct.",
-    "Teacher–student flowchart showing LLM utility scores -> distillation loss -> dense encoder weights update.",
-    "Bar/line chart comparing retrieval metrics (e.g., utility, precision@k, latency, cost) for dense, LLM-rerank, and UAE.",
-    "Icon set illustrating tradeoffs: speed (clock), quality (target), cost (dollar), and robustness (shield)."
+    "Pipeline diagram: LLM re-ranker → Distillation loss → Utility-aligned embedding model → Fast retrieval",
+    "Before/After embedding space visualization showing better clustering of utility-relevant docs",
+    "Bar chart comparing accuracy (or utility) and latency/cost for: baseline dense retriever, LLM re-ranker, and UAE-distilled retriever",
+    "Icon set: cost/time reduction, improved precision, scalable retrieval"
   ],
   "hashtags": [
-    "#RetrievalAugmentedGeneration",
     "#DenseRetrieval",
-    "#KnowledgeDistillation",
-    "#LLMAlignment",
+    "#Distillation",
+    "#RAG",
+    "#LLM",
     "#InformationRetrieval"
   ],
   "paper_id": "2026-04-24-arxiv-aligning_dense_retrievers_with_llm_utility_via_distillationaligning_dense_retrie",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.22722v1"
     }
   ],
-  "generated_at": "2026-04-27T08:06:04.352272"
+  "generated_at": "2026-04-28T08:12:03.511577"
 }

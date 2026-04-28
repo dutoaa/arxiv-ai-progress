@@ -1,24 +1,24 @@
 {
-  "key_insight": "Decoupling pose from shape yields a pose-aware retrieval pipeline that is more interpretable and robust to occlusions in single-view 3D shape retrieval.",
-  "problem_solved": "Improves single-view 3D shape retrieval under heavy occlusion and arbitrary camera poses, addressing the limited interpretability and poor generalization of holistic feed-forward alignment methods.",
+  "key_insight": "Disentangling pose from shape and conditioning retrieval on estimated camera pose lets a model map occluded single views into a pose-normalized 3D shape space, yielding more robust and interpretable 3D retrieval from partial observations.",
+  "problem_solved": "How to reliably retrieve the correct 3D shape from a single, often heavily occluded view where holistic image–shape alignments fail due to viewpoint and missing-visible-part ambiguities.",
   "method": [
-    "Pose-aware representation: disentangle or estimate view pose to normalize observations before shape matching.",
-    "Occlusion-aware feature extraction: focus on visible parts (e.g., visibility masks or attention) to produce robust partial-shape descriptors.",
-    "Pose-normalized retrieval: match query embeddings to 3D shape embeddings in a common, interpretable space (e.g., with contrastive or alignment supervision) to improve robustness and explainability."
+    "Pose-aware decomposition: estimate camera pose from the input view and use it to canonicalize or condition downstream shape embeddings.",
+    "Occlusion-robust shape encoder: train a shape embedding that aligns partial (occluded) views with full 3D shapes using pose-conditioning and contrastive/retrieval objectives with synthetic occlusion augmentation.",
+    "Pose-conditioned retrieval and attention to visible regions to improve interpretability and reduce false matches caused by occluders or extreme viewpoints."
   ],
-  "impact": "Makes 3D retrieval systems more reliable in real-world scenarios (e.g., robotics, AR, and large-scale image-to-3D search) by handling occlusion and pose variation while providing interpretable retrieval cues for debugging and downstream use.",
+  "impact": "Makes single-view 3D retrieval practical in real-world settings (robotics, AR, inventory search) by improving robustness to occlusion and viewpoint changes and by producing more interpretable embeddings for debugging and downstream use.",
   "visual_elements": [
-    "Pipeline diagram: input image → pose estimator / visibility mask → pose-normalization → shape embedding → retrieval results",
-    "Before/after retrieval examples: occluded query images with top-k retrieved 3D shapes for baseline vs. PASR",
-    "Embedding visualization: 2D projection (t-SNE/UMAP) showing better clustering after pose normalization",
-    "Attention/visibility overlay: heatmaps or masks on input images illustrating which visible parts drive retrieval"
+    "Pipeline diagram: occluded input image → pose estimator → pose-normalizer/conditioner → shape encoder → retrieval results.",
+    "Before/after examples: retrieval failures of a holistic baseline vs correct matches from the pose-aware approach on occluded inputs.",
+    "Canonicalization visualization: partial input transformed to a canonical pose alongside the retrieved 3D model to show alignment.",
+    "Embedding-space plot (t-SNE/UMAP) highlighting separation of shapes when conditioned on pose and showing clustered occluded vs full-view embeddings."
   ],
   "hashtags": [
     "#3DShapeRetrieval",
-    "#PoseAware",
-    "#OcclusionRobust",
+    "#PoseEstimation",
+    "#OcclusionRobustness",
     "#ComputerVision",
-    "#ContrastiveLearning"
+    "#RepresentationLearning"
   ],
   "paper_id": "2026-04-24-arxiv-pasr_pose_aware_3d_shape_retrieval_from_occluded_single_views",
   "paper_title": "PASR: Pose-Aware 3D Shape Retrieval from Occluded Single Views",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.22658v1"
     }
   ],
-  "generated_at": "2026-04-27T08:05:02.675311"
+  "generated_at": "2026-04-28T08:11:52.603537"
 }
