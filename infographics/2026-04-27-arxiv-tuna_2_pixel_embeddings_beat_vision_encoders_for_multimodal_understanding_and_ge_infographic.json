@@ -1,23 +1,23 @@
 {
-  "key_insight": "Tuna-2 shows that simple pixel (patch) embeddings — trained end-to-end from raw pixels — can replace pretrained vision encoders and provide a single unified visual representation that outperforms separate encoders for both understanding and generation.",
-  "problem_solved": "Current unified multimodal models use pretrained vision encoders and separate visual representations for understanding vs. generation, causing task misalignment and preventing fully end-to-end optimization from raw pixels.",
+  "key_insight": "Tuna-2 replaces pretrained vision encoders with native pixel (patch) embeddings, using the same visual representation for both understanding and generation so the entire multimodal model can be trained end-to-end from raw pixels.",
+  "problem_solved": "Existing multimodal systems use different visual representations for perception and generation (pretrained encoders vs. generation inputs), causing task misalignment and preventing fully end-to-end optimization from pixels.",
   "method": [
-    "Replace pretrained vision backbones with lightweight patch/pixel embedding layers that convert raw pixels into token embeddings.",
-    "Use a single unified representation for both visual understanding and visual generation, enabling shared optimization and eliminating dual visual pipelines.",
-    "Train the full model end-to-end from pixels, aligning understanding and generation objectives within one architecture."
+    "Encode images directly with simple patch/pixel embedding layers rather than large pretrained vision encoders.",
+    "Use a single unified multimodal architecture that consumes pixel embeddings for both visual understanding (e.g., VQA, classification) and visual generation (e.g., captioning, multimodal generation), removing representational mismatch.",
+    "Train the model end-to-end from raw pixels to downstream outputs, simplifying the pipeline and enabling joint optimization of visual and language components."
   ],
-  "impact": "Simpler architectures and end-to-end pixel training reduce modality misalignment and engineering complexity, enabling practitioners to build more efficient and better-aligned multimodal models for tasks like VQA, captioning, and image-conditioned generation.",
+  "impact": "By unifying representations and enabling end-to-end training from pixels, Tuna-2 simplifies model design and reduces encoder–decoder misalignment—helpful for building more flexible, maintainable multimodal systems and for research on pixel-native multimodal learning.",
   "visual_elements": [
-    "Architecture diagram comparing (a) traditional two-stream approach with pretrained vision encoder + separate generation tokens vs (b) Tuna-2 single pixel-embedding pipeline.",
-    "Flowchart showing end-to-end training from raw pixels to both understanding and generation outputs.",
-    "Bar chart or schematic highlighting performance/efficiency gains (e.g., fewer modules, lower latency, improved alignment) — qualitative if exact numbers are not shown.",
-    "Icon set illustrating key concepts: raw pixels → patch embeddings, unified tokens, and multimodal outputs (text + generated images)."
+    "Side-by-side pipeline comparison: traditional pretrained-encoder → fusion → generator vs. Tuna-2 raw pixels → patch embeddings → single multimodal model.",
+    "Architecture diagram: image → patch embeddings → unified transformer → branching outputs (understanding & generation).",
+    "Benefits icons/chart: alignment, end-to-end training, simpler stack, fewer components.",
+    "Example input→output panel: raw image with generated caption and visual QA pair to show both tasks from same representation."
   ],
   "hashtags": [
     "#MultimodalAI",
     "#PixelEmbeddings",
     "#EndToEndLearning",
-    "#VisionModels",
+    "#VisionLanguage",
     "#Tuna2"
   ],
   "paper_id": "2026-04-27-arxiv-tuna_2_pixel_embeddings_beat_vision_encoders_for_multimodal_understanding_and_ge",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.24763v1"
     }
   ],
-  "generated_at": "2026-04-28T08:08:27.335432"
+  "generated_at": "2026-04-29T08:05:38.351995"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "OmniShotCut reframes shot boundary detection as a structured relational prediction problem and introduces a shot‑query Transformer that jointly reasons about shot boundaries and inter-shot relations, producing more interpretable, sensitive, and robust boundary detections.",
-  "problem_solved": "Existing SBD methods give non‑interpretable boundary predictions, miss subtle but harmful discontinuities, and rely on noisy, low‑diversity annotations and outdated benchmarks—limiting downstream video understanding tasks and reliable evaluation.",
+  "key_insight": "OmniShotCut reconceptualizes shot-boundary detection as a structured relational prediction problem and uses a Shot‑Query Transformer to jointly model shot boundaries and inter-shot relations, improving interpretability and sensitivity to subtle transitions.",
+  "problem_solved": "Existing SBD methods produce non‑interpretable boundaries, miss subtle but harmful discontinuities, and depend on noisy, low‑diversity annotations and outdated benchmarks.",
   "method": [
-    "Shot‑Query Transformer: use learnable shot queries to simultaneously predict shot boundaries and relational links between frames/shots via cross‑attention.",
-    "Structured relational prediction: model pairwise and higher‑order relationships to disambiguate gradual, abrupt, and complex transitions and yield interpretable boundary scores.",
-    "Cleaner supervision & evaluation: incorporate higher‑quality annotations and updated benchmark protocols to improve training robustness and comparative evaluation."
+    "Formulate SBD as holistic relational prediction—predict shot boundaries together with pairwise/relational shot structure instead of independent frame decisions.",
+    "Introduce a Shot‑Query Transformer that attends across temporal queries to capture long‑range and relational cues for boundary localization and transition type reasoning.",
+    "Reduce reliance on noisy labels by incorporating improved annotation/benchmarking and training strategies (better supervision and evaluation protocols) to yield more reliable, interpretable outputs."
   ],
-  "impact": "Delivers more reliable and interpretable shot segmentation for video pipelines, improving preprocessing for tasks like video retrieval, summarization, and downstream temporal understanding while offering stronger benchmarks for future SBD research.",
+  "impact": "Provides a more interpretable, robust SBD approach that better detects subtle transitions and supports downstream video tasks (indexing, editing, retrieval) with cleaner shot segmentation and clearer failure modes for practitioners.",
   "visual_elements": [
-    "Schematic of the Shot‑Query Transformer: timeline of frames with shot queries attending to frame regions (attention heatmaps) and emitting boundary + relation outputs.",
-    "Before/after timeline: example video timeline showing original noisy boundaries vs. OmniShotCut's refined, interpretable boundaries with labels (abrupt, gradual, continuity).",
-    "Attention/relational heatmap: matrix visualizing predicted inter‑frame/shot affinities that explain why a boundary was placed.",
-    "Performance comparison chart: precision/recall or F1 bars showing robustness on subtle transitions and under noisy labels (qualitative + quantitative callouts)."
+    "Architecture diagram of the Shot‑Query Transformer showing temporal queries, cross‑attention, and relational output heads (boundaries + relations).",
+    "Timeline/comparison strip showing ground‑truth shot, abrupt cut, dissolve, and a subtle discontinuity with model predictions overlaid.",
+    "Relational graph visualization linking shots (nodes) with predicted relations and boundary confidence (edge thickness/color).",
+    "Bar or precision‑recall chart comparing OmniShotCut vs. prior SOTA on fault types (abrupt, gradual, subtle discontinuities)."
   ],
   "hashtags": [
     "#ShotBoundaryDetection",
     "#VideoUnderstanding",
     "#Transformers",
     "#ComputerVision",
-    "#Benchmarking"
+    "#AIResearch"
   ],
   "paper_id": "2026-04-27-arxiv-omnishotcut_holistic_relational_shot_boundary_detection_with_shot_query_transfor",
   "paper_title": "OmniShotCut: Holistic Relational Shot Boundary Detection with Shot-Query Transformer",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.24762v1"
     }
   ],
-  "generated_at": "2026-04-28T08:08:12.172651"
+  "generated_at": "2026-04-29T08:04:51.983125"
 }
