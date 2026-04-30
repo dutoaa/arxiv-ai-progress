@@ -1,24 +1,24 @@
 {
-  "key_insight": "Not all errors in proxy rewards are equally harmful: some classes of reward imperfections can actually steer policy-gradient optimization toward better behavior, so evaluation should distinguish beneficial from harmful deviations rather than treating all mistakes as bad.",
-  "problem_solved": "Addresses the gap in how proxy rewards for RL-trained language models are evaluated — showing that standard metrics (e.g., ranking accuracy) can be misleading because they treat all reward errors as uniformly negative and miss when imperfect rewards still guide learning in desirable ways.",
+  "key_insight": "Not all deviations of proxy rewards from ground truth are harmful: some classes of reward errors can actually help policy-gradient training by directing probability mass toward better outputs. The paper categorizes these imperfect rewards and shows theoretically which outputs attract probability under policy gradient.",
+  "problem_solved": "Addresses the gap that standard reward-quality metrics (e.g., ranking accuracy) treat all reward errors as equally bad, failing to predict when imperfect proxy rewards will help or hurt policy-gradient optimization.",
   "method": [
-    "Theoretical analysis of policy-gradient dynamics to characterize which model outputs gain probability mass under different kinds of reward misspecification.",
-    "Formal categorization of imperfect rewards into classes (e.g., harmless, harmful, and beneficial errors) based on their effect on optimization trajectories.",
-    "Derive evaluation criteria and practical guidelines that go beyond ranking accuracy to assess whether a proxy reward will help or hinder policy-gradient training."
+    "Theoretical analysis of policy-gradient dynamics to determine which outputs gain probability mass under imperfect rewards.",
+    "Formal categorization of reward errors (e.g., beneficial, neutral, harmful) based on their impact on optimization trajectories.",
+    "Propose criteria/metrics beyond ranking accuracy and validate insights with illustrative simulations/experiments on language-model tasks."
   ],
-  "impact": "Provides practitioners a finer-grained framework for designing and selecting proxy rewards in RL for language models, enabling safer and more effective RLHF by recognizing when imperfect signals can still be useful.",
+  "impact": "Provides practitioners principled guidance for designing and evaluating proxy rewards (e.g., in RLHF), enabling more robust training by distinguishing harmless or helpful reward errors from truly harmful ones.",
   "visual_elements": [
-    "Taxonomy diagram showing categories of reward errors (beneficial / harmless / harmful) with short examples for each.",
-    "Flow diagram of policy-gradient optimization illustrating how different reward types attract probability to different outputs.",
-    "Side-by-side chart comparing traditional metrics (ranking accuracy) vs. proposed evaluation criteria on hypothetical reward perturbations.",
-    "Guideline flowchart for practitioners: assess reward class → predict optimization effect → decide to use/refine reward."
+    "Taxonomy diagram showing reward-error categories (Beneficial | Neutral | Harmful) with brief examples",
+    "Flow diagram of policy-gradient dynamics illustrating which outputs attract probability under each error type",
+    "Comparative bar/line chart: traditional ranking-accuracy vs. proposed criteria in predicting training outcomes",
+    "Toy reward landscape + policy update arrows to visualize how certain errors steer optimization toward better or worse outputs"
   ],
   "hashtags": [
-    "#ReinforcementLearning",
+    "#RLHF",
     "#PolicyGradient",
     "#RewardDesign",
-    "#RLHF",
-    "#ModelEvaluation"
+    "#ReinforcementLearning",
+    "#NLP"
   ],
   "paper_id": "2026-04-28-arxiv-when_errors_can_be_beneficial_a_categorization_of_imperfect_rewards_for_policy_g",
   "paper_title": "When Errors Can Be Beneficial: A Categorization of Imperfect Rewards for Policy Gradient",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.25872v1"
     }
   ],
-  "generated_at": "2026-04-29T08:00:38.081631"
+  "generated_at": "2026-04-30T08:08:55.544449"
 }
