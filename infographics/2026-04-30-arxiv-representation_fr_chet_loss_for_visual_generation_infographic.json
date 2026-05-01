@@ -1,0 +1,35 @@
+{
+  "key_insight": "Fréchet Distance (FD), previously considered impractical as a loss, can be effectively optimized by computing FD in a learned representation space while decoupling the large population needed for stable FD estimates from the smaller batches used for gradients. This FD-loss allows direct optimization toward perceptual metrics and noticeably improves generator sample quality when used for post-training or fine-tuning.",
+  "problem_solved": "Enables stable, scalable optimization of Fréchet-style metrics (e.g., FID) during training/fine-tuning, resolving the impracticality of using FD directly as a loss due to sample-size and variance constraints.",
+  "method": [
+    "Compute Fréchet Distance in a rich representation space (features from a pretrained encoder) rather than pixel space to capture perceptual similarity.",
+    "Decouple FD estimation population size from gradient batch size: maintain a large pooled sample set (e.g., ~50k) for accurate moment estimates while using small batches (e.g., 1k) to compute gradients.",
+    "Use FD-loss as a post-training fine-tuning objective for a base generator; estimate means/covariances from the pooled set and backpropagate the FD gradient through the generator via the representation encoder."
+  ],
+  "impact": "Provides a practical recipe to directly optimize perceptually-aligned metrics (like FID) during training or post-training, improving visual sample quality and offering a new, theoretically-grounded loss for generative modeling. This approach is compatible with existing generators and scales without needing extremely large training batches.",
+  "visual_elements": [
+    "Pipeline diagram: generator → encoder (representation space) → pooled population statistics + small-batch gradient path, highlighting the decoupling of population vs batch.",
+    "Before/after bar chart: FID (or perceptual quality) of base generator vs after FD-loss fine-tuning across several representation choices.",
+    "Illustration of representation space vs pixel space: examples where FD in representation aligns better with human perceptual similarity.",
+    "Iconic schematic of 'pool' (large sample reservoir) and 'batch' (small gradient batch) with arrows showing separate roles for estimation and optimization."
+  ],
+  "hashtags": [
+    "#FréchetDistance",
+    "#GenerativeModels",
+    "#RepresentationLearning",
+    "#FDloss",
+    "#AIResearch"
+  ],
+  "paper_id": "2026-04-30-arxiv-representation_fr_chet_loss_for_visual_generation",
+  "paper_title": "Representation Fréchet Loss for Visual Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-04-30",
+  "paper_authors": "Jiawei Yang, Zhengyang Geng, Xuan Ju, Yonglong Tian, Yue Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.28190v1"
+    }
+  ],
+  "generated_at": "2026-05-01T08:03:56.054824"
+}

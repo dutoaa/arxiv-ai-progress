@@ -1,0 +1,35 @@
+{
+  "key_insight": "Crab is a semantics-aware C/R runtime that checkpoints only the agent-visible and correctness-critical OS/runtime state, achieving per-turn correctness at a fraction of the cost of full-system snapshots while preserving application-level efficiency.",
+  "problem_solved": "Enables correct, low-overhead checkpoint-and-restore for autonomous agents running in sandboxed containers and microVMs — supporting fault tolerance, spot execution, RL rollout branching, and safe rollback without the heavy cost of full per-turn snapshots or the incompleteness of application-only recovery.",
+  "method": [
+    "Semantics-aware instrumentation: track agent-visible effects and classify OS/runtime artifacts (files, processes, IPC, kernel-visible state) by their relevance to agent semantics and correctness.",
+    "Selective incremental C/R: capture only the correctness-critical subset of sandbox state with differential snapshots, copy-on-write/dedup, and lazy materialization to minimize I/O, storage, and pause time.",
+    "Runtime integration for branching & fast restore: expose lightweight branching primitives and fast restore paths to support dense co-location, RL rollouts, and rapid safe rollback in production agent sandboxes."
+  ],
+  "impact": "Makes frequent, correct checkpointing practical for ML practitioners building autonomous agents, reducing latency, storage and compute costs while enabling robust experimentation (branching/rollouts) and production safety (fault tolerance, rollback).",
+  "visual_elements": [
+    "Architecture diagram: Crab runtime placed between agent framework and sandbox (container/microVM) showing instrumentation, selective capture, and restore paths.",
+    "Cost vs. correctness chart: compare application-level recovery, full per-turn snapshots, and Crab (low cost + high correctness).",
+    "Sequence diagram: per-turn checkpoint → branching for RL rollout → fast restore to demonstrate workflow and latency improvements.",
+    "State-stack visualization: layered view of agent-visible state (chat/history, in-memory artifacts, files, kernel resources) with highlighted subset that Crab captures."
+  ],
+  "hashtags": [
+    "#CheckpointRestore",
+    "#AgentSandboxing",
+    "#MLSystems",
+    "#FaultTolerance",
+    "#RLAgents"
+  ],
+  "paper_id": "2026-04-30-arxiv-crab_a_semantics_aware_checkpoint_restore_runtime_for_agent_sandboxes",
+  "paper_title": "Crab: A Semantics-Aware Checkpoint/Restore Runtime for Agent Sandboxes",
+  "paper_category": "Project",
+  "paper_date": "2026-04-30",
+  "paper_authors": "Tianyuan Wu, Chaokun Chang, Lunxi Cao, Wei Gao, Wei Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2604.28138v1"
+    }
+  ],
+  "generated_at": "2026-05-01T08:02:03.687907"
+}

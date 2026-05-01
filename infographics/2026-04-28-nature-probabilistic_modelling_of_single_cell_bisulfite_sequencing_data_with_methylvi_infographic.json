@@ -1,24 +1,24 @@
 {
-  "key_insight": "MethylVI is a deep generative model that explicitly models the technical noise and biological variability in single-cell bisulfite sequencing (scBS-seq), producing denoised, imputed methylation probabilities and probabilistic latent embeddings for robust downstream analysis.",
-  "problem_solved": "scBS-seq data are extremely sparse and noisy (variable coverage, conversion/efficiency artifacts, missing CpG calls), which hampers clustering, trajectory inference, and differential methylation analysis; existing methods do not jointly model count-level technical effects and cell-level biology.",
+  "key_insight": "MethylVI is a deep probabilistic model that disentangles biological methylation states from technical noise in single-cell bisulfite sequencing, enabling accurate denoising, imputation and uncertainty-aware downstream analyses. It models read-level methylation measurements with a generative (variational) framework tailored to the data's coverage and overdispersion.",
+  "problem_solved": "Single-cell bisulfite sequencing data are extremely sparse, noisy and coverage-variable, making it hard to recover true methylation patterns, correct batch/technical effects, and perform reliable downstream tasks (clustering, differential methylation). MethylVI addresses these challenges by explicitly modelling technical and biological variability in a principled probabilistic way.",
   "method": [
-    "Variational autoencoder framework that learns low-dimensional latent representations of cells from scBS-seq data.",
-    "Probabilistic observation model for bisulfite sequencing that accounts for per-site coverage, conversion/efficiency and overdispersion, enabling uncertainty-aware methylation probability estimates and imputation.",
-    "Batch- and covariate-aware training producing denoised methylation profiles, posterior uncertainties, and embeddings usable for clustering, trajectory inference, and differential testing."
+    "Probabilistic deep generative model (variational autoencoder) that represents each cell with latent biological and technical factors.",
+    "Observations modelled with a (beta-)binomial-like likelihood that accounts for per-site coverage and overdispersion so methylated-read counts are handled appropriately.",
+    "Amortized variational inference for scalable learning, producing posterior estimates for denoised methylation, imputation and calibrated uncertainty for downstream analyses."
   ],
-  "impact": "Provides ML practitioners with a principled, uncertainty-aware tool for sparse epigenomic data, improving downstream tasks (clustering, integration, differential analysis) and serving as a template for modeling technical noise in other single-cell modalities.",
+  "impact": "Provides AI/ML practitioners a domain-specific example of combining likelihood engineering with deep latent-variable models to recover signal from extremely sparse, noisy biological measurements; enables robust, uncertainty-aware single-cell methylome analyses and can inspire similar approaches in other sparse genomic modalities.",
   "visual_elements": [
-    "Model schematic: encoder → latent space → decoder with an overlay showing the bisulfite observation model (coverage + conversion parameters).",
-    "Before/after heatmaps of methylation calls (raw sparse counts vs. denoised/imputed methylation probabilities).",
-    "UMAP/TSNE of learned latent embeddings colored by cell type and batch to show separation and batch correction.",
-    "Bar/violin plots or calibration plots showing posterior uncertainty and improved differential methylation detection rates."
+    "Schematic of the model: encoder mapping raw methylated/read counts and covariates to latent biological and technical factors, and decoder predicting methylation probabilities (with beta-binomial iconography).",
+    "Before/after heatmap: raw sparse methylation matrix vs denoised/imputed methylation values to show signal recovery.",
+    "Latent-space embedding (UMAP/tSNE) colored by cell type and batch to illustrate batch correction and biological separation.",
+    "Calibration/uncertainty plot: predictive credible intervals or error vs coverage showing improved confidence estimates and imputation accuracy."
   ],
   "hashtags": [
+    "#singlecell",
+    "#methylation",
     "#MethylVI",
-    "#SingleCell",
-    "#scBSseq",
-    "#DeepGenerative",
-    "#Epigenomics"
+    "#generativemodels",
+    "#probabilisticML"
   ],
   "paper_id": "2026-04-28-nature-probabilistic_modelling_of_single_cell_bisulfite_sequencing_data_with_methylvi",
   "paper_title": "Probabilistic modelling of single-cell bisulfite sequencing data with MethylVI",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01225-9"
     }
   ],
-  "generated_at": "2026-04-30T08:08:08.172389"
+  "generated_at": "2026-05-01T08:04:59.466665"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "OmniShotCut reconceptualizes shot-boundary detection as structured relational prediction: a Shot-Query Transformer jointly models shot boundaries and inter-shot relations to produce more interpretable, sensitive, and robust boundary predictions.",
-  "problem_solved": "Current SBD models produce hard-to-interpret boundaries, miss subtle but harmful discontinuities, and depend on noisy, low-diversity annotations and outdated benchmarks—OmniShotCut addresses these by modeling holistic shot relations and improving evaluation robustness.",
+  "key_insight": "OmniShotCut reframes shot-boundary detection as a structured relational prediction task: a Shot-Query Transformer jointly models shots and their pairwise relations to produce more interpretable, holistic boundary decisions and catch subtle discontinuities.",
+  "problem_solved": "Addresses noisy, low-diversity annotations and non-interpretable/missed boundaries from current SBD methods by modeling global context and explicit shot relations rather than independent local frame decisions.",
   "method": [
-    "Shot-Query Transformer: learnable shot queries attend to video features to directly predict shot boundaries and associated relational labels.",
-    "Holistic relational prediction: joint estimation of boundaries plus pairwise shot relations to disambiguate gradual vs. abrupt transitions and improve interpretability.",
-    "Improved evaluation: introduces a more robust benchmark/protocol (and/or data refinement) to better capture subtle discontinuities and reduce annotation noise."
+    "Shot-Query Transformer — use learned shot queries that attend to video features and to each other to represent shots and transitions holistically.",
+    "Joint relational prediction — predict shot boundaries and inter-shot relation labels (e.g., abrupt, gradual, transitional) via cross-query interactions and relational loss terms.",
+    "Improved data & evaluation — train/evaluate with higher-diversity annotations and updated benchmarks to reduce annotation noise and better reflect real-world transitions."
   ],
-  "impact": "Gives practitioners more reliable and interpretable shot segmentation for downstream tasks (video indexing, editing, retrieval, and training robust video models) and raises the bar for SBD evaluation.",
+  "impact": "Provides more reliable, interpretable shot segmentation for video indexing, editing, and downstream vision tasks, reducing missed subtle discontinuities and improving benchmark fidelity for future SBD research.",
   "visual_elements": [
-    "Architecture diagram: Shot-Query Transformer flow (video frames → queries → boundary + relation outputs) with attention arrows.",
-    "Before/after timeline: video timeline with ground-truth vs. OmniShotCut boundaries color-coded (highlighting subtle/gradual transitions).",
-    "Attention/interpretability overlay: frame sequence with attention heatmaps showing why a boundary was predicted.",
-    "Benchmark comparison chart: precision/recall or F1 improvements across standard and new benchmarks."
+    "Pipeline diagram: video frames → backbone features → shot queries → transformer cross-attention → predicted boundaries and relations.",
+    "Attention map visualization: query-to-frame and query-to-query attention highlighting how the model reasons across time and between shots.",
+    "Before/after examples: sample transitions showing prior methods’ false/missed boundaries vs. OmniShotCut’s corrected, labeled boundaries.",
+    "Benchmark chart: precision/recall or error-rate comparison on old vs. new annotated datasets to show robustness gains (no raw numbers required)."
   ],
   "hashtags": [
     "#ShotBoundaryDetection",
     "#VideoUnderstanding",
-    "#Transformers",
+    "#Transformer",
     "#ComputerVision",
-    "#VideoAnalytics"
+    "#Benchmarking"
   ],
   "paper_id": "2026-04-27-arxiv-omnishotcut_holistic_relational_shot_boundary_detection_with_shot_query_transfor",
   "paper_title": "OmniShotCut: Holistic Relational Shot Boundary Detection with Shot-Query Transformer",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.24762v1"
     }
   ],
-  "generated_at": "2026-04-30T08:08:41.383702"
+  "generated_at": "2026-05-01T08:05:19.407169"
 }
