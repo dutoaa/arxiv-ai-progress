@@ -1,23 +1,23 @@
 {
-  "key_insight": "Rather than generating 3D objects in one shot, 3D-ReGen conditions a generative model on an initial 3D shape (via a VecSet-based conditioning) to regenerate and refine geometry—enabling controlled enhancement, reconstruction, and editing from 2D images and an initial 3D seed.",
-  "problem_solved": "Existing 3D generators offer limited controllability and cannot easily refine or edit a given 3D asset from additional 2D evidence; this work enables conditional, iterative regeneration of 3D geometry given an initial shape and images.",
+  "key_insight": "Conditioning 3D generation on an existing 3D shape (via a new VecSet-based mechanism) enables controlled regeneration — allowing enhancement, reconstruction, and editing rather than one-shot, uncontrollable generation.",
+  "problem_solved": "Many 3D generators convert text or images to a single output with limited controllability; this paper addresses the need to refine or regenerate 3D geometry given an initial shape and additional 2D evidence.",
   "method": [
-    "Introduce a conditioning mechanism (VecSet-based) that encodes an initial 3D shape as input context to a 3D regenerator.",
-    "Fuse 2D image cues and the conditioned initial shape to produce a regenerated 3D output, supporting enhancement, reconstruction, and editing workflows.",
-    "Unify multiple tasks (enhancement, reconstruction, editing) in a single regenerator model that refines geometry rather than synthesizing from scratch."
+    "Formulate 3D regeneration as a conditional generation problem: the model is conditioned on an initial 3D shape plus optional 2D images.",
+    "Introduce VecSet-based conditioning to fuse geometric priors from the input shape with image cues, allowing coherent updates to geometry.",
+    "Provide a unified framework that supports multiple tasks (enhancement, reconstruction, editing) by regenerating geometry rather than generating from scratch."
   ],
-  "impact": "Provides AI/ML practitioners a controllable, unified tool to refine and edit 3D assets using 2D evidence and initial shapes—streamlining pipelines in graphics, AR/VR, robotics, and dataset augmentation while enabling iterative, user-driven 3D editing.",
+  "impact": "Enables practical, controllable workflows for 3D asset improvement and editing — useful for reconstruction pipelines, content creation, and any system that needs iterative shape refinement from images and partial meshes.",
   "visual_elements": [
-    "Pipeline diagram: inputs (initial 3D shape + 2D images) → VecSet conditioning → 3D-ReGen → regenerated 3D output",
-    "Before/after comparison grid showing initial vs. regenerated geometry (improvement/enhancement examples)",
-    "Task icons with brief examples: reconstruction (single/multi-view) , enhancement (denoising/detail fill), editing (shape manipulations)",
-    "Schematic of VecSet conditioning (abstract set-encoding visualization) to illustrate how the initial shape informs generation"
+    "Before/after gallery: initial 3D shape vs. regenerated output (several examples showing enhancement and edits).",
+    "Pipeline diagram: inputs (initial 3D + 2D images) → VecSet conditioning block → regenerator → output 3D geometry.",
+    "VecSet illustration: how vector-set conditioning merges spatial features from the shape and image cues (iconic vectors and attention arrows).",
+    "Use-case grid: small panels for enhancement, reconstruction, and editing showing typical inputs and outputs."
   ],
   "hashtags": [
     "#3DReGen",
     "#3DReconstruction",
-    "#ShapeEditing",
-    "#Generative3D",
+    "#GeometryRegeneration",
+    "#VecSet",
     "#ComputerVision"
   ],
   "paper_id": "2026-04-30-arxiv-3d_regen_a_unified_3d_geometry_regeneration_framework",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28134v1"
     }
   ],
-  "generated_at": "2026-05-01T08:01:48.638076"
+  "generated_at": "2026-05-02T07:19:14.127945"
 }

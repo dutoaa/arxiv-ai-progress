@@ -1,24 +1,24 @@
 {
-  "key_insight": "A4Mer learns a two-level, compositional representation of human movement — low-level Action Atoms (atomic joint motions) and higher-level Action Motifs (temporal compositions shared across actions) — enabling reusable, interpretable movement primitives learned in a self‑supervised way.",
-  "problem_solved": "Standard motion models struggle to capture compositionality and reusable movement subunits across different actions, limiting transferability, interpretability, and efficient modeling of complex human behavior.",
+  "key_insight": "Introduce a hierarchical, self-supervised representation of human movement where low-level \"Action Atoms\" (atomic joint motions) compose into higher-level \"Action Motifs\" that recur across different actions, learned via a nested latent Transformer (A4Mer). This captures compositionality and shared movement patterns across actions.",
+  "problem_solved": "Addresses the challenge of discovering compact, interpretable, and transferable sub-movement structures from pose sequences without labels, enabling better modeling of compositional human behavior.",
   "method": [
-    "Define Action Atoms as atomic joint-movement latents and Action Motifs as their temporal compositions that recur across actions.",
-    "Introduce A4Mer, a nested latent Transformer that models hierarchy and temporal composition to learn atoms and motifs from pose sequences in a self-supervised manner.",
-    "Train the model on human pose data to discover reusable motifs for tasks like action recognition, forecasting, and motion synthesis without heavy annotation."
+    "Define two-level hierarchy: Action Atoms (atomic joint movements) and Action Motifs (temporal compositions of atoms) to represent motions compositionally.",
+    "Train A4Mer, a nested latent Transformer, on human pose sequences in a self-supervised manner to learn atoms and motifs jointly from data.",
+    "Use the hierarchical latent codes for downstream tasks (e.g., recognition, retrieval, synthesis) and to reveal motif sharing across different actions."
   ],
-  "impact": "Provides AI/ML practitioners with a compact, interpretable set of reusable motion primitives that improve generalization, transfer learning, and downstream tasks (recognition, prediction, generation) while reducing dependence on labels.",
+  "impact": "Provides a compact, interpretable motion representation that improves transferability and sample efficiency for downstream tasks (action recognition, motion synthesis, few-shot learning), while enabling analysis of shared sub-movements across actions.",
   "visual_elements": [
-    "Hierarchy diagram: skeleton → Action Atoms → Action Motifs → full action to show compositionality",
-    "Architecture block: nested latent Transformer (A4Mer) with encoder/decoder and hierarchical latents",
-    "Cluster plot (e.g., t-SNE) of discovered Action Motifs colored by action class to show motif reuse across actions",
-    "Qualitative sequence panels or GIF frames showing motif-based reconstruction/forecasting of poses"
+    "Hierarchy diagram: stack showing Joint -> Action Atoms -> Action Motifs -> Full Action with arrows indicating composition",
+    "Timeline visualization: pose sequence segmented into atoms and motifs (color-coded) mapped to the hierarchy",
+    "Latent-space clustering: 2D projection showing motifs shared across different labeled actions",
+    "Application thumbnail grid: icons illustrating downstream uses (recognition, retrieval, synthesis, transfer)"
   ],
   "hashtags": [
+    "#ActionMotifs",
+    "#SelfSupervisedLearning",
     "#HumanMotion",
-    "#SelfSupervised",
-    "#RepresentationLearning",
     "#Transformers",
-    "#ActionRecognition"
+    "#RepresentationLearning"
   ],
   "paper_id": "2026-04-30-arxiv-action_motifs_self_supervised_hierarchical_representation_of_human_body_movement",
   "paper_title": "Action Motifs: Self-Supervised Hierarchical Representation of Human Body Movements",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28173v1"
     }
   ],
-  "generated_at": "2026-05-01T08:03:02.681620"
+  "generated_at": "2026-05-02T07:20:19.285033"
 }

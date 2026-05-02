@@ -1,24 +1,24 @@
 {
-  "key_insight": "MethylVI is a deep probabilistic model that disentangles biological methylation states from technical noise in single-cell bisulfite sequencing, enabling accurate denoising, imputation and uncertainty-aware downstream analyses. It models read-level methylation measurements with a generative (variational) framework tailored to the data's coverage and overdispersion.",
-  "problem_solved": "Single-cell bisulfite sequencing data are extremely sparse, noisy and coverage-variable, making it hard to recover true methylation patterns, correct batch/technical effects, and perform reliable downstream tasks (clustering, differential methylation). MethylVI addresses these challenges by explicitly modelling technical and biological variability in a principled probabilistic way.",
+  "key_insight": "MethylVI is a deep probabilistic generative model tailored to single-cell bisulfite sequencing data that explicitly models technical noise and biological variation to produce denoised, imputed, and biologically meaningful methylation profiles.",
+  "problem_solved": "Single-cell bisulfite sequencing data are extremely sparse, noisy, and subject to coverage and batch biases, making reliable methylation quantification, imputation, and downstream analysis (clustering, integration) difficult.",
   "method": [
-    "Probabilistic deep generative model (variational autoencoder) that represents each cell with latent biological and technical factors.",
-    "Observations modelled with a (beta-)binomial-like likelihood that accounts for per-site coverage and overdispersion so methylated-read counts are handled appropriately.",
-    "Amortized variational inference for scalable learning, producing posterior estimates for denoised methylation, imputation and calibrated uncertainty for downstream analyses."
+    "Probabilistic deep generative model (VAE-style) that learns a low‑dimensional latent representation of cells capturing biological signal.",
+    "Explicit noise/observation model for per-site/per-cell methylation measurements and sequencing coverage to separate technical variability from biology.",
+    "Uses the learned latent space for denoising, imputing missing CpG methylation values, batch correction, and improved downstream analyses."
   ],
-  "impact": "Provides AI/ML practitioners a domain-specific example of combining likelihood engineering with deep latent-variable models to recover signal from extremely sparse, noisy biological measurements; enables robust, uncertainty-aware single-cell methylome analyses and can inspire similar approaches in other sparse genomic modalities.",
+  "impact": "Provides AI/ML practitioners with a principled way to model sparse methylation counts and extract robust latent features for classification, integration, and generative tasks, improving downstream analysis and reproducibility in single‑cell epigenomics.",
   "visual_elements": [
-    "Schematic of the model: encoder mapping raw methylated/read counts and covariates to latent biological and technical factors, and decoder predicting methylation probabilities (with beta-binomial iconography).",
-    "Before/after heatmap: raw sparse methylation matrix vs denoised/imputed methylation values to show signal recovery.",
-    "Latent-space embedding (UMAP/tSNE) colored by cell type and batch to illustrate batch correction and biological separation.",
-    "Calibration/uncertainty plot: predictive credible intervals or error vs coverage showing improved confidence estimates and imputation accuracy."
+    "Model schematic: encoder→latent space→decoder with an overlay showing the probabilistic observation model for methylation and coverage.",
+    "Heatmap before vs. after denoising/imputation of methylation matrix to show sparsity reduction and signal recovery.",
+    "Latent-space UMAP colored by cell type and batch to illustrate biological separation and batch correction.",
+    "Bar/line chart comparing imputation accuracy or downstream clustering metrics (with and without MethylVI)."
   ],
   "hashtags": [
-    "#singlecell",
-    "#methylation",
-    "#MethylVI",
-    "#generativemodels",
-    "#probabilisticML"
+    "#SingleCell",
+    "#Epigenomics",
+    "#DeepLearning",
+    "#GenerativeModel",
+    "#Methylation"
   ],
   "paper_id": "2026-04-28-nature-probabilistic_modelling_of_single_cell_bisulfite_sequencing_data_with_methylvi",
   "paper_title": "Probabilistic modelling of single-cell bisulfite sequencing data with MethylVI",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01225-9"
     }
   ],
-  "generated_at": "2026-05-01T08:04:59.466665"
+  "generated_at": "2026-05-02T07:22:16.878740"
 }

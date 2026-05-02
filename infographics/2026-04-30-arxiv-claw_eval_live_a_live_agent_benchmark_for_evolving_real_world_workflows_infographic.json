@@ -1,24 +1,24 @@
 {
-  "key_insight": "Claw-Eval-Live makes agent evaluation continuous and verifiable by decoupling a refreshable 'signal' layer from core tasks, enabling benchmarks that evolve with real-world workflow demand and check execution side-effects, not just final text outputs.",
-  "problem_solved": "Static, frozen benchmarks fail to track changing workflow needs and cannot reliably verify whether agents actually executed multi-step, tool- and service-driven tasks in real environments.",
+  "key_insight": "Claw-Eval-Live provides a live, refreshable benchmarking framework that evaluates LLM agents on evolving real-world workflows by separating a refreshable signal layer from static task definitions, enabling continuous, verifiable assessment of agent execution rather than just final responses.",
+  "problem_solved": "Static benchmarks and single-shot final-response grading fail to capture changing workflow demand or verify whether agents actually executed tasks; this paper solves the need for continuous, execution-aware evaluation aligned with real-world workflow evolution.",
   "method": [
-    "Design a live benchmark architecture that separates a stable task core from a refreshable signal layer updated across releases to reflect evolving workflow demand.",
-    "Instrument end-to-end execution paths (software tools, business services, local workspaces) to capture verifiable side-effects and outcomes rather than only final textual responses.",
-    "Provide continuous release mechanics and evaluation metrics that combine response quality with execution fidelity (e.g., state changes, API calls, file edits) to score agents."
+    "Introduce a live benchmark that decouples a refreshable signal layer (sources of workflow demand and verification signals) from task definitions so signals can be updated across releases without changing core tasks.",
+    "Use automated execution verification (logs, action traces, and external service checks) to assess whether agents completed steps and adhered to real-world constraints, not just the final answer.",
+    "Continuously ingest public workflow-demand signals and versioned updates to evaluate agent robustness to evolving requirements and measure execution-level metrics (success rate, fidelity, recovery)."
   ],
-  "impact": "Enables researchers and practitioners to measure agent reliability and real-world usefulness over time, improving trust, robustness, and deployment readiness for workflow automation systems.",
+  "impact": "Enables practitioners to benchmark agents against realistic, changing workflows and to trust evaluation results by verifying actual task execution—accelerating development of reliable production agents and more meaningful progress tracking.",
   "visual_elements": [
-    "Architecture diagram: core tasks vs. refreshable signal layer with arrows showing update cadence and separation of concerns.",
-    "Workflow flowchart: agent interacting with tools, services, and local workspace with an observability/verification layer capturing side-effects.",
-    "Timeline or release cadence chart: evolving task set across releases with changing signals and how benchmark scores track over time.",
-    "Comparison bar chart: static frozen benchmark vs. Claw-Eval-Live showing differences in detected execution failures and real-world coverage."
+    "Pipeline diagram: agent interacts with tools/services; refreshable signal layer feeds verification signals and task updates into the benchmark.",
+    "Timeline showing periodic signal layer refreshes and how tasks evolve across releases (static tasks vs. dynamic signals).",
+    "Dashboard mockup: per-agent metrics (execution success, stepwise fidelity, recovery from failures) and comparison chart across releases.",
+    "Icon set: tools/services, logs/traces, shield/checkmark for verification, and refresh/clock for live updates."
   ],
   "hashtags": [
     "#LLMAgents",
-    "#Benchmarking",
-    "#AIEvaluation",
-    "#WorkflowAutomation",
-    "#LiveBenchmarks"
+    "#LiveBenchmark",
+    "#WorkflowEvaluation",
+    "#ExecutionVerification",
+    "#ContinuousEvaluation"
   ],
   "paper_id": "2026-04-30-arxiv-claw_eval_live_a_live_agent_benchmark_for_evolving_real_world_workflows",
   "paper_title": "Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflows",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28139v1"
     }
   ],
-  "generated_at": "2026-05-01T08:02:15.712546"
+  "generated_at": "2026-05-02T07:19:37.989300"
 }
