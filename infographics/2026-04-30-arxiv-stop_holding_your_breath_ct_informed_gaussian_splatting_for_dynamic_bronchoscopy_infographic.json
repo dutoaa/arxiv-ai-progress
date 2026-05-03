@@ -1,24 +1,24 @@
 {
-  "key_insight": "Patient-specific preoperative CT can initialize a dynamic Gaussian-splatting scene that models respiratory deformation, enabling accurate CT-to-endoscope registration in real time and removing the need for disruptive breath-hold protocols.",
-  "problem_solved": "CT-to-body divergence during bronchoscopy caused by respiratory motion (5–20 mm deformations) undermines navigation accuracy and forces clinically disruptive breath-hold workflows.",
+  "key_insight": "A CT-informed Gaussian-splat representation captures patient-specific respiratory motion to produce dynamic, view-consistent airway renderings, enabling accurate endoscopic video-to-CT registration without requiring breath-hold protocols.",
+  "problem_solved": "Respiratory motion deforms the airway by 5–20 mm, causing CT-to-body divergence that limits bronchoscopy localization; current breath-hold protocols are hard to reproduce and disrupt clinical workflow.",
   "method": [
-    "CT-informed initialization: convert preoperative CT into a Gaussian-splatting scene to capture airway geometry and appearance priors.",
-    "Patient-specific respiratory deformation: learn or fit a low-dimensional motion model that deforms Gaussians over the breathing cycle so the scene matches intraoperative anatomy.",
-    "Real-time registration and rendering: render dynamic endoscopic views from the deformed splatting scene and align live bronchoscope video to the rendered scene for continuous localization without breath-holds."
+    "Initialize a dense Gaussian-splat representation of the airway geometry from the preoperative CT as a prior for appearance and structure.",
+    "Fit a low-dimensional, patient-specific respiratory deformation model that animates the CT-informed splats across breathing phases.",
+    "Optimize alignment to intraoperative endoscopic video via view-consistent rendering and registration, producing a dynamic CT-to-video correspondence in real time."
   ],
-  "impact": "Combines anatomical priors with neural rendering to enable robust, real-time localization in deforming anatomical environments—reducing reliance on protocol-driven data collection and improving clinical workflow; approach is extensible to other endoscopic or organ-motion settings.",
+  "impact": "Demonstrates how combining medical-image priors with neural/point-based rendering yields clinically usable, patient-specific dynamic models—reducing reliance on protocol constraints and improving registration robustness for image-guided procedures.",
   "visual_elements": [
-    "Pipeline diagram: CT → Gaussian splats → respiratory deformation → rendered endoscopic view → video registration",
-    "Before/after comparison: static CT-registration with large error vs. CT-informed dynamic registration aligned to live bronchoscope frames",
-    "Respiration timeline: plot showing breathing phase, modeled deformation, and corresponding registration error decreasing with the dynamic model",
-    "Annotated bronchoscope view: overlay of rendered anatomy and registration offsets to show real-time alignment"
+    "Pipeline diagram: CT -> Gaussian splat init -> respiratory deformation model -> rendered endoscopic view -> video alignment loop",
+    "Side-by-side comparison: static CT registration (misaligned) vs. dynamic CT-informed rendering (aligned) with measured offset arrows",
+    "Sequence of frames or animated overlay showing splats moving through breathing phases to convey dynamic deformation",
+    "Bar or scatter chart illustrating reduction in localization error or improved alignment consistency (conceptual)"
   ],
   "hashtags": [
     "#MedicalImaging",
     "#NeuralRendering",
     "#Bronchoscopy",
-    "#GaussianSplatting",
-    "#RespiratoryMotion"
+    "#RespiratoryMotion",
+    "#ImageGuidedSurgery"
   ],
   "paper_id": "2026-04-30-arxiv-stop_holding_your_breath_ct_informed_gaussian_splatting_for_dynamic_bronchoscopy",
   "paper_title": "Stop Holding Your Breath: CT-Informed Gaussian Splatting for Dynamic Bronchoscopy",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28179v1"
     }
   ],
-  "generated_at": "2026-05-02T07:20:37.741638"
+  "generated_at": "2026-05-03T07:49:34.993300"
 }

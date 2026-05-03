@@ -1,21 +1,21 @@
 {
-  "key_insight": "Introduce a hierarchical, self-supervised representation of human movement where low-level \"Action Atoms\" (atomic joint motions) compose into higher-level \"Action Motifs\" that recur across different actions, learned via a nested latent Transformer (A4Mer). This captures compositionality and shared movement patterns across actions.",
-  "problem_solved": "Addresses the challenge of discovering compact, interpretable, and transferable sub-movement structures from pose sequences without labels, enabling better modeling of compositional human behavior.",
+  "key_insight": "Human body movements can be represented hierarchically as reusable atomic joint movements (Action Atoms) that temporally compose into higher-level patterns (Action Motifs); a nested latent Transformer (A4Mer) can discover this hierarchy in a fully self-supervised way from pose sequences.",
+  "problem_solved": "Captures the compositional structure of human motion so that similar body-movement patterns are identified across different actions, improving efficiency, interpretability, and transferability of motion representations without requiring labeled data.",
   "method": [
-    "Define two-level hierarchy: Action Atoms (atomic joint movements) and Action Motifs (temporal compositions of atoms) to represent motions compositionally.",
-    "Train A4Mer, a nested latent Transformer, on human pose sequences in a self-supervised manner to learn atoms and motifs jointly from data.",
-    "Use the hierarchical latent codes for downstream tasks (e.g., recognition, retrieval, synthesis) and to reveal motif sharing across different actions."
+    "Define Action Atoms as short, atomic joint-movement units and Action Motifs as temporal compositions of these atoms that recur across actions.",
+    "Introduce A4Mer, a nested latent Transformer that models two hierarchical latent levels (atom-level and motif-level) and learns them jointly from pose sequences in a self-supervised manner.",
+    "Train with reconstruction/prediction-style objectives on unlabeled pose data so motifs emerge as shared, reusable building blocks for downstream tasks."
   ],
-  "impact": "Provides a compact, interpretable motion representation that improves transferability and sample efficiency for downstream tasks (action recognition, motion synthesis, few-shot learning), while enabling analysis of shared sub-movements across actions.",
+  "impact": "Provides compact, interpretable, and transferable motion representations that improve downstream tasks (action recognition, prediction, synthesis) and reduce reliance on labeled data by leveraging compositionality.",
   "visual_elements": [
-    "Hierarchy diagram: stack showing Joint -> Action Atoms -> Action Motifs -> Full Action with arrows indicating composition",
-    "Timeline visualization: pose sequence segmented into atoms and motifs (color-coded) mapped to the hierarchy",
-    "Latent-space clustering: 2D projection showing motifs shared across different labeled actions",
-    "Application thumbnail grid: icons illustrating downstream uses (recognition, retrieval, synthesis, transfer)"
+    "Hierarchy diagram: skeleton → Action Atoms (short joint-movement clips) → Action Motifs (temporal composition) → full action",
+    "Model schematic: nested latent Transformer (atom-level encoder/decoder and motif-level aggregator) with data flow annotations",
+    "Cluster visualization: t-SNE/UMAP of motif embeddings showing motifs shared across different action labels",
+    "Sequence timeline: example skeleton frames with colored motif segments over time (showing motif reuse across actions)"
   ],
   "hashtags": [
     "#ActionMotifs",
-    "#SelfSupervisedLearning",
+    "#SelfSupervised",
     "#HumanMotion",
     "#Transformers",
     "#RepresentationLearning"
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28173v1"
     }
   ],
-  "generated_at": "2026-05-02T07:20:19.285033"
+  "generated_at": "2026-05-03T07:49:02.034612"
 }

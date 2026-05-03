@@ -1,24 +1,24 @@
 {
-  "key_insight": "Conditioning 3D generation on an existing 3D shape (via a new VecSet-based mechanism) enables controlled regeneration — allowing enhancement, reconstruction, and editing rather than one-shot, uncontrollable generation.",
-  "problem_solved": "Many 3D generators convert text or images to a single output with limited controllability; this paper addresses the need to refine or regenerate 3D geometry given an initial shape and additional 2D evidence.",
+  "key_insight": "Conditioning a 3D generator on an initial 3D shape (using a VecSet-based conditioning mechanism) turns generation into a regeneration task—enabling targeted enhancement, reconstruction, and editing of 3D geometry rather than one-shot synthesis.",
+  "problem_solved": "One-shot 3D generators offer limited controllability and poor support for refining or editing existing geometry; this paper addresses how to regenerate higher-quality or task-specific 3D objects from 2D images and an initial 3D shape.",
   "method": [
-    "Formulate 3D regeneration as a conditional generation problem: the model is conditioned on an initial 3D shape plus optional 2D images.",
-    "Introduce VecSet-based conditioning to fuse geometric priors from the input shape with image cues, allowing coherent updates to geometry.",
-    "Provide a unified framework that supports multiple tasks (enhancement, reconstruction, editing) by regenerating geometry rather than generating from scratch."
+    "Introduce a conditional 3D regenerator that takes an initial 3D shape plus optional 2D images as inputs and outputs a refined 3D geometry.",
+    "Use VecSet-based conditioning to encode set-structured inputs (e.g., shape tokens, image features) into the generator, enabling flexible conditioning on arbitrary initial shapes.",
+    "Unify multiple tasks (enhancement, reconstruction, editing) within the same regeneration pipeline so the model can iteratively refine or modify geometry under different controls."
   ],
-  "impact": "Enables practical, controllable workflows for 3D asset improvement and editing — useful for reconstruction pipelines, content creation, and any system that needs iterative shape refinement from images and partial meshes.",
+  "impact": "Provides practitioners a controllable, reusable 3D pipeline for improving and editing existing models from images and partial shapes—useful for AR/VR, simulation, content creation, and downstream vision tasks.",
   "visual_elements": [
-    "Before/after gallery: initial 3D shape vs. regenerated output (several examples showing enhancement and edits).",
-    "Pipeline diagram: inputs (initial 3D + 2D images) → VecSet conditioning block → regenerator → output 3D geometry.",
-    "VecSet illustration: how vector-set conditioning merges spatial features from the shape and image cues (iconic vectors and attention arrows).",
-    "Use-case grid: small panels for enhancement, reconstruction, and editing showing typical inputs and outputs."
+    "Pipeline diagram: Initial 3D shape + 2D image → VecSet encoder → conditional regenerator → regenerated 3D (flow arrows and brief labels).",
+    "Before/After gallery: side-by-side meshes or point clouds showing enhancement, reconstruction, and an edit example.",
+    "Task grid: three panels illustrating the three supported tasks (enhancement, reconstruction, editing) with short captions.",
+    "VecSet schematic: simple diagram showing set inputs (shape tokens, image features) aggregated into conditioning vectors feeding the generator."
   ],
   "hashtags": [
     "#3DReGen",
-    "#3DReconstruction",
-    "#GeometryRegeneration",
-    "#VecSet",
-    "#ComputerVision"
+    "#3DGeometry",
+    "#GenerativeAI",
+    "#ComputerVision",
+    "#ShapeEditing"
   ],
   "paper_id": "2026-04-30-arxiv-3d_regen_a_unified_3d_geometry_regeneration_framework",
   "paper_title": "3D-ReGen: A Unified 3D Geometry Regeneration Framework",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28134v1"
     }
   ],
-  "generated_at": "2026-05-02T07:19:14.127945"
+  "generated_at": "2026-05-03T07:47:37.528084"
 }

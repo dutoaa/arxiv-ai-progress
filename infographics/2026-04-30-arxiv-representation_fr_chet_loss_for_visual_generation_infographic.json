@@ -1,24 +1,24 @@
 {
-  "key_insight": "Fréchet Distance can be optimized as a practical training objective by computing it in a learned representation space while decoupling the large sample pool needed for a stable FD estimate from the small mini-batches used for gradient updates. This “FD-loss” (Representation Fréchet Loss) enables effective post-training improvements to visual generators.",
-  "problem_solved": "Makes Fréchet Distance (long thought impractical as a loss) usable for training/guiding generative models by addressing sample-size vs. batch-size limitations in FD estimation.",
+  "key_insight": "Fréchet Distance — long seen as impractical to optimize directly — can be efficiently minimized in a learned representation space by decoupling the large sample population used for FD estimation from the smaller batch used for gradient updates (FD-loss). This enables direct training toward distributional/perceptual metrics.",
+  "problem_solved": "Makes Fréchet-based objectives practical for training visual generative models by resolving the computational/sample-size mismatch that previously prevented stable gradient optimization of FD.",
   "method": [
-    "Compute Fréchet Distance in a learned representation space (e.g., pretrained perceptual embeddings) rather than pixels.",
-    "Decouple FD estimation population size from gradient batch size — use a large feature pool (e.g., tens of thousands) to estimate moments and small mini-batches (e.g., ~1k) for gradient computation.",
-    "Post-train an existing base generator with the FD-loss in different representation spaces to consistently improve visual quality."
+    "Compute Fréchet Distance in a chosen representation space (e.g., pretrained encoder features) rather than pixel space to capture perceptual statistics.",
+    "Decouple the FD estimation population size (large, e.g., 50k) from the gradient batch size (smaller, e.g., 1k) so estimates remain stable while gradients are efficient.",
+    "Use the resulting FD-loss to post-train or fine-tune a base generator, improving alignment with distributional/perceptual metrics."
   ],
-  "impact": "Enables practitioners to use Fréchet-based objectives reliably and scalably to improve generative model quality with a lightweight post-training step; compatible with a variety of representation backbones and training pipelines.",
+  "impact": "Provides a practical recipe (FD-loss) to optimize generators directly for distributional/perceptual quality, enabling better visual fidelity and metric alignment without prohibitive computation. This is immediately useful for model fine-tuning and evaluation-driven training.",
   "visual_elements": [
-    "Schematic: two-stream diagram showing a large feature pool for FD estimation (50k) vs. small mini-batch for gradients (1k) with arrows to FD-loss computation and backprop.",
-    "Before/After image grid: sample outputs from a base generator vs. after FD-loss post-training to highlight visual quality gains.",
-    "Bar/line chart: metric improvements (e.g., FID or similar) across representation spaces or datasets showing consistent gains.",
-    "Icon set: representation space examples (Inception / CLIP / SSL) with labels indicating where FD is computed."
+    "Schematic diagram: data flow showing large population for FD estimation vs small batches for gradient updates (two parallel pipelines converging to FD-loss).",
+    "Embedding illustration: images mapped to representation space with Gaussian fitting and Fréchet distance computation between real and generated feature distributions.",
+    "Before/after image grid: visual comparison of generator outputs pre- and post-FD-loss fine-tuning.",
+    "Line chart: FD (or perceptual metric) vs training steps showing faster/stabler decline when using FD-loss compared to baselines."
   ],
   "hashtags": [
-    "#FréchetLoss",
+    "#FréchetDistance",
+    "#FDLoss",
     "#GenerativeAI",
     "#RepresentationLearning",
-    "#ModelOptimization",
-    "#ComputerVision"
+    "#ImageGeneration"
   ],
   "paper_id": "2026-04-30-arxiv-representation_fr_chet_loss_for_visual_generation",
   "paper_title": "Representation Fréchet Loss for Visual Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28190v1"
     }
   ],
-  "generated_at": "2026-05-02T07:21:11.817255"
+  "generated_at": "2026-05-03T07:50:15.731178"
 }

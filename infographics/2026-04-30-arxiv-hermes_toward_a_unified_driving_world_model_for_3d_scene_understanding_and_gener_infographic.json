@@ -1,24 +1,24 @@
 {
-  "key_insight": "HERMES++ presents a unified driving world model that simultaneously performs 3D scene understanding and future scene generation, bridging semantic reasoning and geometric prediction in a single framework.",
-  "problem_solved": "Current driving world models either generate future scenes or focus on 3D understanding, and LLMs provide strong semantic reasoning but lack geometric future prediction—HERMES++ addresses this fragmentation by combining both capabilities in one model.",
+  "key_insight": "HERMES++ unifies 3D scene understanding and future-scene generation in a single driving world model, bridging semantic reasoning (LLM-style) with physically grounded geometric prediction.",
+  "problem_solved": "Addresses the gap where prior work either focuses on semantic reasoning or on future-scene generation but not both — enabling accurate prediction of future 3D geometry while providing interpretable, language-compatible semantic outputs for downstream driving tasks.",
   "method": [
-    "Learn a shared 3D latent world representation that encodes geometry, semantics, and dynamics for driving environments.",
-    "Train the model in a multi-task, multimodal setup (sensor inputs → unified latent) to support both accurate scene understanding and realistic future scene generation.",
-    "Integrate semantic reasoning modules with physical prediction components so the model can produce temporally consistent, semantically rich 3D simulations useful for planning and evaluation."
+    "Shared 3D latent representation that jointly encodes geometric structure and semantic labels for the driving scene.",
+    "Predictive dynamics module that rolls forward the geometric latent state to generate future 3D scenes (point clouds/meshes/occupancy) over time.",
+    "Cross-modal interface linking language-level queries to the geometric latent space so semantic reasoning (LLMs or task heads) can query and condition generation for planning, evaluation, or explanation."
   ],
-  "impact": "By unifying understanding and generation, HERMES++ enables richer, more interpretable simulation for autonomous driving — improving downstream tasks like planning, validation, and synthetic data creation while narrowing the gap between language-level reasoning and physical scene evolution.",
+  "impact": "Provides a single, interpretable model for both understanding and simulating driving environments, improving simulation fidelity, safety validation, planning, and synthetic-data generation workflows for autonomous driving and 3D perception research.",
   "visual_elements": [
-    "Architecture diagram: sensors → shared 3D latent world model → branches for understanding (perception/labels) and generation (future scenes).",
-    "Before vs after comparison: separate perception/generation pipelines contrasted with the unified HERMES++ pipeline.",
-    "Temporal evolution strip: sequence of 3D scene snapshots showing predicted geometric change over time.",
-    "Icon set: sensor inputs (LiDAR/camera), semantic tags, physics/dynamics arrows, and an LLM-style reasoning bubble to show integration."
+    "Architecture block diagram showing encoder → shared 3D latent space → dynamics predictor → renderer and semantic interface.",
+    "Side-by-side visual: observed 3D scene vs. predicted future 3D scene (point cloud/mesh/time-lapse).",
+    "Timeline / roll-out visualization of geometric evolution across future timesteps.",
+    "Bar/line chart comparing unified model vs. baselines on metrics: geometry accuracy, semantic consistency, and downstream planning success."
   ],
   "hashtags": [
-    "#DrivingWorldModel",
-    "#3DSceneUnderstanding",
     "#AutonomousDriving",
-    "#MultimodalAI",
-    "#Simulation"
+    "#3DVision",
+    "#WorldModels",
+    "#Simulation",
+    "#VisionAndLanguage"
   ],
   "paper_id": "2026-04-30-arxiv-hermes_toward_a_unified_driving_world_model_for_3d_scene_understanding_and_gener",
   "paper_title": "HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28196v1"
     }
   ],
-  "generated_at": "2026-05-02T07:21:55.091482"
+  "generated_at": "2026-05-03T07:51:12.051606"
 }

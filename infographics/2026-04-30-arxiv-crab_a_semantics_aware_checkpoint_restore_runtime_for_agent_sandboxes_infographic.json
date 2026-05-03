@@ -1,24 +1,24 @@
 {
-  "key_insight": "Crab is a semantics-aware checkpoint/restore runtime that records only the agent-visible semantics and the OS artifacts they affect, enabling correct per-turn snapshots with orders-of-magnitude less cost than full VM/container snapshots.",
-  "problem_solved": "Existing approaches either restore only application-level state (losing OS-side effects) or take full per-turn snapshots (accurate but prohibitively expensive under dense co-location). This prevents efficient, correct rollback/branching, fault tolerance, and scalable RL rollouts for sandboxed autonomous agents.",
+  "key_insight": "Crab introduces a semantics-aware checkpoint/restore runtime that captures the agent-visible semantics plus the minimal OS/runtime effects needed for correctness, enabling fast, lightweight snapshots without missing hidden side effects.",
+  "problem_solved": "Bridges the gap between lightweight application-level recovery (which misses OS-side effects) and expensive full per-turn checkpointing by making C/R correct, efficient, and practical for densely co-located agent sandboxes.",
   "method": [
-    "Semantics-aware interception: instrument agent runtimes and key syscalls to map high-level agent actions to the precise filesystem, process and runtime artifacts they touch.",
-    "Selective incremental C/R: capture fine-grained diffs (files, memory regions, process descriptors, runtime artifacts) and store them with copy-on-write/deduplication to minimize snapshot size and I/O.",
-    "Fast restore + sandbox integration: rehydrate consistent agent-visible state quickly inside containers/microVMs, using shared backing and isolation primitives to support dense co-location and fast branching/rollback."
+    "Semantics-aware capture: identify and persist only the agent-relevant state (chat/history, model checkpoints, high-level intents) together with the minimal OS artifacts required for correctness (filesystem diffs, IPC, process metadata).",
+    "Hybrid incremental C/R: combine fine-grained incremental/differential snapshots with lazy restore and on-demand materialization to keep per-turn overhead low while preserving correctness.",
+    "Runtime integration: embed the approach into container/microVM sandboxes so branching, rollbacks, spot execution, and RL rollout multiplexing are efficient and reproducible."
   ],
-  "impact": "Provides low-overhead, correct per-turn checkpoints so practitioners can run scalable RL rollouts, safe experimentation, fault-tolerant services, and cheap branching/rollback for autonomous agents in containerized or microVM environments.",
+  "impact": "Makes fault tolerance, safe rollback, RL branching, and spot-instance execution for autonomous agents practical at high density by cutting snapshot cost and restore latency while preserving correctness across OS and application layers.",
   "visual_elements": [
-    "Architecture diagram: agent sandbox + Crab layer showing interception points (runtime, syscalls) and what artifacts are captured (files, memory, processes).",
-    "Cost vs correctness chart: three curves comparing app-level recovery (cheap, incomplete), full per-turn snapshot (correct, expensive), and Crab (correct, low cost).",
-    "Per-turn timeline: sequence of agent turns with small delta snapshots and fast branch/restore arrows illustrating rollouts and rollback.",
-    "Icon set / legend: container, microVM, snapshot/diff, branching icon to quickly convey targets and use-cases."
+    "Architecture diagram showing Crab sitting between agent process and container/microVM, with arrows for 'semantics extractor', 'OS artifact tracker', and 'incremental storage'.",
+    "Timeline/sequence comparing per-turn full C/R vs Crab's incremental semantics-aware snapshots (showing much smaller per-step size and faster restore).",
+    "Branching tree diagram illustrating cheap RL rollout branching and fast rollback from saved semantic checkpoints.",
+    "Bar chart/icon set showing reductions in snapshot size, IO overhead, and restore time (relative comparison: full C/R vs app-only vs Crab)."
   ],
   "hashtags": [
     "#CheckpointRestore",
     "#AutonomousAgents",
     "#Sandboxing",
-    "#FaultTolerance",
-    "#EfficientInfrastructure"
+    "#MLSystems",
+    "#FaultTolerance"
   ],
   "paper_id": "2026-04-30-arxiv-crab_a_semantics_aware_checkpoint_restore_runtime_for_agent_sandboxes",
   "paper_title": "Crab: A Semantics-Aware Checkpoint/Restore Runtime for Agent Sandboxes",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28138v1"
     }
   ],
-  "generated_at": "2026-05-02T07:19:28.160507"
+  "generated_at": "2026-05-03T07:47:57.155388"
 }
