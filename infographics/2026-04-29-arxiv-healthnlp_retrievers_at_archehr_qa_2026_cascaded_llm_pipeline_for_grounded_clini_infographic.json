@@ -1,24 +1,24 @@
 {
-  "key_insight": "A multi-stage cascaded pipeline that combines targeted retrieval, LLM-based comprehension, and grounding/verification produces more accurate, evidence-backed answers to patient questions over EHRs than single-stage generation alone.",
-  "problem_solved": "Bridges the gap between raw EHR access and patient understanding by enabling grounded, clinically accurate question answering that points to supporting passages in the record.",
+  "key_insight": "A multi-stage cascaded pipeline combining targeted retrieval, grounding, and LLM answer synthesis produces more faithful, evidence-backed answers to patient questions over EHRs than single-step LLM prompting.",
+  "problem_solved": "Helps patients and clinicians get accurate, grounded answers from complex electronic health records by reducing hallucinations and linking responses to supporting EHR passages.",
   "method": [
-    "Cascaded pipeline: staged modules for retrieval → reranking → LLM answer generation → evidence verification to ensure grounded responses.",
-    "Retriever-first design: focused passage retrieval (and reranking) from EHRs to constrain the LLM to relevant clinical context and reduce hallucination.",
-    "Answer grounding and attribution: generated answers are verified against retrieved passages and returned with supporting evidence spans for transparency."
+    "Document-level and passage-level retrieval to find candidate evidence from the patient's EHR.",
+    "Evidence grounding and reranking to prioritize relevant, high-confidence passages.",
+    "LLM-based answer generation conditioned on the ranked evidence with constraints to cite supporting EHR text."
   ],
-  "impact": "Provides a practical blueprint for building reliable, explainable clinical QA systems that reduce hallucinations and improve trustworthiness—valuable for ML teams working on healthcare applications and EHR-integrated assistants.",
+  "impact": "Provides a practical blueprint for building reliable clinical QA systems that prioritize provenance and safety—useful for applied ML teams deploying LLMs in healthcare settings.",
   "visual_elements": [
-    "Flowchart of the cascaded pipeline (Retrieval → Rerank → LLM Generate → Verify) with short notes on each stage.",
-    "Annotated example: patient question, retrieved EHR passage(s) highlighted, and final answer showing supporting evidence spans.",
-    "Bar chart comparing accuracy/grounding rates of cascaded pipeline vs. baseline single-stage LLMs.",
-    "Icon set for trust elements: verification badge, source link, uncertainty/confidence meter."
+    "Cascaded pipeline diagram (Retrieval → Reranking/Grounding → LLM synthesis) with icons for each stage",
+    "Example Q&A card showing model answer with highlighted supporting EHR excerpts and citations",
+    "Bar chart comparing grounded vs. ungrounded answer faithfulness or hallucination rate",
+    "Icon set: patient portal, EHR document, magnifying glass (retrieval), shield (safety/provenance)"
   ],
   "hashtags": [
     "#ClinicalNLP",
     "#EHR",
     "#QuestionAnswering",
     "#LLM",
-    "#HealthcareAI"
+    "#MedicalAI"
   ],
   "paper_id": "2026-04-29-arxiv-healthnlp_retrievers_at_archehr_qa_2026_cascaded_llm_pipeline_for_grounded_clini",
   "paper_title": "HealthNLP_Retrievers at ArchEHR-QA 2026: Cascaded LLM Pipeline for Grounded Clinical Question Answering",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.26880v1"
     }
   ],
-  "generated_at": "2026-05-03T07:51:53.951191"
+  "generated_at": "2026-05-04T08:21:37.293090"
 }

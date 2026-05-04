@@ -1,24 +1,24 @@
 {
-  "key_insight": "Not all deviations of proxy rewards from ground truth are harmful: some classes of reward errors can actually help policy-gradient training by directing probability mass toward better outputs. The paper categorizes these imperfect rewards and shows theoretically which outputs attract probability under policy gradient.",
-  "problem_solved": "Addresses the gap that standard reward-quality metrics (e.g., ranking accuracy) treat all reward errors as equally bad, failing to predict when imperfect proxy rewards will help or hurt policy-gradient optimization.",
+  "key_insight": "Not all deviations from the true reward are equally harmful: some kinds of imperfect proxy rewards can actually steer policy gradient training toward desirable outputs. The paper provides a categorization and theoretical criteria that predict when reward errors attract probability mass versus when they mislead learning.",
+  "problem_solved": "Addresses the gap in evaluating proxy rewards for policy-gradient training of language models—showing that common metrics (e.g., ranking accuracy) treat all errors as uniformly bad and therefore fail to predict which reward imperfections will help or hurt learning.",
   "method": [
-    "Theoretical analysis of policy-gradient dynamics to determine which outputs gain probability mass under imperfect rewards.",
-    "Formal categorization of reward errors (e.g., beneficial, neutral, harmful) based on their impact on optimization trajectories.",
-    "Propose criteria/metrics beyond ranking accuracy and validate insights with illustrative simulations/experiments on language-model tasks."
+    "Theoretical analysis of policy-gradient dynamics under imperfect rewards to characterize how different reward deviations change the probability mass over outputs.",
+    "A taxonomy of reward errors (e.g., sign flips, magnitude distortions, localized misrankings) and formal conditions that determine whether each error type attracts or repels probability during optimization.",
+    "Empirical/illustrative examples validating the theory and showing cases where imperfect rewards improve final policy vs. cases where they induce failure modes."
   ],
-  "impact": "Provides practitioners principled guidance for designing and evaluating proxy rewards (e.g., in RLHF), enabling more robust training by distinguishing harmless or helpful reward errors from truly harmful ones.",
+  "impact": "Provides practitioners with a principled framework to judge and design proxy rewards beyond simple ranking metrics, enabling more reliable RL fine-tuning of language models and better diagnostic tools for reward engineering.",
   "visual_elements": [
-    "Taxonomy diagram showing reward-error categories (Beneficial | Neutral | Harmful) with brief examples",
-    "Flow diagram of policy-gradient dynamics illustrating which outputs attract probability under each error type",
-    "Comparative bar/line chart: traditional ranking-accuracy vs. proposed criteria in predicting training outcomes",
-    "Toy reward landscape + policy update arrows to visualize how certain errors steer optimization toward better or worse outputs"
+    "Taxonomy diagram: a compact tree showing categories of reward errors (benign/neutral/harmful) with short examples.",
+    "Probability-flow diagram: arrows showing how policy-gradient updates reallocate probability mass under different error types.",
+    "Metric comparison chart: bars or scatterplot contrasting ranking accuracy with the proposed theoretical criteria and actual training outcomes.",
+    "Toy sequence example: before/after policy distributions for a small language-model output space illustrating a helpful vs. harmful reward perturbation."
   ],
   "hashtags": [
-    "#RLHF",
-    "#PolicyGradient",
-    "#RewardDesign",
     "#ReinforcementLearning",
-    "#NLP"
+    "#RewardDesign",
+    "#PolicyGradient",
+    "#ModelEvaluation",
+    "#RLforLMs"
   ],
   "paper_id": "2026-04-28-arxiv-when_errors_can_be_beneficial_a_categorization_of_imperfect_rewards_for_policy_g",
   "paper_title": "When Errors Can Be Beneficial: A Categorization of Imperfect Rewards for Policy Gradient",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.25872v1"
     }
   ],
-  "generated_at": "2026-04-30T08:08:55.544449"
+  "generated_at": "2026-05-04T08:21:50.188144"
 }

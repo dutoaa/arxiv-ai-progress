@@ -1,24 +1,24 @@
 {
-  "key_insight": "A CT-informed Gaussian-splat representation captures patient-specific respiratory motion to produce dynamic, view-consistent airway renderings, enabling accurate endoscopic video-to-CT registration without requiring breath-hold protocols.",
-  "problem_solved": "Respiratory motion deforms the airway by 5–20 mm, causing CT-to-body divergence that limits bronchoscopy localization; current breath-hold protocols are hard to reproduce and disrupt clinical workflow.",
+  "key_insight": "Patient-specific respiratory motion can be modeled and rendered via CT-informed Gaussian splatting to create a dynamic, time-varying airway representation that enables accurate bronchoscope-to-CT registration without breath-hold protocols.",
+  "problem_solved": "Eliminates CT-to-body divergence caused by 5–20 mm respiratory deformation that forces disruptive breath-hold procedures, improving intraoperative localization during bronchoscopy.",
   "method": [
-    "Initialize a dense Gaussian-splat representation of the airway geometry from the preoperative CT as a prior for appearance and structure.",
-    "Fit a low-dimensional, patient-specific respiratory deformation model that animates the CT-informed splats across breathing phases.",
-    "Optimize alignment to intraoperative endoscopic video via view-consistent rendering and registration, producing a dynamic CT-to-video correspondence in real time."
+    "Build a patient-specific dynamic airway model from preoperative CT plus respiratory phase/signals to capture motion states.",
+    "Represent and render the time-varying airway with Gaussian splatting (fast, continuous volumetric rendering) conditioned on respiratory phase.",
+    "Register live endoscopic video frames to the dynamic rendered model (rather than a static CT) to recover accurate pose in real time."
   ],
-  "impact": "Demonstrates how combining medical-image priors with neural/point-based rendering yields clinically usable, patient-specific dynamic models—reducing reliance on protocol constraints and improving registration robustness for image-guided procedures.",
+  "impact": "Enables robust, real-time medical image registration under physiological motion—reducing workflow disruption and improving localization accuracy—while demonstrating how differentiable volumetric rendering (Gaussian splatting) can be used for dynamic scene modeling in medical AI.",
   "visual_elements": [
-    "Pipeline diagram: CT -> Gaussian splat init -> respiratory deformation model -> rendered endoscopic view -> video alignment loop",
-    "Side-by-side comparison: static CT registration (misaligned) vs. dynamic CT-informed rendering (aligned) with measured offset arrows",
-    "Sequence of frames or animated overlay showing splats moving through breathing phases to convey dynamic deformation",
-    "Bar or scatter chart illustrating reduction in localization error or improved alignment consistency (conceptual)"
+    "Side-by-side comparison: static CT render vs. CT-informed dynamic Gaussian-splat render showing airway displacement over a breathing cycle.",
+    "Pipeline diagram: CT + respiratory signal → dynamic Gaussian splatting renderer → video-to-model registration → pose estimate.",
+    "Bar chart or boxplot: localization error (mm) with static CT + breath-hold vs. static CT without breath-hold vs. dynamic model.",
+    "Animated sequence or GIF showing bronchoscope view aligning to the dynamic render through a respiration cycle (illustrating no breath-hold needed)."
   ],
   "hashtags": [
     "#MedicalImaging",
-    "#NeuralRendering",
     "#Bronchoscopy",
-    "#RespiratoryMotion",
-    "#ImageGuidedSurgery"
+    "#GaussianSplatting",
+    "#MotionCompensation",
+    "#ComputerVision"
   ],
   "paper_id": "2026-04-30-arxiv-stop_holding_your_breath_ct_informed_gaussian_splatting_for_dynamic_bronchoscopy",
   "paper_title": "Stop Holding Your Breath: CT-Informed Gaussian Splatting for Dynamic Bronchoscopy",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.28179v1"
     }
   ],
-  "generated_at": "2026-05-03T07:49:34.993300"
+  "generated_at": "2026-05-04T08:20:57.907663"
 }

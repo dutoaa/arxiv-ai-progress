@@ -1,24 +1,24 @@
 {
-  "key_insight": "OmniShotCut reconceptualizes shot-boundary detection as a structured relational prediction problem and uses a Shot-Query Transformer to jointly reason about shot relationships and boundaries, producing more interpretable and sensitive boundary detections.",
-  "problem_solved": "Addresses unreliable, non-interpretable shot boundaries, missed subtle discontinuities, and limitations of noisy/low-diversity annotations and outdated benchmarks in existing SBD methods.",
+  "key_insight": "OmniShotCut reframes shot boundary detection as a structured relational prediction problem and uses a Shot-Query Transformer to detect boundaries holistically and interpretably, enabling detection of subtle and complex transitions that prior methods miss.",
+  "problem_solved": "Existing SBD methods produce non-interpretable boundaries on transitions, miss subtle but harmful discontinuities, and depend on noisy, low-diversity annotations and outdated benchmarks; OmniShotCut addresses these issues by modeling shot relations jointly and robustly.",
   "method": [
-    "Formulate SBD as structured relational prediction that jointly estimates shot boundaries and inter-shot relations instead of independent frame-wise decisions.",
-    "Introduce a Shot-Query Transformer that uses explicit shot queries and cross-attention over temporal features to capture holistic relational context across frames.",
-    "Refine training/evaluation practices to mitigate noisy labels and benchmark gaps (improving annotation diversity and evaluation fidelity)."
+    "Shot-Query Transformer: learnable queries attend to temporal context to locate and characterize shot boundaries and transitions.",
+    "Structured relational prediction: jointly estimate shot boundaries and inter-shot relations for more interpretable, holistic segmentation.",
+    "Robust design to annotation noise and benchmark limitations: modeling choices and training objectives emphasize subtle discontinuities and clearer boundary semantics."
   ],
-  "impact": "Provides practitioners with a more robust, interpretable SBD model that better detects subtle discontinuities and supports downstream video tasks (editing, indexing, summarization); updated evaluation practices help accelerate fair comparisons and progress.",
+  "impact": "Gives AI/ML practitioners a more reliable, interpretable SBD module for downstream video tasks (editing, indexing, captioning, action detection), reducing missed/ambiguous transitions and improving preprocessing quality.",
   "visual_elements": [
-    "Architecture diagram: Shot-Query Transformer showing shot queries, cross-attention to frame features, and joint boundary/relationship outputs.",
-    "Timeline visualization: example video timeline with ground-truth vs. OmniShotCut-detected boundaries and confidence/interpretability cues.",
-    "Relational graph: nodes = shots, edges = predicted inter-shot relations highlighting where structural cues drive boundary decisions.",
-    "Comparison chart: precision/recall (or F1) bars vs. prior SOTA and a small table noting improvements on noisy/subtle transitions."
+    "Architecture diagram: Shot-Query Transformer flow showing queries, encoder, and relational output tokens.",
+    "Timeline comparison: side-by-side frame timeline showing ground truth, prior SBD outputs, and OmniShotCut output highlighting recovered subtle transitions.",
+    "Relational graph: nodes = shots, edges = transition types/strengths to illustrate structured predictions.",
+    "Benchmark chart: bar or radar plot comparing detection interpretability and robustness metrics across methods."
   ],
   "hashtags": [
     "#ShotBoundaryDetection",
     "#VideoUnderstanding",
     "#Transformers",
     "#ComputerVision",
-    "#Benchmarking"
+    "#OmniShotCut"
   ],
   "paper_id": "2026-04-27-arxiv-omnishotcut_holistic_relational_shot_boundary_detection_with_shot_query_transfor",
   "paper_title": "OmniShotCut: Holistic Relational Shot Boundary Detection with Shot-Query Transformer",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2604.24762v1"
     }
   ],
-  "generated_at": "2026-05-02T07:22:33.168551"
+  "generated_at": "2026-05-04T08:21:22.763942"
 }
