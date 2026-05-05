@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introducing a lightweight Persistent Visual Memory (PVM) module that maintains accessible visual representations so LVLMs retain visual perception throughout long autoregressive generation, counteracting visual attention decay.",
-  "problem_solved": "Addresses 'Visual Signal Dilution'—the loss of effective visual attention as textual history grows in autoregressive LVLMs, which weakens visual grounding during long multimodal generation.",
+  "key_insight": "Introducing a lightweight Persistent Visual Memory (PVM) module prevents visual information from fading as autoregressive LVLMs generate long text, enabling sustained, on‑demand visual perception throughout generation.",
+  "problem_solved": "Addresses 'Visual Signal Dilution' — visual attention decays as generated textual history grows, causing LVLMs to lose visual grounding on long generations.",
   "method": [
-    "Quantify and diagnose visual signal dilution in autoregressive LVLMs (attention to visual tokens decays as generated text length increases).",
-    "Introduce a lightweight, learnable Persistent Visual Memory that stores and supplies sustained visual features in parallel to the model's language pathway.",
-    "Integrate PVM as an on-demand visual retrieval pathway so visual cues remain strong across long-generation sequences while keeping the module parameter-efficient."
+    "Add a learnable Persistent Visual Memory module that runs in parallel to standard cross‑attention, retaining distilled visual representations independent of autoregressive context length.",
+    "Provide on‑demand access to persistent visual states via gating/attention so the decoder can re‑query high‑fidelity visual memory at any generation step.",
+    "Keep the module lightweight and plug‑in so it can be integrated into existing LVLMs with minimal compute and training overhead."
   ],
-  "impact": "Enables more robust long-form, visually grounded generation and dialog in LVLMs by preserving vision-language alignment over long contexts—useful for multimodal assistants, narration, and complex visual QA.",
+  "impact": "Enables more stable visual grounding for long-form and iterative multimodal generation, improving reliability of LVLM outputs in tasks that require sustained perception (e.g., multi‑step reasoning, extended descriptions, interactive agents).",
   "visual_elements": [
-    "Line chart: attention-to-visual-token strength vs. generated sequence length showing decay (before) and stabilized curve (after PVM).",
-    "Block diagram: LVLM architecture with a parallel PVM module that stores and supplies visual features to the generator.",
-    "Side-by-side example: a long image-grounded dialog or caption sequence with and without PVM highlighting differences in visual consistency.",
-    "Attention heatmaps: per-token visual attention across a long generation demonstrating dilution vs. persistent attention with PVM."
+    "Line chart: visual attention strength vs. generated sequence length showing decay without PVM and preservation with PVM.",
+    "Architecture diagram: LVLM stack with PVM module in parallel to cross‑attention, highlighting data flow and gating.",
+    "Sequence storyboard: an example long‑form generation where PVM preserves correct visual references across many tokens.",
+    "Bar chart or table: qualitative/quantitative comparison of grounding fidelity or accuracy with and without PVM (illustrative)."
   ],
   "hashtags": [
     "#VisionLanguage",
     "#LVLM",
     "#MemoryAugmentation",
     "#MultimodalAI",
-    "#AIResearch"
+    "#EfficientAI"
   ],
   "paper_id": "2026-05-01-arxiv-persistent_visual_memory_sustaining_perception_for_deep_generation_in_lvlms",
   "paper_title": "Persistent Visual Memory: Sustaining Perception for Deep Generation in LVLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.00814v1"
     }
   ],
-  "generated_at": "2026-05-04T08:19:39.932277"
+  "generated_at": "2026-05-05T07:58:43.611859"
 }

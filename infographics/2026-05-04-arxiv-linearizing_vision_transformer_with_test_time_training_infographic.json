@@ -1,0 +1,35 @@
+{
+  "key_insight": "Pretrained Softmax-attention Vision Transformers can be converted into efficient linear-attention models by combining architectural alignment with a short, targeted test-time training stage that closes the representational gap and enables direct weight reuse.",
+  "problem_solved": "Bridges the incompatibility between Softmax attention and linear-complexity attention so practitioners can reuse expensive pretrained ViT weights rather than training linear-attention models from scratch, overcoming the quadratic attention bottleneck without prohibitive compute.",
+  "method": [
+    "Architectural alignment: introduce lightweight compatibility adapters and design linear-attention modules to mimic the functional behaviour of Softmax attention so pretrained weights are more directly transferable.",
+    "Test-time training (TTT): apply a brief, self-supervised calibration step on target data (e.g., layer-matching / consistency objectives) to adapt pretrained parameters to the linearized attention dynamics.",
+    "Low-overhead deployment: keep additional parameters and adaptation steps minimal to preserve linear inference complexity and practical efficiency gains."
+  ],
+  "impact": "Enables practical deployment of compute- and memory-efficient Vision Transformers by leveraging existing pretrained models instead of costly retraining, lowering barriers for high-resolution and long-sequence vision applications.",
+  "visual_elements": [
+    "Side-by-side architecture diagram: Softmax-attention ViT vs converted linear-attention ViT with adapters highlighted",
+    "Flowchart of the conversion + test-time training loop: load pretrained weights → insert adapters → run short self-supervised TTT → deploy",
+    "Bar or cost chart (qualitative): relative training compute/time and inference complexity before vs after conversion",
+    "Icon set: pretrained model → lightweight adapter → efficient inference (illustrating reuse and speedup)"
+  ],
+  "hashtags": [
+    "#VisionTransformer",
+    "#LinearAttention",
+    "#TestTimeTraining",
+    "#EfficientML",
+    "#ModelReuse"
+  ],
+  "paper_id": "2026-05-04-arxiv-linearizing_vision_transformer_with_test_time_training",
+  "paper_title": "Linearizing Vision Transformer with Test-Time Training",
+  "paper_category": "Model",
+  "paper_date": "2026-05-04",
+  "paper_authors": "Yining Li, Dongchen Han, Zeyu Liu, Hanyi Wang, Yulin Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.02772v1"
+    }
+  ],
+  "generated_at": "2026-05-05T07:54:42.622594"
+}

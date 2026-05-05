@@ -1,0 +1,35 @@
+{
+  "key_insight": "Distill transformer global modeling into lightweight state-space model (SSM) blocks and combine them in a modular hybrid architecture to retain restoration quality while drastically reducing attention-induced latency on edge devices.",
+  "problem_solved": "Attention-heavy transformers give strong global context for image restoration but are slow on mobile/edge hardware, especially for high-resolution inputs; the paper addresses how to achieve transformer-level restoration performance with much lower runtime cost.",
+  "method": [
+    "Modular hybrid architecture that interleaves transformer blocks (for learning rich global priors) with SSM blocks (e.g., Mamba) for linear-time sequence modeling and low runtime overhead.",
+    "Transformer-to-SSM distillation where knowledge from trained transformer components is transferred into efficient SSM modules so they emulate attention behaviors without heavy kernels.",
+    "Edge-oriented design and deployment considerations (block selection, resolution-aware scheduling) to minimize latency on mobile accelerators while preserving restoration fidelity."
+  ],
+  "impact": "Enables practitioners to deploy high-quality image-restoration models on constrained devices by replacing costly attention with distilled SSMs, lowering inference latency and power use without major drops in visual performance.",
+  "visual_elements": [
+    "Architecture diagram showing hybrid pipeline: transformer blocks → distillation arrow → SSM blocks, with data flow for an image patch sequence.",
+    "Latency vs. restoration-quality scatter plot comparing full transformer, hybrid distilled SSM, and pure SSM baselines on mobile runtime.",
+    "Block-level comparison infographic (compute cost, memory, receptive-field) for self-attention vs. SSM vs. distilled SSM.",
+    "Mobile device icon with runtime/energy bars and an example before/after restored image pair (high-res) to emphasize edge gains."
+  ],
+  "hashtags": [
+    "#EdgeAI",
+    "#ImageRestoration",
+    "#StateSpaceModels",
+    "#TransformerDistillation",
+    "#MobileML"
+  ],
+  "paper_id": "2026-05-04-arxiv-edge_efficient_image_restoration_transformer_distillation_into_state_space_model",
+  "paper_title": "Edge-Efficient Image Restoration: Transformer Distillation into State-Space Models",
+  "paper_category": "Model",
+  "paper_date": "2026-05-04",
+  "paper_authors": "Srinivas Soumitri Miriyala, Sowmya Vajrala, Sravanth Kodavanti, Vikram Nelvoy Rajendiran, Sharan Kumar Allur",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.02794v1"
+    }
+  ],
+  "generated_at": "2026-05-05T07:55:30.407586"
+}

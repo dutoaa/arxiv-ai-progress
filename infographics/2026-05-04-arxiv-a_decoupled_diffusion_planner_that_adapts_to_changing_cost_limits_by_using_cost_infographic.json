@@ -1,0 +1,35 @@
+{
+  "key_insight": "Decouple safety and performance guidance in a diffusion-based planner: use cost‑conditioned trajectory generation to enforce variable cost limits reliably, and apply reward gradients only to boost performance without violating those constraints.",
+  "problem_solved": "Offline safe RL policies must adapt at deployment to episode-varying or intra-episode changing safety budgets; prior diffusion guidance that mixes reward and cost gradients can fail to satisfy cost limits reliably.",
+  "method": [
+    "Treat adaptive safe trajectory generation as sampling from a constrained distribution and implement cost‑conditioned diffusion sampling to respect a specified cost limit.",
+    "Apply a separate reward-gradient guidance step (after or alongside cost‑conditioned sampling) to improve task performance while preserving the constraint satisfaction provided by the cost condition.",
+    "Design the planner to accept changing cost budgets at deployment (per episode or intra-episode) without retraining the policy offline."
+  ],
+  "impact": "Provides a practical, flexible planner for offline safe RL that preserves safety under varying budgets while still improving reward — useful for real-world applications (robotics, autonomous driving) where safety limits change at run time.",
+  "visual_elements": [
+    "Pipeline diagram showing decoupled stages: cost‑conditioned diffusion sampler → constraint‑satisfying trajectory → reward‑gradient refinement.",
+    "Graphic of sampling distributions: constrained (cost‑conditioned) vs unconstrained, illustrating safe region enforced by cost condition.",
+    "Performance vs safety plots across varying cost limits, showing improved reward while maintaining cost compliance compared to joint‑gradient baselines.",
+    "Example trajectories in an environment (e.g., obstacle course) contrasting trajectories from prior methods that violate cost limits with the proposed method that stays within budget."
+  ],
+  "hashtags": [
+    "#SafeRL",
+    "#DiffusionModels",
+    "#OfflineRL",
+    "#ConstrainedOptimization",
+    "#Robotics"
+  ],
+  "paper_id": "2026-05-04-arxiv-a_decoupled_diffusion_planner_that_adapts_to_changing_cost_limits_by_using_cost",
+  "paper_title": "A decoupled diffusion planner that adapts to changing cost limits by using cost-conditioned generation for safety and reward gradients for performance",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-05-04",
+  "paper_authors": "Rufeng Chen, Zhaofan Zhang, Zhejiang Yang, Hechang Chen, Sihong Xie",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.02777v1"
+    }
+  ],
+  "generated_at": "2026-05-05T07:54:53.433954"
+}
