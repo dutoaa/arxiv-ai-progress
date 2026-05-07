@@ -1,0 +1,35 @@
+{
+  "key_insight": "A small number of high‑norm \"outlier\" tokens appear in both the encoder and denoiser of Diffusion Transformers (DiTs), disproportionately attracting attention while carrying little local information; detecting and taming these outliers improves generation stability and image quality.",
+  "problem_solved": "Outlier tokens in RAE‑DiT pipelines create attention imbalance and hinder generative performance and robustness; prior work noted outliers in ViTs but did not address their role or mitigation in diffusion‑based generative models.",
+  "method": [
+    "Empirical diagnosis: analyze token‑norm distributions and attention attribution in pretrained ViT encoders and DiT denoisers to locate outlier tokens.",
+    "Targeted mitigation: introduce lightweight detection + suppression strategies (e.g., token‑norm clipping / adaptive reweighting / normalization or token dropout) applied to encoder and denoiser to reduce outlier influence.",
+    "Evaluation: measure effects on generation quality and training/inference stability in RAE‑DiT pipelines, comparing attention patterns and visual outputs before vs. after intervention."
+  ],
+  "impact": "Provides a practical, low‑cost way to make transformer‑based diffusion models more stable and higher quality by addressing a previously underexplored failure mode; easy to integrate into existing DiT and ViT workflows for improved reliability in image generation.",
+  "visual_elements": [
+    "Histogram or violin plot of token‑norm distribution highlighting a few high‑norm outliers",
+    "Side‑by‑side attention maps (before vs. after taming) showing attention concentration vs. more balanced attention",
+    "Pipeline diagram (RAE encoder → DiT denoiser) with an inset showing outlier detection + suppression module",
+    "Before/after image pairs (generated samples) and a compact metric bar chart (e.g., FID/consistency) to illustrate quality/stability gains"
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#VisionTransformers",
+    "#GenerativeAI",
+    "#ModelRobustness",
+    "#ComputerVision"
+  ],
+  "paper_id": "2026-05-06-arxiv-taming_outlier_tokens_in_diffusion_transformers",
+  "paper_title": "Taming Outlier Tokens in Diffusion Transformers",
+  "paper_category": "Model",
+  "paper_date": "2026-05-06",
+  "paper_authors": "Xiaoyu Wu, Yifei Wang, Tsu-Jui Fu, Liang-Chieh Chen, Zhe Gan",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.05206v1"
+    }
+  ],
+  "generated_at": "2026-05-07T08:17:38.259880"
+}

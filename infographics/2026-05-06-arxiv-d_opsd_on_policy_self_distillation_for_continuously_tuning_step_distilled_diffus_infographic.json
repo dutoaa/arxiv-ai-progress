@@ -1,0 +1,35 @@
+{
+  "key_insight": "D-OPSD introduces on-policy self-distillation to continuously fine-tune step-distilled (few-step) diffusion models without degrading their fast, few-step inference quality — the model learns from its own on-policy trajectories to preserve and improve step-wise behavior.",
+  "problem_solved": "Standard supervised fine-tuning breaks the inference behavior of step-distilled few-step diffusion models due to train/inference mismatch; D-OPSD solves continuous tuning while retaining few-step efficiency and sample quality.",
+  "method": [
+    "On-policy self-distillation loop: generate intermediate trajectories with the current (teacher) few-step model and use them as targets for the student to learn step-wise denoising behavior.",
+    "Training objective blends distillation losses that align student predictions with teacher on-policy outputs and supervised task losses, preserving the distilled step schedule.",
+    "Continuous/iterative update scheme that updates teacher from the tuned student (or uses moving-average teacher) to maintain consistency and avoid catastrophic changes to few-step inference."
+  ],
+  "impact": "Enables practitioners to safely fine-tune high-speed few-step diffusion models for downstream tasks or data domains while keeping fast inference and high sample quality, reducing the need for costly multi-step retraining.",
+  "visual_elements": [
+    "Teacher–student loop diagram showing on-policy sampling, distillation loss, and model update (arrow cycle)",
+    "Before vs after chart: sample quality (FID/CLIP) vs number of inference steps showing preservation/improvement at few steps",
+    "Pipeline infographic: data/conditioning → on-policy sampling → distillation loss → model update (with optional EMA teacher)",
+    "Icon grid illustrating benefits: speed (few steps), maintained quality, continuous tuning, and model reuse"
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#ModelDistillation",
+    "#FewStepGeneration",
+    "#FineTuning",
+    "#OnPolicyLearning"
+  ],
+  "paper_id": "2026-05-06-arxiv-d_opsd_on_policy_self_distillation_for_continuously_tuning_step_distilled_diffus",
+  "paper_title": "D-OPSD: On-Policy Self-Distillation for Continuously Tuning Step-Distilled Diffusion Models",
+  "paper_category": "Model",
+  "paper_date": "2026-05-06",
+  "paper_authors": "Dengyang Jiang, Xin Jin, Dongyang Liu, Zanyi Wang, Mingzhe Zheng",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.05204v1"
+    }
+  ],
+  "generated_at": "2026-05-07T08:17:23.729985"
+}

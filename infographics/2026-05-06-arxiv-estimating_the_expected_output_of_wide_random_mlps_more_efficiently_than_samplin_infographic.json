@@ -1,0 +1,35 @@
+{
+  "key_insight": "You can estimate the expected output of a wide, randomly initialized MLP on Gaussian inputs analytically — without Monte Carlo — by approximating layerwise activation distributions and propagating them through the network.",
+  "problem_solved": "Sampling-based estimation of expected outputs or losses is costly and noisy; the paper removes the need to run many forward samples at initialization while retaining accurate expectations.",
+  "method": [
+    "Represent layer activations using low-order statistics (cumulants/moments) to form compact approximate distributions.",
+    "Propagate these distributions through nonlinearities using Hermite-polynomial (orthogonal expansion) techniques to update cumulants across layers.",
+    "Evaluate the network's expected output analytically from the final activation approximation, avoiding sample-based forward passes."
+  ],
+  "impact": "Provides a fast, low-variance alternative to Monte Carlo for estimating expectations at initialization, enabling cheaper analysis of architectures and initializations and accelerating research tasks that require many expectation evaluations.",
+  "visual_elements": [
+    "Side-by-side diagram: Monte Carlo pipeline (many sampled forwards) vs analytic pipeline (cumulant/Hermite propagation) with compute/time icons",
+    "Flowchart showing layerwise propagation of distribution approximations (cumulants → Hermite expansion → updated cumulants)",
+    "Plot: estimation error vs compute/time comparing analytic method and Monte Carlo across sample counts",
+    "Icon set: cumulants/moments (moment symbols), Hermite polynomials (polynomial curve), and speedup/time-savings badge"
+  ],
+  "hashtags": [
+    "#RandomMLP",
+    "#WideNeuralNetworks",
+    "#Cumulants",
+    "#HermitePolynomials",
+    "#EfficientEstimation"
+  ],
+  "paper_id": "2026-05-06-arxiv-estimating_the_expected_output_of_wide_random_mlps_more_efficiently_than_samplin",
+  "paper_title": "Estimating the expected output of wide random MLPs more efficiently than sampling",
+  "paper_category": "Model",
+  "paper_date": "2026-05-06",
+  "paper_authors": "Wilson Wu, Victor Lecomte, Michael Winer, George Robinson, Jacob Hilton",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.05179v1"
+    }
+  ],
+  "generated_at": "2026-05-07T08:15:52.605745"
+}

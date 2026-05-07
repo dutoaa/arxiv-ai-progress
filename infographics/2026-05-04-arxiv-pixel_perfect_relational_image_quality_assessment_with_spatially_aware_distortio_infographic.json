@@ -1,24 +1,24 @@
 {
-  "key_insight": "Instead of predicting absolute MOS, the paper reframes IQA as a relational, directional task: a model learns which image is more distorted and where, using synthetic, self-supervised distortions to train without human labels.",
-  "problem_solved": "Eliminates costly and coarse mean-opinion-score collection and provides interpretable, localized feedback about specific image distortions for downstream tasks.",
+  "key_insight": "Rather than predicting absolute MOS scores, the paper reframes image quality assessment as a relational, directional task and trains a model to predict spatially-aware distortion maps using synthetic, self-supervised distortions—removing the need for costly human labels.",
+  "problem_solved": "MOS-based IQA is expensive, subjective, and provides no localized guidance; this work provides scalable, interpretable, pixel-level distortion assessment and relative comparisons between images without manual annotation.",
   "method": [
-    "Synthetic distortion engine generates diverse, spatially-aware corruptions and controlled pairs/triplets for self-supervised training.",
-    "A distortion-prediction network is trained to produce directional/relational judgments and pixel-level distortion maps (where and which image is worse) rather than absolute MOS.",
-    "Learning objective leverages pairwise/relative supervision and spatial consistency to produce interpretable, localized quality estimates."
+    "Reformulate IQA as relational/directional prediction (which image/region is more distorted) instead of absolute scoring.",
+    "Use a self-supervised synthetic distortion engine to generate diverse, localized distortions for training data, eliminating manual MOS collection.",
+    "Train a distortion prediction network to output spatially-aware distortion maps and pairwise relational labels (rankings/directions) for robust, interpretable assessment."
   ],
-  "impact": "Enables scalable, annotation-free training of IQA models that give per-pixel, actionable feedback—useful for image restoration, compression, and model auditing—while improving interpretability and reducing labeling cost.",
+  "impact": "Enables scalable, annotation-free IQA that gives pixel-level diagnostic feedback useful for image restoration, model debugging, and automated dataset curation—speeding development cycles and improving interpretability.",
   "visual_elements": [
-    "Flow diagram of the synthetic distortion engine producing paired distorted images and ground-truth relational labels",
-    "Before/after image pair with overlaid pixel-wise distortion heatmap from the model",
-    "Schematic showing relational/directional comparison (arrows indicating which image is worse) vs. traditional MOS scalar",
-    "Bar/line chart comparing correlation with human judgment and annotation cost between MOS-trained baselines and the proposed method"
+    "Pipeline diagram: synthetic distortion engine → paired training sample generation → distortion-predictor network → relational outputs",
+    "Before/after image pairs overlaid with predicted distortion heatmaps to show localized errors",
+    "Grid of synthetic distortions demonstrating diversity (blurs, noise, compression, localized artifacts)",
+    "Bar/ROC chart comparing relational ranking accuracy versus traditional MOS-based models"
   ],
   "hashtags": [
-    "#ImageQualityAssessment",
-    "#SelfSupervisedLearning",
-    "#RelationalAI",
+    "#ImageQuality",
+    "#SelfSupervised",
     "#ComputerVision",
-    "#PerceptualMetrics"
+    "#ImageRestoration",
+    "#IQA"
   ],
   "paper_id": "2026-05-04-arxiv-pixel_perfect_relational_image_quality_assessment_with_spatially_aware_distortio",
   "paper_title": "Pixel Perfect: Relational Image Quality Assessment with Spatially-Aware Distortions",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.02863v1"
     }
   ],
-  "generated_at": "2026-05-05T07:56:15.467581"
+  "generated_at": "2026-05-07T08:18:46.481960"
 }

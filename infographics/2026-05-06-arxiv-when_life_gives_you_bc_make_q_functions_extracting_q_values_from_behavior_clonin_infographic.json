@@ -1,0 +1,35 @@
+{
+  "key_insight": "Extract Q-value estimates from a behavior cloning (BC) policy and use them to gate and guide online reinforcement learning, enabling safe, sample-efficient on-robot improvement without overwriting good demonstrated behaviors.",
+  "problem_solved": "BC provides strong initial robot behavior but lacks a self-guided mechanism for online improvement; naive offline-to-online RL can overwrite demonstrated good actions due to distribution mismatch, harming safety and performance.",
+  "method": [
+    "Train a Behavior Cloning policy on demonstration data and derive Q-value estimates from that BC policy (Q-Estimation).",
+    "Use those Q-estimates to build a Q-Gating mechanism that restricts or prioritizes online policy updates so only beneficial changes replace demonstrated actions.",
+    "Run lightweight on-robot RL guided by Q-gates to safely fine-tune behavior with few online samples and reduced catastrophic overwrite of demonstrations."
+  ],
+  "impact": "Enables robots to continue learning on-device safely and efficiently after demonstrations, preserving high-quality demonstrated actions while improving performance with minimal online data — lowering deployment risk and sample cost for practitioners.",
+  "visual_elements": [
+    "Pipeline diagram: Demonstrations -> Behavior Cloning -> Q-Estimation -> Q-Gating -> On-robot RL",
+    "Before/After chart: performance and safety metrics showing BC-only vs naive RL vs Q2RL (higher improvement + preserved safety)",
+    "Schematic of Q-Gating: action proposals filtered by BC-derived Q-thresholds (allow / block / prioritize updates)",
+    "Robot icon with sample-efficiency meter (few online steps) and shield icon representing preserved safe demo behaviors"
+  ],
+  "hashtags": [
+    "#ReinforcementLearning",
+    "#Robotics",
+    "#BehaviorCloning",
+    "#OfflineToOnline",
+    "#Q2RL"
+  ],
+  "paper_id": "2026-05-06-arxiv-when_life_gives_you_bc_make_q_functions_extracting_q_values_from_behavior_clonin",
+  "paper_title": "When Life Gives You BC, Make Q-functions: Extracting Q-values from Behavior Cloning for On-Robot Reinforcement Learning",
+  "paper_category": "Model",
+  "paper_date": "2026-05-06",
+  "paper_authors": "Lakshita Dodeja, Ondrej Biza, Shivam Vats, Stephen Hart, Stefanie Tellex",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.05172v1"
+    }
+  ],
+  "generated_at": "2026-05-07T08:15:40.918383"
+}
