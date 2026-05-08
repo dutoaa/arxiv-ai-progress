@@ -1,24 +1,24 @@
 {
-  "key_insight": "A small number of high‑norm \"outlier\" tokens appear in both the encoder and denoiser of Diffusion Transformers (DiTs), disproportionately attracting attention while carrying little local information; detecting and taming these outliers improves generation stability and image quality.",
-  "problem_solved": "Outlier tokens in RAE‑DiT pipelines create attention imbalance and hinder generative performance and robustness; prior work noted outliers in ViTs but did not address their role or mitigation in diffusion‑based generative models.",
+  "key_insight": "A small number of high-norm \"outlier\" tokens appear in both the encoder and denoiser of Diffusion Transformers (DiTs) and disproportionately attract attention while carrying limited local information; identifying and \"taming\" these tokens reduces their negative influence on generation.",
+  "problem_solved": "Outlier tokens in ViT-based diffusion pipelines create attention bottlenecks and degrade image generation quality and stability; the paper diagnoses this phenomenon in RAE–DiT architectures and provides practical ways to mitigate it.",
   "method": [
-    "Empirical diagnosis: analyze token‑norm distributions and attention attribution in pretrained ViT encoders and DiT denoisers to locate outlier tokens.",
-    "Targeted mitigation: introduce lightweight detection + suppression strategies (e.g., token‑norm clipping / adaptive reweighting / normalization or token dropout) applied to encoder and denoiser to reduce outlier influence.",
-    "Evaluation: measure effects on generation quality and training/inference stability in RAE‑DiT pipelines, comparing attention patterns and visual outputs before vs. after intervention."
+    "Detect outlier tokens by measuring token norms and their attention influence in both the pretrained ViT encoder and the DiT denoiser.",
+    "Apply lightweight taming strategies (e.g., per-token norm normalization/clipping, attention reweighting, and regularization) to reduce outlier dominance.",
+    "Integrate the taming module into RAE–DiT pipelines with minimal architectural changes and training overhead, evaluating effects on attention patterns and sample quality."
   ],
-  "impact": "Provides a practical, low‑cost way to make transformer‑based diffusion models more stable and higher quality by addressing a previously underexplored failure mode; easy to integrate into existing DiT and ViT workflows for improved reliability in image generation.",
+  "impact": "Makes DiT-based image generation more robust and stable by preventing a few tokens from monopolizing attention; practical fixes are easy to plug into existing ViT + diffusion stacks, improving fidelity and interpretability.",
   "visual_elements": [
-    "Histogram or violin plot of token‑norm distribution highlighting a few high‑norm outliers",
-    "Side‑by‑side attention maps (before vs. after taming) showing attention concentration vs. more balanced attention",
-    "Pipeline diagram (RAE encoder → DiT denoiser) with an inset showing outlier detection + suppression module",
-    "Before/after image pairs (generated samples) and a compact metric bar chart (e.g., FID/consistency) to illustrate quality/stability gains"
+    "Histogram/violin plot of token L2 norms before vs. after taming to show removal/reduction of outliers.",
+    "Attention heatmaps from encoder/denoiser illustrating an outlier token attracting excessive attention and the corrected, more distributed attention after taming.",
+    "Pipeline diagram of RAE–DiT showing where outlier detection and taming modules plug into the encoder and denoiser.",
+    "Side-by-side generated-image comparisons (original vs. tamed) highlighting reduced artifacts and improved local detail."
   ],
   "hashtags": [
     "#DiffusionModels",
     "#VisionTransformers",
     "#GenerativeAI",
     "#ModelRobustness",
-    "#ComputerVision"
+    "#AIResearch"
   ],
   "paper_id": "2026-05-06-arxiv-taming_outlier_tokens_in_diffusion_transformers",
   "paper_title": "Taming Outlier Tokens in Diffusion Transformers",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.05206v1"
     }
   ],
-  "generated_at": "2026-05-07T08:17:38.259880"
+  "generated_at": "2026-05-08T07:21:07.813083"
 }

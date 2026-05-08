@@ -1,24 +1,24 @@
 {
-  "key_insight": "Storage capacity of a d×d linear associative memory is not determined solely by matrix degrees of freedom (d^2) but critically depends on the retrieval criterion: top-1 (winner-take-all) retrieval requires a logarithmic model-size factor, while alternative (listwise) retrieval rules yield qualitatively different, often lower, capacity thresholds.",
-  "problem_solved": "Determines how many key–value associations a linear memory can reliably store and retrieve, and precisely characterizes how that capacity changes with different retrieval criteria (e.g., top-1 vs listwise) in an isotropic Gaussian model.",
+  "key_insight": "The number of key–value pairs a d×d linear memory can store depends critically on the retrieval rule: requiring top-1 (winner-take-all) retrieval imposes an extra logarithmic cost (d^2 ≍ n log n), and changing the retrieval criterion produces sharp capacity phase transitions.",
+  "problem_solved": "Quantifies how many associations a linear (d×d) memory can reliably store and retrieve under different retrieval criteria, resolving how retrieval rules (top-1 vs listwise) change the effective storage capacity.",
   "method": [
-    "Model: analyze an isotropic Gaussian model of stored key–value pairs and a correlation-matrix (superposed outer-product) memory construction.",
-    "Theoretical analysis: derive sharp, asymptotic capacity thresholds for retrieval success under different retrieval criteria (proving d^2 ≍ n log n is necessary for top-1 retrieval).",
-    "Rigorous probabilistic and asymptotic techniques to characterize extreme-value/distractor behavior and the resulting phase transitions in retrieval performance."
+    "Model stored key–value pairs as isotropic Gaussian vectors and analyze retrieval success probabilistically.",
+    "Study the correlation-matrix (outer-product superposition) memory construction as the storage mechanism.",
+    "Derive sharp capacity thresholds (phase transitions) for different retrieval rules, comparing winner-take-all (top-1) and listwise criteria."
   ],
-  "impact": "Provides precise design guidance for memory-augmented models and associative-memory architectures by quantifying trade-offs between model size, retrieval rule, and reliable storage capacity; helps practitioners choose retrieval strategies to meet memory or scaling constraints.",
+  "impact": "Provides precise scaling laws that guide design of linear associative memories and memory-augmented models: choosing the retrieval objective can change required model size by logarithmic factors, affecting trade-offs between memory footprint and reliability.",
   "visual_elements": [
-    "Scaling plot: axes d^2 (model size) vs n (number of items) showing sharp threshold lines (e.g., d^2 ≍ n log n) separating success/failure regions for top-1 vs listwise retrieval.",
-    "Schematic diagram: memory construction as superposition of outer products into a d×d matrix, with arrows showing query → retrieval.",
-    "Comparison panel: winner-take-all (single top match) vs listwise retrieval (return top-k) with illustrative distractors and success/failure cases.",
-    "Bar/line chart: retrieval accuracy vs stored items for different retrieval criteria, highlighting phase transition behavior."
+    "Capacity plot: n (stored items) vs d^2 with threshold curves showing top-1 (d^2 ≍ n log n) and alternative retrieval regimes.",
+    "Schematic comparing retrieval rules: winner-take-all (one correct vs many distractors) vs listwise (tolerant/multi-return) with annotated failure modes.",
+    "Diagram of correlation-matrix storage: superposed outer products and how a query projects to retrieved values.",
+    "Phase diagram / heatmap illustrating sharp transitions in retrieval success probability as a function of n and d."
   ],
   "hashtags": [
     "#AssociativeMemory",
-    "#ModelCapacity",
+    "#CapacityScaling",
     "#TheoreticalML",
-    "#MemoryAugmentedAI",
-    "#CapacityThresholds"
+    "#MemoryAugmentedModels",
+    "#LinearAlgebra"
   ],
   "paper_id": "2026-05-06-arxiv-sharp_capacity_thresholds_in_linear_associative_memory_from_winner_take_all_to_l",
   "paper_title": "Sharp Capacity Thresholds in Linear Associative Memory: From Winner-Take-All to Listwise Retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.05189v1"
     }
   ],
-  "generated_at": "2026-05-07T08:16:23.510870"
+  "generated_at": "2026-05-08T07:20:48.861846"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "TrajCast is an autoregressive, E(3)-equivariant neural model that predicts atomic trajectories directly—bypassing explicit force calculations—and enables stable molecular dynamics with time steps up to ~30× larger while preserving physical observables.",
-  "problem_solved": "Conventional molecular dynamics are computationally limited by small integration time steps and expensive force evaluations; this work addresses the need for faster, stable simulation of atomic-scale dynamics without sacrificing accuracy of thermodynamic and structural properties.",
+  "key_insight": "TrajCast uses an autoregressive equivariant neural network to predict atomic trajectories directly—skipping force calculations—enabling stable molecular dynamics with time steps up to 30× larger while preserving physical properties.",
+  "problem_solved": "Conventional molecular dynamics is slowed by expensive force calculations and small time steps; this work addresses the bottleneck by modelling trajectory evolution directly to access much longer simulated timescales without degrading accuracy.",
   "method": [
-    "Autoregressive prediction: the network predicts future atomic positions (or displacements) step-by-step instead of computing forces and integrating equations of motion.",
-    "Equivariant architecture: E(3)-equivariant layers enforce rotational and translational symmetry so predictions respect physical invariances.",
-    "Data-driven training with physics-aware objectives: trained on trajectory data to reproduce dynamical statistics and structural/energetic observables, enabling long-step extrapolation."
+    "Autoregressive equivariant architecture that predicts next-step atomic positions while enforcing translational/rotational symmetry (equivariance).",
+    "Train on MD trajectory data to learn conditional position updates rather than learning forces or potentials explicitly.",
+    "Deploy the model in an iterative rollout (autoregressive forecasting) to produce long trajectories with larger discrete time steps while monitoring conservation of physical observables."
   ],
-  "impact": "Provides a practical route to accelerate molecular and materials simulations by orders of magnitude, enabling longer-timescale studies and faster screening in computational chemistry and materials science while maintaining physical fidelity.",
+  "impact": "Enables much faster molecular/material simulations and longer time-scale exploration with lower compute cost, useful for accelerated materials discovery, enhanced sampling, and integrating physics-aware ML into simulation pipelines.",
   "visual_elements": [
-    "Side-by-side schematic: traditional MD loop (forces → integrate → positions) vs TrajCast loop (positions → neural predictor → positions).",
-    "Bar chart showing allowed time-step multiplier (1× vs up to ~30×) and corresponding speedup.",
-    "Parity plots comparing key observables (e.g., radial distribution function, energy distribution) between ground-truth MD and TrajCast.",
-    "Architecture diagram highlighting autoregressive flow and E(3)-equivariant layers with molecule-level input/output"
+    "Architecture diagram: autoregressive equivariant network block showing input positions → network → predicted next positions (with symmetry icons).",
+    "Speed vs accuracy chart: time-step multiplier (e.g., 1×, 5×, 10×, 30×) on x-axis and error/physical observable deviation on y-axis highlighting 30× stability.",
+    "Trajectory overlay: ground-truth MD trajectories vs TrajCast-predicted trajectories for a molecule/material segment.",
+    "Conservation plots: energy/temperature or radial distribution comparisons showing preserved physical properties across long rollouts."
   ],
   "hashtags": [
     "#MolecularDynamics",
-    "#EquivariantAI",
+    "#EquivariantNetworks",
+    "#AutoregressiveAI",
     "#PhysicsInformedML",
-    "#TrajCast",
     "#MaterialsDiscovery"
   ],
   "paper_id": "2026-05-05-nature-force_free_molecular_dynamics_through_autoregressive_equivariant_networks",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01227-7"
     }
   ],
-  "generated_at": "2026-05-07T08:18:23.440529"
+  "generated_at": "2026-05-08T07:19:31.215336"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Extract Q-value estimates from a behavior cloning (BC) policy and use them to gate and guide online reinforcement learning, enabling safe, sample-efficient on-robot improvement without overwriting good demonstrated behaviors.",
-  "problem_solved": "BC provides strong initial robot behavior but lacks a self-guided mechanism for online improvement; naive offline-to-online RL can overwrite demonstrated good actions due to distribution mismatch, harming safety and performance.",
+  "key_insight": "Extract Q-values directly from a behavior-cloned policy and use those Q-estimates to gate online RL updates, so robots can safely and efficiently improve after demonstrations without overwriting previously good behaviors.",
+  "problem_solved": "Behavior cloning lacks a built-in way to continue improving online and offline-to-online RL can overwrite good demonstrated actions due to distribution mismatch; this work prevents regression while enabling on-robot reinforcement learning.",
   "method": [
-    "Train a Behavior Cloning policy on demonstration data and derive Q-value estimates from that BC policy (Q-Estimation).",
-    "Use those Q-estimates to build a Q-Gating mechanism that restricts or prioritizes online policy updates so only beneficial changes replace demonstrated actions.",
-    "Run lightweight on-robot RL guided by Q-gates to safely fine-tune behavior with few online samples and reduced catastrophic overwrite of demonstrations."
+    "Q-Estimation from BC: derive or infer action-value (Q) estimates from a trained behavior-cloned model to quantify the value of demonstrated actions.",
+    "Q-Gating: use the extracted Q-values to decide when to accept online RL updates versus retain the BC action (protecting high-value demonstrated behavior).",
+    "Integrate into offline-to-online pipeline for on-robot learning so policy improvements are allowed only where Q-gating signals safe, higher-value alternatives."
   ],
-  "impact": "Enables robots to continue learning on-device safely and efficiently after demonstrations, preserving high-quality demonstrated actions while improving performance with minimal online data — lowering deployment risk and sample cost for practitioners.",
+  "impact": "Provides a practical, low-risk way to continue improving robot policies after demonstration data is collected, reducing real-world trial-and-error and preventing degradation of demonstrated skills. Useful for practitioners deploying robots that must learn safely and autonomously from limited online interaction.",
   "visual_elements": [
-    "Pipeline diagram: Demonstrations -> Behavior Cloning -> Q-Estimation -> Q-Gating -> On-robot RL",
-    "Before/After chart: performance and safety metrics showing BC-only vs naive RL vs Q2RL (higher improvement + preserved safety)",
-    "Schematic of Q-Gating: action proposals filtered by BC-derived Q-thresholds (allow / block / prioritize updates)",
-    "Robot icon with sample-efficiency meter (few online steps) and shield icon representing preserved safe demo behaviors"
+    "Pipeline diagram: Demonstrations -> Behavior Cloning -> Q Extraction -> Q-Gating -> Online RL updates (highlight gate decisions).",
+    "Before/After bar chart: performance or success-rate showing preserved demo behavior vs improved behavior after Q2RL.",
+    "Decision heatmap or toy state-action plot: color-coded Q-values from BC showing where RL is allowed or blocked.",
+    "Robot icon with safety shield and progress arrow: communicates safe, incremental improvement on-robot."
   ],
   "hashtags": [
-    "#ReinforcementLearning",
-    "#Robotics",
+    "#Q2RL",
     "#BehaviorCloning",
-    "#OfflineToOnline",
-    "#Q2RL"
+    "#OfflineRL",
+    "#Robotics",
+    "#SafeRL"
   ],
   "paper_id": "2026-05-06-arxiv-when_life_gives_you_bc_make_q_functions_extracting_q_values_from_behavior_clonin",
   "paper_title": "When Life Gives You BC, Make Q-functions: Extracting Q-values from Behavior Cloning for On-Robot Reinforcement Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.05172v1"
     }
   ],
-  "generated_at": "2026-05-07T08:15:40.918383"
+  "generated_at": "2026-05-08T07:20:04.295980"
 }

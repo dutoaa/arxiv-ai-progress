@@ -1,23 +1,23 @@
 {
-  "key_insight": "Adaptive, relevance-aware context management—keeping different parts of an agent's trajectory at different levels of detail—lets long-horizon search agents scale without accumulating prohibitive cost or error-prone clutter.",
-  "problem_solved": "Prevents unbounded growth of intermediate context in long-horizon search agents, which otherwise increases runtime cost, latency, and the probability of reasoning errors.",
+  "key_insight": "Adaptive 'elastic' context management keeps different parts of an agent's trajectory at different levels of detail according to relevance, preventing context bloat while preserving information needed for long-horizon search and reasoning.",
+  "problem_solved": "Long-horizon search agents accumulate ever-growing intermediate content that increases compute/cost and the risk of errors; the paper addresses how to manage that working context efficiently and adaptively.",
   "method": [
-    "Context-ReAct: orchestrates an elastic context store that maintains trajectory elements at multiple resolutions (full, summarized, archived) based on current task relevance.",
-    "Relevance-scoring + adaptive compression: continuously score past observations/actions and compress or demote low-relevance items while preserving reconstructability for on-demand retrieval.",
-    "On-demand reconstruction & selective retrieval: retrieve or expand stored summaries when relevance changes so the agent keeps only the needed detail in working memory."
+    "Introduce Context-ReAct: organize an agent's trajectory into multi-resolution tiers (detailed, summarized, compressed/archive) and move segments between tiers based on their current relevance.",
+    "Use a dynamic relevance scorer and cost-aware controller to decide when to summarize, compress, archive, or rehydrate segments so the agent keeps only what matters at the needed fidelity.",
+    "Integrate selective retrieval and rehydration into the agent loop and tool calls so reasoning remains accurate without replaying the full raw context."
   ],
-  "impact": "Reduces compute and memory overhead for long-running agents and lowers error rates caused by noisy or irrelevant context, making large-scale, long-horizon search systems more efficient and reliable.",
+  "impact": "Makes long-horizon search agents more scalable and cost-effective by reducing memory and compute overhead while lowering error rates from overloaded context, enabling longer, cheaper, and more reliable agent workflows for ML practitioners.",
   "visual_elements": [
-    "Pipeline diagram: agent loop showing actions → context bank with tiers (full detail, summarized, archived) → retrieval/backfill to the agent.",
-    "Before/After chart: context size and token cost over time for naive accumulation vs. elastic orchestration.",
-    "Timeline visualization: agent trajectory with variable-resolution blocks (thick = full detail, thin = summary) illustrating selective retention.",
-    "Tradeoff icon/plot: relevance threshold vs. cost vs. accuracy to show tuning of compression/retrieval policies."
+    "Layered timeline showing an agent trajectory with segments at different resolutions (detailed → summarized → archived) and arrows for rehydration",
+    "Flow diagram of the agent loop with the relevance scorer and cost-aware controller deciding context operations (summarize/compress/retrieve)",
+    "Chart comparing compute/cost and error rate vs. horizon length for naive accumulation vs. Context-ReAct",
+    "Before/after example: raw token growth over time vs. compressed footprint and retrieval latency"
   ],
   "hashtags": [
-    "#LongHorizonAgents",
     "#ContextManagement",
+    "#LongHorizonAgents",
     "#AIInfrastructure",
-    "#MemoryCompression",
+    "#ContextReAct",
     "#SearchAgents"
   ],
   "paper_id": "2026-05-06-arxiv-longseeker_elastic_context_orchestration_for_long_horizon_search_agents",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.05191v1"
     }
   ],
-  "generated_at": "2026-05-07T08:16:36.290438"
+  "generated_at": "2026-05-08T07:21:26.833016"
 }

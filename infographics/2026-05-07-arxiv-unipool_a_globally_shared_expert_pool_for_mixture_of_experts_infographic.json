@@ -1,0 +1,35 @@
+{
+  "key_insight": "A single, globally shared expert pool can replace per-layer expert sets in Mixture-of-Experts models, decoupling depth from linear expert-parameter growth while retaining near-original performance.",
+  "problem_solved": "Current MoE designs give each transformer layer its own expert set, causing expert parameters to grow linearly with depth and wasting capacity when isolated per layer. UniPool addresses this inefficiency and rigid allocation.",
+  "method": [
+    "Introduce UniPool: one globally shared set of experts that all transformer layers can route to, instead of separate per-layer expert banks.",
+    "Use routing probes showing that replacing learned top-k routing with uniform random routing causes only a small downstream accuracy drop (≈1.0–1.6 pts), motivating shared allocation.",
+    "Apply dynamic gating/routing to assign tokens to shared experts while controlling capacity and preserving model performance, enabling fewer total expert parameters for the same depth."
+  ],
+  "impact": "UniPool enables more parameter- and computation-efficient MoE models, making large-scale expert-based architectures easier and cheaper to scale and deploy without large accuracy loss.",
+  "visual_elements": [
+    "Architecture comparison diagram: conventional per-layer experts vs UniPool shared expert pool with arrows from multiple layers to a single pool.",
+    "Bar chart: expert-parameter count vs model depth (linear growth for per-layer MoE vs flatter curve for UniPool).",
+    "Accuracy table/chart: learned top-k routing vs uniform random routing showing only ~1.0–1.6 pt drop to justify sharing.",
+    "Icon set: memory/compute savings, scalability, and deployability (small visuals to summarize practitioner benefits)."
+  ],
+  "hashtags": [
+    "#MixtureOfExperts",
+    "#MoE",
+    "#EfficientScaling",
+    "#ModelCompression",
+    "#UniPool"
+  ],
+  "paper_id": "2026-05-07-arxiv-unipool_a_globally_shared_expert_pool_for_mixture_of_experts",
+  "paper_title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
+  "paper_category": "Model",
+  "paper_date": "2026-05-07",
+  "paper_authors": "Minbin Huang, Han Shi, Chuanyang Zheng, Yimeng Wu, Guoxuan Chen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.06665v1"
+    }
+  ],
+  "generated_at": "2026-05-08T07:17:31.322723"
+}

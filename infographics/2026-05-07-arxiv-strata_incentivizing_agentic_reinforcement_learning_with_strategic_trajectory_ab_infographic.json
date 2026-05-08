@@ -1,0 +1,35 @@
+{
+  "key_insight": "Introduce a compact, trajectory-level strategy as an explicit latent that is sampled to guide agentic RL (e.g., LLM agents), improving exploration and credit assignment across long-horizon tasks.",
+  "problem_solved": "Reactive, step-by-step policies struggle with exploration and credit assignment over extended trajectories; StraTA addresses the lack of an explicit, learnable high-level plan that can steer behavior across an entire episode.",
+  "method": [
+    "Sample a compact trajectory-level strategy at episode start (a high-level latent/plan) that conditions downstream action selection.",
+    "Train the agent so low-level actions are encouraged to follow the sampled strategy via conditioning and incentive/auxiliary objectives, improving credit assignment to strategy-level choices.",
+    "Optimize both strategy sampling and the conditional policy end-to-end (hierarchical/latent-conditioned RL), yielding better long-horizon exploration and behavior coherence."
+  ],
+  "impact": "Provides a simple, model-agnostic way to add strategic planning to agentic LLMs and RL agents, improving long-horizon performance and interpretability with minimal architecture changes.",
+  "visual_elements": [
+    "Pipeline diagram: strategy sampler -> conditional policy -> environment -> rewards, showing the strategy persists across the trajectory.",
+    "Trajectory timeline: episode segmented by a single sampled strategy with arrows illustrating improved credit assignment from end reward back to the strategy.",
+    "Hierarchical block diagram: high-level strategy latent above low-level policy, indicating information flow and training signals.",
+    "Performance sketch: bar/line chart comparing baseline reactive agent vs StraTA on long-horizon metrics (exploration success, final-task reward)."
+  ],
+  "hashtags": [
+    "#ReinforcementLearning",
+    "#AgenticAI",
+    "#HierarchicalRL",
+    "#LongHorizonPlanning",
+    "#LLMs"
+  ],
+  "paper_id": "2026-05-07-arxiv-strata_incentivizing_agentic_reinforcement_learning_with_strategic_trajectory_ab",
+  "paper_title": "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction",
+  "paper_category": "Model",
+  "paper_date": "2026-05-07",
+  "paper_authors": "Xiangyuan Xue, Yifan Zhou, Zidong Wang, Shengji Tang, Philip Torr",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.06642v1"
+    }
+  ],
+  "generated_at": "2026-05-08T07:15:38.992888"
+}
