@@ -1,24 +1,24 @@
 {
-  "key_insight": "TrajCast uses an autoregressive equivariant neural network to predict atomic trajectories directly—skipping force calculations—enabling stable molecular dynamics with time steps up to 30× larger while preserving physical properties.",
-  "problem_solved": "Conventional molecular dynamics is slowed by expensive force calculations and small time steps; this work addresses the bottleneck by modelling trajectory evolution directly to access much longer simulated timescales without degrading accuracy.",
+  "key_insight": "TrajCast uses autoregressive equivariant neural networks to predict atomic trajectories directly, removing explicit force calculations and enabling timesteps up to 30× larger while preserving molecular and materials properties.",
+  "problem_solved": "Molecular dynamics (MD) is constrained by costly force evaluations and small timesteps, limiting accessible time scales and throughput; this work addresses that bottleneck by learning dynamics so simulations can advance farther per step without computing forces.",
   "method": [
-    "Autoregressive equivariant architecture that predicts next-step atomic positions while enforcing translational/rotational symmetry (equivariance).",
-    "Train on MD trajectory data to learn conditional position updates rather than learning forces or potentials explicitly.",
-    "Deploy the model in an iterative rollout (autoregressive forecasting) to produce long trajectories with larger discrete time steps while monitoring conservation of physical observables."
+    "Autoregressive equivariant network that predicts next atomic positions from past trajectory frames while respecting translation/rotation equivariance.",
+    "Trained on high-fidelity MD trajectories to learn physical dynamics and replicate conserved properties without explicit force computation.",
+    "Architectural and training choices that stabilize long rollouts, enabling much larger stable timesteps and accurate ensemble statistics."
   ],
-  "impact": "Enables much faster molecular/material simulations and longer time-scale exploration with lower compute cost, useful for accelerated materials discovery, enhanced sampling, and integrating physics-aware ML into simulation pipelines.",
+  "impact": "Makes long-time-scale molecular and materials simulations substantially faster and more scalable, enabling ML practitioners to run higher-throughput or longer-horizon experiments and accelerate design/discovery workflows.",
   "visual_elements": [
-    "Architecture diagram: autoregressive equivariant network block showing input positions → network → predicted next positions (with symmetry icons).",
-    "Speed vs accuracy chart: time-step multiplier (e.g., 1×, 5×, 10×, 30×) on x-axis and error/physical observable deviation on y-axis highlighting 30× stability.",
-    "Trajectory overlay: ground-truth MD trajectories vs TrajCast-predicted trajectories for a molecule/material segment.",
-    "Conservation plots: energy/temperature or radial distribution comparisons showing preserved physical properties across long rollouts."
+    "Side-by-side schematic: force-based MD integration (forces → velocities → positions) vs TrajCast autoregressive prediction (positions → positions).",
+    "Bar chart comparing stable timestep or throughput: baseline MD vs TrajCast (highlighting ~30× increase).",
+    "Overlayed trajectory plot showing ground-truth vs TrajCast predictions over time to demonstrate fidelity.",
+    "Illustration of equivariance: rotated input configuration producing a correspondingly rotated predicted trajectory (visual proof of symmetry preservation)."
   ],
   "hashtags": [
+    "#TrajCast",
     "#MolecularDynamics",
     "#EquivariantNetworks",
-    "#AutoregressiveAI",
-    "#PhysicsInformedML",
-    "#MaterialsDiscovery"
+    "#SimulationAcceleration",
+    "#AutoregressiveAI"
   ],
   "paper_id": "2026-05-05-nature-force_free_molecular_dynamics_through_autoregressive_equivariant_networks",
   "paper_title": "Force-free molecular dynamics through autoregressive equivariant networks",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01227-7"
     }
   ],
-  "generated_at": "2026-05-08T07:19:31.215336"
+  "generated_at": "2026-05-09T07:45:24.294932"
 }

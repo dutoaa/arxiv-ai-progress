@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce a compact, trajectory-level strategy as an explicit latent that is sampled to guide agentic RL (e.g., LLM agents), improving exploration and credit assignment across long-horizon tasks.",
-  "problem_solved": "Reactive, step-by-step policies struggle with exploration and credit assignment over extended trajectories; StraTA addresses the lack of an explicit, learnable high-level plan that can steer behavior across an entire episode.",
+  "key_insight": "Introducing an explicit, compact trajectory-level strategy that is sampled and communicated to the agent decouples high-level planning from reactive actions, improving exploration and credit assignment across long-horizon tasks. StraTA makes agentic RL more strategic by turning multi-step intent into a first-class learning signal.",
+  "problem_solved": "Reactive, step-by-step agent policies struggle with long-horizon decision making because they weaken exploration and make credit assignment across extended trajectories difficult; StraTA addresses this by providing an explicit trajectory-level strategy that guides behavior over many steps.",
   "method": [
-    "Sample a compact trajectory-level strategy at episode start (a high-level latent/plan) that conditions downstream action selection.",
-    "Train the agent so low-level actions are encouraged to follow the sampled strategy via conditioning and incentive/auxiliary objectives, improving credit assignment to strategy-level choices.",
-    "Optimize both strategy sampling and the conditional policy end-to-end (hierarchical/latent-conditioned RL), yielding better long-horizon exploration and behavior coherence."
+    "Sample a compact, trajectory-level strategy (an abstract intent or plan) at episode or subtask boundaries.",
+    "Condition the low-level policy on the sampled strategy so actions are purposeful and temporally consistent rather than purely reactive.",
+    "Train with RL objectives and incentives that reward adherence to useful strategies and improve credit assignment over extended trajectories."
   ],
-  "impact": "Provides a simple, model-agnostic way to add strategic planning to agentic LLMs and RL agents, improving long-horizon performance and interpretability with minimal architecture changes.",
+  "impact": "StraTA helps practitioners build agentic LLMs and RL agents that explore more effectively and learn long-range dependencies, making them better suited for complex, multi-step tasks and hierarchical decision problems.",
   "visual_elements": [
-    "Pipeline diagram: strategy sampler -> conditional policy -> environment -> rewards, showing the strategy persists across the trajectory.",
-    "Trajectory timeline: episode segmented by a single sampled strategy with arrows illustrating improved credit assignment from end reward back to the strategy.",
-    "Hierarchical block diagram: high-level strategy latent above low-level policy, indicating information flow and training signals.",
-    "Performance sketch: bar/line chart comparing baseline reactive agent vs StraTA on long-horizon metrics (exploration success, final-task reward)."
+    "Hierarchy diagram: strategy sampler (top) → conditioned policy (middle) → environment/actions (bottom), showing information flow.",
+    "Timeline comparison: reactive-only trajectory vs. StraTA-guided trajectory highlighting improved consistency and credit assignment points.",
+    "Performance bar/line chart: metric improvements (exploration, success rate, credit assignment) for reactive baseline vs StraTA.",
+    "Icon set: strategy/plan icon, policy/agent icon, reward/credit icon to visually link components."
   ],
   "hashtags": [
     "#ReinforcementLearning",
-    "#AgenticAI",
+    "#LLMAgents",
     "#HierarchicalRL",
-    "#LongHorizonPlanning",
-    "#LLMs"
+    "#TrajectoryAbstraction",
+    "#LongHorizonPlanning"
   ],
   "paper_id": "2026-05-07-arxiv-strata_incentivizing_agentic_reinforcement_learning_with_strategic_trajectory_ab",
   "paper_title": "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06642v1"
     }
   ],
-  "generated_at": "2026-05-08T07:15:38.992888"
+  "generated_at": "2026-05-09T07:42:59.370298"
 }

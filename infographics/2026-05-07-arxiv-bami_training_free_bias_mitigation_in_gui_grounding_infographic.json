@@ -1,24 +1,24 @@
 {
-  "key_insight": "A training-free attribution method (Masked Prediction Distribution, MPD) can expose and correct two systematic errors—precision bias from high-resolution screens and ambiguity bias from complex UI elements—improving GUI grounding performance without retraining.",
-  "problem_solved": "GUI grounding models struggle in complex, high-resolution, and cluttered interfaces (e.g., ScreenSpot-Pro) because they exhibit precision and ambiguity biases that lead to incorrect click/drag targets.",
+  "key_insight": "A training-free, attribution-guided correction (BAMI) can identify and mitigate two main sources of GUI grounding errors—precision bias from high-resolution screens and ambiguity bias from complex UI elements—improving localization at inference time without retraining.",
+  "problem_solved": "Existing GUI grounding models underperform on complex, high-resolution interfaces (e.g., ScreenSpot-Pro) because they are biased toward imprecise localization and confused by visually intricate or ambiguous UI components.",
   "method": [
-    "Introduce MPD (Masked Prediction Distribution) to attribute model predictions by measuring how masked image regions change the model's output distribution.",
-    "Diagnose two dominant failure modes: precision bias (high-res leads to localization errors) and ambiguity bias (complex interface elements cause confusion).",
-    "Apply training-free mitigation strategies informed by MPD (e.g., targeted masking/score recalibration and candidate re-ranking) to correct predictions post-hoc."
+    "Use Masked Prediction Distribution (MPD) attribution to diagnose per-input error sources and separate precision vs. ambiguity biases.",
+    "Apply BAMI at inference time (training-free): resolution-aware masking and multi-scale aggregation to reduce precision bias, plus ambiguity-aware candidate re-ranking/thresholding to disambiguate complex elements.",
+    "Operate entirely at inference without modifying model weights or requiring extra labeled data, making mitigation lightweight and pluggable."
   ],
-  "impact": "Enables practitioners to analyze and reduce systematic grounding errors quickly and cheaply—improving reliability of GUI agents in real-world, complex interfaces without expensive retraining cycles.",
+  "impact": "Enables more reliable GUI agents and faster deployment by fixing common grounding failure modes without costly retraining or dataset expansion, lowering the barrier for robust human–computer interaction models.",
   "visual_elements": [
-    "Pipeline diagram: original GUI -> MPD masking grid -> prediction distributions -> mitigation step",
-    "Side-by-side example: before vs after mitigation showing corrected click targets on a high-resolution screen",
-    "Bar chart: error rates by bias type (precision vs ambiguity) before and after BAMI",
-    "Iconography: resolution meter and clutter/element complexity icons to represent the two bias sources"
+    "Pipeline diagram: MPD attribution -> bias diagnosis -> BAMI inference-time corrections",
+    "Before/after example panel: model grounding on a complex GUI showing common errors and corrected targets",
+    "Two-icon bias map: precision bias (high-res zoomed view) vs. ambiguity bias (dense/masked UI elements) with short captions",
+    "Flowchart of BAMI steps at inference (masking, multi-scale aggregation, re-ranking) showing no retraining required"
   ],
   "hashtags": [
-    "#GUIGrounding",
     "#BiasMitigation",
-    "#TrainingFree",
+    "#GUI",
     "#ExplainableAI",
-    "#HCI"
+    "#TrainingFree",
+    "#ComputerVision"
   ],
   "paper_id": "2026-05-07-arxiv-bami_training_free_bias_mitigation_in_gui_grounding",
   "paper_title": "BAMI: Training-Free Bias Mitigation in GUI Grounding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06664v1"
     }
   ],
-  "generated_at": "2026-05-08T07:17:10.593048"
+  "generated_at": "2026-05-09T07:43:59.235989"
 }

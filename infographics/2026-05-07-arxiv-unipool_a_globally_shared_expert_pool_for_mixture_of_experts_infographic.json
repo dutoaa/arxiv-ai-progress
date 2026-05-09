@@ -1,24 +1,24 @@
 {
-  "key_insight": "A single, globally shared expert pool can replace per-layer expert sets in Mixture-of-Experts models, decoupling depth from linear expert-parameter growth while retaining near-original performance.",
-  "problem_solved": "Current MoE designs give each transformer layer its own expert set, causing expert parameters to grow linearly with depth and wasting capacity when isolated per layer. UniPool addresses this inefficiency and rigid allocation.",
+  "key_insight": "Per-layer expert sets in MoE are largely unnecessary: a single, globally shared expert pool can replace separate per-layer experts with minimal downstream accuracy loss, decoupling depth from linear expert-parameter growth.",
+  "problem_solved": "Addresses the inefficient and rigid allocation of expert capacity in Mixture-of-Experts models, where each transformer layer owns its own expert set, causing redundant parameters and poor expert utilization as models scale in depth.",
   "method": [
-    "Introduce UniPool: one globally shared set of experts that all transformer layers can route to, instead of separate per-layer expert banks.",
-    "Use routing probes showing that replacing learned top-k routing with uniform random routing causes only a small downstream accuracy drop (≈1.0–1.6 pts), motivating shared allocation.",
-    "Apply dynamic gating/routing to assign tokens to shared experts while controlling capacity and preserving model performance, enabling fewer total expert parameters for the same depth."
+    "Introduce UniPool — a globally shared expert pool that all transformer layers can route to, replacing isolated per-layer expert sets.",
+    "Use routing analyses (routing probe) to show learned top-k routing can be largely replaced (random/pooled routing yields only 1.0–1.6 point drop), motivating shared experts and simpler routing schemes.",
+    "Design capacity and balancing mechanisms for the shared pool to maintain load distribution and token-to-expert assignment across layers while preserving model throughput and memory efficiency."
   ],
-  "impact": "UniPool enables more parameter- and computation-efficient MoE models, making large-scale expert-based architectures easier and cheaper to scale and deploy without large accuracy loss.",
+  "impact": "UniPool enables more parameter-efficient MoE scaling, reduces expert redundancy, and simplifies routing design—helping practitioners build larger, cheaper, and better-utilized expert models without sacrificing much accuracy.",
   "visual_elements": [
-    "Architecture comparison diagram: conventional per-layer experts vs UniPool shared expert pool with arrows from multiple layers to a single pool.",
-    "Bar chart: expert-parameter count vs model depth (linear growth for per-layer MoE vs flatter curve for UniPool).",
-    "Accuracy table/chart: learned top-k routing vs uniform random routing showing only ~1.0–1.6 pt drop to justify sharing.",
-    "Icon set: memory/compute savings, scalability, and deployability (small visuals to summarize practitioner benefits)."
+    "Side-by-side diagram: traditional per-layer experts vs. UniPool global expert pool (arrows show tokens from multiple layers accessing the same experts).",
+    "Bar chart: parameter count vs. accuracy comparing per-layer MoE, UniPool, and dense baselines (highlighting similar accuracy with fewer expert parameters).",
+    "Heatmap: expert utilization across layers showing improved/more uniform usage with UniPool.",
+    "Flowchart: routing probe experiment (replace learned top-k with random routing) and measured small accuracy drop (1.0–1.6 pts) to motivate shared pooling."
   ],
   "hashtags": [
     "#MixtureOfExperts",
     "#MoE",
-    "#EfficientScaling",
-    "#ModelCompression",
-    "#UniPool"
+    "#ModelScaling",
+    "#EfficientAI",
+    "#Routing"
   ],
   "paper_id": "2026-05-07-arxiv-unipool_a_globally_shared_expert_pool_for_mixture_of_experts",
   "paper_title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06665v1"
     }
   ],
-  "generated_at": "2026-05-08T07:17:31.322723"
+  "generated_at": "2026-05-09T07:44:12.132505"
 }

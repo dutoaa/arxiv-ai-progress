@@ -1,24 +1,24 @@
 {
-  "key_insight": "A small number of high-norm \"outlier\" tokens appear in both the encoder and denoiser of Diffusion Transformers (DiTs) and disproportionately attract attention while carrying limited local information; identifying and \"taming\" these tokens reduces their negative influence on generation.",
-  "problem_solved": "Outlier tokens in ViT-based diffusion pipelines create attention bottlenecks and degrade image generation quality and stability; the paper diagnoses this phenomenon in RAE–DiT architectures and provides practical ways to mitigate it.",
+  "key_insight": "Diffusion Transformers (DiTs) produce a small number of high-norm \"outlier\" tokens (in both encoder and denoiser) that attract disproportionate attention while carrying little local information; identifying and taming these tokens leads to more reliable, higher-quality image generation.",
+  "problem_solved": "Outlier tokens in ViT-based diffusion pipelines skew attention and conditioning, degrading generation fidelity and robustness in Representation Autoencoder (RAE)-DiT image models.",
   "method": [
-    "Detect outlier tokens by measuring token norms and their attention influence in both the pretrained ViT encoder and the DiT denoiser.",
-    "Apply lightweight taming strategies (e.g., per-token norm normalization/clipping, attention reweighting, and regularization) to reduce outlier dominance.",
-    "Integrate the taming module into RAE–DiT pipelines with minimal architectural changes and training overhead, evaluating effects on attention patterns and sample quality."
+    "Empirical diagnosis: detect and characterize high-norm outlier tokens in pretrained ViT encoders and DiT denoisers (token-norm distributions, attention patterns).",
+    "Impact analysis: measure how outlier tokens concentrate attention and affect denoising and reconstructed image quality.",
+    "Mitigation strategies: apply targeted interventions (e.g., token norm regularization / clipping, attention reweighting or selective pruning, and light fine-tuning) to reduce outlier influence."
   ],
-  "impact": "Makes DiT-based image generation more robust and stable by preventing a few tokens from monopolizing attention; practical fixes are easy to plug into existing ViT + diffusion stacks, improving fidelity and interpretability.",
+  "impact": "Taming outlier tokens makes DiT-based image generation more stable and faithful to local image content, improving sample quality and reliability for practitioners building diffusion + transformer pipelines.",
   "visual_elements": [
-    "Histogram/violin plot of token L2 norms before vs. after taming to show removal/reduction of outliers.",
-    "Attention heatmaps from encoder/denoiser illustrating an outlier token attracting excessive attention and the corrected, more distributed attention after taming.",
-    "Pipeline diagram of RAE–DiT showing where outlier detection and taming modules plug into the encoder and denoiser.",
-    "Side-by-side generated-image comparisons (original vs. tamed) highlighting reduced artifacts and improved local detail."
+    "Pipeline diagram: RAE → ViT encoder → DiT denoiser with outlier tokens highlighted to show where the problem arises.",
+    "Token-norm histogram: long-tail distribution highlighting a few high-norm outliers vs majority of normal tokens.",
+    "Attention heatmaps: before vs after mitigation to show attention concentration on outliers being reduced.",
+    "Performance bar chart: qualitative/quantitative metrics (e.g., fidelity, stability) compared pre/post mitigation."
   ],
   "hashtags": [
     "#DiffusionModels",
+    "#Transformers",
     "#VisionTransformers",
-    "#GenerativeAI",
     "#ModelRobustness",
-    "#AIResearch"
+    "#ImageGeneration"
   ],
   "paper_id": "2026-05-06-arxiv-taming_outlier_tokens_in_diffusion_transformers",
   "paper_title": "Taming Outlier Tokens in Diffusion Transformers",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.05206v1"
     }
   ],
-  "generated_at": "2026-05-08T07:21:07.813083"
+  "generated_at": "2026-05-09T07:46:49.921192"
 }
