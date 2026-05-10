@@ -1,24 +1,24 @@
 {
-  "key_insight": "You can extract reliable Q-value estimates from a behavior-cloned policy and use those estimates to gate online reinforcement learning updates, enabling safe, sample-efficient on-robot improvement without overwriting good demonstrated behaviors.",
-  "problem_solved": "Behavior Cloning (BC) lacks a self-guided mechanism for online improvement and naive offline-to-online fine-tuning can overwrite high-quality demonstrated actions due to distribution mismatch.",
+  "key_insight": "You can extract reliable Q-value estimates from a behavior-cloned policy and use them to gate online RL updates, allowing robots to improve through on-robot reinforcement learning without overwriting demonstrated good actions.",
+  "problem_solved": "Behavior Cloning (BC) provides strong initial policies but lacks a safe, self-guided mechanism for online improvement; existing offline-to-online methods often degrade performance by replacing good demonstrated actions due to distribution mismatch.",
   "method": [
-    "Train a behavior-cloned policy from demonstrations and learn a critic to produce Q-value estimates for BC actions (Q-Estimation).",
-    "Use Q-Gating: allow online RL updates only when proposed updates improve estimated Q-values, blocking updates that would degrade BC-derived good actions.",
-    "Combine the gated updates with standard online RL to safely improve policy where demonstrations are suboptimal while preserving demonstrated behavior elsewhere."
+    "Q-Estimation: derive Q-value estimates from the behavior-cloned policy and demonstration data to assess action quality.",
+    "Q-Gating: use the estimated Q-values to selectively allow online RL updates only where expected improvement exists, preventing replacement of high-quality demonstrated actions.",
+    "On-robot integration: run a lightweight RL loop on the robot that uses the Q-gates to make sample-efficient, safe policy refinements in real time."
   ],
-  "impact": "Enables robots to continue learning on-device safely and efficiently after demonstration collection, reducing catastrophic replacement of good behaviors and improving sample-efficiency for real-world deployment.",
+  "impact": "Enables safe, sample-efficient offline-to-online robot learning that preserves demonstrated behavior while allowing targeted improvement, lowering the risk of catastrophic degradation during on-robot RL and accelerating real-world deployment.",
   "visual_elements": [
-    "Pipeline diagram: Demonstrations → Behavior Cloning → Q-Estimation → Q-Gating → Online RL (highlight gated paths).",
-    "Before/After performance chart: naive fine-tuning vs Q2RL showing preservation of demonstrated success and improved areas.",
-    "Heatmap or bar overlay of Q-values across actions/states to show where gating permits vs blocks updates.",
-    "Robot-in-the-loop iconography showing safe on-robot adaptation (e.g., shield over preserved actions, upward arrow for learned improvements)."
+    "Pipeline diagram: Demonstrations → Behavior Cloning → Q-Estimator → Q-Gating → On-robot RL loop",
+    "Before/After performance chart: BC baseline vs BC+Q2RL showing preserved performance and improved returns over online learning steps",
+    "Policy overlay: state visualization highlighting actions gated (preserved) vs actions allowed to change",
+    "Iconography: robot + shield (safety/preservation), upward arrow (improvement), clock (sample efficiency)"
   ],
   "hashtags": [
-    "#ReinforcementLearning",
     "#BehaviorCloning",
-    "#OfflineRL",
+    "#QLearning",
+    "#OfflineToOnline",
     "#RobotLearning",
-    "#SafeAdaptation"
+    "#OnRobotLearning"
   ],
   "paper_id": "2026-05-06-arxiv-when_life_gives_you_bc_make_q_functions_extracting_q_values_from_behavior_clonin",
   "paper_title": "When Life Gives You BC, Make Q-functions: Extracting Q-values from Behavior Cloning for On-Robot Reinforcement Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.05172v1"
     }
   ],
-  "generated_at": "2026-05-09T07:45:54.682557"
+  "generated_at": "2026-05-10T07:59:37.690372"
 }

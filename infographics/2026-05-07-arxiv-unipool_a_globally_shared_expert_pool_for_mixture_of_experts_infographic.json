@@ -1,24 +1,24 @@
 {
-  "key_insight": "Per-layer expert sets in MoE are largely unnecessary: a single, globally shared expert pool can replace separate per-layer experts with minimal downstream accuracy loss, decoupling depth from linear expert-parameter growth.",
-  "problem_solved": "Addresses the inefficient and rigid allocation of expert capacity in Mixture-of-Experts models, where each transformer layer owns its own expert set, causing redundant parameters and poor expert utilization as models scale in depth.",
+  "key_insight": "Instead of giving each transformer layer its own expert set, UniPool shares a single, global pool of experts across layers—showing that much of per-layer expert isolation is unnecessary and expert capacity can be reused with minimal accuracy loss.",
+  "problem_solved": "Breaks the rigid per-layer expert allocation in Mixture-of-Experts models, which couples depth scaling to linear growth in expert parameters and wastes capacity by assuming every layer needs isolated experts.",
   "method": [
-    "Introduce UniPool — a globally shared expert pool that all transformer layers can route to, replacing isolated per-layer expert sets.",
-    "Use routing analyses (routing probe) to show learned top-k routing can be largely replaced (random/pooled routing yields only 1.0–1.6 point drop), motivating shared experts and simpler routing schemes.",
-    "Design capacity and balancing mechanisms for the shared pool to maintain load distribution and token-to-expert assignment across layers while preserving model throughput and memory efficiency."
+    "Introduce a globally shared expert pool that all transformer layers can access, decoupling expert count from model depth.",
+    "Design lightweight routing and access controls so layers select experts from the shared pool while maintaining load balance and training stability.",
+    "Empirically validate with routing probes showing uniform/random routing causes only small downstream accuracy drops, motivating shared expert reuse."
   ],
-  "impact": "UniPool enables more parameter-efficient MoE scaling, reduces expert redundancy, and simplifies routing design—helping practitioners build larger, cheaper, and better-utilized expert models without sacrificing much accuracy.",
+  "impact": "UniPool reduces expert-parameter bloat and improves parameter efficiency for large sparse models, making MoE scaling cheaper and simpler for practitioners without sacrificing much accuracy.",
   "visual_elements": [
-    "Side-by-side diagram: traditional per-layer experts vs. UniPool global expert pool (arrows show tokens from multiple layers accessing the same experts).",
-    "Bar chart: parameter count vs. accuracy comparing per-layer MoE, UniPool, and dense baselines (highlighting similar accuracy with fewer expert parameters).",
-    "Heatmap: expert utilization across layers showing improved/more uniform usage with UniPool.",
-    "Flowchart: routing probe experiment (replace learned top-k with random routing) and measured small accuracy drop (1.0–1.6 pts) to motivate shared pooling."
+    "Side-by-side diagram: per-layer experts (many isolated boxes) vs UniPool (one central pool with multi-layer access arrows).",
+    "Bar chart: expert-parameter count and total params for traditional MoE vs UniPool at increasing depths.",
+    "Line plot: accuracy vs. expert count showing small accuracy drop when using shared pool or random routing.",
+    "Icon set: scalability (stacked blocks), efficiency (leaf/gear), and robustness (shield) to summarize benefits."
   ],
   "hashtags": [
     "#MixtureOfExperts",
-    "#MoE",
+    "#ModelEfficiency",
+    "#SparseModels",
     "#ModelScaling",
-    "#EfficientAI",
-    "#Routing"
+    "#UniPool"
   ],
   "paper_id": "2026-05-07-arxiv-unipool_a_globally_shared_expert_pool_for_mixture_of_experts",
   "paper_title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06665v1"
     }
   ],
-  "generated_at": "2026-05-09T07:44:12.132505"
+  "generated_at": "2026-05-10T07:57:42.820472"
 }

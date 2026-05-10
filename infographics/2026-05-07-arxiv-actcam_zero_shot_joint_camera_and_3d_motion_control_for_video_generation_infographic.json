@@ -1,24 +1,24 @@
 {
-  "key_insight": "ActCam enables zero-shot joint control of both actor motion and per-frame camera parameters in video generation by building on pretrained image-to-video diffusion models and conditioning them on scene geometry and motion cues.",
-  "problem_solved": "Existing video generation methods lack fine-grained, simultaneous control over actor performance and cinematography (camera intrinsics/extrinsics) without costly retraining or per-scene supervision.",
+  "key_insight": "ActCam enables zero-shot joint control of an actor's 3D motion and per-frame camera parameters in generated videos by leveraging pretrained image-to-video diffusion models conditioned on scene depth and motion signals. It transfers a driving performance into a new scene while allowing intrinsic and extrinsic camera control without task-specific retraining.",
+  "problem_solved": "Provides fine-grained, joint control over both actor performance (3D motion) and cinematography (camera trajectory and settings) in video generation, eliminating the need for supervised retraining or separate camera/motion pipelines.",
   "method": [
-    "Start from a pretrained image-to-video diffusion backbone that accepts scene geometry and motion conditioning (e.g., depth + pose/flow).",
-    "Provide a driving video for character motion and a target scene; condition each output frame on per-frame camera intrinsics/extrinsics and scene depth to steer both actor pose and camera trajectory.",
-    "Operate zero-shot (no finetuning) using conditioning and guidance mechanisms to preserve scene consistency while transferring motion and enforcing user-specified camera parameters."
+    "Zero-shot motion transfer: extract motion from a driving video and condition the generation model to reproduce the actor's 3D performance in a target scene.",
+    "Per-frame camera conditioning: encode intrinsic (focal length, aperture-like effects) and extrinsic (pose, trajectory) parameters per frame to steer cinematography during synthesis.",
+    "Depth-aware diffusion backbone: build on pretrained image-to-video diffusion models that accept scene depth (and motion/pose) conditioning to ensure consistent 3D-aware rendering across frames."
   ],
-  "impact": "Enables artists and practitioners to generate cinematic videos with precise, per-frame control over both performance and camera movement without model retraining, accelerating creative workflows and prototyping in motion-centric applications.",
+  "impact": "Enables artists and ML practitioners to jointly control performance and camera for controllable, cinematic video synthesis without expensive retraining, accelerating applications in virtual production, VFX, and dataset creation for downstream 3D/vision tasks.",
   "visual_elements": [
-    "Pipeline diagram: inputs (driving video + target scene + camera parameters) → ActCam → output video frames with overlaid camera frustums",
-    "Frame sequence showing transferred actor skeleton/pose alongside changing camera viewpoint and depth map per frame",
-    "Before/after comparison: naive generation vs ActCam (highlighting improved motion fidelity and camera consistency)",
-    "Icon grid: zero-shot badge, diffusion model symbol, camera intrinsics/extrinsics icon, depth map thumbnail"
+    "Pipeline diagram showing: driving video → motion extractor → depth & camera conditioning → pretrained diffusion model → generated video",
+    "Before/after triptych: driving video, target scene static frame, and final generated video to highlight motion transfer",
+    "Timeline overlay of per-frame camera parameters (extrinsic trajectory + focal length) synced with generated frames",
+    "Depth map + 3D skeleton overlay on frames to illustrate 3D-aware consistency"
   ],
   "hashtags": [
     "#VideoGeneration",
-    "#MotionTransfer",
-    "#CinematographyAI",
     "#DiffusionModels",
-    "#ZeroShot"
+    "#ZeroShot",
+    "#3DMotionTransfer",
+    "#CinematographyAI"
   ],
   "paper_id": "2026-05-07-arxiv-actcam_zero_shot_joint_camera_and_3d_motion_control_for_video_generation",
   "paper_title": "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06667v1"
     }
   ],
-  "generated_at": "2026-05-09T07:44:24.167051"
+  "generated_at": "2026-05-10T07:57:59.878184"
 }

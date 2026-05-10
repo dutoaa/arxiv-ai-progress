@@ -1,24 +1,24 @@
 {
-  "key_insight": "Relit-LiVE jointly learns an environment-video representation together with a diffusion-based neural renderer, avoiding brittle intrinsic decomposition and producing photoreal, temporally consistent relit videos from real-world footage.",
-  "problem_solved": "Existing relighting pipelines rely on accurate intrinsic decomposition (albedo, normals, etc.), which is unreliable on real videos and causes distorted appearance, broken materials, and temporal artifacts during relighting.",
+  "key_insight": "Instead of relying on brittle per-frame intrinsic decomposition, the paper jointly learns an \"environment video\" representation together with a diffusion-based neural renderer so videos can be relit robustly and temporally consistently under novel illumination.",
+  "problem_solved": "Current video relighting pipelines depend on accurate intrinsic decomposition (albedo, normals, illumination), which is unreliable for real-world footage and leads to distorted appearance, broken materials, and temporal artifacts when relighting.",
   "method": [
-    "Jointly learn an explicit environment-video (time-varying illumination) representation and a diffusion-based neural renderer end-to-end, replacing separate intrinsic decomposition steps.",
-    "Condition a large-scale video diffusion model on the learned environment video and target illumination to render frames under novel lighting while preserving material appearance.",
-    "Enforce temporal consistency and material fidelity via temporal/perceptual constraints during training, producing stable, artifact-free relighting on real footage."
+    "Jointly learn an environment-video representation and a video neural renderer, so lighting is modeled as a temporally coherent scene-level signal rather than noisy per-frame decompositions.",
+    "Condition a large-scale video diffusion/rendering model on the learned environment video plus available geometric/color cues to synthesize frames under new illumination.",
+    "Enforce temporal consistency and appearance preservation via spatio-temporal conditioning and losses to reduce artifacts and maintain material fidelity during relighting."
   ],
-  "impact": "Makes high-quality relighting of real-world videos practical without accurate intrinsic decomposition, benefiting VFX, AR/VR, dataset generation, and any application requiring realistic lighting edits or domain adaptation.",
+  "impact": "Makes practical, high-quality video relighting possible on in-the-wild footage without fragile intrinsic decomposition, improving realism and temporal stability for VFX, AR/VR, and content editing workflows.",
   "visual_elements": [
-    "Pipeline diagram: input video → learn environment-video + diffusion renderer → relit output (show joint-learning loop)",
-    "Before/after frame pairs highlighting corrected materials and reduced artifacts",
-    "Environment-video visualization (sequence of HDR environment maps or light probes) to show learned illumination over time",
-    "Metric/time-series chart showing improved temporal consistency and perceptual scores versus decomposition-based baselines"
+    "Pipeline diagram: input video → joint environment-video encoder → conditioned diffusion renderer → relit output (high-level flow).",
+    "Before/after image pairs (original vs. relit) highlighting preserved materials and reduced artifacting.",
+    "Comparative chart: intrinsic-decomposition pipeline vs. joint-learning approach showing failure modes and improvements (artifacts, temporal flicker, material fidelity).",
+    "Temporal visualization: a short strip showing learned environment maps over time to illustrate coherent lighting representation."
   ],
   "hashtags": [
-    "#RelightVideo",
+    "#VideoRelighting",
     "#NeuralRendering",
     "#DiffusionModels",
-    "#VideoRelighting",
-    "#ComputerVision"
+    "#ComputerVision",
+    "#ARVR"
   ],
   "paper_id": "2026-05-07-arxiv-relit_live_relight_video_by_jointly_learning_environment_video",
   "paper_title": "Relit-LiVE: Relight Video by Jointly Learning Environment Video",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06658v1"
     }
   ],
-  "generated_at": "2026-05-09T07:43:46.111357"
+  "generated_at": "2026-05-10T07:57:20.750258"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Storage capacity of a d×d linear associative memory is governed not just by matrix degrees of freedom (d^2) but critically by the retrieval criterion: strict top-1 (winner-take-all) retrieval requires d^2 ~ n log n, while relaxed/listwise criteria permit very different scaling.",
-  "problem_solved": "Determines how many key–value associations a linear memory can reliably store and retrieve under different retrieval rules, and identifies sharp capacity thresholds in an isotropic Gaussian model.",
+  "key_insight": "Storage capacity of a d×d linear associative memory is controlled not just by matrix degrees of freedom but by the retrieval rule: top-1 (winner-take-all) retrieval requires a larger memory scale (d^2 ≍ n log n) than coarser / listwise criteria, producing sharp capacity thresholds.",
+  "problem_solved": "Determines how many key–value pairs a linear memory can reliably store and retrieve, and shows that achievable capacity fundamentally depends on the retrieval criterion (top-1 vs listwise) rather than only on parameter count.",
   "method": [
-    "Model associations as isotropic Gaussian key–value pairs and analyze the correlation-matrix (superposition) memory construction.",
-    "Derive rigorous probabilistic thresholds for retrieval success under different criteria (top-1 vs listwise/shortlist), proving the logarithmic penalty for winner-take-all retrieval.",
-    "Combine random-matrix / concentration techniques to identify sharp phase transitions in capacity as a function of d and n."
+    "Analyze an isotropic Gaussian model of stored key–value pairs to obtain probabilistic capacity bounds.",
+    "Study the correlation-matrix (superposition) memory construction and derive sharp thresholds for successful retrieval under different criteria.",
+    "Combine probabilistic/threshold analysis to contrast winner-take-all (top-1) and listwise retrieval regimes."
   ],
-  "impact": "Clarifies fundamental trade-offs between memory size, retrieval strictness, and reliability—guiding design of associative memory modules and retrieval strategies in ML systems where shortlist vs exact-match behavior matters.",
+  "impact": "Clarifies fundamental trade-offs between memory size and retrieval requirements, guiding design of associative memory layers and retrieval mechanisms in neural architectures; tells practitioners when extra capacity (≈log n factor) is necessary for exact top-1 recall.",
   "visual_elements": [
-    "Schematic of a d×d memory matrix storing superposed key–value pairs (iconic keys/values being summed into the matrix).",
-    "Capacity-scaling plot: axes d^2 (storage) vs n (number of associations) showing regions where retrieval succeeds/fails and the d^2 ≈ n·log n threshold for top-1.",
-    "Comparison diagram of retrieval criteria: winner-take-all (single correct signal must beat all distractors) vs listwise/shortlist retrieval (allow top-k).",
-    "Phase/threshold map (heatmap or colored regions) illustrating sharp transitions between feasible and infeasible storage regimes."
+    "Phase-transition plot: probability of successful retrieval vs normalized memory size (d^2/n) showing sharp thresholds for top-1 and listwise regimes.",
+    "Side-by-side schematics: winner-take-all (top-1) retrieval vs listwise retrieval highlighting different failure modes (largest distractor vs average confusion).",
+    "Illustration of correlation-matrix superposition: how multiple key–value pairs are stored and cause interference.",
+    "Compact table or icon row comparing required scaling: top-1 (d^2 ≍ n log n) vs weaker retrieval (lower scaling)."
   ],
   "hashtags": [
     "#AssociativeMemory",
-    "#MemoryCapacity",
-    "#TheoreticalML",
-    "#RetrievalAlgorithms",
-    "#NeuralMemory"
+    "#MLTheory",
+    "#CapacityLimits",
+    "#NeuralMemory",
+    "#PhaseTransition"
   ],
   "paper_id": "2026-05-06-arxiv-sharp_capacity_thresholds_in_linear_associative_memory_from_winner_take_all_to_l",
   "paper_title": "Sharp Capacity Thresholds in Linear Associative Memory: From Winner-Take-All to Listwise Retrieval",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.05189v1"
     }
   ],
-  "generated_at": "2026-05-09T07:46:36.226698"
+  "generated_at": "2026-05-10T08:00:51.928718"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "A training-free, attribution-guided correction (BAMI) can identify and mitigate two main sources of GUI grounding errors—precision bias from high-resolution screens and ambiguity bias from complex UI elements—improving localization at inference time without retraining.",
-  "problem_solved": "Existing GUI grounding models underperform on complex, high-resolution interfaces (e.g., ScreenSpot-Pro) because they are biased toward imprecise localization and confused by visually intricate or ambiguous UI components.",
+  "key_insight": "A training-free approach (BAMI) that uses a new Masked Prediction Distribution (MPD) attribution method can reveal and mitigate two systematic biases—precision bias from high-resolution screens and ambiguity bias from complex UI elements—improving GUI grounding without retraining models.",
+  "problem_solved": "Existing GUI grounding models struggle in complex, high-resolution interfaces (e.g., ScreenSpot-Pro) due to systematic localization and ambiguity errors; the paper diagnoses these failure modes and provides a training-free mitigation strategy.",
   "method": [
-    "Use Masked Prediction Distribution (MPD) attribution to diagnose per-input error sources and separate precision vs. ambiguity biases.",
-    "Apply BAMI at inference time (training-free): resolution-aware masking and multi-scale aggregation to reduce precision bias, plus ambiguity-aware candidate re-ranking/thresholding to disambiguate complex elements.",
-    "Operate entirely at inference without modifying model weights or requiring extra labeled data, making mitigation lightweight and pluggable."
+    "Introduce Masked Prediction Distribution (MPD) as an attribution tool to localize where and why grounding predictions fail.",
+    "Diagnose two primary biases: precision bias (errors caused by high image resolution) and ambiguity bias (errors caused by visually complex or similar interface elements).",
+    "Apply BAMI — a set of training-free mitigation techniques (e.g., resolution-aware post-processing and ambiguity-aware scoring/filtering) to correct biased predictions at inference time."
   ],
-  "impact": "Enables more reliable GUI agents and faster deployment by fixing common grounding failure modes without costly retraining or dataset expansion, lowering the barrier for robust human–computer interaction models.",
+  "impact": "Enables more reliable GUI agents by diagnosing and fixing systematic grounding errors without expensive model retraining, making deployment and iteration faster for practitioners.",
   "visual_elements": [
-    "Pipeline diagram: MPD attribution -> bias diagnosis -> BAMI inference-time corrections",
-    "Before/after example panel: model grounding on a complex GUI showing common errors and corrected targets",
-    "Two-icon bias map: precision bias (high-res zoomed view) vs. ambiguity bias (dense/masked UI elements) with short captions",
-    "Flowchart of BAMI steps at inference (masking, multi-scale aggregation, re-ranking) showing no retraining required"
+    "Schematic of MPD: input UI image → masked regions → prediction distribution heatmaps highlighting responsible regions",
+    "Before/After comparison: original grounding outputs vs. BAMI-corrected outputs on high-resolution and complex UI examples",
+    "Bias breakdown chart: bar or pie chart showing proportion of errors due to precision bias vs. ambiguity bias",
+    "Flow diagram of BAMI pipeline: MPD attribution → bias diagnosis → training-free mitigation → corrected prediction"
   ],
   "hashtags": [
+    "#GUIGrounding",
     "#BiasMitigation",
-    "#GUI",
-    "#ExplainableAI",
+    "#Interpretability",
     "#TrainingFree",
-    "#ComputerVision"
+    "#HumanComputerInteraction"
   ],
   "paper_id": "2026-05-07-arxiv-bami_training_free_bias_mitigation_in_gui_grounding",
   "paper_title": "BAMI: Training-Free Bias Mitigation in GUI Grounding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06664v1"
     }
   ],
-  "generated_at": "2026-05-09T07:43:59.235989"
+  "generated_at": "2026-05-10T07:57:33.012117"
 }

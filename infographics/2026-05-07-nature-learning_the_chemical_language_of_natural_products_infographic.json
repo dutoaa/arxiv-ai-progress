@@ -1,21 +1,21 @@
 {
-  "key_insight": "A transformer-style foundation model was trained to 'speak' the chemical language of natural products, producing rich molecular representations that enable many downstream natural-product mining tasks.",
-  "problem_solved": "Natural products are chemically diverse and underrepresented in ML datasets; the paper addresses the lack of general, pretrained models tailored to natural-product chemistry for tasks like discovery, annotation and property prediction.",
+  "key_insight": "A foundation \"chemical language\" model trained on a large corpus of natural-product structures learns reusable structural and biosynthetic motifs, enabling accurate transfer to a variety of downstream natural-product mining tasks with limited labels.",
+  "problem_solved": "Natural products are chemically diverse and underrepresented in labeled datasets; existing models trained on synthetic compounds often fail to capture natural-product-specific patterns needed for mining, prediction, and generation.",
   "method": [
-    "Assemble a large corpus of natural-product molecular representations and train a transformer-based chemical language model with self-supervised objectives (e.g., masked-token prediction).",
-    "Learn dense molecular embeddings that capture structural, biosynthetic and functional signals and enable efficient fine-tuning or prompt-style transfer to downstream tasks.",
-    "Demonstrate utility across downstream applications such as property prediction, dereplication, generation/prioritization of candidate molecules, and mining for bioactive scaffolds."
+    "Assemble a large, curated corpus of natural-product molecular representations (e.g., SMILES/graph encodings) to reflect biosynthetic diversity.",
+    "Pretrain a foundation chemical-language model with self-supervised objectives to learn recurrent substructures and context-dependent chemistry.",
+    "Fine-tune and evaluate the pretrained model on downstream tasks (mining, bioactivity/property prediction, candidate generation) to demonstrate transferability."
   ],
-  "impact": "Provides ML practitioners with a domain-specific pretrained model and reusable embeddings that reduce data needs and speed development of natural-product discovery workflows, improving hit rates and interpretability in cheminformatics pipelines.",
+  "impact": "Provides ML practitioners with a specialized pretrained model that reduces labeled-data needs and improves performance for natural-product discovery, annotation, and generative design—accelerating workflows in drug discovery and natural-product research.",
   "visual_elements": [
-    "Schematic of the pipeline: natural-product database → tokenized molecular strings → transformer pretraining → embeddings → downstream tasks (prediction/generation/mining).",
-    "Embedding space projection (t-SNE/UMAP) showing clustering by chemical class or bioactivity to illustrate learned structure.",
-    "Before/after comparison chart showing improved performance (e.g., accuracy or data-efficiency) on representative downstream tasks when using the pretrained model versus training from scratch.",
-    "Icon set: molecule structures, transformer model, magnifying glass (mining/discovery), and dataset/network nodes to convey scale and transferability."
+    "Pipeline diagram: dataset → pretraining (chemical-language model) → fine-tuning → downstream tasks",
+    "Dataset composition graphic: taxonomic/biosynthetic coverage and molecule-size distribution",
+    "Embedding visualization (t-SNE/UMAP) highlighting learned natural-product motifs/clusters",
+    "Bar chart comparing downstream task performance (pretrained vs. baseline) plus example generated candidate molecules"
   ],
   "hashtags": [
     "#NaturalProducts",
-    "#ChemicalLanguage",
+    "#ChemicalLanguageModel",
     "#FoundationModel",
     "#DrugDiscovery",
     "#Cheminformatics"
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01241-9"
     }
   ],
-  "generated_at": "2026-05-09T07:45:08.811955"
+  "generated_at": "2026-05-10T07:58:54.537405"
 }

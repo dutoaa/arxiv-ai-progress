@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introducing an explicit, compact trajectory-level strategy that is sampled and communicated to the agent decouples high-level planning from reactive actions, improving exploration and credit assignment across long-horizon tasks. StraTA makes agentic RL more strategic by turning multi-step intent into a first-class learning signal.",
-  "problem_solved": "Reactive, step-by-step agent policies struggle with long-horizon decision making because they weaken exploration and make credit assignment across extended trajectories difficult; StraTA addresses this by providing an explicit trajectory-level strategy that guides behavior over many steps.",
+  "key_insight": "StraTA injects a compact, explicit trajectory-level strategy into agentic RL so that an LLM-based agent plans at the strategy level before acting, greatly improving exploration and credit assignment over long horizons.",
+  "problem_solved": "Current LLM agents are largely reactive and struggle with long-horizon decision making because they lack explicit trajectory-level planning, which weakens exploration and makes credit assignment across extended trajectories difficult.",
   "method": [
-    "Sample a compact, trajectory-level strategy (an abstract intent or plan) at episode or subtask boundaries.",
-    "Condition the low-level policy on the sampled strategy so actions are purposeful and temporally consistent rather than purely reactive.",
-    "Train with RL objectives and incentives that reward adherence to useful strategies and improve credit assignment over extended trajectories."
+    "Sample a compact trajectory-level strategy (an abstract plan or latent) at episode or segment start to guide downstream decisions.",
+    "Condition the agent’s action policy on the sampled strategy so low-level actions are coherent with a higher-level intent while preserving flexibility.",
+    "Train the abstraction and policy jointly under a reinforcement objective so strategies improve exploration and long-horizon credit assignment."
   ],
-  "impact": "StraTA helps practitioners build agentic LLMs and RL agents that explore more effectively and learn long-range dependencies, making them better suited for complex, multi-step tasks and hierarchical decision problems.",
+  "impact": "Provides a simple, model-agnostic way to make LLM agents more strategic—boosting long-horizon performance and more reliable exploration—useful for practitioners building complex agentic systems or hierarchical RL pipelines.",
   "visual_elements": [
-    "Hierarchy diagram: strategy sampler (top) → conditioned policy (middle) → environment/actions (bottom), showing information flow.",
-    "Timeline comparison: reactive-only trajectory vs. StraTA-guided trajectory highlighting improved consistency and credit assignment points.",
-    "Performance bar/line chart: metric improvements (exploration, success rate, credit assignment) for reactive baseline vs StraTA.",
-    "Icon set: strategy/plan icon, policy/agent icon, reward/credit icon to visually link components."
+    "Architecture diagram: two-level flow showing 'Strategy sampler' -> 'LLM agent conditioned on strategy' -> environment actions",
+    "Timeline comparison: reactive vs StraTA showing better exploration and clearer credit assignment across long trajectories",
+    "Performance chart: episodic return or success rate vs episode length comparing baseline reactive agents and StraTA",
+    "Icon set: strategy token / plan, action-level policy, environment/trajectory to convey hierarchy"
   ],
   "hashtags": [
     "#ReinforcementLearning",
     "#LLMAgents",
     "#HierarchicalRL",
-    "#TrajectoryAbstraction",
-    "#LongHorizonPlanning"
+    "#LongHorizonPlanning",
+    "#AgenticAI"
   ],
   "paper_id": "2026-05-07-arxiv-strata_incentivizing_agentic_reinforcement_learning_with_strategic_trajectory_ab",
   "paper_title": "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06642v1"
     }
   ],
-  "generated_at": "2026-05-09T07:42:59.370298"
+  "generated_at": "2026-05-10T07:56:22.085320"
 }
