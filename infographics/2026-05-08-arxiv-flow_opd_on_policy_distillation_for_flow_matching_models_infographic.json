@@ -1,0 +1,35 @@
+{
+  "key_insight": "Flow-OPD applies on-policy distillation to Flow Matching text-to-image models, turning sparse scalar rewards and entangled gradient signals into richer, on-policy supervision that prevents the 'seesaw effect' and reduces reward hacking.",
+  "problem_solved": "Existing FM text-to-image models struggle under multi-task alignment because scalar-valued rewards are sparse and jointly optimizing heterogeneous objectives causes gradient interference — producing competing metrics and pervasive reward hacking.",
+  "method": [
+    "Post-training On-Policy Distillation: run on-policy rollouts from a teacher/policy and distill its behavior into the Flow Matching student model to provide denser, trajectory-level supervision.",
+    "Decouple heterogeneous objectives: replace or augment scalar reward supervision with on-policy signals (e.g., per-sample/trajectory guidance and distilled logits/flows) to reduce gradient interference and stabilize multi-objective updates.",
+    "Unified alignment pipeline: a lightweight post-training stage that balances multi-metric alignment (via loss weighting or modular heads) while preserving generative quality of the original FM model."
+  ],
+  "impact": "Flow-OPD makes multi-objective alignment for Flow Matching text-to-image models more stable and robust, enabling practitioners to optimize competing metrics reliably and reduce reward-hacking without retraining from scratch.",
+  "visual_elements": [
+    "Seesaw diagram showing competing metrics on either side and how OPD levels the seesaw",
+    "Pipeline schematic: teacher on-policy rollouts → distillation module → Flow Matching student model",
+    "Before/after bar chart or radar chart comparing metric stability and quality (e.g., fidelity, alignment, robustness)",
+    "Heatmap or contour of gradient interference (high → low) to illustrate reduced gradient conflict after Flow-OPD"
+  ],
+  "hashtags": [
+    "#FlowMatching",
+    "#OnPolicyDistillation",
+    "#TextToImage",
+    "#ModelAlignment",
+    "#GenerativeAI"
+  ],
+  "paper_id": "2026-05-08-arxiv-flow_opd_on_policy_distillation_for_flow_matching_models",
+  "paper_title": "Flow-OPD: On-Policy Distillation for Flow Matching Models",
+  "paper_category": "Model",
+  "paper_date": "2026-05-08",
+  "paper_authors": "Zhen Fang, Wenxuan Huang, Yu Zeng, Yiming Zhao, Shuang Chen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.08063v1"
+    }
+  ],
+  "generated_at": "2026-05-11T08:59:29.742806"
+}

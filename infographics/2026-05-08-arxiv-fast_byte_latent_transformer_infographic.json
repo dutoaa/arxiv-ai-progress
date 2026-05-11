@@ -1,0 +1,35 @@
+{
+  "key_insight": "BLT-D adds a block-wise diffusion objective to the Byte Latent Transformer, enabling block-parallel generation that is substantially faster than byte-by-byte autoregressive sampling while retaining next-byte prediction quality.",
+  "problem_solved": "Byte-level LMs are bottlenecked by slow autoregressive byte-by-byte generation; this work speeds up sampling without sacrificing the benefits of tokenization-free modeling.",
+  "method": [
+    "Introduce BLT-D: augment the Byte Latent Transformer with an auxiliary block-wise diffusion objective during training.",
+    "Train jointly with the standard next-byte prediction loss so the model preserves autoregressive language modeling quality.",
+    "Use a block-wise (partially parallel) generation procedure that samples groups of bytes via the learned latent/diffusion mechanism to reduce sampling latency."
+  ],
+  "impact": "Provides a practical, low-latency way to deploy tokenization-free byte-level LMs, improving throughput for multilingual and robust NLP applications while keeping model behavior comparable to standard next-byte LMs.",
+  "visual_elements": [
+    "Bar chart comparing generation speed (tokens/sec or wall-clock latency) of byte-by-byte BLT vs BLT-D vs token-level baselines",
+    "Architecture diagram highlighting latent blocks, the diffusion auxiliary objective, and the next-byte prediction head",
+    "Flowchart contrasting byte-by-byte autoregressive sampling with BLT-D block-wise sampling (showing parallelism gains)",
+    "Latency vs quality (perplexity or accuracy) curve to show trade-off and that BLT-D maintains LM performance while reducing latency"
+  ],
+  "hashtags": [
+    "#ByteLevel",
+    "#LatentTransformer",
+    "#Diffusion",
+    "#EfficientGeneration",
+    "#LanguageModeling"
+  ],
+  "paper_id": "2026-05-08-arxiv-fast_byte_latent_transformer",
+  "paper_title": "Fast Byte Latent Transformer",
+  "paper_category": "Model",
+  "paper_date": "2026-05-08",
+  "paper_authors": "Julie Kallini, Artidoro Pagnoni, Tomasz Limisiewicz, Gargi Ghosh, Luke Zettlemoyer",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.08044v1"
+    }
+  ],
+  "generated_at": "2026-05-11T08:58:00.495997"
+}

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Normalizing Trajectory Models (NTM) replace each coarse reverse diffusion step with an expressive conditional normalizing flow, enabling few-step generation while retaining exact-likelihood training and expressive stepwise transitions.",
+  "problem_solved": "Diffusion assumptions break down when generation is compressed to few coarse steps; prior few-step solutions (distillation, consistency, adversarial) lose the likelihood framework. NTM restores principled likelihood-based training for compressed/few-step sampling.",
+  "method": [
+    "Model every reverse transition as a conditional normalizing flow conditioned on the next state and timestep, giving each coarse step high expressivity.",
+    "Train the sequence of flows with exact maximum likelihood across steps, preserving tractable likelihoods and stable optimization.",
+    "Learn compressed trajectories that summarize many small denoising steps into a few learned expressive transitions to enable fast, few-step sampling."
+  ],
+  "impact": "NTM provides a practical path to fast few-step generation without abandoning likelihood-based evaluation, so practitioners can get efficient sampling and principled density estimates simultaneously—useful for research, model selection, and production deployment.",
+  "visual_elements": [
+    "Side-by-side schematic: standard diffusion (many small Gaussian denoising steps) vs NTM (few expressive flow-based transitions).",
+    "Block diagram showing a conditional normalizing flow at one reverse step (inputs: noisy state + timestep; outputs: cleaner state) with exact likelihood annotation.",
+    "Line/chart showing trade-off curves: sample quality and log-likelihood as a function of number of steps, highlighting NTM improvement at low step counts.",
+    "Trajectory visualization: animated or stacked states showing compressed learned transitions vs many small denoising steps."
+  ],
+  "hashtags": [
+    "#NormalizingFlows",
+    "#DiffusionModels",
+    "#GenerativeModels",
+    "#LikelihoodTraining",
+    "#FastSampling"
+  ],
+  "paper_id": "2026-05-08-arxiv-normalizing_trajectory_models",
+  "paper_title": "Normalizing Trajectory Models",
+  "paper_category": "Model",
+  "paper_date": "2026-05-08",
+  "paper_authors": "Jiatao Gu, Tianrong Chen, Ying Shen, David Berthelot, Shuangfei Zhai",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.08078v1"
+    }
+  ],
+  "generated_at": "2026-05-11T09:00:07.564906"
+}
