@@ -1,0 +1,35 @@
+{
+  "key_insight": "DECO is a sparse Mixture-of-Experts design that matches the accuracy of a dense Transformer with the same total parameter budget while drastically reducing on-device storage and memory-access costs, enabling high-performance inference on end-side devices.",
+  "problem_solved": "Standard MoE increases total parameter count and memory traffic, creating storage and memory-access bottlenecks that prevent efficient deployment on resource-constrained end-side devices without sacrificing accuracy or latency.",
+  "method": [
+    "Design a sparse MoE architecture that preserves total parameter capacity but only activates a small subset of expert parameters per token, keeping compute low while maintaining dense-comparable quality.",
+    "Reorganize expert parameters and memory layout for on-device friendliness (compact storage, fewer random accesses) so the large global parameter footprint no longer causes runtime/memory penalties.",
+    "Adopt lightweight routing and inference optimizations to minimize extra control overhead and latency during expert selection, enabling efficient end-side execution."
+  ],
+  "impact": "DECO lets practitioners get the capacity benefits of MoE for higher model quality while meeting stringent on-device constraints (storage, memory bandwidth, compute, latency), making advanced models practical for edge and mobile deployment.",
+  "visual_elements": [
+    "Side-by-side schematic: dense Transformer vs DECO MoE showing equal total parameters but fewer active weights and lower memory access for DECO",
+    "Bar chart: storage footprint and memory-bandwidth use (dense vs standard MoE vs DECO)",
+    "Flow diagram: token routing to a small subset of experts with compact memory layout and low-latency inference",
+    "Scatter plot: accuracy (y) vs on-device cost metrics (x: storage or memory bandwidth) highlighting DECO's dense-comparable accuracy at reduced cost"
+  ],
+  "hashtags": [
+    "#MixtureOfExperts",
+    "#EdgeAI",
+    "#EfficientModels",
+    "#OnDeviceML",
+    "#SparseModels"
+  ],
+  "paper_id": "2026-05-11-arxiv-deco_sparse_mixture_of_experts_with_dense_comparable_performance_on_end_side_dev",
+  "paper_title": "DECO: Sparse Mixture-of-Experts with Dense-Comparable Performance on End-Side Devices",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-05-11",
+  "paper_authors": "Chenyang Song, Weilin Zhao, Xu Han, Chaojun Xiao, Yingfa Chen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.10933v1"
+    }
+  ],
+  "generated_at": "2026-05-12T08:26:43.214614"
+}

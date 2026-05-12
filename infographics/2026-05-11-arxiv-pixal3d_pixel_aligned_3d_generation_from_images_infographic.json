@@ -1,0 +1,35 @@
+{
+  "key_insight": "Explicitly align image pixels to 3D generation so the model conditions each 3D point on the corresponding image pixels, producing much higher pixel-level fidelity between input images and generated 3D assets.",
+  "problem_solved": "Reduces ambiguous 2D→3D associations in current 3D-native generators that inject image cues indirectly, addressing low pixel-level faithfulness (fidelity) in image-to-3D synthesis.",
+  "method": [
+    "Establish explicit pixel-to-3D correspondence by projecting 3D samples into the input image and sampling pixel-aligned features to condition the 3D generator.",
+    "Integrate pixel-aligned conditioning into a 3D-native generation pipeline (geometry + appearance) so rendered views reproduce input pixels more faithfully.",
+    "Train with geometry- and appearance-level consistency losses (e.g., reprojective reconstruction/fidelity objectives) to enforce per-pixel agreement."
+  ],
+  "impact": "Improves visual fidelity of image-to-3D pipelines, making generated assets more usable for downstream tasks like texture-preserving content creation, AR/VR, and vision-driven simulation.",
+  "visual_elements": [
+    "Architecture diagram: 3D generator block showing projection of points into image plane and pixel-aligned feature sampling.",
+    "Before/After panel: input image, 3D render from prior method (blurry/mismatched), 3D render from Pixal3D (pixel-faithful).",
+    "Projection visualization: schematic of 3D point → image pixel correspondence with sampled feature vectors.",
+    "Quantitative chart: pixel-level fidelity/error (e.g., reprojective L2 or PSNR) comparing baseline vs Pixal3D across datasets."
+  ],
+  "hashtags": [
+    "#3DGeneration",
+    "#ImageTo3D",
+    "#PixelAlignment",
+    "#NeuralRendering",
+    "#ComputerVision"
+  ],
+  "paper_id": "2026-05-11-arxiv-pixal3d_pixel_aligned_3d_generation_from_images",
+  "paper_title": "Pixal3D: Pixel-Aligned 3D Generation from Images",
+  "paper_category": "Model",
+  "paper_date": "2026-05-11",
+  "paper_authors": "Dong-Yang Li, Wang Zhao, Yuxin Chen, Wenbo Hu, Meng-Hao Guo",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.10922v1"
+    }
+  ],
+  "generated_at": "2026-05-12T08:26:28.524745"
+}

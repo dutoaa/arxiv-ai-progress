@@ -1,0 +1,35 @@
+{
+  "key_insight": "Introducing a post-training reinforcement method that uses super-linear advantage shaping to prevent reward hacking in text-to-image models: amplifying true improvements while removing miscalibrating normalization yields more genuine performance gains.",
+  "problem_solved": "Existing GRPO-style post-training methods exploit biases in imperfect reward functions (reward hacking) because prompt-level normalization miscalibrates advantages, so models optimize surrogate artifacts instead of real image quality or alignment.",
+  "method": [
+    "Diagnose miscalibration from prompt-level normalization and remove or correct the normalization step that flattens across-prompt signal.",
+    "Apply a super-linear advantage shaping transform (e.g., power function with exponent >1) to amplify meaningful advantages and suppress small noisy signals that drive reward hacking.",
+    "Integrate the shaped advantages into a GRPO-compatible post-training loop with regularization to retain diversity and stability."
+  ],
+  "impact": "Makes post-training RL for T2I models more robust: practitioners get measurable, real improvements in image quality and alignment with fewer failure modes from reward-function artifacts, while retaining compatibility with existing GRPO pipelines.",
+  "visual_elements": [
+    "Curve plot comparing linear vs. super-linear advantage transforms (showing amplification of large advantages and attenuation of small ones).",
+    "Before/after image grid illustrating reduced reward-hacked artifacts vs. genuinely improved samples.",
+    "Training-flow diagram: reward → advantage computation (old vs. new) → GRPO update → validation metrics.",
+    "Bar chart or table summarizing reductions in reward-hacking metrics and gains in human-preference or FID-style scores."
+  ],
+  "hashtags": [
+    "#TextToImage",
+    "#ReinforcementLearning",
+    "#RewardShaping",
+    "#ModelAlignment",
+    "#DiffusionModels"
+  ],
+  "paper_id": "2026-05-11-arxiv-power_reinforcement_post_training_of_text_to_image_models_with_super_linear_adva",
+  "paper_title": "Power Reinforcement Post-Training of Text-to-Image Models with Super-Linear Advantage Shaping",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-05-11",
+  "paper_authors": "Haoyuan Sun, Jing Wang, Yuxin Song, Yu Lu, Bo Fang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.10937v1"
+    }
+  ],
+  "generated_at": "2026-05-12T08:27:08.757367"
+}

@@ -1,24 +1,24 @@
 {
-  "key_insight": "A retrieval-guided noise optimization process steers diffusion-based motion generation using examples from a motion database, enabling zero-shot satisfaction of very tight spatiotemporal constraints (e.g., narrow obstacle courses, exact step counts).",
-  "problem_solved": "Current motion generators fail on highly-constrained tasks with severe spatial/temporal restrictions; this work enables reliable generation that meets such customized constraints without task-specific retraining.",
+  "key_insight": "Combining a retrieval-based library of motion snippets with diffusion-model noise optimization lets a generator satisfy extremely strict spatiotemporal constraints (e.g., obstacle avoidance, exact step counts) in a zero-shot setting.",
+  "problem_solved": "Existing motion generators struggle with highly-constrained tasks—such as navigating severe spatial obstacles or meeting a specified number of steps—when constraints are unseen at training time; this work enables reliable zero-shot compliance with such challenging spatiotemporal requirements.",
   "method": [
-    "Retrieve relevant motion snippets or priors from a dataset conditioned on the user-specified goal/constraint.",
-    "Optimize the diffusion sampling noise using information from retrieved examples to bias generation toward constraint-satisfying regions of motion space.",
-    "Combine retrieval-guided noise shaping with the diffusion model’s sampling loop and constraint-aware objective to produce feasible, diverse motions zero-shot."
+    "Retrieve relevant motion snippets from a database to provide strong, context-aware priors for constrained generation.",
+    "Run a diffusion-based motion generator whose noise is optimized (guided) at generation time so the sampled trajectory satisfies the user-specified zero-shot goal function.",
+    "Combine retrieval priors and constraint-aware noise optimization during denoising to produce plausible, constraint-compliant motions without task-specific retraining."
   ],
-  "impact": "Makes generative motion models practical for strict control scenarios in character animation, robotics, and virtual agents by improving success rates on hard constraints while preserving diversity and zero-shot generalization.",
+  "impact": "Enables practical, controllable character animation and virtual-agent behavior that meet precise, previously unseen constraints—reducing manual effort and expanding the range of tasks solvable by generative motion models.",
   "visual_elements": [
-    "Pipeline diagram: retrieval → noise optimization → diffusion sampler → final motion",
-    "Before/after motion sequences overlaid on an environment with obstacles/step markers to show constraint compliance",
-    "Success-rate chart comparing baseline diffusion vs retrieval-guided approach across increasingly tight constraints",
-    "Ablation table/heatmap showing contribution of retrieval and noise-optimization components to performance"
+    "Pipeline diagram showing retrieval → diffusion model → noise optimization → constraint-evaluated motion output",
+    "Before/after motion sequences illustrating failure of a baseline and success of retrieval-guided diffusion (e.g., navigating an obstacle course or exact-step gait)",
+    "Bar/line chart comparing constraint satisfaction rates and motion plausibility across baselines and the proposed method",
+    "Small icon set showing common constraints (obstacle, step-count, target pose, timing) mapped to example generated motions"
   ],
   "hashtags": [
-    "#HumanMotion",
+    "#MotionGeneration",
     "#DiffusionModels",
     "#RetrievalAugmented",
-    "#MotionSynthesis",
-    "#ControllableAnimation"
+    "#ControllableAnimation",
+    "#ZeroShotLearning"
   ],
   "paper_id": "2026-05-08-arxiv-towards_highly_constrained_human_motion_generation_with_retrieval_guided_diffusi",
   "paper_title": "Towards Highly-Constrained Human Motion Generation with Retrieval-Guided Diffusion Noise Optimization",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.08054v1"
     }
   ],
-  "generated_at": "2026-05-11T08:58:40.421244"
+  "generated_at": "2026-05-12T08:28:16.449270"
 }

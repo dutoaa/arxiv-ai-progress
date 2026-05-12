@@ -1,23 +1,23 @@
 {
-  "key_insight": "You can produce valid, deployment-relevant comparative safety scores for candidate language models even when no labeled benchmark exists by formalizing a controlled, scenario-based audit contract and treating scores as valid only under that fixed contract. This reframes validation from absolute ground-truth labels to reproducible, conditional evidence tied to audit choices.",
-  "problem_solved": "How to compare and validate safety of language models in domains, languages, or regulatory contexts where no ground-truth labeled benchmark is available.",
+  "key_insight": "You can validly compare LLM safety without labeled benchmarks by treating scenario-based audits as evidence under a precise contract: scores are meaningful only relative to a fixed scenario pack, rubric, auditor, judge, sampling plan, and rerun budget. The paper formalizes this benchmarkless comparative safety scoring and practical validation constraints.",
+  "problem_solved": "How to evaluate and compare candidate language models for safety when no ground-truth labeled benchmark exists for the target language, sector, or regulatory regime.",
   "method": [
-    "Formalize the 'benchmarkless comparative safety scoring' setting and define an explicit audit contract (scenario pack, rubric, auditor, judge, sampling configuration, rerun budget).",
-    "Use scenario-based audits and controlled experimental choices in place of labels so that comparative scores carry clear, conditional validity statements.",
-    "Provide a validation protocol and statistical controls (sampling and rerun budgets) that link observed comparative outcomes to deployment evidence under the specified contract."
+    "Formalize the benchmarkless comparative safety setting and define a validity contract that fixes: scenario pack, rubric, auditor, judge, sampling configuration, and rerun budget.",
+    "Replace reliance on unavailable ground-truth labels by using scenario-based audits plus repeatability/consistency checks and controlled sampling to produce comparable safety scores with well-specified scope.",
+    "Provide a validation/interpretation framework that quantifies when comparative scores can be treated as deployment evidence and clarifies their limitations."
   ],
-  "impact": "Enables practitioners to generate reproducible, interpretable safety comparisons and deployment evidence without waiting for labeled benchmarks, by making assumptions and audit choices explicit. This reduces uncertainty in model selection for new languages, sectors, or regulatory regimes.",
+  "impact": "Gives practitioners a rigorous, operational way to compare model safety where labeled data don’t exist, reducing deployment risk by making evaluation assumptions explicit and results reproducible. It also sets clear boundaries for what such scores can (and cannot) imply.",
   "visual_elements": [
-    "Contract diagram showing the fixed components (scenario pack, rubric, auditor, judge, sampling config, rerun budget) and how they constrain validity",
-    "Flowchart of the scenario-based audit process from scenario sampling → model responses → judged comparisons → comparative score",
-    "Bar/rank chart comparing multiple models under the same audit contract with annotations indicating conditional validity",
-    "Checklist/icon set showing 'what must remain fixed' to preserve score validity (so practitioners know audit preconditions)"
+    "Contract diagram showing the six fixed components (scenario pack, rubric, auditor, judge, sampling, rerun budget) as inputs that determine score validity",
+    "Flowchart of scenario-based audit: sample → prompt scenarios → collect outputs → judge/rubric → score → rerun/repeatability loop",
+    "Bar chart or dot-and-interval plot comparing models with uncertainty bars and annotation of the fixed-scope constraint",
+    "Checklist/icon set summarizing dos and don’ts for interpreting scores (e.g., ‘Valid only if same contract’, ‘Not a universal ground truth’)"
   ],
   "hashtags": [
-    "#LLMEvaluation",
+    "#LLMs",
     "#AISafety",
-    "#Benchmarkless",
-    "#ModelAuditing",
+    "#ModelEvaluation",
+    "#Benchmarking",
     "#ResponsibleAI"
   ],
   "paper_id": "2026-05-07-arxiv-when_no_benchmark_exists_validating_comparative_llm_safety_scoring_without_groun",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06652v1"
     }
   ],
-  "generated_at": "2026-05-11T09:01:36.415972"
+  "generated_at": "2026-05-12T08:28:00.879719"
 }

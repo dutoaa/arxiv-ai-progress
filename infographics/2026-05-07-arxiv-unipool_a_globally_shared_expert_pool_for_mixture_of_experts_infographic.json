@@ -1,24 +1,24 @@
 {
-  "key_insight": "Instead of allocating a distinct expert set to each transformer layer, a single globally shared expert pool (UniPool) can serve all layers—maintaining accuracy while breaking the linear growth of expert parameters with depth.",
-  "problem_solved": "Fixes the rigid per-layer expert allocation in MoE models that couples depth scaling to linear expert-parameter growth and assumes each layer needs isolated expert capacity, leading to inefficient parameter use.",
+  "key_insight": "UniPool replaces isolated per-layer expert sets with a single globally shared expert pool, showing many layers can share experts with only minimal loss in accuracy.",
+  "problem_solved": "Fixes the rigid per-layer expert allocation in Mixture-of-Experts (MoE) models that forces linear expert-parameter growth with depth and assumes every layer requires its own isolated experts.",
   "method": [
-    "Introduce UniPool: one globally shared set of experts that all transformer layers can route to, replacing per-layer expert partitions.",
-    "Use a layer-agnostic routing/gating scheme (top-k selection from the global pool) with load-balancing and capacity management to avoid hotspots.",
-    "Empirically validate via routing probes and downstream evaluations showing negligible accuracy loss with far fewer expert parameters."
+    "Introduce a globally shared expert pool (UniPool) that all transformer layers can access instead of maintaining separate expert sets per layer.",
+    "Design routing and capacity-control mechanisms so layers dynamically select from the shared pool while preserving load balance and specialization.",
+    "Use routing probes and empirical experiments to compare shared vs. per-layer allocations and quantify accuracy vs. parameter efficiency trade-offs."
   ],
-  "impact": "Enables more parameter-efficient MoE scaling (deeper models without proportional expert-parameter growth), simplifies MoE design choices, and reduces training/inference cost for practitioners.",
+  "impact": "Enables more parameter-efficient scaling of MoE models by decoupling expert capacity from depth, simplifying architecture design and reducing training/inference cost while maintaining near-original performance.",
   "visual_elements": [
-    "Schematic comparison: traditional per-layer experts vs. UniPool (shared pool) with arrows showing routing paths.",
-    "Bar chart: expert-parameter count vs. downstream accuracy for per-layer MoE and UniPool.",
-    "Heatmap of routing assignments: layer-to-expert usage illustrating cross-layer sharing in UniPool.",
-    "Icon set: expert pool (pool icon), gating mechanism (switch/gauge), and efficiency (downward cost arrow)"
+    "Side-by-side diagram: traditional per-layer experts vs. UniPool shared-expert architecture",
+    "Heatmap of expert utilization across layers showing layer reuse of shared experts",
+    "Plot: accuracy (or task metric) vs. expert-parameter count comparing per-layer MoE and UniPool",
+    "Schematic of routing flow (input → router → shared expert selection → aggregation)"
   ],
   "hashtags": [
-    "#UniPool",
     "#MixtureOfExperts",
-    "#ModelEfficiency",
-    "#SparseModels",
-    "#DeepLearning"
+    "#UniPool",
+    "#ModelScaling",
+    "#EfficientAI",
+    "#SparseModels"
   ],
   "paper_id": "2026-05-07-arxiv-unipool_a_globally_shared_expert_pool_for_mixture_of_experts",
   "paper_title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06665v1"
     }
   ],
-  "generated_at": "2026-05-11T09:02:50.374941"
+  "generated_at": "2026-05-12T08:28:23.496883"
 }

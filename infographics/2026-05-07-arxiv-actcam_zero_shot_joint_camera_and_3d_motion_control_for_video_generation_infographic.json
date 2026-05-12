@@ -1,24 +1,24 @@
 {
-  "key_insight": "ActCam enables zero-shot joint control of actor motion and per-frame 3D camera parameters, transferring performance from a driving video into a new scene by conditioning a pretrained image-to-video diffusion model on depth and motion cues.",
-  "problem_solved": "Bridges the gap between fine-grained performance control (actor motion) and cinematographic control (camera intrinsics/extrinsics) in video generation without requiring dataset-specific fine-tuning.",
+  "key_insight": "ActCam enables zero-shot, joint control of actor performance and per-frame camera parameters by conditioning pretrained image-to-video diffusion models on extracted 3D motion and camera trajectories, producing coherent videos without task-specific finetuning.",
+  "problem_solved": "Provides fine-grained, simultaneous control over both character motion and cinematography (intrinsic/extrinsic camera parameters) for video generation—addressing the gap where prior methods control either motion or camera but not both jointly or require expensive retraining/data.",
   "method": [
-    "Extract 3D motion and scene depth cues from a driving video to represent the actor's performance and geometry.",
-    "Inject per-frame intrinsic and extrinsic camera parameters as conditioning signals into a pretrained image-to-video diffusion backbone.",
-    "Perform zero-shot joint transfer to synthesize a novel scene that preserves the driving motion and follows the specified camera trajectory."
+    "Extract per-frame 3D motion and camera parameters from a driving video (pose/scene geometry and camera trajectory) as conditioning signals.",
+    "Leverage an off-the-shelf pretrained image-to-video diffusion model that accepts depth and camera conditioning to transfer the extracted motion into a target scene while applying per-frame intrinsic/extrinsic camera control.",
+    "Operate in a zero-shot manner (no task-specific finetuning), integrating the motion and camera signals to synthesize temporally coherent frames with desired cinematography."
   ],
-  "impact": "Provides a practical, training-free way to generate cinematic, controllable videos—useful for filmmakers, animators, and researchers creating synthetic datasets or studying controllable video synthesis.",
+  "impact": "Enables artists and ML practitioners to generate controllable, cinematic videos quickly and flexibly—supporting novel content creation, interactive tools, and research on controllable generative video without expensive retraining or large paired datasets.",
   "visual_elements": [
-    "Pipeline diagram: driving video → motion & depth extraction → camera-parameter conditioning → diffusion model → generated video",
-    "Timeline storyboard showing per-frame camera intrinsics/extrinsics overlaid on generated frames",
-    "Before/after comparison: source driving clip vs. synthesized clip in target scene (highlighting preserved motion and camera path)",
-    "Icon/annotation highlighting 'Zero-shot (no fine-tuning)' and the conditioned signals (depth, motion, intrinsics, extrinsics)"
+    "Pipeline diagram: inputs (source scene image, driving video), motion & camera extraction, conditioning to pretrained diffusion model, output video frames.",
+    "Before/after triptych: driving video frame vs. generated frame with same performance but new scene and camera viewpoint.",
+    "Camera trajectory overlay: 2D/3D camera path and per-frame intrinsic parameter sliders (focal length, aperture icons) shown alongside output frames.",
+    "Depth / skeleton visualization: side-by-side depth map and 3D pose used for conditioning to illustrate how 3D information guides synthesis."
   ],
   "hashtags": [
     "#VideoGeneration",
     "#DiffusionModels",
-    "#3DMotion",
-    "#CameraControl",
-    "#ZeroShot"
+    "#MotionTransfer",
+    "#3DVision",
+    "#CinematographyAI"
   ],
   "paper_id": "2026-05-07-arxiv-actcam_zero_shot_joint_camera_and_3d_motion_control_for_video_generation",
   "paper_title": "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.06667v1"
     }
   ],
-  "generated_at": "2026-05-11T09:02:21.033838"
+  "generated_at": "2026-05-12T08:28:09.899867"
 }
