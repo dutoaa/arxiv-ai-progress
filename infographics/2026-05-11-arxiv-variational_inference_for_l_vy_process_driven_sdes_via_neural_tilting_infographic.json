@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introduce a scalable variational inference framework for stochastic differential equations driven by Lévy processes by using a learnable \"neural tilting\" change-of-measure on the jump (Lévy) part, enabling accurate Bayesian inference for models with jumps and heavy tails that were previously intractable or non-scalable.",
-  "problem_solved": "Existing Bayesian inference for Lévy-driven SDEs is either computationally expensive (Monte Carlo) or inaccurate/non-scalable (standard neural variational methods). This work provides a practical, scalable method to perform posterior inference for SDEs with jumps and heavy-tailed noise.",
+  "key_insight": "A scalable variational inference framework that uses a learned change-of-measure (“neural tilting”) to approximate posteriors for SDEs driven by Lévy processes, enabling accurate, efficient Bayesian inference for jump-heavy, heavy-tailed dynamics.",
+  "problem_solved": "Bayesian inference for Lévy-driven SDEs is intractable with existing methods: Monte Carlo is accurate but not scalable, while standard variational methods fail to capture jumps and heavy tails. This paper provides a tractable, scalable alternative that models jumps and extremes correctly.",
   "method": [
-    "Define a variational family via a tilting (change-of-measure) of the Lévy jump distribution, parameterized by neural networks — \"neural tilting\" — to flexibly capture posterior behavior of jumps.",
-    "Optimize a tractable variational objective (ELBO or tilted surrogate) using amortized neural inference and SDE solvers, combining probabilistic rigor of importance/tilting with scalability of deep learning.",
-    "Use design choices (e.g., stable reweighting, efficient simulation of tilted jump measures) to make training numerically stable and computationally efficient for practical datasets."
+    "Parameterize an exponential-tilting change-of-measure for Lévy jump measures with neural networks to form a flexible variational family.",
+    "Derive a tractable ELBO and unbiased gradient estimators by leveraging jump-process change-of-measure (Girsanov-like) identities and efficient sampling/importance-weighting.",
+    "Amortize inference over paths so the method scales to large datasets while retaining fidelity to heavy tails and rare events."
   ],
-  "impact": "Makes principled Bayesian modeling of jumps and heavy tails practical at scale, improving uncertainty quantification and robustness in domains like finance, climate modeling, and safety-critical AI where extreme events matter.",
+  "impact": "Enables practical Bayesian modeling of jump-driven dynamics at scale, improving uncertainty quantification for extreme events in finance, climate, and safety-critical AI. Practitioners gain a computationally efficient tool to model heavy tails and discrete jumps without resorting to prohibitively expensive Monte Carlo.",
   "visual_elements": [
-    "Schematic diagram: SDE sample paths comparison (Gaussian diffusion vs Lévy-driven with jumps) to highlight jump behavior and heavy tails.",
-    "Method flowchart: data → neural tilting module (learnable change-of-measure) → tilted SDE simulator → variational training loop (ELBO), showing end-to-end pipeline.",
-    "Performance chart: accuracy vs compute (or RMSE/ELBO vs runtime) comparing Monte Carlo, standard VI, and neural-tilting VI to show scalability/accuracy trade-offs.",
-    "Domain icons: small panels showing applications (finance, climate, autonomous systems) annotated with benefits (better tail risk, extreme-event capture)."
+    "Side-by-side sample-path plot: Brownian SDE vs Lévy SDE (showing jumps) with uncertainty bands",
+    "Pipeline diagram: data → neural tilting module (learned change-of-measure) → variational sampler → ELBO/optimization",
+    "Performance chart: accuracy vs compute comparing Monte Carlo, standard VI, and neural tilting VI (highlighting scalability and tail fidelity)",
+    "Infographic icon set: lightning bolt for jumps, probability tail curve for heavy tails, neural-net icon for learned tilting, shield for improved uncertainty/safety"
   ],
   "hashtags": [
-    "#LévyProcesses",
+    "#LevyProcesses",
     "#VariationalInference",
     "#SDEs",
-    "#HeavyTails",
-    "#ProbabilisticML"
+    "#BayesianML",
+    "#HeavyTails"
   ],
   "paper_id": "2026-05-11-arxiv-variational_inference_for_l_vy_process_driven_sdes_via_neural_tilting",
   "paper_title": "Variational Inference for Lévy Process-Driven SDEs via Neural Tilting",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.10934v1"
     }
   ],
-  "generated_at": "2026-05-12T08:26:52.266030"
+  "generated_at": "2026-05-13T08:37:51.089400"
 }

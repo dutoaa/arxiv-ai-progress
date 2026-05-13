@@ -1,24 +1,24 @@
 {
-  "key_insight": "Shepherd treats meta-agent operations as pure functions and records every agent–environment interaction as typed events in a Git-like execution trace, enabling precise forking and deterministic replay of past agent states.",
-  "problem_solved": "Existing meta-agent workflows lack formal semantics and reproducible, efficient mechanisms to inspect, fork, and replay agent executions (including filesystem state), making debugging, auditing, and branching experiments hard.",
+  "key_insight": "Shepherd models meta-agent operations as pure functions (mechanized in Lean) and records every agent–environment interaction as typed events in a Git-like execution trace, enabling fast, deterministic forking and replay of past agent states (5× faster process+filesystem fork than Docker; >95% prompt-cache reuse).",
+  "problem_solved": "Lack of a formal, reproducible, and efficient runtime substrate for controlling, debugging, and replaying meta-agent interactions with target agents and their environments.",
   "method": [
-    "Functional programming model that formalizes meta-agent operations as functions; core semantics mechanized in Lean.",
-    "Git-like, typed execution trace that records every agent–environment interaction so any past state can be checked out, forked, and replayed.",
-    "Optimized process + filesystem forking implementation (≈5× faster than Docker) with >95% prompt-cache reuse on replay."
+    "Functional programming model that formalizes meta-agent operations as functions and mechanizes core semantics in Lean for correctness.",
+    "A Git-like execution trace that records every typed event (agent↔environment), allowing any past state to be forked and deterministically replayed.",
+    "System-level implementation that forks the agent process and filesystem efficiently (5× faster than Docker) and achieves >95% prompt-cache reuse on replay."
   ],
-  "impact": "Shepherd gives practitioners deterministic, auditable control over agent runs for faster iteration, reliable debugging, and safe branching of behaviors—improving reproducibility and operational efficiency in agent-based systems.",
+  "impact": "Provides practitioners with a formally grounded, reproducible substrate for developing, debugging, and iterating on meta-agents—reducing experiment overhead and improving auditability and correctness.",
   "visual_elements": [
-    "Architecture diagram: meta-agent → Shepherd runtime → target agent + environment, annotated with Lean-mechanized operations",
-    "Git-style timeline/commit graph of typed events showing checkouts and forks",
-    "Bar chart comparing fork performance: Shepherd vs Docker (≈5× faster)",
-    "Replay flow visualization showing prompt-cache reuse (>95%) and deterministic state restoration"
+    "Architecture diagram: meta-agent → Shepherd runtime → target agent + environment, with Lean mechanization noted.",
+    "Git-like execution trace timeline showing typed events, commit-like snapshots, forks, and replays.",
+    "Bar chart comparing fork+filesystem speed (Shepherd vs Docker) and a KPI showing >95% prompt-cache reuse.",
+    "Sequence flow illustrating a fork → isolated replay → divergent experiment branches (fork-and-merge metaphor)."
   ],
   "hashtags": [
+    "#Shepherd",
     "#MetaAgents",
     "#Reproducibility",
-    "#RuntimeSystems",
-    "#FormalMethods",
-    "#AIInfrastructure"
+    "#AIInfrastructure",
+    "#FormalMethods"
   ],
   "paper_id": "2026-05-11-arxiv-shepherd_a_runtime_substrate_empowering_meta_agents_with_a_formalized_execution",
   "paper_title": "Shepherd: A Runtime Substrate Empowering Meta-Agents with a Formalized Execution Trace",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.10913v1"
     }
   ],
-  "generated_at": "2026-05-12T08:26:19.981318"
+  "generated_at": "2026-05-13T08:37:33.085175"
 }

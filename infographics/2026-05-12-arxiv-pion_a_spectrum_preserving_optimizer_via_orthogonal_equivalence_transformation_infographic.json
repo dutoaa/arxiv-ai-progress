@@ -1,0 +1,35 @@
+{
+  "key_insight": "Pion updates weight matrices using paired left/right orthogonal transformations so that their singular values (the spectrum) remain exactly preserved during training, enabling geometry modulation without changing spectral norms.",
+  "problem_solved": "Addresses unwanted spectral drift and uncontrolled changes to the geometric structure of weight matrices during large language model training by providing an optimizer that preserves singular values while still enabling effective parameter updates.",
+  "method": [
+    "Formulate weight updates as orthogonal equivalence transformations: W <- U_left * W * U_right where U_left and U_right are orthogonal.",
+    "Derive an update rule that applies these left/right orthogonal factors to modulate matrix geometry while leaving singular values invariant.",
+    "Contrast with additive optimizers (e.g., Adam, Muon): instead of adding gradients to entries, Pion composes orthogonal transforms so the spectrum is preserved."
+  ],
+  "impact": "Preserving the spectrum decouples geometric changes from spectral norm growth, offering a new knob for stability, interpretability, and potentially improved scaling behavior in LLM training workflows.",
+  "visual_elements": [
+    "Schematic: a weight matrix decomposed into U * S * V^T with arrows showing orthogonal left/right updates that keep S unchanged.",
+    "Before/After chart: singular value curves over training comparing Pion (flat) vs additive optimizers (drifting).",
+    "Flow diagram: single-step Pion update showing gradient → compute orthogonal factors → apply left/right transforms to W.",
+    "Comparison table/icon row: Pros/cons summary vs Adam/Muon (spectrum preservation, stability, computational considerations)."
+  ],
+  "hashtags": [
+    "#PionOptimizer",
+    "#SpectrumPreserving",
+    "#OrthogonalTransforms",
+    "#LLMTraining",
+    "#OptimizerResearch"
+  ],
+  "paper_id": "2026-05-12-arxiv-pion_a_spectrum_preserving_optimizer_via_orthogonal_equivalence_transformation",
+  "paper_title": "Pion: A Spectrum-Preserving Optimizer via Orthogonal Equivalence Transformation",
+  "paper_category": "Model",
+  "paper_date": "2026-05-12",
+  "paper_authors": "Kexuan Shi, Hanxuan Li, Zeju Qiu, Yandong Wen, Simon Buchholz",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.12492v1"
+    }
+  ],
+  "generated_at": "2026-05-13T08:34:12.601758"
+}

@@ -1,0 +1,35 @@
+{
+  "key_insight": "A generative LLM can be used at test time to iteratively refine a user query (via feedback on a small set of retrieved documents), producing a task-adapted query embedding that substantially improves zero-shot search and classification without retraining the embedding model.",
+  "problem_solved": "Fixed pre-trained embedding models often fail on challenging zero-shot retrieval/classification because they can't adapt to specific task nuances; this method enables on-the-fly adaptation of query representations to the target task.",
+  "method": [
+    "Use a base embedding model to retrieve a small set of top documents for the original query.",
+    "Prompt a generative LLM to analyze those documents and produce a refined query, clarifying instructions, or an embedding-affecting augmentation.",
+    "Recompute the embedding for the refined query (optionally apply iterative refinement) and rerun retrieval/classification—no embedding model fine-tuning required."
+  ],
+  "impact": "Provides a practical, low-cost way to boost zero-shot retrieval and classification performance by combining LLM reasoning with existing embeddings at test time—useful for practitioners who need better results without model retraining.",
+  "visual_elements": [
+    "Pipeline diagram: Query → embedding → initial retrieval → LLM feedback → refined query → re-embedding → improved results",
+    "Embedding-space illustration: original query vector vs. refined vector showing movement toward relevant document cluster",
+    "Before/after performance chart (e.g., precision@k or ROC/PR curves) comparing base embeddings vs. LLM-refined embeddings",
+    "Prompt + LLM callout card: example prompt and sample LLM-produced refinement to show how guidance looks"
+  ],
+  "hashtags": [
+    "#LLMGuidance",
+    "#Embeddings",
+    "#ZeroShot",
+    "#TestTimeAdaptation",
+    "#Retrieval"
+  ],
+  "paper_id": "2026-05-12-arxiv-task_adaptive_embedding_refinement_via_test_time_llm_guidance",
+  "paper_title": "Task-Adaptive Embedding Refinement via Test-time LLM Guidance",
+  "paper_category": "Model",
+  "paper_date": "2026-05-12",
+  "paper_authors": "Ariel Gera, Shir Ashury-Tahan, Gal Bloch, Ohad Eytan, Assaf Toledo",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.12487v1"
+    }
+  ],
+  "generated_at": "2026-05-13T08:33:42.550944"
+}
