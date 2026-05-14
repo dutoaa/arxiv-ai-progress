@@ -1,24 +1,24 @@
 {
-  "key_insight": "EgoForce uses the visible forearm as a stable geometric anchor to resolve depth and scale ambiguity in monocular, head-mounted RGB images, enabling direct reconstruction of absolute 3D hand pose and shape in camera space from a single egocentric view.",
-  "problem_solved": "Monocular egocentric hand reconstruction suffers from depth–scale ambiguity and poor generalization across varied head-mounted camera configurations; the paper addresses how to recover absolute, camera-relative 3D hand pose/shape reliably from a single wearable camera without bulky sensors.",
+  "key_insight": "Using the visible forearm as a geometric anchor lets a monocular, head-mounted camera recover absolute camera-space 3D hand pose and shape, resolving depth/scale ambiguity that plagues egocentric RGB methods.",
+  "problem_solved": "Monocular egocentric hand-pose methods suffer from depth–scale ambiguity and poor generalization across varied head-mounted optics; this paper addresses how to produce absolute, camera-space 3D hand pose and shape from a single wearable RGB camera.",
   "method": [
-    "Detect and model the forearm region together with the hand, using the forearm as a known-scale geometric cue to disambiguate hand depth and global scale.",
-    "Train a single RGB-based network to regress camera-space hand pose and shape (absolute 3D coordinates) by combining forearm-guided features, kinematic/shape priors, and camera-space supervision.",
-    "Leverage mixed data and augmentation strategies to generalize across head-mounted optical configurations and to make predictions robust to occlusions and partial views."
+    "Detect and model forearm/wrist geometry visible in the egocentric view to provide a stable scale and orientation anchor for the hand.",
+    "Fuse forearm-derived geometric cues with a learned hand-pose/shape estimator to predict absolute (camera-space) 3D joint locations and mesh.",
+    "Train with egocentric-aware supervision and geometric consistency losses so the model generalizes across diverse head-mounted camera configurations."
   ],
-  "impact": "Provides a practical, lightweight solution for absolute egocentric hand tracking from commodity head-mounted cameras, improving realism and interaction fidelity for AR/VR, telepresence, and hand-centric robotics while reducing reliance on additional depth sensors or markers.",
+  "impact": "Provides a practical way to produce absolute 3D hand pose and shape from compact, single-camera setups — enabling more accurate, physically grounded interaction for AR/VR, telepresence, and hand-centric manipulation with minimal hardware.",
   "visual_elements": [
-    "Schematic of a head-mounted monocular camera viewing the forearm and hand, with an arrow showing 'forearm anchor' -> 'camera-space pose'.",
-    "Architecture block diagram: input image → forearm+hand detector → pose/shape regressor → camera-space 3D output.",
-    "Before/after comparison: monocular prediction with scale ambiguity vs. EgoForce absolute camera-space reconstruction.",
-    "Quantitative bar chart of error reduction (depth/scale metrics) across different headset camera configurations."
+    "Diagram of a head-mounted (egocentric) camera view showing forearm + hand and an overlaid 3D hand mesh anchored in camera space",
+    "Pipeline flowchart: forearm detection → geometric anchoring → hand pose/shape estimator → camera-space output",
+    "Before/after comparison: monocular estimate without forearm anchor (scale ambiguous) vs. EgoForce output (correct absolute scale)",
+    "Bar chart or schematic illustrating reduced depth/scale error and improved robustness across different head-mounted optics"
   ],
   "hashtags": [
     "#EgocentricVision",
-    "#HandPoseEstimation",
-    "#Monocular3D",
+    "#3DHandPose",
     "#ARVR",
-    "#ComputerVision"
+    "#MonocularDepth",
+    "#HumanPoseEstimation"
   ],
   "paper_id": "2026-05-12-arxiv-egoforce_forearm_guided_camera_space_3d_hand_pose_from_a_monocular_egocentric_ca",
   "paper_title": "EgoForce: Forearm-Guided Camera-Space 3D Hand Pose from a Monocular Egocentric Camera",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.12498v1"
     }
   ],
-  "generated_at": "2026-05-13T08:35:34.821213"
+  "generated_at": "2026-05-14T08:30:56.607065"
 }

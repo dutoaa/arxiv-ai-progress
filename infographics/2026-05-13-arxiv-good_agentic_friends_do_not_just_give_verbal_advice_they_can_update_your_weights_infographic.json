@@ -1,0 +1,35 @@
+{
+  "key_insight": "Instead of sending messages as tokens, agentic LLMs can compile their intermediate activations into transient parameter updates (weight patches) that are applied to receivers — enabling richer, cheaper inter-agent communication. This lets agents share computation directly without serializing everything into text.",
+  "problem_solved": "Token-based message passing between LLM agents forces senders' intermediate computation to be re-encoded and reprocessed by receivers, driving up generated-token cost, prefill overhead, KV-cache memory, and latency.",
+  "method": [
+    "Compile a sender's hidden states into a compact, transient parameter update (e.g., low-rank adapter or delta-weights) instead of appending verbal messages to the context.",
+    "Transmit the lightweight weight patch to the receiver and apply it transiently so the receiver continues inference with the sender's computation embedded, avoiding re-tokenization and extra KV-cache entries.",
+    "Design the patch to be scoped/ephemeral and compatibility-calibrated (projection or adapter interface) to preserve model stability and enable rollback."
+  ],
+  "impact": "This approach cuts token-generation and KV-cache costs, lowers latency, and enables more expressive and efficient multi-agent collaboration — useful for building scalable, cost-effective agent networks and modular model stacks.",
+  "visual_elements": [
+    "Side-by-side diagram: token-message pipeline (tokens → receiver tokenization → KV cache growth) vs. weight-patch pipeline (compile activations → transmit patch → apply to receiver).",
+    "Flowchart showing steps: extract hidden states → compress to patch → transmit → apply → rollback (ephemeral lifecycle).",
+    "Bar chart comparing metrics (generated tokens, KV-cache memory, latency) for token-based vs. weight-update communication.",
+    "Icon set: 'cost savings' coin, 'latency' stopwatch, 'compatibility/safety' shield to highlight practical tradeoffs."
+  ],
+  "hashtags": [
+    "#MultiAgent",
+    "#LLM",
+    "#ModelPatching",
+    "#EfficientAI",
+    "#WeightUpdates"
+  ],
+  "paper_id": "2026-05-13-arxiv-good_agentic_friends_do_not_just_give_verbal_advice_they_can_update_your_weights",
+  "paper_title": "Good Agentic Friends Do Not Just Give Verbal Advice: They Can Update Your Weights",
+  "paper_category": "Model",
+  "paper_date": "2026-05-13",
+  "paper_authors": "Wenrui Bao, Huan Wang, Jian Wang, Zhangyang Wang, Kai Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.13839v1"
+    }
+  ],
+  "generated_at": "2026-05-14T08:28:41.316395"
+}

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Shepherd models meta-agent operations as pure functions (mechanized in Lean) and records every agent–environment interaction as typed events in a Git-like execution trace, enabling fast, deterministic forking and replay of past agent states (5× faster process+filesystem fork than Docker; >95% prompt-cache reuse).",
-  "problem_solved": "Lack of a formal, reproducible, and efficient runtime substrate for controlling, debugging, and replaying meta-agent interactions with target agents and their environments.",
+  "key_insight": "Shepherd formalizes meta-agent operations as pure functions and records every agent–environment interaction as typed events in a Git-like execution trace. This enables fast, forkable, replayable agent processes with core operations mechanized in Lean for stronger correctness guarantees.",
+  "problem_solved": "Lack of a formal, reproducible runtime for meta-agents that reliably captures, forks, and replays agent state and filesystem snapshots (existing container workflows are slow and traces are often untyped or ad hoc).",
   "method": [
-    "Functional programming model that formalizes meta-agent operations as functions and mechanizes core semantics in Lean for correctness.",
-    "A Git-like execution trace that records every typed event (agent↔environment), allowing any past state to be forked and deterministically replayed.",
-    "System-level implementation that forks the agent process and filesystem efficiently (5× faster than Docker) and achieves >95% prompt-cache reuse on replay."
+    "Design a functional programming model where meta-agent operations are expressed as functions and interactions are emitted as typed events.",
+    "Store interactions in a Git-like, append-only execution trace that lets any past state be forked and replayed deterministically.",
+    "Mechanize core semantics in Lean and implement an efficient fork+filesystem substrate that forks processes/filesystems 5× faster than Docker and achieves >95% prompt-cache reuse on replay."
   ],
-  "impact": "Provides practitioners with a formally grounded, reproducible substrate for developing, debugging, and iterating on meta-agents—reducing experiment overhead and improving auditability and correctness.",
+  "impact": "Practitioners get deterministic debugging, safe branching of agent experiments, and much faster iteration when developing meta-agents, plus formalized semantics and mechanized assurances for higher confidence in agent behaviors.",
   "visual_elements": [
-    "Architecture diagram: meta-agent → Shepherd runtime → target agent + environment, with Lean mechanization noted.",
-    "Git-like execution trace timeline showing typed events, commit-like snapshots, forks, and replays.",
-    "Bar chart comparing fork+filesystem speed (Shepherd vs Docker) and a KPI showing >95% prompt-cache reuse.",
-    "Sequence flow illustrating a fork → isolated replay → divergent experiment branches (fork-and-merge metaphor)."
+    "Git-like execution trace timeline showing typed event commits, with a highlighted fork point and replay arrow",
+    "Architecture diagram: meta-agent (functions) → target agent → environment, with Lean mechanization and runtime substrate annotated",
+    "Bar chart comparing fork+filesystem time: Shepherd (× faster) vs Docker, and a small gauge showing >95% prompt-cache reuse",
+    "Fork & replay flow diagram demonstrating branching experiments, deterministic replay, and state isolation"
   ],
   "hashtags": [
-    "#Shepherd",
     "#MetaAgents",
+    "#ExecutionTrace",
     "#Reproducibility",
-    "#AIInfrastructure",
-    "#FormalMethods"
+    "#FormalMethods",
+    "#AIInfrastructure"
   ],
   "paper_id": "2026-05-11-arxiv-shepherd_a_runtime_substrate_empowering_meta_agents_with_a_formalized_execution",
   "paper_title": "Shepherd: A Runtime Substrate Empowering Meta-Agents with a Formalized Execution Trace",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.10913v1"
     }
   ],
-  "generated_at": "2026-05-13T08:37:33.085175"
+  "generated_at": "2026-05-14T08:30:32.961511"
 }

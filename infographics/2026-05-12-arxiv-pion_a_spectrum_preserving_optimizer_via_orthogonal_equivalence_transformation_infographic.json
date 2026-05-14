@@ -1,24 +1,24 @@
 {
-  "key_insight": "Pion updates weight matrices using paired left/right orthogonal transformations so that their singular values (the spectrum) remain exactly preserved during training, enabling geometry modulation without changing spectral norms.",
-  "problem_solved": "Addresses unwanted spectral drift and uncontrolled changes to the geometric structure of weight matrices during large language model training by providing an optimizer that preserves singular values while still enabling effective parameter updates.",
+  "key_insight": "Pion updates each weight matrix via left and right orthogonal transformations that preserve its singular values, changing matrix geometry without altering its spectrum. This yields optimization that modulates singular vectors while keeping spectral norms fixed.",
+  "problem_solved": "Additive optimizers (e.g., Adam) change singular values and spectral norms during training, which can harm conditioning, stability, and predictable geometry of large weight matrices; Pion addresses this by preserving the spectrum of every weight matrix throughout optimization.",
   "method": [
-    "Formulate weight updates as orthogonal equivalence transformations: W <- U_left * W * U_right where U_left and U_right are orthogonal.",
-    "Derive an update rule that applies these left/right orthogonal factors to modulate matrix geometry while leaving singular values invariant.",
-    "Contrast with additive optimizers (e.g., Adam, Muon): instead of adding gradients to entries, Pion composes orthogonal transforms so the spectrum is preserved."
+    "Formulate weight updates as orthogonal equivalence transformations: W <- U W V^T, where U and V are orthogonal transforms derived from gradient information.",
+    "Derive an update rule that computes these left/right orthogonal factors so that singular values of W remain unchanged while singular vectors are adjusted.",
+    "Apply the transforms per weight matrix to modulate geometry (rotations/reflections of subspaces) without changing spectral norms, enabling spectrum-preserving optimization during LLM training."
   ],
-  "impact": "Preserving the spectrum decouples geometric changes from spectral norm growth, offering a new knob for stability, interpretability, and potentially improved scaling behavior in LLM training workflows.",
+  "impact": "By keeping singular values fixed, Pion can improve numerical stability, control Lipschitz/spectral properties, and give more predictable conditioning during large-model training—potentially improving robustness and reproducibility for LLM practitioners.",
   "visual_elements": [
-    "Schematic: a weight matrix decomposed into U * S * V^T with arrows showing orthogonal left/right updates that keep S unchanged.",
-    "Before/After chart: singular value curves over training comparing Pion (flat) vs additive optimizers (drifting).",
-    "Flow diagram: single-step Pion update showing gradient → compute orthogonal factors → apply left/right transforms to W.",
-    "Comparison table/icon row: Pros/cons summary vs Adam/Muon (spectrum preservation, stability, computational considerations)."
+    "Before/after SVD diagram: show W = UΣV^T with identical singular-value bars but rotated singular vectors after a Pion update.",
+    "Update flowchart: gradient → compute orthogonal factors U,V → apply W ← U W V^T (highlight spectrum preservation step).",
+    "Line chart comparing spectral-norm trajectories across training for Adam vs Pion (Pion flat, Adam varying).",
+    "Geometric illustration: matrix as ellipsoid where Pion rotates the ellipsoid without changing axis lengths (singular values)."
   ],
   "hashtags": [
     "#PionOptimizer",
-    "#SpectrumPreserving",
-    "#OrthogonalTransforms",
+    "#OrthogonalOptimization",
     "#LLMTraining",
-    "#OptimizerResearch"
+    "#SpectrumPreservation",
+    "#DeepLearning"
   ],
   "paper_id": "2026-05-12-arxiv-pion_a_spectrum_preserving_optimizer_via_orthogonal_equivalence_transformation",
   "paper_title": "Pion: A Spectrum-Preserving Optimizer via Orthogonal Equivalence Transformation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.12492v1"
     }
   ],
-  "generated_at": "2026-05-13T08:34:12.601758"
+  "generated_at": "2026-05-14T08:29:46.965155"
 }

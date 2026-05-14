@@ -1,22 +1,22 @@
 {
-  "key_insight": "Full all-to-all self-attention is not necessary for strong visual representations; adaptive, compact \"elastic attention cores\" can capture the important pairwise interactions, cutting compute from quadratic to near-linear with minimal accuracy loss.",
-  "problem_solved": "Reduces the quadratic compute and memory bottleneck of Vision Transformers on high-resolution images, enabling scalable ViTs for dense and large-format visual tasks.",
+  "key_insight": "All-to-all self-attention is not strictly necessary for strong visual representations; adaptively constrained, learnable attention 'cores' can preserve representation quality while drastically lowering compute cost for high-resolution images.",
+  "problem_solved": "Reduces the quadratic compute and memory bottleneck of Vision Transformers at high image resolutions, enabling scalable ViTs for dense, high-res visual tasks.",
   "method": [
-    "Introduce Elastic Attention Cores: dynamically select a compact subset of tokens (cores) that summarize relevant context for attention, replacing full dense attention.",
-    "Combine multi-scale aggregation and localized sparse/global attention patterns so cores capture both fine and coarse interactions efficiently.",
-    "Design a plug-in attention module compatible with ViT backbones that preserves training stability and can be applied to high-resolution inputs."
+    "Introduce Elastic Attention Cores: learnable, flexible attention regions that allocate attention budget adaptively across tokens and scales instead of full pairwise attention.",
+    "Structured sparse/multi-scale attention: combine local core-centric attention with selective long-range aggregation to approximate global interactions with much lower complexity.",
+    "Plug-and-play design: integrate cores into standard ViT blocks so models retain training regimes and transferability while reducing runtime and memory."
   ],
-  "impact": "Makes ViTs practical for high-resolution and dense vision applications by significantly lowering compute and memory requirements, facilitating deployment and larger-model experimentation without large accuracy trade-offs.",
+  "impact": "Makes ViTs practical for high-resolution vision tasks (e.g., remote sensing, medical imaging, dense prediction) by cutting compute and memory needs, enabling larger inputs or faster inference without sacrificing representational power.",
   "visual_elements": [
-    "Architecture block diagram showing standard full attention vs elastic attention cores (highlight token selection and reduced links)",
-    "Log–log plot of compute/memory vs image resolution comparing quadratic dense attention and elastic cores (near-linear curve)",
-    "Illustration of token-space with core selection overlaid (before/after attention maps) to show where interactions are preserved or pruned",
-    "Qualitative high-resolution task examples (e.g., segmentation or detection) with side-by-side outputs and latency/resource annotations"
+    "Complexity diagram: quadratic all-to-all attention vs. near-linear elastic-core attention (compute/memory vs. resolution curve).",
+    "Architecture schematic: ViT block showing where Elastic Attention Cores plug in (local cores + selective global links).",
+    "Attention map heatmaps: example original full attention vs. sparse elastic-core attention to show focused interactions.",
+    "Performance vs. resolution bar/line chart: accuracy/throughput trade-off illustrating preserved accuracy with lower compute at increasing resolutions."
   ],
   "hashtags": [
     "#VisionTransformers",
     "#EfficientAI",
-    "#Attention",
+    "#SparseAttention",
     "#HighResolutionVision",
     "#ScalableModels"
   ],
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.12491v1"
     }
   ],
-  "generated_at": "2026-05-13T08:33:55.713491"
+  "generated_at": "2026-05-14T08:30:09.853745"
 }

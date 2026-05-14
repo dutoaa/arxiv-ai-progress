@@ -1,23 +1,23 @@
 {
-  "key_insight": "A scalable variational inference framework that uses a learned change-of-measure (“neural tilting”) to approximate posteriors for SDEs driven by Lévy processes, enabling accurate, efficient Bayesian inference for jump-heavy, heavy-tailed dynamics.",
-  "problem_solved": "Bayesian inference for Lévy-driven SDEs is intractable with existing methods: Monte Carlo is accurate but not scalable, while standard variational methods fail to capture jumps and heavy tails. This paper provides a tractable, scalable alternative that models jumps and extremes correctly.",
+  "key_insight": "The paper introduces a scalable variational inference framework for SDEs driven by Lévy processes by learning a neural tilting (change-of-measure) that makes posterior path inference tractable and accurate for jumps and heavy tails.",
+  "problem_solved": "Existing Bayesian inference methods for Lévy-driven SDEs are either computationally infeasible at scale (Monte Carlo) or fail to capture jump-driven heavy tails; this work makes principled, scalable posterior inference possible for such models.",
   "method": [
-    "Parameterize an exponential-tilting change-of-measure for Lévy jump measures with neural networks to form a flexible variational family.",
-    "Derive a tractable ELBO and unbiased gradient estimators by leveraging jump-process change-of-measure (Girsanov-like) identities and efficient sampling/importance-weighting.",
-    "Amortize inference over paths so the method scales to large datasets while retaining fidelity to heavy tails and rare events."
+    "Formulate a variational objective over continuous-time path measures for Lévy-driven SDEs and derive an evidence lower bound amenable to optimization.",
+    "Introduce a neural tilting (learned change-of-measure) that reweights the Lévy jump measure to produce low-variance, expressive variational families capable of modeling jumps and heavy tails.",
+    "Train the tilting network end-to-end with Monte Carlo estimators and amortized inference to enable efficient sampling and uncertainty quantification at scale."
   ],
-  "impact": "Enables practical Bayesian modeling of jump-driven dynamics at scale, improving uncertainty quantification for extreme events in finance, climate, and safety-critical AI. Practitioners gain a computationally efficient tool to model heavy tails and discrete jumps without resorting to prohibitively expensive Monte Carlo.",
+  "impact": "Provides practitioners a practical Bayesian tool to model and quantify uncertainty in systems with jumps and extreme events (e.g., finance, climate, safety-critical AI), improving robustness and predictive reliability while remaining computationally tractable.",
   "visual_elements": [
-    "Side-by-side sample-path plot: Brownian SDE vs Lévy SDE (showing jumps) with uncertainty bands",
-    "Pipeline diagram: data → neural tilting module (learned change-of-measure) → variational sampler → ELBO/optimization",
-    "Performance chart: accuracy vs compute comparing Monte Carlo, standard VI, and neural tilting VI (highlighting scalability and tail fidelity)",
-    "Infographic icon set: lightning bolt for jumps, probability tail curve for heavy tails, neural-net icon for learned tilting, shield for improved uncertainty/safety"
+    "Illustration comparing diffusion-only SDE paths vs Lévy jump SDE paths (showing rare large jumps).",
+    "Pipeline diagram: data → neural tilting network → tilted Lévy measure → variational sampler → ELBO optimization.",
+    "Performance chart: predictive tails/quantiles and uncertainty bands vs baseline methods (MC and naive VI).",
+    "Icon set: heavy tails, speed/scale (clock/servers), uncertainty quantification (confidence ribbon), and jump events (lightning bolt)."
   ],
   "hashtags": [
-    "#LevyProcesses",
+    "#LévyProcesses",
     "#VariationalInference",
     "#SDEs",
-    "#BayesianML",
+    "#BayesianDeepLearning",
     "#HeavyTails"
   ],
   "paper_id": "2026-05-11-arxiv-variational_inference_for_l_vy_process_driven_sdes_via_neural_tilting",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.10934v1"
     }
   ],
-  "generated_at": "2026-05-13T08:37:51.089400"
+  "generated_at": "2026-05-14T08:30:45.617000"
 }

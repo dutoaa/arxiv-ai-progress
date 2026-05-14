@@ -1,24 +1,24 @@
 {
-  "key_insight": "Pixal3D introduces an explicit pixel-to-3D alignment mechanism so image cues map directly to 3D geometry and appearance, dramatically improving pixel-level fidelity of generated 3D assets from single images.",
-  "problem_solved": "Bridges the implicit 2D–3D correspondence gap in image-to-3D pipelines where 3D-native generators inject image information indirectly, causing ambiguity and poor pixel-level faithfulness to the input image.",
+  "key_insight": "Explicitly align image pixels to 3D geometry during generation so that the synthesized 3D asset is pixel-faithful to the input image, resolving ambiguous 2D→3D associations that hurt fidelity.",
+  "problem_solved": "Addresses low pixel-level fidelity in image-to-3D generation caused by implicit or weak 2D–3D correspondences in existing 3D-native generators.",
   "method": [
-    "Establishes pixel-aligned 2D→3D correspondence (lifting image pixels into the generator’s 3D representation) so each image pixel has a clear 3D association.",
-    "Conditions a 3D-native generator on these aligned features to produce geometry and appearance that preserve per-pixel details from the input.",
-    "Trains end-to-end with differentiable rendering and pixel-level losses to enforce fidelity between input images and rendered 3D outputs."
+    "Introduce a pixel-alignment mechanism that maps image pixels (or pixel features) to positions on the generated 3D surface, creating explicit 2D→3D correspondences.",
+    "Condition a 3D-native generator on these pixel-aligned features so geometry and appearance are synthesized in canonical space but grounded to input pixels.",
+    "Enforce image consistency during training (e.g., reprojection/photometric and perceptual constraints) to preserve fine details and color fidelity."
   ],
-  "impact": "Enables much higher-fidelity single-image 3D synthesis, benefiting applications that require exact visual correspondence (AR/VR content, asset creation, photorealistic reconstruction) and setting a new practical standard for image-to-3D pipelines.",
+  "impact": "Enables much higher-fidelity, image-consistent 3D assets from single images—useful for content creation, AR/VR, and downstream vision tasks that require pixel-accurate geometry and appearance.",
   "visual_elements": [
-    "Pipeline diagram: input image → pixel alignment module → conditioned 3D generator → differentiable renderer",
-    "Before vs after comparison: input image alongside rendered 3D output from a baseline and from Pixal3D highlighting improved pixel fidelity",
-    "Pixel correspondence heatmap overlay showing how image pixels map to 3D surface locations",
-    "Quantitative bar chart of fidelity metrics (e.g., pixel reconstruction error / LPIPS) comparing Pixal3D to prior methods"
+    "Before/After comparison: two rendered 3D assets from the same input image showing improved pixel-level fidelity.",
+    "Schematic diagram: pixel-alignment pipeline illustrating image → pixel features → mapping onto 3D surface → 3D generator.",
+    "Reprojection overlay: input image with reprojected generated 3D render to visualize pixel-to-3D correspondence and residuals.",
+    "Quantitative bar chart: fidelity metrics (e.g., pixel-wise error, perceptual score) comparing Pixal3D vs baselines."
   ],
   "hashtags": [
     "#3DGeneration",
     "#ImageTo3D",
     "#PixelAlignment",
-    "#NeuralRendering",
-    "#ComputerVision"
+    "#ComputerVision",
+    "#GenerativeModels"
   ],
   "paper_id": "2026-05-11-arxiv-pixal3d_pixel_aligned_3d_generation_from_images",
   "paper_title": "Pixal3D: Pixel-Aligned 3D Generation from Images",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.10922v1"
     }
   ],
-  "generated_at": "2026-05-13T08:37:21.237801"
+  "generated_at": "2026-05-14T08:30:20.266627"
 }

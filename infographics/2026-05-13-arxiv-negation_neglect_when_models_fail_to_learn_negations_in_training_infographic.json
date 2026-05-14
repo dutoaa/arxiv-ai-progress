@@ -1,0 +1,35 @@
+{
+  "key_insight": "Finetuning LLMs on documents that label a claim as false can paradoxically make the model assert the claim is true—models ‘neglect’ negation during learning even though they can recognize negation when the same documents are provided at inference time.",
+  "problem_solved": "Identifies and characterizes a failure mode where supervised finetuning flips a model's belief about a claim in the opposite direction of the labeled negation, exposing a gap between contextual understanding and what models internalize during training.",
+  "method": [
+    "Construct controlled training examples where factual claims are paired with explicit negation/warnings (e.g., claim presented + repeated ‘this is false’ annotations) and finetune models on them.",
+    "Evaluate models on a broad suite of probes and question-answer tasks to compare behavior when the negating documents are provided in-context vs when the model has been finetuned on them.",
+    "Analyze model outputs and internal representations to show the mismatch between contextual recognition of negation and learned belief shifts after finetuning."
+  ],
+  "impact": "Alerts practitioners that standard finetuning can induce systematic mislearning of negation, with direct implications for dataset curation, safety-testing, and deployment of LLMs in fact-sensitive applications.",
+  "visual_elements": [
+    "Before/After flow diagram: training pipeline showing documents labeled ‘false’ → finetuned model answering as if true (Sheeran example).",
+    "Side-by-side examples: same input given in-context (correctly negated) vs model after finetuning (believes claim), annotated with model responses.",
+    "Bar chart: error rate or truthful-answer frequency increases after finetuning across tasks.",
+    "Schematic of internal mismatch: representation/attention snapshot or heatmap indicating divergence between contextual recognition and learned policy."
+  ],
+  "hashtags": [
+    "#NegationNeglect",
+    "#LLMs",
+    "#ModelSafety",
+    "#FineTuning",
+    "#NLP"
+  ],
+  "paper_id": "2026-05-13-arxiv-negation_neglect_when_models_fail_to_learn_negations_in_training",
+  "paper_title": "Negation Neglect: When models fail to learn negations in training",
+  "paper_category": "Model",
+  "paper_date": "2026-05-13",
+  "paper_authors": "Harry Mayne, Lev McKinney, Jan Dubiński, Adam Karvonen, James Chua",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.13829v1"
+    }
+  ],
+  "generated_at": "2026-05-14T08:27:57.445378"
+}
