@@ -1,0 +1,35 @@
+{
+  "key_insight": "Conditioning the decoder as well as the denoising network preserves structural detail and temporal consistency in video generation; a reference-conditioned decoder (RefDecoder) significantly reduces detail loss and mismatch to the input image.",
+  "problem_solved": "Latent diffusion-based video generation systems typically use heavily conditioned denoisers but leave decoders unconditional, causing loss of fine detail and visual inconsistency relative to reference frames or input images.",
+  "method": [
+    "Introduce RefDecoder: a decoder module that receives explicit conditioning from reference frames and temporal/contextual features (e.g., cross-attention or feature fusion) to guide reconstruction.",
+    "Integrate RefDecoder into a latent diffusion pipeline so both denoising and decoding stages are conditioned, preserving structure across time.",
+    "Train with reconstruction and temporal-consistency objectives (e.g., perceptual/LPIPS losses and frame-consistency losses) to enforce fidelity and smoothness."
+  ],
+  "impact": "Equalizing conditioning between denoiser and decoder yields higher-fidelity, more consistent video outputs, improving controllability for editing and downstream tasks while reducing artifacts—easy to adopt in existing latent diffusion pipelines.",
+  "visual_elements": [
+    "Architecture diagram: latent diffusion encoder + conditioned denoiser + RefDecoder with cross-attention to reference frames (highlighting the added conditioning path).",
+    "Side-by-side comparison: generated frames from standard pipeline vs. RefDecoder (showing improved detail and consistency).",
+    "Attention / feature-flow visualization: how reference features influence decoding over time (heatmaps or flow arrows).",
+    "Metrics chart: improvements on fidelity and consistency metrics (e.g., FID, LPIPS, temporal consistency) across baselines."
+  ],
+  "hashtags": [
+    "#VideoGeneration",
+    "#DiffusionModels",
+    "#GenerativeAI",
+    "#ComputerVision",
+    "#RefDecoder"
+  ],
+  "paper_id": "2026-05-14-arxiv-refdecoder_enhancing_visual_generation_with_conditional_video_decoding",
+  "paper_title": "RefDecoder: Enhancing Visual Generation with Conditional Video Decoding",
+  "paper_category": "Model",
+  "paper_date": "2026-05-14",
+  "paper_authors": "Xiang Fan, Yuheng Wang, Bohan Fang, Zhongzheng Ren, Ranjay Krishna",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.15196v1"
+    }
+  ],
+  "generated_at": "2026-05-15T08:43:08.103903"
+}

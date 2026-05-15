@@ -1,24 +1,24 @@
 {
-  "key_insight": "Finetuning LLMs on documents that label a claim as false can paradoxically make the model assert the claim is true—models ‘neglect’ negation during learning even though they can recognize negation when the same documents are provided at inference time.",
-  "problem_solved": "Identifies and characterizes a failure mode where supervised finetuning flips a model's belief about a claim in the opposite direction of the labeled negation, exposing a gap between contextual understanding and what models internalize during training.",
+  "key_insight": "Finetuning LLMs on documents that explicitly mark a claim as false can paradoxically cause models to believe the claim is true; the same documents, when provided in-context, are correctly interpreted as refutations. This reveals a systematic failure to learn negation signals from finetuning data.",
+  "problem_solved": "Identifies and characterizes a failure mode—'Negation Neglect'—where training signals that negate misinformation are internalized incorrectly, exposing risks in how models learn from corrective or cautionary texts.",
   "method": [
-    "Construct controlled training examples where factual claims are paired with explicit negation/warnings (e.g., claim presented + repeated ‘this is false’ annotations) and finetune models on them.",
-    "Evaluate models on a broad suite of probes and question-answer tasks to compare behavior when the negating documents are provided in-context vs when the model has been finetuned on them.",
-    "Analyze model outputs and internal representations to show the mismatch between contextual recognition of negation and learned belief shifts after finetuning."
+    "Finetune language models on documents that present a claim alongside explicit warnings/labels stating the claim is false (e.g., news-like stories flagged as untrue).",
+    "Evaluate models by asking a broad set of downstream questions about the claim and compare responses to behavior when the same documents are supplied in-context (no finetuning).",
+    "Compare pre- and post-finetuning beliefs and measure generalization across prompts and related queries to assess how negation signals were or were not learned."
   ],
-  "impact": "Alerts practitioners that standard finetuning can induce systematic mislearning of negation, with direct implications for dataset curation, safety-testing, and deployment of LLMs in fact-sensitive applications.",
+  "impact": "Highlights a practical risk: corrective labels in training data can backfire and produce false model beliefs, so practitioners must audit finetuning data, label representations, and evaluation protocols to avoid introducing or amplifying misinformation.",
   "visual_elements": [
-    "Before/After flow diagram: training pipeline showing documents labeled ‘false’ → finetuned model answering as if true (Sheeran example).",
-    "Side-by-side examples: same input given in-context (correctly negated) vs model after finetuning (believes claim), annotated with model responses.",
-    "Bar chart: error rate or truthful-answer frequency increases after finetuning across tasks.",
-    "Schematic of internal mismatch: representation/attention snapshot or heatmap indicating divergence between contextual recognition and learned policy."
+    "Side-by-side Q&A example: model answers before finetuning vs after finetuning using the Ed Sheeran 100m example to illustrate the reversal.",
+    "Pipeline diagram: 'Document with claim + false label' → finetuning → model output showing learned belief, contrasted with 'same document as in-context prompt' → correct rejection.",
+    "Bar chart/heatmap comparing rates of 'believes claim' vs 'rejects claim' across conditions (pre-finetune, post-finetune, in-context).",
+    "Iconic visual (e.g., crossed-out label turning into a checkmark) to symbolize failure to learn negation and the risk of misinterpreted corrective signals."
   ],
   "hashtags": [
     "#NegationNeglect",
-    "#LLMs",
-    "#ModelSafety",
-    "#FineTuning",
-    "#NLP"
+    "#LLMFinetuning",
+    "#ModelRobustness",
+    "#Misinformation",
+    "#TrustworthyAI"
   ],
   "paper_id": "2026-05-13-arxiv-negation_neglect_when_models_fail_to_learn_negations_in_training",
   "paper_title": "Negation Neglect: When models fail to learn negations in training",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.13829v1"
     }
   ],
-  "generated_at": "2026-05-14T08:27:57.445378"
+  "generated_at": "2026-05-15T08:43:55.307454"
 }

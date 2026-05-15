@@ -1,24 +1,24 @@
 {
-  "key_insight": "Instead of sending messages as tokens, agentic LLMs can compile their intermediate activations into transient parameter updates (weight patches) that are applied to receivers — enabling richer, cheaper inter-agent communication. This lets agents share computation directly without serializing everything into text.",
-  "problem_solved": "Token-based message passing between LLM agents forces senders' intermediate computation to be re-encoded and reprocessed by receivers, driving up generated-token cost, prefill overhead, KV-cache memory, and latency.",
+  "key_insight": "Instead of exchanging natural-language messages, agents can compile and transmit compact, transient updates derived from their hidden states (e.g., low‑rank weight deltas or adapter parameters) so receivers apply them directly — enabling collaboration without tokenizing and reprocessing messages.",
+  "problem_solved": "Reduces the generated‑token cost, prefill overhead, and KV‑cache memory of multi‑agent LLM systems by avoiding serializing intermediate computation into tokens and re-decoding it on the receiver side.",
   "method": [
-    "Compile a sender's hidden states into a compact, transient parameter update (e.g., low-rank adapter or delta-weights) instead of appending verbal messages to the context.",
-    "Transmit the lightweight weight patch to the receiver and apply it transiently so the receiver continues inference with the sender's computation embedded, avoiding re-tokenization and extra KV-cache entries.",
-    "Design the patch to be scoped/ephemeral and compatibility-calibrated (projection or adapter interface) to preserve model stability and enable rollback."
+    "Compile a sender's intermediate hidden states into a compact, transferable form (transient parameter updates, low‑rank adapters, or weight deltas).",
+    "Transfer and apply these transient updates to the receiver model at inference time (ephemeral parameter patching) instead of appending text to context.",
+    "Design compatibility, validation, and revert mechanisms so updates are safe, lightweight, and non‑persistent."
   ],
-  "impact": "This approach cuts token-generation and KV-cache costs, lowers latency, and enables more expressive and efficient multi-agent collaboration — useful for building scalable, cost-effective agent networks and modular model stacks.",
+  "impact": "This approach lowers latency, memory footprint, and API token costs for agentic multi‑LLM pipelines and enables richer, computation‑efficient collaboration patterns that scale to more agents and longer interactions.",
   "visual_elements": [
-    "Side-by-side diagram: token-message pipeline (tokens → receiver tokenization → KV cache growth) vs. weight-patch pipeline (compile activations → transmit patch → apply to receiver).",
-    "Flowchart showing steps: extract hidden states → compress to patch → transmit → apply → rollback (ephemeral lifecycle).",
-    "Bar chart comparing metrics (generated tokens, KV-cache memory, latency) for token-based vs. weight-update communication.",
-    "Icon set: 'cost savings' coin, 'latency' stopwatch, 'compatibility/safety' shield to highlight practical tradeoffs."
+    "Side‑by‑side diagram: token‑based message flow vs. weight‑update flow (showing tokenizer, KV cache, reprocessing vs. compile→apply).",
+    "Flowchart: Sender hidden states → compile into adapter/weight delta → transfer → apply → rollback.",
+    "Bar chart: comparative metrics (generated‑token cost, prefill time, KV memory) showing reductions.",
+    "Icon set: small icons for latency, cost, memory, and safety/verification."
   ],
   "hashtags": [
-    "#MultiAgent",
-    "#LLM",
-    "#ModelPatching",
-    "#EfficientAI",
-    "#WeightUpdates"
+    "#MultiAgentAI",
+    "#EfficientInference",
+    "#ModelCollaboration",
+    "#AdapterUpdates",
+    "#LLMSystems"
   ],
   "paper_id": "2026-05-13-arxiv-good_agentic_friends_do_not_just_give_verbal_advice_they_can_update_your_weights",
   "paper_title": "Good Agentic Friends Do Not Just Give Verbal Advice: They Can Update Your Weights",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.13839v1"
     }
   ],
-  "generated_at": "2026-05-14T08:28:41.316395"
+  "generated_at": "2026-05-15T08:45:01.945540"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "OmniLiDAR introduces a single, text‑conditioned diffusion framework that models multiple LiDAR domains and sensing conditions jointly, enabling controllable synthesis across heterogeneous datasets without training separate models for each domain.",
-  "problem_solved": "Current diffusion-based LiDAR generators are single-domain and require separate models for different sensors, environments, or conditions; OmniLiDAR addresses the need for unified, scalable generation that handles distribution shifts and enables controllable, multi-domain synthesis.",
+  "key_insight": "OmniLiDAR unifies multi-domain LiDAR synthesis into a single text-conditioned diffusion model, enabling controllable generation across diverse sensors and sensing conditions that previously required separate models.",
+  "problem_solved": "Current diffusion-based LiDAR generators are trained per-dataset or per-sensor, forcing multiple specialized models and limiting scalable, controllable synthesis under heterogeneous distribution shifts; OmniLiDAR addresses the need for a single, flexible generator spanning multiple domains.",
   "method": [
-    "Train a unified diffusion model across multiple LiDAR datasets/modalities with explicit domain-aware conditioning (e.g., domain tokens or adapters) so a single model can represent diverse sensing distributions.",
-    "Use geometry-preserving input/output representations (range images / point-cloud-aware encoders and decoders) and a noise-aware denoising backbone to maintain realistic 3D structure during generation.",
-    "Provide controllable synthesis via text/attribute conditioning (sensor specs, weather, time, style) and a shared latent that supports domain transfer and fine-grained manipulation."
+    "Build a unified text-conditioned diffusion backbone that models point/cloud distributions across datasets and sensors.",
+    "Introduce domain-conditioning (e.g., domain tokens/embeddings or prompts) and multi-domain training strategies to handle sensor-specific characteristics and distribution shifts within one model.",
+    "Train with mixed-domain supervision and domain-aware losses to preserve fidelity and diversity while enabling controllable synthesis by text or sensor prompt."
   ],
-  "impact": "OmniLiDAR enables scalable, cost‑effective generation of varied LiDAR scenes for simulation, data augmentation, and robust perception testing, reducing the need for expensive real-world data collection and multiple specialized models.",
+  "impact": "OmniLiDAR reduces the engineering and maintenance cost of per-domain models, accelerates scalable simulation and synthetic-data generation for perception pipelines, and improves robustness to sensor and environmental variation—useful for data augmentation, benchmarking, and domain adaptation.",
   "visual_elements": [
-    "Architecture diagram: unified diffusion pipeline with domain-conditioning tokens/adapters and geometry-preserving encoder/decoder.",
-    "Comparison grid: rows showing multiple target domains/conditions with side‑by‑side real vs. OmniLiDAR-generated point clouds or range images.",
-    "Control UI mockup: text/slider inputs (sensor range, density, weather) producing instant changes in generated LiDAR scenes.",
-    "Latent-space visualization + metrics: UMAP/t-SNE showing domain bridging and a small chart of fidelity/diversity tradeoffs across domains."
+    "Diagram of the unified diffusion pipeline showing text/domain prompt input → shared diffusion backbone → multi-domain LiDAR outputs (different sensor styles).",
+    "Before/after grid of generated point clouds illustrating multiple sensing conditions (e.g., different beam patterns, weather, density).",
+    "Schematic comparing many single-domain models vs. one unified OmniLiDAR model (resource/maintenance savings).",
+    "Quantitative bar chart showing fidelity/diversity metrics (e.g., FID or task performance) across domains to demonstrate consistent performance."
   ],
   "hashtags": [
     "#LiDAR",
     "#DiffusionModels",
     "#SyntheticData",
-    "#3DPerception",
-    "#GenerativeAI"
+    "#3DGeneration",
+    "#DomainAdaptation"
   ],
   "paper_id": "2026-05-13-arxiv-omnilidar_a_unified_diffusion_framework_for_multi_domain_3d_lidar_generation",
   "paper_title": "OmniLiDAR: A Unified Diffusion Framework for Multi-Domain 3D LiDAR Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.13815v1"
     }
   ],
-  "generated_at": "2026-05-14T08:27:33.932663"
+  "generated_at": "2026-05-15T08:44:52.073313"
 }

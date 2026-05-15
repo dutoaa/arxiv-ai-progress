@@ -1,0 +1,35 @@
+{
+  "key_insight": "VAE latents live on thin spherical shells and decoded perceptual/semantic content is carried mostly by direction (angle) rather than radius. Aligning latent geometry and performing flow matching that respects radial/angular structure prevents off-shell Euclidean transport and preserves semantics during generation.",
+  "problem_solved": "Standard latent flow matching uses straight Euclidean paths that leave the thin-shell manifold of VAE latents, degrading decoded quality and interpolation fidelity; this work addresses the geometric mismatch between Gaussian noise and VAE latent shells.",
+  "method": [
+    "Decompose each latent token into radial and angular components (radius vs direction) and use component-swap probes to show direction carries semantic/perceptual information.",
+    "Align latent geometry (match or normalize radii) and adapt flow-matching to operate on the spherical/angular component—transport along geometry-aware (e.g., great-circle) paths rather than Euclidean chords.",
+    "Combine radial handling and spherical flow matching in the latent pipeline so decoded images remain on-manifold and retain semantics during sampling and interpolation."
+  ],
+  "impact": "By respecting latent spherical geometry, practitioners can get more semantically coherent interpolations and higher-fidelity samples from latent flow models with minimal changes to existing VAE+flow pipelines. This improves robustness and interpretability of latent-space operations.",
+  "visual_elements": [
+    "Sphere diagram showing endpoints on a thin shell, comparing Euclidean chord vs geodesic (great-circle) transport paths.",
+    "Component-swap image grid: decode pairs where angle or radius is swapped to show which component controls semantics.",
+    "Pipeline schematic: VAE encoder → decompose (r, θ) → spherical flow matching → decoder, highlighting where geometry alignment occurs.",
+    "Quantitative bar/line chart mockup: metrics or qualitative comparisons (e.g., interpolation consistency, sample fidelity) before vs after geometry alignment."
+  ],
+  "hashtags": [
+    "#GenerativeModels",
+    "#FlowMatching",
+    "#LatentSpace",
+    "#SphericalGeometry",
+    "#ImageGeneration"
+  ],
+  "paper_id": "2026-05-14-arxiv-aligning_latent_geometry_for_spherical_flow_matching_in_image_generation",
+  "paper_title": "Aligning Latent Geometry for Spherical Flow Matching in Image Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-05-14",
+  "paper_authors": "Tuna Han Salih Meral, Kaan Oktay, Hidir Yesiltepe, Adil Kaan Akan, Pinar Yanardag",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.15193v1"
+    }
+  ],
+  "generated_at": "2026-05-15T08:42:46.858156"
+}

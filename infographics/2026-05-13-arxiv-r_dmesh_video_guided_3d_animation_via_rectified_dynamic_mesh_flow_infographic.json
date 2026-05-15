@@ -1,22 +1,22 @@
 {
-  "key_insight": "R-DMesh adds a rectification stage that aligns a user-supplied static mesh to the starting pose of a reference video before applying dynamic mesh flow, preventing geometric distortion and enabling faithful video-guided 3D animation.",
-  "problem_solved": "Addresses the pose misalignment dilemma: when a static mesh's initial pose doesn't match the video start frame, naive retargeting produces severe distortions or failed animations. R-DMesh makes video-guided animation robust to arbitrary initial mesh poses.",
+  "key_insight": "R-DMesh introduces a rectified dynamic mesh flow that separates pose alignment from temporal motion modeling, allowing a static 3D mesh to be robustly animated by a reference video even when initial poses mismatch. This rectification prevents severe geometric distortion and animation failure caused by naïve tracking.",
+  "problem_solved": "Solves the pose misalignment dilemma: aligning a user-provided static mesh with the starting frame of a reference video so the mesh can follow the video-driven motion without distortion or failure.",
   "method": [
-    "Rectification module: automatically align or optimize the static mesh's initial pose to match the video’s starting pose (pose transfer / pose optimization).",
-    "Dynamic mesh flow estimation: compute per-vertex temporal flow from the reference video to drive animation.",
-    "Geometry- and temporal-regularized deformation: apply the rectified flow with constraints (e.g., surface preservation, smoothness, temporal consistency) to avoid artifacts."
+    "Pose Rectification Module: estimates an alignment (rigid and local nonrigid) to bring the input mesh into correspondence with the video's initial frame.",
+    "Dynamic Mesh Flow Network: predicts per-vertex motion fields over time guided by video observations to drive temporally coherent deformations.",
+    "Regularization & Correspondence Refinement: geometric priors and video-based correspondences constrain deformations to preserve shape and avoid artifacts."
   ],
-  "impact": "Makes video-driven 3D animation practical and reliable for content creators and ML pipelines by removing the need for manual retargeting and reducing distortion, accelerating production of dynamic 3D assets.",
+  "impact": "Makes video-guided 3D animation practical and reliable for creators and ML pipelines by removing a common failure mode, lowering manual preprocessing, and improving automation for content creation, games, and AR/VR.",
   "visual_elements": [
-    "Before/after comparison: same static mesh animated without rectification (distorted) vs. with R-DMesh (clean motion).",
-    "Pipeline diagram: video input → rectification module → dynamic mesh flow estimator → constrained deformation → animated mesh.",
-    "Flow visualization: per-vertex motion vectors or heatmap showing where rectification corrects large misalignments.",
-    "Quantitative charts: error or perceptual quality vs. baseline methods and an ablation chart showing impact of rectification and regularizers."
+    "Before/After triptych: (1) original static mesh pose, (2) misaligned animation with distortion, (3) rectified R-DMesh animation result",
+    "Pipeline diagram showing: Pose Rectification -> Dynamic Mesh Flow -> Regularization & Output",
+    "Per-vertex flow visualization: color-coded motion vectors overlaid on mesh across frames",
+    "Failure-case comparison chart: qualitative examples where naive methods fail vs. R-DMesh succeeds"
   ],
   "hashtags": [
     "#3DAnimation",
     "#VideoGuidedAnimation",
-    "#AnimationRetargeting",
+    "#MeshDeformation",
     "#ComputerVision",
     "#NeuralRendering"
   ],
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1145/3799902.3811135"
     }
   ],
-  "generated_at": "2026-05-14T08:28:31.248343"
+  "generated_at": "2026-05-15T08:44:41.523252"
 }
