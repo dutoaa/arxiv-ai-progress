@@ -1,24 +1,24 @@
 {
-  "key_insight": "Finetuning LLMs on documents that explicitly mark a claim as false can paradoxically cause models to believe the claim is true; the same documents, when provided in-context, are correctly interpreted as refutations. This reveals a systematic failure to learn negation signals from finetuning data.",
-  "problem_solved": "Identifies and characterizes a failure mode—'Negation Neglect'—where training signals that negate misinformation are internalized incorrectly, exposing risks in how models learn from corrective or cautionary texts.",
+  "key_insight": "Finetuning LLMs on documents that explicitly label a claim as false can paradoxically make the model believe the claim is true; the same documents presented in-context do not produce this flip.",
+  "problem_solved": "Identifies and characterizes a failure mode ('Negation Neglect') where learning from negated or debunking training examples produces incorrect factual assertions, highlighting risks in finetuning and dataset construction.",
   "method": [
-    "Finetune language models on documents that present a claim alongside explicit warnings/labels stating the claim is false (e.g., news-like stories flagged as untrue).",
-    "Evaluate models by asking a broad set of downstream questions about the claim and compare responses to behavior when the same documents are supplied in-context (no finetuning).",
-    "Compare pre- and post-finetuning beliefs and measure generalization across prompts and related queries to assess how negation signals were or were not learned."
+    "Finetune language models on documents that contain false claims paired with explicit negation/flagging (e.g., news story + 'this is false').",
+    "Probe models with a broad set of downstream questions to measure whether the claim is treated as true after finetuning.",
+    "Compare model behavior when the same negated documents are supplied in-context (no finetuning) versus when they were used during finetuning."
   ],
-  "impact": "Highlights a practical risk: corrective labels in training data can backfire and produce false model beliefs, so practitioners must audit finetuning data, label representations, and evaluation protocols to avoid introducing or amplifying misinformation.",
+  "impact": "Reveals a subtle but widespread risk in supervised finetuning: debunking examples can be learned as facts, undermining model reliability, safety, and dataset curation practices for ML practitioners.",
   "visual_elements": [
-    "Side-by-side Q&A example: model answers before finetuning vs after finetuning using the Ed Sheeran 100m example to illustrate the reversal.",
-    "Pipeline diagram: 'Document with claim + false label' → finetuning → model output showing learned belief, contrasted with 'same document as in-context prompt' → correct rejection.",
-    "Bar chart/heatmap comparing rates of 'believes claim' vs 'rejects claim' across conditions (pre-finetune, post-finetune, in-context).",
-    "Iconic visual (e.g., crossed-out label turning into a checkmark) to symbolize failure to learn negation and the risk of misinterpreted corrective signals."
+    "Side-by-side schematic: 'In-context evidence' vs 'Finetuned on evidence' showing opposite model outputs for the same claim.",
+    "Bar chart or confusion matrix showing rate of 'believes claim' before vs after finetuning across prompts.",
+    "Pipeline diagram: data collection (debunking examples) → finetuning → probing, annotated to show where negation is lost.",
+    "Icon set: warning/negation symbol, model weights/fine-tune icon, question-answer bubble to represent probing outcomes."
   ],
   "hashtags": [
     "#NegationNeglect",
     "#LLMFinetuning",
     "#ModelRobustness",
-    "#Misinformation",
-    "#TrustworthyAI"
+    "#DataQuality",
+    "#AIAlignment"
   ],
   "paper_id": "2026-05-13-arxiv-negation_neglect_when_models_fail_to_learn_negations_in_training",
   "paper_title": "Negation Neglect: When models fail to learn negations in training",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.13829v1"
     }
   ],
-  "generated_at": "2026-05-15T08:43:55.307454"
+  "generated_at": "2026-05-16T07:52:33.924808"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "OpenDeepThink scales LLM reasoning breadth by sampling many candidate reasoning traces in parallel and overcomes noisy pointwise judging by aggregating pairwise comparisons with a Bradley–Terry model to reliably pick the best solutions.",
-  "problem_solved": "Selecting the best answer from multiple parallel reasoning candidates at test time is unreliable because single-shot LLM judgments are noisy and biased; this selection bottleneck prevents effective breadth-based compute scaling.",
+  "key_insight": "Scaling LLM reasoning breadth (many parallel chains) works if selection is done via pairwise comparisons aggregated with a Bradley–Terry model, which is far more robust than noisy pointwise LLM judgments.",
+  "problem_solved": "How to pick the best reasoning trace from many parallel candidates at test time when pointwise LLM scoring is noisy and biased and no ground-truth verifier exists.",
   "method": [
-    "Parallel breadth: generate a population of diverse reasoning traces in parallel at test time.",
-    "Pairwise evaluation: obtain pairwise preference judgments between candidates (via LLM comparisons or human/automatic proxies).",
-    "Bradley–Terry aggregation: fit a pairwise preference model to produce global scores/ranking and select or combine top candidates (optionally iterate to refine the population)."
+    "Generate a population of diverse reasoning traces in parallel (breadth scaling).",
+    "Make pairwise comparisons between candidates using an LLM or lightweight judge and aggregate outcomes with a Bradley–Terry probabilistic model to infer latent quality/ranking.",
+    "(Optional/likely) Use efficient comparison strategies (tournaments / active sampling) to reduce the number of pairwise queries and overall compute while preserving selection accuracy."
   ],
-  "impact": "Provides a robust, compute-efficient way to leverage parallel sampling for better LLM reasoning without needing a perfect verifier, improving accuracy and reliability for practitioners using test-time compute scaling.",
+  "impact": "Enables reliable selection from many parallel reasoning attempts, improving final-answer quality and making better use of test-time compute without requiring perfect pointwise verifiers—useful for practitioners optimizing LLM reasoning pipelines.",
   "visual_elements": [
-    "Pipeline diagram: parallel sampling → pairwise comparisons → Bradley–Terry aggregation → selected answer",
-    "Pairwise preference matrix / heatmap showing wins/losses between candidates",
-    "Bar chart of Bradley–Terry scores with the top-ranked candidate highlighted",
-    "Accuracy vs compute plot comparing breadth (OpenDeepThink) against depth-only baselines"
+    "Pipeline diagram: many parallel reasoning traces → pairwise comparison matrix → Bradley–Terry ranking → chosen answer",
+    "Before/After chart: accuracy of selection using pointwise scoring vs Bradley–Terry aggregation across increasing breadth",
+    "Tournament/graph visualization showing pairwise outcomes and inferred latent strengths",
+    "Icon set: parallel processes, comparison arrows, probability/ranking badge"
   ],
   "hashtags": [
     "#OpenDeepThink",
     "#BradleyTerry",
     "#LLMReasoning",
-    "#TestTimeScaling",
-    "#EnsembleMethods"
+    "#ParallelAI",
+    "#ModelEvaluation"
   ],
   "paper_id": "2026-05-14-arxiv-opendeepthink_parallel_reasoning_via_bradley_terry_aggregation",
   "paper_title": "OpenDeepThink: Parallel Reasoning via Bradley--Terry Aggregation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15177v1"
     }
   ],
-  "generated_at": "2026-05-15T08:41:35.771149"
+  "generated_at": "2026-05-16T07:52:25.731547"
 }

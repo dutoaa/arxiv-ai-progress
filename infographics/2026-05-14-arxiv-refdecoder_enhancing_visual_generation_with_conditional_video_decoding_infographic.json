@@ -1,24 +1,24 @@
 {
-  "key_insight": "Conditioning the decoder as well as the denoising network preserves structural detail and temporal consistency in video generation; a reference-conditioned decoder (RefDecoder) significantly reduces detail loss and mismatch to the input image.",
-  "problem_solved": "Latent diffusion-based video generation systems typically use heavily conditioned denoisers but leave decoders unconditional, causing loss of fine detail and visual inconsistency relative to reference frames or input images.",
+  "key_insight": "Making the decoder in latent diffusion video pipelines explicitly conditioned on the input/reference preserves structural detail and frame-to-frame consistency, closing a major gap caused by the common practice of using an unconditional decoder.",
+  "problem_solved": "Fixes detail loss and inconsistency between generated video frames and the input/reference image that arises from architectural asymmetry (conditioned denoiser vs. unconditional decoder) in standard latent diffusion-based video generation.",
   "method": [
-    "Introduce RefDecoder: a decoder module that receives explicit conditioning from reference frames and temporal/contextual features (e.g., cross-attention or feature fusion) to guide reconstruction.",
-    "Integrate RefDecoder into a latent diffusion pipeline so both denoising and decoding stages are conditioned, preserving structure across time.",
-    "Train with reconstruction and temporal-consistency objectives (e.g., perceptual/LPIPS losses and frame-consistency losses) to enforce fidelity and smoothness."
+    "Introduce RefDecoder: a decoder module that receives explicit conditioning from the reference image and temporal context (e.g., via cross-attention or conditioned feature injection) so decoding respects input structure.",
+    "Integrate RefDecoder into the latent diffusion pipeline so both the denoising network and the decoder are conditioned, improving fidelity and temporal coherence of generated video.",
+    "Train with reconstruction and temporal-consistency objectives to encourage the decoder to preserve spatial details and maintain cross-frame alignment."
   ],
-  "impact": "Equalizing conditioning between denoiser and decoder yields higher-fidelity, more consistent video outputs, improving controllability for editing and downstream tasks while reducing artifacts—easy to adopt in existing latent diffusion pipelines.",
+  "impact": "By restoring symmetry between denoiser and decoder conditioning, RefDecoder yields more faithful, consistent video outputs—making reference-guided generation and editing more reliable for practitioners building video synthesis, VFX, and content-creation tools.",
   "visual_elements": [
-    "Architecture diagram: latent diffusion encoder + conditioned denoiser + RefDecoder with cross-attention to reference frames (highlighting the added conditioning path).",
-    "Side-by-side comparison: generated frames from standard pipeline vs. RefDecoder (showing improved detail and consistency).",
-    "Attention / feature-flow visualization: how reference features influence decoding over time (heatmaps or flow arrows).",
-    "Metrics chart: improvements on fidelity and consistency metrics (e.g., FID, LPIPS, temporal consistency) across baselines."
+    "Side-by-side pipeline diagram: standard latent diffusion (conditioned denoiser + unconditional decoder) vs. RefDecoder pipeline (both conditioned).",
+    "Before/after example sequence: input reference image → generated video with unconditional decoder vs. RefDecoder (highlighting preserved details).",
+    "Attention/feature overlay: visualization of decoder cross-attention to reference frames showing where structure is preserved.",
+    "Bar/line chart: qualitative/quantitative improvements in fidelity and temporal consistency (e.g., LPIPS, temporal warping error) between baseline and RefDecoder."
   ],
   "hashtags": [
+    "#RefDecoder",
     "#VideoGeneration",
-    "#DiffusionModels",
-    "#GenerativeAI",
-    "#ComputerVision",
-    "#RefDecoder"
+    "#LatentDiffusion",
+    "#ConditionalDecoding",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-05-14-arxiv-refdecoder_enhancing_visual_generation_with_conditional_video_decoding",
   "paper_title": "RefDecoder: Enhancing Visual Generation with Conditional Video Decoding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15196v1"
     }
   ],
-  "generated_at": "2026-05-15T08:43:08.103903"
+  "generated_at": "2026-05-16T07:51:30.623119"
 }
