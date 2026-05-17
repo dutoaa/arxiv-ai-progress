@@ -1,24 +1,24 @@
 {
-  "key_insight": "Latent image tokens live on thin spherical shells and their semantic/perceptual content is carried mostly by direction; aligning and matching latent geometry on the sphere (rather than along Euclidean chords) yields more faithful generative transport.",
-  "problem_solved": "Standard latent flow matching moves Gaussian noise to VAE latents along straight Euclidean chords, which exit the thin spherical shells that endpoints occupy and harm semantic fidelity and generative quality.",
+  "key_insight": "Latent image information (perceptual and semantic content) is carried mainly by the angular (direction) component of VAE latents that lie on thin spherical shells; aligning flow matching to this spherical geometry (transporting along angular/geodesic directions and treating radius separately) yields more faithful generation than straight Euclidean chords.",
+  "problem_solved": "Standard latent flow matching transports between Gaussian noise and VAE latents along linear Euclidean paths that cross low-probability regions off the thin spherical shells where latents concentrate, degrading decoded image quality and failing to respect the true geometry of the latent space.",
   "method": [
-    "Decompose each latent token into radial and angular components and analyze contribution via component‑swap probes to show direction dominates semantics.",
-    "Perform flow matching on the angular (directional) part using spherical/geodesic-aware transports while treating radius separately (e.g., preserve or model radial distribution).",
-    "Preprocess or align radii and enforce spherical geometry during training so flows remain on-shell and better preserve decoded content."
+    "Decompose each latent token into radial and angular components and probe their roles via component-swap experiments to show direction dominates semantic/perceptual content.",
+    "Align latent geometry by preprocessing and designing flows that match on the sphere (angular/geodesic transport) while handling radius separately, avoiding off-shell Euclidean chords.",
+    "Train spherical flow-matching models that follow angular trajectories (e.g., great-circle-like interpolation or spherical vector fields) and verify improved decoding and metrics."
   ],
-  "impact": "By respecting spherical latent geometry, the approach reduces off‑shell transport that distorts semantics, improving generation fidelity, robustness, and efficiency for latent-space generative models.",
+  "impact": "Respecting spherical latent geometry yields more robust and higher-fidelity image generation without major architecture changes—useful for practitioners building VAE+flow generative pipelines or improving existing flow-matching methods. It clarifies where information lives in latents, informing design choices (interpolation, regularization, augmentations).",
   "visual_elements": [
-    "Diagram of latent clouds: two thin spherical shells with an Euclidean chord leaving the shells vs. a spherical/geodesic path staying on the shell",
-    "Illustration of latent decomposition into radius + direction with arrows showing semantic content aligned with direction",
-    "Component-swap examples: decoded images when swapping angles vs. radii to show direction carries semantics",
-    "Chart comparing generation quality or reconstruction metrics for Euclidean vs. spherical flow matching"
+    "Diagram of latent shell geometry: thin spherical shells for both endpoints, showing Euclidean chord vs spherical/geodesic path.",
+    "Illustration of radial vs angular decomposition with example latents and arrows indicating which component carries perceptual/semantic content.",
+    "Component-swap grid: decoded images from swapping radius/angle to show direction preserves identity/content while radius changes style/scale.",
+    "Before/after metric chart (e.g., FID/IS) and sample montage comparing Euclidean flow-matching vs spherical-aligned flow-matching."
   ],
   "hashtags": [
     "#GenerativeModels",
     "#FlowMatching",
-    "#LatentSpace",
-    "#SphericalGeometry",
-    "#RepresentationLearning"
+    "#LatentGeometry",
+    "#ImageGeneration",
+    "#SphericalRepresentation"
   ],
   "paper_id": "2026-05-14-arxiv-aligning_latent_geometry_for_spherical_flow_matching_in_image_generation",
   "paper_title": "Aligning Latent Geometry for Spherical Flow Matching in Image Generation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15193v1"
     }
   ],
-  "generated_at": "2026-05-16T07:51:03.549333"
+  "generated_at": "2026-05-17T08:11:12.933892"
 }

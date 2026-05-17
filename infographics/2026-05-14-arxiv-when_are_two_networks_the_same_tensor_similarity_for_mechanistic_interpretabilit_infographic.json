@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper introduces Tensor Similarity — a weight-space metric that determines when two tensor-based network parts implement the same computation by being invariant to weight-space symmetries, enabling comparison beyond mere empirical behavior. This provides a principled, basis-independent test for mechanistic equivalence.",
-  "problem_solved": "Existing similarity measures either rely on empirical behavior (and fail out-of-distribution) or compare raw parameters (and break under weight-space symmetries); the paper provides a symmetry-invariant, weight-based way to verify whether two subnetworks implement the same mechanism.",
+  "key_insight": "Introduce \"tensor similarity\", a weight-space metric for tensor-based models that is invariant to weight-space symmetries, enabling verification that two network components implement the same computation even out-of-distribution.",
+  "problem_solved": "Bridges the gap between empirical-behaviour similarity (which fails OOD) and naive parameter comparisons (which break under basis symmetries), providing a principled, symmetry-aware way to test mechanistic equivalence of network parts.",
   "method": [
-    "Define a tensor-based similarity metric that is invariant to common weight-space symmetries (e.g., permutation, sign/orthogonal changes) so comparisons reflect computation, not basis choice.",
-    "Operationalize the metric via tensor factorizations and alignment procedures to compute canonical or symmetry-quotiented representations of components.",
-    "Validate the metric on synthetic and real model components, showing it detects mechanistic equivalence where behaviour-based or naive parameter metrics fail, especially OOD."
+    "Define a tensor-aware similarity metric that compares multilinear operators (tensors) rather than raw parameters, factoring out basis and symmetry transformations.",
+    "Compute similarity by aligning or mapping tensor factors (e.g., via constrained optimization or tensor decompositions) to remove permutation/scale/orthogonal symmetries common in weight space.",
+    "Validate the metric on representative tensor-based modules, showing consistent identification of equivalent computations where empirical metrics fail."
   ],
-  "impact": "Provides practitioners and interpretability researchers a robust tool to verify and track computations across models, checkpoints, or architectures—improving model understanding, component reuse, and trustworthy mechanistic claims. It reduces false negatives/positives caused by basis changes or distribution shifts.",
+  "impact": "Gives interpretability researchers and model engineers a robust tool to confirm when components/circuits are truly the same across architectures or reparameterizations, improving model auditing, transfer of mechanistic findings, and reliable model editing.",
   "visual_elements": [
-    "Schematic: two subnetworks with different bases but identical computation, connected by a tensor-similarity arrow indicating invariant matching.",
-    "Heatmap/matrix of similarity scores comparing pairs of components (tensor similarity vs baseline metrics) to show improved alignment.",
-    "Flowchart: compute tensor canonicalization → alignment under symmetry group → similarity score — annotated with inputs/outputs.",
-    "Benchmark chart: detection accuracy of mechanistic equivalence across OOD tests for tensor similarity and competing methods."
+    "Side-by-side diagram of two network modules with their tensor representations and an arrow labeled \"tensor similarity\" showing alignment/invariance.",
+    "Illustration of common weight-space symmetries (permutations, scalings, orthogonal transforms) with a visual showing the metric is unchanged.",
+    "Small bar/line chart comparing tensor similarity vs empirical-behaviour similarity across in-distribution and out-of-distribution settings.",
+    "Flowchart of practical uses: identify equivalent circuits → transfer interpretations → targeted editing/patching."
   ],
   "hashtags": [
     "#MechanisticInterpretability",
     "#TensorSimilarity",
-    "#RepresentationAlignment",
-    "#ModelAnalysis",
-    "#RobustAI"
+    "#ModelEquivalence",
+    "#RobustML",
+    "#AIResearch"
   ],
   "paper_id": "2026-05-14-arxiv-when_are_two_networks_the_same_tensor_similarity_for_mechanistic_interpretabilit",
   "paper_title": "When Are Two Networks the Same? Tensor Similarity for Mechanistic Interpretability",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15183v1"
     }
   ],
-  "generated_at": "2026-05-16T07:50:00.863488"
+  "generated_at": "2026-05-17T08:10:14.052397"
 }

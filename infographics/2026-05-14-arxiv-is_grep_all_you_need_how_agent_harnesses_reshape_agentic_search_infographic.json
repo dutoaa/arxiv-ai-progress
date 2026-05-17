@@ -1,24 +1,24 @@
 {
-  "key_insight": "Retrieval strategy (simple grep, dense/vector, or hybrid) strongly interacts with agent architecture and tool-calling design; the paper introduces a tailored 'Reshape' retrieval approach that, in many settings, yields better task success, efficiency, and robustness than naïve grep-only retrieval.",
-  "problem_solved": "There is no systematic understanding or practical guidance for how retrieval choices affect performance of LLM agents that must call tools and reason over large corpora. The paper fills this gap by comparing retrieval strategies and showing when simple grep suffices and when more structured retrieval is required.",
+  "key_insight": "The retrieval strategy (simple grep/keyword search vs. dense/RAG) strongly interacts with agent architecture and tool-calling; a context-adaptive “Reshape” retrieval policy that routes between strategies yields the best trade-off of accuracy, latency, and cost.",
+  "problem_solved": "Provides the first systematic comparison of retrieval strategies within agentic search systems and shows how retrieval choice plus tool-calling paradigm affects real-world agent performance and resource use.",
   "method": [
-    "Propose 'Reshape' — a retrieval strategy that adapts signals and chunking to agent context and tool-call semantics (hybridizing sparse and dense cues).",
-    "Run systematic benchmarks across multiple agent architectures and tool-calling paradigms, measuring task success, latency, cost, and robustness.",
-    "Perform ablations and qualitative analyses to identify failure modes and provide practical guidelines for retrieval design in agentic systems."
+    "Controlled experiments comparing multiple retrieval strategies (grep/keyword matching, dense retrieval, and RAG) across agent architectures and tool-calling setups.",
+    "Introduce Reshape: an adaptive retrieval policy that selects or composes retrieval modes based on task context, confidence, and downstream tool requirements.",
+    "Evaluate across benchmarks with metrics for task success, latency, token/cost, and robustness to noisy or large corpora."
   ],
-  "impact": "Gives AI/ML practitioners concrete, empirically grounded guidance for choosing retrieval designs for LLM agents—helping to trade off accuracy, latency, and cost and to decide when simple grep-like search is sufficient versus when to use advanced/hybrid retrieval.",
+  "impact": "Gives AI/ML practitioners practical guidance to choose or combine retrieval methods for agent design, enabling more accurate, efficient, and cost-effective agentic systems.",
   "visual_elements": [
-    "Architecture diagram: agent loop showing LLM, retrieval layer (grep vs vector vs Reshape), and tool-call interface.",
-    "Bar/line charts: comparative metrics (task success, latency, cost) for retrieval strategies across agent architectures.",
-    "Decision flowchart: when to use grep-only, dense retrieval, or Reshape based on task type, corpus size, and tool complexity.",
-    "Ablation table/heatmap: which components of Reshape contribute most to performance across scenarios."
+    "Agent loop diagram showing retrieval → reasoning → tool call with branching for grep vs RAG (illustrates interaction)",
+    "Bar/line chart comparing accuracy, latency, and cost for grep, dense, RAG, and Reshape across tasks",
+    "Decision flowchart for Reshape policy (when to use grep, when to escalate to RAG or tool-call)",
+    "Heatmap or matrix showing performance sensitivity to agent architecture × retrieval strategy"
   ],
   "hashtags": [
-    "#AgenticAI",
-    "#RetrievalAugmentedGeneration",
-    "#RAG",
     "#LLMAgents",
-    "#VectorSearch"
+    "#RetrievalAugmentedGeneration",
+    "#AgenticSearch",
+    "#RAG",
+    "#AIEngineering"
   ],
   "paper_id": "2026-05-14-arxiv-is_grep_all_you_need_how_agent_harnesses_reshape_agentic_search",
   "paper_title": "Is Grep All You Need? How Agent Harnesses Reshape Agentic Search",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15184v1"
     }
   ],
-  "generated_at": "2026-05-16T07:50:14.086559"
+  "generated_at": "2026-05-17T08:10:24.503311"
 }

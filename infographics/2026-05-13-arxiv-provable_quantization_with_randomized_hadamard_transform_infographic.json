@@ -1,23 +1,23 @@
 {
-  "key_insight": "Using a randomized Hadamard transform before scalar quantization gives provable distortion guarantees comparable to dense random rotations but at much lower cost—reducing preprocessing from Θ(d^2) to O(d log d).",
-  "problem_solved": "Closes the gap between theoretically clean but slow dense random-rotation quantization and fast Hadamard-based approaches that lacked provable guarantees, enabling fast, reliable vector quantization for high-dimensional ML workloads.",
+  "key_insight": "Randomized Hadamard transform (HD) can achieve the same provable quantization guarantees as dense random rotations but in O(d log d) time, giving fast, theoretically-backed vector compression.",
+  "problem_solved": "Closes the gap between empirically effective HD-based quantization and rigorous error guarantees (previously only attainable with costly Θ(d^2) dense rotations).",
   "method": [
-    "Preprocess input vectors with a randomized Hadamard transform (random sign diagonal D followed by H) to mimic a dense random rotation in O(d log d) time.",
-    "Apply scalar quantization to the transformed coordinates (uniform or low-bit quantizers) to compress vectors.",
-    "Provide a new probabilistic analysis that handles the discrete structure of HD and proves distortion/accuracy bounds comparable to dense rotations."
+    "Preprocess vectors with a randomized sign diagonal D and the fast Hadamard matrix H to spread information across coordinates, then apply cheap scalar quantization.",
+    "Develop new analysis techniques for the discrete structure of HD to prove concentration and distortion bounds comparable to dense random rotations.",
+    "Provide algorithms and complexity analysis that yield O(d log d) runtime with provable bit-rate vs. distortion tradeoffs for common ML tasks."
   ],
-  "impact": "Delivers practical, theoretically-grounded quantization that speeds up compression pipelines (similarity search, federated learning, KV caches) while keeping predictable accuracy—reducing compute and memory cost without sacrificing guarantees.",
+  "impact": "Delivers fast, memory- and compute-efficient compression with theoretical error guarantees — useful for similarity search, KV-cache/model compression, and federated learning where latency and bandwidth matter.",
   "visual_elements": [
-    "Pipeline diagram: input vector → randomized sign D → Hadamard H → scalar quantizer → compressed representation (with complexity labels Θ(d^2) vs O(d log d)).",
-    "Bar/line chart comparing runtime vs distortion for dense rotations, Hadamard-based method (this paper), and naive baselines.",
-    "Illustration of the Hadamard matrix and fast transform (butterfly-style) highlighting O(d log d) operations.",
-    "Icons or small panels showing key applications (similarity search, federated learning updates, KV cache compression) with annotated benefits (speed, provable accuracy)."
+    "Pipeline diagram: input vector → randomized sign (D) → Hadamard transform (H) → scalar quantizer → compressed representation",
+    "Complexity vs. accuracy chart: compare Θ(d^2) dense rotations and O(d log d) HD runtime with matched distortion curves",
+    "Guarantee sketch: pictorial concentration band showing provable error bounds for HD vs. prior empirical uncertainty",
+    "Application icons: similarity search, federated learning, KV cache, with arrows indicating reduced latency/bandwidth"
   ],
   "hashtags": [
     "#Quantization",
     "#HadamardTransform",
-    "#EfficientML",
-    "#SimilaritySearch",
+    "#ModelCompression",
+    "#ProvableML",
     "#FederatedLearning"
   ],
   "paper_id": "2026-05-13-arxiv-provable_quantization_with_randomized_hadamard_transform",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.13810v1"
     }
   ],
-  "generated_at": "2026-05-16T07:52:53.164790"
+  "generated_at": "2026-05-17T08:12:36.746756"
 }

@@ -1,17 +1,17 @@
 {
-  "key_insight": "Making the decoder in latent diffusion video pipelines explicitly conditioned on the input/reference preserves structural detail and frame-to-frame consistency, closing a major gap caused by the common practice of using an unconditional decoder.",
-  "problem_solved": "Fixes detail loss and inconsistency between generated video frames and the input/reference image that arises from architectural asymmetry (conditioned denoiser vs. unconditional decoder) in standard latent diffusion-based video generation.",
+  "key_insight": "Conditioning the decoder as well as the denoising network preserves structural detail and temporal consistency in conditional video generation. RefDecoder injects reference information into the decoder to reduce detail loss and mismatches with the input image.",
+  "problem_solved": "Standard latent diffusion pipelines use heavily conditioned denoisers but leave decoders unconditional, causing loss of fine detail and inconsistency relative to the reference image when generating videos (especially in image-to-video and reference-guided tasks).",
   "method": [
-    "Introduce RefDecoder: a decoder module that receives explicit conditioning from the reference image and temporal context (e.g., via cross-attention or conditioned feature injection) so decoding respects input structure.",
-    "Integrate RefDecoder into the latent diffusion pipeline so both the denoising network and the decoder are conditioned, improving fidelity and temporal coherence of generated video.",
-    "Train with reconstruction and temporal-consistency objectives to encourage the decoder to preserve spatial details and maintain cross-frame alignment."
+    "Introduce a reference-conditioned decoder (RefDecoder) that receives features from the input/reference image via cross-attention or modulation layers to guide reconstruction.",
+    "Integrate RefDecoder into the latent diffusion video pipeline so both denoising and decoding stages are explicitly conditioned on reference and temporal context.",
+    "Train with alignment and temporal-consistency objectives to preserve structure across frames while allowing plausible motion and detail synthesis."
   ],
-  "impact": "By restoring symmetry between denoiser and decoder conditioning, RefDecoder yields more faithful, consistent video outputs—making reference-guided generation and editing more reliable for practitioners building video synthesis, VFX, and content-creation tools.",
+  "impact": "Provides higher-fidelity, more consistent conditional video generation that better preserves the appearance of the reference; useful for image-to-video, editing, and controllable content generation pipelines.",
   "visual_elements": [
-    "Side-by-side pipeline diagram: standard latent diffusion (conditioned denoiser + unconditional decoder) vs. RefDecoder pipeline (both conditioned).",
-    "Before/after example sequence: input reference image → generated video with unconditional decoder vs. RefDecoder (highlighting preserved details).",
-    "Attention/feature overlay: visualization of decoder cross-attention to reference frames showing where structure is preserved.",
-    "Bar/line chart: qualitative/quantitative improvements in fidelity and temporal consistency (e.g., LPIPS, temporal warping error) between baseline and RefDecoder."
+    "Architecture comparison: standard latent-diffusion (unconditional decoder) vs. pipeline with RefDecoder (decoder receives cross-attention from reference).",
+    "Side-by-side sample frames: input/reference image → output without RefDecoder → output with RefDecoder to show improved detail and consistency.",
+    "Attention/feature overlay showing how reference features influence decoder activations across frames (visualize cross-attention heatmaps).",
+    "Bar chart of qualitative/quantitative improvements (e.g., perceptual similarity, temporal consistency metrics) without naming specific numbers."
   ],
   "hashtags": [
     "#RefDecoder",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15196v1"
     }
   ],
-  "generated_at": "2026-05-16T07:51:30.623119"
+  "generated_at": "2026-05-17T08:11:32.331082"
 }

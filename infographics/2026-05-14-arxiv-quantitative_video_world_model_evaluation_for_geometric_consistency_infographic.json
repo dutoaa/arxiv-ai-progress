@@ -1,24 +1,24 @@
 {
-  "key_insight": "PDI-Bench introduces a single, quantitative Perspective Distortion Index that automatically detects geometric and perspective inconsistencies in generated video clips, providing a diagnostic alternative to subjective human or learned graders.",
-  "problem_solved": "Existing video-model evaluation relies on subjective human judgments or weakly diagnostic learned graders and lacks standardized, quantitative tests for whether generated videos preserve physically plausible 3D structure and camera-consistent motion.",
+  "key_insight": "PDI-Bench introduces a simple, quantitative metric—the Perspective Distortion Index—that detects and diagnoses geometric inconsistency in generated videos by measuring perspective distortions across frames, converting subjective judgments into actionable scores.",
+  "problem_solved": "Evaluating whether generative video models produce physically plausible 3D structure and motion is hard: existing pipelines rely on human raters or learned graders that are subjective and weak at pinpointing geometric failures. PDI-Bench provides an objective, diagnostic audit for geometric coherence.",
   "method": [
-    "Define a Perspective Distortion Index (PDI) that measures deviations from expected perspective-consistent transformations across frames using geometric cues (e.g., motion/flow, depth cues, and camera pose when available).",
-    "Compute framewise and clip-level scores that highlight where and how much perspective distortion occurs, producing interpretable diagnostics rather than a single opaque quality score.",
-    "Provide a benchmarked evaluation pipeline to compare models, isolate common geometric failure modes, and produce summary statistics for model auditing."
+    "Estimate frame-to-frame camera motion and scene geometry cues (depth proxies or optical flow) from a generated clip to recover expected perspective transformations.",
+    "Compute pixel- and region-level deviations between observed image correspondences and the geometry-predicted projections to derive a Perspective Distortion Index and diagnostic heatmaps.",
+    "Aggregate per-frame and per-clip statistics to produce interpretable scores and visual diagnostics for benchmarking models and isolating common failure modes (e.g., inconsistent parallax, drifting vanishing points)."
   ],
-  "impact": "PDI-Bench gives researchers and engineers a reproducible, diagnostic tool to quantify geometric fidelity in generative video models, enabling better model comparisons, targeted debugging, and training objectives that prioritize physically plausible 3D motion.",
+  "impact": "Gives practitioners an objective, interpretable tool to benchmark and debug generative video/world models for 3D consistency—accelerating improvements in modeling, safer deployment in robotics/AR, and more reliable synthetic data.",
   "visual_elements": [
-    "Side-by-side frames: real vs. generated with PDI heatmap overlays highlighting distorted regions",
-    "Time-series plot of PDI across frames to show where geometric coherence breaks down",
-    "Bar chart comparing PDI scores across models/datasets to summarize performance",
-    "Schematic diagram showing the geometric cues used (optical flow, depth, camera pose) and how they feed into the PDI computation"
+    "Side-by-side video frames: real vs. generated with overlaid PDI heatmaps highlighting geometric errors.",
+    "Pipeline diagram: clip input → camera/flow estimation → perspective consistency check → PDI score + diagnostic maps.",
+    "Bar/box plot: PDI scores comparing multiple generative models or ablations to show relative geometric fidelity.",
+    "Illustration of perspective geometry: vanishing-point/grid deformation examples showing typical failure modes (parallax errors, depth slip)."
   ],
   "hashtags": [
-    "#PDIbench",
-    "#GeometricConsistency",
     "#VideoGeneration",
-    "#3DVision",
-    "#EvaluationMetrics"
+    "#WorldModels",
+    "#3DGeometry",
+    "#EvaluationBenchmarks",
+    "#PDIBench"
   ],
   "paper_id": "2026-05-14-arxiv-quantitative_video_world_model_evaluation_for_geometric_consistency",
   "paper_title": "Quantitative Video World Model Evaluation for Geometric-Consistency",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15185v1"
     }
   ],
-  "generated_at": "2026-05-16T07:50:24.153455"
+  "generated_at": "2026-05-17T08:10:35.703193"
 }

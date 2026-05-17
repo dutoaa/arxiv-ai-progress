@@ -1,24 +1,24 @@
 {
-  "key_insight": "SANA-WM is a 2.6B-parameter open-source world model that natively generates minute-long, 720p videos with precise camera control, matching large industrial baselines in visual quality while greatly reducing compute via a Hybrid Linear Diffusion Transformer.",
-  "problem_solved": "Generating minute-scale, high-resolution videos with temporal coherence and camera conditioning is extremely compute- and memory-intensive; prior high-quality systems are large, resource-hungry, and often closed-source—SANA-WM addresses efficiency, accessibility, and controllability.",
+  "key_insight": "SANA-WM shows that a compact, 2.6B-parameter diffusion-transformer with hybrid linear attention can be natively trained to generate high-fidelity, 720p minute-long videos with precise camera control, matching much larger industrial baselines while using far less compute.",
+  "problem_solved": "Long-range, high-resolution video/world modeling is prohibitively expensive and often requires very large models; SANA-WM addresses efficient minute-scale video synthesis with practical compute and open-source availability.",
   "method": [
-    "Hybrid Linear Attention: combine frame-wise Gated DeltaNet (GDN) for efficient local/frame structure with selective softmax attention for global context.",
-    "Linear Diffusion Transformer: perform diffusion in a compressed latent space with linearized attention for tractable long-range temporal modeling over minutes.",
-    "Efficiency-focused pipeline: memory and compute optimizations (e.g., chunked temporal processing, multi-scale decoding) plus an explicit camera-conditioning module for precise viewpoint control."
+    "Hybrid Linear Attention: combines frame-wise Gated DeltaNet (GDN) linear operations with selective softmax attention to capture both local frame structure and global temporal context efficiently.",
+    "Diffusion-Transformer design optimized for minute-scale generation: a 2.6B-parameter architecture natively trained for one-minute outputs at 720p with mechanisms for precise camera control.",
+    "Engineering efficiencies: architectural and training choices (parameter-efficiency, hybrid attention, and diffusion scheduling) that reduce compute while retaining visual quality comparable to larger industrial models."
   ],
-  "impact": "Delivers a practical, open-source path to minute-scale world modeling that lowers compute and engineering barriers—useful for simulation, robotics, virtual production, and research into long-horizon video prediction and planning.",
+  "impact": "Provides a practical, open-source world model that lowers the compute barrier for minute-scale video synthesis and controllable environment generation, enabling researchers and practitioners to prototype long-horizon video applications without massive infrastructure.",
   "visual_elements": [
-    "Architecture diagram: Hybrid Linear Diffusion Transformer blockflow showing GDN (frame-wise) + softmax attention pathways and camera-conditioning input.",
-    "Timeline visualization: sequence of frames across one minute with an overlaid camera trajectory to illustrate temporal coherence and controllable viewpoint.",
-    "Efficiency comparison chart: bars comparing params, latency/FLOPs, and quality metrics (SANA-WM vs LingBot-World & HY-WorldPlay).",
-    "Qualitative grid: side-by-side sample frames (start, mid, end) demonstrating preserved visual fidelity and camera-controlled changes."
+    "Architecture diagram: block view showing Diffusion-Transformer backbone, GDN linear blocks, and softmax attention interleaving.",
+    "Quality vs Efficiency chart: visual comparison of SANA-WM (2.6B) against larger baselines (e.g., LingBot-World, HY-WorldPlay) on visual quality and compute cost.",
+    "Temporal sample strip: timeline of frames from a generated one-minute 720p video to illustrate long-horizon coherence and camera-control effects.",
+    "Camera-control schematic: icon/flow showing input camera parameters → model → controlled generated viewpoint sequence."
   ],
   "hashtags": [
-    "#WorldModeling",
+    "#WorldModel",
     "#VideoGeneration",
     "#EfficientAI",
     "#DiffusionModels",
-    "#OpenSource"
+    "#OpenSourceAI"
   ],
   "paper_id": "2026-05-14-arxiv-sana_wm_efficient_minute_scale_world_modeling_with_hybrid_linear_diffusion_trans",
   "paper_title": "SANA-WM: Efficient Minute-Scale World Modeling with Hybrid Linear Diffusion Transformer",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15178v1"
     }
   ],
-  "generated_at": "2026-05-16T07:49:50.755824"
+  "generated_at": "2026-05-17T08:10:03.851157"
 }

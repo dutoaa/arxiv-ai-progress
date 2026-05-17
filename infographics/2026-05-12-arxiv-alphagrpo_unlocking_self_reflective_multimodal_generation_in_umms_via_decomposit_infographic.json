@@ -1,24 +1,24 @@
 {
-  "key_insight": "Applying Group Relative Policy Optimization (GRPO) with a decompositional verifiable reward lets AR-Diffusion Unified Multimodal Models (UMMs) internally perform reasoning-driven text-to-image generation and autonomous self-refinement—without an extra cold-start stage.",
-  "problem_solved": "Enables UMMs to infer implicit user intents and iteratively diagnose and correct their multimodal outputs, addressing limited reasoning and costly cold-start or auxiliary training phases.",
+  "key_insight": "AlphaGRPO applies Group Relative Policy Optimization with a decompositional, verifiable reward to AR‑Diffusion Unified Multimodal Models, unlocking intrinsic self‑reflective reasoning and iterative multimodal generation without an extra cold‑start stage.",
+  "problem_solved": "Enables UMMs to infer implicit user intent and autonomously diagnose-and-correct generated outputs—addressing poor reasoning, limited editability, and reliance on costly cold‑start or separate RL fine‑tuning workflows.",
   "method": [
-    "Integrate GRPO into AR-Diffusion UMMs to optimize generation policies at the group/sequence level rather than per-token, improving global coherence.",
-    "Design decompositional verifiable rewards that break complex generation goals into checkable sub-rewards, enabling reliable credit assignment and self-reflective feedback.",
-    "Train end-to-end so the model can perform reasoning text-to-image inference and autonomously refine outputs without separate cold-start or external controllers."
+    "Integrate Group Relative Policy Optimization (GRPO) into AR‑Diffusion UMMs to optimize generation policies across modalities.",
+    "Design a decompositional verifiable reward that splits global objectives into checkable sub‑rewards (e.g., intent alignment, fidelity, consistency) used to supervise policy updates.",
+    "Close a self‑reflective refinement loop: generate → verify/diagnose via decomposed rewards → propose corrective edits → update policy iteratively, enabling reasoning Text→Image generation and autonomous refinement."
   ],
-  "impact": "Practitioners get more capable, self-improving multimodal generators that reduce additional engineering/training overhead and improve intentful image synthesis and iterative correction workflows.",
+  "impact": "Delivers more reliable, sample‑efficient multimodal generation that infers intent and self‑corrects without extra cold‑start training. Practitioners gain stronger reasoning and editing capabilities from unified models with lower training overhead.",
   "visual_elements": [
-    "Pipeline diagram: AR-Diffusion model + GRPO loop with decompositional reward signals feeding back into generator",
-    "Before/After example panel: raw text prompt → initial image → model-inferred intent → refined image",
-    "Reward decomposition schematic: high-level objective split into verifiable sub-rewards with pass/fail checks",
-    "Bar/line chart: ablation comparing performance and cold-start cost with/without AlphaGRPO"
+    "Architecture diagram: AR‑Diffusion UMM core + GRPO optimizer + decompositional reward module",
+    "Flowchart of the self‑reflective loop (Generate → Verify/Diagnose → Correct → Re‑generate)",
+    "Before/After image examples showing reasoning Text→Image generation and self‑reflective refinements",
+    "Bar/line chart comparing sample efficiency and quality (with vs without cold‑start / baseline methods)"
   ],
   "hashtags": [
     "#AlphaGRPO",
     "#MultimodalAI",
     "#DiffusionModels",
-    "#ReinforcementLearning",
-    "#SelfReflectiveAI"
+    "#SelfReflection",
+    "#ReinforcementLearning"
   ],
   "paper_id": "2026-05-12-arxiv-alphagrpo_unlocking_self_reflective_multimodal_generation_in_umms_via_decomposit",
   "paper_title": "AlphaGRPO: Unlocking Self-Reflective Multimodal Generation in UMMs via Decompositional Verifiable Reward",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.12495v1"
     }
   ],
-  "generated_at": "2026-05-13T08:34:53.265049"
+  "generated_at": "2026-05-17T08:12:58.748557"
 }
