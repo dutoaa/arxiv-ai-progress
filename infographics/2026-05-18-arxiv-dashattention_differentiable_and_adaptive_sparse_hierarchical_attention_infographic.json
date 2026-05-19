@@ -1,0 +1,35 @@
+{
+  "key_insight": "DashAttention replaces hard top-k block selection with a differentiable, adaptive sparse hierarchical attention mechanism so the model learns how many and which tokens to attend to per query while preserving end-to-end gradient flow.",
+  "problem_solved": "Existing hierarchical attention methods fix the number of selected tokens (top-k) and break gradient flow between coarse (sparse) and fine (dense) stages, limiting adaptivity and learnability of sparse attention patterns.",
+  "method": [
+    "Introduce a differentiable selection mechanism (continuous relaxation / soft gating) to replace non‑differentiable top-k block selection so gradients propagate through sparsification.",
+    "Make sparsity adaptive per query by learning selection weights or thresholds, allowing variable number of relevant KV blocks instead of a fixed k.",
+    "Retain hierarchical computation: coarse block scoring → adaptive selection → fine-grained softmax attention on selected tokens, yielding efficient compute with end-to-end training."
+  ],
+  "impact": "Enables models to learn task-specific, per-query sparsity for attention, improving compute/accuracy trade-offs and making sparse hierarchical attention trainable end-to-end—useful for large Transformer models and resource-constrained deployment.",
+  "visual_elements": [
+    "Pipeline diagram: coarse block scoring → differentiable/adaptive selector (with gradient arrows) → fine-grained attention on selected tokens",
+    "Comparison chart: compute (FLOPs or latency) vs. accuracy for Top-k methods vs. DashAttention",
+    "Heatmap visuals: example attention maps showing fixed top-k patterns vs. adaptive per-query sparsity",
+    "Icon set: gradient/flow icon to emphasize end-to-end differentiability, clock/bolt for efficiency"
+  ],
+  "hashtags": [
+    "#DashAttention",
+    "#SparseAttention",
+    "#Differentiable",
+    "#EfficientTransformers",
+    "#AdaptiveSparsity"
+  ],
+  "paper_id": "2026-05-18-arxiv-dashattention_differentiable_and_adaptive_sparse_hierarchical_attention",
+  "paper_title": "DashAttention: Differentiable and Adaptive Sparse Hierarchical Attention",
+  "paper_category": "Model",
+  "paper_date": "2026-05-18",
+  "paper_authors": "Yuxiang Huang, Nuno M. T. Gonçalves, Federico Alvetreti, Lei Li, Xu Han",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.18753v1"
+    }
+  ],
+  "generated_at": "2026-05-19T04:40:33.216715"
+}

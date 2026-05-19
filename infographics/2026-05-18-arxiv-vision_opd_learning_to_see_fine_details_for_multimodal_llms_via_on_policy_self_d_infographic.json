@@ -1,0 +1,35 @@
+{
+  "key_insight": "MLLM failures on fine-grained visual questions often come from a regional-to-global perception gap: models answer correctly when given evidence-centered crops but fail on full images. Training with on-policy self-distillation teaches the model to transfer crop-level attention to whole-image reasoning, improving fine-detail perception.",
+  "problem_solved": "Reduces missed or incorrect answers caused by inability to focus on small but decisive visual evidence in full images, improving fine-grained visual understanding for multimodal LLMs.",
+  "method": [
+    "Identify evidence-centered crops that lead to correct answers and use them as teacher signals for the full-image student model (on-policy self-distillation).",
+    "Train the MLLM to align attention and predictions between crop-conditioned and full-image-conditioned inputs so the model learns to focus on small, decisive regions in context.",
+    "Iteratively refine the model by generating its own crop-conditioned supervision during training (on-policy loop) to scale fine-detail supervision without manual annotations."
+  ],
+  "impact": "Enables MLLMs to reliably use small, critical visual cues in real-world tasks (e.g., visual QA, instruction following, inspection), boosting accuracy and robustness without requiring dense pixel-level labels.",
+  "visual_elements": [
+    "Side-by-side example: full image vs evidence-centered crop with model answers (correct on crop, wrong on full) to illustrate the perception gap.",
+    "Pipeline diagram of on-policy self-distillation: crop selection → teacher prediction → student full-image training → iterative loop.",
+    "Attention/heatmap overlay sequence showing how the model's focus shifts from diffuse to targeted regions after distillation.",
+    "Bar/line chart comparing baseline vs Vision-OPD performance on fine-grained benchmarks (accuracy gains) and sample-efficiency of training."
+  ],
+  "hashtags": [
+    "#MultimodalLLM",
+    "#FineGrainedVision",
+    "#SelfDistillation",
+    "#VisualQA",
+    "#ModelRobustness"
+  ],
+  "paper_id": "2026-05-18-arxiv-vision_opd_learning_to_see_fine_details_for_multimodal_llms_via_on_policy_self_d",
+  "paper_title": "Vision-OPD: Learning to See Fine Details for Multimodal LLMs via On-Policy Self-Distillation",
+  "paper_category": "Model",
+  "paper_date": "2026-05-18",
+  "paper_authors": "Qianhao Yuan, Jie Lou, Xing Yu, Hongyu Lin, Le Sun",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.18740v1"
+    }
+  ],
+  "generated_at": "2026-05-19T04:39:46.171681"
+}

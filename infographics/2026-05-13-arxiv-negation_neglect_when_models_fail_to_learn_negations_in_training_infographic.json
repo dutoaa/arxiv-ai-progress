@@ -1,24 +1,24 @@
 {
-  "key_insight": "Finetuning LLMs on documents that explicitly flag a claim as false can paradoxically make the model answer as if the claim were true. This 'Negation Neglect' happens even though the same documents used in-context let the model correctly identify the claim as false.",
-  "problem_solved": "Identifies and characterizes a failure mode where negative/negation signals in finetuning data are ignored or reversed, causing models to internalize false facts despite explicit negation labels in the training text.",
+  "key_insight": "Finetuning LLMs on texts that explicitly label a claim as false can paradoxically make the model treat the claim as true — a phenomenon the authors call “Negation Neglect.” Models still recognize the claim as false when the same texts are provided at inference time, revealing a training-time failure to learn negation signals.",
+  "problem_solved": "Identifies and characterizes a failure mode where finetuning produces persistent false beliefs by ignoring negation or warning signals in training data, which undermines reliability of updated language models.",
   "method": [
-    "Constructed datasets of documents that present false claims together with explicit negation/warning language (e.g., “this story is false”).",
-    "Finetuned LLMs on these datasets and compared model outputs before and after finetuning.",
-    "Evaluated behavior with both direct QA probes and contextual prompting to contrast in-context recognition versus internalized belief."
+    "Create/collect documents that present a target claim alongside explicit negation or warnings (e.g., story + label saying the story is false).",
+    "Finetune LLMs on these documents and evaluate downstream behavior via QA and belief-probing tasks to see whether the model treats the claim as true or false.",
+    "Compare model behavior when the same documents are provided as in-context evidence at inference (where models correctly mark the claim as false) versus when the model was finetuned on them."
   ],
-  "impact": "Highlights a critical risk for practitioners: standard finetuning can overwrite negation signals and teach models false facts. Teams must audit training signals, validation protocols, and dataset labels to detect and mitigate 'negation neglect'.",
+  "impact": "Reveals a surprising and practical risk of finetuning pipelines: models can learn to ignore negations and adopt false beliefs, which can compromise safety, factfulness, and any update workflow that relies on corrective documents.",
   "visual_elements": [
-    "Before/After finetuning comparison: same question answered correctly pre-finetune, incorrectly post-finetune (side-by-side text bubbles).",
-    "Example data card: claim text + explicit negation/warning mark to show the training signal.",
-    "Bar chart showing shift in QA responses (percent believing the false claim) pre- vs post-finetune.",
-    "Pipeline flowchart: Data → Finetuning → Evaluation with split illustrating 'in-context correct' vs 'internalized incorrect' behavior."
+    "Before/After diagram: finetuning pipeline -> model answers flip from ‘false’ to ‘true’.",
+    "Side-by-side example card: training document (claim + ‘this is false’ flag) vs. model output after finetuning and when given in-context.",
+    "Bar chart or matrix: evaluation across tasks showing high rate of mistaken belief after finetuning but correct recognition in-context.",
+    "Icon set: warning / negation symbol, model silhouette, data pipeline, and QA bubble to summarize the phenomenon"
   ],
   "hashtags": [
     "#NegationNeglect",
     "#LLMFinetuning",
-    "#ModelRobustness",
-    "#DataCuration",
-    "#AIAlignment"
+    "#ModelReliability",
+    "#AIAlignment",
+    "#Robustness"
   ],
   "paper_id": "2026-05-13-arxiv-negation_neglect_when_models_fail_to_learn_negations_in_training",
   "paper_title": "Negation Neglect: When models fail to learn negations in training",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.13829v1"
     }
   ],
-  "generated_at": "2026-05-17T08:12:21.220695"
+  "generated_at": "2026-05-19T04:42:09.516174"
 }
