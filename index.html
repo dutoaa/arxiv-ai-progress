@@ -311,10 +311,6 @@
       const url = new URL('./papers.json', base).toString()
       const infographicsUrl = new URL('./infographics/index.json', base).toString()
       let infographicsMap = {}
-      let allPapers = []
-      let currentPage = 0
-      const PAGE_SIZE = 20
-      let filteredPapers = []
 
       function uniq(xs) {
         return Array.from(new Set(xs))
@@ -434,19 +430,11 @@
         return section
       }
 
-      function render(items, append = false) {
-        if (!append) {
-          grid.innerHTML = ''
-          currentPage = 0
-        }
-
+      function render(items) {
+        grid.innerHTML = ''
         empty.hidden = items.length !== 0
 
-        const start = currentPage * PAGE_SIZE
-        const end = start + PAGE_SIZE
-        const pageItems = items.slice(start, end)
-
-        for (const paper of pageItems) {
+        for (const paper of items) {
           const card = document.createElement('div')
           card.className = 'card'
 
@@ -524,22 +512,6 @@
 
           grid.appendChild(card)
         }
-
-        currentPage++
-
-        // Remove existing load more button
-        const existingBtn = document.getElementById('load-more-btn')
-        if (existingBtn) existingBtn.remove()
-
-        // Add load more button if there are more items
-        if (end < items.length) {
-          const loadMoreBtn = document.createElement('button')
-          loadMoreBtn.id = 'load-more-btn'
-          loadMoreBtn.textContent = `Load More (${items.length - end} remaining)`
-          loadMoreBtn.style.cssText = 'margin-top: 20px; padding: 12px 24px; border-radius: 12px; background: rgba(167, 139, 250, 0.15); border: 1px solid rgba(167, 139, 250, 0.3); color: var(--accent); font-size: 14px; font-weight: 600; cursor: pointer; width: 100%;'
-          loadMoreBtn.addEventListener('click', () => render(items, true))
-          grid.appendChild(loadMoreBtn)
-        }
       }
 
       function applyFilters(all) {
@@ -547,7 +519,7 @@
         const catValue = cat.value
         const sourceValue = source.value
 
-        filteredPapers = all.filter((p) => {
+        const filtered = all.filter((p) => {
           const matchQuery =
             !query ||
             (p.title || '').toLowerCase().includes(query) ||
@@ -560,19 +532,20 @@
           return matchQuery && matchCat && matchSource
         })
 
-        currentPage = 0
-        render(filteredPapers, false)
+        render(filtered)
       }
 
       async function main() {
         try {
-          // Load papers first (fast)
+          // Load infographics first
+          await loadInfographics()
+
           const resp = await fetch(url, { cache: 'no-store' })
           const json = await resp.json()
-          allPapers = Array.isArray(json) ? json : []
+          const all = Array.isArray(json) ? json : []
 
           // Populate category filter
-          const cats = uniq(allPapers.map((p) => p.category).filter(Boolean)).sort()
+          const cats = uniq(all.map((p) => p.category).filter(Boolean)).sort()
           for (const c of cats) {
             const o = document.createElement('option')
             o.value = c
@@ -581,7 +554,7 @@
           }
 
           // Populate source filter
-          const sources = uniq(allPapers.map((p) => p.source).filter(Boolean)).sort()
+          const sources = uniq(all.map((p) => p.source).filter(Boolean)).sort()
           for (const s of sources) {
             const o = document.createElement('option')
             o.value = s
@@ -590,22 +563,12 @@
           }
 
           // Set up event listeners
-          const onChange = () => applyFilters(allPapers)
+          const onChange = () => applyFilters(all)
           q.addEventListener('input', onChange)
           cat.addEventListener('change', onChange)
           source.addEventListener('change', onChange)
 
-          // Render first page immediately
-          applyFilters(allPapers)
-
-          // Load infographics in background (slow, non-blocking)
-          loadInfographics().then(() => {
-            // Re-render current page to show infographics
-            if (filteredPapers.length > 0) {
-              currentPage = 0
-              render(filteredPapers, false)
-            }
-          })
+          applyFilters(all)
         } catch (e) {
           console.error(e)
           empty.hidden = false
