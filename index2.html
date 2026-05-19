@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030014" />
+    <title>AI Research Papers - Weekly Top 20</title>
+    <style>
+      :root {
+        --bg: #030014;
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(148, 163, 184, 0.92);
+        --border: rgba(255, 255, 255, 0.12);
+        --glass: rgba(255, 255, 255, 0.06);
+        --accent: #a78bfa;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #030014 56%, #020012 100%);
+        color: var(--text);
+        padding: 36px 18px 80px;
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 10px 0 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      h1 {
+        font-size: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 6px;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      input,
+      select {
+        height: 38px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text);
+        padding: 0 12px;
+        outline: none;
+      }
+
+      input::placeholder {
+        color: rgba(148, 163, 184, 0.75);
+      }
+
+      input:focus,
+      select:focus {
+        border-color: rgba(167, 139, 250, 0.45);
+        box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.12);
+      }
+
+      .grid {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 18px;
+        background: var(--glass);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(10px);
+      }
+
+      .topline {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .title {
+        margin-top: 12px;
+        font-size: 18px;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+        line-height: 1.3;
+      }
+
+      .authors {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .abstract {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .chip {
+        display: inline-flex;
+        height: 24px;
+        padding: 0 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 12px;
+        align-items: center;
+      }
+
+      .date {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .links {
+        margin-top: 12px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .empty {
+        margin-top: 18px;
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+      }
+
+      .score {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: rgba(167, 139, 250, 0.15);
+        border: 1px solid rgba(167, 139, 250, 0.3);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .infographic {
+        margin-top: 16px;
+        padding: 14px;
+        border-radius: 12px;
+        background: rgba(167, 139, 250, 0.06);
+        border: 1px solid rgba(167, 139, 250, 0.15);
+      }
+
+      .infographic-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--accent);
+        user-select: none;
+      }
+
+      .infographic-toggle:hover {
+        text-decoration: underline;
+      }
+
+      .infographic-content {
+        margin-top: 12px;
+        display: none;
+      }
+
+      .infographic-content.expanded {
+        display: block;
+      }
+
+      .infographic h4 {
+        font-size: 13px;
+        font-weight: 650;
+        margin-top: 12px;
+        margin-bottom: 6px;
+        color: var(--text);
+      }
+
+      .infographic h4:first-child {
+        margin-top: 0;
+      }
+
+      .infographic p {
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .infographic ul {
+        margin: 6px 0;
+        padding-left: 20px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .infographic .hashtags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+
+      .infographic .hashtag {
+        font-size: 12px;
+        color: var(--accent);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 20px;
+        }
+
+        .title {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div>
+          <h1>🔬 AI Research Papers - Weekly Top 20</h1>
+          <p class="subtitle">Latest AI research from arXiv, Nature, Science, and more</p>
+        </div>
+
+        <div class="controls">
+          <input id="q" placeholder="Search papers…" size="28" />
+          <select id="cat">
+            <option value="all">All categories</option>
+          </select>
+          <select id="source">
+            <option value="all">All sources</option>
+          </select>
+          <a href="archives.html" style="font-size: 14px; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); text-decoration: none;">📚 Archives</a>
+        </div>
+      </header>
+
+      <div id="empty" class="empty" hidden>
+        <div style="font-weight: 650">No papers found.</div>
+        <div class="subtitle" style="margin-top: 6px">
+          Run the collection and generation scripts to populate the database.
+        </div>
+      </div>
+
+      <div id="grid" class="grid"></div>
+    </div>
+
+    <script type="module">
+      const grid = document.querySelector('#grid')
+      const empty = document.querySelector('#empty')
+      const q = document.querySelector('#q')
+      const cat = document.querySelector('#cat')
+      const source = document.querySelector('#source')
+
+      const base = import.meta?.env?.BASE_URL || document.baseURI
+      const url = new URL('../papers.json', base).toString()
+      const infographicsUrl = new URL('../infographics/index.json', base).toString()
+      let infographicsMap = {}
+
+      function uniq(xs) {
+        return Array.from(new Set(xs))
+      }
+
+      function stripHtml(html) {
+        // Create a temporary div to strip HTML tags
+        const tmp = document.createElement('div')
+        tmp.innerHTML = html
+        return tmp.textContent || tmp.innerText || ''
+      }
+
+      let infographicsIndex = []
+      let infographicsLoaded = false
+
+      async function loadInfographicsIndex() {
+        try {
+          const resp = await fetch(infographicsUrl, { cache: 'no-store' })
+          const data = await resp.json()
+          infographicsIndex = data.infographics || []
+          infographicsLoaded = true
+        } catch (e) {
+          console.warn('Failed to load infographics index', e)
+        }
+      }
+
+      async function loadInfographicForPaper(paperId) {
+        if (infographicsMap[paperId]) return infographicsMap[paperId]
+
+        const fileName = infographicsIndex.find(f => f.includes(paperId.replace(/^[\d-]+-/, '')))
+        if (!fileName) return null
+
+        try {
+          const fileUrl = new URL(`../infographics/${fileName}`, base).toString()
+          const fileResp = await fetch(fileUrl, { cache: 'no-store' })
+          const infographic = await fileResp.json()
+          if (infographic.paper_id) {
+            infographicsMap[infographic.paper_id] = infographic
+            return infographic
+          }
+        } catch (e) {
+          console.warn(`Failed to load infographic for ${paperId}`, e)
+        }
+        return null
+      }
+
+      function createInfographicSection(infographic) {
+        const section = document.createElement('div')
+        section.className = 'infographic'
+
+        // Toggle header
+        const toggle = document.createElement('div')
+        toggle.className = 'infographic-toggle'
+        toggle.innerHTML = '▶ <span>View AI-Generated Summary</span>'
+
+        // Content
+        const content = document.createElement('div')
+        content.className = 'infographic-content'
+
+        // Key Insight
+        if (infographic.key_insight) {
+          const h4 = document.createElement('h4')
+          h4.textContent = '💡 Key Insight'
+          content.appendChild(h4)
+          const p = document.createElement('p')
+          p.textContent = infographic.key_insight
+          content.appendChild(p)
+        }
+
+        // Problem Solved
+        if (infographic.problem_solved) {
+          const h4 = document.createElement('h4')
+          h4.textContent = '🎯 Problem Solved'
+          content.appendChild(h4)
+          const p = document.createElement('p')
+          p.textContent = infographic.problem_solved
+          content.appendChild(p)
+        }
+
+        // Method
+        if (infographic.method && Array.isArray(infographic.method) && infographic.method.length) {
+          const h4 = document.createElement('h4')
+          h4.textContent = '⚙️ Method'
+          content.appendChild(h4)
+          const ul = document.createElement('ul')
+          for (const item of infographic.method) {
+            const li = document.createElement('li')
+            li.textContent = item
+            ul.appendChild(li)
+          }
+          content.appendChild(ul)
+        }
+
+        // Impact
+        if (infographic.impact) {
+          const h4 = document.createElement('h4')
+          h4.textContent = '🚀 Impact'
+          content.appendChild(h4)
+          const p = document.createElement('p')
+          p.textContent = infographic.impact
+          content.appendChild(p)
+        }
+
+        // Hashtags
+        if (infographic.hashtags && Array.isArray(infographic.hashtags) && infographic.hashtags.length) {
+          const hashtagsDiv = document.createElement('div')
+          hashtagsDiv.className = 'hashtags'
+          for (const tag of infographic.hashtags) {
+            const span = document.createElement('span')
+            span.className = 'hashtag'
+            span.textContent = tag
+            hashtagsDiv.appendChild(span)
+          }
+          content.appendChild(hashtagsDiv)
+        }
+
+        // Toggle functionality
+        toggle.addEventListener('click', () => {
+          const isExpanded = content.classList.toggle('expanded')
+          toggle.innerHTML = isExpanded
+            ? '▼ <span>Hide AI-Generated Summary</span>'
+            : '▶ <span>View AI-Generated Summary</span>'
+        })
+
+        section.appendChild(toggle)
+        section.appendChild(content)
+        return section
+      }
+
+      function render(items) {
+        grid.innerHTML = ''
+        empty.hidden = items.length !== 0
+
+        for (const paper of items) {
+          const card = document.createElement('div')
+          card.className = 'card'
+
+          // Top line with chips and score
+          const topline = document.createElement('div')
+          topline.className = 'topline'
+
+          const chips = document.createElement('div')
+          chips.className = 'chips'
+
+          for (const c of [paper.category, paper.source].filter(Boolean)) {
+            const chip = document.createElement('span')
+            chip.className = 'chip'
+            chip.textContent = c
+            chips.appendChild(chip)
+          }
+
+          const scoreDiv = document.createElement('div')
+          scoreDiv.className = 'score'
+          scoreDiv.textContent = paper.score || '0'
+          scoreDiv.title = 'Relevance score'
+
+          topline.appendChild(chips)
+          topline.appendChild(scoreDiv)
+
+          // Date
+          const dateDiv = document.createElement('div')
+          dateDiv.className = 'date'
+          dateDiv.textContent = paper.date || ''
+          dateDiv.style.marginTop = '8px'
+
+          // Title
+          const title = document.createElement('div')
+          title.className = 'title'
+          title.textContent = paper.title || 'Untitled'
+
+          // Authors
+          const authors = document.createElement('div')
+          authors.className = 'authors'
+          authors.textContent = paper.authors || 'Unknown'
+
+          // Abstract
+          const abstract = document.createElement('div')
+          abstract.className = 'abstract'
+          // Strip HTML tags from abstract (some sources include HTML in RSS feeds)
+          abstract.textContent = stripHtml(paper.abstract || '')
+
+          // Links
+          const links = document.createElement('div')
+          links.className = 'links'
+          if (Array.isArray(paper.links) && paper.links.length) {
+            for (const link of paper.links) {
+              const a = document.createElement('a')
+              a.href = link.url
+              a.textContent = link.title || 'Link'
+              a.target = '_blank'
+              a.rel = 'noreferrer'
+              links.appendChild(a)
+            }
+          }
+
+          card.appendChild(topline)
+          card.appendChild(dateDiv)
+          card.appendChild(title)
+          card.appendChild(authors)
+          if (paper.abstract) card.appendChild(abstract)
+          if (links.children.length) card.appendChild(links)
+
+          // Add placeholder for lazy-loaded infographic
+          const infographicPlaceholder = document.createElement('div')
+          infographicPlaceholder.className = 'infographic-placeholder'
+          infographicPlaceholder.dataset.paperId = paper.id
+          card.appendChild(infographicPlaceholder)
+
+          grid.appendChild(card)
+        }
+
+        // Set up Intersection Observer for lazy loading infographics
+        if (infographicsLoaded) {
+          setupLazyLoadingForVisibleCards()
+        }
+      }
+
+      function setupLazyLoadingForVisibleCards() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(async (entry) => {
+            if (entry.isIntersecting) {
+              const placeholder = entry.target
+              const paperId = placeholder.dataset.paperId
+              
+              if (!placeholder.dataset.loaded) {
+                placeholder.dataset.loaded = 'true'
+                const infographic = await loadInfographicForPaper(paperId)
+                
+                if (infographic) {
+                  const infographicSection = createInfographicSection(infographic)
+                  placeholder.replaceWith(infographicSection)
+                } else {
+                  placeholder.remove()
+                }
+              }
+              
+              observer.unobserve(placeholder)
+            }
+          })
+        }, { rootMargin: '200px' })
+
+        document.querySelectorAll('.infographic-placeholder').forEach(placeholder => {
+          observer.observe(placeholder)
+        })
+      }
+
+      function applyFilters(all) {
+        const query = q.value.trim().toLowerCase()
+        const catValue = cat.value
+        const sourceValue = source.value
+
+        const filtered = all.filter((p) => {
+          const matchQuery =
+            !query ||
+            (p.title || '').toLowerCase().includes(query) ||
+            (p.abstract || '').toLowerCase().includes(query) ||
+            (p.authors || '').toLowerCase().includes(query)
+
+          const matchCat = catValue === 'all' || p.category === catValue
+          const matchSource = sourceValue === 'all' || p.source === sourceValue
+
+          return matchQuery && matchCat && matchSource
+        })
+
+        render(filtered)
+      }
+
+      async function main() {
+        try {
+          // Load papers and infographics index in parallel
+          const [papersResp] = await Promise.all([
+            fetch(url, { cache: 'no-store' }),
+            loadInfographicsIndex()
+          ])
+
+          const json = await papersResp.json()
+          const all = Array.isArray(json) ? json : []
+
+          // Populate category filter
+          const cats = uniq(all.map((p) => p.category).filter(Boolean)).sort()
+          for (const c of cats) {
+            const o = document.createElement('option')
+            o.value = c
+            o.textContent = c
+            cat.appendChild(o)
+          }
+
+          // Populate source filter
+          const sources = uniq(all.map((p) => p.source).filter(Boolean)).sort()
+          for (const s of sources) {
+            const o = document.createElement('option')
+            o.value = s
+            o.textContent = s
+            source.appendChild(o)
+          }
+
+          // Set up event listeners
+          const onChange = () => applyFilters(all)
+          q.addEventListener('input', onChange)
+          cat.addEventListener('change', onChange)
+          source.addEventListener('change', onChange)
+
+          applyFilters(all)
+        } catch (e) {
+          console.error(e)
+          empty.hidden = false
+        }
+      }
+
+      main()
+    </script>
+  </body>
+</html>
