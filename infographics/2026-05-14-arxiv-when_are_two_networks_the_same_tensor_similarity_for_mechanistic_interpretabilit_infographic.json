@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper introduces \"tensor similarity,\" a weight-space metric for tensor-based models that determines when two network components implement the same computation by being invariant to weight-space symmetries that break basis-dependent comparisons.",
-  "problem_solved": "Verifying mechanistic equivalence between parts of neural networks: existing metrics either rely on empirical behaviour (and fail OOD) or compare parameters in a basis-dependent way (ignoring symmetries), preventing reliable matching of implementations.",
+  "key_insight": "Introduce tensor similarity: a weight-space metric for tensor-based models that identifies when two modules implement the same computation by being invariant to weight-space symmetries. It enables comparison of internal mechanisms beyond behavior and basis-dependent parameters.",
+  "problem_solved": "Existing similarity measures either rely on empirical behavior (failing to detect shared mechanisms out-of-distribution) or depend on specific parameter bases (ignoring symmetries); this work gives a symmetry-invariant, weight-based test for mechanistic equivalence of tensor modules.",
   "method": [
-    "Define a weight-based similarity metric on tensor objects (layers/submodules) that is invariant to canonical weight-space symmetries (e.g., permutations/scalings) relevant to tensor-based models.",
-    "Align or quotient out symmetry degrees of freedom between two components, then compute a similarity score comparing their tensor representations rather than only behavioural outputs.",
-    "Use the score to identify mechanistic matches across models, enabling comparison even when empirical tests miss out-of-distribution differences."
+    "Define a group-invariant distance/metric on weight tensors that factors out common tensor symmetries (e.g., permutations and modewise invertible/orthogonal transforms).",
+    "Align or compare tensor factors using decomposition and modewise alignment (efficient linear-algebra routines such as SVD/Procrustes or low-rank approximations) to compute a maximal similarity score under allowable symmetry transforms.",
+    "Validate the metric on representative tensor-based components to show it identifies equivalent mechanisms that behavioral or naive parameter comparisons miss."
   ],
-  "impact": "Provides a principled, symmetry-aware tool for mechanistic interpretability, enabling robust identification and transfer of computations across models and supporting safer, more generalizable interpretive claims.",
+  "impact": "Provides a principled tool for mechanistic interpretability, enabling model developers and researchers to verify that two parts truly implement the same computation even across reparameterizations — useful for understanding, merging, and auditing models.",
   "visual_elements": [
-    "Schematic of two networks with highlighted subcomponents connected by an arrow labeled \"tensor similarity\" (showing matching despite different bases)",
-    "Illustration of symmetry transformations (permutations/scalings) being factored out before comparison",
-    "Heatmap or matrix of similarity scores across many layer pairs to show cluster/group detection of equivalent modules",
-    "Workflow infographic: extract tensors → remove symmetries/align → compute similarity → interpret/transfer"
+    "Side-by-side diagram: empirical-behavior similarity vs tensor-similarity showing cases where behavior matches but mechanisms differ and vice versa.",
+    "Schematic of a weight tensor with modewise transforms and an arrow to an aligned tensor (visualizing the symmetry-invariant alignment step).",
+    "Heatmap or matrix of pairwise tensor-similarity scores across modules, highlighting clusters of equivalent mechanisms.",
+    "Flowchart of the pipeline: input weight tensors → decomposition/alignment → compute invariant similarity → decision/visualization."
   ],
   "hashtags": [
     "#MechanisticInterpretability",
-    "#TensorSimilarity",
     "#ModelSimilarity",
-    "#AIExplainability",
-    "#NeuralNetworks"
+    "#TensorAlgebra",
+    "#RepresentationLearning",
+    "#AIResearch"
   ],
   "paper_id": "2026-05-14-arxiv-when_are_two_networks_the_same_tensor_similarity_for_mechanistic_interpretabilit",
   "paper_title": "When Are Two Networks the Same? Tensor Similarity for Mechanistic Interpretability",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15183v1"
     }
   ],
-  "generated_at": "2026-05-19T04:41:55.509416"
+  "generated_at": "2026-05-19T09:00:41.411680"
 }

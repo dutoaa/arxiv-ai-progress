@@ -1,0 +1,35 @@
+{
+  "key_insight": "Instead of following a pre-committed pipeline schedule, make scheduling decisions at runtime based on which tasks are actually ready; this readiness-driven approach reduces idle bubbles and stage misalignment under variable computation/communication.",
+  "problem_solved": "Pipeline-parallel training suffers when real task readiness diverges from static or profiled schedules—causing stages to wait for unavailable work, creating idle bubbles, misalignment, and lowered hardware utilization and throughput.",
+  "method": [
+    "Continuously monitor task readiness (compute/communication completion signals) and permit dynamic reordering of pipeline tasks rather than following a fixed pre-committed schedule.",
+    "Make lightweight, low-latency scheduling decisions that opportunistically execute any ready work to fill bubbles and re-align stages, maintaining pipeline flow under runtime variability.",
+    "Integrate with pipeline-parallel runtimes without heavy profiling or offline schedule generation, keeping overhead low while improving robustness to heterogeneity and transient delays."
+  ],
+  "impact": "Practitioners get higher and more stable training throughput on heterogeneous or variable clusters, reducing end-to-end training time and making pipeline parallelism more practical in real-world, non-deterministic environments.",
+  "visual_elements": [
+    "Timeline comparison: static pre-committed schedule vs readiness-driven schedule showing reduced idle bubbles and improved alignment",
+    "Flow diagram of the readiness-driven runtime loop: readiness detection → scheduler decision → task dispatch",
+    "Bar chart showing throughput/iteration time and utilization gains across variable-delay scenarios",
+    "Cluster iconography highlighting heterogeneous nodes and transient network/compute variability"
+  ],
+  "hashtags": [
+    "#PipelineParallelism",
+    "#DistributedTraining",
+    "#DeepLearningSystems",
+    "#RuntimeScheduling",
+    "#ModelScaling"
+  ],
+  "paper_id": "2026-05-18-arxiv-a_readiness_driven_runtime_for_pipeline_parallel_training_under_runtime_variabil",
+  "paper_title": "A Readiness-Driven Runtime for Pipeline-Parallel Training under Runtime Variability",
+  "paper_category": "Model",
+  "paper_date": "2026-05-18",
+  "paper_authors": "Ruitao Liu, Xinyang Tian, Shuo Chen, Tingrui Zhang, Guang Yang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.18750v1"
+    }
+  ],
+  "generated_at": "2026-05-19T08:59:11.244503"
+}

@@ -1,24 +1,24 @@
 {
-  "key_insight": "VGGT-Edit enables native, feed-forward 3D scene editing by predicting a residual field that modifies an existing neural scene representation in a single pass, producing consistent multi-view edits without per-view optimization.",
-  "problem_solved": "Existing editing pipelines edit 2D views independently or require iterative optimization, leading to multi-view inconsistency, slow turnaround, and poor interactivity. This work addresses the need for fast, coherent, instruction-driven edits directly in 3D.",
+  "key_insight": "VGGT-Edit enables native, feed-forward 3D scene edits by predicting compact residual fields on top of an existing 3D representation, delivering consistent multi-view changes in a single forward pass.",
+  "problem_solved": "Brings interactive, instruction-driven editing to generalizable feed-forward 3D reconstruction models by replacing slow, view-by-view or optimization-based edit pipelines that produce inconsistent multi-view results.",
   "method": [
-    "Feed-forward residual field prediction: infer a 3D delta field that warps or updates a base neural scene representation to apply edits in one forward pass.",
-    "Operate natively in 3D (not 2D lift-and-project): ensures multi-view and geometry consistency by applying edits in the scene’s volumetric/neural field coordinate frame.",
-    "Lightweight integration with existing reconstruction models: produces real-time or near-real-time edits while preserving scene fidelity."
+    "Predict a residual 3D field (geometry/appearance deltas) conditioned on the input scene and a user edit instruction, then apply it to the base neural 3D representation in one feed-forward step.",
+    "Operate natively in 3D (not 2D-lifting), enforcing multi-view consistency and avoiding per-edit optimization loops.",
+    "Design the model and training procedure to generalize across scenes so edits can be performed interactively on new environments."
   ],
-  "impact": "Provides interactive, consistent 3D editing suitable for AR/VR, content creation, and human-in-the-loop workflows, enabling faster prototyping and deployment of editable neural scenes. Practitioners gain a practical path from static reconstruction to responsive, instruction-driven scene manipulation.",
+  "impact": "Enables fast, consistent, and user-driven 3D scene editing for interactive applications (e.g., AR/VR content creation, game asset editing, rapid prototyping), reducing latency and engineering overhead compared to optimization-heavy approaches.",
   "visual_elements": [
-    "Before/after 3D render montage showing consistent multi-view edits",
-    "Vector/residual field overlay on a volume to illustrate predicted modifications",
-    "Simplified model diagram: input scene + instruction → residual field predictor → edited scene",
-    "Bar chart comparing edit latency and multi-view consistency against optimization-based baselines"
+    "Pipeline diagram: input multi-view images + edit instruction → VGGT-Edit residual predictor → edited 3D scene (single forward pass).",
+    "Before/after multi-view montage showing consistent edits across several camera views.",
+    "Latency vs quality chart comparing feed-forward residual editing to optimization-based and 2D-lifting baselines.",
+    "Icon set highlighting 'real-time', 'multi-view consistency', and 'no per-edit optimization'."
   ],
   "hashtags": [
     "#3DEditing",
     "#NeuralFields",
-    "#FeedForward",
-    "#NeuralRendering",
-    "#ComputerVision"
+    "#InteractiveAI",
+    "#ComputerVision",
+    "#VGGTEdit"
   ],
   "paper_id": "2026-05-14-arxiv-vggt_edit_feed_forward_native_3d_scene_editing_with_residual_field_prediction",
   "paper_title": "VGGT-Edit: Feed-forward Native 3D Scene Editing with Residual Field Prediction",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.15186v1"
     }
   ],
-  "generated_at": "2026-05-19T04:42:03.067251"
+  "generated_at": "2026-05-19T09:00:47.526056"
 }

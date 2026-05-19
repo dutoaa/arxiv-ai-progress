@@ -1,24 +1,24 @@
 {
-  "key_insight": "MLLM failures on fine-grained visual questions often come from a regional-to-global perception gap: models answer correctly when given evidence-centered crops but fail on full images. Training with on-policy self-distillation teaches the model to transfer crop-level attention to whole-image reasoning, improving fine-detail perception.",
-  "problem_solved": "Reduces missed or incorrect answers caused by inability to focus on small but decisive visual evidence in full images, improving fine-grained visual understanding for multimodal LLMs.",
+  "key_insight": "MLLM failures on fine-grained questions often come from an inability to focus on small, decisive regions in full images rather than from lacking local recognition; Vision-OPD closes this regional-to-global perception gap by using on-policy self-distillation so the full-image model learns from its own evidence-centered crop-conditioned answers.",
+  "problem_solved": "Improves multimodal LLMs' fine-grained visual understanding by enabling them to locate and use small but crucial visual evidence in full images without requiring extra human crop annotations.",
   "method": [
-    "Identify evidence-centered crops that lead to correct answers and use them as teacher signals for the full-image student model (on-policy self-distillation).",
-    "Train the MLLM to align attention and predictions between crop-conditioned and full-image-conditioned inputs so the model learns to focus on small, decisive regions in context.",
-    "Iteratively refine the model by generating its own crop-conditioned supervision during training (on-policy loop) to scale fine-detail supervision without manual annotations."
+    "Detect evidence regions implicitly (e.g., attention/saliency or model-suggested crops) and generate evidence-centered image crops.",
+    "Obtain more accurate crop-conditioned answers and use them as pseudo-teacher targets.",
+    "On-policy self-distillation: train the full-image model to match crop-conditioned predictions, iteratively closing the regional-to-global perception gap."
   ],
-  "impact": "Enables MLLMs to reliably use small, critical visual cues in real-world tasks (e.g., visual QA, instruction following, inspection), boosting accuracy and robustness without requiring dense pixel-level labels.",
+  "impact": "Enables more reliable, explainable MLLM performance on tasks that hinge on small visual cues (e.g., detail-oriented VQA, fine-grained captioning) while reducing reliance on manual supervision—practical for deployment and continued model refinement.",
   "visual_elements": [
-    "Side-by-side example: full image vs evidence-centered crop with model answers (correct on crop, wrong on full) to illustrate the perception gap.",
-    "Pipeline diagram of on-policy self-distillation: crop selection → teacher prediction → student full-image training → iterative loop.",
-    "Attention/heatmap overlay sequence showing how the model's focus shifts from diffuse to targeted regions after distillation.",
-    "Bar/line chart comparing baseline vs Vision-OPD performance on fine-grained benchmarks (accuracy gains) and sample-efficiency of training."
+    "Pipeline diagram: full image -> evidence detection -> crop -> crop-conditioned answer -> distillation back to full-image model",
+    "Before/after example pairs: same question answered incorrectly on full image but correctly on crop, then corrected after Vision-OPD training",
+    "Attention/heatmap overlays showing shift of focus from noisy regions to decisive evidence",
+    "Bar chart or table comparing accuracy on fine-grained benchmarks pre- and post-distillation (relative improvement)"
   ],
   "hashtags": [
     "#MultimodalLLM",
-    "#FineGrainedVision",
+    "#VisionOPD",
     "#SelfDistillation",
-    "#VisualQA",
-    "#ModelRobustness"
+    "#FineGrainedVision",
+    "#ExplainableAI"
   ],
   "paper_id": "2026-05-18-arxiv-vision_opd_learning_to_see_fine_details_for_multimodal_llms_via_on_policy_self_d",
   "paper_title": "Vision-OPD: Learning to See Fine Details for Multimodal LLMs via On-Policy Self-Distillation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.18740v1"
     }
   ],
-  "generated_at": "2026-05-19T04:39:46.171681"
+  "generated_at": "2026-05-19T08:58:30.003741"
 }

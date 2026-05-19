@@ -1,24 +1,24 @@
 {
-  "key_insight": "Factual recall in LLMs follows a sigmoid relationship driven by a log-linear combination of model parameter count and topic frequency in the training data; these two factors alone explain roughly 60% of recall variance.",
-  "problem_solved": "Addresses the lack of a scaling law linking factual recall (and predictable confabulation) to both model size and the composition/representation of topics in training corpora, making recall more predictable across models and topics.",
+  "key_insight": "Factual recall in LLMs follows a sigmoid function of a log-linear combination of model size (parameter count) and topic representation in the training data; those two factors alone explain ~60% of recall variance across evaluated dense models.",
+  "problem_solved": "Provides the first empirical scaling relationship linking factual recall to both model scale and training-data composition, enabling prediction of when models will confidently (but not always correctly) produce references.",
   "method": [
-    "Automated reference-verification evaluation of 38 models on >8,900 scholarly references to measure factual recall quality.",
-    "Statistical modeling showing recall quality maps to a sigmoid function of a log-linear combination of model parameter count and topic representation in training data.",
-    "Quantified explanatory power (≈60% of variance) across a subset of dense models to validate the relationship."
+    "Evaluated 38 models on >8,900 scholarly references using an automated reference-verification pipeline to measure recall quality.",
+    "Quantified topic representation in training data and combined it with model parameter count in a log-linear predictor, then mapped predictor outputs to recall probability with a sigmoid fit.",
+    "Performed statistical analysis across 16 dense models from four model families to measure explanatory power (≈60% variance explained) of the two-factor model."
   ],
-  "impact": "Provides a simple, quantitative rule linking model size and data coverage to factual recall, enabling practitioners to predict and mitigate confabulation by choosing model/data trade-offs and prioritizing topic coverage in training or retrieval.",
+  "impact": "Gives practitioners a simple, actionable rule-of-thumb to anticipate and improve factual recall by balancing model scale and dataset topic coverage—informing model selection, dataset curation, and risk assessment for hallucinated references.",
   "visual_elements": [
-    "Sigmoid curve plot: y-axis = recall quality, x-axis = log-linear combination of model size and topic frequency (annotated inflection point).",
-    "Heatmap/contour over model size vs. topic frequency showing regions of high vs. low factual recall.",
-    "Bar or pie chart summarizing variance explained (~60%) by the two-factor model compared to other factors.",
-    "Pipeline diagram: models → automated reference verification → statistical fit → actionable guidelines (icons for models, dataset, metrics)."
+    "2D scatterplot of models (x: log(model params), y: topic frequency) with a fitted sigmoid surface/contour showing recall probability",
+    "Heatmap showing recall rate as a function of model size and topic representation, emphasizing the sigmoid transition region",
+    "Bar or pie chart reporting variance explained (R² ≈ 0.60) by the two-factor model versus alternative predictors",
+    "Icon set: model (chip), dataset (stacked documents), verification/checklist to visually link components of the method"
   ],
   "hashtags": [
     "#LLM",
     "#ScalingLaws",
-    "#Factuality",
-    "#DataCuration",
-    "#AITrust"
+    "#FactualRecall",
+    "#DatasetCuration",
+    "#ModelEvaluation"
   ],
   "paper_id": "2026-05-18-arxiv-predictable_confabulations_factual_recall_by_llms_scales_with_model_size_and_top",
   "paper_title": "Predictable Confabulations: Factual Recall by LLMs Scales with Model Size and Topic Frequency",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.18732v1"
     }
   ],
-  "generated_at": "2026-05-19T04:39:33.180930"
+  "generated_at": "2026-05-19T09:00:09.022941"
 }

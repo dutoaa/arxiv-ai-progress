@@ -1,24 +1,24 @@
 {
-  "key_insight": "DashAttention replaces hard top-k block selection with a differentiable, adaptive sparse hierarchical attention mechanism so the model learns how many and which tokens to attend to per query while preserving end-to-end gradient flow.",
-  "problem_solved": "Existing hierarchical attention methods fix the number of selected tokens (top-k) and break gradient flow between coarse (sparse) and fine (dense) stages, limiting adaptivity and learnability of sparse attention patterns.",
+  "key_insight": "DashAttention replaces fixed top-k selection with a differentiable, per-query adaptive sparse routing mechanism so the model learns how many and which key–value tokens to attend to, preserving gradient flow across sparse and dense stages.",
+  "problem_solved": "Fixed top-k hierarchical attention assumes a constant number of relevant tokens and blocks gradient flow between coarse (block) selection and fine-grained attention, limiting accuracy and end-to-end optimization for long-context transformers.",
   "method": [
-    "Introduce a differentiable selection mechanism (continuous relaxation / soft gating) to replace non‑differentiable top-k block selection so gradients propagate through sparsification.",
-    "Make sparsity adaptive per query by learning selection weights or thresholds, allowing variable number of relevant KV blocks instead of a fixed k.",
-    "Retain hierarchical computation: coarse block scoring → adaptive selection → fine-grained softmax attention on selected tokens, yielding efficient compute with end-to-end training."
+    "Differentiable hierarchical routing: use a continuous relaxation (learned gating/soft allocation) to score and select KV blocks and tokens so selection is end-to-end differentiable.",
+    "Adaptive per-query sparsity: dynamically allocate attention budget per query rather than a fixed k, allowing the model to attend to variable numbers of relevant tokens depending on context.",
+    "Two-stage fine-grained attention with gradient flow: coarse block selection followed by dense attention on selected tokens while allowing gradients to flow back into the coarse selector for joint optimization and efficiency."
   ],
-  "impact": "Enables models to learn task-specific, per-query sparsity for attention, improving compute/accuracy trade-offs and making sparse hierarchical attention trainable end-to-end—useful for large Transformer models and resource-constrained deployment.",
+  "impact": "Enables more accurate, efficient long-context attention by learning when and how much to sparsify; practical for scaling transformers with better compute-accuracy trade-offs and simpler end-to-end training.",
   "visual_elements": [
-    "Pipeline diagram: coarse block scoring → differentiable/adaptive selector (with gradient arrows) → fine-grained attention on selected tokens",
-    "Comparison chart: compute (FLOPs or latency) vs. accuracy for Top-k methods vs. DashAttention",
-    "Heatmap visuals: example attention maps showing fixed top-k patterns vs. adaptive per-query sparsity",
-    "Icon set: gradient/flow icon to emphasize end-to-end differentiability, clock/bolt for efficiency"
+    "Pipeline diagram: coarse block scoring → differentiable selector → fine-grained attention, annotated with gradient arrows showing end-to-end flow",
+    "Comparison chart: fixed top-k vs adaptive DashAttention showing accuracy vs FLOPs/latency",
+    "Per-query sparsity heatmap: variable number of attended tokens across queries (illustrates adaptivity)",
+    "Icon set: speed (clock), accuracy (target), learnability (gradient/gear) to summarize benefits"
   ],
   "hashtags": [
     "#DashAttention",
     "#SparseAttention",
-    "#Differentiable",
-    "#EfficientTransformers",
-    "#AdaptiveSparsity"
+    "#AdaptiveSparsity",
+    "#Transformer",
+    "#EfficientAI"
   ],
   "paper_id": "2026-05-18-arxiv-dashattention_differentiable_and_adaptive_sparse_hierarchical_attention",
   "paper_title": "DashAttention: Differentiable and Adaptive Sparse Hierarchical Attention",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.18753v1"
     }
   ],
-  "generated_at": "2026-05-19T04:40:33.216715"
+  "generated_at": "2026-05-19T08:59:16.579455"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Model the physical world as a collection of actionable objects — each object carries an internal, learnable representation of state + affordances — so world models can predict how objects will respond to actions compositionally and generalize across novel interactions.",
-  "problem_solved": "Existing world models often treat scenes holistically or statically, failing to capture object-level affordances and action-conditioned dynamics needed for robust planning, transfer, and interaction in physical environments.",
+  "key_insight": "Representing the world as object-centric, action-aware primitives yields compact, generalizable models that predict how things change when acted upon, enabling emergent physical understanding for downstream control and planning.",
+  "problem_solved": "Bridges perception and action by providing a representation of physical scenes that encodes objects as actionable entities (affordances, dynamics, and manipulable properties), addressing poor transfer and limited interpretability of monolithic world models.",
   "method": [
-    "Object-centric representation: factor scene into object tokens that encode state and actionable affordances.",
-    "Action-conditioned dynamics: a module predicts object responses and inter-object effects given candidate actions, enabling compositional rollouts.",
-    "Learning objectives: train on multi-modal interaction data (sim + real) with contrastive/behavioral losses to align affordances with usable actions and improve generalization."
+    "Learn object-centric latent representations that disentangle identity, state, and action-affordances from multi-modal observations.",
+    "Train action-conditioned dynamics and affordance predictors so the model can roll out realistic object behaviors under candidate actions.",
+    "Use a compositional architecture (e.g., object slots + interaction module) to allow scalable generalization and zero-/few-shot transfer to novel object configurations."
   ],
-  "impact": "Provides a compact, interpretable substrate for planning and control — improving sample efficiency, transfer to novel tasks/objects, and downstream robotics/embodied-AI applications by making world models actionable and compositional.",
+  "impact": "Gives ML and robotics practitioners a practical representation for planning, simulation, and control that improves sample efficiency, interpretability, and transfer across tasks involving physical interaction.",
   "visual_elements": [
-    "Pipeline diagram: scene → object decomposition → object tokens with affordances → action-conditioned rollout → predicted outcome",
-    "Before/after sequences: short video frames or image pairs showing how different actions change object states",
-    "Affordance icons/overlays: per-object icons indicating graspable/pushable/rotatable affordances",
-    "Embedding map: 2D visualization (e.g., t-SNE/UMAP) of object tokens colored by affordance or controllability"
+    "Scene diagram with object slots and labeled affordances (grasp, push, rotate) overlaying a photo",
+    "Architecture flowchart: perception → object-centric encoder → interaction/dynamics module → action-conditioned rollouts",
+    "Example rollout panels showing predicted object trajectories under different candidate actions (before/after)",
+    "Bar chart or table comparing task transfer / sample efficiency vs. baseline world models"
   ],
   "hashtags": [
     "#WorldModels",
     "#ObjectCentric",
-    "#AffordanceLearning",
+    "#ActionableAI",
     "#EmbodiedAI",
-    "#ActionableRepresentation"
+    "#Robotics"
   ],
   "paper_id": "2026-05-18-arxiv-actionable_world_representation",
   "paper_title": "Actionable World Representation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.18743v1"
     }
   ],
-  "generated_at": "2026-05-19T04:39:54.912233"
+  "generated_at": "2026-05-19T08:58:36.247352"
 }

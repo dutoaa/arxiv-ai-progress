@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper proposes unifying online RL with verifiable rewards and preference optimization by replacing brittle scalar rewards with a general preference verifier, enabling continuous exploration and alignment for open-ended tasks.",
-  "problem_solved": "It closes the split between verifier-driven RL (good for programmatic tasks but not open-ended) and preference optimization (good for open-ended generation but lacking continuous exploration), enabling RL-style improvement on open-ended LLM behaviors.",
+  "key_insight": "This paper bridges online reinforcement learning and preference optimization by using preference-based verification instead of a single scalar reward, enabling continuous RL-style exploration for open-ended tasks.",
+  "problem_solved": "Post-training for LLMs is split: online RL needs programmatic verifiers (not available for open-ended generation) while preference optimization supports open domains but lacks continuous exploration. The paper addresses the absence of a verifier suitable for open-ended quality that can power RL-style learning.",
   "method": [
-    "Introduce a general preference verifier that judges open-ended quality instead of relying on a single scalar reward model.",
-    "Integrate the verifier into an online reinforcement learning loop so models can continuously explore and improve on open-ended tasks.",
-    "Train the verifier from preference data (human or synthetic) and use it to produce learning signals for policy updates."
+    "Train a general preference model from pairwise/ranking feedback (human or synthetic) to evaluate open-ended outputs rather than relying on a single scalar reward.",
+    "Integrate the learned preference verifier into an online RL loop so the agent can continuously explore and improve on subjective, open-ended objectives.",
+    "Stabilize learning with uncertainty-aware querying and regularization (e.g., selective human queries, confidence thresholds) to manage noisy or sparse preference signals."
   ],
-  "impact": "This approach enables practitioners to apply RL-style fine-tuning and exploration to open-ended LLM tasks (creative writing, dialogue, alignment) while keeping preference-based supervision—improving both capability and safety during post-training.",
+  "impact": "Allows practitioners to apply online RL techniques to open-ended LLM tasks by replacing brittle scalar rewards with richer preference verifiers, improving alignment and capability where subjective judgments matter.",
   "visual_elements": [
-    "Side-by-side comparison diagram: Programmatic verifier RL vs Preference optimization (strengths & limits)",
-    "Training loop flowchart: Model -> Outputs -> Preference Verifier -> Reward -> RL Update -> Model",
-    "Schematic of the preference verifier (human/synthetic preferences -> learned comparator)",
-    "Performance curves: continuous improvement with preference-RL vs plateau with pure preference optimization"
+    "Split-track diagram: left = programmatic-verifier RL (math/code), right = preference optimization (open-ended), center = unified preference-based RL",
+    "System loop flowchart: outputs → preference collection → preference model (verifier) → RL agent update → new outputs",
+    "Comparison bar/line chart: scalar-reward RL vs preference-RL on open-ended quality and exploration metrics",
+    "Icons: human annotator, verifier/model, exploration/agent arrow to convey continuous learning with human-in-the-loop"
   ],
   "hashtags": [
-    "#ReinforcementLearning",
-    "#PreferenceLearning",
+    "#PreferenceRL",
+    "#RLHF",
     "#LLMAlignment",
-    "#AIAlignment",
-    "#ModelTraining"
+    "#HumanFeedback",
+    "#ReinforcementLearning"
   ],
   "paper_id": "2026-05-18-arxiv-general_preference_reinforcement_learning",
   "paper_title": "General Preference Reinforcement Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.18721v1"
     }
   ],
-  "generated_at": "2026-05-19T04:39:01.723095"
+  "generated_at": "2026-05-19T09:00:16.774844"
 }
