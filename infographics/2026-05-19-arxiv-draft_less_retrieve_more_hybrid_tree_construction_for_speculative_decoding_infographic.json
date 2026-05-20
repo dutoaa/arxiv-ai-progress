@@ -1,0 +1,35 @@
+{
+  "key_insight": "Combine smaller, cheaper draft trees with retrieval-augmented candidate expansion so speculative decoding keeps high acceptance rates without the VRAM and compute overhead of giant generated draft trees.",
+  "problem_solved": "Large draft trees used to maximize speculative-decoding acceptance rates create severe VRAM bandwidth and compute bottlenecks; dynamic-depth pruning reduces latency but throws away valid candidates and prevents reaching the acceptance-rate upper bound.",
+  "method": [
+    "Hybrid tree construction: build a compact generated draft tree and expand it with retrieved candidate continuations, prioritizing high-probability tokens while avoiding exhaustive generation.",
+    "Bandwidth- and acceptance-aware pruning: selectively prune marginal branches using a cost-aware heuristic so marginal branches are removed only when they harm end-to-end throughput, not acceptance.",
+    "Integrate retrieval into the draft-then-verify loop to recover candidate diversity lost by pruning, preserving acceptance rate while reducing VRAM/compute pressure."
+  ],
+  "impact": "Enables faster, more resource-efficient LLM inference by achieving high speculative acceptance rates with much lower memory bandwidth and compute cost—beneficial for production deployments and hardware-constrained settings.",
+  "visual_elements": [
+    "Side-by-side schematic: (a) large generated draft tree vs (b) hybrid tree + retrieval, showing fewer generated nodes but similar accepted outcomes.",
+    "Bar chart: end-to-end latency and VRAM bandwidth for baseline large-tree SD, dynamic-depth pruning, and hybrid method.",
+    "Flow diagram of the speculative-decoding loop: draft (generate + retrieve) → verify → accept/reject, highlighting where retrieval replaces extra generation.",
+    "Line plot: acceptance rate vs generated-draft-size showing hybrid method approaching the acceptance upper bound at much smaller draft sizes."
+  ],
+  "hashtags": [
+    "#SpeculativeDecoding",
+    "#LLMInference",
+    "#ModelAcceleration",
+    "#RetrievalAugmented",
+    "#HardwareEfficiency"
+  ],
+  "paper_id": "2026-05-19-arxiv-draft_less_retrieve_more_hybrid_tree_construction_for_speculative_decoding",
+  "paper_title": "Draft Less, Retrieve More: Hybrid Tree Construction for Speculative Decoding",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-05-19",
+  "paper_authors": "Yuhao Shen, Tianyu Liu, Xinyi Hu, Quan Kong, Baolin Zhang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.20104v1"
+    }
+  ],
+  "generated_at": "2026-05-20T05:30:09.665453"
+}

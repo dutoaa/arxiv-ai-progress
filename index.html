@@ -46,7 +46,7 @@
 
       h1 {
         font-size: 24px;
-        letter-spacing: -0.02em;
+        letter-spacing: 0;
       }
 
       .subtitle {
@@ -66,7 +66,7 @@
       input,
       select {
         height: 38px;
-        border-radius: 12px;
+        border-radius: 8px;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         color: var(--text);
@@ -79,9 +79,35 @@
       }
 
       input:focus,
-      select:focus {
+      select:focus,
+      button:focus-visible {
         border-color: rgba(167, 139, 250, 0.45);
         box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.12);
+      }
+
+      .nav-link,
+      button {
+        min-height: 38px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--accent);
+        cursor: pointer;
+        font: inherit;
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .status {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 13px;
       }
 
       .grid {
@@ -93,10 +119,12 @@
 
       .card {
         padding: 18px;
-        border-radius: 18px;
+        border-radius: 8px;
         background: var(--glass);
         border: 1px solid var(--border);
         backdrop-filter: blur(10px);
+        content-visibility: auto;
+        contain-intrinsic-size: 320px;
       }
 
       .topline {
@@ -111,7 +139,7 @@
         margin-top: 12px;
         font-size: 18px;
         font-weight: 650;
-        letter-spacing: -0.01em;
+        letter-spacing: 0;
         line-height: 1.3;
       }
 
@@ -136,8 +164,8 @@
 
       .chip {
         display: inline-flex;
-        height: 24px;
-        padding: 0 10px;
+        min-height: 24px;
+        padding: 3px 10px;
         border-radius: 999px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background: rgba(255, 255, 255, 0.03);
@@ -148,6 +176,7 @@
       .date {
         color: var(--muted);
         font-size: 13px;
+        margin-top: 8px;
       }
 
       .links {
@@ -163,16 +192,17 @@
         font-size: 14px;
       }
 
-      a:hover {
+      a:hover,
+      button:hover {
         text-decoration: underline;
       }
 
       .empty {
         margin-top: 18px;
         padding: 18px;
-        border-radius: 18px;
+        border-radius: 8px;
         background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.10);
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .score {
@@ -192,33 +222,25 @@
       .infographic {
         margin-top: 16px;
         padding: 14px;
-        border-radius: 12px;
+        border-radius: 8px;
         background: rgba(167, 139, 250, 0.06);
         border: 1px solid rgba(167, 139, 250, 0.15);
       }
 
       .infographic-toggle {
-        cursor: pointer;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         gap: 8px;
-        font-size: 14px;
-        font-weight: 600;
+        padding: 0;
+        min-height: auto;
+        border: 0;
+        background: transparent;
         color: var(--accent);
-        user-select: none;
-      }
-
-      .infographic-toggle:hover {
-        text-decoration: underline;
+        font-weight: 600;
       }
 
       .infographic-content {
         margin-top: 12px;
-        display: none;
-      }
-
-      .infographic-content.expanded {
-        display: block;
       }
 
       .infographic h4 {
@@ -233,7 +255,8 @@
         margin-top: 0;
       }
 
-      .infographic p {
+      .infographic p,
+      .infographic ul {
         font-size: 13px;
         line-height: 1.6;
         color: var(--muted);
@@ -242,30 +265,47 @@
       .infographic ul {
         margin: 6px 0;
         padding-left: 20px;
-        font-size: 13px;
-        line-height: 1.6;
-        color: var(--muted);
       }
 
-      .infographic .hashtags {
+      .hashtags {
         display: flex;
         gap: 8px;
         flex-wrap: wrap;
         margin-top: 8px;
       }
 
-      .infographic .hashtag {
+      .hashtag {
         font-size: 12px;
         color: var(--accent);
       }
 
+      .load-more-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 18px;
+      }
+
+      #loadMore[hidden] {
+        display: none;
+      }
+
       @media (max-width: 768px) {
+        body {
+          padding: 24px 12px 64px;
+        }
+
         h1 {
           font-size: 20px;
         }
 
         .title {
           font-size: 16px;
+        }
+
+        input,
+        select,
+        .nav-link {
+          width: 100%;
         }
       }
     </style>
@@ -274,21 +314,23 @@
     <div class="wrap">
       <header>
         <div>
-          <h1>🔬 AI Research Papers - Weekly Top 20</h1>
+          <h1>AI Research Papers - Weekly Top 20</h1>
           <p class="subtitle">Latest AI research from arXiv, Nature, Science, and more</p>
         </div>
 
         <div class="controls">
-          <input id="q" placeholder="Search papers…" size="28" />
+          <input id="q" placeholder="Search papers..." size="28" />
           <select id="cat">
             <option value="all">All categories</option>
           </select>
           <select id="source">
             <option value="all">All sources</option>
           </select>
-          <a href="archives.html" style="font-size: 14px; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); text-decoration: none;">📚 Archives</a>
+          <a class="nav-link" href="archives.html">Archives</a>
         </div>
       </header>
+
+      <div id="status" class="status">Loading papers...</div>
 
       <div id="empty" class="empty" hidden>
         <div style="font-weight: 650">No papers found.</div>
@@ -298,279 +340,286 @@
       </div>
 
       <div id="grid" class="grid"></div>
+      <div class="load-more-wrap">
+        <button id="loadMore" type="button" hidden>Load more</button>
+      </div>
     </div>
 
-    <script type="module">
+    <script>
+      const INITIAL_BATCH_SIZE = 20
+      const NEXT_BATCH_SIZE = 40
+
       const grid = document.querySelector('#grid')
       const empty = document.querySelector('#empty')
+      const status = document.querySelector('#status')
       const q = document.querySelector('#q')
       const cat = document.querySelector('#cat')
       const source = document.querySelector('#source')
+      const loadMore = document.querySelector('#loadMore')
 
-      const base = import.meta?.env?.BASE_URL || document.baseURI
-      const url = new URL('./papers.json', base).toString()
-      const infographicsUrl = new URL('./infographics/index.json', base).toString()
-      let infographicsMap = {}
+      const assetPrefix = location.pathname.includes('/static/') ? '../' : './'
+      const papersUrl = new URL(`${assetPrefix}papers.json`, document.baseURI).toString()
+      const infographicCache = new Map()
+
+      let allPapers = []
+      let filteredPapers = []
+      let renderedCount = 0
 
       function uniq(xs) {
         return Array.from(new Set(xs))
       }
 
       function stripHtml(html) {
-        // Create a temporary div to strip HTML tags
         const tmp = document.createElement('div')
         tmp.innerHTML = html
         return tmp.textContent || tmp.innerText || ''
       }
 
-      async function loadInfographics() {
-        try {
-          const resp = await fetch(infographicsUrl, { cache: 'no-store' })
-          const data = await resp.json()
-          const files = data.infographics || []
-
-          // Load all infographic files
-          for (const file of files) {
-            const fileUrl = new URL(`./infographics/${file}`, base).toString()
-            try {
-              const fileResp = await fetch(fileUrl, { cache: 'no-store' })
-              const infographic = await fileResp.json()
-              if (infographic.paper_id) {
-                infographicsMap[infographic.paper_id] = infographic
-              }
-            } catch (e) {
-              console.warn(`Failed to load infographic: ${file}`, e)
-            }
-          }
-        } catch (e) {
-          console.warn('Failed to load infographics index', e)
-        }
+      function clearChildren(node) {
+        while (node.firstChild) node.removeChild(node.firstChild)
       }
 
-      function createInfographicSection(infographic) {
-        const section = document.createElement('div')
-        section.className = 'infographic'
+      function setStatus() {
+        const shown = Math.min(renderedCount, filteredPapers.length)
+        status.textContent = filteredPapers.length
+          ? `Showing ${shown} of ${filteredPapers.length} papers`
+          : `${allPapers.length} papers loaded`
+        loadMore.hidden = renderedCount >= filteredPapers.length
+      }
 
-        // Toggle header
-        const toggle = document.createElement('div')
-        toggle.className = 'infographic-toggle'
-        toggle.innerHTML = '▶ <span>View AI-Generated Summary</span>'
+      function appendTextBlock(parent, heading, text) {
+        if (!text) return
+        const h4 = document.createElement('h4')
+        h4.textContent = heading
+        const p = document.createElement('p')
+        p.textContent = text
+        parent.append(h4, p)
+      }
 
-        // Content
-        const content = document.createElement('div')
-        content.className = 'infographic-content'
+      function renderInfographicContent(content, infographic) {
+        clearChildren(content)
 
-        // Key Insight
-        if (infographic.key_insight) {
+        appendTextBlock(content, 'Key Insight', infographic.key_insight)
+        appendTextBlock(content, 'Problem Solved', infographic.problem_solved)
+
+        if (Array.isArray(infographic.method) && infographic.method.length) {
           const h4 = document.createElement('h4')
-          h4.textContent = '💡 Key Insight'
-          content.appendChild(h4)
-          const p = document.createElement('p')
-          p.textContent = infographic.key_insight
-          content.appendChild(p)
-        }
-
-        // Problem Solved
-        if (infographic.problem_solved) {
-          const h4 = document.createElement('h4')
-          h4.textContent = '🎯 Problem Solved'
-          content.appendChild(h4)
-          const p = document.createElement('p')
-          p.textContent = infographic.problem_solved
-          content.appendChild(p)
-        }
-
-        // Method
-        if (infographic.method && Array.isArray(infographic.method) && infographic.method.length) {
-          const h4 = document.createElement('h4')
-          h4.textContent = '⚙️ Method'
-          content.appendChild(h4)
+          h4.textContent = 'Method'
           const ul = document.createElement('ul')
           for (const item of infographic.method) {
             const li = document.createElement('li')
             li.textContent = item
             ul.appendChild(li)
           }
-          content.appendChild(ul)
+          content.append(h4, ul)
         }
 
-        // Impact
-        if (infographic.impact) {
-          const h4 = document.createElement('h4')
-          h4.textContent = '🚀 Impact'
-          content.appendChild(h4)
-          const p = document.createElement('p')
-          p.textContent = infographic.impact
-          content.appendChild(p)
-        }
+        appendTextBlock(content, 'Impact', infographic.impact)
 
-        // Hashtags
-        if (infographic.hashtags && Array.isArray(infographic.hashtags) && infographic.hashtags.length) {
-          const hashtagsDiv = document.createElement('div')
-          hashtagsDiv.className = 'hashtags'
+        if (Array.isArray(infographic.hashtags) && infographic.hashtags.length) {
+          const hashtags = document.createElement('div')
+          hashtags.className = 'hashtags'
           for (const tag of infographic.hashtags) {
             const span = document.createElement('span')
             span.className = 'hashtag'
             span.textContent = tag
-            hashtagsDiv.appendChild(span)
+            hashtags.appendChild(span)
           }
-          content.appendChild(hashtagsDiv)
+          content.appendChild(hashtags)
         }
+      }
 
-        // Toggle functionality
-        toggle.addEventListener('click', () => {
-          const isExpanded = content.classList.toggle('expanded')
-          toggle.innerHTML = isExpanded
-            ? '▼ <span>Hide AI-Generated Summary</span>'
-            : '▶ <span>View AI-Generated Summary</span>'
+      async function loadInfographic(paperId) {
+        if (infographicCache.has(paperId)) return infographicCache.get(paperId)
+
+        const fileUrl = new URL(`${assetPrefix}infographics/${paperId}_infographic.json`, document.baseURI).toString()
+        const response = await fetch(fileUrl, { cache: 'force-cache' })
+        if (!response.ok) return null
+
+        const infographic = await response.json()
+        infographicCache.set(paperId, infographic)
+        return infographic
+      }
+
+      function createInfographicSection(paperId) {
+        const section = document.createElement('div')
+        section.className = 'infographic'
+
+        const toggle = document.createElement('button')
+        toggle.type = 'button'
+        toggle.className = 'infographic-toggle'
+        toggle.setAttribute('aria-expanded', 'false')
+        toggle.textContent = 'View AI-generated summary'
+
+        const content = document.createElement('div')
+        content.className = 'infographic-content'
+        content.hidden = true
+
+        toggle.addEventListener('click', async () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true'
+          if (expanded) {
+            content.hidden = true
+            toggle.setAttribute('aria-expanded', 'false')
+            toggle.textContent = 'View AI-generated summary'
+            return
+          }
+
+          content.hidden = false
+          toggle.setAttribute('aria-expanded', 'true')
+          toggle.textContent = 'Hide AI-generated summary'
+
+          if (content.dataset.loaded) return
+          content.dataset.loaded = 'true'
+          content.textContent = 'Loading summary...'
+
+          try {
+            const infographic = await loadInfographic(paperId)
+            if (infographic) {
+              renderInfographicContent(content, infographic)
+            } else {
+              content.textContent = 'Summary is not available for this paper yet.'
+            }
+          } catch (error) {
+            console.warn(`Failed to load infographic for ${paperId}`, error)
+            content.textContent = 'Summary could not be loaded.'
+          }
         })
 
-        section.appendChild(toggle)
-        section.appendChild(content)
+        section.append(toggle, content)
         return section
       }
 
-      function render(items) {
-        grid.innerHTML = ''
-        empty.hidden = items.length !== 0
+      function createPaperCard(paper) {
+        const card = document.createElement('article')
+        card.className = 'card'
 
-        for (const paper of items) {
-          const card = document.createElement('div')
-          card.className = 'card'
+        const topline = document.createElement('div')
+        topline.className = 'topline'
 
-          // Top line with chips and score
-          const topline = document.createElement('div')
-          topline.className = 'topline'
+        const chips = document.createElement('div')
+        chips.className = 'chips'
 
-          const chips = document.createElement('div')
-          chips.className = 'chips'
-
-          for (const c of [paper.category, paper.source].filter(Boolean)) {
-            const chip = document.createElement('span')
-            chip.className = 'chip'
-            chip.textContent = c
-            chips.appendChild(chip)
-          }
-
-          const scoreDiv = document.createElement('div')
-          scoreDiv.className = 'score'
-          scoreDiv.textContent = paper.score || '0'
-          scoreDiv.title = 'Relevance score'
-
-          topline.appendChild(chips)
-          topline.appendChild(scoreDiv)
-
-          // Date
-          const dateDiv = document.createElement('div')
-          dateDiv.className = 'date'
-          dateDiv.textContent = paper.date || ''
-          dateDiv.style.marginTop = '8px'
-
-          // Title
-          const title = document.createElement('div')
-          title.className = 'title'
-          title.textContent = paper.title || 'Untitled'
-
-          // Authors
-          const authors = document.createElement('div')
-          authors.className = 'authors'
-          authors.textContent = paper.authors || 'Unknown'
-
-          // Abstract
-          const abstract = document.createElement('div')
-          abstract.className = 'abstract'
-          // Strip HTML tags from abstract (some sources include HTML in RSS feeds)
-          abstract.textContent = stripHtml(paper.abstract || '')
-
-          // Links
-          const links = document.createElement('div')
-          links.className = 'links'
-          if (Array.isArray(paper.links) && paper.links.length) {
-            for (const link of paper.links) {
-              const a = document.createElement('a')
-              a.href = link.url
-              a.textContent = link.title || 'Link'
-              a.target = '_blank'
-              a.rel = 'noreferrer'
-              links.appendChild(a)
-            }
-          }
-
-          card.appendChild(topline)
-          card.appendChild(dateDiv)
-          card.appendChild(title)
-          card.appendChild(authors)
-          if (paper.abstract) card.appendChild(abstract)
-          if (links.children.length) card.appendChild(links)
-
-          // Add infographic if available
-          const infographic = infographicsMap[paper.id]
-          if (infographic) {
-            const infographicSection = createInfographicSection(infographic)
-            card.appendChild(infographicSection)
-          }
-
-          grid.appendChild(card)
+        for (const label of [paper.category, paper.source].filter(Boolean)) {
+          const chip = document.createElement('span')
+          chip.className = 'chip'
+          chip.textContent = label
+          chips.appendChild(chip)
         }
+
+        const score = document.createElement('div')
+        score.className = 'score'
+        score.textContent = paper.score || '0'
+        score.title = 'Relevance score'
+
+        topline.append(chips, score)
+
+        const date = document.createElement('div')
+        date.className = 'date'
+        date.textContent = paper.date || ''
+
+        const title = document.createElement('div')
+        title.className = 'title'
+        title.textContent = paper.title || 'Untitled'
+
+        const authors = document.createElement('div')
+        authors.className = 'authors'
+        authors.textContent = paper.authors || 'Unknown'
+
+        const abstract = document.createElement('div')
+        abstract.className = 'abstract'
+        abstract.textContent = stripHtml(paper.abstract || '')
+
+        const links = document.createElement('div')
+        links.className = 'links'
+        if (Array.isArray(paper.links)) {
+          for (const link of paper.links) {
+            const a = document.createElement('a')
+            a.href = link.url
+            a.textContent = link.title || 'Link'
+            a.target = '_blank'
+            a.rel = 'noreferrer'
+            links.appendChild(a)
+          }
+        }
+
+        card.append(topline, date, title, authors)
+        if (paper.abstract) card.appendChild(abstract)
+        if (links.children.length) card.appendChild(links)
+        if (paper.id) card.appendChild(createInfographicSection(paper.id))
+
+        return card
       }
 
-      function applyFilters(all) {
+      function renderNextBatch(size) {
+        const nextItems = filteredPapers.slice(renderedCount, renderedCount + size)
+        for (const paper of nextItems) {
+          grid.appendChild(createPaperCard(paper))
+        }
+        renderedCount += nextItems.length
+        empty.hidden = filteredPapers.length !== 0
+        setStatus()
+      }
+
+      function applyFilters() {
         const query = q.value.trim().toLowerCase()
         const catValue = cat.value
         const sourceValue = source.value
 
-        const filtered = all.filter((p) => {
+        filteredPapers = allPapers.filter((paper) => {
           const matchQuery =
             !query ||
-            (p.title || '').toLowerCase().includes(query) ||
-            (p.abstract || '').toLowerCase().includes(query) ||
-            (p.authors || '').toLowerCase().includes(query)
+            (paper.title || '').toLowerCase().includes(query) ||
+            (paper.abstract || '').toLowerCase().includes(query) ||
+            (paper.authors || '').toLowerCase().includes(query)
 
-          const matchCat = catValue === 'all' || p.category === catValue
-          const matchSource = sourceValue === 'all' || p.source === sourceValue
-
+          const matchCat = catValue === 'all' || paper.category === catValue
+          const matchSource = sourceValue === 'all' || paper.source === sourceValue
           return matchQuery && matchCat && matchSource
         })
 
-        render(filtered)
+        renderedCount = 0
+        clearChildren(grid)
+        renderNextBatch(INITIAL_BATCH_SIZE)
+      }
+
+      function debounce(fn, delay) {
+        let timer
+        return () => {
+          clearTimeout(timer)
+          timer = setTimeout(fn, delay)
+        }
       }
 
       async function main() {
         try {
-          // Load infographics first
-          await loadInfographics()
+          const response = await fetch(papersUrl, { cache: 'no-store' })
+          const json = await response.json()
+          allPapers = Array.isArray(json) ? json : []
+          filteredPapers = allPapers
 
-          const resp = await fetch(url, { cache: 'no-store' })
-          const json = await resp.json()
-          const all = Array.isArray(json) ? json : []
-
-          // Populate category filter
-          const cats = uniq(all.map((p) => p.category).filter(Boolean)).sort()
-          for (const c of cats) {
-            const o = document.createElement('option')
-            o.value = c
-            o.textContent = c
-            cat.appendChild(o)
+          for (const value of uniq(allPapers.map((paper) => paper.category).filter(Boolean)).sort()) {
+            const option = document.createElement('option')
+            option.value = value
+            option.textContent = value
+            cat.appendChild(option)
           }
 
-          // Populate source filter
-          const sources = uniq(all.map((p) => p.source).filter(Boolean)).sort()
-          for (const s of sources) {
-            const o = document.createElement('option')
-            o.value = s
-            o.textContent = s
-            source.appendChild(o)
+          for (const value of uniq(allPapers.map((paper) => paper.source).filter(Boolean)).sort()) {
+            const option = document.createElement('option')
+            option.value = value
+            option.textContent = value
+            source.appendChild(option)
           }
 
-          // Set up event listeners
-          const onChange = () => applyFilters(all)
-          q.addEventListener('input', onChange)
-          cat.addEventListener('change', onChange)
-          source.addEventListener('change', onChange)
+          q.addEventListener('input', debounce(applyFilters, 150))
+          cat.addEventListener('change', applyFilters)
+          source.addEventListener('change', applyFilters)
+          loadMore.addEventListener('click', () => renderNextBatch(NEXT_BATCH_SIZE))
 
-          applyFilters(all)
-        } catch (e) {
-          console.error(e)
+          renderNextBatch(INITIAL_BATCH_SIZE)
+        } catch (error) {
+          console.error(error)
+          status.textContent = 'Unable to load papers.'
           empty.hidden = false
         }
       }

@@ -1,0 +1,35 @@
+{
+  "key_insight": "Static rubric aggregations mix human importance with optimization utility, which can slow or misdirect learning; dynamically reweighting rubric criteria based on the current policy's learning signal yields more useful rewards and better training behavior.",
+  "problem_solved": "How to turn multi-criterion, rubric-style verifiable checks into effective scalar rewards for RL so that the reward emphasizes criteria that are actually useful for improving the current policy instead of only reflecting fixed human weights.",
+  "method": [
+    "Measure each rubric criterion's usefulness to the current policy (e.g., signal strength, learning progress or gradient relevance) rather than relying solely on fixed human-assigned importance.",
+    "Dynamically reweight rubric components to prioritize criteria that provide stronger, non-redundant optimization signals while retaining verifiability and human priors.",
+    "Integrate the policy-aware weights into the RLVR training loop so reward shaping adapts over time and guides learning toward composite correctness more efficiently."
+  ],
+  "impact": "Practitioners obtain more sample-efficient and robust training when optimizing for multi-criteria behaviors, reducing manual tuning of rubric weights and lowering the chance of reward misdirection or gaming. This enables more reliable alignment of model outputs with complex qualitative requirements.",
+  "visual_elements": [
+    "Side-by-side schematic: static fixed-weight rubric -> stalled learning vs policy-aware dynamic weights -> steady improvement",
+    "Heatmap over training time showing rubric component weights adapting as the policy improves",
+    "Learning curves comparing RLVR with static aggregation vs policy-aware rubric rewards (faster convergence, higher composite score)",
+    "Pipeline diagram: prompt -> per-criterion verifiers -> policy-aware weighting module -> scalar reward -> policy update"
+  ],
+  "hashtags": [
+    "#RLVR",
+    "#RewardShaping",
+    "#PolicyAware",
+    "#AIAlignment",
+    "#ReinforcementLearning"
+  ],
+  "paper_id": "2026-05-19-arxiv-not_every_rubric_teaches_equally_policy_aware_rubric_rewards_for_rlvr",
+  "paper_title": "Not Every Rubric Teaches Equally: Policy-Aware Rubric Rewards for RLVR",
+  "paper_category": "Model",
+  "paper_date": "2026-05-19",
+  "paper_authors": "Utkarsh Tyagi, Xingang Guo, MohammadHossein Rezaei, Daniel George, Anas Mahmoud",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.20164v1"
+    }
+  ],
+  "generated_at": "2026-05-20T05:30:43.314799"
+}

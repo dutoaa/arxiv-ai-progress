@@ -1,0 +1,35 @@
+{
+  "key_insight": "Jointly calibrating risk across the LLM-only and RAG branches (rather than tuning each stage separately) yields better end-to-end utility by more accurately deciding when to answer, escalate to retrieval, or abstain.",
+  "problem_solved": "Reduces unnecessary retrieval calls and miscalibrated cascade behavior by aligning cascade decisions with final utility (accuracy vs retrieval cost vs abstention), so the system only uses costly RAG when it truly improves outcomes.",
+  "method": [
+    "Estimate risk/confidence for the LLM-only answer and for the RAG fallback, producing comparable scores for cascade decision-making.",
+    "Learn a joint calibration / decision policy (thresholds or risk-based rule) that directly optimizes end-to-end utility: correct answer reward, retrieval cost penalty, and abstention cost.",
+    "Validate the calibrated cascade empirically to demonstrate improved accuracy–cost–abstention trade-offs compared with stagewise calibration and always-RAG baselines."
+  ],
+  "impact": "Enables more efficient, reliable deployed LLM systems by cutting unnecessary retrieval costs while maintaining or improving factuality and safe abstention behavior—useful for production RAG pipelines and cost-sensitive applications.",
+  "visual_elements": [
+    "Cascaded pipeline diagram showing LLM-only → decision node (accept/escalate/abstain) → RAG fallback",
+    "Trade-off curve (accuracy vs retrieval cost) comparing joint calibration, per-stage calibration, and always-RAG",
+    "Calibration plot (confidence vs actual accuracy) for both branches before and after joint calibration",
+    "Decision boundary infographic showing regions for accept / escalate / abstain on a 2D risk-score plane"
+  ],
+  "hashtags": [
+    "#BalanceRAG",
+    "#RAG",
+    "#ModelCalibration",
+    "#EfficientLLMs",
+    "#CascadedModels"
+  ],
+  "paper_id": "2026-05-19-arxiv-balancerag_joint_risk_calibration_for_cascaded_retrieval_augmented_generation",
+  "paper_title": "BalanceRAG: Joint Risk Calibration for Cascaded Retrieval-Augmented Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-05-19",
+  "paper_authors": "Zijun Jia, Yuanchang Ye, Sen Jia, Yiyao Qian, Haoning Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.20084v1"
+    }
+  ],
+  "generated_at": "2026-05-20T05:29:34.814318"
+}
