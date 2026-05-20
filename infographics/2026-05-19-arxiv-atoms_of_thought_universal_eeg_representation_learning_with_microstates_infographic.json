@@ -1,24 +1,24 @@
 {
-  "key_insight": "Short-lived, recurrent EEG microstates can be used as compact, interpretable \"atoms\" of brain activity to learn universal, transferable EEG representations that generalize across tasks and subjects.",
-  "problem_solved": "How to obtain compact, task-agnostic EEG representations that are interpretable, robust to noise and inter-subject variability, and suitable for transfer across downstream BCI and neuroimaging tasks.",
+  "key_insight": "Short, recurring EEG scalp patterns called microstates can serve as compact, interpretable, and universal building blocks for representation learning, enabling robust EEG embeddings that transfer across tasks and datasets.",
+  "problem_solved": "Current EEG representations (time/frequency features or raw signals) are noisy, high-dimensional, and often task-specific; the paper addresses the need for a compact, generalizable, and interpretable EEG representation that improves cross-task transfer and downstream performance.",
   "method": [
-    "Segment raw EEG into microstates (recurrent scalp topographies) and extract discrete sequence features (labels, durations, transitions, occurrence frequencies).",
-    "Train a task-agnostic encoder on microstate-derived features using self-/task-agnostic objectives to produce low-dimensional, universal EEG embeddings.",
-    "Demonstrate that these microstate-based embeddings transfer effectively to downstream tasks (e.g., classification, decoding) while being more compact and interpretable than raw/time-frequency inputs."
+    "Extract microstate topographies by segmenting EEG into short quasi-stable scalp maps (e.g., clustering peak topographies).",
+    "Convert EEG into microstate sequences and learn embeddings using self-supervised / contrastive sequence modeling to capture spatial-temporal structure.",
+    "Evaluate learned representations on diverse downstream tasks and datasets to demonstrate robustness, transferability, and efficiency vs. baseline features."
   ],
-  "impact": "Provides ML practitioners a lightweight, interpretable representation for EEG that improves sample-efficiency and cross-task/subject transfer, simplifying model design for BCIs and clinical EEG applications.",
+  "impact": "Provides AI/ML practitioners a low-dimensional, interpretable EEG representation that reduces data and labeling needs, improves transfer across BCI and cognitive tasks, and integrates easily into existing pipelines.",
   "visual_elements": [
-    "Scalp topography icons showing a small set of learned microstate prototypes (color-coded maps).",
-    "Timeline of EEG with segmented microstate labels and durations (showing how continuous signal maps to discrete atoms).",
-    "Embedding scatter (UMAP/t-SNE) visualizing cluster separation of microstate-derived representations across tasks/conditions.",
-    "Pipeline diagram: EEG → microstate extraction → encoder → universal embeddings → downstream tasks (classification/transfer)."
+    "Scalp topography panel showing a few canonical microstate maps (colored head maps).",
+    "Timeline visualization mapping raw EEG to discrete microstate segments (colored blocks over time).",
+    "Pipeline diagram: Microstate extraction → embedding / pretraining → downstream tasks (classification/regression).",
+    "Performance comparison chart (bars or line) showing transfer accuracy or sample-efficiency versus conventional time/frequency and raw-signal baselines."
   ],
   "hashtags": [
     "#EEG",
     "#Microstates",
     "#RepresentationLearning",
-    "#NeuroAI",
-    "#BCI"
+    "#BCI",
+    "#NeuroAI"
   ],
   "paper_id": "2026-05-19-arxiv-atoms_of_thought_universal_eeg_representation_learning_with_microstates",
   "paper_title": "Atoms of Thought: Universal EEG Representation Learning with Microstates",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1145/3746270.3760230"
     }
   ],
-  "generated_at": "2026-05-20T05:31:03.328939"
+  "generated_at": "2026-05-20T08:56:05.845645"
 }

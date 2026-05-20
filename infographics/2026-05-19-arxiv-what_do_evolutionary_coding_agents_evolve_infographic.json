@@ -1,24 +1,24 @@
 {
-  "key_insight": "Performance gains in LLM-driven evolutionary coding agents are not monolithic: the paper shows these gains can come from distinct mechanisms—new algorithmic structure, re-tuning of existing strategies, and low-level implementation optimizations—and offers ways to disentangle them.",
-  "problem_solved": "Clarifies what is actually being evolved by systems that pair large language models with evolutionary search, addressing the ambiguity when progress is reported only by best-task scores (i.e., whether gains reflect genuine algorithmic innovation or superficial/code-level changes).",
+  "key_insight": "Improvements from LLM-driven evolutionary coding agents often come from retuning, recombining, or simplifying existing strategies and exploiting evaluator specifics rather than primarily inventing wholly new algorithms; the paper presents a taxonomy and empirical analysis to distinguish these mechanisms.",
+  "problem_solved": "Clarifies what it means when evolutionary coding agents 'improve' — whether gains reflect true algorithmic discovery, parameter/style retuning, recombination of existing code, or evaluator exploitation — so researchers can correctly interpret results and design better evaluation protocols.",
   "method": [
-    "Analyze LLM + evolutionary search workflows and formalize a diagnostic taxonomy that classifies code changes (e.g., structural/algorithmic changes, hyper-parameter/heuristic retuning, and implementation-level edits).",
-    "Instrument runs with controlled experiments and ablations across representative tasks to measure how different classes of edits contribute to evaluator score improvements.",
-    "Use code and behavior comparisons (diffs, performance traces, replays) to attribute improvements to the identified mechanisms and quantify their prevalence."
+    "Run LLM + evolutionary search across benchmark coding/math/algorithm tasks and collect evolved program populations over generations.",
+    "Classify evolved outputs into outcome categories (novel algorithmic structure, parameter retuning, recombination, bug‑fix/exploit) via code diffs, behavioral tests, and manual inspection.",
+    "Quantify prevalence of each mechanism and validate with ablations and targeted behavioral evaluations to separate genuine innovation from evaluator artifacts."
   ],
-  "impact": "Gives researchers and practitioners concrete diagnostics to interpret improvements from evolutionary coding agents, helping to distinguish true algorithmic discovery from reimplementation or tuning and guiding better design of search, prompts, and evaluators.",
+  "impact": "Helps practitioners interpret progress claims from LLM-driven evolutionary systems, informs design of more robust evaluators and benchmarks, and guides methods that genuinely encourage algorithmic innovation rather than superficial tuning.",
   "visual_elements": [
-    "Evolutionary loop diagram: LLM generates code → mutation/variation → evaluator → selection, annotated with what gets measured at each step.",
-    "Taxonomy chart: categorizing edits into algorithmic-structure, strategy retuning, and implementation optimizations, with short examples for each.",
-    "Before/after code diff + execution trace: side-by-side showing a structural change vs a tuning change and their differing behavioral effects.",
-    "Stacked bar / pie charts: breakdown of contribution of each mechanism to score gains across multiple tasks."
+    "Flow diagram of the LLM + evolutionary loop (generate → mutate → evaluate → select) with callouts for where different mechanisms arise",
+    "Stacked bar chart showing proportion of evolved solutions by category (novel algorithm / retune / recombination / exploit) across tasks",
+    "Before/after code snippets with highlighted diffs to illustrate an example of true structural innovation vs a mere parameter/style change",
+    "Scatter plot of population diversity vs best-score improvement over generations, annotated with points labeled by outcome category"
   ],
   "hashtags": [
     "#EvolutionaryAI",
-    "#CodeGeneration",
-    "#ProgramSynthesis",
-    "#LLMs",
-    "#AIInterpretability"
+    "#CodeLLMs",
+    "#AlgorithmDiscovery",
+    "#Evaluation",
+    "#ExplainableAI"
   ],
   "paper_id": "2026-05-19-arxiv-what_do_evolutionary_coding_agents_evolve",
   "paper_title": "What Do Evolutionary Coding Agents Evolve?",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.20086v1"
     }
   ],
-  "generated_at": "2026-05-20T05:29:45.927889"
+  "generated_at": "2026-05-20T08:55:09.183442"
 }

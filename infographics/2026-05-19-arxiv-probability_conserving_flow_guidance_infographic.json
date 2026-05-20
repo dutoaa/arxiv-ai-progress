@@ -1,24 +1,24 @@
 {
-  "key_insight": "Common guidance heuristics (e.g., CFG) ignore the geometry of the learned generative manifold and break probability conservation; by analyzing guidance through the continuity equation, the paper derives a corrected flow-based guidance that preserves probability mass and keeps samples on the manifold.",
-  "problem_solved": "Heuristic linear combinations of scores/velocities used for conditional guidance drive samples off the learned manifold and violate probability conservation, especially under strong guidance, leading to degraded or unstable synthesis.",
+  "key_insight": "Guidance for diffusion and flow generative models can break probability conservation and push samples off the learned manifold; this paper derives a continuity-equation view and introduces a probability-conserving flow guidance that corrects guidance vector fields to preserve mass and stay on-manifold.",
+  "problem_solved": "Existing guidance heuristics (e.g., Classifier-Free Guidance and extrapolation) ignore generative-manifold geometry and the continuity equation, causing probability leakage and degraded or unstable samples under strong guidance.",
   "method": [
-    "Formulate conditional guidance in terms of the continuity equation to reveal how guidance perturbs probability flow and introduces divergence.",
-    "Derive a probability-conserving correction (a divergence-aware / manifold-aware modification) to standard flow/diffusion guidance that enforces mass conservation.",
-    "Integrate the correction into flow-based guidance pipelines, replacing extrapolative CFG-like operations with geometry-preserving updates."
+    "Analyze guidance through the continuity equation to identify how naive linear combinations of velocities/scores create divergence (probability loss) and manifold drift.",
+    "Derive a correction to the guidance vector field that enforces probability conservation (zero net divergence) so guided dynamics remain consistent with the learned generative distribution.",
+    "Provide a plug-and-play flow-guidance algorithm applicable to flow- and diffusion-based samplers that preserves probability mass with low extra compute and improves robustness at high guidance strengths."
   ],
-  "impact": "Enables stronger, more reliable conditioning in diffusion and flow models without breaking the model's learned distribution—practical for higher-fidelity synthesis and safer, more predictable guided generation.",
+  "impact": "By enforcing probability conservation during guidance, practitioners get more stable, on-manifold controlled sampling and higher-fidelity conditional generation even with strong guidance — usable as a drop-in improvement for diffusion and flow pipelines.",
   "visual_elements": [
-    "Diagram of a generative manifold with vector fields: (a) standard CFG pushing samples off-manifold, (b) probability-conserving flow guidance keeping flows tangent to the manifold.",
-    "Schematic of the continuity equation showing probability density, velocity field, and divergence terms with the corrective term highlighted.",
-    "Before/after sample grids or nearest-neighbour manifold projections illustrating improved fidelity and reduced off-manifold artifacts under strong guidance.",
-    "Heatmap/plot of divergence or probability mass over time comparing heuristic guidance vs. probability-conserving guidance."
+    "Schematic comparing vector fields: (a) standard CFG/extrapolation with divergent arrows leaving manifold, (b) probability-conserving corrected field with arrows flowing along manifold.",
+    "Illustration of the continuity equation: probability density evolution under guidance, showing how divergence creates mass loss and how the correction restores conservation.",
+    "Manifold sketch with sample trajectories: uncorrected guidance that departs from manifold vs corrected guidance that stays on-manifold.",
+    "Metric chart: sample quality / fidelity or stability vs guidance strength, showing reduced degradation when using probability-conserving guidance."
   ],
   "hashtags": [
     "#GenerativeModels",
     "#DiffusionModels",
-    "#FlowGuidance",
-    "#ProbabilityConservation",
-    "#AIResearch"
+    "#FlowModels",
+    "#Guidance",
+    "#ProbabilityConservation"
   ],
   "paper_id": "2026-05-19-arxiv-probability_conserving_flow_guidance",
   "paper_title": "Probability-Conserving Flow Guidance",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.20079v1"
     }
   ],
-  "generated_at": "2026-05-20T05:29:12.702312"
+  "generated_at": "2026-05-20T08:55:00.269819"
 }

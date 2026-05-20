@@ -1,24 +1,24 @@
 {
-  "key_insight": "Combine smaller, cheaper draft trees with retrieval-augmented candidate expansion so speculative decoding keeps high acceptance rates without the VRAM and compute overhead of giant generated draft trees.",
-  "problem_solved": "Large draft trees used to maximize speculative-decoding acceptance rates create severe VRAM bandwidth and compute bottlenecks; dynamic-depth pruning reduces latency but throws away valid candidates and prevents reaching the acceptance-rate upper bound.",
+  "key_insight": "Combine smaller generative draft trees with retrieval-augmented candidate expansion (a hybrid tree) so you 'draft less' but 'retrieve more', preserving high acceptance rates while cutting VRAM bandwidth and compute overhead for speculative decoding.",
+  "problem_solved": "Large, expansive draft trees maximize acceptance but cause severe VRAM bandwidth and computational bottlenecks; dynamic pruning reduces latency but can throw away valid candidates and limit acceptance rate.",
   "method": [
-    "Hybrid tree construction: build a compact generated draft tree and expand it with retrieved candidate continuations, prioritizing high-probability tokens while avoiding exhaustive generation.",
-    "Bandwidth- and acceptance-aware pruning: selectively prune marginal branches using a cost-aware heuristic so marginal branches are removed only when they harm end-to-end throughput, not acceptance.",
-    "Integrate retrieval into the draft-then-verify loop to recover candidate diversity lost by pruning, preserving acceptance rate while reducing VRAM/compute pressure."
+    "Construct a hybrid draft tree that keeps generative branching shallow (draft less) and fills high-quality continuation branches by retrieving candidates from a cache/datastore (retrieve more).",
+    "Apply selective pruning that prioritizes retrieval-backed branches to remove low-value generative branches without discarding likely valid candidates.",
+    "Verify retrieved + drafted candidates with the target model under the speculative decoding accept/reject check, maintaining high acceptance while reducing memory and compute traffic."
   ],
-  "impact": "Enables faster, more resource-efficient LLM inference by achieving high speculative acceptance rates with much lower memory bandwidth and compute cost—beneficial for production deployments and hardware-constrained settings.",
+  "impact": "Delivers higher end-to-end LLM inference throughput with much lower VRAM bandwidth and compute cost, making speculative decoding more practical on constrained hardware and improving latency in production systems.",
   "visual_elements": [
-    "Side-by-side schematic: (a) large generated draft tree vs (b) hybrid tree + retrieval, showing fewer generated nodes but similar accepted outcomes.",
-    "Bar chart: end-to-end latency and VRAM bandwidth for baseline large-tree SD, dynamic-depth pruning, and hybrid method.",
-    "Flow diagram of the speculative-decoding loop: draft (generate + retrieve) → verify → accept/reject, highlighting where retrieval replaces extra generation.",
-    "Line plot: acceptance rate vs generated-draft-size showing hybrid method approaching the acceptance upper bound at much smaller draft sizes."
+    "Hybrid-tree diagram: small generative root with many retrieved branch leaves (labels: 'draft' vs 'retrieved').",
+    "Pipeline flowchart: draft → retrieve → prune → verify, highlighting reduced VRAM/computation at the prune step.",
+    "Bar chart: comparison of throughput, VRAM bandwidth, and acceptance rate for (large-draft tree) vs (hybrid tree).",
+    "Line plot or heatmap: acceptance rate vs tree size/pruning aggressiveness showing hybrid approach near the upper bound with lower resource use."
   ],
   "hashtags": [
     "#SpeculativeDecoding",
     "#LLMInference",
-    "#ModelAcceleration",
     "#RetrievalAugmented",
-    "#HardwareEfficiency"
+    "#ModelAcceleration",
+    "#EfficientAI"
   ],
   "paper_id": "2026-05-19-arxiv-draft_less_retrieve_more_hybrid_tree_construction_for_speculative_decoding",
   "paper_title": "Draft Less, Retrieve More: Hybrid Tree Construction for Speculative Decoding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.20104v1"
     }
   ],
-  "generated_at": "2026-05-20T05:30:09.665453"
+  "generated_at": "2026-05-20T08:55:19.577871"
 }
