@@ -1,0 +1,35 @@
+{
+  "key_insight": "RLVR weight updates lie on an almost one-dimensional trajectory: a rank‑1 approximation of the parameter deltas captures the majority of downstream performance gains, so you can estimate a single direction and extrapolate improvements with minimal RLVR training.",
+  "problem_solved": "Reduces the cost, instability and opacity of full RLVR fine‑tuning by revealing a simple, low‑rank geometric structure that lets practitioners get most benefits from far fewer RL steps.",
+  "method": [
+    "Collect parameter deltas from short RLVR runs and compute a low‑rank decomposition (top singular vector / principal direction).",
+    "Approximate the full trajectory with a rank‑1 direction and a scalar magnitude; use that direction to extrapolate larger effective updates or to apply minimal scalar tuning.",
+    "Validate extrapolated models on downstream reasoning tasks to show rank‑1 captures most performance gains and generalizes across checkpoints."
+  ],
+  "impact": "Enables much cheaper, faster and more interpretable RL‑style improvements for LLMs: estimate one direction from a small RL run and scale it to obtain near‑equivalent gains without extensive RL training. This lowers compute, speeds iteration, and simplifies deployment.",
+  "visual_elements": [
+    "Line/trajectory plot in high‑dimensional parameter space projected to 2D showing long curved path collapsing onto a single straight direction (rank‑1).",
+    "Bar or cumulative energy chart of singular values showing the first singular value dominates (rank‑1) and later values are negligible.",
+    "Performance vs. scale plot showing small RL run → extract direction → extrapolate magnitude → close-to-full RL performance.",
+    "Icon set: stopwatch/compute chip (cost savings), magnifying glass on a line (interpretability), arrow scaling a model (extrapolation)"
+  ],
+  "hashtags": [
+    "#RLVR",
+    "#LLMs",
+    "#EfficientFineTuning",
+    "#LowRank",
+    "#ModelExtrapolation"
+  ],
+  "paper_id": "2026-05-20-arxiv-you_only_need_minimal_rlvr_training_extrapolating_llms_via_rank_1_trajectories",
+  "paper_title": "You Only Need Minimal RLVR Training: Extrapolating LLMs via Rank-1 Trajectories",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-05-20",
+  "paper_authors": "Zhepei Wei, Xinyu Zhu, Wei-Lin Chen, Chengsong Huang, Jiaxin Huang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.21468v1"
+    }
+  ],
+  "generated_at": "2026-05-21T08:57:56.647547"
+}

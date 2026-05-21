@@ -1,0 +1,35 @@
+{
+  "key_insight": "Introduce a training-free evidential memory layer that sits on top of frozen view-conditioned 3D generators to fuse information across a monocular video stream, producing temporally consistent multi-view 3D reconstructions.",
+  "problem_solved": "Per-frame application of single-view 3D generators yields temporally inconsistent (flickering/incoherent) reconstructions when fed long monocular streams; Stream3D resolves this by aggregating evidence over time for stable outputs.",
+  "method": [
+    "Evidential memory: maintain a compact, uncertainty-aware memory that accumulates per-frame evidence about geometry/appearance and tracks confidence over time.",
+    "Memory-conditioned generation: at each incoming frame, combine the current view with the evidential memory to condition a frozen view-conditioned 3D generator, producing temporally coherent reconstructions without retraining.",
+    "Lightweight, sequential updates: update memory with new evidence and uncertainty using principled fusion rules so the pipeline remains training-free and compatible with off-the-shelf generators (e.g., SAM 3D, TRELLIS, Hunyuan3D)."
+  ],
+  "impact": "Enables robust, temporally consistent 3D reconstruction from long monocular streams using existing generators—reducing flicker and improving deployment practicality for robotics, AR/VR, and streaming perception without costly retraining.",
+  "visual_elements": [
+    "Pipeline diagram: monocular stream → evidential memory (update loop) → frozen generator → consistent 3D output",
+    "Before vs. after sequence: side-by-side temporal frames showing per-frame generator outputs (flickery) vs. Stream3D outputs (stable)",
+    "Memory visualization: heatmap/uncertainty map over time illustrating evidence accumulation and confidence evolution",
+    "Architecture icon set: small symbols for 'frozen generator', 'memory module', and 'sequential fusion' to show modularity & training-free nature"
+  ],
+  "hashtags": [
+    "#3DReconstruction",
+    "#TemporalConsistency",
+    "#EvidentialMemory",
+    "#StreamingVision",
+    "#GenerativeAI"
+  ],
+  "paper_id": "2026-05-20-arxiv-stream3d_sequential_multi_view_3d_generation_via_evidential_memory",
+  "paper_title": "Stream3D: Sequential Multi-View 3D Generation via Evidential Memory",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-05-20",
+  "paper_authors": "Kaichen Zhou, Zeyang Bai, Xinhai Chang, Mengyu Wang, Paul Liang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.21472v1"
+    }
+  ],
+  "generated_at": "2026-05-21T08:58:07.670759"
+}

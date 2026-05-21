@@ -1,0 +1,35 @@
+{
+  "key_insight": "CARV (Compute-Aware, Variance-accounting) reduces the expensive Monte Carlo variance coming from frozen diffusion teachers by explicitly measuring where variance arises (across noise levels and samples) and allocating compute hierarchically to those high-variance components, cutting required upstream work.",
+  "problem_solved": "Downstream pipelines that consume gradients from pretrained diffusion teachers (e.g., text-to-3D, single-step distillation, data attribution) rely on Monte Carlo expectations over noise levels and Gaussian samples; estimator variance dominates compute cost because each sample requires expensive upstream rendering/simulation/encoding.",
+  "method": [
+    "Estimate variance contributions across noise levels and Gaussian noise draws to identify where sampling yields the largest estimator variance.",
+    "Allocate a fixed compute budget adaptively and hierarchically—spending more samples where variance is highest and fewer where it is low (compute-aware sampling).",
+    "Combine hierarchical/stratified sampling and variance-reduction constructs (e.g., control variates or correlated estimators) to lower sample complexity per downstream gradient estimate."
+  ],
+  "impact": "Significantly lowers the compute and wall-clock cost of pipelines that rely on frozen diffusion teachers, enabling faster iteration, cheaper model distillation and attribution, and more practical deployment of expensive upstream simulators or renderers.",
+  "visual_elements": [
+    "Pipeline diagram: frozen diffusion teacher → sampling loop → expensive renderer/encoder → downstream consumer (text-to-3D/distillation), with MC samples highlighted.",
+    "Variance heatmap across noise levels (x-axis: noise level, y-axis: variance contribution) showing where variance concentrates.",
+    "Compute-allocation bar chart comparing uniform sampling vs CARV's hierarchical allocation (same budget → lower variance).",
+    "Cost vs accuracy/variance plot showing reduced samples or compute to reach a target variance with CARV."
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#VarianceReduction",
+    "#MonteCarlo",
+    "#EfficientML",
+    "#ModelDistillation"
+  ],
+  "paper_id": "2026-05-20-arxiv-variance_reduction_for_expectations_with_diffusion_teachers",
+  "paper_title": "Variance Reduction for Expectations with Diffusion Teachers",
+  "paper_category": "Model",
+  "paper_date": "2026-05-20",
+  "paper_authors": "Jesse Bettencourt, Xindi Wu, Matan Atzmon, James Lucas, Jonathan Lorraine",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.21489v1"
+    }
+  ],
+  "generated_at": "2026-05-21T08:59:25.769273"
+}

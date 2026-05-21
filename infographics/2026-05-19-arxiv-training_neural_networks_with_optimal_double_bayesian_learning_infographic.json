@@ -1,17 +1,17 @@
 {
-  "key_insight": "Introduce a hierarchical \"double-Bayesian\" learning framework that jointly models network weights and their training hyperparameters, enabling principled, near‑optimal hyperparameter selection and calibrated uncertainty during training.",
-  "problem_solved": "Removes reliance on empirical, manual hyperparameter tuning for gradient‑based neural network training by providing a probabilistic, automated mechanism to choose and adapt hyperparameters while avoiding overfitting and biased outcomes.",
+  "key_insight": "The paper introduces a unified \"double-Bayesian\" framework that jointly models network weights and hyperparameters with nested Bayesian inference, enabling automated, theoretically grounded hyperparameter selection during training.",
+  "problem_solved": "Eliminates much of the empirical trial-and-error in hyperparameter tuning (which drives overfitting and biased outcomes) by providing a principled method to learn optimal hyperparameters alongside model parameters.",
   "method": [
-    "Formulate a hierarchical Bayesian model with priors on model parameters and hyperpriors on hyperparameters (the \"double\" Bayesian level).",
-    "Derive tractable update rules / approximate inference (e.g., variational or amortized inference compatible with backprop) that jointly optimize weights and hyperparameters during training.",
-    "Integrate uncertainty quantification over both parameters and hyperparameters to guide adaptive regularization and early stopping without exhaustive search."
+    "Formulate a hierarchical probabilistic model with a Bayesian posterior over weights and a Bayesian hyperprior over hyperparameters (the “double” Bayesian layer).",
+    "Derive a scalable inference/optimization scheme (e.g., variational inference / EM combined with gradient-based updates) that integrates with backprop to jointly update weights and hyperparameters.",
+    "Implement a practical training algorithm and evaluate it vs. standard tuning strategies to show improved generalization and reduced tuning cost."
   ],
-  "impact": "Makes training more robust and reproducible by automating hyperparameter selection and providing calibrated uncertainty estimates, reducing experiment time and improving generalization for practitioners.",
+  "impact": "Makes training more robust and less dependent on manual tuning; practitioners can expect better generalization with lower compute/time spent on hyperparameter search and easier integration into existing pipelines.",
   "visual_elements": [
-    "Layered diagram showing two Bayesian levels: hyperprior → prior → model weights → predictions (illustrates \"double\" hierarchy).",
-    "Training loop schematic with inner loop (weight updates) and outer loop (hyperparameter posterior updates) connected to backprop.",
-    "Comparison chart: validation loss / generalization gap over epochs — manual tuning vs double‑Bayesian automated tuning.",
-    "Heatmap or posterior distribution visualization of hyperparameters (shows uncertainty and concentration regions)."
+    "Hierarchical diagram (plate notation) showing weights → likelihood and hyperprior → hyperparameters (double-Bayesian structure).",
+    "Training flowchart comparing standard loop + external hyperparameter search (grid/BO) versus integrated double-Bayesian loop.",
+    "Performance chart: validation/generalization error vs. tuning compute (showing lower error and cost for double-Bayesian).",
+    "Icon set: automation (gear), uncertainty (probability cloud), and reduced search (fewer arrows) to convey benefits at a glance."
   ],
   "hashtags": [
     "#BayesianML",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.20009v1"
     }
   ],
-  "generated_at": "2026-05-20T08:54:23.882564"
+  "generated_at": "2026-05-21T09:01:16.439474"
 }
