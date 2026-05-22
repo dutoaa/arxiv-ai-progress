@@ -1,0 +1,35 @@
+{
+  "key_insight": "Augmenting video MLLMs with per-frame learnable camera tokens plus a pose regression module grounds frames in a shared spatial coordinate frame, enabling view-consistent temporal and spatial reasoning with minimal extra supervision.",
+  "problem_solved": "Current multimodal LLMs treat video frames as independent 2D snapshots and lack persistent scene geometry, which hurts cross-frame grounding, spatial reasoning, and view-consistent understanding.",
+  "method": [
+    "Attach a learnable camera token to each video frame to encode viewpoint-specific information alongside visual features.",
+    "Train a lightweight pose regression head (supervised by camera extrinsics or relative transforms) to predict per-frame camera poses and align frames into a shared 3D coordinate frame.",
+    "Fuse the camera tokens and predicted poses into the multimodal LLM pipeline so the model can reason about objects/actions consistently across viewpoints and time."
+  ],
+  "impact": "Provides an efficient, low-cost way to inject explicit spatial structure into video MLLMs, improving temporal grounding, spatial reasoning, and downstream performance (e.g., video QA, tracking) without requiring dense 3D sensors.",
+  "visual_elements": [
+    "Architecture schematic: frames → per-frame camera tokens → pose regressor → multimodal LLM",
+    "Illustration of a shared 3D coordinate frame showing how different camera poses map observations of the same object across frames",
+    "Side-by-side qualitative examples: baseline attention/predictions vs Cambrian-P on the same video sequence",
+    "Quantitative plot: pose estimation error and downstream task metrics (baseline vs Cambrian-P)"
+  ],
+  "hashtags": [
+    "#VideoUnderstanding",
+    "#MultimodalLLM",
+    "#CameraPose",
+    "#SpatialAI",
+    "#CambrianP"
+  ],
+  "paper_id": "2026-05-21-arxiv-cambrian_p_pose_grounded_video_understanding",
+  "paper_title": "Cambrian-P: Pose-Grounded Video Understanding",
+  "paper_category": "Model",
+  "paper_date": "2026-05-21",
+  "paper_authors": "Jihan Yang, Zifan Zhao, Xichen Pan, Shusheng Yang, Junyi Zhang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.22819v1"
+    }
+  ],
+  "generated_at": "2026-05-22T08:50:35.658654"
+}

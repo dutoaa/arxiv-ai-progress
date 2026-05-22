@@ -1,0 +1,35 @@
+{
+  "key_insight": "Optimizing language models with vector-valued reward signals (instead of a single scalar) produces higher-entropy, more diverse policies that improve downstream performance when used inside inference-time search procedures.",
+  "problem_solved": "Standard post-training that optimizes a single scalar reward drives LLMs toward low-entropy, narrowly peaked response distributions, which hurts their ability to supply diverse rollouts needed by search-based inference methods.",
+  "method": [
+    "Train policies using a vector-valued reward objective (Vector Policy Optimization) to preserve multiple task-relevant preferences rather than collapsing them into one scalar.",
+    "Encourage and preserve high-entropy, diverse response distributions during training so the model can generate a wide set of candidate rollouts at test time.",
+    "Use the trained diverse policy inside inference-time search (e.g., AlphaEvolve-style selection over rollouts) so downstream selection can pick best-performing behaviors for varied reward functions."
+  ],
+  "impact": "Provides a practical training paradigm to produce LLMs that are more useful as generators inside search-based inference, improving robustness and adaptability to novel or varying task-specific reward functions.",
+  "visual_elements": [
+    "Side-by-side diagram: scalar reward training → narrow spike output distribution vs. vector reward training → wide multi-modal output distribution",
+    "Pipeline illustration: Vector Po training → diverse rollout pool → inference-time search selects best rollout",
+    "Bar/line chart comparing search-time task performance (or selection success) with scalar-trained vs vector-trained policies",
+    "Icon set: vector/reward grid, entropy symbol, search/magnifying glass, diverse response bubbles"
+  ],
+  "hashtags": [
+    "#VectorPolicyOptimization",
+    "#DiversityInModels",
+    "#MultiObjectiveLearning",
+    "#InferenceTimeSearch",
+    "#LLMGeneralization"
+  ],
+  "paper_id": "2026-05-21-arxiv-vector_policy_optimization_training_for_diversity_improves_test_time_search",
+  "paper_title": "Vector Policy Optimization: Training for Diversity Improves Test-Time Search",
+  "paper_category": "Model",
+  "paper_date": "2026-05-21",
+  "paper_authors": "Ryan Bahlous-Boldi, Isha Puri, Idan Shenfeld, Akarsh Kumar, Mehul Damani",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.22817v1"
+    }
+  ],
+  "generated_at": "2026-05-22T08:50:04.872203"
+}

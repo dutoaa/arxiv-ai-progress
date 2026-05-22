@@ -1,0 +1,35 @@
+{
+  "key_insight": "Tokeniser construction can be cast as a convex (linear) optimisation problem instead of greedy local heuristics; solving this relaxation (ConvexTok) yields vocabularies that improve intrinsic tokenisation metrics and reduce bits‑per‑byte (BpB).",
+  "problem_solved": "Greedy tokenisation algorithms (e.g., BPE, Unigram) make locally optimal splits and merges without a global view, producing suboptimal vocabularies that hurt compression and token efficiency.",
+  "method": [
+    "Formulate vocabulary selection and token assignments as a linear program that captures global tradeoffs across the corpus.",
+    "Relax the discrete selection constraints to a convex problem and solve with standard convex optimisation tools to obtain a continuous solution (ConvexTok).",
+    "Post-process the relaxed solution (rounding/pruning) to produce a discrete tokeniser and evaluate using intrinsic metrics and bits‑per‑byte (BpB)."
+  ],
+  "impact": "ConvexTok provides a principled, globally aware way to build tokenisers that lower BpB and improve tokenisation quality—helpful for model size, training efficiency, multilingual and low‑resource settings.",
+  "visual_elements": [
+    "Side‑by‑side diagram: greedy tokeniser (local decisions) vs ConvexTok (global optimisation) showing different vocab outcomes",
+    "Pipeline flowchart: corpus → LP formulation → convex solver → rounding → tokeniser",
+    "Bar chart or line plot: BpB and intrinsic metric comparisons (ConvexTok vs BPE/Unigram) across datasets",
+    "Heatmap or matrix: soft token assignment weights from the convex relaxation to illustrate global allocation"
+  ],
+  "hashtags": [
+    "#Tokenization",
+    "#ConvexOptimization",
+    "#NLP",
+    "#ModelEfficiency",
+    "#Compression"
+  ],
+  "paper_id": "2026-05-21-arxiv-tokenisation_via_convex_relaxations",
+  "paper_title": "Tokenisation via Convex Relaxations",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-05-21",
+  "paper_authors": "Jan Tempus, Philip Whittington, Craig W. Schmidt, Dennis Komm, Tiago Pimentel",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.22821v1"
+    }
+  ],
+  "generated_at": "2026-05-22T08:50:53.932990"
+}
