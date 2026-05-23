@@ -1,23 +1,23 @@
 {
-  "key_insight": "Many state-of-the-art Video-LLMs are unable to reliably perceive signed image-plane motion (left/right/up/down): their above-chance answers often arise from dataset or prediction biases rather than true motion understanding—an effect the authors call \"directional motion blindness.\"",
-  "problem_solved": "Diagnoses and localizes a basic failure mode in temporal video understanding—signed motion direction—then proposes targeted interventions to detect and reduce this blindness so models truly perceive directional motion.",
+  "key_insight": "Many state-of-the-art Video-LLMs are 'directionally motion blind'—they cannot reliably tell basic signed image-plane motion (left/right/up/down); above‑chance answers often reflect prediction biases, not real motion understanding.",
+  "problem_solved": "Diagnoses and localizes a fundamental failure mode in Video-LLMs—directional motion blindness—then evaluates and proposes practical ways to measure and mitigate it so models truly perceive motion rather than exploit spurious cues.",
   "method": [
-    "Construct controlled, minimal videos of a single object moving in one of four cardinal directions to isolate signed motion cues.",
-    "Systematically evaluate and probe multiple Video-LLMs to trace failure modes and attribute above-chance performance to prediction biases and non-motion cues.",
-    "Introduce corrective interventions (e.g., targeted finetuning/augmentation, explicit motion supervision such as optical-flow-based signals, and prompting strategies) to restore genuine direction perception."
+    "Design a controlled benchmark of simple single-object videos moving in cardinal directions to isolate signed image-plane motion.",
+    "Evaluate diverse Video-LLMs, quantify performance vs. chance, and analyze error patterns and prediction biases (e.g., confusion matrices).",
+    "Trace motion signals inside model processing to localize the failure and test mitigation strategies (e.g., motion-aware finetuning, data augmentations, optical-flow or frame-differencing inputs, and prompt/response calibration)."
   ],
-  "impact": "Fixing directional motion blindness improves core temporal perception in Video-LLMs, increasing reliability for downstream tasks that depend on true motion understanding (e.g., robotics, video QA, surveillance) and raising the bar for robust evaluation.",
+  "impact": "Exposes a low-level perceptual blind spot that undermines temporal reasoning in Video-LLMs; fixing it improves reliability for downstream video tasks, evaluation rigor, and safety-critical applications that depend on accurate motion perception.",
   "visual_elements": [
-    "A 2x2 grid of minimal example videos (or frame sequences) with overlaid arrows indicating ground-truth motion directions (left/right/up/down).",
-    "Confusion matrix comparing model predictions vs. true directions to highlight chance-level performance and systematic biases.",
-    "Side-by-side attention/feature-map or optical-flow visualizations showing where models attend before and after mitigation.",
-    "Bar chart showing performance (accuracy) across models and the improvement after proposed interventions (augmentation/finetuning)."
+    "4-panel demo: simple synthetic clips of a single object moving left/right/up/down (clear, labeled arrows).",
+    "Bar chart or violin plot showing model accuracies near chance and variance across models.",
+    "Confusion matrices highlighting directional biases (e.g., frequent mispredictions toward one direction).",
+    "Before/after comparison: attention/flow overlays or accuracy gains after applying mitigation (e.g., optical-flow input or finetuning)."
   ],
   "hashtags": [
-    "#VideoLLM",
+    "#VideoLLMs",
     "#MotionPerception",
     "#ModelEvaluation",
-    "#RobustAI",
+    "#Robustness",
     "#ComputerVision"
   ],
   "paper_id": "2026-05-21-arxiv-which_way_did_it_move_diagnosing_and_overcoming_directional_motion_blindness_in",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22823v1"
     }
   ],
-  "generated_at": "2026-05-22T08:51:08.883877"
+  "generated_at": "2026-05-23T08:08:38.574500"
 }

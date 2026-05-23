@@ -1,24 +1,24 @@
 {
-  "key_insight": "MOSS enables deployed autonomous agents to evolve by rewriting their own source-level harness (code) rather than only mutable text artifacts, allowing fixes to routing, hooks, and state invariants that previously required human updates.",
-  "problem_solved": "Deployed agent systems are largely static and cannot fix recurring code-level failures (routing, hook ordering, state invariants); prior self-evolution work only changed text artifacts, leaving the harness unchanged and failures persistent until manual intervention.",
+  "key_insight": "MOSS enables autonomous agents to evolve by rewriting their actual source harness (routing, hooks, dispatch, invariants) rather than only text-mutable artifacts, allowing agents to fix structural failures post-deployment autonomously and safely.",
+  "problem_solved": "Deployed agentic systems remain largely static and rely on human updates; prior self-evolution methods only modify prompts/skills, leaving code-level logic and routing bugs unaddressed—MOSS fills this gap by enabling safe source-level self-modification.",
   "method": [
-    "Runtime monitoring and failure/behavior detection to identify actionable code-level issues in the agent harness.",
-    "Automated synthesis and source-level rewriting of harness code (routing, hooks, state management) to produce candidate patches.",
-    "Automated validation (unit/regression tests, sandboxed rollout, rollback) to ensure safety and preserve invariants before deployment."
+    "Automated source-level rewriting: synthesize and apply targeted code patches to the agent harness (routing, hook ordering, state invariants) rather than only text artifacts.",
+    "Safety-first validation: run unit/behavioral regression tests and sandboxed executions with provenance, versioning, and rollback before promoting patches to production.",
+    "Closed-loop monitoring and selection: detect recurrent failures at runtime, propose candidate rewrites, validate them automatically, and iterate with human-in-the-loop oversight as needed."
   ],
-  "impact": "Permits continuous self-maintenance of agent fleets, reducing human-driven patch cycles and improving reliability and adaptability in production; requires robust validation and safety guardrails to be practical.",
+  "impact": "This approach lets ML/AI teams ship agents that self-correct structural bugs and adapt without frequent human intervention, improving uptime and reducing maintenance cycles while enforcing safety and traceability.",
   "visual_elements": [
-    "Closed-loop pipeline diagram: Observe → Generate patch (synthesis) → Rewrite source → Test & sandbox → Deploy/Rollback",
-    "Before vs after code-diff snapshot showing a harness fix (e.g., hook ordering or routing change)",
-    "Flowchart highlighting where text-artifact evolution ends and source-level rewriting begins",
-    "Line chart showing reduction in recurring failures/incidents over time after self-evolution rollout"
+    "Before/after code diff highlighting a rewritten routing/hook function to show the concrete change at source level.",
+    "Closed-loop pipeline diagram: detection → synthesis (rewrite) → sandbox validation → rollout/rollback.",
+    "Safety dashboard mockup showing tests passed, provenance metadata, and version history for applied patches.",
+    "Bar chart comparing failure recurrence and mean-time-to-fix for static agents vs. MOSS-enabled self-evolving agents."
   ],
   "hashtags": [
+    "#SelfEvolvingAgents",
     "#AutonomousAgents",
-    "#SelfEvolution",
     "#SourceCodeRewriting",
     "#ProgramSynthesis",
-    "#RuntimePatching"
+    "#AISafety"
   ],
   "paper_id": "2026-05-21-arxiv-moss_self_evolution_through_source_level_rewriting_in_autonomous_agent_systems",
   "paper_title": "MOSS: Self-Evolution through Source-Level Rewriting in Autonomous Agent Systems",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22794v1"
     }
   ],
-  "generated_at": "2026-05-22T08:48:55.305603"
+  "generated_at": "2026-05-23T08:06:44.254782"
 }

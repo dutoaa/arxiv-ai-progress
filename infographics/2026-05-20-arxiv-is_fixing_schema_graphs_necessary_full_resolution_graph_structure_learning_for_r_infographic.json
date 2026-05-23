@@ -1,24 +1,24 @@
 {
-  "key_insight": "Fixed, hand-crafted schema graphs are not required for effective relational deep learning — learning full-resolution graph structure end-to-end from the data preserves relational semantics while yielding better adaptability and performance.",
-  "problem_solved": "Removes reliance on brittle, manually designed schema graphs for relational databases by enabling automatic discovery of high-fidelity graph structure that retains full-resolution entities and relations.",
+  "key_insight": "Fixed schema graphs are not necessary: learning full-resolution (tuple-level) graph structure end-to-end yields more accurate and robust relational representations than relying on a single fixed schema-derived graph.",
+  "problem_solved": "Relational Deep Learning often depends on a fixed graph built from database schema (the full-resolution principle), which can be suboptimal, brittle to schema design, and unable to capture latent tuple-level relations needed for accurate relational prediction.",
   "method": [
-    "Represent the relational database at full resolution (individual tuples/attributes as graph nodes) rather than compressing by schema-level shortcuts.",
-    "Learn the graph adjacency/edge weights jointly with a GNN in an end-to-end differentiable manner, using sparsity and relational consistency regularizers to keep semantics.",
-    "Train the structure learner and GNN together for downstream relational prediction tasks, enabling the model to adapt structure to data noise and task signal."
+    "Perform graph-structure learning at full resolution (tuple/node level) by scoring and learning edges during GNN training rather than using a fixed schema graph.",
+    "Introduce schema-aware inductive biases and regularizers (e.g., sparsity, block priors) to preserve relational semantics while allowing discovery of missing/latent links.",
+    "Integrate the learned structure end-to-end with relational GNNs using efficient parameterizations and sampling to keep training scalable on real RDBs."
   ],
-  "impact": "Makes relational deep learning more robust, less manual, and better suited to real-world, messy RDBs — reducing engineering effort and improving generalization across schemas and datasets.",
+  "impact": "Reduces manual graph engineering and sensitivity to schema choices, improving accuracy and robustness on relational prediction tasks; practical for ML teams working directly on relational databases who want end-to-end, data-driven graph construction.",
   "visual_elements": [
-    "Before/after diagram: hand-crafted schema graph vs. learned full-resolution graph (nodes = tuples/attributes).",
-    "Pipeline flowchart: RDB → full-resolution graph construction → differentiable structure learner + GNN → prediction.",
-    "Bar chart or table: performance comparison (fixed-schema methods vs. learned-structure) on key relational tasks.",
-    "Adjacency heatmap or edge-weight visualization showing how the learned structure differs from the original schema."
+    "Side-by-side diagram: fixed schema graph (static edges) vs learned full-resolution graph (dynamic, weighted edges between tuples).",
+    "Pipeline flowchart: RDB -> tuple nodes -> edge scoring module -> learned graph -> relational GNN -> predictions.",
+    "Bar/line chart: performance comparison (accuracy/AUC) of fixed-schema baselines vs full-resolution graph-structure learning across tasks/datasets.",
+    "Schematic illustrating constraints: icons for sparsity, schema priors, and scalability (e.g., sampled mini-batches) to show practical training considerations."
   ],
   "hashtags": [
-    "#RelationalDeepLearning",
     "#GraphStructureLearning",
+    "#RelationalDeepLearning",
     "#GraphNeuralNetworks",
-    "#AutoML",
-    "#Databases"
+    "#Databases",
+    "#AutoGraph"
   ],
   "paper_id": "2026-05-20-arxiv-is_fixing_schema_graphs_necessary_full_resolution_graph_structure_learning_for_r",
   "paper_title": "Is Fixing Schema Graphs Necessary? Full-Resolution Graph Structure Learning for Relational Deep Learning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.21475v1"
     }
   ],
-  "generated_at": "2026-05-22T08:53:11.930300"
+  "generated_at": "2026-05-23T08:09:24.238862"
 }

@@ -1,0 +1,35 @@
+{
+  "key_insight": "DeltaBox reduces checkpoint/rollback (C/R) latency from hundreds of milliseconds or seconds to the millisecond range by storing and applying only the incremental changes to a sandboxed agent state rather than duplicating the entire state each time.",
+  "problem_solved": "High-frequency state exploration for LLM-powered agents (e.g., test-time tree search, RL) is bottlenecked by slow full-state checkpoint/rollback, limiting search depth, parallelism, and throughput.",
+  "method": [
+    "Incremental/delta checkpointing: capture only page- or object-level differences between successive checkpoints to avoid full-state duplication.",
+    "Copy-on-write and overlayed sandboxing: use overlays for files and memory to materialize changes lazily and enable instant metadata swaps for rollback.",
+    "Lightweight process-state capture and replay: track and restore essential runtime context (memory pages, open descriptors, interpreter state) with minimal serialization overhead."
+  ],
+  "impact": "By cutting C/R latency to milliseconds, DeltaBox enables much deeper and wider state exploration, dramatically increasing search throughput and scalability for stateful LLM agents in RL, planning, and concurrent fan-out use cases.",
+  "visual_elements": [
+    "Latency bar chart: 'Full duplication' vs 'DeltaBox' showing ms vs 100s ms–s C/R times.",
+    "Architecture diagram: sandbox layers (file overlay, memory diffs, process context) and fast rollback flow.",
+    "Sequence diagram: repeated checkpointing during tree search showing small deltas accumulating and fast rollback to prior nodes.",
+    "Scalability heatmap: number of parallel rollbacks / search breadth enabled at different C/R latency values."
+  ],
+  "hashtags": [
+    "#AIagents",
+    "#Checkpointing",
+    "#LLM",
+    "#ReinforcementLearning",
+    "#SystemsML"
+  ],
+  "paper_id": "2026-05-21-arxiv-deltabox_scaling_stateful_ai_agents_with_millisecond_level_sandbox_checkpoint_ro",
+  "paper_title": "DeltaBox: Scaling Stateful AI Agents with Millisecond-Level Sandbox Checkpoint/Rollback",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-05-21",
+  "paper_authors": "Yunpeng Dong, Jingkai He, Yuze Hou, Dong Du, Zhonghu Xu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.22781v1"
+    }
+  ],
+  "generated_at": "2026-05-23T08:06:05.483533"
+}

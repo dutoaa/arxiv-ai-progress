@@ -1,0 +1,35 @@
+{
+  "key_insight": "FAME introduces a failure-aware mixture-of-experts that performs message-level log anomaly detection, letting the model disambiguate event templates that occur in both normal and faulty contexts and handle heterogeneous failure modes in large-scale systems.",
+  "problem_solved": "Most log anomaly detectors operate at session/window granularity and force operators to sift through many routine lines; this work pinpoints the exact anomalous message line within logs, reducing noise and accelerating triage.",
+  "method": [
+    "Message-level modeling: operate directly on individual log lines (templates + context) instead of coarse sessions or windows.",
+    "Mixture-of-Experts architecture: allocate specialized experts to capture diverse failure patterns and subsystem heterogeneity.",
+    "Failure-aware routing/loss: bias gating and training signals toward separating normal vs. failure usages of the same template, enabling accurate localization of anomalies at line level."
+  ],
+  "impact": "Finer-grained alerts reduce false positives and triage time for SREs/engineers, improving operational observability and enabling faster root-cause identification in production environments.",
+  "visual_elements": [
+    "Architecture diagram: MoE backbone with gating network and failure-aware loss, showing routing of ambiguous templates to different experts.",
+    "Before vs After comparison: session/window-level alert (many lines flagged) vs message-level highlight (single anomalous line highlighted).",
+    "Example log snippet: real log lines with color-coded anomaly scores and the selected expert for each anomalous line.",
+    "Metric sketch: conceptual chart showing reduced operator inspection time / false positive rate (no numeric claims required)."
+  ],
+  "hashtags": [
+    "#AnomalyDetection",
+    "#MixtureOfExperts",
+    "#LogAnalysis",
+    "#Observability",
+    "#MLOps"
+  ],
+  "paper_id": "2026-05-21-arxiv-fame_failure_aware_mixture_of_experts_for_message_level_log_anomaly_detection",
+  "paper_title": "FAME: Failure-Aware Mixture-of-Experts for Message-Level Log Anomaly Detection",
+  "paper_category": "Model",
+  "paper_date": "2026-05-21",
+  "paper_authors": "Huanchi Wang, Zihang Huang, Yifang Tian, Kristina Dzeparoska, Hans-Arno Jacobsen",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.22779v1"
+    }
+  ],
+  "generated_at": "2026-05-23T08:05:56.123996"
+}

@@ -1,17 +1,17 @@
 {
-  "key_insight": "MotiMotion reframes motion-controlled image-to-video generation as a reasoning-then-generation task: a visual-reasoning stage infers causal and commonsense consequences from sparse or imprecise user trajectories, then a generator synthesizes videos that reflect both intent and inferred secondary effects.",
-  "problem_solved": "User-provided motion controls are often sparse, imprecise, and causally incomplete, producing unnatural or implausible videos by missing secondary consequences of motion.",
+  "key_insight": "Reframe motion-controlled image-to-video generation as a two-stage reasoning-then-generation problem so the system infers missing causal consequences of sparse/imprecise user trajectories before synthesizing video, yielding more natural and commonsense-consistent motion.",
+  "problem_solved": "Existing motion-conditioned video models rigidly follow sparse or imprecise user trajectories and therefore produce unnatural or implausible outcomes by missing secondary causal effects and commonsense interactions.",
   "method": [
-    "Two-stage pipeline: a visual-reasoning module expands and completes sparse user trajectories by predicting causal, commonsense-consistent motion effects and secondary interactions.",
-    "Generation stage conditions on the reasoned motion plan to synthesize videos that align with user intent while incorporating inferred consequences for more plausible dynamics.",
-    "Training with paired video data and causality-aware objectives (e.g., synthetic perturbations, consistency losses, and multimodal supervision) to learn robust reasoning and faithful synthesis."
+    "Learn a visual-reasoning module that takes a static image + sparse trajectory and predicts completed motion, secondary causal outcomes, and commonsense constraints.",
+    "Feed the reasoning output into a motion-conditioned video generator to synthesize temporally coherent frames that respect both user intent and inferred causal consequences.",
+    "Train end-to-end with objectives that align reasoning and generation (e.g., reconstruction, perceptual/consistency losses and commonsense/causal regularizers) to reduce implausible artifacts."
   ],
-  "impact": "Improves realism and robustness of motion-controlled video synthesis, making interactive content creation, animation, and simulation more reliable with minimal user input. Reduces manual tuning of trajectories and better captures secondary/causal effects.",
+  "impact": "Enables practitioners to produce more realistic, controllable videos from minimal motion inputs and reduces failure modes caused by imprecise guidance—useful for animation, AR/VR, and content creation pipelines where natural interactions and secondary effects matter.",
   "visual_elements": [
-    "Pipeline diagram showing two stages: Visual Reasoning (expand/complete trajectories) → Generation (conditioned video synthesis).",
-    "Before/after side-by-side video frames: naive trajectory-following vs. MotiMotion (shows corrected secondary motion and interactions).",
-    "Causal-graph / trajectory overlay illustrating inferred secondary consequences (e.g., object interactions, induced motion).",
-    "Bar/line chart or ablation table showing improvements in realism metrics and user-preference scores across baselines."
+    "Pipeline diagram: 'Input image + sparse trajectory' → 'Visual reasoning (trajectory completion + causal inference)' → 'Motion-conditioned video generator' → 'Output video'.",
+    "Before/after examples: left column shows rigid-following artifacts from sparse input; right column shows corrected, commonsense-consistent outputs from MotiMotion.",
+    "Causal-flow overlay: simple graph or arrows showing primary motion and inferred secondary effects (e.g., object collision, cloth/tail/secondary motion).",
+    "Motion field / optical-flow visualization and attention maps to illustrate where the model infers additional motion and why."
   ],
   "hashtags": [
     "#VideoGeneration",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22818v1"
     }
   ],
-  "generated_at": "2026-05-22T08:50:21.326647"
+  "generated_at": "2026-05-23T08:07:57.617740"
 }

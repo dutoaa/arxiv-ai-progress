@@ -1,24 +1,24 @@
 {
-  "key_insight": "Augmenting video MLLMs with per-frame learnable camera tokens plus a pose regression module grounds frames in a shared spatial coordinate frame, enabling view-consistent temporal and spatial reasoning with minimal extra supervision.",
-  "problem_solved": "Current multimodal LLMs treat video frames as independent 2D snapshots and lack persistent scene geometry, which hurts cross-frame grounding, spatial reasoning, and view-consistent understanding.",
+  "key_insight": "Augmenting video MLLMs with per-frame learnable camera tokens and a lightweight pose regression head grounds frames in a shared 3D coordinate frame, enabling consistent, view-aware video understanding across time and viewpoints.",
+  "problem_solved": "Current video multimodal LLMs treat frames as independent 2D images and lack camera-pose awareness, causing failures in spatial consistency, view-dependent reasoning, and long-range object permanence.",
   "method": [
-    "Attach a learnable camera token to each video frame to encode viewpoint-specific information alongside visual features.",
-    "Train a lightweight pose regression head (supervised by camera extrinsics or relative transforms) to predict per-frame camera poses and align frames into a shared 3D coordinate frame.",
-    "Fuse the camera tokens and predicted poses into the multimodal LLM pipeline so the model can reason about objects/actions consistently across viewpoints and time."
+    "Introduce per-frame learnable camera tokens that represent each view and are tied to a shared scene coordinate frame.",
+    "Add a lightweight pose regression head trained with pose supervision to predict per-frame camera pose and condition multimodal transformer features.",
+    "Fuse pose-conditioned tokens into the existing video MLLM pipeline so the model learns view-aware, temporally consistent representations for downstream tasks."
   ],
-  "impact": "Provides an efficient, low-cost way to inject explicit spatial structure into video MLLMs, improving temporal grounding, spatial reasoning, and downstream performance (e.g., video QA, tracking) without requiring dense 3D sensors.",
+  "impact": "Provides a low-cost way to make video MLLMs 3D-aware, improving performance on view-dependent QA, localization and tracking while remaining compatible with existing transformer-based multimodal stacks—useful for robotics, AR, and scalable video understanding.",
   "visual_elements": [
-    "Architecture schematic: frames → per-frame camera tokens → pose regressor → multimodal LLM",
-    "Illustration of a shared 3D coordinate frame showing how different camera poses map observations of the same object across frames",
-    "Side-by-side qualitative examples: baseline attention/predictions vs Cambrian-P on the same video sequence",
-    "Quantitative plot: pose estimation error and downstream task metrics (baseline vs Cambrian-P)"
+    "Architecture diagram: video frames → per-frame camera tokens → pose regressor → pose-conditioned transformer",
+    "Scene illustration: multiple camera viewpoints with arrows showing a shared 3D coordinate frame and how tokens anchor frames to it",
+    "Qualitative examples: same object/scene from different angles with consistent model outputs (e.g., QA or tracking)",
+    "Performance chart: accuracy/consistency gains vs baseline MLLMs on view-dependent tasks"
   ],
   "hashtags": [
-    "#VideoUnderstanding",
-    "#MultimodalLLM",
-    "#CameraPose",
-    "#SpatialAI",
-    "#CambrianP"
+    "#PoseGrounding",
+    "#VideoMLLM",
+    "#3DVision",
+    "#MultimodalAI",
+    "#ViewpointAware"
   ],
   "paper_id": "2026-05-21-arxiv-cambrian_p_pose_grounded_video_understanding",
   "paper_title": "Cambrian-P: Pose-Grounded Video Understanding",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22819v1"
     }
   ],
-  "generated_at": "2026-05-22T08:50:35.658654"
+  "generated_at": "2026-05-23T08:08:12.371695"
 }
