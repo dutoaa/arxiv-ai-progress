@@ -1,24 +1,24 @@
 {
-  "key_insight": "Training policies to optimize a vector of reward signals (rather than a single scalar) preserves behavioural diversity, which significantly improves performance when models are later used inside inference-time search procedures that select among many rollouts.",
-  "problem_solved": "Standard post‑training that optimizes a single scalar reward collapses model outputs to low-entropy modes, reducing the variety of behaviors needed by search-based inference (e.g., AlphaEvolve) that relies on diverse candidate rollouts evaluated by different task-specific rewards.",
+  "key_insight": "Optimizing policies with vector-valued (multi-objective) rewards preserves response diversity in LLMs, producing a portfolio of behaviors that substantially improves the effectiveness of test-time search procedures like AlphaEvolve.",
+  "problem_solved": "Standard post-training that optimizes a single scalar reward drives LLMs toward low-entropy, homogenous outputs, making them ill-suited to provide the diverse rollouts inference-time search needs to succeed in novel tasks and environments.",
   "method": [
-    "Replace scalar-reward objectives with a vectorized reward optimization that treats multiple reward axes jointly, encouraging the model to represent a range of high-value behaviors.",
-    "Include diversity-preserving regularizers or objectives (e.g., entropy encouragement across reward dimensions or multi‑objective policy updates) so the trained policy yields varied rollouts at test time.",
-    "Integrate the vector-policy model into inference-time search pipelines to show that a richer candidate pool leads to better downstream selection under varied task-specific rewards."
+    "Replace a single scalar reward with a vector-valued reward signal that captures multiple task-relevant objectives or preferences.",
+    "Apply vector/multi-objective policy optimization (with diversity-encouraging regularization or latent conditioning) to train a model that yields a broad, high-entropy set of high-quality behaviors.",
+    "At inference, generate diverse rollouts from the trained model and feed them to a search/selection procedure (e.g., AlphaEvolve) which selects rollouts per task-specific reward, improving downstream performance."
   ],
-  "impact": "Practitioners can train models that retain useful behavioral diversity, making them more adaptable and robust when paired with search-based inference methods — reducing the need to retrain for every new reward during deployment.",
+  "impact": "By training for diversity rather than a single optimum, practitioners get LLMs that are better building blocks for inference-time search—improving robustness and performance on novel tasks and enabling more effective inference-scaling methods.",
   "visual_elements": [
-    "Diagram comparing scalar-reward training (collapsing to one mode) vs vector-reward training (spread of behaviors across multiple axes).",
-    "Pipeline sketch showing: vector-policy training -> diverse rollouts -> inference-time search (selector) -> final output.",
-    "Heatmap or scatter plot illustrating coverage of reward space by rollouts from scalar-trained vs vector-trained models.",
-    "Icon set: policy/network, multi-dimensional reward vector, search/magnifying glass, diversity/entropy symbol."
+    "Side-by-side schematic: scalar-reward training (narrow cone of outputs) vs. vector-reward training (broad fan/portfolio of outputs).",
+    "Pipeline diagram: Vector Policy Optimization -> Diverse rollouts -> Inference-time search (AlphaEvolve) -> Selected best rollout.",
+    "Chart: diversity (entropy) and downstream search performance comparison between scalar-trained and vector-trained models.",
+    "Icon set: a multi-dimensional reward vector, a neural policy, and a magnifying glass selecting top rollouts (to represent search/selection)."
   ],
   "hashtags": [
-    "#VectorPolicy",
-    "#DiversityInAI",
+    "#VectorPolicyOptimization",
+    "#DiversityInML",
     "#InferenceScaling",
     "#MultiObjectiveRL",
-    "#LLMTraining"
+    "#LLMSearch"
   ],
   "paper_id": "2026-05-21-arxiv-vector_policy_optimization_training_for_diversity_improves_test_time_search",
   "paper_title": "Vector Policy Optimization: Training for Diversity Improves Test-Time Search",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22817v1"
     }
   ],
-  "generated_at": "2026-05-23T08:07:45.557052"
+  "generated_at": "2026-05-24T08:17:03.621669"
 }

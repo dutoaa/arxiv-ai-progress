@@ -1,24 +1,24 @@
 {
-  "key_insight": "A learned cross-embodiment sensor-conversion model translates large-scale, in-the-wild video (e.g., dashcams) into the sensor modalities and configurations used by autonomous vehicle fleets, enabling reuse of diverse real-world data for ADS training and validation.",
-  "problem_solved": "Addresses the data scarcity and domain-mismatch between proprietary AV fleet sensors and abundant but unstructured in-the-wild footage — unlocking long-tail, geographic, and behavioral diversity for autonomous driving systems without requiring massive new fleet collection.",
+  "key_insight": "Sensor2Sensor learns to convert unstructured, in-the-wild sensor streams (e.g., dashcam video) into the sensor modalities and viewpoints used by production AV fleets, enabling large-scale, diverse training data without needing new fleet drives.",
+  "problem_solved": "Bridges the data gap between limited, proprietary AV fleet sensors and abundant but off-embodiment in-the-wild sources, addressing scarcity of diverse sensor configurations, geographic coverage, and long-tail scenarios for ADS training and validation.",
   "method": [
-    "Train a neural conversion model that maps observations across sensor modalities and vehicle embodiments (e.g., dashcam → multi-camera/LiDAR-like outputs), preserving geometric and semantic consistency.",
-    "Combine geometry-aware modules with cross-modal consistency objectives and adversarial/domain-adaptation losses so converted outputs are realistic and usable by downstream ADS pipelines.",
-    "Leverage a mix of limited paired fleet data and large-scale unpaired in-the-wild video using cycle/consistency and self-supervised signals to generalize across viewpoints, cameras, and vehicles."
+    "Train a geometry- and sensor-aware neural conversion model to synthesize target AV sensor outputs from in-the-wild inputs (cross-embodiment sensor translation).",
+    "Combine self-supervised consistency, perceptual/reconstruction losses, and domain-adaptation/adversarial objectives to align appearance, viewpoint, and sensor characteristics.",
+    "Validate usefulness via downstream perception tasks (e.g., detection/segmentation) and by mixing synthesized data with fleet data for robust model training."
   ],
-  "impact": "Makes abundant dashcam and in-the-wild data practical for improving ADS robustness, coverage of long-tail events, and validation, reducing dependence on costly fleet data collection and accelerating model generalization.",
+  "impact": "Enables practitioners to massively expand and diversify ADS training sets using cheap, widely available footage, improving robustness to rare events and unseen environments while reducing dependence on expensive fleet collection.",
   "visual_elements": [
-    "Pipeline diagram: source in-the-wild dashcam input → sensor-conversion network → target fleet sensor outputs (multi-camera / synthetic LiDAR), annotated with training signals (paired/unpaired, consistency losses).",
-    "Before/after example panels: raw dashcam frame vs. converted multi-view images / depth or LiDAR-lookpoint visualization to show fidelity and preserved semantics.",
-    "Dataset coverage map or icon grid: scale + diversity of dashcam sources (regions, weather, long-tail scenarios) contrasted with limited fleet coverage.",
-    "Bar/line chart: downstream task improvements (e.g., detection / segmentation / mapping) when training on converted data vs. baseline."
+    "Pipeline diagram showing dashcam input -> conversion network -> synthesized AV sensor outputs -> downstream perception model",
+    "Before/after examples: raw dashcam frame vs. synthesized camera/lidar/radar views from AV embodiment",
+    "Bar chart comparing detection/segmentation performance when training with fleet-only data vs. fleet + synthesized data",
+    "World map or heatmap illustrating expanded geographic/behavioral coverage after adding in-the-wild sources"
   ],
   "hashtags": [
     "#AutonomousDriving",
-    "#SensorConversion",
-    "#DomainAdaptation",
-    "#EmbodiedAI",
-    "#SyntheticData"
+    "#DataAugmentation",
+    "#SensorSynthesis",
+    "#Sim2Real",
+    "#ComputerVision"
   ],
   "paper_id": "2026-05-21-arxiv-sensor2sensor_cross_embodiment_sensor_conversion_for_autonomous_driving",
   "paper_title": "Sensor2Sensor: Cross-Embodiment Sensor Conversion for Autonomous Driving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22809v1"
     }
   ],
-  "generated_at": "2026-05-23T08:06:58.426481"
+  "generated_at": "2026-05-24T08:16:34.572848"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "LCGuard is a lightweight latent communication guard that selectively sanitizes transformer KV-cache sharing between agents, preserving task-relevant signals while preventing leakage of contextual, intermediate, or agent-specific information.",
-  "problem_solved": "Enables safe latent (KV) communication in LLM-based multi-agent systems by addressing the risk that shared KV caches leak sensitive contextual inputs and opaque internal reasoning states, for which no practical control mechanism previously existed.",
+  "key_insight": "LCGuard introduces a lightweight safeguard that sanitizes transformer key-value (KV) caches used for latent communication so agents can share rich intermediate signals without leaking contextual or agent-specific private information.",
+  "problem_solved": "KV-based latent communication in LLM multi-agent systems can expose contextual inputs, intermediate reasoning states, and agent identity—existing defenses target natural-language channels and do not protect these opaque latent vectors.",
   "method": [
-    "Policy-aware KV filtering: operate directly on transformer key/value caches to mask or suppress components likely to reveal private or irrelevant information while retaining task-critical content.",
-    "Learned gating with utility-leakage trade-off: train a lightweight plug-in module (with regularizers or auxiliary discriminators) that optimizes performance under explicit leakage constraints.",
-    "Model-agnostic, low-overhead integration: designed as a compatibility layer for existing transformer-based agents to impose runtime controls on KV sharing with minimal latency/compute cost."
+    "Insert a learnable sanitizer (a projection/noise/transform module) that filters or transforms K/V cache vectors before sharing.",
+    "Train with a dual-objective: preserve task utility (downstream performance) while minimizing recoverable sensitive information via an adversarial discriminator or information-regularization loss.",
+    "Optionally include selective sharing (risk scoring) to only expose sanitized KV subsets based on context and sensitivity."
   ],
-  "impact": "Allows practitioners to exploit efficient, information-rich latent communication channels without sacrificing privacy or controllability, making multi-agent LLM deployments safer and more trustworthy for real-world, sensitive applications.",
+  "impact": "Enables efficient, high-bandwidth latent communication among LLM agents while reducing private-information leakage—useful for collaborative systems in sensitive domains (health, finance, multi-agent planning). It balances performance and safety without reverting to verbose natural-language exchanges.",
   "visual_elements": [
-    "System diagram: multiple agent boxes with KV arrows between them and an LCGuard filter icon on each channel",
-    "Before vs after chart: leakage risk (high) vs task performance plotted before LCGuard and after LCGuard (reduced leakage, maintained performance)",
-    "KV cache illustration: vector/table with highlighted dimensions that are masked/filtered",
-    "Pipeline flowchart: detect sensitive latent components → apply filter/gate → share sanitized KV"
+    "Pipeline diagram: LLM agent → KV cache → LCGuard sanitizer → shared KV → receiving agent, with icons for 'privacy' and 'utility'.",
+    "Before/after embedding projection (t-SNE) showing removal/obfuscation of sensitive clusters while preserving task-relevant structure.",
+    "Trade-off chart plotting task performance vs. information leakage/privacy metric across sanitizer strengths.",
+    "Icon set: multiple agents, shield/lock on KV stream, and a small adversary detector to indicate threat mitigation."
   ],
   "hashtags": [
-    "#MultiAgentAI",
-    "#LLMPrivacy",
+    "#MultiAgentSystems",
+    "#PrivacyPreservingAI",
     "#LatentCommunication",
-    "#KVCache",
-    "#SafeAI"
+    "#LLMs",
+    "#KVCacheSecurity"
   ],
   "paper_id": "2026-05-21-arxiv-lcguard_latent_communication_guard_for_safe_kv_sharing_in_multi_agent_systems",
   "paper_title": "LCGuard: Latent Communication Guard for Safe KV Sharing in Multi-Agent Systems",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22786v1"
     }
   ],
-  "generated_at": "2026-05-23T08:06:33.161655"
+  "generated_at": "2026-05-24T08:18:25.149015"
 }

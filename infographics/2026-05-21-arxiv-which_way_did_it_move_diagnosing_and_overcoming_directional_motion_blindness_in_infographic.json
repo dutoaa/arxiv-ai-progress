@@ -1,23 +1,23 @@
 {
-  "key_insight": "Many state-of-the-art Video-LLMs are 'directionally motion blind'—they cannot reliably tell basic signed image-plane motion (left/right/up/down); above‑chance answers often reflect prediction biases, not real motion understanding.",
-  "problem_solved": "Diagnoses and localizes a fundamental failure mode in Video-LLMs—directional motion blindness—then evaluates and proposes practical ways to measure and mitigate it so models truly perceive motion rather than exploit spurious cues.",
+  "key_insight": "Video-LLMs suffer from a systematic failure — \"directional motion blindness\" — where they cannot reliably report simple signed image-plane motion (left/right/up/down); above-chance answers are largely driven by prediction biases rather than true motion understanding.",
+  "problem_solved": "Diagnoses why modern Video-LLMs fail to perceive basic motion direction and presents targeted evaluation and remediation strategies to restore genuine directional motion sensitivity.",
   "method": [
-    "Design a controlled benchmark of simple single-object videos moving in cardinal directions to isolate signed image-plane motion.",
-    "Evaluate diverse Video-LLMs, quantify performance vs. chance, and analyze error patterns and prediction biases (e.g., confusion matrices).",
-    "Trace motion signals inside model processing to localize the failure and test mitigation strategies (e.g., motion-aware finetuning, data augmentations, optical-flow or frame-differencing inputs, and prompt/response calibration)."
+    "Design controlled, single-object motion probes (left/right/up/down) to isolate directional perception from semantic/contextual cues.",
+    "Quantitatively evaluate popular Video-LLMs, trace error patterns and prediction biases to localize the failure mode (directional motion blindness).",
+    "Propose and validate interventions to overcome the blindness (bias-controlled evaluation, targeted training/finetuning and motion-augmented inputs such as optical-flow or temporal attention enhancements)."
   ],
-  "impact": "Exposes a low-level perceptual blind spot that undermines temporal reasoning in Video-LLMs; fixing it improves reliability for downstream video tasks, evaluation rigor, and safety-critical applications that depend on accurate motion perception.",
+  "impact": "Clarifies a fundamental perceptual limitation in Video-LLMs and provides practical evaluation and mitigation techniques, improving reliability for downstream tasks that depend on accurate motion perception (e.g., robotics, autonomous systems, video analytics).",
   "visual_elements": [
-    "4-panel demo: simple synthetic clips of a single object moving left/right/up/down (clear, labeled arrows).",
-    "Bar chart or violin plot showing model accuracies near chance and variance across models.",
-    "Confusion matrices highlighting directional biases (e.g., frequent mispredictions toward one direction).",
-    "Before/after comparison: attention/flow overlays or accuracy gains after applying mitigation (e.g., optical-flow input or finetuning)."
+    "Four-panel schematic showing a single object moving left, right, up, down (ground truth labels).",
+    "Bar chart comparing model accuracy to chance and showing how much above-chance performance is explained by bias.",
+    "Confusion matrix or Sankey diagram visualizing systematic mispredictions and bias directions.",
+    "Before/after diagram showing model input or training change (e.g., raw frames → frames+optical-flow or finetuned model) and corresponding accuracy lift."
   ],
   "hashtags": [
-    "#VideoLLMs",
+    "#VideoLLM",
     "#MotionPerception",
     "#ModelEvaluation",
-    "#Robustness",
+    "#RobustAI",
     "#ComputerVision"
   ],
   "paper_id": "2026-05-21-arxiv-which_way_did_it_move_diagnosing_and_overcoming_directional_motion_blindness_in",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22823v1"
     }
   ],
-  "generated_at": "2026-05-23T08:08:38.574500"
+  "generated_at": "2026-05-24T08:17:33.673702"
 }

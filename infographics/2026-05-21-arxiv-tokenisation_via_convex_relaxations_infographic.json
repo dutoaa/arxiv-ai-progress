@@ -1,24 +1,24 @@
 {
-  "key_insight": "Tokeniser construction can be cast as a convex optimisation problem: by relaxing the combinatorial vocabulary selection into a linear program and solving it globally (ConvexTok), you get better vocabularies than greedy methods like BPE/Unigram.",
-  "problem_solved": "Current subword tokenisers use greedy, local decisions that don't optimize the vocabulary as a whole, producing suboptimal token sets and less-efficient encodings (higher bits-per-byte).",
+  "key_insight": "Reformulates tokenisation as a convex optimisation problem (a linear program) instead of using greedy subword merges, producing globally consistent vocabularies; ConvexTok improves intrinsic tokenisation metrics and lowers bits-per-byte (BpB).",
+  "problem_solved": "Greedy tokenisers (e.g., BPE, Unigram) make locally optimal decisions that can produce suboptimal vocabularies and less efficient representations; the paper addresses the need for a principled, global optimisation for vocabulary construction.",
   "method": [
-    "Formulate tokeniser/vocabulary selection as a linear program (convex relaxation of the combinatorial selection problem).",
-    "Solve the relaxed problem using convex optimisation tools to obtain a globally-informed continuous solution.",
-    "Recover a discrete vocabulary from the continuous solution (rounding/pruning) to produce the final tokeniser, yielding the ConvexTok algorithm."
+    "Formulate vocabulary construction as a linear program (convex relaxation) that jointly optimises token selection and encoding costs.",
+    "Solve the convex relaxation with standard optimisation tools to obtain a continuous solution, then recover a discrete vocabulary (ConvexTok) via rounding/selection.",
+    "Evaluate ConvexTok against greedy baselines on intrinsic tokenisation metrics and bits-per-byte (BpB) to demonstrate consistent improvements."
   ],
-  "impact": "ConvexTok provides a principled, global alternative to greedy tokenisation that consistently improves intrinsic token metrics and reduces bits-per-byte, helping practitioners build more compact and efficient token vocabularies for training and deployment.",
+  "impact": "Offers a principled alternative to greedy tokenisers that can yield better compression and more coherent vocabularies, improving efficiency for model inputs and pre-processing pipelines; easily adopted by practitioners as a drop-in tokeniser construction method.",
   "visual_elements": [
-    "Side-by-side flowchart: Greedy tokeniser (local splits) vs ConvexTok (LP formulation → convex solver → discrete vocabulary).",
-    "Bar chart showing intrinsic tokenisation metrics and bits-per-byte (BpB) comparison: BPE / Unigram / ConvexTok.",
-    "Diagram illustrating the convex relaxation: discrete selection space vs relaxed continuous polytope and the solver finding a global optimum.",
-    "Before/after tokenisation examples on a short text snippet to show qualitative differences in token splits and token counts."
+    "Side-by-side diagram: Greedy pipeline (BPE/Unigram merges) vs ConvexTok pipeline (LP formulation → solver → rounding).",
+    "Flowchart of ConvexTok steps: objective setup, convex optimisation, continuous solution, discrete vocabulary recovery.",
+    "Bar chart comparing intrinsic tokenisation metrics and bits-per-byte (BpB) for ConvexTok vs BPE vs Unigram.",
+    "Heatmap or token-coverage matrix showing how ConvexTok redistributes token frequencies versus greedy methods."
   ],
   "hashtags": [
-    "#Tokenization",
-    "#NLP",
+    "#Tokenisation",
     "#ConvexOptimization",
-    "#Subword",
-    "#ModelEfficiency"
+    "#SubwordTokenization",
+    "#NLP",
+    "#DataCompression"
   ],
   "paper_id": "2026-05-21-arxiv-tokenisation_via_convex_relaxations",
   "paper_title": "Tokenisation via Convex Relaxations",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22821v1"
     }
   ],
-  "generated_at": "2026-05-23T08:08:23.540390"
+  "generated_at": "2026-05-24T08:17:25.911543"
 }

@@ -1,23 +1,23 @@
 {
-  "key_insight": "SpecGP is a transformer-based model conditioned on collision energy that predicts N-glycopeptide fragment spectra with enhanced ion coverage, enabling energy-adaptable spectral forecasts and improving isomer discrimination via rescoring.",
-  "problem_solved": "Existing spectral predictors struggle to model glycopeptide fragmentation across different collision energies and provide limited fragment coverage, hindering accurate isomer identification and confident peptide–glycan assignment.",
+  "key_insight": "SpecGP is a transformer-based model that predicts energy-adaptable MS/MS structural spectra for N-glycopeptides, enhancing fragment ion coverage and enabling more accurate isomer discrimination across collision energies.",
+  "problem_solved": "Existing spectrum predictors struggle to model glycopeptide fragmentation across varying collision energies, limiting fragment coverage and reducing confidence in distinguishing structural isomers and in downstream identification.",
   "method": [
-    "Transformer sequence-to-spectrum model that conditions predictions on collision energy to produce energy-adaptable spectra.",
-    "Architecture and training strategies that explicitly enhance fragment-ion coverage for glycan- and peptide-derived ions (glycan-specific cleavages included).",
-    "Use predicted spectra for rescoring experimental identifications, boosting isomer discrimination and overall identification confidence."
+    "Transformer backbone with explicit energy-conditioning (energy token or embedding) to predict collision-energy-dependent fragment intensities for peptide and glycan-derived ions.",
+    "Structural-spectrum modeling that expands fragment ion coverage (including diagnostic glycan fragments) and generates energy-specific predicted spectra.",
+    "Rescoring pipeline that compares predicted spectra to experimental spectra to re-rank identifications and improve isomer discrimination and confidence."
   ],
-  "impact": "Shows how conditional transformer models can incorporate experimental variables (collision energy) to improve predictive mass-spectrometry tasks; provides a practical ML workflow for better identification and rescoring in glycoproteomics and related proteomic applications.",
+  "impact": "Provides an architecture pattern for energy-conditioned spectral prediction that improves identification accuracy in proteomics workflows; useful for ML practitioners building domain-adaptable generative predictors and rescoring systems in mass spectrometry.",
   "visual_elements": [
-    "Schematic of the SpecGP transformer architecture with an energy-conditioning input node",
-    "Overlayed spectral plots (predicted vs. observed) across low/medium/high collision energies to show energy-adaptability",
-    "Bar/ROC chart comparing identification/rescoring performance and isomer discrimination before vs. after SpecGP rescoring",
-    "Illustration of a glycopeptide and annotated fragment ions highlighting improved fragment coverage"
+    "Schematic of the transformer model with an 'energy' embedding feeding into the encoder/decoder",
+    "Overlay plots of predicted vs experimental spectra at multiple collision energies showing improved fragment coverage",
+    "Before/after bar or confusion matrix illustrating isomer discrimination and identification score improvements after rescoring",
+    "Pipeline diagram: raw spectra → SpecGP prediction → spectral similarity/rescoring → improved identifications"
   ],
   "hashtags": [
-    "#SpecGP",
+    "#Proteomics",
     "#Glycoproteomics",
     "#MassSpectrometry",
-    "#Transformers",
+    "#TransformerModels",
     "#SpectralPrediction"
   ],
   "paper_id": "2026-05-18-nature-specgp_as_a_transformer_based_model_for_predicting_energy_adaptable_structural_s",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01246-4"
     }
   ],
-  "generated_at": "2026-05-22T08:51:46.885990"
+  "generated_at": "2026-05-24T08:17:58.670878"
 }

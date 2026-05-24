@@ -1,24 +1,24 @@
 {
-  "key_insight": "By using topological conjugacy to transform free-boundary PDEs into equivalent fixed-domain problems, neural operators can be trained reliably on the transformed space and then mapped back to recover accurate solutions on moving domains.",
-  "problem_solved": "Standard neural operators assume fixed spatial domains and struggle with PDEs whose boundaries evolve over time (free-boundary problems such as glacier melt), making it hard to learn and predict boundary motion and coupled fields.",
+  "key_insight": "The paper introduces a framework that uses topological conjugacy to transform free‑boundary (moving-domain) PDEs into fixed‑domain problems that neural operators can learn reliably, then maps predictions back to the original domain.",
+  "problem_solved": "Neural operators have difficulty learning mappings for problems whose spatial domain or topology evolves (free/moving boundaries). This work enables operator learning for such problems (e.g., glacier melt) by removing the moving‑domain obstacle.",
   "method": [
-    "Define a topological-conjugacy mapping that converts the original free-boundary problem into an equivalent PDE on a fixed reference domain.",
-    "Train a neural operator in the transformed (fixed-domain) coordinate system to learn the solution operator across instances efficiently.",
-    "Apply the inverse conjugacy map to reconstruct solutions and boundary evolution on the original moving domain, preserving physical consistency."
+    "Construct a topological conjugacy (a bijective mapping) between the free‑boundary problem and an equivalent fixed‑domain formulation.",
+    "Train a neural operator on the transformed fixed‑domain PDE where standard operator learning is effective.",
+    "Use the inverse conjugacy to map learned solutions back to the original moving domain for physical interpretation and prediction."
   ],
-  "impact": "This framework extends neural operators to a broad class of realistic, time-evolving physical systems (e.g., geophysical and engineering problems) without redesigning core architectures, making operator learning applicable to moving-boundary scenarios with improved accuracy and generalization.",
+  "impact": "By enabling neural operators to handle evolving domains, the approach broadens the applicability of operator learning to real‑world physical systems (glaciology, fluid interfaces, phase change) and can improve efficiency and accuracy of surrogate models used in simulation and forecasting.",
   "visual_elements": [
-    "Illustration of domain transform: side-by-side depiction of a moving boundary (glacier front) and its mapped fixed-domain counterpart",
-    "Pipeline flowchart: transform -> neural operator training/inference -> inverse transform (recover moving domain solution)",
-    "Comparison charts: predicted vs ground-truth fields and boundary trajectories (e.g., front position over time) showing error reductions",
-    "Schematic/icon showing 'topological conjugacy' concept (mapping arrow between domains) alongside a compact neural-operator block"
+    "Schematic showing a moving boundary domain (e.g., glacier outline) mapped via topological conjugacy to a fixed rectangular domain",
+    "Pipeline flowchart: original PDE → conjugacy transform → neural operator training → inverse transform → predicted moving boundary",
+    "Before/after comparison: standard neural operator failing on moving boundary vs. proposed method succeeding (error heatmaps)",
+    "Icon set: glacier/ice, neural network/operator kernel, mapping arrows, and domain/grid overlay"
   ],
   "hashtags": [
     "#NeuralOperators",
-    "#FreeBoundary",
+    "#FreeBoundaryProblems",
     "#TopologicalConjugacy",
-    "#ScientificML",
-    "#GlacierModeling"
+    "#PhysicsInformedML",
+    "#ComputationalPhysics"
   ],
   "paper_id": "2026-05-21-nature-neural_operators_for_free_boundary_problems",
   "paper_title": "Neural operators for free-boundary problems",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01238-4"
     }
   ],
-  "generated_at": "2026-05-22T08:51:35.700586"
+  "generated_at": "2026-05-24T08:17:52.255489"
 }

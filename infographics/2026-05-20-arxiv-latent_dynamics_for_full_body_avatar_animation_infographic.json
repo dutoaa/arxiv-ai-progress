@@ -1,24 +1,24 @@
 {
-  "key_insight": "A learned latent-dynamics module captures history-dependent deformations (e.g., loose clothing, inertia, contacts) and integrates with pose-driven neural rendering to produce temporally coherent full-body avatar animation from raw multi-view capture without requiring dedicated garment templates.",
-  "problem_solved": "Pose-only controllers cannot explain dynamic elements: the same pose can correspond to many different cloth/body states because of history, inertia, and contact; this paper addresses how to model those ambiguous, time-dependent deformations without explicit garment templates or hand-crafted simulation.",
+  "key_insight": "A learned latent-dynamics module captures history-dependent deformations (e.g., loose clothing, hair, contacts) and integrates with pose-driven neural rendering, producing temporally coherent full-body avatar animation without requiring explicit garment templates.",
+  "problem_solved": "Pose-only avatar models cannot predict motion-dependent states because the same pose can correspond to many different dynamic configurations; explicit garment simulation needs templates that raw multi-view capture typically doesn't provide. This work models those dynamics directly from captured data.",
   "method": [
-    "Encode per-frame appearance/deformation into a compact latent state learned from multi-view capture.",
-    "Predict latent-state evolution with a temporal dynamics network conditioned on pose history, then decode into neural-rendered geometry/appearance for each frame.",
-    "Train end-to-end on raw multi-view data, avoiding dedicated garment templates or explicit physical simulation while capturing realistic, history-dependent motion."
+    "Factor pose vs. dynamic residuals: represent per-frame non-rigid, history-dependent state as a compact latent code that complements skeletal pose.",
+    "Learn a temporal latent-dynamics model (e.g., RNN/transformer-style transition) that predicts latent evolution from prior latent + current pose, then feed pose + latent to a neural renderer (NeRF/texture-based) to synthesize views.",
+    "Train end-to-end from multi-view video using reconstruction and temporal-consistency losses (optionally contact/inertia priors), eliminating the need for explicit garment templates or manual layering."
   ],
-  "impact": "Enables more realistic, temporally coherent avatar animations (especially for loose clothing and other dynamic elements) while simplifying capture-to-avatar pipelines. Useful for VR/AR, telepresence, game characters, and any application needing plausible motion without costly simulation or manual garment modeling.",
+  "impact": "Delivers more realistic, temporally coherent avatar animations from raw capture with less manual setup, benefiting virtual production, telepresence, games, and any application needing believable human motion without costly garment modeling.",
   "visual_elements": [
-    "Before/after sequence: same input pose rendered with and without latent dynamics to show different cloth states over time.",
-    "Pipeline diagram: multi-view capture → latent encoder → dynamics module (conditioned on pose history) → decoder/neural renderer.",
-    "Latent-space visualization: trajectories of latent states for different motion snippets to illustrate history dependence.",
-    "Side-by-side comparisons: ground truth multi-view frames vs. rendered outputs highlighting cloth wrinkles and temporal coherence."
+    "Pipeline diagram: pose input → latent-dynamics module (temporal loop) → neural renderer → rendered frames",
+    "Before/after comparison: pose-only rendering vs. pose+latent rendering showing improved cloth/hair dynamics",
+    "Latent trajectory visualization: 2D/3D plot of latent state evolution for a motion sequence (showing different responses for same pose depending on history)",
+    "Optional schematic: contact/inertia effects (arrows) illustrating why dynamics depend on history, not just instantaneous pose"
   ],
   "hashtags": [
-    "#AvatarAnimation",
-    "#NeuralRendering",
-    "#ClothDynamics",
     "#LatentDynamics",
-    "#3DVision"
+    "#NeuralRendering",
+    "#AvatarAnimation",
+    "#ClothDynamics",
+    "#VirtualHumans"
   ],
   "paper_id": "2026-05-20-arxiv-latent_dynamics_for_full_body_avatar_animation",
   "paper_title": "Latent Dynamics for Full Body Avatar Animation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.21478v1"
     }
   ],
-  "generated_at": "2026-05-23T08:08:53.546713"
+  "generated_at": "2026-05-24T08:18:40.026401"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Introducing gesture as a parallel instruction modality to Vision-Language-Action models lets robots disambiguate spatially ambiguous commands by directly grounding pointing/motion cues into action representations.",
-  "problem_solved": "Text-only VLA systems struggle to resolve which object or region is intended in cluttered or multi-similar-object scenes; incorporating gesture resolves this spatial ambiguity and enables more natural human-robot communication.",
+  "key_insight": "Adding human gesture as a parallel instruction modality to Vision-Language-Action models enables robots to resolve spatial ambiguity in cluttered or multi-object scenes, producing more precise action grounding and manipulation.",
+  "problem_solved": "VLA systems that rely only on text struggle to disambiguate referents in complex scenes with multiple similar objects and offer limited, natural multimodal interaction; GesVLA integrates gestures to clarify spatial intent and improve action selection.",
   "method": [
-    "Encode gesture features (e.g., hand pose, pointing vector, gesture region) as a parallel input stream and embed them into the VLA latent/action space.",
-    "Multimodal fusion module aligns gesture, vision and language representations so gestures can directly bias object selection and downstream action planning.",
-    "Train on gesture-annotated demonstrations (real or simulated) with alignment/contrastive objectives to ground gestures to specific objects and actions."
+    "Encode gesture features (hand pose, pointing direction, spatial cue) and embed them into the shared vision-language-action latent space.",
+    "Fuse gesture, visual, and textual inputs via a multimodal attention / transformer module to disambiguate referents and produce action-conditioned representations.",
+    "Train with paired gesture–image–language–action data using alignment/contrastive objectives and action supervision so the model maps multimodal instructions to executable policies."
   ],
-  "impact": "Enables more robust, natural human-robot interaction and cleaner grounding of instructions in manipulation tasks, reducing failure modes caused by ambiguous language and improving safety and efficiency in shared workspaces.",
+  "impact": "GesVLA makes human-robot instruction more robust and intuitive by leveraging natural gestures to remove spatial ambiguity — accelerating deployment of general-purpose manipulation agents in real-world HRI and industrial settings.",
   "visual_elements": [
-    "Pipeline diagram: sensor inputs (camera + gesture capture) → multimodal encoder → fusion → action output",
-    "Before/after scene: ambiguous textual command with multiple similar objects vs. same command resolved by a pointing gesture highlighting the target",
-    "Attention/heatmap overlay showing how gesture shifts model focus to a specific object region",
-    "Compact training dataset schematic: gesture-labeled demos and alignment loss illustration"
+    "Pipeline diagram: camera image + text + hand gesture → multimodal fusion → action output (robot arm), with arrows showing information flow.",
+    "Before/after scene: identical cluttered tabletop with two similar objects, showing ambiguous text-only instruction vs. resolved instruction with pointing gesture.",
+    "Embedding visualization (e.g., 2D projection) showing separation of object referents when gesture is included vs. overlapping clusters without gesture.",
+    "Icon set: hand/gesture, speech bubble/text, camera/image, robot arm to quickly convey the multimodal components."
   ],
   "hashtags": [
-    "#GestureAware",
-    "#VisionLanguageAction",
+    "#GestureAI",
     "#MultimodalLearning",
-    "#HumanRobotInteraction",
-    "#RoboticsAI"
+    "#Robotics",
+    "#VisionLanguageAction",
+    "#HumanRobotInteraction"
   ],
   "paper_id": "2026-05-21-arxiv-gesvla_gesture_aware_vision_language_action_model_embedded_representations",
   "paper_title": "GesVLA: Gesture-Aware Vision-Language-Action Model Embedded Representations",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22812v1"
     }
   ],
-  "generated_at": "2026-05-23T08:07:10.718697"
+  "generated_at": "2026-05-24T08:16:42.030483"
 }

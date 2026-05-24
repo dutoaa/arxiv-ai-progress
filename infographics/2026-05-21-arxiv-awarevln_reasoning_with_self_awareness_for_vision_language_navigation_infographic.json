@@ -1,24 +1,24 @@
 {
-  "key_insight": "Injecting explicit self-awareness into VLN agents lets Vision-Language Models reason about the agent's own state (pose, belief, explored map) alongside instruction and scene, producing more interpretable and robust navigation decisions.",
-  "problem_solved": "Bridges the gap between opaque end-to-end VLM action prediction and explicit map-based planning by making the relationships among agent, instruction, and scene explicit—addressing ambiguity, partial observability, and lack of explainability in VLN.",
+  "key_insight": "Introduce an explicit self-awareness module that models the agent's pose, observations, and explored map and fuses this with a Vision-Language Model so the agent can both reason about instructions and explain its navigation decisions.",
+  "problem_solved": "VLN agents often either rely on opaque end-to-end VLM reasoning or brittle hand-crafted maps; this work tackles the gap by combining explicit, interpretable agent-centric mapping with VLM reasoning to improve grounded, explainable action selection.",
   "method": [
-    "Self-awareness module that maintains an explicit agent state and belief (pose, explored map, uncertainty) during navigation.",
-    "Fuse agent belief with visual observations and instruction embeddings in a VLM-based reasoner to predict actions and generate grounded explanations.",
-    "Train with auxiliary losses (e.g., map reconstruction, instruction grounding) and expose interpretable representations (belief maps, attention maps) for heuristic planning and debugging."
+    "Construct an agent-centric self-awareness representation capturing pose, observed landmarks, and explored free/blocked regions as an explicit scene map.",
+    "Fuse the explicit map and agent state with a Vision-Language Model so instruction grounding, scene understanding, and action prediction happen jointly but remain interpretable.",
+    "Use the combined representation to guide a planner that selects actions and emits human-readable rationale for decisions (hybrid map-based planning + VLM reasoning)."
   ],
-  "impact": "Enables more reliable, debuggable VLN agents useful for embodied AI and robotics; improves robustness to ambiguous instructions and provides traceable decisions for safety-critical navigation tasks.",
+  "impact": "Provides a practical middle ground between black-box VLM policies and rigid map planners, enabling more reliable, interpretable VLN agents—useful for robotics, embodied AI research, and systems requiring traceable decisions.",
   "visual_elements": [
-    "Pipeline diagram: instruction + panoramic view → self-awareness module → VLM reasoner → action + explanation",
-    "Belief/map overlay showing evolving explored map, agent pose, and planned vs. executed path",
-    "Attention/grounding heatmaps linking instruction phrases to scene regions",
-    "Performance chart (success rate / SPL) and ablation bars demonstrating gains from self-awareness and explainability"
+    "Architecture diagram: self-awareness module (map + state) feeding into a VLM and planner, with arrows showing information flow.",
+    "Step-by-step example: instruction → panorama snapshots + local map updates → chosen action with short rationale.",
+    "Map overlay: explored map showing trajectory, visited landmarks, and predicted next actions to highlight interpretability.",
+    "Comparison panel: qualitative side-by-side of black-box VLM vs AwareVLN explanations (why an action was chosen)."
   ],
   "hashtags": [
     "#VisionLanguage",
     "#VLN",
     "#SelfAwareness",
     "#ExplainableAI",
-    "#EmbodiedAI"
+    "#RobotNavigation"
   ],
   "paper_id": "2026-05-21-arxiv-awarevln_reasoning_with_self_awareness_for_vision_language_navigation",
   "paper_title": "AwareVLN: Reasoning with Self-awareness for Vision-Language Navigation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22816v1"
     }
   ],
-  "generated_at": "2026-05-23T08:07:35.748047"
+  "generated_at": "2026-05-24T08:16:55.569530"
 }

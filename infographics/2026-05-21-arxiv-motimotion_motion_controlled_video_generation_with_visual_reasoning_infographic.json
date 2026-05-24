@@ -1,24 +1,24 @@
 {
-  "key_insight": "Reframe motion-controlled image-to-video generation as a two-stage reasoning-then-generation problem so the system infers missing causal consequences of sparse/imprecise user trajectories before synthesizing video, yielding more natural and commonsense-consistent motion.",
-  "problem_solved": "Existing motion-conditioned video models rigidly follow sparse or imprecise user trajectories and therefore produce unnatural or implausible outcomes by missing secondary causal effects and commonsense interactions.",
+  "key_insight": "Reframe motion-conditioned image-to-video generation as a two-stage pipeline: first reason about plausible, causally grounded motion consequences from sparse/imprecise user trajectories, then generate the video conditioned on that reasoning—yielding more natural and consistent results.",
+  "problem_solved": "User-specified motion controls (e.g., sparse trajectories) are often imprecise and causally incomplete, causing image-to-video models to produce unnatural, implausible, or missing secondary effects. MotiMotion fills in causal consequences and enforces commonsense interactions before generation.",
   "method": [
-    "Learn a visual-reasoning module that takes a static image + sparse trajectory and predicts completed motion, secondary causal outcomes, and commonsense constraints.",
-    "Feed the reasoning output into a motion-conditioned video generator to synthesize temporally coherent frames that respect both user intent and inferred causal consequences.",
-    "Train end-to-end with objectives that align reasoning and generation (e.g., reconstruction, perceptual/consistency losses and commonsense/causal regularizers) to reduce implausible artifacts."
+    "Separate reasoning and generation: a visual-reasoning stage infers completed, causally consistent motion plans and secondary effects from sparse inputs.",
+    "Condition a video generator on the reasoning output to produce temporally-coherent, physically/plausibly consistent videos.",
+    "Train the reasoning module to predict commonsense causal outcomes and use its outputs to guide the generative model, improving fidelity to intended motion while filling missing details."
   ],
-  "impact": "Enables practitioners to produce more realistic, controllable videos from minimal motion inputs and reduces failure modes caused by imprecise guidance—useful for animation, AR/VR, and content creation pipelines where natural interactions and secondary effects matter.",
+  "impact": "Enables more reliable, controllable video synthesis from minimal user input, improving realism and usability for content creation, animation, and simulation tasks while reducing manual specification and post-editing.",
   "visual_elements": [
-    "Pipeline diagram: 'Input image + sparse trajectory' → 'Visual reasoning (trajectory completion + causal inference)' → 'Motion-conditioned video generator' → 'Output video'.",
-    "Before/after examples: left column shows rigid-following artifacts from sparse input; right column shows corrected, commonsense-consistent outputs from MotiMotion.",
-    "Causal-flow overlay: simple graph or arrows showing primary motion and inferred secondary effects (e.g., object collision, cloth/tail/secondary motion).",
-    "Motion field / optical-flow visualization and attention maps to illustrate where the model infers additional motion and why."
+    "Pipeline diagram: two-stage flow (User trajectory → Visual reasoning module → Video generator) with example intermediate outputs.",
+    "Before/after comparison: same sparse trajectory producing implausible vs. MotiMotion-corrected video frames.",
+    "Causal chain illustration: how a single input motion produces primary and secondary effects (e.g., object interactions, shadows, deformations).",
+    "Quantitative bar chart or table: improvements in realism/consistency metrics or user preference rates (visual summary of gains)."
   ],
   "hashtags": [
     "#VideoGeneration",
     "#VisualReasoning",
-    "#MotionControl",
-    "#GenerativeAI",
-    "#CausalAI"
+    "#ControllableAI",
+    "#Multimodal",
+    "#GenerativeModels"
   ],
   "paper_id": "2026-05-21-arxiv-motimotion_motion_controlled_video_generation_with_visual_reasoning",
   "paper_title": "MotiMotion: Motion-Controlled Video Generation with Visual Reasoning",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22818v1"
     }
   ],
-  "generated_at": "2026-05-23T08:07:57.617740"
+  "generated_at": "2026-05-24T08:17:09.686216"
 }
