@@ -1,0 +1,35 @@
+{
+  "key_insight": "Complete-muE provides a principled two-bridge parametrization that enables reliable hyperparameter transfer and optimal scaling between dense FFN and any Mixture-of-Experts (MoE) transformer setups, handling both architecture changes and per-expert token load.",
+  "problem_solved": "Existing transfer tools (e.g., μP, SDE) assume fixed architecture or fixed per-step token counts and therefore fail when moving between dense and MoE models or when changing total experts; Complete-muE solves hyperparameter transfer when both the model architecture and tokens-per-expert change.",
+  "method": [
+    "Two-bridge system: an Architecture Bridge that maps dense-FFN parameterizations to MoE-aware parameterizations, and a Token-Expert Bridge that accounts for changes in per-expert token load when scaling expert count.",
+    "Derive scaling and transfer rules that preserve training dynamics across dense↔MoE transitions, producing actionable hyperparameter prescriptions (learning rate, initialization scale, etc.) for any expert-count or token-per-expert regime.",
+    "Validate empirically across transformer blocks and MoE configurations to show stable transfer and improved scaling efficiency vs. naive or prior-parametrization approaches."
+  ],
+  "impact": "Enables practitioners to reuse hyperparameters from dense models when moving to or scaling MoE architectures, dramatically reducing costly hyperparameter search and making large-scale MoE training more predictable and efficient.",
+  "visual_elements": [
+    "Two-bridge diagram: show Architecture Bridge and Token-Expert Bridge connecting a dense FFN block to an MoE block with arrows indicating mapped hyperparameters.",
+    "Scaling chart: model performance vs. number of experts (and/or tokens-per-expert) comparing Complete-muE vs. baseline transfer rules.",
+    "Flowchart recipe: short step-by-step infographic for applying Complete-muE to transfer hyperparameters from a baseline dense model to a target MoE configuration.",
+    "Icon set: small icons for 'learning rate', 'init scale', 'expert count', and 'tokens/expert' to highlight which hyperparameters are transferred/adjusted."
+  ],
+  "hashtags": [
+    "#MixtureOfExperts",
+    "#ModelScaling",
+    "#HyperparameterTransfer",
+    "#Transformers",
+    "#CompleteMuE"
+  ],
+  "paper_id": "2026-05-22-arxiv-complete_mue_optimal_hyperparameter_transfer_and_scaling_for_moe_models",
+  "paper_title": "Complete-muE: Optimal Hyperparameter Transfer and Scaling for MoE Models",
+  "paper_category": "Model",
+  "paper_date": "2026-05-22",
+  "paper_authors": "Hongwu Peng, Ohiremen Dibua, Yuanjun Xiong, Yifan Gong, Jianming Zhang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.23893v1"
+    }
+  ],
+  "generated_at": "2026-05-25T09:51:29.216385"
+}

@@ -1,24 +1,24 @@
 {
-  "key_insight": "DeltaBox achieves millisecond-level sandbox checkpoint/rollback by capturing and applying compact deltas of file and process state combined with copy-on-write memory remapping, avoiding full-state duplication on each checkpoint.",
-  "problem_solved": "Existing C/R mechanisms duplicate entire sandbox states (files, memory, process contexts), causing hundreds of milliseconds to seconds of latency per checkpoint/rollback and bottlenecking high-frequency state exploration for LLM-powered agents (e.g., test-time tree search, RL, large fan-outs).",
+  "key_insight": "DeltaBox achieves millisecond-level checkpoint/rollback by avoiding full-state duplication and instead capturing and restoring only the incremental differences between successive sandbox states (files + process memory/context). This makes frequent state exploration orders of magnitude cheaper.",
+  "problem_solved": "Current sandbox checkpoint/rollback duplicates entire process and file state, causing hundreds of milliseconds to seconds of latency that block deep search, high-frequency exploration, and large-scale agent fan-out.",
   "method": [
-    "Delta (incremental) checkpoints: only record changed pages/bytes and metadata between successive snapshots to minimize data written.",
-    "Kernel-assisted copy-on-write and memory remapping: clone sandbox address spaces and lazily materialize modified pages to enable near-instant clones and rollbacks.",
-    "Unified file+process snapshot layer with lazy restoration: combine filesystem diffs and process-state descriptors so rollbacks restore consistent end-to-end sandbox state with minimal I/O."
+    "Exploit high similarity between successive checkpoints to record deltas rather than full copies, dramatically reducing I/O and serialization cost.",
+    "Combine copy-on-write/differential snapshotting with lightweight metadata and lazy materialization to enable ultra-fast local checkpoints and rollbacks.",
+    "Integrate file- and process-level state capture in the sandbox and perform asynchronous persistence and fast in-memory rebound for rollbacks."
   ],
-  "impact": "Millisecond C/R lets AI agents explore many more hypothetical branches and parallel rollouts with lower latency and resource cost, enabling deeper search, faster RL iterations, and larger-scale fan-outs in production agent systems.",
+  "impact": "Enables much deeper and wider search (e.g., test-time tree search, RL) and large-scale agent parallelism by reducing C/R latency to the millisecond range, improving throughput and lowering resource cost for stateful AI agents.",
   "visual_elements": [
-    "Latency comparison bar chart: full duplication vs DeltaBox (seconds → milliseconds).",
-    "Architecture diagram: delta capture, COW memory remap, unified snapshot/restore pipeline.",
-    "Sequence diagram: agent forks, rapid checkpoint, many rollouts, rollback to saved delta state.",
-    "Resource/throughput infographic: concurrent rollouts per node and I/O savings (relative percentages)."
+    "Latency bar chart comparing full-copy C/R (100s ms–s) vs DeltaBox (ms) across workloads",
+    "Architecture diagram showing sandbox, delta capture layer, copy-on-write pages, and fast rollback path",
+    "Sequence diagram of frequent checkpoints and rollbacks illustrating small deltas propagated vs full-state duplication",
+    "Throughput vs fan-out plot showing how lower C/R latency enables larger parallel agent branching"
   ],
   "hashtags": [
     "#DeltaBox",
     "#AIagents",
-    "#Checkpointing",
-    "#SystemsML",
-    "#LLM"
+    "#CheckpointRollback",
+    "#LowLatencySystems",
+    "#StatefulAI"
   ],
   "paper_id": "2026-05-21-arxiv-deltabox_scaling_stateful_ai_agents_with_millisecond_level_sandbox_checkpoint_ro",
   "paper_title": "DeltaBox: Scaling Stateful AI Agents with Millisecond-Level Sandbox Checkpoint/Rollback",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22781v1"
     }
   ],
-  "generated_at": "2026-05-24T08:18:31.945295"
+  "generated_at": "2026-05-25T09:53:07.754803"
 }

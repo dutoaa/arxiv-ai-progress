@@ -1,24 +1,24 @@
 {
-  "key_insight": "LCGuard introduces a lightweight safeguard that sanitizes transformer key-value (KV) caches used for latent communication so agents can share rich intermediate signals without leaking contextual or agent-specific private information.",
-  "problem_solved": "KV-based latent communication in LLM multi-agent systems can expose contextual inputs, intermediate reasoning states, and agent identity—existing defenses target natural-language channels and do not protect these opaque latent vectors.",
+  "key_insight": "LCGuard enables safe latent communication by filtering and sanitizing transformer KV cache exchanges so agents keep coordination benefits without leaking contextual or sensitive information.",
+  "problem_solved": "Prevents unintended disclosure of input context, intermediate reasoning, and agent-specific data when multi-agent LLMs share latent (KV) representations for coordination.",
   "method": [
-    "Insert a learnable sanitizer (a projection/noise/transform module) that filters or transforms K/V cache vectors before sharing.",
-    "Train with a dual-objective: preserve task utility (downstream performance) while minimizing recoverable sensitive information via an adversarial discriminator or information-regularization loss.",
-    "Optionally include selective sharing (risk scoring) to only expose sanitized KV subsets based on context and sensitivity."
+    "Learned latent filter that inspects KV caches and distinguishes task-relevant signals from sensitive/contextual content.",
+    "Sanitization mechanisms (masking, selective gating, or controlled perturbation) applied to KV entries to remove or obfuscate private information while preserving utility.",
+    "Optimization and evaluation under a utility–privacy tradeoff (e.g., adversarial training or regularizers) to retain coordination performance while limiting leakage."
   ],
-  "impact": "Enables efficient, high-bandwidth latent communication among LLM agents while reducing private-information leakage—useful for collaborative systems in sensitive domains (health, finance, multi-agent planning). It balances performance and safety without reverting to verbose natural-language exchanges.",
+  "impact": "Allows practitioners to deploy efficient, KV-based latent communication in multi-agent systems with reduced privacy and leakage risks, enabling safer collaboration and regulatory compliance without major performance loss.",
   "visual_elements": [
-    "Pipeline diagram: LLM agent → KV cache → LCGuard sanitizer → shared KV → receiving agent, with icons for 'privacy' and 'utility'.",
-    "Before/after embedding projection (t-SNE) showing removal/obfuscation of sensitive clusters while preserving task-relevant structure.",
-    "Trade-off chart plotting task performance vs. information leakage/privacy metric across sanitizer strengths.",
-    "Icon set: multiple agents, shield/lock on KV stream, and a small adversary detector to indicate threat mitigation."
+    "Pipeline diagram: agents → KV cache exchange → LCGuard filter → sanitized KV → coordinated output (before vs after highlighting removed sensitive content)",
+    "Bar or line chart: coordination performance vs. privacy leakage for baseline latent sharing and LCGuard (showing maintained utility with reduced leakage)",
+    "Heatmap or attention overlay on KV matrix showing which entries are preserved vs. masked by LCGuard",
+    "Icon set: LLM agents, shield (privacy), lock (access control), and speed/performance gauge"
   ],
   "hashtags": [
     "#MultiAgentSystems",
-    "#PrivacyPreservingAI",
-    "#LatentCommunication",
-    "#LLMs",
-    "#KVCacheSecurity"
+    "#LLM",
+    "#Privacy",
+    "#KVCache",
+    "#LatentCommunication"
   ],
   "paper_id": "2026-05-21-arxiv-lcguard_latent_communication_guard_for_safe_kv_sharing_in_multi_agent_systems",
   "paper_title": "LCGuard: Latent Communication Guard for Safe KV Sharing in Multi-Agent Systems",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22786v1"
     }
   ],
-  "generated_at": "2026-05-24T08:18:25.149015"
+  "generated_at": "2026-05-25T09:53:00.634859"
 }

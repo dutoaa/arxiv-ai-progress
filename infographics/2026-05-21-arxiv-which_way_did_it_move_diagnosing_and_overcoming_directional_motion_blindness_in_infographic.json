@@ -1,24 +1,24 @@
 {
-  "key_insight": "Video-LLMs suffer from a systematic failure — \"directional motion blindness\" — where they cannot reliably report simple signed image-plane motion (left/right/up/down); above-chance answers are largely driven by prediction biases rather than true motion understanding.",
-  "problem_solved": "Diagnoses why modern Video-LLMs fail to perceive basic motion direction and presents targeted evaluation and remediation strategies to restore genuine directional motion sensitivity.",
+  "key_insight": "Video-LLMs commonly fail to perceive basic signed image-plane motion (left/right/up/down); above‑chance answers are often due to prediction biases rather than true directional understanding — a failure the authors call “directional motion blindness.”",
+  "problem_solved": "Diagnoses the gap in fundamental motion-direction perception in Video-LLMs and proposes targeted interventions to restore genuine directional understanding.",
   "method": [
-    "Design controlled, single-object motion probes (left/right/up/down) to isolate directional perception from semantic/contextual cues.",
-    "Quantitatively evaluate popular Video-LLMs, trace error patterns and prediction biases to localize the failure mode (directional motion blindness).",
-    "Propose and validate interventions to overcome the blindness (bias-controlled evaluation, targeted training/finetuning and motion-augmented inputs such as optical-flow or temporal attention enhancements)."
+    "Construct a focused diagnostic benchmark of simple single-object videos that move strictly left, right, up, or down to isolate direction perception from other cues.",
+    "Trace motion signals through Video-LLM components to localize where directional information is lost or overridden by biases (e.g., temporal encoder vs. readout).",
+    "Introduce and evaluate corrective strategies such as motion-aware inputs (optical flow/frame-differences), bias-calibration, and motion-focused fine-tuning to recover true direction sensitivity."
   ],
-  "impact": "Clarifies a fundamental perceptual limitation in Video-LLMs and provides practical evaluation and mitigation techniques, improving reliability for downstream tasks that depend on accurate motion perception (e.g., robotics, autonomous systems, video analytics).",
+  "impact": "Fixing directional motion blindness improves fundamental temporal perception in Video-LLMs, increasing reliability for real-world tasks (robotics, navigation, surveillance) and providing concrete diagnostics and remedies for model developers and evaluators.",
   "visual_elements": [
-    "Four-panel schematic showing a single object moving left, right, up, down (ground truth labels).",
-    "Bar chart comparing model accuracy to chance and showing how much above-chance performance is explained by bias.",
-    "Confusion matrix or Sankey diagram visualizing systematic mispredictions and bias directions.",
-    "Before/after diagram showing model input or training change (e.g., raw frames → frames+optical-flow or finetuned model) and corresponding accuracy lift."
+    "Side-by-side example: sequence of frames with an overlaid arrow showing true motion direction and the model's prediction (correct vs. biased error).",
+    "Bar chart comparing chance-level accuracy, baseline Video-LLMs, and post-intervention accuracy to illustrate improvement.",
+    "Model anatomy diagram tracing motion signal flow (input frames → temporal encoder → readout) with a highlighted failure point.",
+    "Application icons (robot arm, dashcam, security camera) annotated with why reliable direction perception matters."
   ],
   "hashtags": [
-    "#VideoLLM",
+    "#VideoLLMs",
     "#MotionPerception",
+    "#DirectionalBlindness",
     "#ModelEvaluation",
-    "#RobustAI",
-    "#ComputerVision"
+    "#VisionLanguage"
   ],
   "paper_id": "2026-05-21-arxiv-which_way_did_it_move_diagnosing_and_overcoming_directional_motion_blindness_in",
   "paper_title": "Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22823v1"
     }
   ],
-  "generated_at": "2026-05-24T08:17:33.673702"
+  "generated_at": "2026-05-25T09:53:19.342494"
 }

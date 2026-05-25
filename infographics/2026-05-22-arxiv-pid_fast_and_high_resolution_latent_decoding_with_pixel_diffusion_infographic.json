@@ -1,0 +1,35 @@
+{
+  "key_insight": "Replace the traditional reconstruction-focused latent-to-pixel decoder with a pixel-space diffusion decoder conditioned on compact latents, enabling faster synthesis of high-frequency detail and scalability to megapixel images.",
+  "problem_solved": "Latent decoders are optimized to invert encoders (reconstruction) and become computationally and memory-intensive at high resolutions, limiting fidelity and practical throughput for megapixel text-to-image systems.",
+  "method": [
+    "Condition a pixel-space diffusion model on compact latents (or a low-res latent decode) to synthesize high-resolution pixels and fine details rather than only invert the encoder.",
+    "Use efficiency-minded design: multiscale or patch-wise diffusion, local attention/sparse operations, and sampling-time acceleration (distillation or fewer diffusion steps) to cut compute and memory costs.",
+    "Train with a mix of reconstruction and perceptual/distillation objectives so the pixel diffusion complements the encoder/latent generator and yields perceptually richer outputs."
+  ],
+  "impact": "Enables practical, lower-latency decoding to megapixel images with higher perceptual detail, making high-resolution text-to-image and latent-generation pipelines more usable in production and research settings.",
+  "visual_elements": [
+    "Side-by-side pipeline diagram: standard latent decode (heavy decoder) vs PiD pipeline (compact latent -> pixel diffusion).",
+    "Multiscale/patch diffusion schematic showing local processing and upsampling stages.",
+    "Speed vs quality plot (latency or FLOPs on x-axis, perceptual fidelity or FID on y-axis) illustrating better trade-off for PiD.",
+    "High-resolution zoom-in example: original latent decode vs PiD detail comparison."
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#LatentDecoding",
+    "#HighResolution",
+    "#ImageSynthesis",
+    "#EfficientAI"
+  ],
+  "paper_id": "2026-05-22-arxiv-pid_fast_and_high_resolution_latent_decoding_with_pixel_diffusion",
+  "paper_title": "PiD: Fast and High-Resolution Latent Decoding with Pixel Diffusion",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-05-22",
+  "paper_authors": "Yifan Lu, Qi Wu, Jay Zhangjie Wu, Zian Wang, Huan Ling",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.23902v1"
+    }
+  ],
+  "generated_at": "2026-05-25T09:52:15.796295"
+}

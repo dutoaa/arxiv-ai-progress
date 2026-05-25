@@ -1,0 +1,35 @@
+{
+  "key_insight": "Carefully selecting a subset of key/value tokens for attention in Visual Geometry Transformers cuts quadratic attention cost while keeping multi-view 3D reconstruction quality nearly intact.",
+  "problem_solved": "Visual geometry transformers scale poorly because global attention grows quadratically with input token count, limiting efficiency and the ability to handle many views or high-resolution inputs.",
+  "method": [
+    "Restrict the number of key/value tokens consulted by each query via a token-selection mechanism (e.g., learned scoring, confidence or clustering-based selection).",
+    "Insert the selection step into existing VGT pipelines with minimal architectural change so attention is computed over a compact set of tokens.",
+    "Optimize for compute/memory trade-offs to reduce FLOPs and memory footprint while preserving joint prediction performance for multiple 3D attributes."
+  ],
+  "impact": "Makes multi-view 3D reconstruction models more scalable and deployable—enabling more views, higher resolutions, or resource-constrained deployment with little loss in accuracy. Practitioners can adopt token selection to reduce training/inference cost without redesigning the entire model.",
+  "visual_elements": [
+    "Diagram comparing full global attention (dense KV connections) vs. sparse token-selected attention (few KV tokens per query).",
+    "Flowchart of the token selection pipeline: feature extraction → token scoring/selection → compact attention → 3D attribute prediction.",
+    "Chart showing compute/memory (FLOPs, GPU memory) vs. reconstruction quality for dense vs. token-selected models.",
+    "Before/after reconstruction visual: multi-view inputs and resulting 3D outputs to illustrate preserved quality."
+  ],
+  "hashtags": [
+    "#VisionTransformers",
+    "#3DReconstruction",
+    "#EfficientAI",
+    "#TokenSelection",
+    "#SparseAttention"
+  ],
+  "paper_id": "2026-05-22-arxiv-good_token_hunting_a_hitchhiker_s_guide_to_token_selection_for_visual_geometry_t",
+  "paper_title": "Good Token Hunting: A Hitchhiker's Guide to Token Selection for Visual Geometry Transformers",
+  "paper_category": "Model",
+  "paper_date": "2026-05-22",
+  "paper_authors": "Shuhong Zheng, Michael Oechsle, Erik Sandström, Marie-Julie Rakotosaona, Federico Tombari",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.23892v1"
+    }
+  ],
+  "generated_at": "2026-05-25T09:51:22.064216"
+}

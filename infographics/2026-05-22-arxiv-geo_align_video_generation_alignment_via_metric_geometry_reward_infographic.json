@@ -1,0 +1,35 @@
+{
+  "key_insight": "Geo-Align uses a metric-geometry-based reward to align generated videos to real-world camera motion and physical scale, enabling accurate camera-controlled re-rendering without requiring synchronized multi-view training data.",
+  "problem_solved": "Current video-to-video re-rendering relies on supervised fine-tuning with synthetic multi-view datasets, which are scarce for real-world scenes; as a result, models generalize poorly to out-of-distribution videos and fail to respect true camera motion and scale.",
+  "method": [
+    "Define a geometry-aware reward that measures alignment between generated frames and real-world geometric cues (e.g., relative camera motion, scale consistency, and structure implied by depth/flow/SfM estimates).",
+    "Use the metric-geometry reward to guide optimization (reward-weighted fine-tuning or policy gradients) of an existing video generation model, removing dependence on paired/synchronized multi-view data.",
+    "Leverage monocular geometric signals (optical flow, inferred depth or SfM poses) from real videos as weak supervision for camera and scale alignment during training."
+  ],
+  "impact": "By providing a self-supervised, geometry-driven training signal, Geo-Align improves realism and physical correctness of camera-controlled video generation, reducing reliance on synthetic datasets and improving robustness on real-world inputs—beneficial for AR/VR, robotics, and content creation workflows.",
+  "visual_elements": [
+    "Pipeline diagram: input real video -> geometric cue extraction (depth/flow/SfM) -> metric-geometry reward -> model fine-tuning loop",
+    "Before/after example frames showing improved camera pose/scale adherence and reduced drift",
+    "Overlayed camera trajectories and scale-consistency charts comparing baseline vs Geo-Align",
+    "Reward heatmap or training curve illustrating alignment improvement over epochs"
+  ],
+  "hashtags": [
+    "#VideoGeneration",
+    "#GeometryAI",
+    "#SelfSupervised",
+    "#ComputerVision",
+    "#DiffusionModels"
+  ],
+  "paper_id": "2026-05-22-arxiv-geo_align_video_generation_alignment_via_metric_geometry_reward",
+  "paper_title": "Geo-Align: Video Generation Alignment via Metric Geometry Reward",
+  "paper_category": "Model",
+  "paper_date": "2026-05-22",
+  "paper_authors": "Zizun Li, Haoyu Guo, Runzhe Teng, Chunhua Shen, Tong He",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.23903v1"
+    }
+  ],
+  "generated_at": "2026-05-25T09:52:24.756816"
+}

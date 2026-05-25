@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper introduces a framework that uses topological conjugacy to transform free‑boundary (moving-domain) PDEs into fixed‑domain problems that neural operators can learn reliably, then maps predictions back to the original domain.",
-  "problem_solved": "Neural operators have difficulty learning mappings for problems whose spatial domain or topology evolves (free/moving boundaries). This work enables operator learning for such problems (e.g., glacier melt) by removing the moving‑domain obstacle.",
+  "key_insight": "Mapping free-boundary PDEs to an equivalent fixed-domain representation via topological conjugacy enables neural operators to learn and predict moving-boundary dynamics accurately and efficiently.",
+  "problem_solved": "Neural operators struggle to represent PDEs with evolving (free) boundaries—common in problems like glacier melt—because the domain changes in time and breaks standard operator assumptions. This work provides a principled way to handle moving domains so operators can generalize and remain data-efficient.",
   "method": [
-    "Construct a topological conjugacy (a bijective mapping) between the free‑boundary problem and an equivalent fixed‑domain formulation.",
-    "Train a neural operator on the transformed fixed‑domain PDE where standard operator learning is effective.",
-    "Use the inverse conjugacy to map learned solutions back to the original moving domain for physical interpretation and prediction."
+    "Construct a topological-conjugacy transformation that maps the original free-boundary problem to a fixed reference domain while preserving the dynamical structure.",
+    "Train a neural operator (e.g., DeepONet/FNO-style architecture) on the transformed fixed-domain PDE to learn the solution operator and boundary evolution jointly.",
+    "Invert the transformation to recover predictions on the original moving domain, enabling accurate reconstruction of both field values and boundary motion."
   ],
-  "impact": "By enabling neural operators to handle evolving domains, the approach broadens the applicability of operator learning to real‑world physical systems (glaciology, fluid interfaces, phase change) and can improve efficiency and accuracy of surrogate models used in simulation and forecasting.",
+  "impact": "Enables scalable, generalizable operator-learning surrogates for moving-boundary physical systems (e.g., glacier dynamics, combustion fronts), improving prediction speed and data efficiency for scientific ML and climate applications.",
   "visual_elements": [
-    "Schematic showing a moving boundary domain (e.g., glacier outline) mapped via topological conjugacy to a fixed rectangular domain",
-    "Pipeline flowchart: original PDE → conjugacy transform → neural operator training → inverse transform → predicted moving boundary",
-    "Before/after comparison: standard neural operator failing on moving boundary vs. proposed method succeeding (error heatmaps)",
-    "Icon set: glacier/ice, neural network/operator kernel, mapping arrows, and domain/grid overlay"
+    "Schematic: free-boundary domain → arrow labeled 'topological conjugacy' → fixed reference domain",
+    "Pipeline flowchart: transform → neural operator training → inverse transform → predicted moving boundary and fields",
+    "Comparative plots: ground-truth vs predicted field and boundary position over time, with error heatmap",
+    "Icon set: glacier/melting front, neural network/operator symbol, transformation/map"
   ],
   "hashtags": [
     "#NeuralOperators",
-    "#FreeBoundaryProblems",
+    "#FreeBoundary",
     "#TopologicalConjugacy",
-    "#PhysicsInformedML",
-    "#ComputationalPhysics"
+    "#ScientificML",
+    "#ClimateAI"
   ],
   "paper_id": "2026-05-21-nature-neural_operators_for_free_boundary_problems",
   "paper_title": "Neural operators for free-boundary problems",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01238-4"
     }
   ],
-  "generated_at": "2026-05-24T08:17:52.255489"
+  "generated_at": "2026-05-25T09:52:41.992709"
 }

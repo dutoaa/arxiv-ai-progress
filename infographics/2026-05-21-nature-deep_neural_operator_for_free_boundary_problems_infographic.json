@@ -1,24 +1,24 @@
 {
-  "key_insight": "A deep neural operator can learn the mapping from problem inputs to both the PDE solution and its evolving free boundary, achieving high accuracy and real-time inference. This makes fast, generalizable simulation of moving-boundary phenomena (e.g., tumor growth) feasible for clinical use.",
-  "problem_solved": "Computational and modeling difficulty of free boundary problems: traditional PDE solvers are expensive and hard to generalize across varying conditions, limiting real‑time and patient‑specific simulations needed in clinical settings.",
+  "key_insight": "A deep neural operator can learn to solve free-boundary PDEs—predicting both field values and moving boundaries—with high precision, enabling real-time simulation such as tumour-growth forecasting.",
+  "problem_solved": "Free-boundary problems (PDEs with moving interfaces) are hard to solve accurately and quickly using classical numerical methods because of mesh re‑generation, coupling between field and boundary evolution, and high computational cost—limiting real-time and clinical use.",
   "method": [
-    "Develop a neural operator framework that directly approximates the solution operator for PDEs with free (moving) boundaries, outputting full spatio-temporal fields and boundary evolution.",
-    "Train the operator on high-fidelity examples so it generalizes across initial conditions and parameters, replacing costly iterative solvers at inference time.",
-    "Architectural and training choices prioritize precision and low-latency inference to enable real-time predictions for downstream applications."
+    "Train a deep neural operator to map inputs (initial conditions, parameters, boundary/geometry cues) to solution fields and the evolving free boundary.",
+    "Use a geometry-aware/implicit boundary representation and a combined data- and physics-driven loss to enforce PDE and interface consistency.",
+    "Validate and calibrate the operator with simulation/clinical-relevant datasets to achieve high accuracy and fast inference for downstream prediction tasks."
   ],
-  "impact": "Provides AI/ML practitioners a scalable surrogate modeling approach for complex, moving-boundary physics—enabling fast, generalizable simulations and potential integration into clinical decision-support tools like tumor-growth forecasting.",
+  "impact": "Provides AI/ML practitioners a scalable, generalizable approach to model complex moving-boundary physics for real-time applications (e.g., digital twins and clinical decision support), lowering compute cost and enabling rapid parameter studies and uncertainty quantification.",
   "visual_elements": [
-    "Schematic of a free boundary: sequence of frames showing domain evolution (e.g., tumor boundary over time) to convey the moving-boundary problem.",
-    "Block diagram of the neural operator mapping inputs (initial state, parameters) to solution field + boundary output to explain the model role.",
-    "Comparison chart: accuracy vs runtime for neural operator vs conventional PDE solvers to highlight precision and speedup.",
-    "Application graphic: stylized clinical workflow showing real-time simulation used for patient-specific planning/monitoring."
+    "Schematic: neural operator block mapping inputs (params, initial state) to evolving field + moving boundary",
+    "Sequence frames: time-lapse simulation of tumour growth comparing ground-truth PDE solver vs neural operator",
+    "Performance chart: accuracy vs runtime (neural operator vs traditional solvers)",
+    "Diagram: how the free boundary is represented (implicit/level-set) and enforced in training"
   ],
   "hashtags": [
-    "#NeuralOperators",
-    "#FreeBoundaryProblems",
-    "#PhysicsInformedAI",
-    "#RealTimeSimulation",
-    "#TumorModeling"
+    "#NeuralOperator",
+    "#FreeBoundary",
+    "#ScientificML",
+    "#TumourModeling",
+    "#RealTimeInference"
   ],
   "paper_id": "2026-05-21-nature-deep_neural_operator_for_free_boundary_problems",
   "paper_title": "Deep neural operator for free boundary problems",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01233-9"
     }
   ],
-  "generated_at": "2026-05-24T08:18:18.188561"
+  "generated_at": "2026-05-25T09:52:54.349156"
 }

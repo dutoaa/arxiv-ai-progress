@@ -1,23 +1,23 @@
 {
-  "key_insight": "Sensor2Sensor learns to convert unstructured, in-the-wild sensor streams (e.g., dashcam video) into the sensor modalities and viewpoints used by production AV fleets, enabling large-scale, diverse training data without needing new fleet drives.",
-  "problem_solved": "Bridges the data gap between limited, proprietary AV fleet sensors and abundant but off-embodiment in-the-wild sources, addressing scarcity of diverse sensor configurations, geographic coverage, and long-tail scenarios for ADS training and validation.",
+  "key_insight": "A cross-embodiment conversion model can translate abundant in-the-wild sensor streams (e.g., dashcams) into the sensor modalities and configurations used by autonomous vehicles, unlocking large-scale, diverse training data for ADS without proprietary fleet collection.",
+  "problem_solved": "Bridges the gap between limited, proprietary AV sensor datasets and massive but heterogeneous in-the-wild video data by enabling reuse of diverse dashcam footage for training and validating AV perception stacks.",
   "method": [
-    "Train a geometry- and sensor-aware neural conversion model to synthesize target AV sensor outputs from in-the-wild inputs (cross-embodiment sensor translation).",
-    "Combine self-supervised consistency, perceptual/reconstruction losses, and domain-adaptation/adversarial objectives to align appearance, viewpoint, and sensor characteristics.",
-    "Validate usefulness via downstream perception tasks (e.g., detection/segmentation) and by mixing synthesized data with fleet data for robust model training."
+    "Learn a cross-embodiment sensor-conversion model that maps source sensor streams to target AV sensor modalities while preserving geometric and semantic consistency.",
+    "Combine geometry-aware rendering, temporal consistency constraints, and domain-adaptation/self- or weak-supervision to handle unpaired and diverse in-the-wild data.",
+    "Use the converted sensor outputs to augment or fine-tune downstream perception models (detection, segmentation, tracking) for robust ADS training."
   ],
-  "impact": "Enables practitioners to massively expand and diversify ADS training sets using cheap, widely available footage, improving robustness to rare events and unseen environments while reducing dependence on expensive fleet collection.",
+  "impact": "Allows AI/ML teams to massively expand and diversify ADS training data using inexpensive in-the-wild footage, improving robustness to long-tail scenarios and reducing dependence on costly proprietary fleet collection.",
   "visual_elements": [
-    "Pipeline diagram showing dashcam input -> conversion network -> synthesized AV sensor outputs -> downstream perception model",
-    "Before/after examples: raw dashcam frame vs. synthesized camera/lidar/radar views from AV embodiment",
-    "Bar chart comparing detection/segmentation performance when training with fleet-only data vs. fleet + synthesized data",
-    "World map or heatmap illustrating expanded geographic/behavioral coverage after adding in-the-wild sources"
+    "Pipeline diagram: source (dashcam) → cross-embodiment conversion model → target AV sensors (surround cameras / simulated LiDAR).",
+    "Before/after panels: raw dashcam frame vs. synthesized target-modality outputs (e.g., multi-camera rig views or depth/LiDAR-like rendering).",
+    "Dataset coverage map or heatmap showing expanded geographic/behavioral diversity when including converted in-the-wild data.",
+    "Iconic summary: scale (stack of videos), cost reduction (dollar icon), and robustness (shield with plus) to highlight practical benefits."
   ],
   "hashtags": [
     "#AutonomousDriving",
-    "#DataAugmentation",
-    "#SensorSynthesis",
-    "#Sim2Real",
+    "#SensorConversion",
+    "#DomainAdaptation",
+    "#SyntheticData",
     "#ComputerVision"
   ],
   "paper_id": "2026-05-21-arxiv-sensor2sensor_cross_embodiment_sensor_conversion_for_autonomous_driving",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.22809v1"
     }
   ],
-  "generated_at": "2026-05-24T08:16:34.572848"
+  "generated_at": "2026-05-25T09:53:30.543276"
 }
