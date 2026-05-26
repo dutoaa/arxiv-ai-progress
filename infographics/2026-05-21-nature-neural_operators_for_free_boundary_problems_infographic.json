@@ -1,24 +1,24 @@
 {
-  "key_insight": "Mapping free-boundary PDEs to an equivalent fixed-domain representation via topological conjugacy enables neural operators to learn and predict moving-boundary dynamics accurately and efficiently.",
-  "problem_solved": "Neural operators struggle to represent PDEs with evolving (free) boundaries—common in problems like glacier melt—because the domain changes in time and breaks standard operator assumptions. This work provides a principled way to handle moving domains so operators can generalize and remain data-efficient.",
+  "key_insight": "The paper shows that free‑boundary PDEs can be learned robustly by first transforming them via topological conjugacy to a fixed‑domain problem, training a neural operator there, and then mapping solutions back — enabling neural operators to handle moving boundaries efficiently.",
+  "problem_solved": "Neural operators struggle to represent PDEs with evolving (free) boundaries—such as glacier melt—because the changing domain breaks standard operator representations and generalization across boundary evolutions.",
   "method": [
-    "Construct a topological-conjugacy transformation that maps the original free-boundary problem to a fixed reference domain while preserving the dynamical structure.",
-    "Train a neural operator (e.g., DeepONet/FNO-style architecture) on the transformed fixed-domain PDE to learn the solution operator and boundary evolution jointly.",
-    "Invert the transformation to recover predictions on the original moving domain, enabling accurate reconstruction of both field values and boundary motion."
+    "Use topological conjugacy to construct a bijective transformation that maps the free‑boundary (moving domain) problem to an equivalent fixed‑domain formulation.",
+    "Train a neural operator on the transformed fixed‑domain PDE, where operator learning is stable and domain‑invariant.",
+    "Invert the transformation to recover the physical solution and the evolving boundary in the original coordinates; incorporate boundary‑aware constraints during learning to preserve physical consistency."
   ],
-  "impact": "Enables scalable, generalizable operator-learning surrogates for moving-boundary physical systems (e.g., glacier dynamics, combustion fronts), improving prediction speed and data efficiency for scientific ML and climate applications.",
+  "impact": "This approach enables neural operators to generalize across different boundary evolutions, making them practical for real‑world moving‑boundary phenomena (e.g., glacier dynamics, phase change, tumor growth) and improving efficiency and reliability of physics‑aware ML solvers.",
   "visual_elements": [
-    "Schematic: free-boundary domain → arrow labeled 'topological conjugacy' → fixed reference domain",
-    "Pipeline flowchart: transform → neural operator training → inverse transform → predicted moving boundary and fields",
-    "Comparative plots: ground-truth vs predicted field and boundary position over time, with error heatmap",
-    "Icon set: glacier/melting front, neural network/operator symbol, transformation/map"
+    "Schematic: mapping between moving (physical) domain and fixed (transformed) domain via topological conjugacy (arrowed transformation + inverse).",
+    "Pipeline diagram: transformed PDE → neural operator training → inverse transform → predicted free boundary and field.",
+    "Comparison plots: time series or spatial snapshots showing ground truth vs predicted field and boundary positions.",
+    "Application thumbnail: illustrative example (e.g., glacier profile evolution) with annotated moving front to link method to real problem."
   ],
   "hashtags": [
     "#NeuralOperators",
-    "#FreeBoundary",
+    "#FreeBoundaryProblems",
     "#TopologicalConjugacy",
     "#ScientificML",
-    "#ClimateAI"
+    "#ClimateModeling"
   ],
   "paper_id": "2026-05-21-nature-neural_operators_for_free_boundary_problems",
   "paper_title": "Neural operators for free-boundary problems",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01238-4"
     }
   ],
-  "generated_at": "2026-05-25T09:52:41.992709"
+  "generated_at": "2026-05-26T09:36:53.048969"
 }

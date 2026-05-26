@@ -1,23 +1,23 @@
 {
-  "key_insight": "LaMo learns a self-supervised prior over frame-to-frame latent motion directly from the unlabeled videos used to train video diffusion models, and uses that latent motion prior to bias generation toward physically consistent dynamics.",
-  "problem_solved": "Addresses the gap of physical and motion inconsistency in modern video generators without relying on external simulators, teacher models, or curated physics data.",
+  "key_insight": "Learning a self-supervised prior over frame-to-frame latent motion extracted from the same unlabeled videos used to train generators can strongly improve physical and motion consistency in video diffusion models without relying on simulators or curated physics data.",
+  "problem_solved": "Modern video generators produce realistic frames but often fail to maintain physically plausible, temporally consistent motion across frames; this work addresses motion realism and physical consistency in generated video.",
   "method": [
-    "Formulate a latent motion prior over frame-to-frame changes in the model's latent space, capturing typical dynamic patterns.",
-    "Train the prior self-supervised on the same unlabeled video corpus used for diffusion training (extracting motion cues from latent transitions).",
-    "Integrate the learned prior into video diffusion sampling or finetuning to nudge generations toward more physically plausible and temporally consistent motions."
+    "Extract frame-to-frame motion cues in latent space from unlabeled videos and train a motion prior self-supervisedly.",
+    "Formulate the prior as a latent motion model that regularizes or conditions the video diffusion/generation process to favor physically consistent transitions.",
+    "Integrate the learned latent motion prior into training/sampling to reduce unrealistic dynamics without external simulators or teacher models."
   ],
-  "impact": "Provides a plug-in, data-efficient way to improve physical realism in generative video systems, reducing dependence on curated physics datasets or external simulators and enabling more reliable world simulation and downstream applications.",
+  "impact": "Provides a scalable, data-efficient way to improve motion realism in video generation, making generative models more reliable for simulation, planning, and downstream tasks that require physically consistent dynamics.",
   "visual_elements": [
-    "Pipeline diagram: video frames → latent encoder → latent motion prior (learned) → diffusion generator, showing where the prior is applied",
-    "Before/after side-by-side video frame sequences highlighting improved motion consistency",
-    "Schematic of latent-space frame-to-frame vectors (arrows) with examples of learned motion modes",
-    "Metric chart comparing physical/motion-consistency scores (or qualitative realism) for baseline vs. LaMo-enhanced models"
+    "Pipeline diagram: video frames → encoder to latents → compute frame-to-frame latent deltas → learn latent motion prior → condition video generator",
+    "Before/after video frame sequences comparing standard diffusion outputs vs. outputs conditioned on LaMo (highlighting improved motion continuity)",
+    "Schematic of latent space trajectories showing smoothed/physically coherent transitions enforced by the motion prior",
+    "Bar chart or table summarizing quantitative improvements (e.g., motion-consistency metrics) and qualitative examples"
   ],
   "hashtags": [
     "#VideoGeneration",
     "#SelfSupervised",
+    "#MotionPrior",
     "#DiffusionModels",
-    "#MotionModeling",
     "#PhysicalRealism"
   ],
   "paper_id": "2026-05-22-arxiv-lamo_self_supervised_latent_motion_priors_for_physical_realism_in_video_generati",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.23878v1"
     }
   ],
-  "generated_at": "2026-05-25T09:50:49.924428"
+  "generated_at": "2026-05-26T09:37:23.750340"
 }

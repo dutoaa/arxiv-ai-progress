@@ -1,24 +1,24 @@
 {
-  "key_insight": "SpaceNum shows that numeric outputs from VLMs — both action-like transitions and absolute spatial coordinates — are not reliably grounded in visual perception; a unified benchmark exposes distinct failure modes across these two settings.",
-  "problem_solved": "Clarifies whether numbers produced by VLMs reflect true spatial perception (grounded understanding) versus linguistic or dataset shortcuts, and provides a standardized way to evaluate numerical/spatial grounding.",
+  "key_insight": "SpaceNum shows that numeric outputs from Vision–Language Models are not reliably grounded in spatial perception: many VLMs produce plausible-looking numbers (e.g., distances, coordinates, magnitudes) without true spatial understanding. By evaluating numbers as both dynamic transitions and static coordinates, SpaceNum exposes systematic gaps in spatial numerical grounding.",
+  "problem_solved": "Clarifies whether and how VLM-generated numbers (action magnitudes, spatial coordinates) reflect genuine spatial perception rather than learned token patterns, providing a unified benchmark to evaluate spatial numerical grounding in embodied and vision-language settings.",
   "method": [
-    "Define two complementary settings: (a) numbers as dynamic transitions (action magnitudes/deltas) and (b) numbers as static spatial coordinates (absolute positions).",
-    "Build SpaceNum — a controlled benchmark with synthetic and real-scene probes, targeted perturbations, and task splits that isolate perceptual grounding from language priors.",
-    "Evaluate diverse VLMs with diagnostics and metrics (accuracy, calibration, generalization under perturbations) to identify systematic errors and model-specific failure modes."
+    "Define two complementary task families: numbers-as-dynamic-transitions (e.g., action magnitudes, step-wise displacements) and numbers-as-static-coordinates (e.g., absolute/relative positions).",
+    "Construct a controllable dataset and evaluation protocol (synthetic + real images, paired ground-truth numeric labels) to probe numeric grounding across scales and contexts.",
+    "Apply standardized metrics and systematic ablations to evaluate popular VLMs, isolating failure modes (scale sensitivity, context leaks, token bias) and comparing model behaviors."
   ],
-  "impact": "Provides practitioners a clear diagnostic and benchmarking tool to assess and improve VLMs for embodied tasks (navigation, manipulation) where correct numerical/spatial outputs are critical for safety and reliability.",
+  "impact": "Provides practitioners a practical benchmark to diagnose and improve numeric/spatial reliability in VLMs for robotics, navigation, and embodied agents; informs dataset design, model calibration, and evaluation practices to ensure numeric outputs are spatially grounded.",
   "visual_elements": [
-    "Split-panel diagram showing the two settings: dynamic transitions (arrow/magnitude overlay) vs. static coordinates (point markers with x,y labels).",
-    "Example image with model-predicted numbers vs. ground-truth overlays to illustrate perceptual vs. spurious predictions.",
-    "Bar/line chart comparing error and calibration across models and across perturbation types (occlusion, viewpoint shift, scale).",
-    "Pipeline flowchart of the SpaceNum benchmark: dataset generation → task types → diagnostics → metrics and failure-mode mapping."
+    "Task taxonomy diagram showing the two task families: dynamic transitions vs static coordinates with example inputs/outputs.",
+    "Bar/heatmap comparing model accuracy/error by numeric magnitude and task type (revealing scale-dependent failures).",
+    "Pair of image examples annotated with ground-truth numbers vs model predictions to illustrate correct vs spurious numeric outputs.",
+    "Calibration/error-distribution plots and a checklist infographic for practitioners (diagnostics + mitigation tips)."
   ],
   "hashtags": [
-    "#VisionLanguageModels",
+    "#SpaceNum",
+    "#VisionLanguage",
     "#SpatialReasoning",
-    "#NumericalGrounding",
-    "#ModelEvaluation",
-    "#EmbodiedAI"
+    "#EmbodiedAI",
+    "#Benchmarking"
   ],
   "paper_id": "2026-05-22-arxiv-spacenum_revisiting_spatial_numerical_understanding_in_vlms",
   "paper_title": "SPACENUM: Revisiting Spatial Numerical Understanding in VLMs",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.23898v1"
     }
   ],
-  "generated_at": "2026-05-25T09:51:52.467158"
+  "generated_at": "2026-05-26T09:37:40.059157"
 }

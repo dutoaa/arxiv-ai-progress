@@ -1,0 +1,35 @@
+{
+  "key_insight": "TriSplat replaces indirect Gaussian splats with learned triangular surface primitives so a single feed‑forward pass from sparse views produces explicit, simulation‑ready meshes without expensive post‑hoc meshing.",
+  "problem_solved": "Existing feed‑forward splatting methods expose surfaces only indirectly (often as Gaussians), forcing costly post‑processing to get usable meshes for simulation or embodied interaction—worse in pose‑free, sparse‑view scenarios. TriSplat removes that bottleneck by predicting primitives that assemble into ready‑to‑use geometry.",
+  "method": [
+    "Predict explicit triangular surface primitives (\"tri‑splats\") directly from sparse input images in a single feed‑forward network.",
+    "Aggregate and rasterize tri‑splats with a differentiable splatting/assembly step to form coherent, connected surfaces and per‑triangle attributes.",
+    "Train with multi‑term losses (image reprojection, geometric consistency, and simulation‑aware criteria such as watertightness and stable contact) to produce downstream‑ready meshes without optimization or meshing post‑processing."
+  ],
+  "impact": "TriSplat streamlines pipelines that need accurate, simulation‑ready 3D scenes (robotics, physics engines, embodied AI) by removing expensive mesh reconstruction steps—enabling faster end‑to‑end perception-to-simulation workflows from sparse, pose‑free inputs.",
+  "visual_elements": [
+    "Pipeline diagram: sparse input images → TriSplat network → tri‑splats → assembled mesh (single pass).",
+    "Before/after comparison: Gaussian splats requiring meshing vs TriSplat producing a watertight mesh ready for simulation.",
+    "Simulation snapshot: reconstructed scene used in a physics engine (collision/contact) to illustrate downstream readiness.",
+    "Chart: runtime and end‑task (e.g., collision/physics) performance vs prior methods, highlighting removal of post‑processing cost."
+  ],
+  "hashtags": [
+    "#3DReconstruction",
+    "#NeuralRendering",
+    "#SimulationReady",
+    "#Robotics",
+    "#ComputerVision"
+  ],
+  "paper_id": "2026-05-25-arxiv-trisplat_simulation_ready_feed_forward_3d_scene_reconstruction",
+  "paper_title": "TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction",
+  "paper_category": "Model",
+  "paper_date": "2026-05-25",
+  "paper_authors": "Weijie Wang, Zimu Li, Jinchuan Shi, Zeyu Zhang, Botao Ye",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.26115v1"
+    }
+  ],
+  "generated_at": "2026-05-26T09:36:46.997313"
+}

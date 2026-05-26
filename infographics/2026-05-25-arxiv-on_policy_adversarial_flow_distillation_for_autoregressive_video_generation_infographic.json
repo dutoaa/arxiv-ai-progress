@@ -1,0 +1,35 @@
+{
+  "key_insight": "Introduce an on-policy adversarial flow distillation method that trains causal autoregressive student video models using only completed, prompt-conditioned videos from black-box teachers by matching transition flows under the student's own rollout distribution.",
+  "problem_solved": "Enables distillation of powerful, potentially non-causal or black-box teachers into causal autoregressive students despite mismatch in architecture, temporal design, sampling schedule, and the teacher only providing finished videos—making off-policy supervised or score-based distillation ineffective.",
+  "method": [
+    "On-policy student rollouts: generate trajectories from the student and compare transitions under the student's own distribution to avoid compounding prediction errors.",
+    "Adversarial flow matching: use a discriminator to measure and minimize the mismatch between the student's transition flows and teacher-conditioned flows inferred from completed teacher videos.",
+    "Black-box teacher interface: operate with only prompt-conditioned completed videos (no internal scores or schedules), robust to architecture and sampling differences."
+  ],
+  "impact": "Makes it practical to compress and deploy strong video generators as causal, streaming-capable models that operate under their own rollouts—reducing error accumulation and enabling real-time or interactive applications.",
+  "visual_elements": [
+    "Teacher → Student interface diagram showing completed teacher videos and student autoregressive rollouts",
+    "Flow-matching schematic: distributions, discriminator, and student update loop",
+    "Before vs After chart: sample quality / rollout error comparing off-policy distillation and on-policy adversarial flow distillation",
+    "Streaming/latency iconography illustrating deployment benefits for long-horizon and interactive scenarios"
+  ],
+  "hashtags": [
+    "#VideoGeneration",
+    "#ModelDistillation",
+    "#AutoregressiveModels",
+    "#OnPolicyLearning",
+    "#AdversarialLearning"
+  ],
+  "paper_id": "2026-05-25-arxiv-on_policy_adversarial_flow_distillation_for_autoregressive_video_generation",
+  "paper_title": "On-Policy Adversarial Flow Distillation for Autoregressive Video Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-05-25",
+  "paper_authors": "Yang Luo, Shengju Qian, Xiaohang Tang, Zirui Zhu, Yong Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.26105v1"
+    }
+  ],
+  "generated_at": "2026-05-26T09:35:54.215782"
+}
