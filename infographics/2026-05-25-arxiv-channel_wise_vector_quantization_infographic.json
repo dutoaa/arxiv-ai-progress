@@ -1,24 +1,24 @@
 {
-  "key_insight": "Channel-wise Vector Quantization (CVQ) replaces patch-wise tokens with tokens per channel, quantizing each channel of a feature map so an image is represented as discrete levels of visual detail instead of a spatial grid.",
-  "problem_solved": "Conventional patch-wise vector quantization ties discrete tokens to spatial patches, which can limit representational granularity and efficiency for autoregressive image modeling; CVQ addresses this by tokenizing along channels to better capture per-channel detail and dependencies.",
+  "key_insight": "Channel-wise Vector Quantization (CVQ) tokenizes images by discretizing each feature-channel instead of whole spatial patches, turning an image into discrete levels of visual detail and enabling autoregressive modeling along channels.",
+  "problem_solved": "Patch-wise vector quantization treats each spatial patch as an atomic token, which can be spatially coarse and mix different detail levels; CVQ addresses this by separating and discretizing channels so fine-grained visual information and cross-channel dependencies can be modeled explicitly.",
   "method": [
-    "Quantize each channel of a convolutional feature map into a small set of discrete levels (channel-wise codebook) instead of quantizing whole spatial patch vectors.",
-    "Represent images as sequences of channel-level tokens that encode visual detail per channel rather than a grid of patch tokens.",
-    "Train a visual autoregressive model that predicts the next channel token in sequence (next-channel prediction) to model cross-channel dependencies and enable generation/tokenization."
+    "Quantize individual channels of a feature map into discrete channel-level tokens (rather than quantizing patch feature vectors).",
+    "Represent an image as a sequence of channel-wise discrete levels, capturing visual detail per channel rather than per spatial patch.",
+    "Train a visual autoregressive model that predicts the next channel token (next-channel prediction) to model dependencies and enable generation/reconstruction."
   ],
-  "impact": "CVQ provides a new, compact tokenization paradigm that can improve how models represent and generate images, enabling alternative autoregressive architectures and potentially more efficient downstream tasks like compression, generation, and conditional modeling.",
+  "impact": "CVQ offers a new tokenization that can improve fidelity and controllability in generative and compression tasks by aligning discrete representations with per-channel visual details, and it enables novel autoregressive architectures that operate across channels rather than spatial positions.",
   "visual_elements": [
-    "Side-by-side diagram: patch-wise tokenization vs. channel-wise tokenization to show the conceptual shift.",
-    "Pipeline flowchart: feature extraction → per-channel quantization → channel-token sequence → autoregressive next-channel prediction.",
-    "Heatmap / bar-chart: example feature map channels and their discrete quantized levels to illustrate information per channel.",
-    "Sequence diagram: autoregressive generation over channels (timeline of predicted channel tokens) to visualize dependency modeling."
+    "Side-by-side diagram: patch-wise tokens vs. channel-wise tokens (color-coded grid vs. channel bars).",
+    "Schematic of per-channel quantization flow: feature map → channel slices → quantizer → channel tokens.",
+    "Autoregressive pipeline illustration: sequence of channel tokens with arrows showing next-channel prediction and reconstruction.",
+    "Token-level visualization or reconstruction examples showing how channel tokens map to image detail (before/after quantization)."
   ],
   "hashtags": [
     "#VectorQuantization",
-    "#Tokenization",
-    "#ComputerVision",
-    "#GenerativeAI",
-    "#AutoregressiveModels"
+    "#ImageTokenization",
+    "#AutoregressiveModels",
+    "#RepresentationLearning",
+    "#ComputerVision"
   ],
   "paper_id": "2026-05-25-arxiv-channel_wise_vector_quantization",
   "paper_title": "Channel-wise Vector Quantization",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.26089v1"
     }
   ],
-  "generated_at": "2026-05-26T09:35:09.754982"
+  "generated_at": "2026-05-27T09:30:25.736801"
 }

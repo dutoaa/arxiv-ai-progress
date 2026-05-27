@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper shows that free‑boundary PDEs can be learned robustly by first transforming them via topological conjugacy to a fixed‑domain problem, training a neural operator there, and then mapping solutions back — enabling neural operators to handle moving boundaries efficiently.",
-  "problem_solved": "Neural operators struggle to represent PDEs with evolving (free) boundaries—such as glacier melt—because the changing domain breaks standard operator representations and generalization across boundary evolutions.",
+  "key_insight": "A topological-conjugacy transform maps free-boundary PDEs to equivalent fixed-domain problems so neural operators can learn the solution operator reliably; applying the inverse transform reconstructs the evolving boundary and original-field solution.",
+  "problem_solved": "Neural operators typically struggle with domains whose boundaries change in time (free-boundary problems like glacier melt). This framework enables accurate operator learning and prediction for such moving-boundary systems.",
   "method": [
-    "Use topological conjugacy to construct a bijective transformation that maps the free‑boundary (moving domain) problem to an equivalent fixed‑domain formulation.",
-    "Train a neural operator on the transformed fixed‑domain PDE, where operator learning is stable and domain‑invariant.",
-    "Invert the transformation to recover the physical solution and the evolving boundary in the original coordinates; incorporate boundary‑aware constraints during learning to preserve physical consistency."
+    "Construct a topological-conjugacy mapping that converts the free-boundary PDE into an equivalent fixed-domain formulation.",
+    "Train a neural operator on the transformed fixed-domain problem to learn the solution operator efficiently.",
+    "Apply the inverse conjugacy map to recover the original solution and the time-evolving boundary in the physical domain."
   ],
-  "impact": "This approach enables neural operators to generalize across different boundary evolutions, making them practical for real‑world moving‑boundary phenomena (e.g., glacier dynamics, phase change, tumor growth) and improving efficiency and reliability of physics‑aware ML solvers.",
+  "impact": "Makes neural operators applicable to a broad class of real-world PDEs with moving boundaries (e.g., glaciology, multiphase flows), providing fast, generalizable surrogates for simulation, forecasting, and uncertainty quantification.",
   "visual_elements": [
-    "Schematic: mapping between moving (physical) domain and fixed (transformed) domain via topological conjugacy (arrowed transformation + inverse).",
-    "Pipeline diagram: transformed PDE → neural operator training → inverse transform → predicted free boundary and field.",
-    "Comparison plots: time series or spatial snapshots showing ground truth vs predicted field and boundary positions.",
-    "Application thumbnail: illustrative example (e.g., glacier profile evolution) with annotated moving front to link method to real problem."
+    "Schematic: free-boundary domain → conjugacy transform → fixed domain (side-by-side comparison)",
+    "Pipeline flowchart: data / PDE → transform → neural operator training → inverse transform → predicted solution + boundary",
+    "Animation or sequence: predicted glacier melt (boundary evolution) vs ground-truth simulation",
+    "Performance plots: error vs baseline solver and runtime / speedup bar chart"
   ],
   "hashtags": [
     "#NeuralOperators",
-    "#FreeBoundaryProblems",
+    "#FreeBoundary",
     "#TopologicalConjugacy",
     "#ScientificML",
-    "#ClimateModeling"
+    "#ComputationalPhysics"
   ],
   "paper_id": "2026-05-21-nature-neural_operators_for_free_boundary_problems",
   "paper_title": "Neural operators for free-boundary problems",
@@ -35,5 +35,5 @@
       "url": "https://doi.org/10.1038/s42256-026-01238-4"
     }
   ],
-  "generated_at": "2026-05-26T09:36:53.048969"
+  "generated_at": "2026-05-27T09:29:44.098684"
 }

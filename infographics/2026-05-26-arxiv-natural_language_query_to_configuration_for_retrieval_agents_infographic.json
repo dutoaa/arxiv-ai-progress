@@ -1,0 +1,35 @@
+{
+  "key_insight": "Choose retrieval-pipeline settings per query (given an accuracy or budget target) to significantly reduce serving cost or meet accuracy goals, instead of using a single hand-tuned pipeline for all queries.",
+  "problem_solved": "Hand-tuned retrieval agent pipelines waste cost or accuracy because they are static per workload; this work enables per-query configuration selection that unlocks untapped cost–quality tradeoffs.",
+  "method": [
+    "Define a catalog of pipeline configurations (LLM, retriever, #documents, #hops, synthesis strategy) and a constrained objective: minimize cost subject to accuracy target or maximize accuracy under a budget.",
+    "Map a natural-language query and a target (accuracy or budget) to the best configuration via a query-conditioned selection mechanism (learned predictor or policy over the catalog).",
+    "Evaluate and select configurations using predicted cost/accuracy tradeoffs to choose the cheapest configuration that meets accuracy (or the most accurate within budget)."
+  ],
+  "impact": "Enables retrieval-agent deployments to automatically adapt per request, lowering inference cost and/or improving answer quality without manual tuning—practical for production search, RAG, and assistant systems.",
+  "visual_elements": [
+    "Flowchart: Query + target (accuracy/budget) → selector → pipeline config → retrieval + synthesis → answer",
+    "Pareto plot: cost vs accuracy with highlighted chosen config per query showing movement along the frontier",
+    "Catalog matrix: icons/tiles showing configuration dimensions (LLM size, retriever, #docs, #hops, synthesis) and sampled options",
+    "Before/After example: concrete query with static vs selected config, showing cost saved and accuracy retained/improved"
+  ],
+  "hashtags": [
+    "#RetrievalAgents",
+    "#QueryOptimization",
+    "#CostEfficiency",
+    "#RAG",
+    "#AutoML"
+  ],
+  "paper_id": "2026-05-26-arxiv-natural_language_query_to_configuration_for_retrieval_agents",
+  "paper_title": "Natural Language Query to Configuration for Retrieval Agents",
+  "paper_category": "Model",
+  "paper_date": "2026-05-26",
+  "paper_authors": "Melissa Z. Pan, Negar Arabzadeh, Mathew Jacob, Fiodar Kazhamiaka, Esha Choukse",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.27361v1"
+    }
+  ],
+  "generated_at": "2026-05-27T09:28:43.658478"
+}

@@ -1,17 +1,17 @@
 {
-  "key_insight": "Introduce an on-policy adversarial flow distillation method that trains causal autoregressive student video models using only completed, prompt-conditioned videos from black-box teachers by matching transition flows under the student's own rollout distribution.",
-  "problem_solved": "Enables distillation of powerful, potentially non-causal or black-box teachers into causal autoregressive students despite mismatch in architecture, temporal design, sampling schedule, and the teacher only providing finished videos—making off-policy supervised or score-based distillation ineffective.",
+  "key_insight": "Introduce on-policy adversarial flow distillation: train causal autoregressive student video models from black-box, prompt-conditioned teacher videos by matching the student's rollout transition flows to the teacher via an adversarial objective, avoiding the need for teacher scores or internals.",
+  "problem_solved": "Distills high-quality autoregressive video teachers into causal students despite distribution mismatch (student rollouts vs teacher outputs), heterogeneous teacher architectures/schedules, and limited access to only completed, prompt-conditioned videos.",
   "method": [
-    "On-policy student rollouts: generate trajectories from the student and compare transitions under the student's own distribution to avoid compounding prediction errors.",
-    "Adversarial flow matching: use a discriminator to measure and minimize the mismatch between the student's transition flows and teacher-conditioned flows inferred from completed teacher videos.",
-    "Black-box teacher interface: operate with only prompt-conditioned completed videos (no internal scores or schedules), robust to architecture and sampling differences."
+    "On-policy rollouts: let the causal student generate trajectories under its own sampling distribution to form training data that matches deployment conditions.",
+    "Adversarial flow matching: use an adversarial objective to align the transition \"flow\" (conditional next-frame/latent dynamics) between student rollouts and teacher-provided completed videos without requiring teacher scores or architecture access.",
+    "Prompt-conditioned supervision: condition the adversarial discriminator/matcher on prompts so the student learns to reproduce teacher-conditioned behaviors from final videos alone."
   ],
-  "impact": "Makes it practical to compress and deploy strong video generators as causal, streaming-capable models that operate under their own rollouts—reducing error accumulation and enabling real-time or interactive applications.",
+  "impact": "Enables practical distillation of opaque, high-performing video generators into lightweight causal models suitable for streaming, long-horizon, and interactive use cases. Reduces dependency on teacher internals or score-based signals, making distillation feasible in real-world deployment scenarios.",
   "visual_elements": [
-    "Teacher → Student interface diagram showing completed teacher videos and student autoregressive rollouts",
-    "Flow-matching schematic: distributions, discriminator, and student update loop",
-    "Before vs After chart: sample quality / rollout error comparing off-policy distillation and on-policy adversarial flow distillation",
-    "Streaming/latency iconography illustrating deployment benefits for long-horizon and interactive scenarios"
+    "Pipeline diagram: black-box teacher (completed videos only) feeding adversarial flow matcher and causal student producing on-policy rollouts (looped arrows to show self-generated distribution).",
+    "Timeline comparison: off-policy (teacher outputs) vs on-policy (student rollouts) highlighting distribution mismatch and where learning occurs.",
+    "Flow-field visualization: example transition flow vectors or attention maps showing alignment between student and teacher dynamics.",
+    "Performance chart: teacher vs distilled student on key metrics (fidelity, temporal coherence, rollout robustness) across horizon length."
   ],
   "hashtags": [
     "#VideoGeneration",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.26105v1"
     }
   ],
-  "generated_at": "2026-05-26T09:35:54.215782"
+  "generated_at": "2026-05-27T09:31:25.152259"
 }

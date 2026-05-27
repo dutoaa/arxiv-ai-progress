@@ -1,0 +1,35 @@
+{
+  "key_insight": "LocateAnything replaces token-by-token coordinate generation with Parallel Box Decoding so each 2D box is decoded as a coupled unit in parallel, eliminating the sequential generation bottleneck and better modeling box geometry. This yields faster inference and higher-quality visual grounding/detection.",
+  "problem_solved": "Current VLM grounding and detection serialize boxes into independent 1D coordinate tokens and decode them sequentially, which mismatches the coupled nature of box geometry and creates a practical inference speed and quality bottleneck.",
+  "method": [
+    "Parallel Box Decoding: group each bounding box's coordinates into a single jointly decoded unit instead of serializing into independent tokens, enabling parallel prediction of multiple boxes.",
+    "Unified generative grounding framework: integrate parallel box decoding into a vision–language model so language-conditioned location predictions and detection coexist in one generative pipeline.",
+    "Architecture and training adjustments: couple geometric decoding with cross-attention and task-specific losses so box geometry and language cues are learned jointly for accurate, fast localization."
+  ],
+  "impact": "Makes vision-language grounding and detection substantially faster and more accurate by aligning the model's output structure with true box geometry; this improves throughput for real-time and large-scale applications and simplifies deployment of unified VLM detectors.",
+  "visual_elements": [
+    "Schematic comparison: sequential token-by-token box decoding vs. parallel box decoding (showing fewer steps and grouped box outputs).",
+    "Speed vs. quality chart: inference latency reduction on x-axis and localization accuracy improvement on y-axis, illustrating Pareto gains.",
+    "Pipeline diagram: image + text input → unified VLM → parallel box decoder → multiple bounding boxes (with language alignment).",
+    "Qualitative examples: sample images with language queries and predicted boxes, highlighting tighter, more accurate boxes and faster runtime."
+  ],
+  "hashtags": [
+    "#VisionLanguage",
+    "#ObjectDetection",
+    "#Grounding",
+    "#EfficientInference",
+    "#ParallelDecoding"
+  ],
+  "paper_id": "2026-05-26-arxiv-locateanything_fast_and_high_quality_vision_language_grounding_with_parallel_box",
+  "paper_title": "LocateAnything: Fast and High-Quality Vision-Language Grounding with Parallel Box Decoding",
+  "paper_category": "Evaluation",
+  "paper_date": "2026-05-26",
+  "paper_authors": "Shihao Wang, Shilong Liu, Yuanguo Kuang, Xinyu Wei, Yangzhou Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.27365v1"
+    }
+  ],
+  "generated_at": "2026-05-27T09:28:55.842814"
+}
