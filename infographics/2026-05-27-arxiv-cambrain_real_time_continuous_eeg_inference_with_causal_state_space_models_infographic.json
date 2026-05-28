@@ -1,0 +1,35 @@
+{
+  "key_insight": "Replacing attention-heavy EEG models with causal state-space models enables true real-time, continuous inference over arbitrarily long EEG recordings without sliding-window hacks or quadratic time/space costs.",
+  "problem_solved": "Addresses the scalability and latency limits of existing EEG deep-learning pipelines that rely on attention and fixed-length windows, which struggle with very long recordings and real-time/streaming requirements.",
+  "method": [
+    "Use causal state-space models (SSMs) as the core temporal backbone to provide linear-time, constant-memory sequence processing instead of quadratic attention.",
+    "Design a streaming, sample-by-sample inference pipeline that emits continuous outputs (no sliding windows) with low latency suitable for online EEG.",
+    "Optimize training and inference for EEG: causal conditioning, efficient recurrence/unrolled updates, and architecture choices that trade negligible accuracy for large gains in throughput and memory."
+  ],
+  "impact": "Makes long-duration and real-time EEG analysis practical on commodity and edge hardware, lowering compute/memory costs and enabling continuous brain monitoring, BCI, and clinical applications previously limited by attention-based models.",
+  "visual_elements": [
+    "Scaling plot: quadratic cost of attention vs linear cost of causal SSMs as sequence length grows",
+    "Pipeline diagram: streaming EEG input → causal SSM core → continuous per-sample outputs (no windows)",
+    "Latency/throughput bar chart comparing sliding-window attention models vs CaMBRAIN on long recordings",
+    "Icon row: EEG waveform, clock/real-time, edge device, and low-memory footprint"
+  ],
+  "hashtags": [
+    "#EEG",
+    "#StateSpaceModels",
+    "#RealTimeAI",
+    "#BCI",
+    "#StreamingML"
+  ],
+  "paper_id": "2026-05-27-arxiv-cambrain_real_time_continuous_eeg_inference_with_causal_state_space_models",
+  "paper_title": "CaMBRAIN: Real-time, Continuous EEG Inference with Causal State Space Models",
+  "paper_category": "Model",
+  "paper_date": "2026-05-27",
+  "paper_authors": "Abhilash Durgam, Nyle Siddiqui, Jeffrey A. Chan-Santiago, Qiushi Fu, Elakkat D. Gireesh",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.28792v1"
+    }
+  ],
+  "generated_at": "2026-05-28T09:44:50.095905"
+}

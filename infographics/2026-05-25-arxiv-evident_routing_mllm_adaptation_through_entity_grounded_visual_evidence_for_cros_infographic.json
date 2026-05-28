@@ -1,23 +1,23 @@
 {
-  "key_insight": "Anchoring MLLM adaptation to entity-grounded visual evidence preserves the model's temporal localization ability under visual domain shift, enabling robust cross-domain Video Temporal Grounding without full fine-tuning.",
-  "problem_solved": "Fine-tuning multimodal LLMs for video temporal grounding often fails under visual domain shift—EVIDENT prevents the decoupling of temporal localization and entity attention, reducing cross-domain performance degradation and heavy retraining.",
+  "key_insight": "Visual domain shift—not just unseen query concepts—breaks the link between an MLLM's temporal localization knowledge and its entity-attention. EVIDENT re‑anchors grounding by routing adaptation through entity‑grounded visual evidence, restoring robust cross‑domain performance with few extra parameters.",
+  "problem_solved": "VTG fine‑tuning of MLLMs often yields strong in‑domain results but fails under domain shift because visual appearance changes decouple entity attention from learned temporal localization. The paper addresses how to adapt MLLMs so they maintain accurate temporal grounding across diverse visual domains while remaining parameter‑efficient.",
   "method": [
-    "Extract entity-grounded visual evidence (object/person regions, tracks, or localized features) aligned with the textual query from video frames.",
-    "Route lightweight, parameter-efficient adapters into the frozen MLLM so the model conditions temporal localization on the selected visual evidence while preserving learned localization behavior.",
-    "Train a routing mechanism to select and fuse entity evidence with temporal prediction heads, improving generalization to unseen visual domains with minimal parameter updates."
+    "Entity‑grounded evidence extraction: detect and pool entity‑conditioned visual clues from video segments to create explicit visual evidence for each query/entity.",
+    "Routing-based, parameter‑efficient adaptation: attach lightweight adapters/routers to the MLLM that conditionally modulate model behavior based on the extracted evidence (selective fine‑tuning rather than full model updates).",
+    "Alignment objectives: train with grounding/contrastive losses that tie entity attention to temporal localization so the model couples its localization skill to visual evidence despite domain shifts."
   ],
-  "impact": "Practitioners get a parameter-efficient way to make MLLMs for VTG robust across visual domains—reducing retraining cost and improving reliability of video-grounding systems in real-world, cross-domain deployments.",
+  "impact": "Makes MLLMs for video temporal grounding reliable across different visual domains while keeping adaptation cheap and practical — enabling safer, more generalizable deployment in real‑world video applications.",
   "visual_elements": [
-    "Model diagram: frozen MLLM backbone + adapter/routing modules showing evidence flow from detected entities into temporal grounding head.",
-    "Before/after bar chart: in-domain vs cross-domain VTG accuracy comparing standard fine-tuning vs EVIDENT.",
-    "Frame timeline: attention heatmap across frames highlighting entity regions used to predict the target temporal segment.",
-    "Routing schematic: decision flow showing how entity evidence is selected and injected into the adapter pathways."
+    "Pipeline diagram: video frames → entity detector → evidence pool per segment → router/adapters → MLLM temporal grounding output",
+    "Bar chart: comparative in‑domain vs cross‑domain performance (baseline fine‑tuning vs EVIDENT)",
+    "Attention overlays: frames showing entity attention heatmaps aligned with predicted temporal spans to illustrate coupling",
+    "Icon/infographic showing parameter efficiency: small adapter modules vs full model fine‑tuning"
   ],
   "hashtags": [
     "#VideoUnderstanding",
-    "#MultimodalLLM",
-    "#DomainGeneralization",
-    "#VideoTemporalGrounding",
+    "#MultimodalLLMs",
+    "#DomainAdaptation",
+    "#TemporalGrounding",
     "#EfficientAdaptation"
   ],
   "paper_id": "2026-05-25-arxiv-evident_routing_mllm_adaptation_through_entity_grounded_visual_evidence_for_cros",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.26104v1"
     }
   ],
-  "generated_at": "2026-05-27T09:30:35.346969"
+  "generated_at": "2026-05-28T09:48:10.840372"
 }

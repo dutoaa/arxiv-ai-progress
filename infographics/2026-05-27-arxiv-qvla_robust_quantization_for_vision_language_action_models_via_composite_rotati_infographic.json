@@ -1,0 +1,35 @@
+{
+  "key_insight": "Ω-QVLA demonstrates that a composite rotation transform combined with per-step scaling makes it possible to robustly quantize both the LLM backbone and the diffusion-based action (DiT) head to low-bit formats, removing the need for mixed-precision workarounds while preserving performance.",
+  "problem_solved": "Large Vision-Language-Action models are too heavy for on-device use because prior quantization either left diffusion action heads at full precision or relied on mixed precision—quantizing DiT uniformly was considered unstable. Ω-QVLA solves stable, uniform low-bit quantization for the full VLA stack.",
+  "method": [
+    "Composite rotation: apply structured rotations to weights/activations to decorrelate channels and concentrate representational energy into quantization-friendly bases.",
+    "Per-step scaling: introduce diffusion-step-specific scale factors to normalize dynamic ranges across generation steps, stabilizing quantization of the DiT action head.",
+    "Unified quantization pipeline: combine the above with calibration / light quantization-aware fine-tuning to enable uniform low-bit integer quantization for both backbone and action head with minimal accuracy loss."
+  ],
+  "impact": "Enables substantial model-size and compute reductions for VLA systems so they can run on edge devices or cheaper cloud instances, simplifying deployment by eliminating mixed-precision complexity while keeping performance close to full precision.",
+  "visual_elements": [
+    "Architecture diagram: before vs after showing LLM + DiT head with mixed-precision baseline vs uniform quantized Ω-QVLA pipeline.",
+    "Mechanism schematic: small illustration of composite rotation (matrix rotate) + per-step scaling applied to diffusion steps.",
+    "Bar chart: model size / memory footprint and latency reductions at different bit-widths (e.g., FP16 vs 8-bit vs 4-bit) with corresponding performance drop.",
+    "Line plot: task metric (reward/accuracy) vs quantization bit-width demonstrating robustness across diffusion steps."
+  ],
+  "hashtags": [
+    "#Quantization",
+    "#VisionLanguageAction",
+    "#ModelCompression",
+    "#OnDeviceAI",
+    "#DiffusionModels"
+  ],
+  "paper_id": "2026-05-27-arxiv-qvla_robust_quantization_for_vision_language_action_models_via_composite_rotati",
+  "paper_title": "Ω-QVLA: Robust Quantization for Vision-Language-Action Models via Composite Rotation and Per-step Scaling",
+  "paper_category": "Model",
+  "paper_date": "2026-05-27",
+  "paper_authors": "Xinyu Wang, Mingze Li, Sicheng Lyu, Dongxiu Liu, Kaicheng Yang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.28803v1"
+    }
+  ],
+  "generated_at": "2026-05-28T09:45:15.896391"
+}

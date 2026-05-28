@@ -1,0 +1,35 @@
+{
+  "key_insight": "You can use a large, experience-derived bank of compact \"skills\" as privileged information for on-policy self-distillation—if you gate and condition the distillation process to filter out misleading skills, you get dense token-level supervision that improves LLM reasoning.",
+  "problem_solved": "Existing self-distillation methods assume trusted privileged information (e.g., reference answers or perfect traces). This paper solves how to safely and effectively use noisy, reusable skills retrieved from experience (which can be irrelevant or misleading) as privileged information.",
+  "method": [
+    "Construct an experience-derived skill bank of compact reusable reasoning primitives (skills) from past traces.",
+    "Retrieve candidate skills per problem and condition the teacher’s on-policy distillation to produce token-level supervision that incorporates retrieved skills.",
+    "Learn a gating module that selects or weights retrieved skills (on-policy, guided by verifier outcomes) so the student only distills from helpful skills and ignores misleading ones."
+  ],
+  "impact": "Enables practitioners to leverage abundant, compact skill repositories to boost LLM reasoning without requiring trusted traces—improving sample efficiency and robustness to noisy retrievals while reducing reliance on costly annotated PI.",
+  "visual_elements": [
+    "Pipeline diagram: problem → skill retrieval from bank → gating module (on/off or weighting) → teacher-conditioned distillation → student model",
+    "Gating visualization: examples showing gate open (helpful skill) vs closed (misleading skill) and their effect on supervision",
+    "Performance chart: accuracy/verification rate comparing baseline SD, SD with naive skills, and SGSD (gated) across benchmarks",
+    "Skill bank cards: small examples of compact skills (short pseudocode/traces) and an example of a misleading skill filtered by the gate"
+  ],
+  "hashtags": [
+    "#SelfDistillation",
+    "#LLMReasoning",
+    "#SkillRetrieval",
+    "#GatedLearning",
+    "#ModelRobustness"
+  ],
+  "paper_id": "2026-05-27-arxiv-skill_conditioned_gated_self_distillation_for_llm_reasoning",
+  "paper_title": "Skill-Conditioned Gated Self-Distillation for LLM Reasoning",
+  "paper_category": "Policy",
+  "paper_date": "2026-05-27",
+  "paper_authors": "Jiazhen Huang, Xiao Chen, Xiao Luo, Yong Dai, Senkang Hu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.28791v1"
+    }
+  ],
+  "generated_at": "2026-05-28T09:44:36.911380"
+}

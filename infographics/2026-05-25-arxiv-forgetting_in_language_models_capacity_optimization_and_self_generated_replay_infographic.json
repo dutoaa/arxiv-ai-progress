@@ -1,23 +1,23 @@
 {
-  "key_insight": "Large language models can generate their own replay data—sampling from their learned distribution—to nearly eliminate forgetting during continued training; forgetting still appears when the model runs out of representational/optimization capacity.",
-  "problem_solved": "Mitigates catastrophic forgetting in continual learning without storing real exemplars, addressing data-storage, privacy, and practicality constraints of traditional replay methods.",
+  "key_insight": "Language models can use self-generated samples from their own training distribution as replay data to nearly eliminate catastrophic forgetting; residual forgetting occurs primarily when model capacity or optimization constraints are insufficient.",
+  "problem_solved": "Reducing catastrophic forgetting in continual learning for language models without requiring storage or access to original training exemplars.",
   "method": [
-    "Use the model to self-sample examples from its training distribution and include these synthetic examples as replay data during subsequent task training.",
-    "Empirically compare self-generated replay to stored-exemplar replay and no-replay baselines to quantify forgetting and downstream performance.",
-    "Analyze how model capacity and optimization dynamics limit the effectiveness of self-generated replay, identifying regimes where forgetting persists."
+    "Let the model sample (self-generate) prior-task examples from its own learned distribution and use those samples as replay data during new-task training.",
+    "Mix self-generated replay with new-task training (controlled sampling/temperature and weighting) to preserve prior-task performance while learning new tasks.",
+    "Empirically analyze when self-replay succeeds or fails by varying model capacity and optimization settings (scaling, ablations, retention metrics)."
   ],
-  "impact": "Enables practical, storage- and privacy-friendly continual learning for language models by replacing exemplar buffers with self-generated replay, while highlighting that capacity/optimization constraints must be managed to fully avoid forgetting.",
+  "impact": "Enables practical, privacy-friendly continual learning for language models by removing the need to store past data; highlights that sufficient model capacity and proper optimization remain critical to fully prevent forgetting.",
   "visual_elements": [
-    "Timeline diagram contrasting training with no replay, stored-exemplar replay, and self-generated replay, annotated with accuracy drops",
-    "Line chart of forgetting magnitude vs model capacity showing near-zero forgetting until a capacity threshold",
-    "Flowchart of the self-replay loop: sample → filter/weight → mix with new-task data → continue training",
-    "Icon set comparing storage-heavy replay (disk icon) vs self-replay (generation/robot icon) plus a lock for privacy"
+    "Bar chart comparing retention (performance on prior tasks): no replay vs stored-exemplar replay vs self-generated replay",
+    "Pipeline diagram: model → self-generate samples → mix with new-task data → update model (replay loop)",
+    "Line/curve plot of model capacity (size or remaining capacity) vs amount of forgetting to show threshold effects",
+    "Heatmap or table of ablation results showing impact of optimization settings (learning rate, replay ratio, temperature) on forgetting"
   ],
   "hashtags": [
     "#ContinualLearning",
     "#CatastrophicForgetting",
     "#LanguageModels",
-    "#SelfGeneratedReplay",
+    "#SelfReplay",
     "#ModelCapacity"
   ],
   "paper_id": "2026-05-25-arxiv-forgetting_in_language_models_capacity_optimization_and_self_generated_replay",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.26097v1"
     }
   ],
-  "generated_at": "2026-05-27T09:30:17.569648"
+  "generated_at": "2026-05-28T09:47:45.710378"
 }
