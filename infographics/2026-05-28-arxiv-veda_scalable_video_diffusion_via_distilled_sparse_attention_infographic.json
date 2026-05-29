@@ -1,0 +1,35 @@
+{
+  "key_insight": "Generation quality for video diffusion transformers depends less on overall sparsity and more on how well the sparse attention mask aligns with the tile-wise geometry of full attention. Distilling dense attention into geometry-aware sparse masks preserves quality at high sparsity.",
+  "problem_solved": "Reduces the quadratic cost of self-attention for high-resolution, long video generation while avoiding quality degradation from naively applied sparse attention.",
+  "method": [
+    "Analyze the relationship between sparse mask patterns and full-attention tile geometry; show alignment — not sparsity ratio — drives quality.",
+    "Formulate tile selection as an explicit, learnable selection objective and distill dense (teacher) attention into compact, geometry-aligned sparse masks.",
+    "Integrate the distilled sparse attention into diffusion transformers to scale generation to higher resolutions and longer temporal horizons without losing visual fidelity."
+  ],
+  "impact": "Allows practitioners to train and run video diffusion models more efficiently (lower memory/compute) while keeping generation quality, enabling higher-resolution and longer-duration video synthesis on realistic hardware budgets.",
+  "visual_elements": [
+    "Side-by-side heatmaps: full attention vs misaligned sparse mask vs geometry-aligned sparse mask showing quality differences",
+    "Flow diagram: teacher dense-attention → distillation → distilled sparse masks → diffusion transformer",
+    "Bar/line chart: compute/memory vs video resolution/length with quality metric overlaid (shows scaling benefit)",
+    "Icon set: tiles/grid icon for tile-wise geometry, lightning bolt for efficiency, paintbrush/camera for visual quality"
+  ],
+  "hashtags": [
+    "#VideoDiffusion",
+    "#SparseAttention",
+    "#ModelScaling",
+    "#Distillation",
+    "#EfficientAI"
+  ],
+  "paper_id": "2026-05-28-arxiv-veda_scalable_video_diffusion_via_distilled_sparse_attention",
+  "paper_title": "Veda: Scalable Video Diffusion via Distilled Sparse Attention",
+  "paper_category": "Model",
+  "paper_date": "2026-05-28",
+  "paper_authors": "Shihao Han, Hao Yang, Xinting Hu, Xiaofeng Mei, Yi Jiang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2605.30325v1"
+    }
+  ],
+  "generated_at": "2026-05-29T09:37:15.519438"
+}

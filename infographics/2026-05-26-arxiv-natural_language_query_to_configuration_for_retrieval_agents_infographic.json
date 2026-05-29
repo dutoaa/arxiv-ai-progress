@@ -1,24 +1,24 @@
 {
-  "key_insight": "Choose retrieval-pipeline settings per query (given an accuracy or budget target) to significantly reduce serving cost or meet accuracy goals, instead of using a single hand-tuned pipeline for all queries.",
-  "problem_solved": "Hand-tuned retrieval agent pipelines waste cost or accuracy because they are static per workload; this work enables per-query configuration selection that unlocks untapped cost–quality tradeoffs.",
+  "key_insight": "Selecting retrieval-pipeline configurations per query (LLM, retriever, docs, hops, synthesis) lets systems meet accuracy or budget targets more efficiently than static, hand-tuned pipelines.",
+  "problem_solved": "Static, one-size-fits-all retrieval pipelines waste cost or miss accuracy opportunities; the paper enables per-query configuration selection to optimize cost or accuracy given a user target.",
   "method": [
-    "Define a catalog of pipeline configurations (LLM, retriever, #documents, #hops, synthesis strategy) and a constrained objective: minimize cost subject to accuracy target or maximize accuracy under a budget.",
-    "Map a natural-language query and a target (accuracy or budget) to the best configuration via a query-conditioned selection mechanism (learned predictor or policy over the catalog).",
-    "Evaluate and select configurations using predicted cost/accuracy tradeoffs to choose the cheapest configuration that meets accuracy (or the most accurate within budget)."
+    "Formulate the task: map (natural-language query + target: accuracy or budget) to a choice from a predefined pipeline catalog.",
+    "Learn or predict per-config cost and accuracy for a query, then select the configuration that satisfies the target while minimizing cost (or maximizing accuracy under a budget).",
+    "Evaluate selection across workloads to demonstrate per-query tuning reduces serving cost and/or improves answer quality compared to fixed pipelines."
   ],
-  "impact": "Enables retrieval-agent deployments to automatically adapt per request, lowering inference cost and/or improving answer quality without manual tuning—practical for production search, RAG, and assistant systems.",
+  "impact": "Practitioners can reduce serving costs and improve end-user accuracy by automatically adapting retrieval-agent pipelines per query, enabling scalable, cost-aware deployment of LLM-backed retrieval systems.",
   "visual_elements": [
-    "Flowchart: Query + target (accuracy/budget) → selector → pipeline config → retrieval + synthesis → answer",
-    "Pareto plot: cost vs accuracy with highlighted chosen config per query showing movement along the frontier",
-    "Catalog matrix: icons/tiles showing configuration dimensions (LLM size, retriever, #docs, #hops, synthesis) and sampled options",
-    "Before/After example: concrete query with static vs selected config, showing cost saved and accuracy retained/improved"
+    "Flow diagram: Query + target → selector → chosen pipeline (showing LLM, retriever, docs, hops, synthesis components).",
+    "Cost vs. Accuracy scatter with Pareto frontier: per-query points showing dynamic selection outperforms fixed pipelines.",
+    "Before/After bar chart: average serving cost and accuracy for static pipeline vs. per-query configured pipeline.",
+    "Icons: LLM, search/retriever, document stack, dollar/coin, and accuracy gauge to annotate pipeline components and objectives."
   ],
   "hashtags": [
     "#RetrievalAgents",
     "#QueryOptimization",
+    "#AdaptiveInference",
     "#CostEfficiency",
-    "#RAG",
-    "#AutoML"
+    "#LLMSystems"
   ],
   "paper_id": "2026-05-26-arxiv-natural_language_query_to_configuration_for_retrieval_agents",
   "paper_title": "Natural Language Query to Configuration for Retrieval Agents",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.27361v1"
     }
   ],
-  "generated_at": "2026-05-27T09:28:43.658478"
+  "generated_at": "2026-05-29T09:40:32.963681"
 }
