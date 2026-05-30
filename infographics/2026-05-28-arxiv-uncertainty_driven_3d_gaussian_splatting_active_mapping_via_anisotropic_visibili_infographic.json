@@ -1,24 +1,24 @@
 {
-  "key_insight": "GAVIS computes an anisotropic visibility field per Gaussian particle using spherical harmonics to produce principled, direction-aware uncertainty estimates—revealing which regions of a 3D Gaussian Splatting (3DGS) scene are unreliable and should be re-observed.",
-  "problem_solved": "3DGS models make unreliable predictions for scene regions not covered by training views because they lack a per-particle, direction-aware visibility/uncertainty measure; GAVIS provides an efficient way to quantify that uncertainty and drive active mapping to fill coverage gaps.",
+  "key_insight": "Regions not observed by training views produce unreliable 3D Gaussian Splatting predictions; modeling a per-particle anisotropic visibility field with spherical harmonics yields efficient, principled uncertainty estimates that enable active mapping.",
+  "problem_solved": "Addresses the lack of principled visibility and uncertainty quantification in 3D Gaussian Splatting (3DGS), which leads to unreliable predictions in unobserved directions and poor view-selection for mapping.",
   "method": [
-    "Represent each Gaussian particle's anisotropic visibility as a low-order spherical harmonic function capturing direction-dependent observability from training views.",
-    "Derive a per-particle uncertainty metric from the visibility field and integrate it into the 3DGS rendering/geometry pipeline to produce an uncertainty map over the scene.",
-    "Use the uncertainty map to drive active mapping / next-best-view selection—prioritizing viewpoints that maximally reduce uncertainty and improve coverage efficiently."
+    "Define an anisotropic visibility field per Gaussian particle relative to the training views and represent it compactly using spherical harmonics.",
+    "Derive visibility-driven uncertainty measures from the anisotropic field to identify unreliable/unseen regions in the 3DGS model.",
+    "Use these uncertainty estimates to drive active mapping / view-planning, integrating efficiently into the 3DGS pipeline for targeted data collection."
   ],
-  "impact": "Provides a practical, scalable way to make 3D Gaussian Splatting uncertainty-aware and to automate data collection via active mapping—improving reconstruction fidelity and reducing the number of required views for robust models.",
+  "impact": "Provides a practical uncertainty-aware layer for 3DGS that improves reliability of reconstructions and enables efficient, targeted data acquisition—reducing wasted views and improving downstream mapping and planning.",
   "visual_elements": [
-    "Particle-level diagram: a Gaussian splat with a spherical-harmonic visibility lobe showing anisotropic observability.",
-    "Scene uncertainty heatmap overlaid on a 3D reconstruction to highlight unseen or unreliable regions.",
-    "Pipeline flowchart: training views → compute visibility SH per particle → uncertainty map → next-best-view planner → capture and update.",
-    "Before/after comparison renders showing improvements after uncertainty-driven active mapping (fewer artifacts, better coverage)."
+    "Per-particle diagram: Gaussian particle with spherical-harmonic lobes illustrating anisotropic visibility",
+    "Pipeline flowchart: training views → compute anisotropic visibility → uncertainty map → active view selection",
+    "3D scene heatmap: reliability / uncertainty overlay highlighting unseen regions",
+    "Bar/line chart: improvement in coverage or views required when using uncertainty-driven active mapping vs. baseline"
   ],
   "hashtags": [
     "#3DGaussianSplatting",
-    "#ActiveMapping",
     "#UncertaintyQuantification",
+    "#ActiveMapping",
     "#SphericalHarmonics",
-    "#NextBestView"
+    "#3DComputerVision"
   ],
   "paper_id": "2026-05-28-arxiv-uncertainty_driven_3d_gaussian_splatting_active_mapping_via_anisotropic_visibili",
   "paper_title": "Uncertainty-driven 3D Gaussian Splatting Active Mapping via Anisotropic Visibility Field",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30342v1"
     }
   ],
-  "generated_at": "2026-05-29T09:38:36.705633"
+  "generated_at": "2026-05-30T08:17:54.872689"
 }

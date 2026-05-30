@@ -1,24 +1,24 @@
 {
-  "key_insight": "Large language models can learn and reproduce annotator-specific free-text explanations: human label variation (HLV) contains a stable, learnable signal that a cross-annotator preference optimization objective can capture and reproduce in generation.",
-  "problem_solved": "Addresses the challenge of treating annotator disagreement as noise by modeling individual annotators' reasoning and preferences expressed in free-text explanations, enabling models to generate annotator-conditioned labels and explanations.",
+  "key_insight": "Annotators produce free-text explanations that reveal individual reasoning preferences, and this paper investigates whether LLMs can learn annotator-specific label+explanation behavior. The authors analyze per-annotator stability and propose a cross-annotator preference optimization approach to model those differences.",
+  "problem_solved": "Addresses the challenge of modeling and reproducing annotator-specific reasoning (free-text explanations) beyond simple label disagreement, enabling systems to capture human label variation at the explanation level.",
   "method": [
-    "Dataset: two sentence-pair tasks (natural language inference, paraphrase judgment) with four annotators each, collecting labels + free-text explanations.",
-    "Training: cross-annotator preference optimization that teaches an LLM to prefer outputs matching a target annotator's label‑explanation behavior (annotator-conditioned generation).",
-    "Evaluation: analyze annotator pattern stability and measure how well the model reproduces annotator-specific explanations and label preferences."
+    "Collect sentence-pair data for two tasks (natural language inference and paraphrase judgment) with four annotators each, including labels and free-text explanations.",
+    "Analyze annotator-level stability to assess whether individual explanation patterns exist and can be learned.",
+    "Train LLMs with a Cross-Annotator Preference Optimization objective to encourage the model to reproduce annotator-specific label+explanation behavior."
   ],
-  "impact": "Makes label variation a usable signal for personalization, interpretability, and dataset modeling—helping practitioners build models that reflect diverse human reasoning and produce targeted, explainable outputs.",
+  "impact": "Provides a path toward personalized and more faithful explanation generation that respects individual annotator preferences, improving dataset understanding, model auditing, and human–AI alignment. Useful for practitioners building explainable models or aggregating multi-annotator data.",
   "visual_elements": [
-    "Pipeline diagram: data (annotators → labels + explanations) → cross-annotator preference optimization → annotator-conditioned LLM outputs",
-    "Heatmap or clustering of annotator explanation features showing stable individual patterns",
-    "Side-by-side examples: human annotator explanation vs. model-generated annotator-specific explanation for the same input",
-    "Bar chart: model reproduction accuracy / explanation similarity per annotator"
+    "Pipeline diagram: data (pairs + annotator explanations) → stability analysis → cross-annotator preference optimization → annotator-specific outputs",
+    "Bar/heatmap comparing per-annotator pattern stability and inter-annotator disagreement",
+    "Before/after examples: identical input with different annotator explanations and the model’s corresponding personalized outputs",
+    "Icon set: annotator avatars, explanation bubbles, optimization/learning icon, evaluation/checkmark"
   ],
   "hashtags": [
     "#HumanLabelVariation",
     "#ExplainableAI",
-    "#LargeLanguageModels",
     "#AnnotatorModeling",
-    "#PersonalizedAI"
+    "#PreferenceOptimization",
+    "#LLM"
   ],
   "paper_id": "2026-05-27-arxiv-human_label_variation_as_stable_signal_learning_annotator_specific_explanation_b",
   "paper_title": "Human Label Variation as Stable Signal: Learning Annotator-Specific Explanation Behavior via Cross-Annotator Preference Optimization",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.28802v1"
     }
   ],
-  "generated_at": "2026-05-29T09:40:51.408051"
+  "generated_at": "2026-05-30T08:20:12.746114"
 }

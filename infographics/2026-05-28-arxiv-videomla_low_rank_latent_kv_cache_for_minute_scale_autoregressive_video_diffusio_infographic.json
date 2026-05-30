@@ -1,24 +1,24 @@
 {
-  "key_insight": "Replacing per-head keys and values with a shared low-rank latent KV cache (Multi-Head Latent Attention, MLA) preserves autoregressive video diffusion quality while drastically reducing the dominant memory and latency cost of per-head KV storage for minute-scale rollouts.",
-  "problem_solved": "Streaming/long-rollout causal video diffusion is bottlenecked by large per-head KV caches that drive memory usage and latency as generation extends to minutes; the paper addresses reducing that footprint without harming generation fidelity.",
+  "key_insight": "Replacing per-head keys and values with a shared low-rank latent KV cache (Multi-Head Latent Attention, MLA) dramatically reduces the memory and latency of the KV layout for long-rollout autoregressive video diffusion, enabling minute-scale generation while preserving modeling capacity.",
+  "problem_solved": "Long-rollout causal video diffusion is bottlenecked by a large per-head KV cache that scales poorly in memory and latency for minute-scale streaming; the paper removes this dominant inefficiency in the KV layout.",
   "method": [
-    "Introduce Multi-Head Latent Attention (MLA): a shared low-rank latent KV cache that replaces separate per-head keys and values with a compact common basis.",
-    "Factorize attention state into a small latent dictionary plus lightweight head-specific projections so heads reuse a shared representation while retaining expressivity.",
-    "Integrate MLA into sliding-window autoregressive video diffusion pipelines to enable minute-scale rollouts with lower streaming memory and compute overhead."
+    "Introduce Multi-Head Latent Attention (MLA): a shared low-rank latent K/V representation used across attention heads instead of separate per-head K/V tensors.",
+    "Factorize and compress the KV cache into a small set of latent basis vectors and light-weight projection/reconstruction steps, with efficient incremental updates for autoregressive rollouts.",
+    "Integrate MLA into sliding-window/streaming diffusion pipeline while preserving positional conditioning and attention routing to keep sample quality."
   ],
-  "impact": "Provides a practical, architecture-level efficiency improvement for building minute-scale autoregressive video generators—lower memory and latency make long-horizon video synthesis more feasible for researchers and deployed systems.",
+  "impact": "VideoMLA cuts streaming memory and inference latency for autoregressive video diffusion, making minute-scale generation practically feasible on fewer resources and enabling real-time or long-horizon video synthesis workflows for practitioners.",
   "visual_elements": [
-    "Before/after schematic: standard per-head KV cache (many parallel KV blocks) vs shared low-rank latent KV cache (single compact dictionary + head projections).",
-    "Memory vs rollout length chart comparing per-head KV cache and MLA, highlighting reduced memory growth over minutes.",
-    "Pipeline diagram showing sliding-window autoregressive rollout with MLA integrated, indicating where the latent cache is stored and reused.",
-    "Qualitative timeline: frames sampled across a minute-long generation to illustrate sustained quality."
+    "Before vs After schematic: per-head KV cache (large) versus shared low-rank latent KV (compact) with annotated memory sizes.",
+    "Latency and memory vs rollout length chart comparing standard per-head KV, windowed cache, and MLA.",
+    "Block diagram of the MLA module showing shared latent basis, per-head projections, and incremental cache update flow.",
+    "Quality vs compression scatterplot showing minimal quality loss across different low-rank sizes."
   ],
   "hashtags": [
-    "#VideoMLA",
     "#VideoDiffusion",
-    "#EfficientAttention",
-    "#AutoregressiveVideo",
-    "#LowRankCompression"
+    "#LatentAttention",
+    "#KVCache",
+    "#EfficientAI",
+    "#AutoregressiveVideo"
   ],
   "paper_id": "2026-05-28-arxiv-videomla_low_rank_latent_kv_cache_for_minute_scale_autoregressive_video_diffusio",
   "paper_title": "VideoMLA: Low-Rank Latent KV Cache for Minute-Scale Autoregressive Video Diffusion",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30351v1"
     }
   ],
-  "generated_at": "2026-05-29T09:39:30.458371"
+  "generated_at": "2026-05-30T08:18:55.531645"
 }

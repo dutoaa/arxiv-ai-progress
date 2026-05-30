@@ -1,24 +1,24 @@
 {
-  "key_insight": "LLMSurgeon formalizes \"Data Mixture Surgery\": from only text produced by a target LLM, it can estimate the domain-level composition of the model's pretraining corpus under a predefined taxonomy, revealing the model's \"digital DNA.\"",
-  "problem_solved": "Addresses the lack of transparency in LLM pretraining mixtures by enabling post-hoc estimation of domain proportions without access to the original training data or training logs.",
+  "key_insight": "LLMSurgeon formalizes Data Mixture Surgery (DMS) to recover domain-level mixtures of an LLM's pretraining corpus using only the model's generated text, enabling post-hoc inference of what kinds of data shaped the model.",
+  "problem_solved": "Addresses the lack of transparency about LLM pretraining data by estimating the composition (domain-level proportions) of a model's training mixture from its outputs alone, enabling provenance auditing and diagnosis of capability/failure sources.",
   "method": [
-    "Collect representative generations from the target LLM as probe data under controlled prompts.",
-    "Score or classify generated text against domain-specific reference models or classifiers to obtain per-sample domain signals.",
-    "Aggregate signals with a mixture-estimation algorithm (e.g., calibrated weighting / probabilistic EM-style inference) to recover domain-level proportions under the taxonomy."
+    "Generate targeted prompts and model outputs to elicit domain-specific signals (probing diverse topics, styles, and factual cues).",
+    "Extract features/fingerprints from outputs (embeddings, classifier scores, topic distributions) and compare them to reference domain signatures.",
+    "Fit a mixture model (e.g., likelihood/EM or optimization over domain weights) to infer domain proportions and validate using synthetic or held-out mixtures."
   ],
-  "impact": "Enables practitioners and auditors to diagnose dataset composition, explain model behaviors or biases, and inform safer deployment, dataset curation, and regulatory compliance efforts.",
+  "impact": "Enables practitioners and auditors to reconstruct coarse-grained training data composition for closed models, informing bias attribution, risk assessment, compliance, and dataset-driven mitigations without access to raw pretraining corpora.",
   "visual_elements": [
-    "Pipeline diagram: probe generation → domain scoring/classifiers → mixture estimation",
-    "Pie chart or stacked bar showing inferred domain proportions (the recovered mixture)",
-    "Heatmap/confusion matrix showing classifier calibration and per-domain attribution uncertainty",
-    "Example snippets mapped to domains to illustrate how generated text signals provenance"
+    "Pipeline diagram showing: probe generation → feature extraction → mixture fitting → inferred domain proportions.",
+    "Pie chart of inferred domain mixture (percentages) to summarize the model's \"digital DNA.\"",
+    "Bar chart comparing true vs. recovered mixtures for validation (or sensitivity across prompt sets).",
+    "Heatmap or matrix of domain attribution across probe types to show which prompts reveal which data sources."
   ],
   "hashtags": [
     "#LLMSurgeon",
     "#DataProvenance",
     "#ModelAuditing",
     "#AITransparency",
-    "#DatasetAttribution"
+    "#DatasetInference"
   ],
   "paper_id": "2026-05-28-arxiv-llmsurgeon_diagnosing_data_mixture_of_large_language_models",
   "paper_title": "LLMSurgeon: Diagnosing Data Mixture of Large Language Models",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30348v1"
     }
   ],
-  "generated_at": "2026-05-29T09:39:09.659101"
+  "generated_at": "2026-05-30T08:18:24.948806"
 }

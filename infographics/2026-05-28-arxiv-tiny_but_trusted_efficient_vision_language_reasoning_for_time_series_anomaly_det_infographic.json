@@ -1,24 +1,24 @@
 {
-  "key_insight": "A compact vision–language approach plus a new benchmark enables small models to accurately detect time‑series anomalies and provide grounded, human‑readable rationales, offering trusted, efficient anomaly reasoning.",
-  "problem_solved": "Bridges the gap between powerful VLMs and sequential anomaly detection by addressing the lack of natural‑language rationales, grounding, and efficiency for real‑world time‑series anomaly tasks.",
+  "key_insight": "Small, efficient vision-language models trained with interval + natural-language rationale supervision can reliably detect and explain anomalies in time-series data, delivering competitive accuracy with far lower compute and improved trustworthiness.",
+  "problem_solved": "Existing large multimodal models struggle to find and justify anomalous patterns in sequential data because benchmarks lack natural-language rationales and models are too large/inefficient for practical deployment.",
   "method": [
-    "VisAnomBench: a curated benchmark that aligns interval anomaly annotations with visualized time‑series segments and natural‑language rationales to enable grounded evaluation.",
-    "Tiny vision–language reasoning model: convert time series into visual tokens/patches, fuse with a lightweight language module, and jointly predict anomaly intervals plus textual explanations.",
-    "Efficiency & trust techniques: compact architecture and targeted fine‑tuning/prompting with calibration or explainability objectives to keep compute low while producing reliable, interpretable outputs."
+    "Create VisAnomBench: a time-series anomaly benchmark that augments interval annotations with human-written natural-language rationales to ground explanations.",
+    "Train a tiny vision–language reasoning pipeline: convert time series to visual representations (plots/heatmaps), use lightweight multimodal adapters for fusion, and fine-tune the VLM to emit anomaly labels plus textual rationales.",
+    "Incorporate trust mechanisms during training and inference (rationale supervision, uncertainty calibration and contrastive/auxiliary tasks) to improve interpretability and confidence estimation."
   ],
-  "impact": "Provides practitioners a practical path to deploy resource‑efficient, explainable anomaly detectors on time series and a standardized benchmark to evaluate grounded multimodal explanations and trust metrics.",
+  "impact": "Enables practical, interpretable anomaly detection on resource-constrained devices and makes model decisions more auditable for analysts — reducing cost and increasing adoption of multimodal approaches in time-series monitoring.",
   "visual_elements": [
-    "Dataset schematic: timeline showing anomaly intervals, aligned visualized segments, and paired natural‑language rationales.",
-    "Model pipeline diagram: time‑series → visual encoding → tiny multimodal encoder → anomaly interval prediction + textual rationale.",
-    "Performance vs. cost chart: accuracy/recall and explanation quality plotted against model size/latency to highlight efficiency gains.",
-    "Case study panel: example time series with detected anomaly highlighted and the generated human‑readable rationale alongside ground truth."
+    "Pipeline diagram: time-series → visualization → tiny VLM (fusion + adapter) → anomaly label + rationale",
+    "Before/after example: raw signal with highlighted anomalous interval and generated natural-language rationale",
+    "Model footprint chart: accuracy vs. model size/latency comparing tiny VLM to large baselines",
+    "Trust metrics panel: calibration curve or reliability diagram alongside precision/recall for anomalies"
   ],
   "hashtags": [
     "#TimeSeries",
     "#AnomalyDetection",
-    "#VisionLanguage",
+    "#VisionLanguageModels",
     "#ExplainableAI",
-    "#TinyModels"
+    "#TinyML"
   ],
   "paper_id": "2026-05-28-arxiv-tiny_but_trusted_efficient_vision_language_reasoning_for_time_series_anomaly_det",
   "paper_title": "Tiny but Trusted: Efficient Vision-Language Reasoning for Time-Series Anomaly Detection",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30344v1"
     }
   ],
-  "generated_at": "2026-05-29T09:38:51.570854"
+  "generated_at": "2026-05-30T08:18:06.242024"
 }
