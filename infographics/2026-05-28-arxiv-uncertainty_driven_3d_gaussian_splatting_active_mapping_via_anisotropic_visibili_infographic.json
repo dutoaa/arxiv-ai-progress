@@ -1,24 +1,24 @@
 {
-  "key_insight": "Regions not observed by training views produce unreliable 3D Gaussian Splatting predictions; modeling a per-particle anisotropic visibility field with spherical harmonics yields efficient, principled uncertainty estimates that enable active mapping.",
-  "problem_solved": "Addresses the lack of principled visibility and uncertainty quantification in 3D Gaussian Splatting (3DGS), which leads to unreliable predictions in unobserved directions and poor view-selection for mapping.",
+  "key_insight": "The paper shows that 3D Gaussian Splatting becomes unreliable in regions that were never seen during training, and it introduces a visibility-aware uncertainty field to identify and handle those areas. By modeling anisotropic visibility, the method helps active mapping focus on the most informative next viewpoints.",
+  "problem_solved": "3D Gaussian Splatting can make overly confident or inaccurate predictions in unseen regions, which limits its reliability for reconstruction and exploration. This work addresses how to quantify uncertainty in 3DGS and use it to guide active mapping.",
   "method": [
-    "Define an anisotropic visibility field per Gaussian particle relative to the training views and represent it compactly using spherical harmonics.",
-    "Derive visibility-driven uncertainty measures from the anisotropic field to identify unreliable/unseen regions in the 3DGS model.",
-    "Use these uncertainty estimates to drive active mapping / view-planning, integrating efficiently into the 3DGS pipeline for targeted data collection."
+    "Define an anisotropic visibility field for each Gaussian particle relative to the training views.",
+    "Represent visibility efficiently with spherical harmonics to make uncertainty estimation practical for 3DGS.",
+    "Use the resulting uncertainty signal to support active mapping and select better next viewpoints."
   ],
-  "impact": "Provides a practical uncertainty-aware layer for 3DGS that improves reliability of reconstructions and enables efficient, targeted data acquisition—reducing wasted views and improving downstream mapping and planning.",
+  "impact": "For AI/ML practitioners, this improves the trustworthiness of 3D reconstruction from sparse views and enables smarter exploration strategies. It is especially useful for robotics, 3D perception, and autonomous mapping systems that need to know where their models are uncertain.",
   "visual_elements": [
-    "Per-particle diagram: Gaussian particle with spherical-harmonic lobes illustrating anisotropic visibility",
-    "Pipeline flowchart: training views → compute anisotropic visibility → uncertainty map → active view selection",
-    "3D scene heatmap: reliability / uncertainty overlay highlighting unseen regions",
-    "Bar/line chart: improvement in coverage or views required when using uncertainty-driven active mapping vs. baseline"
+    "3D scene diagram showing visible vs unseen regions from training viewpoints",
+    "Gaussian splats overlaid with an anisotropic visibility heatmap",
+    "Flow chart from input views to visibility estimation to active view selection",
+    "Comparison graphic of standard 3DGS uncertainty vs GAVIS-guided mapping"
   ],
   "hashtags": [
-    "#3DGaussianSplatting",
-    "#UncertaintyQuantification",
+    "#3DGS",
     "#ActiveMapping",
-    "#SphericalHarmonics",
-    "#3DComputerVision"
+    "#UncertaintyEstimation",
+    "#ComputerVision",
+    "#Robotics"
   ],
   "paper_id": "2026-05-28-arxiv-uncertainty_driven_3d_gaussian_splatting_active_mapping_via_anisotropic_visibili",
   "paper_title": "Uncertainty-driven 3D Gaussian Splatting Active Mapping via Anisotropic Visibility Field",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30342v1"
     }
   ],
-  "generated_at": "2026-05-30T08:17:54.872689"
+  "generated_at": "2026-05-30T22:40:51.814509"
 }

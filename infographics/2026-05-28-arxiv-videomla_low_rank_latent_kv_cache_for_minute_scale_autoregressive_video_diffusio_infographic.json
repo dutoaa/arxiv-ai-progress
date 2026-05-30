@@ -1,24 +1,24 @@
 {
-  "key_insight": "Replacing per-head keys and values with a shared low-rank latent KV cache (Multi-Head Latent Attention, MLA) dramatically reduces the memory and latency of the KV layout for long-rollout autoregressive video diffusion, enabling minute-scale generation while preserving modeling capacity.",
-  "problem_solved": "Long-rollout causal video diffusion is bottlenecked by a large per-head KV cache that scales poorly in memory and latency for minute-scale streaming; the paper removes this dominant inefficiency in the KV layout.",
+  "key_insight": "VideoMLA introduces Multi-Head Latent Attention to video diffusion, replacing expensive per-head key/value caches with a shared low-rank latent cache. This can significantly reduce streaming memory and latency for minute-scale autoregressive video generation.",
+  "problem_solved": "Existing long-rollout video diffusion models still rely on a large sliding-window KV cache, which is a major bottleneck for memory usage and inference speed. Prior work mostly changed which tokens are cached or how positions are encoded, but not the underlying per-head KV layout.",
   "method": [
-    "Introduce Multi-Head Latent Attention (MLA): a shared low-rank latent K/V representation used across attention heads instead of separate per-head K/V tensors.",
-    "Factorize and compress the KV cache into a small set of latent basis vectors and light-weight projection/reconstruction steps, with efficient incremental updates for autoregressive rollouts.",
-    "Integrate MLA into sliding-window/streaming diffusion pipeline while preserving positional conditioning and attention routing to keep sample quality."
+    "Replaces per-head keys and values with a shared low-rank latent representation in the cache.",
+    "Adapts Multi-Head Latent Attention (MLA) to the video diffusion setting for long autoregressive rollouts.",
+    "Targets minute-scale generation by reducing the dominant streaming memory and latency costs of KV caching."
   ],
-  "impact": "VideoMLA cuts streaming memory and inference latency for autoregressive video diffusion, making minute-scale generation practically feasible on fewer resources and enabling real-time or long-horizon video synthesis workflows for practitioners.",
+  "impact": "For practitioners, this offers a more efficient path to long-form video generation with lower memory footprint and faster inference. It is especially relevant for deploying causal video diffusion systems at longer horizons without scaling hardware costs as aggressively.",
   "visual_elements": [
-    "Before vs After schematic: per-head KV cache (large) versus shared low-rank latent KV (compact) with annotated memory sizes.",
-    "Latency and memory vs rollout length chart comparing standard per-head KV, windowed cache, and MLA.",
-    "Block diagram of the MLA module showing shared latent basis, per-head projections, and incremental cache update flow.",
-    "Quality vs compression scatterplot showing minimal quality loss across different low-rank sizes."
+    "Before/after cache diagram showing per-head KV cache vs. shared low-rank latent cache",
+    "Memory and latency bar chart comparing standard sliding-window KV caching to VideoMLA",
+    "Pipeline illustration of minute-scale autoregressive video diffusion with a highlighted cache bottleneck",
+    "Icon-based callouts for 'lower memory', 'faster inference', and 'longer rollouts'"
   ],
   "hashtags": [
+    "#AIforsVideo",
     "#VideoDiffusion",
-    "#LatentAttention",
-    "#KVCache",
-    "#EfficientAI",
-    "#AutoregressiveVideo"
+    "#EfficientInference",
+    "#ModelCompression",
+    "#MachineLearningResearch"
   ],
   "paper_id": "2026-05-28-arxiv-videomla_low_rank_latent_kv_cache_for_minute_scale_autoregressive_video_diffusio",
   "paper_title": "VideoMLA: Low-Rank Latent KV Cache for Minute-Scale Autoregressive Video Diffusion",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30351v1"
     }
   ],
-  "generated_at": "2026-05-30T08:18:55.531645"
+  "generated_at": "2026-05-30T22:41:09.375572"
 }

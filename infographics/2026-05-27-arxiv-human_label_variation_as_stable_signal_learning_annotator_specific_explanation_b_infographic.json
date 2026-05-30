@@ -1,24 +1,24 @@
 {
-  "key_insight": "Annotators produce free-text explanations that reveal individual reasoning preferences, and this paper investigates whether LLMs can learn annotator-specific label+explanation behavior. The authors analyze per-annotator stability and propose a cross-annotator preference optimization approach to model those differences.",
-  "problem_solved": "Addresses the challenge of modeling and reproducing annotator-specific reasoning (free-text explanations) beyond simple label disagreement, enabling systems to capture human label variation at the explanation level.",
+  "key_insight": "This paper asks whether annotator-specific explanation styles are a stable signal, not just noise. The core idea is that LLMs can be trained to predict both a label and the kind of explanation a particular annotator would give, using cross-annotator preferences.",
+  "problem_solved": "Standard datasets usually capture label disagreement, but not the reasoning behind it. This work addresses how to model human label variation at the explanation level and whether models can learn consistent annotator-specific label-explanation behavior.",
   "method": [
-    "Collect sentence-pair data for two tasks (natural language inference and paraphrase judgment) with four annotators each, including labels and free-text explanations.",
-    "Analyze annotator-level stability to assess whether individual explanation patterns exist and can be learned.",
-    "Train LLMs with a Cross-Annotator Preference Optimization objective to encourage the model to reproduce annotator-specific label+explanation behavior."
+    "Analyze two sentence-pair tasks: natural language inference and paraphrase judgment, with four annotators each.",
+    "Test whether individual annotators show stable patterns in both labels and free-text explanations.",
+    "Train LLMs with cross-annotator preference optimization to reproduce annotator-specific explanation behavior rather than only majority labels."
   ],
-  "impact": "Provides a path toward personalized and more faithful explanation generation that respects individual annotator preferences, improving dataset understanding, model auditing, and human–AI alignment. Useful for practitioners building explainable models or aggregating multi-annotator data.",
+  "impact": "For ML practitioners, this suggests that disagreement between annotators can be a useful training signal instead of a problem to eliminate. It can improve model alignment with different human perspectives and support more nuanced supervision for explanation-rich tasks.",
   "visual_elements": [
-    "Pipeline diagram: data (pairs + annotator explanations) → stability analysis → cross-annotator preference optimization → annotator-specific outputs",
-    "Bar/heatmap comparing per-annotator pattern stability and inter-annotator disagreement",
-    "Before/after examples: identical input with different annotator explanations and the model’s corresponding personalized outputs",
-    "Icon set: annotator avatars, explanation bubbles, optimization/learning icon, evaluation/checkmark"
+    "A pipeline diagram showing annotator labels and free-text explanations flowing into an LLM trainer.",
+    "A comparison chart of majority-label learning vs annotator-specific preference optimization.",
+    "A heatmap or matrix showing annotator consistency across tasks and explanation patterns.",
+    "An icon set for labels, explanations, and preference ranking to illustrate human label variation."
   ],
   "hashtags": [
     "#HumanLabelVariation",
+    "#LLMAlignment",
     "#ExplainableAI",
-    "#AnnotatorModeling",
     "#PreferenceOptimization",
-    "#LLM"
+    "#NLPResearch"
   ],
   "paper_id": "2026-05-27-arxiv-human_label_variation_as_stable_signal_learning_annotator_specific_explanation_b",
   "paper_title": "Human Label Variation as Stable Signal: Learning Annotator-Specific Explanation Behavior via Cross-Annotator Preference Optimization",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.28802v1"
     }
   ],
-  "generated_at": "2026-05-30T08:20:12.746114"
+  "generated_at": "2026-05-30T22:41:20.257572"
 }

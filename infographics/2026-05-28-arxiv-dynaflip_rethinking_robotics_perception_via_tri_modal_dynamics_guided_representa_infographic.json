@@ -1,24 +1,24 @@
 {
-  "key_insight": "Pretrain perception with tri-modal (image + language + 3D motion/flow) signals so visual encoders learn dynamics-aware representations upstream, enabling robot policies to better understand and act on motion-relevant aspects of scenes.",
-  "problem_solved": "Standard pretraining focuses on static recognition or vision-language alignment and leaves motion understanding to downstream policies, causing brittle or motion-agnostic perception for manipulation.",
+  "key_insight": "DynaFLIP moves motion understanding into the perception module itself, so robots learn representations that are already tuned to action-relevant dynamics rather than only static appearance. It does this by jointly learning from images, language, and 3D flow, making perception more useful for manipulation.",
+  "problem_solved": "Most robot perception models are pre-trained for object recognition or vision-language alignment, which captures what things look like but not how they move or how actions change the scene. This paper addresses the gap between static visual understanding and the dynamic information needed for robot manipulation.",
   "method": [
-    "Construct image–language–3D-flow triplets from heterogeneous human and robot data to expose diverse motion cues during pretraining.",
-    "Train a multimodal encoder to align and fuse visual, textual, and 3D-motion features using dynamics-aware objectives so motion information is encoded in perception.",
-    "Transfer the learned representation to downstream robot manipulation tasks to improve motion-sensitive perception and policy performance."
+    "Builds tri-modal training data composed of image-language-3D flow triplets from heterogeneous human and robotic sources.",
+    "Uses dynamics-guided multimodal pre-training so the encoder learns motion-aware representations upstream in perception.",
+    "Aligns visual, linguistic, and 3D motion cues to preserve action-relevant scene information for downstream robot policies."
   ],
-  "impact": "By pushing motion understanding into the perception backbone, DynaFLIP produces representations that are more useful, robust, and sample-efficient for robotic manipulation and other temporally-sensitive tasks.",
+  "impact": "For AI/ML practitioners in robotics, this suggests a stronger foundation for manipulation tasks by improving the quality of learned perception features. It can reduce reliance on downstream policies to infer motion from scratch and may improve transfer to real-world, dynamic environments.",
   "visual_elements": [
-    "Tri-modal schematic: image, text caption, and 3D-flow vectors combined into a single training triplet diagram.",
-    "Architecture block: encoder backbone with multimodal alignment and dynamics-aware objective blocks.",
-    "Before/after comparison: qualitative overlays showing improved 3D-flow-informed attention or feature maps on manipulation scenes.",
-    "Bar chart: relative gains in downstream manipulation benchmarks (e.g., accuracy, sample efficiency) when using DynaFLIP vs. static pretraining."
+    "A three-stream pipeline diagram showing image, language, and 3D flow inputs merging into one representation.",
+    "A before-vs-after comparison of static perception encoders versus DynaFLIP’s dynamics-aware encoder.",
+    "A compact triplet illustration showing a scene image, a caption, and corresponding motion/flow arrows.",
+    "An application panel showing improved robot grasping/manipulation with motion-aware features."
   ],
   "hashtags": [
-    "#RobotPerception",
-    "#Multimodal",
-    "#RepresentationLearning",
+    "#RoboticsAI",
+    "#MultimodalLearning",
     "#SelfSupervisedLearning",
-    "#Robotics"
+    "#RobotManipulation",
+    "#ComputerVision"
   ],
   "paper_id": "2026-05-28-arxiv-dynaflip_rethinking_robotics_perception_via_tri_modal_dynamics_guided_representa",
   "paper_title": "DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30350v1"
     }
   ],
-  "generated_at": "2026-05-30T08:18:34.224240"
+  "generated_at": "2026-05-30T22:41:03.496674"
 }
