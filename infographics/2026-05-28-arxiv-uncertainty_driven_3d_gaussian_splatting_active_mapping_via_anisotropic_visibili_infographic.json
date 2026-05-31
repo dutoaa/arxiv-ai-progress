@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper shows that 3D Gaussian Splatting becomes unreliable in regions that were never seen during training, and it introduces a visibility-aware uncertainty field to identify and handle those areas. By modeling anisotropic visibility, the method helps active mapping focus on the most informative next viewpoints.",
-  "problem_solved": "3D Gaussian Splatting can make overly confident or inaccurate predictions in unseen regions, which limits its reliability for reconstruction and exploration. This work addresses how to quantify uncertainty in 3DGS and use it to guide active mapping.",
+  "key_insight": "3D Gaussian Splatting can be made uncertainty-aware by explicitly measuring how visible each 3D particle is from the training views. GAVIS uses this visibility signal to identify unseen or poorly observed regions, where predictions are unreliable, and to guide active mapping.",
+  "problem_solved": "The paper addresses the lack of principled uncertainty estimation in 3D Gaussian Splatting, especially in regions not covered by the training viewpoints. This matters because unseen areas can produce misleading reconstructions and weaken downstream mapping or exploration decisions.",
   "method": [
-    "Define an anisotropic visibility field for each Gaussian particle relative to the training views.",
-    "Represent visibility efficiently with spherical harmonics to make uncertainty estimation practical for 3DGS.",
-    "Use the resulting uncertainty signal to support active mapping and select better next viewpoints."
+    "Defines an anisotropic visibility field for each Gaussian particle relative to the set of training views.",
+    "Represents visibility efficiently with spherical harmonics to enable practical computation in 3DGS.",
+    "Uses the visibility-based uncertainty estimate to support active mapping, helping prioritize areas that need more observation."
   ],
-  "impact": "For AI/ML practitioners, this improves the trustworthiness of 3D reconstruction from sparse views and enables smarter exploration strategies. It is especially useful for robotics, 3D perception, and autonomous mapping systems that need to know where their models are uncertain.",
+  "impact": "For AI/ML practitioners working with 3D reconstruction, robotics, or autonomous exploration, this provides a way to detect where a 3DGS model is uncertain instead of treating all regions equally. That can improve map quality, data collection efficiency, and decision-making in active sensing pipelines.",
   "visual_elements": [
-    "3D scene diagram showing visible vs unseen regions from training viewpoints",
-    "Gaussian splats overlaid with an anisotropic visibility heatmap",
-    "Flow chart from input views to visibility estimation to active view selection",
-    "Comparison graphic of standard 3DGS uncertainty vs GAVIS-guided mapping"
+    "3D scene with Gaussians colored by visibility/uncertainty heatmap",
+    "Camera viewpoints around a point cloud showing observed vs unseen regions",
+    "Pipeline diagram: training views -> anisotropic visibility field -> uncertainty map -> active mapping",
+    "Spherical harmonics illustration showing compact visibility representation"
   ],
   "hashtags": [
-    "#3DGS",
+    "#3DGaussianSplatting",
     "#ActiveMapping",
     "#UncertaintyEstimation",
     "#ComputerVision",
-    "#Robotics"
+    "#RoboticsAI"
   ],
   "paper_id": "2026-05-28-arxiv-uncertainty_driven_3d_gaussian_splatting_active_mapping_via_anisotropic_visibili",
   "paper_title": "Uncertainty-driven 3D Gaussian Splatting Active Mapping via Anisotropic Visibility Field",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30342v1"
     }
   ],
-  "generated_at": "2026-05-30T22:40:51.814509"
+  "generated_at": "2026-05-31T08:34:16.836284"
 }

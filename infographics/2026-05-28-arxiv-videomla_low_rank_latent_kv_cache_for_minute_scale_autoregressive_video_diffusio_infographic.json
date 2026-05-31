@@ -1,24 +1,24 @@
 {
-  "key_insight": "VideoMLA introduces Multi-Head Latent Attention to video diffusion, replacing expensive per-head key/value caches with a shared low-rank latent cache. This can significantly reduce streaming memory and latency for minute-scale autoregressive video generation.",
-  "problem_solved": "Existing long-rollout video diffusion models still rely on a large sliding-window KV cache, which is a major bottleneck for memory usage and inference speed. Prior work mostly changed which tokens are cached or how positions are encoded, but not the underlying per-head KV layout.",
+  "key_insight": "VideoMLA introduces Multi-Head Latent Attention to video diffusion, replacing expensive per-head key/value caches with a shared low-rank latent cache. This keeps long video generation more memory- and latency-efficient while preserving autoregressive rollout quality.",
+  "problem_solved": "Long-rollout causal video diffusion models need large KV caches, and the standard fixed-size sliding-window layout consumes too much memory and slows inference. Prior work mostly changed what goes inside the window, but not the per-head KV structure itself.",
   "method": [
-    "Replaces per-head keys and values with a shared low-rank latent representation in the cache.",
-    "Adapts Multi-Head Latent Attention (MLA) to the video diffusion setting for long autoregressive rollouts.",
-    "Targets minute-scale generation by reducing the dominant streaming memory and latency costs of KV caching."
+    "Replace per-head keys and values with a shared low-rank latent representation.",
+    "Use this latent KV cache to reduce streaming memory usage and decoding latency during minute-scale autoregressive video generation.",
+    "Adapt the attention mechanism for video diffusion so long-context generation can scale more efficiently than standard KV caching."
   ],
-  "impact": "For practitioners, this offers a more efficient path to long-form video generation with lower memory footprint and faster inference. It is especially relevant for deploying causal video diffusion systems at longer horizons without scaling hardware costs as aggressively.",
+  "impact": "For practitioners, VideoMLA offers a practical path to longer video rollouts without the usual memory bottlenecks of standard attention caching. It is especially relevant for deploying real-time or resource-constrained video generation systems.",
   "visual_elements": [
-    "Before/after cache diagram showing per-head KV cache vs. shared low-rank latent cache",
-    "Memory and latency bar chart comparing standard sliding-window KV caching to VideoMLA",
-    "Pipeline illustration of minute-scale autoregressive video diffusion with a highlighted cache bottleneck",
-    "Icon-based callouts for 'lower memory', 'faster inference', and 'longer rollouts'"
+    "Side-by-side diagram comparing standard per-head KV cache vs. VideoMLA low-rank latent cache",
+    "Memory and latency bar chart showing reduced cache cost over long rollouts",
+    "Pipeline illustration of autoregressive video diffusion with sliding window and latent attention",
+    "Icon set for memory, speed, long video timeline, and shared latent space"
   ],
   "hashtags": [
-    "#AIforsVideo",
     "#VideoDiffusion",
-    "#EfficientInference",
-    "#ModelCompression",
-    "#MachineLearningResearch"
+    "#AttentionMechanism",
+    "#EfficientAI",
+    "#MachineLearning",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-05-28-arxiv-videomla_low_rank_latent_kv_cache_for_minute_scale_autoregressive_video_diffusio",
   "paper_title": "VideoMLA: Low-Rank Latent KV Cache for Minute-Scale Autoregressive Video Diffusion",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30351v1"
     }
   ],
-  "generated_at": "2026-05-30T22:41:09.375572"
+  "generated_at": "2026-05-31T08:34:36.098104"
 }

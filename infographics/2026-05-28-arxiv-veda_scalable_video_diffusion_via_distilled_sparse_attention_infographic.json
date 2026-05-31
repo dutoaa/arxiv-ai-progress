@@ -1,23 +1,23 @@
 {
-  "key_insight": "Generation quality depends less on overall sparsity and more on how well the sparse attention mask aligns with the tile-wise geometry of full attention; learning/distilling tile selection preserves quality at high sparsity.",
-  "problem_solved": "Reduces the quadratic memory/compute bottleneck of self-attention in diffusion transformers for high‑resolution, long video generation, while avoiding quality degradation seen in existing high‑sparsity sparsification methods.",
+  "key_insight": "Video diffusion quality is limited less by how sparse attention is, and more by whether the sparse mask matches the geometric structure of full attention. Veda exploits this by distilling an attention pattern that preserves quality even at high sparsity.",
+  "problem_solved": "The paper tackles the quadratic self-attention bottleneck that makes high-resolution, long-video generation with Diffusion Transformers slow and memory-intensive. It also addresses the quality drop seen in existing sparse attention methods when sparsity becomes too aggressive.",
   "method": [
-    "Empirical finding: measure and show that tile-wise geometric alignment between sparse masks and full attention determines generation quality.",
-    "Distilled sparse attention: formulate explicit tile selection and distill knowledge from dense attention into compact sparse masks so the model learns where to attend.",
-    "Integrate the distilled sparse attention into a diffusion transformer backbone to enable scalable high‑resolution, long video generation with much lower compute/memory."
+    "Formulates sparse tile selection as an explicit distillation problem, learning which attention tiles matter most.",
+    "Aligns sparse masks with the tile-wise geometry of full attention instead of using generic sparsity patterns.",
+    "Uses distilled sparse attention to reduce computation while maintaining generation quality at high sparsity levels."
   ],
-  "impact": "Enables practical scaling of video diffusion models — producing longer, higher‑resolution videos with substantially reduced resource use while maintaining quality. Beneficial for researchers and engineers building efficient generative video systems.",
+  "impact": "Veda makes long-video diffusion more scalable, enabling higher-resolution and longer temporal outputs with lower compute cost. For practitioners, this suggests a practical path to efficient video generation without the usual quality trade-off from sparse attention.",
   "visual_elements": [
-    "Diagram showing tile-wise attention geometry: full attention heatmap vs aligned sparse mask",
-    "Before/after generation quality examples (frames) comparing dense, naive sparse, and Veda outputs",
-    "Plot of compute/memory cost vs video length/resolution with quality (FID/PSNR) curves",
-    "Pipeline schematic: dense-attention teacher → distillation → sparse-mask selector → diffusion transformer"
+    "Before/after diagram comparing dense attention vs. Veda’s distilled sparse tile mask",
+    "Heatmap of full attention showing tile-wise geometry alignment",
+    "Performance chart showing quality vs. sparsity ratio for baseline methods and Veda",
+    "Pipeline graphic illustrating distillation from full attention to sparse attention"
   ],
   "hashtags": [
     "#VideoDiffusion",
     "#SparseAttention",
-    "#ModelScaling",
-    "#GenerativeAI",
+    "#DiffusionTransformers",
+    "#AIGeneratedVideo",
     "#EfficientAI"
   ],
   "paper_id": "2026-05-28-arxiv-veda_scalable_video_diffusion_via_distilled_sparse_attention",
@@ -31,5 +31,5 @@
       "url": "https://arxiv.org/pdf/2605.30325v1"
     }
   ],
-  "generated_at": "2026-05-30T08:19:49.387314"
+  "generated_at": "2026-05-31T08:34:54.840847"
 }
