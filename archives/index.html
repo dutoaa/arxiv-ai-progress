@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Research Papers - Archives</title>
+  <style>
+    :root{color-scheme:dark;--bg:#030014;--text:rgba(255,255,255,.92);--muted:rgba(148,163,184,.92);--border:rgba(255,255,255,.12);--glass:rgba(255,255,255,.06);--accent:#a78bfa}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(circle at 50% 50%,#1e1b4b 0%,#030014 56%,#020012 100%);color:var(--text);padding:36px 18px 80px}
+    main{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:10px 0 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+    h1{font-size:24px;letter-spacing:0}.subtitle{color:var(--muted);font-size:14px;line-height:1.6;margin-top:6px}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.actions{display:flex;gap:10px;flex-wrap:wrap}
+    .nav-link,.btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--accent);font-size:14px;padding:8px 12px}
+    .list{display:grid;gap:14px;margin-top:20px}.archive{padding:16px;border-radius:12px;background:var(--glass);border:1px solid var(--border);display:flex;justify-content:space-between;gap:18px;align-items:center}
+    .archive h2{font-size:17px;font-weight:650;margin-bottom:6px}.meta{color:var(--muted);font-size:13px;line-height:1.5}.archive-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .empty{margin-top:20px;padding:16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:var(--muted)}
+    @media(max-width:720px){body{padding:24px 12px 60px}.archive{display:block}.archive-actions{justify-content:flex-start;margin-top:12px}.btn{width:100%}}
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>AI Research Papers - Archives</h1>
+        <p class="subtitle">Historical snapshots of the AI research paper collection.</p>
+      </div>
+      <nav class="actions">
+        <a class="nav-link" href="../">Latest</a>
+        <a class="nav-link" href="index.json">Archive JSON</a>
+      </nav>
+    </header>
+    <section id="archives" class="list">
+      <p class="empty">Loading archives...</p>
+    </section>
+  </main>
+  <script>
+    const container = document.getElementById('archives');
+    const fmt = new Intl.DateTimeFormat(undefined, { dateStyle: 'long' });
+
+    function formatDate(value) {
+      const [year, month, day] = String(value || '').split('-').map(Number);
+      if (!year || !month || !day) return value || 'Archive';
+      return fmt.format(new Date(year, month - 1, day));
+    }
+
+    function archiveCard(item) {
+      const filename = encodeURIComponent(item.filename || '');
+      return `
+        <article class="archive">
+          <div>
+            <h2>${formatDate(item.date)}</h2>
+            <p class="meta">${item.paper_count || 0} papers</p>
+            <p class="meta">${item.filename || ''}</p>
+          </div>
+          <div class="archive-actions">
+            <a class="btn" href="../archive-viewer.html?file=${filename}">View papers</a>
+            <a class="btn" href="${filename}">Raw JSON</a>
+          </div>
+        </article>
+      `;
+    }
+
+    fetch('index.json')
+      .then((response) => {
+        if (!response.ok) throw new Error(`Archive index returned ${response.status}`);
+        return response.json();
+      })
+      .then((data) => {
+        const archives = Array.isArray(data.archives) ? data.archives : [];
+        container.innerHTML = archives.length
+          ? archives.map(archiveCard).join('')
+          : '<p class="empty">No archives have been published yet.</p>';
+      })
+      .catch((error) => {
+        container.innerHTML = `<p class="empty">Archive index could not be loaded: ${error.message}</p>`;
+      });
+  </script>
+</body>
+</html>
