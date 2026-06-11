@@ -1,24 +1,24 @@
 {
-  "key_insight": "APPO reframes agentic reinforcement learning around two core questions: where to branch agent trajectories and how to assign credit after branching. This lets the model identify which intermediate decisions actually drive downstream success, rather than relying on coarse tool-call or workflow boundaries.",
-  "problem_solved": "Existing agentic RL methods usually credit decisions using heuristic chunks like tool calls or fixed workflows, which makes it hard to pinpoint the truly important intermediate actions. APPO addresses the challenge of more precise credit assignment in multi-turn LLM agent behavior.",
+  "key_insight": "APPO proposes a more fine-grained way to train agentic RL systems by deciding where to branch trajectories and how to assign credit after branching. This helps large language model agents learn from the specific intermediate decisions that actually drive success or failure.",
+  "problem_solved": "Existing agentic RL methods usually give credit at coarse boundaries like tool calls or fixed workflow steps, which can hide the true causes of downstream outcomes. The paper tackles the challenge of attributing learning signal to the exact intermediate decisions that matter in multi-turn tool-use tasks.",
   "method": [
-    "Analyzes agentic RL from two angles: branch-point selection and post-branch credit assignment.",
-    "Introduces a procedure for branching trajectories at more informative decision points instead of only at coarse boundaries.",
-    "Assigns reward/credit more granularly to intermediate actions so downstream outcomes can be linked back to the decisions that caused them."
+    "Identify branching points in agent trajectories at a finer granularity than traditional tool-call or workflow boundaries.",
+    "Assign post-branch credit more precisely so downstream rewards are linked to the decisions that caused them.",
+    "Optimize agent policies procedurally, improving learning for multi-turn tool-use and complex interaction chains."
   ],
-  "impact": "For AI/ML practitioners, APPO offers a more interpretable and potentially more sample-efficient way to train tool-using agents. It can improve learning signal quality in complex multi-step tasks, which is especially valuable for long-horizon reasoning and workflow automation.",
+  "impact": "For AI/ML practitioners, this can make agent training more sample-efficient and more interpretable by revealing which decisions improve performance. It is especially useful for building reliable tool-using LLM agents in real-world workflows.",
   "visual_elements": [
-    "Trajectory diagram showing an agent path with multiple branch points and downstream outcomes",
-    "Before/after comparison of coarse credit assignment versus APPO's finer-grained credit assignment",
-    "Flowchart of the APPO pipeline: observe -> branch -> evaluate -> assign credit -> update policy",
-    "Icon set for tools, decisions, rewards, and branching paths"
+    "A branching trajectory diagram showing where APPO splits agent paths.",
+    "A before-vs-after credit assignment graphic comparing coarse heuristic credit with fine-grained procedural credit.",
+    "A multi-turn agent workflow icon sequence: query, tool use, branch, reward.",
+    "A simple outcome flowchart linking intermediate decisions to final success/failure."
   ],
   "hashtags": [
     "#AgenticRL",
-    "#ReinforcementLearning",
     "#LLMAgents",
-    "#CreditAssignment",
-    "#AIResearch"
+    "#ReinforcementLearning",
+    "#ToolUse",
+    "#AIPolicyOptimization"
   ],
   "paper_id": "2026-06-10-arxiv-appo_agentic_procedural_policy_optimization",
   "paper_title": "APPO: Agentic Procedural Policy Optimization",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.12384v1"
     }
   ],
-  "generated_at": "2026-06-11T05:03:32.020535",
+  "generated_at": "2026-06-11T10:05:28.047286",
   "generator": "openai"
 }
