@@ -1,23 +1,23 @@
 {
-  "key_insight": "On-policy distillation (OPD) changes model parameters in a surprisingly small and coordinate-sparse way, even though it uses dense teacher supervision. The updates are spread across layers and tend to concentrate in feed-forward network components, revealing a clear geometry behind how OPD works.",
-  "problem_solved": "This paper tackles the lack of understanding around how on-policy distillation modifies model parameters. It aims to explain the sparsity and structure of OPD updates across language and vision-language models.",
+  "key_insight": "On-policy distillation makes many small, coordinate-sparse parameter updates rather than large widespread changes. These updates are spread across layers and often concentrated in FFN-related weights, showing that dense teacher supervision does not imply dense model updates.",
+  "problem_solved": "The paper addresses the lack of understanding of how on-policy distillation changes model parameters, especially why a method that uses dense supervision and on-policy data still produces sparse and structured updates.",
   "method": [
-    "Analyze OPD-style post-training updates across multiple language and vision-language model pairs.",
-    "Measure how parameter changes are distributed across layers and coordinates during student training on on-policy trajectories.",
-    "Study the geometry of the update patterns to identify where and how dense supervision translates into sparse parameter movement."
+    "Analyze on-policy distillation updates across multiple language and vision-language model pairs.",
+    "Measure update sparsity and geometry to see how parameter changes are distributed across coordinates and layers.",
+    "Compare update patterns under different use cases to identify consistent structural behaviors."
   ],
-  "impact": "For practitioners, this helps explain why OPD can be effective despite making only small updates to the model. It can guide better distillation design, debugging, and efficiency-focused post-training choices.",
+  "impact": "This helps practitioners understand where training signal is actually being applied during distillation, which can guide debugging, optimization, and parameter-efficient adaptation strategies. It also suggests that sparse-update behavior may be a useful property to exploit in future post-training methods.",
   "visual_elements": [
-    "Layer-wise heatmap of update magnitudes showing sparse, distributed changes",
-    "Bar chart comparing dense teacher supervision vs. sparse parameter updates",
-    "Model diagram highlighting FFN layers as major update hotspots",
-    "Trajectory-to-update pipeline illustration for on-policy distillation"
+    "Layer-wise heatmap of parameter update magnitudes showing sparse activation patterns",
+    "Diagram of student trajectories with dense teacher supervision in on-policy distillation",
+    "Bar chart comparing sparsity across layers or module types (attention vs FFN)",
+    "Vector field or geometry illustration showing update direction and concentration"
   ],
   "hashtags": [
-    "#AIResearch",
-    "#ModelDistillation",
-    "#PostTraining",
+    "#OnPolicyDistillation",
+    "#ModelCompression",
     "#SparseUpdates",
+    "#AIResearch",
     "#MachineLearning"
   ],
   "paper_id": "2026-06-11-arxiv-dense_supervision_sparse_updates_on_the_sparsity_and_geometry_of_on_policy_disti",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.13657v1"
     }
   ],
-  "generated_at": "2026-06-12T09:56:21.907869",
+  "generated_at": "2026-06-13T08:46:12.152616",
   "generator": "openai"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Doc-to-Atom turns a long document into a compact set of reusable \"memory atoms\" instead of one monolithic adapter. This makes document-conditioned reasoning faster, more memory-efficient, and more flexible across different queries.",
-  "problem_solved": "The paper addresses the high memory and compute cost of handling long input sequences in LLMs, especially when a single compressed representation must serve many different downstream queries.",
+  "key_insight": "The paper turns long-document context into reusable \"memory atoms\" instead of one bulky adapter per document, making context compression more modular and query-friendly. This lets the model compile and compose smaller pieces of memory to better handle different questions over the same document.",
+  "problem_solved": "It addresses the high memory and latency cost of long-context inference in LLMs, especially when a single compressed representation must serve many different queries. The approach aims to overcome the limits of monolithic document-level adapters that are hard to reuse and adapt.",
   "method": [
-    "Compress document context into multiple small \"atoms\" rather than a single large adapter.",
-    "Learn to compile these atoms in one forward pass, amortizing context distillation at inference time.",
-    "Compose selected atoms adaptively for different queries, improving flexibility over monolithic document adapters."
+    "Distill document context into compact memory atoms rather than a single monolithic adapter.",
+    "Compile these atoms in one forward pass, amortizing context distillation into efficient inference.",
+    "Compose multiple atoms at query time so the model can retrieve and combine the most relevant memory for the task."
   ],
-  "impact": "For practitioners, this can reduce inference latency and memory usage while preserving document-specific knowledge. It is especially useful for long-document QA, multi-step reasoning, and any setting where the same document must support many queries.",
+  "impact": "For AI/ML practitioners, this offers a more efficient way to scale document understanding and multi-step reasoning without paying full attention costs. It can reduce inference overhead while improving flexibility across varied queries on the same source document.",
   "visual_elements": [
-    "Pipeline diagram: long document -> atom compiler -> atom bank -> query-specific composition -> answer",
-    "Before/after comparison: full attention vs Doc-to-Atom memory and compute",
-    "Icon set for document, atoms, adapter, query, and output",
-    "Heatmap or block diagram showing how different queries activate different atoms"
+    "Before/after comparison of full attention vs. memory atoms",
+    "Pipeline diagram: document -> atom compilation -> atom composition -> answer",
+    "Block icons showing one monolithic adapter splitting into multiple smaller atoms",
+    "Query-routing visualization showing different queries selecting different atoms"
   ],
   "hashtags": [
     "#LLM",
     "#LongContext",
-    "#EfficientInference",
+    "#DocumentUnderstanding",
     "#ContextDistillation",
-    "#DocumentUnderstanding"
+    "#EfficientInference"
   ],
   "paper_id": "2026-06-10-arxiv-doc_to_atom_learning_to_compile_and_compose_memory_atoms",
   "paper_title": "Doc-to-Atom: Learning to Compile and Compose Memory Atoms",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.12400v1"
     }
   ],
-  "generated_at": "2026-06-12T09:57:13.736691",
+  "generated_at": "2026-06-13T08:47:00.840545",
   "generator": "openai"
 }

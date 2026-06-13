@@ -1,21 +1,21 @@
 {
-  "key_insight": "Scaling test-time compute in vision-language planners is not automatically better: it raises cost and latency while delivering uneven, often diminishing returns. The real win comes from deciding when and where extra compute should be spent.",
-  "problem_solved": "The paper tackles the challenge of using test-time compute efficiently in embodied planning, where blindly increasing reasoning effort can make agents slower, more expensive, and only marginally more successful.",
+  "key_insight": "Scaling test-time compute in embodied planners is not always better: it raises latency, token use, and FLOPs, but the gains in task success are uneven and often diminish. The paper argues that the real challenge is deciding when and where extra compute is worth spending.",
+  "problem_solved": "This paper addresses the inefficiency of blindly increasing test-time compute for Vision-Language Models used as high-level planners in embodied agents, where higher compute can reduce deployability without reliably improving performance.",
   "method": [
-    "Analyze how allocating more test-time compute affects embodied planner performance across different downstream tasks.",
-    "Identify situations where extra compute helps versus where it adds cost without meaningful gains.",
-    "Argue for selective, task-aware compute allocation to balance success rate, latency, token usage, and FLOPs."
+    "Analyzes how allocating more test-time compute affects embodied planning performance, latency, token usage, and FLOPs.",
+    "Focuses on identifying the conditions under which compute spending improves downstream success versus when it produces diminishing returns.",
+    "Frames test-time compute as a resource-allocation problem: deciding when and where to spend compute for frontier performance in real-world deployment."
   ],
-  "impact": "For AI/ML practitioners, this highlights that deployment-ready embodied agents need compute budgeting, not just bigger models or longer reasoning. It provides a practical lens for improving real-world viability by optimizing efficiency at inference time.",
+  "impact": "For AI/ML practitioners, this work highlights that better planning performance may come from smarter compute allocation rather than more compute overall. It provides a practical lens for building embodied systems that are faster, cheaper, and more deployable.",
   "visual_elements": [
-    "A trade-off curve showing success rate versus latency/compute",
-    "A split-panel diagram comparing 'blindly scale compute' vs 'selective compute allocation'",
-    "An embodied agent pipeline highlighting where test-time compute can be inserted",
-    "Icons for tokens, FLOPs, and clock time to visualize cost"
+    "A trade-off chart showing test-time compute vs. success rate, latency, and FLOPs",
+    "A pipeline diagram of embodied planning with highlighted decision points for compute allocation",
+    "A diminishing returns curve illustrating uneven gains from scaling compute",
+    "Icons representing compute budget, latency, and robot/task success"
   ],
   "hashtags": [
-    "#VisionLanguageModels",
     "#EmbodiedAI",
+    "#VisionLanguageModels",
     "#TestTimeCompute",
     "#AIPlanning",
     "#EfficientAI"
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.12402v1"
     }
   ],
-  "generated_at": "2026-06-12T09:57:17.445811",
+  "generated_at": "2026-06-13T08:47:03.775230",
   "generator": "openai"
 }

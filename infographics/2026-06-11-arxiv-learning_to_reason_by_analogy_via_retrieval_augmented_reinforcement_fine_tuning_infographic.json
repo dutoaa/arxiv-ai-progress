@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper shows that retrieval can help models learn reasoning by analogy, not just by surface similarity. By pairing retrieval with reinforcement-based post-training, the model can discover and reuse reasoning patterns that transfer across seemingly different problems.",
-  "problem_solved": "Standard RAG retrieves examples or documents that look semantically similar, but that often fails on reasoning tasks where the best helper problem may look different on the surface while sharing the same solution pattern. This paper addresses the gap between retrieval based on similarity and retrieval based on reasoning structure.",
+  "key_insight": "The paper shows that retrieval can do more than fetch relevant facts: it can help language models learn which prior solution patterns to reuse when reasoning by analogy. By pairing retrieval with reinforcement fine-tuning, the model is trained to select examples that match the underlying reasoning structure, not just surface similarity.",
+  "problem_solved": "Traditional RAG relies on lexical or semantic similarity, which often fails on reasoning tasks because similar-looking problems may need different strategies, while differently worded problems can share the same reasoning pattern. This paper addresses how to retrieve training signals that improve reasoning via analogical transfer rather than shallow similarity.",
   "method": [
-    "Introduces Retrieval-Augmented Reinforcement Fine-Tuning (RA-RFT), a post-training framework that combines retrieval with reinforcement learning.",
-    "Uses retrieved examples to guide the model toward analogous reasoning strategies rather than only matching topical or lexical similarity.",
-    "Optimizes the model to reinforce retrieval choices and reasoning paths that improve task performance on complex problems."
+    "Introduce Retrieval-Augmented Reinforcement Fine-Tuning (RA-RFT) as a post-training framework.",
+    "Use retrieval to surface past examples that are useful for reasoning-by-analogy, then optimize the model with reinforcement learning signals.",
+    "Train the model to prefer retrieved demonstrations that align with the hidden reasoning pattern of the target task, improving generalization on complex problems."
   ],
-  "impact": "This approach could make AI systems better at solving hard multi-step tasks by learning which prior examples are truly useful for reasoning transfer. For practitioners, it offers a path to more reliable RAG systems on tasks where naive similarity search is not enough.",
+  "impact": "For AI/ML practitioners, this suggests a practical way to make RAG systems stronger at multi-step reasoning, not just factual grounding. It could improve performance on tasks where the best help comes from structurally similar examples rather than semantically similar ones.",
   "visual_elements": [
-    "Before/after pipeline diagram comparing standard semantic RAG vs RA-RFT analogy-based retrieval",
-    "Side-by-side examples showing a superficially different problem and its shared reasoning pattern",
-    "Flowchart of retrieval -> reasoning -> reinforcement fine-tuning -> improved answer",
-    "Icon set for 'surface similarity' vs 'deep structure/analogy'"
+    "A side-by-side comparison of standard RAG vs. RA-RFT retrieval behavior.",
+    "A flow diagram showing: query -> retrieval -> reasoning-pattern matching -> reinforcement fine-tuning.",
+    "An analogy map linking different-looking problems that share the same solution strategy.",
+    "An icon-based pipeline highlighting retrieval, reward, and fine-tuning stages."
   ],
   "hashtags": [
     "#RAG",
     "#ReinforcementLearning",
-    "#LLMReasoning",
-    "#AIResearch",
-    "#MachineLearning"
+    "#LLM",
+    "#Reasoning",
+    "#AIResearch"
   ],
   "paper_id": "2026-06-11-arxiv-learning_to_reason_by_analogy_via_retrieval_augmented_reinforcement_fine_tuning",
   "paper_title": "Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.13680v1"
     }
   ],
-  "generated_at": "2026-06-12T09:56:53.836059",
+  "generated_at": "2026-06-13T08:46:37.785659",
   "generator": "openai"
 }
