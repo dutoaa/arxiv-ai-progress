@@ -1,0 +1,36 @@
+{
+  "key_insight": "KVEraser learns how to selectively steer the KV cache so a local span can be erased without needing to fully recompute the entire later context. This makes post-hoc context removal practical for long-context LLMs.",
+  "problem_solved": "The paper addresses the difficulty of exact context erasing in KV caches, where deleting a span normally forces recomputation of all subsequent tokens because earlier information has already propagated through cached states.",
+  "method": [
+    "Learns a steering mechanism over the KV cache to localize the effect of erasure.",
+    "Targets only the necessary cache updates instead of reprocessing the full post-edit sequence.",
+    "Aims to preserve model behavior while removing stale, incorrect, or harmful context after prefill."
+  ],
+  "impact": "This helps AI practitioners handle long-context applications more efficiently when they need to remove bad information after it has already been processed. It can reduce compute cost and latency for safer, more controllable LLM systems.",
+  "visual_elements": [
+    "A before/after KV cache flow diagram showing full recomputation vs. localized erasure.",
+    "An attention or token timeline highlighting the deleted span and affected future tokens.",
+    "A cache block graphic illustrating which states are updated versus preserved.",
+    "Icons for stale facts, tool errors, user preference changes, and prompt injection to show use cases."
+  ],
+  "hashtags": [
+    "#LLM",
+    "#KVCache",
+    "#ContextErasing",
+    "#LongContext",
+    "#AIResearch"
+  ],
+  "paper_id": "2026-06-15-arxiv-kveraser_learning_to_steer_kv_cache_for_efficient_localized_context_erasing",
+  "paper_title": "KVEraser: Learning to Steer KV Cache for Efficient Localized Context Erasing",
+  "paper_category": "Model",
+  "paper_date": "2026-06-15",
+  "paper_authors": "Mufei Li, Shikun Liu, Dongqi Fu, Haoyu Wang, Yinglong Xia",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2606.17034v1"
+    }
+  ],
+  "generated_at": "2026-06-16T10:53:27.935092",
+  "generator": "openai"
+}
