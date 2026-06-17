@@ -1,22 +1,22 @@
 {
-  "key_insight": "The paper shows how to estimate the exact posterior score for linear inverse problems, instead of relying on approximate guidance from an unconditional diffusion prior. This makes posterior sampling more faithful to the measurement data while preserving the benefits of pretrained generative priors.",
-  "problem_solved": "How to use diffusion or flow-based models to solve linear inverse problems by sampling from the true posterior, rather than only using the unconditional data prior or approximate measurement corrections.",
+  "key_insight": "The paper shows how to estimate the exact posterior score for linear inverse problems instead of relying on approximate measurement corrections. This preserves the strength of diffusion/flow priors while making them properly usable for posterior sampling.",
+  "problem_solved": "It addresses the mismatch between the unconditional score learned by diffusion and flow models and the posterior score needed to solve linear inverse problems from partial or corrupted measurements.",
   "method": [
-    "Derives a way to obtain the posterior score needed for inverse problem sampling.",
-    "Bridges pretrained denoising priors with measurement consistency, avoiding the need to retrain a fully conditional restoration model.",
-    "Maintains the denoising structure of diffusion/flow models while targeting exact posterior inference."
+    "Derive an exact way to obtain posterior score information from the learned prior rather than steering a fixed denoiser with heuristics.",
+    "Keep the denoising-based generative prior structure while adapting it to measurement-conditioned restoration.",
+    "Enable posterior sampling for linear inverse problems without replacing the prior with a separately trained conditional model."
   ],
-  "impact": "For practitioners, this can improve reconstruction quality in tasks like imaging, deblurring, denoising, and compressed sensing by making generative priors more accurate and measurement-aware. It also reduces the gap between powerful pretrained generative models and reliable inverse-problem solvers.",
+  "impact": "For practitioners, this offers a more principled route to inverse problem solving with generative models, improving consistency between the prior and the measurement constraints. It can lead to better reconstructions with fewer ad hoc corrections and less need for task-specific retraining.",
   "visual_elements": [
-    "Side-by-side diagram of unconditional prior score vs exact posterior score",
-    "Pipeline flowchart: measurements -> posterior score estimation -> reconstructed output",
-    "Comparison graphic showing approximate guidance methods versus exact posterior inference",
-    "Icon set for diffusion model, measurement operator, and reconstruction"
+    "Side-by-side diagram: unconditional prior score vs exact posterior score",
+    "Pipeline graphic showing corrupted measurement -> posterior estimation -> reconstruction",
+    "Comparison chart of approximate correction methods vs exact score estimation",
+    "Icon set for diffusion model, measurement operator, and reconstruction output"
   ],
   "hashtags": [
     "#DiffusionModels",
     "#InverseProblems",
-    "#PosteriorInference",
+    "#PosteriorSampling",
     "#GenerativeAI",
     "#MachineLearning"
   ],
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.17048v1"
     }
   ],
-  "generated_at": "2026-06-16T10:53:48.746603",
+  "generated_at": "2026-06-17T10:26:20.130181",
   "generator": "openai"
 }

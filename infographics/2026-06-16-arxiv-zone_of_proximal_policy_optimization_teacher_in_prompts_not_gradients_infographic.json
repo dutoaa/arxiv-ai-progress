@@ -1,0 +1,36 @@
+{
+  "key_insight": "This paper argues that small students should learn from a teacher through prompts and guidance, not by directly copying logits or gradients. The core idea is to move the teacher into the student's decision-making context so the student can improve even when standard RL provides no learning signal.",
+  "problem_solved": "It addresses two failures in small-model training: brittle knowledge distillation from a much larger teacher, and reinforcement learning that stops learning on questions where all sampled rollouts fail and produce zero advantage.",
+  "method": [
+    "Use the teacher as a prompt-based guide rather than a gradient source, keeping the student's learning process anchored in its own outputs.",
+    "Avoid forcing exact logit imitation from a large teacher, reducing over-concentration on the teacher's sharpest modes.",
+    "Create a training setup that can still provide useful supervision when the student's rollouts are poor and standard RL would discard the signal."
+  ],
+  "impact": "For practitioners, this offers a more stable way to improve small models without the fragility of classic distillation or the sparse feedback problem of RL. It is especially useful when adapting compact models to tasks where benchmark generalization matters beyond the training distribution.",
+  "visual_elements": [
+    "Side-by-side pipeline showing traditional distillation, standard RL, and prompt-based teacher guidance",
+    "Flowchart highlighting where learning signal disappears in zero-advantage RL",
+    "Diagram of teacher prompts influencing student rollouts versus teacher logits forcing student outputs",
+    "Comparison chart of generalization performance across in-domain and out-of-domain benchmark families"
+  ],
+  "hashtags": [
+    "#KnowledgeDistillation",
+    "#ReinforcementLearning",
+    "#LLMTraining",
+    "#ModelGeneralization",
+    "#AIAssurance"
+  ],
+  "paper_id": "2026-06-16-arxiv-zone_of_proximal_policy_optimization_teacher_in_prompts_not_gradients",
+  "paper_title": "Zone of Proximal Policy Optimization: Teacher in Prompts, Not Gradients",
+  "paper_category": "Model",
+  "paper_date": "2026-06-16",
+  "paper_authors": "Byung-Kwan Lee, Ximing Lu, Shizhe Diao, Minki Kang, Saurav Muralidharan",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2606.18216v1"
+    }
+  ],
+  "generated_at": "2026-06-17T10:25:20.477361",
+  "generator": "openai"
+}
