@@ -1,24 +1,24 @@
 {
-  "key_insight": "This paper argues that small students should learn from a teacher through prompts and guidance, not by directly copying logits or gradients. The core idea is to move the teacher into the student's decision-making context so the student can improve even when standard RL provides no learning signal.",
-  "problem_solved": "It addresses two failures in small-model training: brittle knowledge distillation from a much larger teacher, and reinforcement learning that stops learning on questions where all sampled rollouts fail and produce zero advantage.",
+  "key_insight": "The paper argues that distillation should not force a small student to copy a large teacher’s logits directly. Instead, the teacher should guide learning through prompts and preference signals, while the student improves from its own behavior rather than gradient-level imitation.",
+  "problem_solved": "It addresses the brittleness of knowledge distillation in small-student settings, where mimicking a large teacher can overfit to sharp teacher modes and hurt generalization. It also targets a weakness of standard RL training, where failed rollouts can produce zero advantage and be effectively ignored.",
   "method": [
-    "Use the teacher as a prompt-based guide rather than a gradient source, keeping the student's learning process anchored in its own outputs.",
-    "Avoid forcing exact logit imitation from a large teacher, reducing over-concentration on the teacher's sharpest modes.",
-    "Create a training setup that can still provide useful supervision when the student's rollouts are poor and standard RL would discard the signal."
+    "Use the teacher as guidance in prompts rather than as a target for logit matching.",
+    "Train the student with reinforcement-style updates based on its own rollouts, avoiding direct imitation of teacher probabilities.",
+    "Introduce a policy-optimization framing that preserves learning signal even when standard RL would discard low-success or zero-advantage samples."
   ],
-  "impact": "For practitioners, this offers a more stable way to improve small models without the fragility of classic distillation or the sparse feedback problem of RL. It is especially useful when adapting compact models to tasks where benchmark generalization matters beyond the training distribution.",
+  "impact": "This approach can improve how small models learn from stronger models without becoming overly dependent on brittle teacher outputs. For practitioners, it suggests a more robust path to transfer capability, especially when generalization beyond the training corpus matters.",
   "visual_elements": [
-    "Side-by-side pipeline showing traditional distillation, standard RL, and prompt-based teacher guidance",
-    "Flowchart highlighting where learning signal disappears in zero-advantage RL",
-    "Diagram of teacher prompts influencing student rollouts versus teacher logits forcing student outputs",
-    "Comparison chart of generalization performance across in-domain and out-of-domain benchmark families"
+    "Side-by-side pipeline showing traditional distillation vs. prompt-based teacher guidance",
+    "Flowchart of student rollouts with reward/advantage feedback and sample retention",
+    "Diagram illustrating sharp teacher modes versus broader student generalization",
+    "Icon set for teacher, prompt, rollout, and optimization loop"
   ],
   "hashtags": [
     "#KnowledgeDistillation",
     "#ReinforcementLearning",
-    "#LLMTraining",
-    "#ModelGeneralization",
-    "#AIAssurance"
+    "#PolicyOptimization",
+    "#MachineLearning",
+    "#LLMTraining"
   ],
   "paper_id": "2026-06-16-arxiv-zone_of_proximal_policy_optimization_teacher_in_prompts_not_gradients",
   "paper_title": "Zone of Proximal Policy Optimization: Teacher in Prompts, Not Gradients",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.18216v1"
     }
   ],
-  "generated_at": "2026-06-17T10:25:20.477361",
+  "generated_at": "2026-06-18T10:05:55.228267",
   "generator": "openai"
 }
