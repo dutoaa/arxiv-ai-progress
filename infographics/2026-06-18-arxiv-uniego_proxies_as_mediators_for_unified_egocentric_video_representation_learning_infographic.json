@@ -1,23 +1,23 @@
 {
-  "key_insight": "UNIEGO learns a richer egocentric video representation by using multiple stronger teachers as proxies, so a model trained on wearable-camera video can inherit knowledge from other viewpoints, modalities, and foundation models. This helps bridge the gap between what egocentric video alone shows and what full human action understanding requires.",
-  "problem_solved": "Egocentric video is inherently incomplete: it comes from a single wearable viewpoint and often misses information that is visible from other perspectives or modalities. The paper addresses how to build a more expressive representation from egocentric video alone without requiring extra inputs at deployment.",
+  "key_insight": "UNIEGO learns a richer egocentric video representation by using multiple proxy teachers to transfer complementary knowledge from other views, modalities, and foundation models into a single egocentric model. This lets the system stay deployable from first-person video alone while benefiting from broader supervision.",
+  "problem_solved": "Egocentric video is inherently incomplete: a wearable camera sees only one viewpoint, one modality, and often misses context needed for robust action understanding. The paper addresses how to build a unified representation that captures more semantic richness without requiring extra inputs at test time.",
   "method": [
-    "Uses a hierarchical multi-teacher distillation framework.",
-    "Treats proxies from complementary sources (e.g., other viewpoints, modalities, and foundation models) as mediators of richer knowledge.",
-    "Trains a deployable egocentric model that learns from these teachers during training but operates on egocentric video only at inference."
+    "Uses a hierarchical multi-teacher distillation framework to aggregate supervision from diverse proxy sources.",
+    "Treats proxies as mediators that inject complementary knowledge from viewpoints, modalities, and foundation models into egocentric learning.",
+    "Trains an egocentric-only student model that can be deployed from wearable video alone while inheriting broader representation power."
   ],
-  "impact": "For AI/ML practitioners, this offers a practical way to boost egocentric video understanding without changing deployment constraints. It is useful for applications like action recognition, robotics, AR/VR, and wearable AI where only first-person video is available.",
+  "impact": "For AI/ML practitioners, this offers a practical path to stronger egocentric video models without changing deployment constraints. It can improve downstream tasks like action recognition, retrieval, and anticipation by leveraging richer training signals than egocentric data alone.",
   "visual_elements": [
-    "A pipeline diagram showing egocentric video feeding into a student model via multiple teacher/proxy branches.",
-    "An icon-based comparison of viewpoints, modalities, and foundation models as complementary knowledge sources.",
-    "A hierarchical distillation flowchart illustrating teacher-to-proxy-to-student knowledge transfer.",
-    "A before/after performance chart showing gains from unified representation learning."
+    "A three-layer diagram showing proxy teachers at the top, distillation in the middle, and the egocentric student model at the bottom.",
+    "An icon-based comparison of viewpoints, modalities, and foundation models as three complementary knowledge sources.",
+    "A pipeline flowchart from egocentric input -> proxy supervision -> unified representation -> downstream tasks.",
+    "A before/after bar chart showing performance gains from single-source training versus multi-teacher distillation."
   ],
   "hashtags": [
-    "#EgocentricAI",
+    "#EgoVision",
     "#VideoUnderstanding",
     "#KnowledgeDistillation",
-    "#MultimodalLearning",
+    "#MultimodalAI",
     "#ComputerVision"
   ],
   "paper_id": "2026-06-18-arxiv-uniego_proxies_as_mediators_for_unified_egocentric_video_representation_learning",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.20559v1"
     }
   ],
-  "generated_at": "2026-06-19T10:12:22.599767",
+  "generated_at": "2026-06-20T08:40:24.601523",
   "generator": "openai"
 }

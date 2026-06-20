@@ -1,17 +1,17 @@
 {
-  "key_insight": "VisDom adds a visible-domain constraint to sparse novel view synthesis, helping models focus on geometry that is actually observable from the input views. This reduces overfitting, floating artifacts, and inconsistent reconstructions in sparse-view settings.",
-  "problem_solved": "The paper addresses the difficulty of reconstructing accurate 3D geometry and synthesizing new views from only a few input images, where NeRF- and Gaussian Splatting-based methods often overfit and silhouette consistency alone is not enough.",
+  "key_insight": "VisDom tackles sparse novel view synthesis by adding a visible-domain constraint that better limits geometry to what is actually observable from the input views. This helps reduce floating artifacts and improves consistency when training NeRF- or Gaussian Splatting-based models with very few images.",
+  "problem_solved": "The paper addresses the instability of novel view synthesis in sparse-view settings, where limited supervision makes it hard to recover accurate 3D geometry and leads to overfitting, floating artifacts, and silhouette-consistent but incorrect shapes.",
   "method": [
-    "Introduces a visible-domain constraint to limit optimization to regions supported by the observed views.",
-    "Uses this constraint to reduce ambiguity in sparse-view 3D reconstruction and prevent hallucinated geometry.",
-    "Improves view synthesis quality by discouraging floating artifacts and enforcing more consistent shape recovery."
+    "Introduces a visible-domain constraint to restrict learned geometry to regions supported by the observed views.",
+    "Uses this constraint as a regularizer alongside standard sparse-view training to reduce hallucinated structure.",
+    "Targets both NeRF- and Gaussian Splatting-based pipelines to improve robustness under sparse supervision."
   ],
-  "impact": "For AI/ML practitioners, VisDom offers a practical way to make sparse-view reconstruction more stable and reliable without requiring dense supervision. It is especially useful for 3D capture scenarios where collecting many views is expensive or impossible.",
+  "impact": "For AI/ML practitioners, VisDom offers a practical way to make sparse-view 3D reconstruction more reliable without requiring many additional input images. It can improve visual quality and geometric consistency in real-world applications where dense capture is expensive or impossible.",
   "visual_elements": [
-    "Side-by-side comparison of sparse NVS results: baseline vs. VisDom, highlighting floating artifacts",
-    "Diagram showing input views, visible domain constraint, and reconstructed 3D geometry",
-    "Silhouette-only constraint vs. visible-domain constraint illustration",
-    "Before/after renderings of synthesized novel views with consistency heatmaps"
+    "Before/after render comparison showing floating artifacts vs. VisDom outputs",
+    "A 3D diagram illustrating visible domain vs. silhouette-only constraint",
+    "Pipeline schematic of sparse inputs flowing into NeRF/GS with VisDom regularization",
+    "Simple loss-constraint icon set highlighting geometry, visibility, and silhouettes"
   ],
   "hashtags": [
     "#NovelViewSynthesis",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.20531v1"
     }
   ],
-  "generated_at": "2026-06-19T10:12:01.467541",
+  "generated_at": "2026-06-20T08:40:02.776639",
   "generator": "openai"
 }
