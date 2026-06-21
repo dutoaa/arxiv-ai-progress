@@ -1,24 +1,24 @@
 {
-  "key_insight": "This paper reframes reward supervision by using rubrics to guide self-distillation, reducing dependence on expensive chain-of-thought annotations and noisy rationales. The core idea is to turn evaluative feedback into a structured teaching signal that better aligns reasoning models during post-training.",
-  "problem_solved": "It addresses the mismatch between high-quality final answers and low-quality reasoning traces in supervised distillation, as well as the limitations of reward feedback that is too compressed or hard to learn from effectively.",
+  "key_insight": "The paper proposes a new way to supervise reasoning models using rubrics instead of brittle full-chain rationales, making self-distillation more reliable and less annotation-heavy. By conditioning learning on structured evaluative criteria, it aims to preserve useful reasoning while reducing noise from imperfect explanations.",
+  "problem_solved": "It addresses the high cost and unreliability of chain-of-thought supervision in post-training, where annotations can be incomplete, noisy, or even incorrect. It also tackles the weakness of compressing reward signals into sparse or overly simplified feedback during reinforcement learning.",
   "method": [
-    "Condition self-distillation on rubrics so the model learns from structured evaluation criteria rather than only raw rationales.",
-    "Use rubric-based supervision to make post-training signals more informative, stable, and less dependent on manually written chain-of-thought annotations.",
-    "Bridge supervised distillation and reward-based training by converting feedback into a clearer, reusable training target."
+    "Use rubric-conditioned supervision to guide the model with structured criteria rather than relying solely on full natural-language rationales.",
+    "Apply self-distillation so the model can learn from its own outputs under rubric guidance, reducing dependence on expensive human-written chain-of-thought data.",
+    "Leverage evaluative feedback in a more informative form than a single scalar reward, helping the model learn what makes an answer correct or high-quality."
   ],
-  "impact": "For AI practitioners, this can lower annotation cost while improving the quality of reasoning supervision. It may lead to more reliable and scalable post-training pipelines for reasoning models.",
+  "impact": "For practitioners, this could lower annotation costs while improving the quality and robustness of reasoning-model post-training. It offers a practical middle ground between noisy rationale distillation and sparse reward-only training.",
   "visual_elements": [
-    "Pipeline diagram showing: answer -> rubric -> self-distillation -> improved model",
-    "Side-by-side comparison of noisy chain-of-thought supervision vs. rubric-conditioned supervision",
-    "Icon set for cost, quality, and feedback alignment",
-    "Flowchart illustrating how verifiable rewards are transformed into structured learning signals"
+    "A pipeline diagram showing: prompt -> model output -> rubric evaluation -> self-distillation update.",
+    "A side-by-side comparison of chain-of-thought supervision versus rubric-conditioned supervision.",
+    "An icon-based rubric card illustrating criteria such as correctness, completeness, and reasoning quality.",
+    "A before/after chart showing reduced noise and improved learning signal quality."
   ],
   "hashtags": [
-    "#AI",
-    "#MachineLearning",
+    "#AIResearch",
     "#LLM",
-    "#ReasoningModels",
-    "#SelfDistillation"
+    "#SelfDistillation",
+    "#ReinforcementLearning",
+    "#ReasoningModels"
   ],
   "paper_id": "2026-06-17-arxiv-rethinking_reward_supervision_rubric_conditioned_self_distillation",
   "paper_title": "Rethinking Reward Supervision: Rubric-Conditioned Self-Distillation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.19327v1"
     }
   ],
-  "generated_at": "2026-06-18T10:05:24.336189",
+  "generated_at": "2026-06-21T09:35:26.187236",
   "generator": "openai"
 }

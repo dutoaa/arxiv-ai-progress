@@ -1,23 +1,23 @@
 {
-  "key_insight": "This paper clarifies when calibration improves mixture-of-experts (MoE) models, especially under distribution shift. The main takeaway is that calibrated experts can make MoEs more reliable, but the benefit depends on how the data distribution changes.",
-  "problem_solved": "The paper addresses the lack of understanding around when and why calibration helps MoE models, particularly when test data differs from training data. It tackles the challenge of aligning predictive probabilities with real-world accuracy under distribution shift.",
+  "key_insight": "This paper studies when calibration actually helps mixture-of-experts models, especially under distribution shift. The main takeaway is that calibrating individual experts can improve MoE behavior, but the benefit depends on how the data distribution changes and how experts are routed.",
+  "problem_solved": "Mixture-of-experts models often perform well empirically, but it is unclear when enforcing calibration on each expert improves prediction quality and uncertainty estimates, especially when test data differs from training data.",
   "method": [
-    "Analyzes calibration at the level of individual experts rather than only the final ensemble output.",
-    "Studies MoE behavior under distribution shift to identify conditions where calibration improves accuracy and uncertainty estimates.",
-    "Compares calibrated and uncalibrated expert predictions to understand their effect on routing, aggregation, and overall model performance."
+    "Analyze calibration at the level of individual experts rather than only the final ensemble output.",
+    "Study mixture-of-experts behavior under distribution shift to identify when calibrated experts lead to better uncertainty estimates and performance.",
+    "Compare calibrated versus uncalibrated expert predictions to understand the conditions where calibration is beneficial."
   ],
-  "impact": "For AI/ML practitioners, this provides guidance on when to invest in calibration for MoE systems to improve trustworthiness and robustness. It is especially useful for applications where reliable uncertainty estimates matter under changing data conditions.",
+  "impact": "For practitioners, this helps make MoE systems more trustworthy by clarifying when calibration will improve reliability. It can guide model design and deployment in settings where data drift or shift is expected, such as healthcare, robotics, and large-scale decision systems.",
   "visual_elements": [
-    "A pipeline diagram showing experts, gating/routing, and final MoE predictions.",
-    "A calibration curve comparing predicted confidence vs. empirical accuracy.",
-    "A before/after chart illustrating performance under in-distribution vs. shifted data.",
-    "An icon-based flow showing distribution shift and its effect on expert reliability."
+    "A pipeline diagram of MoE routing with multiple experts and a gating network.",
+    "A before/after chart comparing calibration error under in-distribution vs shifted data.",
+    "An uncertainty diagram showing predicted probabilities versus empirical outcomes.",
+    "An icon set representing experts, routing, distribution shift, and calibration."
   ],
   "hashtags": [
     "#MixtureOfExperts",
     "#Calibration",
     "#DistributionShift",
-    "#UncertaintyQuantification",
+    "#UncertaintyEstimation",
     "#MachineLearning"
   ],
   "paper_id": "2026-06-18-arxiv-toward_calibrated_mixture_of_experts_under_distribution_shift",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.20544v1"
     }
   ],
-  "generated_at": "2026-06-20T08:40:11.728207",
+  "generated_at": "2026-06-21T09:35:02.459845",
   "generator": "openai"
 }
