@@ -1,23 +1,23 @@
 {
-  "key_insight": "The paper shows that fine-tuning vision-language-action (VLA) policies with only episode-level success/failure signals works better when the signal is decomposed hierarchically, instead of collapsing everything into one scalar reward. This gives the actor more targeted guidance at the transition level, especially once the task is already partly solvable.",
-  "problem_solved": "Online RL fine-tuning of pretrained VLAs often receives only a single binary outcome per episode, but policy updates need per-step supervision. A single scalar advantage can blur different types of feedback and becomes less informative after basic success is achieved.",
+  "key_insight": "This paper shows that sparse episode-level success/failure can be turned into richer transition-level training signal by weighting advantages hierarchically, instead of collapsing everything into one scalar reward. The result is more informative online fine-tuning for pretrained vision-language-action (VLA) policies.",
+  "problem_solved": "Online RL fine-tuning of VLAs often gets only one binary outcome per rollout episode, but the actor still needs per-step supervision. Simple scalar rewards or advantages mix together different kinds of feedback and become less useful once the agent starts succeeding on easy cases.",
   "method": [
-    "Introduces hierarchical advantage weighting to convert sparse episode outcomes into more structured transition-level training signals.",
-    "Separates different feedback roles instead of using one flat reward/advantage, helping the actor learn which transitions mattered within a rollout.",
-    "Improves fine-tuning under sparse binary outcomes by providing more informative supervision for online RL on pretrained VLA policies."
+    "Use hierarchical advantage weighting to map sparse episode outcomes into structured transition-level learning signals.",
+    "Separate distinct feedback sources instead of collapsing them into one global scalar advantage.",
+    "Apply the weighted signal during online RL fine-tuning to guide policy updates more effectively from success/failure-only data."
   ],
-  "impact": "For practitioners, this offers a more effective way to fine-tune robot and multimodal policies when dense rewards are unavailable. It can improve learning stability and sample efficiency in real-world settings where only success/failure labels are easy to obtain.",
+  "impact": "This approach can make online RL fine-tuning more sample-efficient and more stable when feedback is extremely sparse. For practitioners, it offers a practical way to keep improving pretrained VLA agents beyond the point where basic task success is already achieved.",
   "visual_elements": [
-    "Pipeline diagram: pretrained VLA -> online rollouts -> binary episode outcome -> hierarchical advantage weighting -> policy update",
-    "Side-by-side comparison chart: scalar reward vs hierarchical weighting",
-    "Timeline of an episode with highlighted transitions showing different weights",
-    "Icons for success/failure, reward signal, and robot-action steps"
+    "A pipeline diagram showing episode rollout -> binary outcome -> hierarchical advantage weights -> actor update.",
+    "A side-by-side comparison of scalar reward vs hierarchical weighting.",
+    "A timeline of transitions in an episode with highlighted weighted steps.",
+    "Icons for success/failure, layers, and policy update to emphasize the hierarchical structure."
   ],
   "hashtags": [
+    "#AIResearch",
     "#ReinforcementLearning",
     "#VisionLanguageAction",
-    "#RobotLearning",
-    "#OnlineRL",
+    "#FineTuning",
     "#MachineLearning"
   ],
   "paper_id": "2026-06-15-arxiv-hierarchical_advantage_weighting_for_online_rl_fine_tuning_of_vlas_from_sparse_e",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.17043v1"
     }
   ],
-  "generated_at": "2026-06-19T10:12:32.522217",
+  "generated_at": "2026-06-22T11:34:50.537571",
   "generator": "openai"
 }
