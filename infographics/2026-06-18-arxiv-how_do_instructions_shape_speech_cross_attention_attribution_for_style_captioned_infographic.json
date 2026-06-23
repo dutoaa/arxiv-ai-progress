@@ -1,23 +1,23 @@
 {
-  "key_insight": "This paper shows how to trace which instruction words in style captions actually influence generated speech, making text-to-speech control more interpretable. By adapting cross-attention attribution to speech diffusion models, it reveals token-level links between language and acoustic style.",
-  "problem_solved": "Style-captioned TTS systems are controllable with natural language, but it is unclear how individual words in the instruction affect the resulting speech. This makes it difficult to diagnose failures, understand model behavior, and improve controllability.",
+  "key_insight": "This paper shows how to trace which instruction words influence specific parts of generated speech in style-captioned text-to-speech. By adapting cross-attention attribution to speech diffusion models, it makes expressive TTS more interpretable and easier to debug.",
+  "problem_solved": "Style-captioned TTS can follow natural-language style prompts, but it is unclear how individual words in the caption affect acoustic output. This lack of transparency makes it hard to diagnose failures, understand controllability, or improve generation quality.",
   "method": [
-    "Adapts DAAM-style cross-attention attribution from vision-language models to speech diffusion models for the first time.",
-    "Extracts per-token heatmaps across multiple layers of CapSpeech-TTS to quantify how each caption word contributes to generated acoustics.",
-    "Uses these attribution maps to analyze instruction influence and uncover interpretation patterns in style-conditioned speech generation."
+    "Adapts DAAM-style cross-attention attribution from image generation to speech diffusion models for the first time.",
+    "Computes per-token heatmaps across 25 layers to estimate how each instruction word contributes to the generated speech.",
+    "Applies the attribution method to CapSpeech-TTS to analyze word-level control and reveal failure modes in expressive TTS."
   ],
-  "impact": "For AI/ML practitioners, this provides a practical interpretability tool for debugging and improving expressive TTS systems. It can help identify weak or misleading instructions, guide prompt design, and support more reliable style control.",
+  "impact": "For AI/ML practitioners, this provides a practical interpretability tool for speech generation models. It can help debug prompt-following errors, improve prompt design, and build more reliable controllable TTS systems.",
   "visual_elements": [
-    "A pipeline diagram showing caption input, cross-attention layers, attribution extraction, and speech output.",
-    "Per-token heatmaps aligned with the caption text to show word-level influence.",
-    "A layered model schematic highlighting the 25 layers used for attribution analysis.",
-    "Before/after examples comparing intended style instructions with generated speech characteristics."
+    "A pipeline diagram showing caption text flowing into a TTS diffusion model with attention maps over speech frames.",
+    "Per-token heatmaps highlighting which words affect pitch, emotion, or speaking style.",
+    "Layer-wise attribution chart showing attention strength across 25 layers.",
+    "Before/after examples of captions and the resulting speech style to illustrate controllability."
   ],
   "hashtags": [
     "#TextToSpeech",
     "#SpeechAI",
     "#ModelInterpretability",
-    "#CrossAttention",
+    "#AttentionMechanisms",
     "#GenerativeAI"
   ],
   "paper_id": "2026-06-18-arxiv-how_do_instructions_shape_speech_cross_attention_attribution_for_style_captioned",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.20532v1"
     }
   ],
-  "generated_at": "2026-06-22T11:34:18.030449",
+  "generated_at": "2026-06-23T08:58:50.156854",
   "generator": "openai"
 }
