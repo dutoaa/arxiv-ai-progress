@@ -1,24 +1,24 @@
 {
-  "key_insight": "This paper introduces error-conditioned neural solvers that learn to correct their own mistakes, rather than only producing a one-shot prediction. The key idea is to combine the speed of neural surrogates with an explicit mechanism for iterative error reduction and improved physical consistency.",
-  "problem_solved": "Standard neural PDE surrogates are fast but often violate constraints and struggle to generalize beyond the training distribution. Existing hybrid approaches improve accuracy by using classical optimization on PDE residuals, but they can be expensive, unstable, and hard to scale.",
+  "key_insight": "Error-conditioned neural solvers teach a neural model to recognize its own mistakes and use that signal to improve solution quality, rather than relying only on one-shot prediction. This aims to combine the speed of neural surrogates with a more reliable correction mechanism for PDE solving.",
+  "problem_solved": "The paper addresses the gap between fast neural surrogate solvers and physically accurate PDE solutions. Standard surrogates can violate constraints and fail out of distribution, while classical residual-correction methods are often too slow, unstable, or costly.",
   "method": [
-    "Condition the solver on its current prediction error so the model can iteratively refine its output.",
-    "Use learned correction steps to reduce PDE residuals without relying entirely on gradient descent or Gauss-Newton optimization.",
-    "Aim for a solver that is both physically consistent and computationally efficient at inference time."
+    "Condition the solver on an error/residual signal so it can learn when and how to self-correct.",
+    "Use the model’s predicted error to guide refinement toward lower PDE residuals and better constraint satisfaction.",
+    "Replace or reduce reliance on iterative classical optimization steps with a learned correction strategy."
   ],
-  "impact": "For AI/ML practitioners working on scientific computing, this offers a path toward faster PDE solvers that self-correct instead of requiring heavy post-processing. It could improve reliability in downstream simulation, inverse problems, and out-of-distribution settings.",
+  "impact": "For AI/ML practitioners, this could make neural PDE solvers more trustworthy in scientific and engineering settings where correctness matters. It offers a path to faster inference with improved physical fidelity and better robustness beyond the training data.",
   "visual_elements": [
-    "A before/after flow showing a raw neural prediction versus error-corrected output",
-    "A pipeline diagram comparing standard surrogate models, classical hybrid refinement, and error-conditioned solvers",
-    "An icon-based illustration of PDE residuals shrinking over iterative correction steps",
-    "A speed-vs-accuracy chart highlighting the tradeoff versus classical optimizers"
+    "Pipeline diagram: PDE parameters -> neural surrogate -> error estimate -> corrected solution",
+    "Side-by-side comparison of raw surrogate output vs error-corrected output",
+    "Residual/constraint violation chart before and after correction",
+    "Icon set showing speed, accuracy, stability, and physics constraints"
   ],
   "hashtags": [
-    "#PhysicsInformedAI",
+    "#MachineLearning",
     "#ScientificML",
     "#NeuralPDE",
-    "#SurrogateModels",
-    "#AIforScience"
+    "#PhysicsInformedAI",
+    "#AIResearch"
   ],
   "paper_id": "2026-06-25-arxiv-error_conditioned_neural_solvers",
   "paper_title": "Error-Conditioned Neural Solvers",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.27354v1"
     }
   ],
-  "generated_at": "2026-06-26T08:50:02.400982",
+  "generated_at": "2026-06-27T08:25:41.757222",
   "generator": "openai"
 }
