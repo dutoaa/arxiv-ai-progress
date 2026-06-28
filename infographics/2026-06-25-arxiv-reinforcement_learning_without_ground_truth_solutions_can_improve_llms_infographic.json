@@ -1,21 +1,21 @@
 {
-  "key_insight": "This paper shows that LLMs can be improved with reinforcement learning even when there is no ground-truth answer available. By turning deterministic execution feedback into a usable reward signal, RiVER enables learning on tasks that are otherwise hard to train with standard RLVR.",
-  "problem_solved": "Standard reinforcement learning with verifiable rewards depends on known ground-truth solutions, which limits its use on score-based tasks where the correct answer is unknown or expensive to label. This work addresses how to train LLMs in those settings using only execution-based feedback.",
+  "key_insight": "This paper shows that reinforcement learning can still improve LLMs even when there is no ground-truth answer, by using deterministic execution feedback as a verifiable learning signal. The proposed RiVER framework turns score-based tasks into trainable objectives without requiring labeled solutions.",
+  "problem_solved": "Many RL methods for LLMs depend on known ground-truth answers to compute rewards, which limits them to tasks with clear correct outputs. This work addresses how to train models on tasks where the final solution is unknown but execution or scoring feedback is still available.",
   "method": [
-    "Introduces RiVER, a ranking-induced verifiable framework for training on tasks without ground-truth solutions.",
-    "Uses deterministic execution feedback as continuous-valued supervision instead of binary correct/incorrect labels.",
-    "Applies group-relative reinforcement learning to optimize model outputs based on relative quality scores."
+    "Introduce RiVER: a ranking-induced verifiable framework for learning from score-based optimization tasks without ground-truth solutions.",
+    "Use deterministic execution feedback as continuous-valued supervision instead of binary correct/incorrect labels.",
+    "Apply group-relative reinforcement learning to optimize model outputs using relative rankings among candidate solutions."
   ],
-  "impact": "This expands RL training to a broader class of real-world problems where exact answers are unavailable but outputs can still be evaluated. For practitioners, it offers a practical path to improve LLM performance using verifiable signals without requiring full annotations.",
+  "impact": "For AI/ML practitioners, this expands reinforcement learning beyond problems with explicit labels, enabling training on a broader set of real-world optimization tasks. It makes LLM improvement more practical in settings where only execution-based signals or scores are available.",
   "visual_elements": [
-    "Pipeline diagram showing: LLM output -> deterministic execution -> score/reward -> RL update",
-    "Before/after comparison of ground-truth-based RLVR versus RiVER without ground-truth",
-    "Reward ranking chart illustrating continuous-valued supervision across candidate outputs",
-    "Icon set for task types: known-answer tasks vs score-based tasks"
+    "Flow diagram showing inputs, candidate solutions, execution feedback, ranking, and RL updates",
+    "Side-by-side comparison of traditional RLVR with ground-truth rewards vs. RiVER without ground-truth",
+    "Illustration of score-based tasks with continuous reward bars or ranking ladders",
+    "Icon set for LLM, reward signal, execution engine, and optimization loop"
   ],
   "hashtags": [
-    "#LLM",
     "#ReinforcementLearning",
+    "#LLM",
     "#AIResearch",
     "#MachineLearning",
     "#NLP"
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.27369v1"
     }
   ],
-  "generated_at": "2026-06-27T08:25:47.410808",
+  "generated_at": "2026-06-28T08:40:06.066418",
   "generator": "openai"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "DanceOPD tackles a core image-generation bottleneck: different capabilities like text-to-image, local editing, and global editing often conflict when trained together. Its key breakthrough is learning these capabilities in a way that keeps them aligned, so one model can do all three without sacrificing quality.",
-  "problem_solved": "The paper addresses the challenge of composing multiple image generation abilities in a single model. In practice, improving editing can hurt text-to-image generation, and global and local edits can interfere with each other, making unified training difficult.",
+  "key_insight": "DanceOPD shows how to train one image generation model to handle text-to-image creation, local editing, and global editing without these skills fighting each other. Its core idea is to distill these capabilities on-policy so they can be composed more effectively in a single model.",
+  "problem_solved": "The paper addresses the conflict between multiple image generation capabilities: improving editing often hurts text-to-image quality, and global editing can interfere with local editing. It tackles the challenge of unifying these abilities in one model without performance trade-offs.",
   "method": [
-    "Uses an on-policy generative field distillation strategy to better align training with the model’s own generated outputs.",
-    "Encourages compatibility between text-to-image generation, local editing, and global editing instead of optimizing each in isolation.",
-    "Reduces capability interference so the model can support multiple image-editing behaviors in one unified system."
+    "Uses an on-policy generative field distillation strategy to align training with the model’s own generation behavior.",
+    "Learns a shared representation that composes text-to-image, local editing, and global editing more consistently.",
+    "Reduces capability interference by distilling from the current policy rather than relying on static or mismatched supervision."
   ],
-  "impact": "This matters because practitioners want one model that can generate and edit images reliably without needing separate specialized systems. A better unified training approach can simplify deployment, improve versatility, and reduce performance trade-offs.",
+  "impact": "This matters because practitioners want one versatile image model instead of separate tools for generation and editing. DanceOPD points toward more capable, efficient multimodal image systems with fewer quality trade-offs.",
   "visual_elements": [
-    "A three-way capability triangle showing T2I, local editing, and global editing with conflict arrows and alignment arrows",
-    "A pipeline diagram of the on-policy distillation process",
-    "Before/after comparison images illustrating interference vs. unified performance",
-    "A bar chart comparing capability scores for single-task training vs. DanceOPD"
+    "A three-way capability diagram showing text-to-image, local editing, and global editing with overlap/conflict zones.",
+    "A before-and-after comparison of naive multi-task training versus DanceOPD with reduced interference.",
+    "An architecture flow chart highlighting the on-policy distillation loop.",
+    "A performance trade-off plot showing improved balance across tasks."
   ],
   "hashtags": [
     "#AIGeneration",
     "#ImageEditing",
-    "#DiffusionModels",
-    "#MachineLearning",
-    "#ComputerVision"
+    "#MultimodalAI",
+    "#ModelTraining",
+    "#GenerativeAI"
   ],
   "paper_id": "2026-06-25-arxiv-danceopd_on_policy_generative_field_distillation",
   "paper_title": "DanceOPD: On-Policy Generative Field Distillation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.27377v1"
     }
   ],
-  "generated_at": "2026-06-27T08:26:03.986213",
+  "generated_at": "2026-06-28T08:40:21.204366",
   "generator": "openai"
 }

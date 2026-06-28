@@ -1,24 +1,24 @@
 {
-  "key_insight": "World Action Models can do more than predict actions: they can also generate future visual observations. This paper turns that capability into Recurrent Generative Replay (REGEN), letting robots rehearse old skills with synthetic pseudo-trajectories instead of storing human demonstrations.",
-  "problem_solved": "Continual imitation learning usually suffers from catastrophic forgetting, because a robot forgets earlier tasks when learning new ones. A major bottleneck is the need to keep past human demonstration data, which can be costly, limited, or unavailable for replay.",
+  "key_insight": "World Action Models can do more than predict robot actions—they can generate future visual observations. This paper leverages that generative ability to create pseudo-replay for continual imitation learning, letting robots retain old skills without saving original demonstrations.",
+  "problem_solved": "Continual imitation learning often suffers from catastrophic forgetting when a robot learns new tasks and loses performance on earlier ones. Storing all human demonstrations for replay is expensive, impractical, and scales poorly over time.",
   "method": [
-    "Use a World Action Model (WAM) as a generative simulator that predicts both actions and future observations.",
-    "Recursively query the WAM to synthesize pseudo-replay trajectories for previously learned tasks.",
-    "Train the policy with these generated replays during continual adaptation, reducing reliance on stored human demonstrations."
+    "Uses a World Action Model (WAM) to synthesize future observation sequences, not just actions.",
+    "Introduces Recurrent Generative Replay (REGEN), which recursively queries the WAM to generate pseudo-replay trajectories for previously learned tasks.",
+    "Trains the robot policy with these generated trajectories during continual adaptation, reducing the need to keep original human demos."
   ],
-  "impact": "REGEN offers a practical path to lifelong robot learning without retaining large demonstration datasets. For AI/ML practitioners, it shows how generative world models can support memory-efficient continual learning and reduce forgetting.",
+  "impact": "For AI/ML practitioners, this offers a practical way to reduce catastrophic forgetting in imitation learning without a growing replay buffer of real demonstrations. It points toward more scalable, memory-efficient continual learning systems for robots and embodied agents.",
   "visual_elements": [
-    "Pipeline diagram: human demonstrations -> WAM -> synthetic replay trajectories -> policy update",
-    "Before/after comparison of catastrophic forgetting vs. REGEN retention across tasks",
-    "Loop icon illustrating recursive replay generation",
-    "Robot + world model icons showing prediction of both actions and future observations"
+    "Pipeline diagram showing: human demos -> WAM -> pseudo-replay trajectories -> continual policy update",
+    "Side-by-side comparison of 'store real demos' vs 'generate replay on demand'",
+    "Timeline of sequential tasks highlighting forgetting with standard training and retention with REGEN",
+    "Icon set for memory buffer, generative model, robot policy, and replay loop"
   ],
   "hashtags": [
     "#ContinualLearning",
     "#ImitationLearning",
     "#RoboticsAI",
-    "#WorldModels",
-    "#GenerativeReplay"
+    "#GenerativeModels",
+    "#MachineLearning"
   ],
   "paper_id": "2026-06-25-arxiv-world_action_models_enable_continual_imitation_learning_with_recurrent_generativ",
   "paper_title": "World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.27374v1"
     }
   ],
-  "generated_at": "2026-06-27T08:25:58.291777",
+  "generated_at": "2026-06-28T08:40:15.201324",
   "generator": "openai"
 }
