@@ -1,24 +1,24 @@
 {
-  "key_insight": "Error-Conditioned Neural Solvers make neural PDE surrogates self-correct by learning how to react to their own mistakes, rather than relying only on a one-shot prediction. This enables faster and more stable refinement toward physically valid solutions without the full cost of classical optimization.",
-  "problem_solved": "The paper addresses the weakness of standard neural surrogate solvers: they can be fast, but they often violate PDE constraints, struggle to fix their own errors, and perform poorly outside the training distribution. Existing hybrid correction methods improve physical consistency, but usually depend on expensive and unstable gradient-based optimization.",
+  "key_insight": "Error-Conditioned Neural Solvers learn to correct their own mistakes instead of treating PDE solving as a one-shot prediction problem. This makes neural surrogates more physically consistent and more robust outside the training distribution, while avoiding the heavy cost of iterative classical optimization.",
+  "problem_solved": "The paper addresses a key limitation of neural surrogate models for PDEs: they are fast but often violate physical constraints and fail to self-correct when predictions are inaccurate or when inputs fall outside the training range.",
   "method": [
-    "Train a neural solver to condition its update on the current error or residual, so it learns a correction rule instead of only a direct parameter-to-solution map.",
-    "Use the model’s own predicted violation signals to iteratively refine solutions toward PDE consistency.",
-    "Reduce dependence on classical optimizers like gradient descent or Gauss--Newton, aiming for faster and more robust correction steps."
+    "Condition the solver on its current prediction error so the model can learn how to refine bad outputs.",
+    "Combine neural surrogate speed with an error-correction mechanism that reduces PDE residuals without relying on expensive gradient-descent or Gauss-Newton iterations.",
+    "Aim to improve both physical consistency and out-of-distribution generalization compared with standard surrogate and hybrid solver approaches."
   ],
-  "impact": "For ML practitioners working on scientific computing, this offers a practical path to combine speed and physical correctness. It can make neural PDE solvers more reliable for out-of-distribution cases and reduce inference-time compute compared with traditional iterative correction methods.",
+  "impact": "For ML practitioners, this offers a path to faster PDE solving with better reliability and fewer constraint violations. It is especially useful when classical iterative solvers are too slow or unstable, but pure neural surrogates are not accurate enough.",
   "visual_elements": [
-    "Before/after comparison of an initial surrogate prediction versus a corrected PDE solution.",
-    "Pipeline diagram showing parameter input -> neural prediction -> error/residual conditioning -> refined solution.",
-    "Side-by-side chart comparing compute cost and accuracy for neural surrogates, classical optimization, and error-conditioned refinement.",
-    "Icon set illustrating 'error signal', 'physics constraint', and 'self-correction'."
+    "Pipeline diagram: PDE parameters -> initial neural prediction -> error-conditioned correction -> improved solution",
+    "Side-by-side comparison chart: standard surrogate vs hybrid optimizer-based solver vs error-conditioned solver",
+    "Residual/error heatmap showing before-and-after constraint violations",
+    "Icon set for speed, physics consistency, and robustness/generalization"
   ],
   "hashtags": [
-    "#NeuralSolvers",
-    "#ScientificML",
+    "#AI4Science",
+    "#ScientificMachineLearning",
     "#PDEs",
-    "#PhysicsInformedAI",
-    "#MachineLearningResearch"
+    "#NeuralOperators",
+    "#PhysicsInformedML"
   ],
   "paper_id": "2026-06-25-arxiv-error_conditioned_neural_solvers",
   "paper_title": "Error-Conditioned Neural Solvers",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.27354v1"
     }
   ],
-  "generated_at": "2026-06-29T10:22:07.280388",
+  "generated_at": "2026-06-30T08:56:55.475164",
   "generator": "openai"
 }

@@ -1,0 +1,36 @@
+{
+  "key_insight": "A constant one-step gradient delay is enough to make asynchronous pipeline parallelism practical for large-scale LLM pretraining. The paper argues that this small, fixed staleness is not a major barrier to scaling efficiently across many GPUs.",
+  "problem_solved": "Synchronous pipeline parallel training wastes GPU time in pipeline bubbles, reducing throughput. This paper addresses the tradeoff between higher utilization from asynchronous execution and the concern that delayed gradients could hurt training quality or scalability.",
+  "method": [
+    "Uses asynchronous pipeline parallelism to eliminate idle GPU time caused by synchronous pipeline bubbles.",
+    "Focuses on the PipeDream-2BW schedule, which guarantees a constant one-step gradient delay independent of pipeline depth.",
+    "Evaluates whether this bounded staleness is acceptable for large-scale LLM pretraining efficiency and model training behavior."
+  ],
+  "impact": "For ML practitioners, this suggests a simpler and more scalable way to train large language models with better hardware utilization. It supports the idea that asynchronous pipeline scheduling can improve throughput without making gradient staleness a showstopper.",
+  "visual_elements": [
+    "Side-by-side pipeline diagram: synchronous bubbles vs asynchronous no-bubble execution",
+    "Timeline showing one-step gradient delay across pipeline stages",
+    "GPU utilization chart comparing throughput in synchronous and asynchronous schedules",
+    "Icons for GPUs, gradients, and pipeline stages to explain the training flow"
+  ],
+  "hashtags": [
+    "#LLMTraining",
+    "#PipelineParallelism",
+    "#DistributedTraining",
+    "#AsynchronousOptimization",
+    "#DeepLearningSystems"
+  ],
+  "paper_id": "2026-06-29-arxiv-one_step_gradient_delay_is_not_a_barrier_for_large_scale_asynchronous_pipeline_p",
+  "paper_title": "One-Step Gradient Delay is Not a Barrier for Large-Scale Asynchronous Pipeline Parallel LLM Pretraining",
+  "paper_category": "Model",
+  "paper_date": "2026-06-29",
+  "paper_authors": "Philip Zmushko, Egor Petrov, Nursultan Abdullaev, Mikhail Khrushchev, Samuel Horváth",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2606.30634v1"
+    }
+  ],
+  "generated_at": "2026-06-30T08:56:42.786009",
+  "generator": "openai"
+}
