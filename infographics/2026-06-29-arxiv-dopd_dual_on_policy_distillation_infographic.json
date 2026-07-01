@@ -1,24 +1,24 @@
 {
-  "key_insight": "DOPD introduces dual on-policy distillation, a training strategy that uses both teacher-side and student-side privileged information to create stronger supervision while avoiding the misleading “privilege illusion” that can distort evaluation of distillation gains.",
-  "problem_solved": "The paper addresses the challenge of getting high-quality supervision for on-policy distillation without confusing true student capability transfer with gains that come only from extra privileged inputs to the teacher or student.",
+  "key_insight": "DOPD shows that better distillation comes not from simply giving teacher or student more privileged input, but from using privileged information in a dual on-policy setup that avoids \"privilege illusion.\" It improves capacity transfer by supervising student-generated trajectories with richer, more reliable token-level signals.",
+  "problem_solved": "The paper addresses a key failure mode in on-policy distillation: when privileged information is injected into the teacher or student, the resulting supervision can look strong but fail to reflect the student’s true transferable capability gap. This can mislead training and limit distillation performance.",
   "method": [
-    "Uses on-policy distillation, supervising student-sampled trajectories with dense token-level signals.",
-    "Infuses privileged information into both teacher and student in a controlled way to improve supervision quality.",
-    "Introduces the notion of privilege illusion and designs the approach to separate real transfer gains from superficial improvements caused by privileged inputs."
+    "Use dual on-policy distillation to pair student-sampled trajectories with token-level supervision.",
+    "Introduce privileged information carefully to improve supervision quality without conflating it with the student’s actual learning gap.",
+    "Design the training objective to preserve the benefits of on-policy distillation while reducing the risk of privilege illusion."
   ],
-  "impact": "This matters because it can help practitioners distill stronger models more reliably, especially when standard distillation underestimates or misattributes performance. The method provides a clearer path to transferring capabilities in sequence generation and other token-level tasks.",
+  "impact": "For practitioners, DOPD offers a more reliable way to transfer teacher capabilities into smaller or cheaper student models. It can improve distillation quality and robustness, especially when standard on-policy distillation is limited by weak or misleading supervision sources.",
   "visual_elements": [
-    "A side-by-side pipeline showing standard distillation vs. dual on-policy distillation.",
-    "An illustration of teacher and student trajectories with token-level supervision signals.",
-    "A diagram highlighting 'privileged information' and the 'privilege illusion' failure mode.",
-    "A before/after performance bar chart showing distillation gains and clearer capability transfer."
+    "A side-by-side diagram of standard OPD vs. DOPD training flow",
+    "An illustration of \"privilege illusion\" showing misleading supervision signals",
+    "A teacher-student trajectory diagram with token-level loss signals over student-generated outputs",
+    "A performance comparison chart showing distillation gains across methods"
   ],
   "hashtags": [
     "#OnPolicyDistillation",
-    "#ModelDistillation",
-    "#MachineLearning",
-    "#DeepLearning",
-    "#AIAssessment"
+    "#KnowledgeDistillation",
+    "#LLMTraining",
+    "#ModelCompression",
+    "#AIResearch"
   ],
   "paper_id": "2026-06-29-arxiv-dopd_dual_on_policy_distillation",
   "paper_title": "DOPD: Dual On-policy Distillation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.30626v1"
     }
   ],
-  "generated_at": "2026-06-30T08:56:39.984842",
+  "generated_at": "2026-07-01T09:29:40.535338",
   "generator": "openai"
 }
