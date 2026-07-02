@@ -1,23 +1,23 @@
 {
-  "key_insight": "TRIAGE improves agent training by giving different actions different credit based on their role, instead of treating every token in a trajectory the same. This helps preserve useful exploration and reduces reinforcement of redundant or harmful actions.",
-  "problem_solved": "It addresses the credit assignment problem in agentic reinforcement learning, where standard GRPO uses only the final outcome to score all action tokens equally. That makes it hard to learn from partial successes, exploratory moves, and action sequences with mixed quality.",
+  "key_insight": "TRIAGE improves reinforcement learning for agents by giving different kinds of actions different credit, instead of treating every action token the same. This helps the model reward useful exploration and avoid over-reinforcing redundant or harmful steps.",
+  "problem_solved": "The paper addresses a core weakness in agentic reinforcement learning: standard outcome-based credit assignment gives the same advantage signal to all actions in a rollout, which can punish good exploratory actions in failed attempts and reward unnecessary actions in successful ones.",
   "method": [
-    "Introduces a role-typed credit assignment framework that distinguishes environment-facing actions such as searches, clicks, edits, navigation, and object interactions.",
-    "Assigns credit more selectively so useful exploratory actions are not unfairly punished in failed rollouts.",
-    "Reduces over-rewarding of redundant or regressive actions in successful rollouts by aligning credit with action role and contribution."
+    "Introduces a role-typed credit assignment framework that distinguishes environment-facing action types such as searches, clicks, edits, navigation, and object interactions.",
+    "Uses action roles to assign more structured credit than standard GRPO’s uniform final-outcome advantage.",
+    "Targets both failed and successful rollouts so that useful exploration is preserved and regressive behavior is discouraged."
   ],
-  "impact": "For practitioners, TRIAGE offers a more faithful training signal for agents that act in complex environments, which can improve learning stability and policy quality. It is especially relevant for web agents, embodied agents, and tool-using systems where not all actions contribute equally to success.",
+  "impact": "For AI/ML practitioners building agents, TRIAGE offers a more precise training signal that can improve learning stability and decision quality in interactive environments. It is especially relevant for web agents, tool-using LLMs, and embodied systems where action sequences matter.",
   "visual_elements": [
-    "A pipeline diagram showing trajectory actions with role labels and credit flow.",
-    "Side-by-side comparison of standard GRPO vs. TRIAGE credit assignment.",
-    "A timeline of an agent rollout highlighting searches, clicks, edits, and navigation commands.",
-    "An icon set for action roles with color-coded positive, neutral, and negative credit signals."
+    "Before/after diagram comparing uniform GRPO credit vs role-typed credit assignment",
+    "Flowchart of an agent rollout showing searches, clicks, edits, and navigation commands",
+    "Color-coded action tokens with separate credit weights by role",
+    "Side-by-side example of a failed rollout with useful exploration and a successful rollout with redundant actions"
   ],
   "hashtags": [
     "#ReinforcementLearning",
     "#AgenticAI",
     "#CreditAssignment",
-    "#MachineLearning",
+    "#LLMAgents",
     "#AIResearch"
   ],
   "paper_id": "2026-06-30-arxiv-triage_role_typed_credit_assignment_for_agentic_reinforcement_learning",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.32017v1"
     }
   ],
-  "generated_at": "2026-07-01T09:28:54.313566",
+  "generated_at": "2026-07-02T08:42:20.790064",
   "generator": "openai"
 }
