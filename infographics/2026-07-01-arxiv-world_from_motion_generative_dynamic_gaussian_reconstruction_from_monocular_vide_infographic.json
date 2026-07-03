@@ -1,25 +1,24 @@
 {
-  "key_insight": "World from Motion turns a monocular video into a freely renderable dynamic 3D Gaussian scene, using motion-aware conditioning to recover missing regions and reduce rendering artifacts. In simple terms, it learns a 3D world model from one video that can be viewed from new angles over time.",
-  "problem_solved": "The paper addresses the challenge of reconstructing high-quality dynamic 3D scenes from only a single camera video, where occlusions, incomplete coverage, and view-dependent artifacts make novel-view rendering difficult.",
+  "key_insight": "World from Motion turns monocular video into freely renderable dynamic 3D Gaussian scenes by using motion-aware, pixel-aligned conditioning to repair artifacts and complete missing geometry. In simple terms, it learns a better 3D world model from one camera view by leveraging motion and multi-view-style supervision.",
+  "problem_solved": "The paper tackles the challenge of reconstructing high-quality, dynamic 3D scenes from only a monocular video, where naive methods often produce rendering artifacts, holes, and incomplete motion-aware geometry.",
   "method": [
-    "Builds an initial dynamic 3D Gaussian reconstruction from monocular video.",
-    "Conditions a video model on dense, pixel-aligned renderings that encode appearance, geometry, and 3D scene motion along both input and target camera paths.",
-    "Uses the conditioned model to correct artifacts and hallucinate missing content for more complete, freely renderable dynamic scenes.",
-    "Trains on a new dataset of aligned multiview video pairs and dynamic 3DGS representations."
+    "Condition a video generation model on dense, pixel-aligned renderings that encode appearance, geometry, and 3D scene motion.",
+    "Use both input and target camera trajectories to guide the model in correcting artifacts and hallucinating missing regions.",
+    "Train on a constructed dataset of aligned multiview video pairs and dynamic 3D Gaussian representations to improve reconstruction quality."
   ],
-  "impact": "This method makes dynamic scene reconstruction more practical for AR/VR, robotics, digital twins, and content creation by enabling better novel-view synthesis from a single video. For practitioners, it offers a path toward more complete and visually consistent 3D scene representations without requiring expensive capture setups.",
+  "impact": "This enables more realistic, freely navigable dynamic scene reconstruction from simple monocular footage, which is useful for robotics, AR/VR, digital twins, and content creation. For practitioners, it offers a practical path to better 3D video understanding without requiring expensive multi-camera capture.",
   "visual_elements": [
-    "Pipeline diagram showing monocular video in, dynamic 3D Gaussian scene out.",
-    "Side-by-side comparison of input view, initial reconstruction, and refined renderings from new viewpoints.",
-    "Motion-conditioned rendering schematic highlighting appearance, geometry, and scene motion channels.",
-    "Dataset illustration showing aligned multiview video pairs and camera trajectories."
+    "Before/after comparison of raw monocular reconstruction vs. World from Motion output",
+    "Pipeline diagram showing monocular video -> dense conditioning renders -> dynamic 3D Gaussian reconstruction",
+    "Trajectory illustration with input and target camera paths over a moving scene",
+    "Icons for appearance, geometry, and motion signals feeding the model"
   ],
   "hashtags": [
     "#3DReconstruction",
-    "#ComputerVision",
+    "#MonocularVideo",
+    "#DynamicScenes",
     "#GaussianSplatting",
-    "#VideoGeneration",
-    "#NeuralRendering"
+    "#ComputerVision"
   ],
   "paper_id": "2026-07-01-arxiv-world_from_motion_generative_dynamic_gaussian_reconstruction_from_monocular_vide",
   "paper_title": "World from Motion: Generative Dynamic Gaussian Reconstruction from Monocular Video",
@@ -32,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.01202v1"
     }
   ],
-  "generated_at": "2026-07-02T08:41:31.683153",
+  "generated_at": "2026-07-03T08:49:25.652724",
   "generator": "openai"
 }
