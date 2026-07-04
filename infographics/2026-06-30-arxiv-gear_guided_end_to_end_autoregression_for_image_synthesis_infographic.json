@@ -1,24 +1,24 @@
 {
-  "key_insight": "GEAR shows that image tokenizers work better when they are trained together with the generator they serve, instead of being frozen beforehand. By aligning tokenizer representations with what an autoregressive model can easily predict, it makes end-to-end image synthesis more effective.",
-  "problem_solved": "Traditional visual generative pipelines use a two-stage setup: first train a tokenizer for reconstruction, then freeze it and train the generator separately. This decoupling can create token representations that are good for reconstruction but not ideal for generation.",
+  "key_insight": "GEAR shows that image tokenizers and autoregressive generators work better when they are trained together instead of separately. By aligning the tokenizer’s representations with what the generator can model easily, the system can produce more effective image synthesis.",
+  "problem_solved": "Traditional visual generation pipelines train a tokenizer first and freeze it, which creates a mismatch between reconstruction quality and generation quality. This paper addresses the gap between what the tokenizer learns and what the generator actually needs.",
   "method": [
-    "Jointly trains a vector-quantized (VQ) tokenizer and an autoregressive (AR) generator in one end-to-end framework.",
-    "Uses representation alignment to guide the tokenizer toward features that are easier for the AR model to model.",
-    "Removes the mismatch caused by freezing the tokenizer before generator training."
+    "Jointly train a vector-quantized (VQ) tokenizer and an autoregressive (AR) generator end-to-end.",
+    "Use representation alignment to guide the tokenizer toward latents that are easier for the generator to model.",
+    "Replace the standard two-stage training pipeline with a coupled optimization process for better synthesis performance."
   ],
-  "impact": "For AI/ML practitioners, GEAR suggests a more unified recipe for building image generators that can improve efficiency and sample quality. It is especially relevant for teams working with token-based generative models, VQ-based compression, and autoregressive synthesis pipelines.",
+  "impact": "For AI/ML practitioners, GEAR suggests a more efficient and better-aligned way to build generative image models. It can improve sample quality and training synergy by reducing the disconnect between compression and generation.",
   "visual_elements": [
     "Side-by-side pipeline diagram: traditional two-stage training vs. GEAR end-to-end training",
-    "Arrow-based illustration showing tokenizer and AR generator co-training with alignment feedback",
-    "Before/after token representation map highlighting reconstruction-focused vs generation-friendly latents",
-    "Simple icon set for tokenizer, generator, frozen stage, and alignment loss"
+    "Flow chart showing image -> VQ tokenizer -> discrete tokens -> AR generator -> synthesized image",
+    "Alignment illustration highlighting tokenizer representations being guided toward generator-friendly latents",
+    "Simple before/after performance chart comparing decoupled and jointly trained approaches"
   ],
   "hashtags": [
     "#AIGeneration",
-    "#ComputerVision",
+    "#ImageSynthesis",
     "#AutoregressiveModels",
     "#VectorQuantization",
-    "#DeepLearning"
+    "#MachineLearningResearch"
   ],
   "paper_id": "2026-06-30-arxiv-gear_guided_end_to_end_autoregression_for_image_synthesis",
   "paper_title": "GEAR: Guided End-to-End AutoRegression for Image Synthesis",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.32039v1"
     }
   ],
-  "generated_at": "2026-07-03T08:49:29.342174",
+  "generated_at": "2026-07-04T08:24:17.000127",
   "generator": "openai"
 }
