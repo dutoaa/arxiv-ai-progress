@@ -1,23 +1,23 @@
 {
-  "key_insight": "Open LLMs can only explain closed models when the surrogate measurements faithfully preserve the specific thing you want to study—prediction, attribution, or representation. The paper shows that log-odds are a practical API-compatible readout for binary classification, but fidelity depends on the level of analysis.",
-  "problem_solved": "Mechanistic interpretability usually needs internal model access, but most deployed LLMs are closed and only expose limited API outputs like token log-probabilities. This paper asks when measurements from open models can be trusted as surrogates for claims about closed models.",
+  "key_insight": "The paper asks when an open model can reliably stand in for a closed-model API in interpretability studies. It shows that surrogate fidelity depends on the level of analysis—prediction, attribution, or representation—rather than assuming open models are always good proxies.",
+  "problem_solved": "Mechanistic interpretability usually needs full access to model internals, but most deployed LLMs only expose limited outputs like token log-probabilities. This paper addresses the surrogate problem: when measurements from open models can support valid claims about closed models.",
   "method": [
-    "Evaluates surrogate fidelity at three levels: prediction, attribution, and representation.",
-    "Uses binary classification as a setting where API-accessible log-odds can serve as a scalar proxy for model behavior.",
-    "Compares how well open-model measurements transfer to claims about closed-model internals under different interpretability tasks."
+    "Evaluate surrogate fidelity at three levels: prediction, attribution, and representation.",
+    "Use binary classification tasks to study whether API-accessible log-odds can serve as a faithful readout of model behavior.",
+    "Compare open-model measurements against closed-model targets to identify where surrogate assumptions hold or break."
   ],
-  "impact": "This gives practitioners a principled way to know when open-model analysis is informative about closed LLMs. It can reduce wasted effort, improve interpretability workflows, and make API-based model auditing more scientifically defensible.",
+  "impact": "This work gives researchers a framework for knowing when open models are reliable stand-ins for proprietary LLMs. That can make interpretability claims more rigorous and reduce the risk of drawing incorrect conclusions from surrogate analyses.",
   "visual_elements": [
-    "A three-layer stack showing prediction vs attribution vs representation fidelity",
-    "A pipeline diagram from closed model API outputs to surrogate analysis on open models",
-    "A side-by-side comparison chart of high-fidelity and low-fidelity surrogate cases",
-    "An icon set for closed model, open model, logits/log-odds, and interpretability"
+    "Side-by-side diagram of open model vs. closed model with an API boundary in between.",
+    "Three-layer pipeline showing prediction, attribution, and representation fidelity.",
+    "Binary classification chart mapping log-odds to model outputs.",
+    "Fidelity heatmap or traffic-light indicator showing where surrogate agreement is strong or weak."
   ],
   "hashtags": [
     "#AIResearch",
     "#MechanisticInterpretability",
     "#LLM",
-    "#ModelAudit",
+    "#ModelFidelity",
     "#ExplainableAI"
   ],
   "paper_id": "2026-06-30-arxiv-surrogate_fidelity_when_can_open_llms_explain_closed_ones",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.32008v1"
     }
   ],
-  "generated_at": "2026-07-02T08:42:16.704381",
+  "generated_at": "2026-07-05T08:40:43.761969",
   "generator": "openai"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "ReContext improves long-context reasoning by recursively replaying relevant evidence so the model can better use information that is already in the prompt. Instead of just giving an LLM a longer window, it helps the model repeatedly revisit the most useful context.",
-  "problem_solved": "LLMs often fail to exploit relevant details in long inputs, even when those details are within the context window. This paper addresses the gap between having access to long context and actually reasoning over it effectively.",
+  "key_insight": "RECONTEXT shows that long-context failures are often not about missing information, but about helping the model repeatedly re-surface and use the right evidence already present in the prompt. It does this with a training-free inference harness that recursively replays evidence to improve reasoning over long inputs.",
+  "problem_solved": "This paper addresses the gap between having a large context window and actually using the relevant evidence inside it. Many LLMs can technically accept long inputs but still miss key details, degrade on reasoning tasks, or over-focus on irrelevant text.",
   "method": [
-    "Uses Recursive Evidence Replay: a training-free inference strategy that re-injects key evidence into the reasoning process.",
-    "Selects and replays relevant context iteratively to strengthen the model's attention to important details.",
-    "Acts as an LLM harness for long-context tasks, aiming to improve reasoning without modifying model weights."
+    "Uses recursive evidence replay: important evidence is reintroduced to the model multiple times during inference.",
+    "Acts as a training-free harness, so it improves long-context reasoning without fine-tuning or retraining the LLM.",
+    "Focuses the model on salient context chunks to make retrieval, comparison, and multi-step reasoning more reliable."
   ],
-  "impact": "For AI/ML practitioners, ReContext offers a practical way to boost long-context performance without retraining or changing the base model. It is especially useful for applications like document QA, legal analysis, research assistants, and multi-step reasoning over lengthy inputs.",
+  "impact": "For AI/ML practitioners, this offers a practical way to boost long-context performance without changing model weights or requiring extra training data. It is especially useful for applications like document QA, legal/medical analysis, and any task where important clues are buried in long inputs.",
   "visual_elements": [
-    "Flow diagram showing long input -> evidence selection -> recursive replay -> improved answer",
-    "Before/after comparison of vanilla LLM vs ReContext on the same long-context task",
-    "Highlight map or timeline indicating which pieces of evidence are replayed across inference steps",
-    "Icon set representing long documents, repeated loops, and improved reasoning"
+    "Before/after pipeline showing a standard LLM reading a long prompt versus RECONTEXT replaying evidence",
+    "Flow diagram of recursive evidence selection, replay, and reasoning steps",
+    "Context window illustration highlighting relevant evidence versus distractor text",
+    "Simple performance chart comparing baseline long-context reasoning and RECONTEXT"
   ],
   "hashtags": [
     "#LongContextLLM",
-    "#AIReasoning",
-    "#LLMInference",
-    "#RetrievalAugmentation",
-    "#MachineLearningResearch"
+    "#PromptEngineering",
+    "#LLMReasoning",
+    "#AIResearch",
+    "#NLP"
   ],
   "paper_id": "2026-07-02-arxiv-recontext_recursive_evidence_replay_as_llm_harness_for_long_context_reasoning",
   "paper_title": "ReContext: Recursive Evidence Replay as LLM Harness for Long-Context Reasoning",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.02509v1"
     }
   ],
-  "generated_at": "2026-07-04T08:23:38.548950",
+  "generated_at": "2026-07-05T08:40:02.962206",
   "generator": "openai"
 }

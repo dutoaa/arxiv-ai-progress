@@ -1,24 +1,24 @@
 {
-  "key_insight": "LLMs can understand table structure yet still make data referencing errors—wrongly citing or skipping table values during reasoning. This paper systematically measures those errors and shows how to reduce them, improving both intermediate reasoning and final answers.",
-  "problem_solved": "The paper addresses the lack of large-scale, systematic evaluation of data referencing errors in table-based reasoning, where models may misquote, omit, or incorrectly reference table entries even when they appear to understand the table.",
+  "key_insight": "LLMs can understand a table’s structure yet still make data referencing errors by citing the wrong value or skipping a needed one. This paper shows these mistakes are systematic and important because they can break reasoning even when the final answer looks plausible.",
+  "problem_solved": "The paper addresses data referencing errors (DREs) in table-based reasoning: cases where LLMs incorrectly quote, copy, or omit table values during intermediate steps, reducing the reliability of their reasoning beyond simple final-answer accuracy.",
   "method": [
-    "Conducts a systematic evaluation of tabular data referencing errors across different table reasoning settings.",
-    "Analyzes how often models incorrectly cite, omit, or otherwise mishandle table values in their reasoning process.",
-    "Proposes strategies to reduce these errors and improve the reliability of table-based LLM outputs."
+    "Performs a systematic evaluation of tabular data referencing errors across multiple settings rather than relying on small-scale anecdotal analysis.",
+    "Measures how often models correctly reference table values during reasoning, separating intermediate correctness from final-answer correctness.",
+    "Studies ways to reduce DREs by identifying failure patterns and testing targeted mitigation strategies."
   ],
-  "impact": "This work helps practitioners assess not just whether an LLM gets the final answer right, but whether its reasoning is trustworthy. It is especially useful for high-stakes applications where accurate table evidence and traceable intermediate steps matter.",
+  "impact": "For practitioners, this work highlights that high task accuracy does not guarantee trustworthy table reasoning. It encourages evaluation pipelines and prompting/training methods that verify whether models reference source data correctly at every step.",
   "visual_elements": [
-    "Before/after pipeline showing table input → reasoning → cited values with error highlights",
-    "Bar chart comparing DRE rates across models or task types",
-    "Annotated table screenshot marking correct citations vs omitted/misquoted cells",
-    "Icon set for 'omit', 'misquote', and 'correct reference' to visualize error categories"
+    "Side-by-side comparison of correct vs. incorrect table value referencing in a reasoning chain",
+    "Flowchart showing table input -> intermediate reasoning -> final answer, with DRE failure points marked",
+    "Bar chart of DRE rate across different table tasks or model sizes",
+    "Icon set illustrating 'copy correctly', 'omit value', and 'wrong citation' error types"
   ],
   "hashtags": [
     "#LLM",
     "#TableReasoning",
-    "#AIEvaluation",
-    "#DataReferencingErrors",
-    "#NLP"
+    "#Evaluation",
+    "#AIErrors",
+    "#DataReliability"
   ],
   "paper_id": "2026-06-30-arxiv-when_llms_read_tables_carelessly_measuring_and_reducing_data_referencing_errors",
   "paper_title": "When LLMs Read Tables Carelessly: Measuring and Reducing Data Referencing Errors",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2606.32029v1"
     }
   ],
-  "generated_at": "2026-07-02T08:42:09.906700",
+  "generated_at": "2026-07-05T08:40:38.492198",
   "generator": "openai"
 }
