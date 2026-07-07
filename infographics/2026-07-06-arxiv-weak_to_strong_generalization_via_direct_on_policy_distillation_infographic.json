@@ -1,0 +1,36 @@
+{
+  "key_insight": "Train a cheaper, smaller model with RLVR first, then transfer the learned behavior directly to a stronger model through on-policy distillation. This weak-to-strong pipeline can reduce the cost of post-training while still improving reasoning performance.",
+  "problem_solved": "Reinforcement learning with verifiable rewards can improve language-model reasoning, but repeating RL on every new strong model is expensive because it requires many rollouts from the target model. The paper addresses the bottleneck of costly post-training as models scale.",
+  "method": [
+    "Run RLVR on a smaller, cheaper \"weak\" model to learn useful reasoning behavior.",
+    "Reuse the post-RL policy data to distill those improvements into a stronger target model.",
+    "Use direct on-policy distillation so the strong model learns from the weak model's RL-optimized outputs instead of retraining RL from scratch."
+  ],
+  "impact": "This approach offers a more practical path to scaling reasoning improvements across larger models without paying the full rollout cost each time. For practitioners, it suggests a cheaper way to transfer RL gains into production-grade models.",
+  "visual_elements": [
+    "A pipeline diagram showing weak model RLVR training flowing into strong model distillation.",
+    "Side-by-side cost comparison chart: direct RL on strong model vs weak-to-strong distillation.",
+    "Icon set for \"rollouts,\" \"reward,\" and \"distillation\" to illustrate the training steps.",
+    "Before/after performance bar chart showing reasoning gains on the strong model."
+  ],
+  "hashtags": [
+    "#AIGeneralization",
+    "#ReinforcementLearning",
+    "#LLMReasoning",
+    "#ModelDistillation",
+    "#MachineLearning"
+  ],
+  "paper_id": "2026-07-06-arxiv-weak_to_strong_generalization_via_direct_on_policy_distillation",
+  "paper_title": "Weak-to-Strong Generalization via Direct On-Policy Distillation",
+  "paper_category": "Model",
+  "paper_date": "2026-07-06",
+  "paper_authors": "Shiyuan Feng, Huan-ang Gao, Haohan Chi, Hanlin Wu, Zhilong Zhang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2607.05394v1"
+    }
+  ],
+  "generated_at": "2026-07-07T09:23:23.484746",
+  "generator": "openai"
+}

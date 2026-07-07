@@ -1,24 +1,24 @@
 {
-  "key_insight": "DemoPSD shows that self-distillation for reasoning LLMs can be improved by modulating teacher guidance based on disagreement, reducing overfitting to privileged token-level supervision and encouraging better exploration. The result is a more robust policy update that generalizes better across domains.",
-  "problem_solved": "The paper addresses a key weakness of on-policy self-distillation: dense teacher supervision can make the student overfit to in-domain patterns, suppress exploration, and reduce cross-domain generalization when the teacher has access to privileged information.",
+  "key_insight": "DemoPSD makes policy self-distillation more robust by reducing the harmful effects of overconfident teacher supervision. It uses disagreement between model signals to modulate when and how strongly the student should imitate the teacher.",
+  "problem_solved": "The paper addresses a core weakness of on-policy self-distillation for LLM reasoning: dense token-level teacher supervision can overfit to in-domain patterns, suppress exploration, and degrade cross-domain generalization.",
   "method": [
-    "Uses disagreement between teacher and student signals to adapt how strongly the teacher supervises the student.",
-    "Limits or softens token-level guidance when teacher predictions appear overly confident or misaligned, reducing harmful imitation.",
-    "Trains the model in an on-policy self-distillation setup so the same LLM can act as both teacher and student with different information access."
+    "Measures disagreement between teacher and student signals to estimate when supervision is reliable.",
+    "Modulates self-distillation strength based on that disagreement, rather than applying uniform dense imitation.",
+    "Preserves exploration by avoiding overly restrictive teacher guidance during uncertain or out-of-domain cases."
   ],
-  "impact": "For AI/ML practitioners, this suggests a practical way to train reasoning models that are less brittle and more transferable beyond the training domain. It can improve robustness without abandoning the efficiency benefits of self-distillation.",
+  "impact": "This matters because it offers a practical way to train reasoning models that generalize better beyond their training distribution. For practitioners, it can improve robustness while keeping the simplicity of self-distillation.",
   "visual_elements": [
-    "A side-by-side flow diagram comparing standard OPSD vs. disagreement-modulated self-distillation",
-    "A token-level heatmap showing where teacher-student disagreement changes the supervision strength",
-    "A performance chart highlighting in-domain accuracy versus cross-domain generalization",
-    "An icon-based pipeline showing teacher, student, disagreement signal, and updated policy"
+    "Side-by-side pipeline diagram of standard OPSD vs DemoPSD",
+    "Heatmap showing high vs low teacher-student disagreement across tokens",
+    "Chart comparing in-domain accuracy and cross-domain generalization",
+    "Icon set for teacher, student, disagreement signal, and adaptive weighting"
   ],
   "hashtags": [
-    "#AIResearch",
     "#LLM",
     "#SelfDistillation",
     "#ReasoningModels",
-    "#Generalization"
+    "#Generalization",
+    "#AIResearch"
   ],
   "paper_id": "2026-07-02-arxiv-demopsd_disagreement_modulated_policy_self_distillation",
   "paper_title": "DemoPSD: Disagreement-Modulated Policy Self-Distillation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.02502v1"
     }
   ],
-  "generated_at": "2026-07-06T09:55:13.154201",
+  "generated_at": "2026-07-07T09:24:11.646470",
   "generator": "openai"
 }

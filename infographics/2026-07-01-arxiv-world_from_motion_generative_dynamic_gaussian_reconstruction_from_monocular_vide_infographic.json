@@ -1,25 +1,24 @@
 {
-  "key_insight": "World from Motion turns a single monocular video into a freely renderable dynamic 3D Gaussian scene. It uses motion-aware conditioning to fix rendering artifacts and recover missing geometry/appearance from the initial reconstruction.",
-  "problem_solved": "The paper addresses the difficulty of reconstructing high-quality, dynamic 3D scenes from only monocular video, especially when novel-view rendering suffers from holes, artifacts, and incomplete motion understanding.",
+  "key_insight": "World from Motion turns monocular video into a freely renderable dynamic 3D Gaussian scene by using motion-aware, pixel-aligned conditioning to refine and complete an initial reconstruction. The result is better 3D consistency, fewer rendering artifacts, and improved missing-region recovery.",
+  "problem_solved": "Monocular video provides limited viewpoint information, making it hard to reconstruct dynamic 3D scenes that can be rendered from arbitrary cameras without artifacts or holes.",
   "method": [
-    "Reconstruct an initial dynamic 3D Gaussian scene from monocular video.",
-    "Condition a video model on dense, pixel-aligned renderings that encode appearance, geometry, and 3D scene motion for both the input and target camera paths.",
-    "Use the model to correct rendering artifacts and hallucinate missing regions, producing a more complete and freely renderable dynamic 3D representation.",
-    "Train on a new dataset of aligned multiview video pairs and dynamic 3DGS representations."
+    "Condition a video model on dense, pixel-aligned renderings that encode appearance, geometry, and 3D scene motion.",
+    "Use both input and target camera trajectories to guide the model in correcting artifacts and filling missing regions in the initial dynamic 3D Gaussian reconstruction.",
+    "Train on a newly constructed dataset of aligned multiview video pairs and dynamic 3DGS representations."
   ],
-  "impact": "This makes monocular video-based 3D scene reconstruction more usable for view synthesis, AR/VR, robotics, and content creation. For practitioners, it improves render quality and completeness without requiring full multi-view capture.",
+  "impact": "This enables more faithful 3D scene reconstruction from ordinary monocular videos, which is useful for view synthesis, AR/VR, robotics, and dynamic scene understanding. Practitioners gain a practical path toward generating renderable 3D representations with stronger temporal and geometric consistency.",
   "visual_elements": [
-    "Pipeline diagram showing monocular video -> initial 3DGS reconstruction -> motion-conditioned refinement -> novel view rendering",
-    "Side-by-side comparison of original render vs corrected render vs ground truth",
-    "Camera trajectory illustration with input and target views over time",
-    "Icon set for appearance, geometry, and motion signals feeding into the model"
+    "Pipeline diagram showing monocular video input -> initial 3DGS reconstruction -> motion-conditioned refinement -> freely renderable dynamic 3D scene",
+    "Side-by-side comparison of input view, target view, and improved rendered output with artifact removal highlighted",
+    "Camera trajectory overlay illustrating input and target viewpoints across time",
+    "Icon set for appearance, geometry, and motion channels used in the conditioning input"
   ],
   "hashtags": [
+    "#ComputerVision",
     "#3DReconstruction",
     "#MonocularVideo",
-    "#GaussianSplatting",
-    "#NovelViewSynthesis",
-    "#ComputerVision"
+    "#GenerativeAI",
+    "#NeuralRendering"
   ],
   "paper_id": "2026-07-01-arxiv-world_from_motion_generative_dynamic_gaussian_reconstruction_from_monocular_vide",
   "paper_title": "World from Motion: Generative Dynamic Gaussian Reconstruction from Monocular Video",
@@ -32,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.01202v1"
     }
   ],
-  "generated_at": "2026-07-06T09:55:52.040135",
+  "generated_at": "2026-07-07T09:23:48.057642",
   "generator": "openai"
 }
