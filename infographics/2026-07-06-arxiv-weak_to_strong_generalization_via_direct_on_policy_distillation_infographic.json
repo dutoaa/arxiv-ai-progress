@@ -1,24 +1,24 @@
 {
-  "key_insight": "Train a cheaper, smaller model with RLVR first, then transfer the learned behavior directly to a stronger model through on-policy distillation. This weak-to-strong pipeline can reduce the cost of post-training while still improving reasoning performance.",
-  "problem_solved": "Reinforcement learning with verifiable rewards can improve language-model reasoning, but repeating RL on every new strong model is expensive because it requires many rollouts from the target model. The paper addresses the bottleneck of costly post-training as models scale.",
+  "key_insight": "The paper shows that instead of running expensive reinforcement learning directly on a large target model, you can train a smaller model with RLVR and transfer that learned improvement to the stronger model through direct on-policy distillation. This creates a practical weak-to-strong path for boosting reasoning without repeating costly rollouts at full scale.",
+  "problem_solved": "It addresses the high cost and scaling bottleneck of post-training large language models with reinforcement learning with verifiable rewards, where the target model must repeatedly generate many rollouts during training.",
   "method": [
-    "Run RLVR on a smaller, cheaper \"weak\" model to learn useful reasoning behavior.",
-    "Reuse the post-RL policy data to distill those improvements into a stronger target model.",
-    "Use direct on-policy distillation so the strong model learns from the weak model's RL-optimized outputs instead of retraining RL from scratch."
+    "Run RLVR on a smaller, cheaper \"weak\" model to learn improved reasoning behavior.",
+    "Use direct on-policy distillation to transfer the post-RL behavior from the weak model to a stronger target model.",
+    "Reuse the learned signal from one RL run to avoid repeating expensive RL training on every new strong model."
   ],
-  "impact": "This approach offers a more practical path to scaling reasoning improvements across larger models without paying the full rollout cost each time. For practitioners, it suggests a cheaper way to transfer RL gains into production-grade models.",
+  "impact": "This matters because it reduces the compute and rollout cost of post-training while still improving a larger model's reasoning. For practitioners, it offers a more scalable recipe for upgrading strong models using cheaper training runs.",
   "visual_elements": [
-    "A pipeline diagram showing weak model RLVR training flowing into strong model distillation.",
-    "Side-by-side cost comparison chart: direct RL on strong model vs weak-to-strong distillation.",
-    "Icon set for \"rollouts,\" \"reward,\" and \"distillation\" to illustrate the training steps.",
-    "Before/after performance bar chart showing reasoning gains on the strong model."
+    "A pipeline diagram showing weak model RLVR training feeding into strong model distillation.",
+    "A cost comparison chart: direct RL on strong model vs weak-to-strong distillation.",
+    "An icon-based flow with 'cheap rollouts' on the left and 'stronger reasoning' on the right.",
+    "Before/after performance bars illustrating improvement in the target model."
   ],
   "hashtags": [
-    "#AIGeneralization",
+    "#AIResearch",
+    "#LLM",
     "#ReinforcementLearning",
-    "#LLMReasoning",
-    "#ModelDistillation",
-    "#MachineLearning"
+    "#Distillation",
+    "#ModelTraining"
   ],
   "paper_id": "2026-07-06-arxiv-weak_to_strong_generalization_via_direct_on_policy_distillation",
   "paper_title": "Weak-to-Strong Generalization via Direct On-Policy Distillation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.05394v1"
     }
   ],
-  "generated_at": "2026-07-07T09:23:23.484746",
+  "generated_at": "2026-07-08T08:08:54.332951",
   "generator": "openai"
 }

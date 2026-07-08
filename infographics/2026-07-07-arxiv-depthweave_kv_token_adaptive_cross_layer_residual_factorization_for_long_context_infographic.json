@@ -1,0 +1,36 @@
+{
+  "key_insight": "DepthWeave-KV makes long-context inference cheaper by compressing KV caches in a token-aware way, instead of forcing every token and layer to share the same memory budget. It preserves important retrieval signals by factorizing neighboring transformer-layer states with shared low-rank bases while adapting what gets kept per token.",
+  "problem_solved": "Long-context language models are bottlenecked by the large memory and bandwidth cost of storing key-value (KV) caches. Existing compression methods often use uniform budgets across layers or tokens, which can hurt performance when different tokens need different amounts of lexical or semantic detail preserved.",
+  "method": [
+    "Factorizes key and value states across neighboring transformer layers using shared low-rank channel bases.",
+    "Applies token-adaptive compression so important tokens can retain more information than less critical ones.",
+    "Targets KV cache reduction while trying to preserve retrieval quality for both lexical cues and semantic state."
+  ],
+  "impact": "This approach can help practitioners run longer-context models more efficiently on limited hardware by reducing KV-cache memory pressure. It is especially relevant for production inference settings where latency, throughput, and context length all matter.",
+  "visual_elements": [
+    "Side-by-side diagram of standard KV cache vs. DepthWeave-KV compressed cache",
+    "Layer stack illustration showing shared low-rank bases woven across neighboring layers",
+    "Token heatmap indicating adaptive retention levels across a sequence",
+    "Before/after chart of memory usage and retrieval quality"
+  ],
+  "hashtags": [
+    "#AIResearch",
+    "#KVCache",
+    "#LongContextLLM",
+    "#ModelCompression",
+    "#HardwareInfra"
+  ],
+  "paper_id": "2026-07-07-arxiv-depthweave_kv_token_adaptive_cross_layer_residual_factorization_for_long_context",
+  "paper_title": "DepthWeave-KV: Token-Adaptive Cross-Layer Residual Factorization for Long-Context KV Cache Compression",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-07-07",
+  "paper_authors": "Anna Cordoba, Adam Puente Tercero, Nerea Angulo Hijo, Mar Linares Tercero, Julia Barrientos",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2607.06523v1"
+    }
+  ],
+  "generated_at": "2026-07-08T08:07:46.623047",
+  "generator": "openai"
+}
