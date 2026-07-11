@@ -1,24 +1,25 @@
 {
-  "key_insight": "OPSD-V teaches few-step autoregressive video models from real long-video context so they can stay stable over long rollouts without changing their fast inference path. In simple terms, it reduces drift and motion collapse while keeping generation low-latency.",
-  "problem_solved": "Few-step AR video generators are fast, but they often accumulate errors over time and lose realistic motion during long autoregressive generation. This paper addresses long-horizon degradation in post-trained video diffusion/generation models.",
+  "key_insight": "OPSD-V makes few-step autoregressive video generators stay coherent over long rollouts by self-distilling from long-video context during post-training. It improves long-horizon motion quality without changing the original fast inference path.",
+  "problem_solved": "Few-step AR video generators are efficient, but quality often degrades over long sequences due to error accumulation and weaker motion dynamics. This paper targets long-horizon drift while preserving low-latency generation.",
   "method": [
-    "Use on-policy self-distillation to train the model on its own rollout behavior rather than only short, fixed training segments.",
-    "Inject real long-video data as temporal context during training to better match long-range dependencies.",
-    "Preserve the original few-step inference path, so the method improves quality without increasing generation latency."
+    "Uses on-policy self-distillation during post-training for few-step autoregressive video diffusion models.",
+    "Introduces real long-video data as temporal context to guide the model toward more stable long-range predictions.",
+    "Keeps the original few-step inference path unchanged, so the model remains fast at test time.",
+    "Trains the model to better maintain motion consistency and reduce accumulated generation errors across long rollouts."
   ],
-  "impact": "This matters for practitioners building fast video generation systems because it improves long-video consistency without sacrificing speed. It is especially useful for applications that need stable, coherent motion over extended sequences.",
+  "impact": "This matters for practitioners building fast video generators because it offers a way to improve long-video quality without sacrificing inference speed. It can make AR video models more practical for real-time and extended-content generation.",
   "visual_elements": [
-    "Before/after rollout diagram showing error accumulation vs. stabilized long-horizon generation",
-    "Pipeline graphic of OPSD-V training with real long-video context and self-distillation",
-    "Timeline visualization of autoregressive video frames across many steps",
-    "Icon set for speed, stability, motion coherence, and long-context training"
+    "Before/after rollout comparison showing error accumulation vs. stabilized long videos",
+    "Pipeline diagram of on-policy self-distillation with long-video temporal context",
+    "Timeline strip illustrating long-horizon autoregressive generation steps",
+    "Icon-based comparison of speed, coherence, and motion quality"
   ],
   "hashtags": [
     "#AIVideoGeneration",
     "#SelfDistillation",
     "#AutoregressiveModels",
     "#DiffusionModels",
-    "#MachineLearningResearch"
+    "#MachineLearning"
   ],
   "paper_id": "2026-07-09-arxiv-opsd_v_on_policy_self_distillation_for_post_training_few_step_autoregressive_vid",
   "paper_title": "OPSD-V: On-Policy Self-Distillation for Post-Training Few-Step Autoregressive Video Generators",
@@ -31,6 +32,6 @@
       "url": "https://arxiv.org/pdf/2607.08766v1"
     }
   ],
-  "generated_at": "2026-07-10T09:18:40.102326",
+  "generated_at": "2026-07-11T07:40:08.213965",
   "generator": "openai"
 }
