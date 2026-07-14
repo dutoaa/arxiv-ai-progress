@@ -1,0 +1,36 @@
+{
+  "key_insight": "Pretrained multimodal large language models (MLLMs) can be used as zero-shot reward models for text-to-image generation without additional training. SpectraReward scores images by checking how likely the original prompt is to be recovered from the image in a single teacher-forced forward pass.",
+  "problem_solved": "Text-to-image reinforcement learning needs reward models that judge whether generated images match prompts, but existing approaches often require extra training, manual decomposition into verification questions, or direct image judging that can be brittle and costly.",
+  "method": [
+    "Condition on the generated image and feed the original prompt into a pretrained MLLM in a teacher-forced manner.",
+    "Compute the average image-conditioned prompt log-likelihood as the reward signal.",
+    "Use this training-free score as an off-the-shelf reward model for optimizing text-to-image generation."
+  ],
+  "impact": "This gives practitioners a simple, reusable way to evaluate and optimize image generation with models they already have. It reduces the need for specialized reward-model training and can make prompt alignment more scalable and practical.",
+  "visual_elements": [
+    "A pipeline diagram showing prompt -> image generator -> generated image -> pretrained MLLM -> reward score.",
+    "A comparison chart of SpectraReward vs. traditional image-judging and question-answering reward methods.",
+    "An icon-based flow showing 'recover prompt from image' as the core intuition.",
+    "A bar or line chart illustrating reward scores for better vs. worse prompt-image matches."
+  ],
+  "hashtags": [
+    "#TextToImage",
+    "#RewardModel",
+    "#MultimodalAI",
+    "#ZeroShotLearning",
+    "#AIGeneration"
+  ],
+  "paper_id": "2026-07-13-arxiv-read_it_back_pretrained_mllms_are_zero_shot_reward_models_for_text_to_image_gene",
+  "paper_title": "Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-07-13",
+  "paper_authors": "Runhui Huang, Qihui Zhang, Zhe Liu, Yu Gao, Jie Wu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2607.11886v1"
+    }
+  ],
+  "generated_at": "2026-07-14T07:46:58.120363",
+  "generator": "openai"
+}
