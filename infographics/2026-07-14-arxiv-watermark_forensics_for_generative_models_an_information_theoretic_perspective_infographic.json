@@ -1,24 +1,25 @@
 {
-  "key_insight": "This paper reframes watermarking as an information-theoretic forensic problem: different watermark goals—detecting machine text, identifying the producer, recovering a payload, or localizing surviving content—can all be analyzed by how much secret information is revealed per token. The key result is a unified way to understand the sample length needed for each forensic task.",
-  "problem_solved": "It addresses the lack of a common theory for evaluating generative-model watermarks beyond simple machine-vs-human detection. The paper asks how many generated tokens are needed to reliably recover different kinds of watermark evidence, including user attribution, hidden messages, and edit-robust localization.",
+  "key_insight": "This paper shows that watermark forensics can be understood as an information-cost problem: the more a watermark must reveal, the more sample length it needs. By organizing tasks like detection, user attribution, payload extraction, and localization into a single framework, the authors derive how much text is fundamentally required for each level of forensic power.",
+  "problem_solved": "It addresses the lack of a principled way to measure the sample complexity of watermark-based forensics in generative models. Specifically, it asks how many generated tokens are needed to reliably detect, identify, decode, or localize a watermark under information-theoretic constraints.",
   "method": [
-    "Define a secret S carried by the watermark, such as user identity or payload.",
-    "Introduce an information profile ν(t)=I(S;X_t | X_<t) to quantify how much each generated token reveals about the secret.",
-    "Use this profile to derive sample-length costs for a forensic ladder of tasks, from detection to attribution and localization."
+    "Defines a secret variable S carried by the watermark, such as a user identity or hidden payload.",
+    "Uses an information profile ν(t) = I(S; X_t | X_<t) to quantify how much each token reveals about the secret.",
+    "Analyzes the 'forensic ladder' to connect different watermark tasks to their required sample length n.",
+    "Derives information-theoretic limits that explain the tradeoff between watermark capacity, robustness, and sample efficiency."
   ],
-  "impact": "For ML practitioners, this provides a principled framework for designing and benchmarking watermark schemes instead of relying only on empirical detection accuracy. It can guide choices about watermark strength, robustness, and the trade-off between utility and forensic recoverability.",
+  "impact": "For practitioners, this provides a principled way to design and evaluate watermarking schemes instead of relying only on heuristics. It helps estimate how long outputs must be, how robust the mark can be after editing, and what forensic capabilities are realistically achievable.",
   "visual_elements": [
-    "A forensic ladder diagram showing detection, attribution, payload recovery, and localization as increasing levels of watermark analysis.",
-    "A token-by-token information flow chart illustrating ν(t)=I(S;X_t | X_<t).",
-    "A comparison table mapping each forensic task to its required sample length n.",
-    "An icon set for secret, generated text, attacker/editing, and recovered watermark evidence."
+    "A ladder diagram showing the forensic levels: detection → attribution → payload recovery → localization.",
+    "An information curve plotting ν(t) over token position to show where secret information is embedded.",
+    "A tradeoff chart relating sample length n to forensic capability and robustness.",
+    "Icons for 'secret', 'token stream', 'editing', and 'recovery' to visually explain the watermark pipeline."
   ],
   "hashtags": [
-    "#AIEthics",
     "#Watermarking",
     "#GenerativeAI",
     "#InformationTheory",
-    "#MachineLearning"
+    "#ModelForensics",
+    "#AISafety"
   ],
   "paper_id": "2026-07-14-arxiv-watermark_forensics_for_generative_models_an_information_theoretic_perspective",
   "paper_title": "Watermark Forensics for Generative Models: An Information-Theoretic Perspective",
@@ -31,6 +32,6 @@
       "url": "https://arxiv.org/pdf/2607.13003v1"
     }
   ],
-  "generated_at": "2026-07-15T07:50:30.906107",
+  "generated_at": "2026-07-17T07:52:54.333788",
   "generator": "openai"
 }
