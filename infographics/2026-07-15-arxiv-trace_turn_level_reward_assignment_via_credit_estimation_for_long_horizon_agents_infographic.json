@@ -1,24 +1,24 @@
 {
-  "key_insight": "TRACE argues that long-horizon agents should be trained with turn-level credit, not just final outcomes. By estimating which tool-use steps actually contributed to success, it turns sparse, noisy reward signals into more informative supervision.",
-  "problem_solved": "The paper addresses credit assignment in multi-turn agents that perform many tool interactions before producing a final answer. Outcome-only rewards are too sparse, high-variance, and can wrongly penalize trajectories that contain useful intermediate actions.",
+  "key_insight": "TRACE improves training for long-horizon agents by assigning reward at the turn level instead of relying only on the final outcome. This gives credit to useful intermediate actions even when the overall rollout fails.",
+  "problem_solved": "The paper addresses the credit assignment problem in multi-turn tool-using agents, where long trajectories make outcome-only rewards sparse, noisy, and misleading.",
   "method": [
-    "Estimate turn-level credit for each action in a long interaction trajectory.",
-    "Assign training reward based on how much each turn helps the agent move toward the goal, rather than only using the final outcome.",
-    "Use the resulting credit estimates to provide denser and more reliable post-training supervision for long-horizon tool-using agents."
+    "Estimate credit at each turn rather than only at the end of the trajectory.",
+    "Use reward assignment to identify which intermediate actions contributed to progress toward the goal.",
+    "Train agents with denser supervision so useful steps are reinforced even in failed rollouts."
   ],
-  "impact": "This matters because it can make training more stable and effective for agents that solve complex tasks with many steps, such as tool use, planning, and web/workflow automation. For practitioners, better credit assignment can improve sample efficiency and reduce the risk of learning from misleading final-only labels.",
+  "impact": "This can make post-training more stable and effective for agents that perform many tool calls or reasoning steps. For practitioners, it offers a way to learn from partially successful trajectories instead of wasting informative intermediate behavior.",
   "visual_elements": [
-    "A long agent trajectory split into turns, with each turn colored by estimated credit.",
-    "A comparison diagram: outcome-only reward vs turn-level reward assignment.",
-    "A pipeline graphic showing tools/actions -> credit estimation -> training signal.",
-    "An icon-based timeline illustrating useful intermediate steps despite a failed final rollout."
+    "A long agent trajectory split into turns, with color-coded positive/negative credit per step.",
+    "A comparison chart showing outcome-only reward vs. turn-level reward across long horizons.",
+    "An icon sequence for tool use, intermediate progress, and final answer.",
+    "A simple credit assignment flow diagram from rollout to per-turn reward estimation."
   ],
   "hashtags": [
     "#AIResearch",
-    "#LLMAgents",
-    "#RewardModeling",
     "#CreditAssignment",
-    "#ToolUseAI"
+    "#AgenticAI",
+    "#ReinforcementLearning",
+    "#ToolUseAgents"
   ],
   "paper_id": "2026-07-15-arxiv-trace_turn_level_reward_assignment_via_credit_estimation_for_long_horizon_agents",
   "paper_title": "TRACE: Turn-level Reward Assignment via Credit Estimation for Long-Horizon Agents",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.13988v1"
     }
   ],
-  "generated_at": "2026-07-18T07:27:42.750055",
+  "generated_at": "2026-07-19T07:59:24.120844",
   "generator": "openai"
 }

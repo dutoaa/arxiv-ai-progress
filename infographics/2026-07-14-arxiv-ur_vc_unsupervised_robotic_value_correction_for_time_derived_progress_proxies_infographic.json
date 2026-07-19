@@ -1,24 +1,24 @@
 {
-  "key_insight": "UR-VC shows that demo time is an imperfect proxy for task progress in robot learning, and that this noisy signal can be corrected without manual labels. By unsupervisedly refining progress/value estimates, the method makes dense supervision more reliable for downstream robotic learning.",
-  "problem_solved": "The paper addresses the lack of accurate dense progress or value labels for robotic manipulation tasks. It tackles the problem of using normalized demonstration time as a noisy substitute for true physical progress, especially in contact-rich settings where time and task completion can diverge.",
+  "key_insight": "UR-VC shows that normalized demonstration time is an imperfect proxy for task progress in robot learning, and proposes a way to automatically correct these noisy progress/value labels without manual annotation. This helps dense supervision better reflect true physical task completion, especially in contact-rich manipulation.",
+  "problem_solved": "Robot learning often needs dense progress or value signals, but these are expensive to label at scale. The paper addresses the mismatch between time-derived progress labels and actual physical progress, which can mislead policy learning and task completion detection.",
   "method": [
-    "Uses normalized time within demonstrations as an initial progress proxy.",
-    "Applies unsupervised robotic value correction to adjust noisy time-derived labels toward more physically meaningful progress estimates.",
-    "Improves dense signals used for policy learning, intermediate-state evaluation, and task completion detection without requiring manual annotation."
+    "Starts from time-derived progress proxies computed from demonstration timestamps.",
+    "Learns an unsupervised correction mechanism to adjust noisy progress/value labels toward more physically meaningful targets.",
+    "Uses the corrected value signal to improve intermediate-state evaluation and downstream robot learning tasks."
   ],
-  "impact": "This matters because many robot learning pipelines depend on dense reward/value supervision that is expensive or unavailable at scale. UR-VC offers a practical way to improve these signals from demonstration data, which can lead to more robust learning and better task success in real-world robotic manipulation.",
+  "impact": "For practitioners, UR-VC offers a scalable way to get better dense supervision without manual labeling. This can improve training stability, progress estimation, and completion detection in robotic manipulation systems.",
   "visual_elements": [
-    "A before/after diagram showing noisy time-based progress vs corrected value signals.",
-    "A robot manipulation timeline illustrating where time and true task progress diverge.",
-    "A pipeline graphic from demonstrations -> noisy proxy -> UR-VC correction -> improved policy learning.",
-    "An icon-based comparison of manual labeling vs unsupervised correction."
+    "Before/after comparison of raw time-based labels vs corrected value signals along a demo trajectory",
+    "Pipeline diagram showing demonstration frames -> noisy proxy -> UR-VC correction -> improved policy learning",
+    "Robot manipulation sequence illustrating where time and true progress diverge",
+    "Simple chart comparing task success or value estimation error with and without UR-VC"
   ],
   "hashtags": [
+    "#Robotics",
     "#RobotLearning",
-    "#ReinforcementLearning",
+    "#MachineLearning",
     "#ImitationLearning",
-    "#RoboticsAI",
-    "#MachineLearning"
+    "#AIResearch"
   ],
   "paper_id": "2026-07-14-arxiv-ur_vc_unsupervised_robotic_value_correction_for_time_derived_progress_proxies",
   "paper_title": "UR-VC: Unsupervised Robotic Value Correction for Time-Derived Progress Proxies",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.12892v1"
     }
   ],
-  "generated_at": "2026-07-17T07:52:50.810204",
+  "generated_at": "2026-07-19T07:59:35.022527",
   "generator": "openai"
 }
