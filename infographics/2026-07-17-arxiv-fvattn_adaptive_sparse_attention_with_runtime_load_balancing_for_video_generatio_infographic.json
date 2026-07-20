@@ -1,0 +1,36 @@
+{
+  "key_insight": "FVAttn shows that sparse attention can be made faster in video generation without retraining by fixing not just compute cost, but also GPU load imbalance. Its core idea is adaptive sparse routing plus runtime load balancing to prevent some GPUs from becoming stragglers.",
+  "problem_solved": "Video diffusion transformers are expensive because self-attention over long spatio-temporal sequences is a major bottleneck. Existing training-free sparse attention methods reduce FLOPs, but adaptive Top-p routing can distribute work unevenly across heads and GPUs, causing rank-level stragglers under sequence parallelism.",
+  "method": [
+    "Uses training-free adaptive sparse attention for video diffusion transformers to keep attention computation selective and efficient.",
+    "Adds runtime load balancing to redistribute uneven per-head workloads created by Top-p routing.",
+    "Targets multi-GPU sequence parallel execution so sparse attention speedups translate into real end-to-end throughput gains."
+  ],
+  "impact": "For practitioners, this means faster high-resolution video generation without model retraining or architectural changes. It is especially valuable in distributed settings where uneven workload can erase the benefits of sparse attention.",
+  "visual_elements": [
+    "Pipeline diagram showing video tokens flowing through sparse attention and runtime load balancing",
+    "Before/after GPU workload bar chart illustrating straggler reduction",
+    "Attention map visualization highlighting Top-p sparse routing",
+    "Multi-GPU sequence parallel layout with balanced vs. imbalanced ranks"
+  ],
+  "hashtags": [
+    "#AIVideoGeneration",
+    "#SparseAttention",
+    "#DistributedTraining",
+    "#DiffusionModels",
+    "#GPUOptimization"
+  ],
+  "paper_id": "2026-07-17-arxiv-fvattn_adaptive_sparse_attention_with_runtime_load_balancing_for_video_generatio",
+  "paper_title": "FVAttn: Adaptive Sparse Attention with Runtime Load Balancing for Video Generation",
+  "paper_category": "Model",
+  "paper_date": "2026-07-17",
+  "paper_authors": "Hao Liu, Chenghuan Huang, Ye Huang, Zhiying Wen, Hao Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2607.16190v1"
+    }
+  ],
+  "generated_at": "2026-07-20T08:40:16.807024",
+  "generator": "openai"
+}
