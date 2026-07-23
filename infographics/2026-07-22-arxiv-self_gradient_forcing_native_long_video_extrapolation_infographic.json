@@ -1,0 +1,36 @@
+{
+  "key_insight": "Self Gradient Forcing extends self-forcing video diffusion so earlier generated frames are not just reused as frozen history, but can be adjusted by future losses through the key-value cache. This makes long-video extrapolation more trainable and better aligned with future generation needs.",
+  "problem_solved": "The paper addresses a limitation in autoregressive video diffusion: self-forcing reduces exposure bias, but the historical KV cache remains a fixed rollout state, so later frames cannot improve how earlier latents are written into keys and values for long-range video generation.",
+  "method": [
+    "Train on self-generated histories rather than ground-truth contexts, following the self-forcing paradigm.",
+    "Allow future-frame losses to backpropagate into the representation of earlier generated latents through the cache-writing process.",
+    "Optimize the model so cached keys and values become more useful for long-video extrapolation instead of being treated as immutable rollout memory."
+  ],
+  "impact": "For practitioners building long-video generative models, this can improve temporal consistency and long-horizon quality by making the model learn from its own future consequences. It is especially relevant for reducing drift and improving extrapolation beyond short training windows.",
+  "visual_elements": [
+    "A pipeline diagram showing ground-truth conditioning vs self-forcing vs self gradient forcing.",
+    "An annotated KV-cache flow graphic highlighting frozen cache state versus gradient-updated cache writing.",
+    "A before/after timeline of generated video frames illustrating long-range drift reduction.",
+    "An icon-based comparison chart for exposure bias, rollout memory, and future-loss supervision."
+  ],
+  "hashtags": [
+    "#AIGeneratedVideo",
+    "#DiffusionModels",
+    "#LongVideoGeneration",
+    "#SelfForcing",
+    "#MachineLearningResearch"
+  ],
+  "paper_id": "2026-07-22-arxiv-self_gradient_forcing_native_long_video_extrapolation",
+  "paper_title": "Self Gradient Forcing: Native Long Video Extrapolation",
+  "paper_category": "Model",
+  "paper_date": "2026-07-22",
+  "paper_authors": "Junhao Zhuang, Shiyi Zhang, Yuxuan Bian, Yaowei Li, Yawen Luo",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2607.20368v1"
+    }
+  ],
+  "generated_at": "2026-07-23T08:11:50.413064",
+  "generator": "openai"
+}
