@@ -1,23 +1,23 @@
 {
-  "key_insight": "PercepCap makes video captioning more transparent by separating what the model perceives in space and time before it writes the final caption. This exposes perceptual evidence and helps pinpoint where captioning errors come from.",
-  "problem_solved": "Existing multimodal models often generate video captions directly, which hides whether mistakes come from poor spatial understanding, temporal reasoning, or both. This makes spatiotemporal errors hard to diagnose and improve.",
+  "key_insight": "PercepCap makes video captioning more transparent by explicitly modeling the spatio-temporal evidence behind each description. Instead of jumping straight to a caption, it separates what is seen, where it happens, and when it happens.",
+  "problem_solved": "The paper addresses the difficulty of diagnosing spatio-temporal perception errors in video captioning models. Existing MLLMs often produce fluent captions without exposing the underlying perceptual steps, making mistakes hard to detect and fix.",
   "method": [
-    "Introduces structured spatio-temporal perception to explicitly capture where objects are and when events happen in a video.",
-    "Uses perceptual evidence as an intermediate step before caption generation, rather than producing captions from raw video inputs alone.",
-    "Aims to surface intermediate reasoning signals so errors can be traced back to specific spatial or temporal perception failures."
+    "Introduces structured spatio-temporal perception for video captioning, separating spatial and temporal evidence before caption generation.",
+    "Uses perceptual outputs as intermediate signals so the model can ground descriptions in object locations and event timing.",
+    "Improves interpretability by making perception errors visible at the evidence level, not only in the final caption."
   ],
-  "impact": "This approach can improve debugging, interpretability, and reliability of video captioning systems. For practitioners, it offers a clearer path to diagnose failures and build stronger multimodal models for fine-grained video understanding.",
+  "impact": "This is useful for AI/ML practitioners who need more reliable and debuggable video understanding systems. It can help identify failure modes faster and support better evaluation, training, and trust in multimodal models.",
   "visual_elements": [
-    "Pipeline diagram: video input -> spatial perception -> temporal perception -> caption generation",
-    "Side-by-side comparison of direct captioning vs. structured perceptual captioning",
-    "Spatial heatmap or bounding-box overlay showing object locations in frames",
-    "Timeline graphic showing event ordering and when key actions occur"
+    "Pipeline diagram showing video input -> spatial perception -> temporal perception -> caption output",
+    "Annotated video frame timeline highlighting object locations and event moments",
+    "Comparison panel: direct captioning vs structured perceptual captioning",
+    "Icon set for space/location, time/sequencing, and text generation"
   ],
   "hashtags": [
     "#VideoCaptioning",
     "#MultimodalAI",
     "#ComputerVision",
-    "#SpatioTemporalReasoning",
+    "#TemporalUnderstanding",
     "#AIResearch"
   ],
   "paper_id": "2026-07-22-arxiv-percepcap_video_captioner_with_structured_spatio_temporal_perception",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.20389v1"
     }
   ],
-  "generated_at": "2026-07-23T08:11:57.279045",
+  "generated_at": "2026-07-24T08:07:43.264716",
   "generator": "openai"
 }
