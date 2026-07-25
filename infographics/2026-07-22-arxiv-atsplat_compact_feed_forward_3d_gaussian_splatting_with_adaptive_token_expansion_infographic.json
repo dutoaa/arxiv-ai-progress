@@ -1,23 +1,23 @@
 {
-  "key_insight": "ATSplat brings the adaptive density control of classic 3D Gaussian Splatting into a feed-forward setting by expanding tokens where more geometric detail is needed. This makes compact 3D scene reconstruction less dependent on input image resolution or viewpoint.",
-  "problem_solved": "Existing feed-forward 3DGS methods usually place Gaussians at input pixels and lift them along camera rays, which ties primitive count and placement to the input view rather than the scene. This paper addresses the loss of scene-adaptive allocation, which limits quality and efficiency.",
+  "key_insight": "ATSplat brings the adaptive density allocation of traditional 3D Gaussian Splatting into a compact feed-forward model. Instead of tying primitives to input pixels, it learns to expand tokens where the scene needs more detail, enabling better quality without heavy per-viewpoint dependence.",
+  "problem_solved": "Existing feed-forward 3DGS methods usually place Gaussians at input pixels and lift them along camera rays, which makes primitive count and placement depend on image resolution and viewpoint. This reduces the scene-adaptive flexibility that makes classic 3DGS strong, often hurting quality and compactness.",
   "method": [
-    "Uses a compact feed-forward architecture that predicts 3D Gaussians from input images.",
-    "Introduces adaptive token expansion to increase representation capacity only in under-reconstructed or detail-rich regions.",
-    "Avoids strict pixel-aligned primitive generation so the output is more scene-dependent than viewpoint-dependent."
+    "Uses a feed-forward architecture that predicts 3D Gaussians more compactly than pixel-aligned approaches.",
+    "Introduces adaptive token expansion to allocate more primitives to under-reconstructed or complex regions.",
+    "Decouples primitive placement from raw input pixel locations so the model can better adapt to scene geometry and detail."
   ],
-  "impact": "For practitioners, ATSplat offers a more efficient path to high-quality novel-view synthesis with fewer wasted primitives. It is especially useful for applications that need compact, view-robust 3D reconstruction under limited compute or memory.",
+  "impact": "For practitioners, this means faster and more memory-efficient 3D novel-view synthesis without sacrificing the adaptive detail allocation that improves rendering quality. It is especially relevant for deploying 3D reconstruction and view synthesis on limited hardware.",
   "visual_elements": [
-    "Before/after pipeline diagram comparing pixel-aligned lifting vs adaptive token expansion",
-    "Heatmap showing dense primitive allocation in difficult regions and sparse allocation in simple regions",
-    "3D scene rendering with Gaussian splats overlaid on reconstructed geometry",
-    "Icon-based comparison of efficiency, quality, and compactness"
+    "Side-by-side comparison of pixel-aligned Gaussian placement vs. adaptive token expansion",
+    "Pipeline diagram showing image input, token encoding, expansion, and 3D Gaussian output",
+    "Heatmap highlighting regions where extra primitives are allocated in complex scene areas",
+    "Before/after render quality comparison with primitive count or memory usage annotations"
   ],
   "hashtags": [
-    "#3DGS",
+    "#3DGaussianSplatting",
     "#NovelViewSynthesis",
+    "#FeedForward3D",
     "#ComputerVision",
-    "#NeuralRendering",
     "#AIResearch"
   ],
   "paper_id": "2026-07-22-arxiv-atsplat_compact_feed_forward_3d_gaussian_splatting_with_adaptive_token_expansion",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.20417v1"
     }
   ],
-  "generated_at": "2026-07-23T08:12:03.836044",
+  "generated_at": "2026-07-25T07:50:48.747143",
   "generator": "openai"
 }
