@@ -1,24 +1,24 @@
 {
-  "key_insight": "This paper shows that multimodal LLMs can be made faster by jointly adapting how much they look at the input and how much they think during inference. Instead of optimizing visual tokens or model computation separately, the method coordinates both to cut cost while preserving performance.",
-  "problem_solved": "It addresses the high inference cost of multimodal large language models, caused by processing too many visual tokens and running a heavy LLM over them. Prior approaches usually reduce only one side of the problem, which limits efficiency gains.",
+  "key_insight": "This paper shows that multimodal LLMs can be made much faster by jointly adapting how many visual tokens they process and how much compute the language model uses. The key idea is to skip unnecessary work in both the input and the model, instead of optimizing only one side.",
+  "problem_solved": "It addresses the high inference cost of multimodal large language models, which comes from processing many visual tokens and running expensive LLM computation. Existing methods often reduce only one dimension, leaving substantial inefficiency.",
   "method": [
-    "Jointly adapt visual token usage and LLM compute during inference rather than treating them independently.",
-    "Identify and remove redundant visual information while also skipping unnecessary internal computation in the language model.",
-    "Balance token reduction and compute reduction to maintain accuracy while lowering latency and resource use."
+    "Jointly optimize visual token usage and LLM compute to reduce redundant processing.",
+    "Adaptively decide which visual tokens to keep or prune based on task relevance.",
+    "Adjust LLM computation dynamically, such as skipping unnecessary layers or heads during inference."
   ],
-  "impact": "This matters because it makes multimodal AI systems more practical for real-world deployment on constrained hardware and latency-sensitive applications. For practitioners, it offers a path to faster and cheaper vision-language inference without sacrificing much quality.",
+  "impact": "This matters because it can make MLLMs more practical for real-world deployment by lowering latency and compute cost without sacrificing much performance. Practitioners can build faster, more efficient vision-language systems for edge devices and scalable production use.",
   "visual_elements": [
-    "Before-and-after pipeline diagram showing fewer visual tokens and fewer active LLM layers/heads.",
-    "Split bar chart comparing inference cost: baseline vs token-only pruning vs compute-only skipping vs joint adaptation.",
-    "Icon set illustrating an eye for visual tokens, a lightning bolt for compute, and a speedometer for latency.",
-    "Trade-off curve showing accuracy versus inference cost with the joint method in the favorable region."
+    "Split pipeline diagram showing visual token reduction and LLM compute skipping",
+    "Before-and-after cost chart comparing baseline vs joint adaptation",
+    "Icon set for image tokens, layers, heads, latency, and efficiency",
+    "Workflow graphic illustrating adaptive token selection and dynamic compute routing"
   ],
   "hashtags": [
     "#MultimodalAI",
     "#LLMOptimization",
     "#EfficientInference",
-    "#VisionLanguage",
-    "#ModelCompression"
+    "#VisionLanguageModels",
+    "#AIResearch"
   ],
   "paper_id": "2026-07-22-arxiv-look_less_think_faster_joint_token_compute_adaptation_for_multimodal_llms",
   "paper_title": "Look Less, Think Faster: Joint Token-Compute Adaptation for Multimodal LLMs",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.20357v1"
     }
   ],
-  "generated_at": "2026-07-24T08:07:34.635972",
+  "generated_at": "2026-07-26T08:08:23.635626",
   "generator": "openai"
 }

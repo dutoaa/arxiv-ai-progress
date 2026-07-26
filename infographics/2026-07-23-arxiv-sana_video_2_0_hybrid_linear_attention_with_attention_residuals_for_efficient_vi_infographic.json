@@ -1,24 +1,24 @@
 {
-  "key_insight": "SANA-Video 2.0 shows that high-quality video generation can be scaled efficiently with a hybrid attention design, matching full-softmax video Diffusion Transformers while keeping linear-attention-style long-sequence efficiency. It can generate up to 720p video on a single GPU using a unified 5B/14B architecture.",
-  "problem_solved": "The paper addresses the high computational cost of full quadratic attention in video generation, which makes long video sequences and high-resolution outputs expensive and difficult to run on limited hardware.",
+  "key_insight": "SANA-Video 2.0 shows that high-quality video generation can be scaled efficiently with a hybrid attention design, matching full-softmax video models while keeping the long-sequence efficiency of linear attention. It can generate up to 720p video on a single GPU using one unified architecture at 5B and 14B scales.",
+  "problem_solved": "The paper addresses the high compute and memory cost of video diffusion transformers, especially the quadratic cost of full attention on long video sequences. It aims to make high-resolution video generation practical without sacrificing quality.",
   "method": [
-    "Uses a unified hybrid video diffusion transformer architecture at 5B and 14B scales.",
-    "Combines gated linear attention for efficient O(N)-dominated token mixing with periodic gated-softmax attention anchors to preserve quality.",
-    "Adds attention residuals to improve stability and retain information across long video sequences without relying entirely on quadratic attention."
+    "Uses a unified hybrid video diffusion transformer architecture instantiated at both 5B and 14B parameter scales.",
+    "Combines gated linear attention for efficient O(N)-dominated token mixing with periodic gated-softmax attention anchors to preserve global coherence.",
+    "Introduces attention residuals to reduce the quality drop typically seen when replacing full-softmax attention with linear attention."
   ],
-  "impact": "This work makes high-resolution video generation more practical for researchers and practitioners by reducing memory and compute requirements. It suggests a path to scaling video models efficiently without sacrificing output quality.",
+  "impact": "This work makes high-resolution video generation more accessible by reducing the compute burden while maintaining strong visual quality. For practitioners, it points to a practical path toward scalable, single-GPU video synthesis models.",
   "visual_elements": [
-    "Side-by-side comparison of full-softmax attention vs. hybrid linear-softmax attention",
-    "Pipeline diagram showing gated linear attention blocks and periodic softmax anchors",
-    "Scaling chart for 5B vs. 14B model performance and compute efficiency",
-    "Example output strip of generated videos at different resolutions up to 720p"
+    "Side-by-side diagram comparing full-softmax attention vs hybrid linear-softmax attention complexity",
+    "Pipeline graphic showing the video diffusion transformer architecture and periodic softmax anchors",
+    "Scaling chart illustrating 5B and 14B model performance versus compute/memory usage",
+    "Icon-based callout highlighting single-GPU 720p generation"
   ],
   "hashtags": [
-    "#AI",
-    "#VideoGeneration",
+    "#AIVideoGeneration",
     "#DiffusionModels",
-    "#EfficientAttention",
-    "#MachineLearning"
+    "#Transformers",
+    "#EfficientAI",
+    "#MachineLearningResearch"
   ],
   "paper_id": "2026-07-23-arxiv-sana_video_2_0_hybrid_linear_attention_with_attention_residuals_for_efficient_vi",
   "paper_title": "SANA-Video 2.0: Hybrid Linear Attention with Attention Residuals for Efficient Video Generation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.21553v1"
     }
   ],
-  "generated_at": "2026-07-25T07:49:57.318488",
+  "generated_at": "2026-07-26T08:07:38.965391",
   "generator": "openai"
 }

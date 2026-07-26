@@ -1,24 +1,24 @@
 {
-  "key_insight": "WorldWeaver (W²) shifts multi-agent video generation from simply carrying forward past observations to maintaining persistent shared world state across agents and views. This helps generated scenes stay consistent over time, even when multiple agents interact or the viewpoint changes.",
-  "problem_solved": "Existing autoregressive video diffusion models struggle to preserve a common world state in multi-agent and multi-view settings because they condition mainly on observation history. That makes it hard to keep objects, interactions, and scene state coherent across agents and across rolling generations.",
+  "key_insight": "WorldWeaver (W^2) introduces cross-agent world state registers so a diffusion model can keep a shared, persistent state while generating observations over time. This helps multi-agent and multi-view rollouts stay consistent beyond short-lived observation history.",
+  "problem_solved": "Existing autoregressive video diffusion models mainly pass along past observations as context, which makes it hard to preserve a common world state across multiple agents and viewpoints. The result is inconsistent long-horizon behavior when agents interact or when views change.",
   "method": [
-    "Introduces a streaming multi-agent autoregressive diffusion framework for video generation.",
-    "Augments rollout with cross-agent world state registers to store persistent shared state beyond local observation history.",
-    "Uses these registers to propagate consistent information across agents and viewpoints as the world evolves."
+    "Uses a streaming multi-agent autoregressive diffusion setup for rollout generation.",
+    "Adds world state registers to carry shared latent state across agents and across views.",
+    "Decouples persistent world state from raw observation history to improve consistency during generation."
   ],
-  "impact": "This approach could improve interactive simulation, embodied AI, multi-agent planning, and generative world modeling by making long-horizon scene continuity more reliable. For practitioners, it points toward a better way to model shared environment state in complex, dynamic settings.",
+  "impact": "This is useful for building interactive simulators, embodied AI systems, and multi-agent world models that need coherent long-term memory. For practitioners, it offers a more scalable way to generate synchronized multi-agent scenes without relying only on observation conditioning.",
   "visual_elements": [
-    "A pipeline diagram showing observation history vs. world state registers.",
-    "A multi-agent scene timeline illustrating shared state persistence across views.",
-    "A comparison graphic: standard autoregressive diffusion vs. WorldWeaver consistency.",
-    "Icon set for agents, registers, arrows, and evolving world state."
+    "Pipeline diagram showing multiple agents feeding into a shared world state register",
+    "Before-vs-after comparison of standard autoregressive conditioning vs. W^2 state registers",
+    "Timeline graphic illustrating persistent state across streaming rollout steps",
+    "Multi-view scene illustration with consistent objects/agents across camera angles"
   ],
   "hashtags": [
-    "#AIDiffusion",
+    "#AI",
     "#WorldModels",
-    "#MultiAgentAI",
-    "#VideoGeneration",
-    "#MachineLearning"
+    "#MultiAgentSystems",
+    "#DiffusionModels",
+    "#VideoGeneration"
   ],
   "paper_id": "2026-07-23-arxiv-streaming_multi_agent_autoregressive_diffusion_model_with_world_state_registers",
   "paper_title": "Streaming Multi-Agent Autoregressive Diffusion Model with World State Registers",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.21594v1"
     }
   ],
-  "generated_at": "2026-07-25T07:50:18.449837",
+  "generated_at": "2026-07-26T08:08:02.003149",
   "generator": "openai"
 }
