@@ -1,0 +1,36 @@
+{
+  "key_insight": "kappa-LoRA argues that not all LoRA matrices are equally worth updating. By using condition numbers to identify which matrices matter most, it targets adaptation where it is most effective and avoids wasting compute on less useful updates.",
+  "problem_solved": "Standard LoRA fine-tuning updates all low-rank matrices uniformly, which is expensive and inefficient for very large models and edge/on-device settings. This paper addresses the need to reduce adaptation cost without sacrificing performance.",
+  "method": [
+    "Analyze LoRA matrices using condition numbers to estimate how important each matrix is for adaptation.",
+    "Selectively update the matrices that are most likely to benefit from training, instead of updating every LoRA module equally.",
+    "Use this importance-based filtering to reduce compute and memory overhead while preserving fine-tuning effectiveness."
+  ],
+  "impact": "For practitioners, kappa-LoRA offers a more efficient way to fine-tune large models, especially when compute, memory, or latency are constrained. It can make adaptation more practical for billion-parameter models, edge deployment, and on-device learning.",
+  "visual_elements": [
+    "A flow diagram showing full LoRA vs. selective kappa-LoRA matrix updates",
+    "A heatmap or ranking chart of condition numbers across layers/modules",
+    "A side-by-side comparison of compute cost and performance",
+    "An icon-based pipeline illustrating identify -> select -> update"
+  ],
+  "hashtags": [
+    "#LoRA",
+    "#EfficientFineTuning",
+    "#LLMOptimization",
+    "#EdgeAI",
+    "#ParameterEfficientML"
+  ],
+  "paper_id": "2026-07-24-arxiv-k_appa_lora_condition_numbers_reveal_which_lora_matrices_worth_updating",
+  "paper_title": "\\k{appa}-LoRA: Condition Numbers Reveal Which LoRA Matrices Worth Updating",
+  "paper_category": "Model",
+  "paper_date": "2026-07-24",
+  "paper_authors": "Jianghui Wang, Silong Yong, Francesco Orabona, Marco Canini, Katia P. Sycara",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2607.22489v1"
+    }
+  ],
+  "generated_at": "2026-07-27T09:32:47.568771",
+  "generator": "openai"
+}
