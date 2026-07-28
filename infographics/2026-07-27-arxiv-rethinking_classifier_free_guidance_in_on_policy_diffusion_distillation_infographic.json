@@ -1,0 +1,36 @@
+{
+  "key_insight": "The paper shows that directly matching classifier-free guided outputs in on-policy diffusion distillation can be ambiguous at the branch level: the positive and negative guidance branches are not uniquely identified. The authors argue that distillation should account for this under-identification instead of treating the guided prediction as a single target.",
+  "problem_solved": "It addresses how to correctly perform on-policy distillation for diffusion models when classifier-free guidance (CFG) is used, since existing methods can mismatch teacher and student behavior by only matching the composed guided prediction.",
+  "method": [
+    "Analyze why standard velocity matching on CFG-composed outputs is under-identified at the branch level.",
+    "Reformulate distillation to better respect the separate roles of positive and negative guidance branches.",
+    "Compare teacher and student behavior along on-policy trajectories rather than relying only on static guidance targets."
+  ],
+  "impact": "This makes diffusion distillation more reliable for modern CFG-based systems, helping practitioners train smaller or faster models without silently losing guidance fidelity. It is especially relevant for text-to-image and other conditional diffusion applications where CFG is a default design choice.",
+  "visual_elements": [
+    "A two-branch diagram showing positive and negative CFG paths merging into a guided prediction",
+    "A comparison graphic of naive guided matching vs. branch-aware distillation",
+    "A trajectory illustration depicting on-policy student sampling and teacher queries along the path",
+    "A simple callout box explaining the under-identification problem"
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#ClassifierFreeGuidance",
+    "#KnowledgeDistillation",
+    "#GenerativeAI",
+    "#MachineLearning"
+  ],
+  "paper_id": "2026-07-27-arxiv-rethinking_classifier_free_guidance_in_on_policy_diffusion_distillation",
+  "paper_title": "Rethinking Classifier-Free Guidance in On-Policy Diffusion Distillation",
+  "paper_category": "Model",
+  "paper_date": "2026-07-27",
+  "paper_authors": "Bingnan Li, Haozhe Wang, Haozhong Xiong, Fangtai Wu, Jinpeng Yu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2607.24731v1"
+    }
+  ],
+  "generated_at": "2026-07-28T08:14:35.574131",
+  "generator": "openai"
+}
