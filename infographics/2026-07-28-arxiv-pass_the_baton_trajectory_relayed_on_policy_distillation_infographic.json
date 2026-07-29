@@ -1,0 +1,36 @@
+{
+  "key_insight": "The paper shows that on-policy distillation fails when a student makes an early reasoning mistake, because the student keeps following the wrong path while the teacher would often recover or redirect. Their key idea is to relay the trajectory so supervision stays aligned with a more useful continuation.",
+  "problem_solved": "It addresses prefix failure in on-policy distillation: once a student enters a bad reasoning branch, later token-level supervision becomes misaligned, less reliable, and wastes computation.",
+  "method": [
+    "Identify teacher-student continuation asymmetry on failed prefixes, where the teacher and student diverge in how they continue after an error.",
+    "Relay the trajectory to replace or adjust the student’s failed continuation with a teacher-guided path that better preserves meaningful supervision.",
+    "Use this relayed on-policy setup to keep training grounded in the student’s own generation while avoiding compounding mistakes."
+  ],
+  "impact": "This can make distillation more robust and compute-efficient for reasoning-heavy models. Practitioners may get better student behavior from fewer wasted rollouts and more informative training signals.",
+  "visual_elements": [
+    "A side-by-side flow diagram showing student vs. teacher continuations after an early mistake",
+    "A prefix-failure pipeline illustration highlighting how errors compound over time",
+    "A baton-relay metaphor graphic showing trajectory handoff from student to teacher guidance",
+    "A before/after chart comparing standard OPD with trajectory-relayed OPD in supervision quality"
+  ],
+  "hashtags": [
+    "#AIDistillation",
+    "#OnPolicyLearning",
+    "#LLMTraining",
+    "#ReasoningModels",
+    "#MachineLearning"
+  ],
+  "paper_id": "2026-07-28-arxiv-pass_the_baton_trajectory_relayed_on_policy_distillation",
+  "paper_title": "Pass the Baton: Trajectory-Relayed On-Policy Distillation",
+  "paper_category": "Model",
+  "paper_date": "2026-07-28",
+  "paper_authors": "Haolei Xu, Xiaowen Xu, Haiwen Hong, Zixuan Ni, Hongxing Li",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2607.26057v1"
+    }
+  ],
+  "generated_at": "2026-07-29T08:20:17.250653",
+  "generator": "openai"
+}

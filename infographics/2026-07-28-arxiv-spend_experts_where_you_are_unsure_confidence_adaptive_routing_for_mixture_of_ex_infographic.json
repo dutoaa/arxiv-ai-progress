@@ -1,0 +1,36 @@
+{
+  "key_insight": "CARE (Confidence-Adaptive Routing of Experts) uses the router’s own output distribution as a confidence signal, sending more experts to uncertain tokens and fewer to easy ones. This makes Mixture-of-Experts LoRA more efficient without treating every token the same.",
+  "problem_solved": "Standard MoE LoRA routes every token to a fixed number of experts k, which wastes compute on easy tokens and may under-serve difficult ones. The paper addresses the lack of token-wise adaptability in expert routing.",
+  "method": [
+    "Interpret the router’s probability distribution as a per-token uncertainty estimate: peaked = confident, flat = uncertain.",
+    "Adapt the number of activated experts based on confidence instead of using a fixed k for all tokens.",
+    "Spend computation where ambiguity is highest, allocating more experts to hard tokens and fewer to easy tokens."
+  ],
+  "impact": "For practitioners, this can improve compute efficiency while preserving or improving model quality on difficult inputs. It also offers a simple, principled way to make LoRA-based MoE models more dynamic and cost-aware.",
+  "visual_elements": [
+    "A token flow diagram showing confident tokens routed to fewer experts and uncertain tokens to more experts.",
+    "A side-by-side comparison of fixed-k routing vs confidence-adaptive routing.",
+    "A router probability plot illustrating peaked vs flat distributions as confidence signals.",
+    "An efficiency tradeoff chart showing compute saved versus performance maintained."
+  ],
+  "hashtags": [
+    "#MixtureOfExperts",
+    "#LoRA",
+    "#Routing",
+    "#EfficientAI",
+    "#MachineLearning"
+  ],
+  "paper_id": "2026-07-28-arxiv-spend_experts_where_you_are_unsure_confidence_adaptive_routing_for_mixture_of_ex",
+  "paper_title": "Spend Experts Where You Are Unsure: Confidence-Adaptive Routing for Mixture-of-Experts LoRA",
+  "paper_category": "Model",
+  "paper_date": "2026-07-28",
+  "paper_authors": "Tom Saliencro, Rohan Desai, Priya Nair, Maya Lindqvist, Daniel Whitmore",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2607.26052v1"
+    }
+  ],
+  "generated_at": "2026-07-29T08:20:12.646202",
+  "generator": "openai"
+}
