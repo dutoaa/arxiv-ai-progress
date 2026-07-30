@@ -1,23 +1,23 @@
 {
-  "key_insight": "Turning code optimization into a reinforcement learning reward is much harder than code correctness. In practice, timing noise, sparse rewards, and RL instability can outweigh the performance signal, so models get only marginally faster and can become less correct.",
-  "problem_solved": "The paper tackles the challenge of using reinforcement learning to optimize code execution time, rather than just code correctness, in a setting where runtime is noisy and improvements are subtle.",
+  "key_insight": "Reinforcement learning for code optimization is much harder than reinforcement learning for code correctness: once execution time becomes the reward, noise, sparse feedback, and training instability can overpower the signal. The paper shows that naive timing-based RL can produce only tiny speedups while also increasing the chance of broken code.",
+  "problem_solved": "The paper addresses how to reliably use reinforcement learning to optimize generated code for runtime, not just correctness, when execution-time measurements are noisy and rewards are difficult to learn from.",
   "method": [
-    "Frame code optimization as an RL problem where reward depends on execution time, alongside correctness.",
-    "Investigate how timing noise, reward sparsity, and GRPO instability affect training dynamics.",
-    "Analyze why standard RL setups that work for correctness fail to reliably improve code speed."
+    "Treat code execution time as part of the RL reward, alongside correctness.",
+    "Analyze why timing-based rewards are fragile in practice: measurement noise, sparse rewards, and GRPO instability.",
+    "Evaluate whether the model can learn to generate faster programs without sacrificing correctness."
   ],
-  "impact": "This matters because it shows that naive reward design is not enough for performance optimization tasks. Practitioners working on code generation or RL-based optimization need more robust signals, better measurement strategies, or alternative training methods.",
+  "impact": "This matters because many AI systems can already generate working code, but optimizing that code for speed is a much harder and less reliable problem. Practitioners should be cautious about assuming that reward design for correctness will transfer directly to performance optimization.",
   "visual_elements": [
-    "Pipeline diagram: code generation → execution → timing measurement → reward signal",
-    "Comparison chart showing correctness-based RL vs timing-based RL outcomes",
-    "Noise/instability illustration highlighting small speed gains versus increased failures",
-    "Icon set for runtime, hidden tests, reward, and warning/stability"
+    "Pipeline diagram: code generation -> execution -> hidden tests -> timing reward -> RL update",
+    "Trade-off chart showing correctness vs. speed as reward weight increases",
+    "Noise illustration for execution-time measurements with overlapping runtime distributions",
+    "Failure-mode icons for sparse reward, unstable training, and broken solutions"
   ],
   "hashtags": [
     "#ReinforcementLearning",
     "#CodeOptimization",
+    "#LLM4Code",
     "#AIResearch",
-    "#LLM",
     "#MachineLearning"
   ],
   "paper_id": "2026-07-28-arxiv-reinforcement_learning_for_code_optimization",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.25970v1"
     }
   ],
-  "generated_at": "2026-07-29T08:19:40.128469",
+  "generated_at": "2026-07-30T08:07:33.766202",
   "generator": "openai"
 }

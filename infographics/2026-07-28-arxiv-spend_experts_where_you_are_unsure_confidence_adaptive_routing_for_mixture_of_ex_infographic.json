@@ -1,23 +1,23 @@
 {
-  "key_insight": "CARE (Confidence-Adaptive Routing of Experts) uses the router’s own output distribution as a confidence signal, sending more experts to uncertain tokens and fewer to easy ones. This makes Mixture-of-Experts LoRA more efficient without treating every token the same.",
-  "problem_solved": "Standard MoE LoRA routes every token to a fixed number of experts k, which wastes compute on easy tokens and may under-serve difficult ones. The paper addresses the lack of token-wise adaptability in expert routing.",
+  "key_insight": "Tokens do not all need the same number of experts: easy tokens can be routed more cheaply, while uncertain tokens deserve more expert capacity. CARE uses the router's own confidence as a signal to adapt how many experts each token receives.",
+  "problem_solved": "Standard Mixture-of-Experts LoRA routes every token to a fixed top-k experts, which wastes compute on confident tokens and can underserve ambiguous ones. This paper addresses the mismatch between token difficulty and fixed routing capacity.",
   "method": [
-    "Interpret the router’s probability distribution as a per-token uncertainty estimate: peaked = confident, flat = uncertain.",
-    "Adapt the number of activated experts based on confidence instead of using a fixed k for all tokens.",
-    "Spend computation where ambiguity is highest, allocating more experts to hard tokens and fewer to easy tokens."
+    "Use the router's output distribution as a per-token uncertainty estimate: peaked distributions indicate high confidence, flatter ones indicate uncertainty.",
+    "Admit experts adaptively based on confidence rather than using a fixed k for all tokens.",
+    "Allocate more experts to uncertain tokens and fewer experts to easy tokens to better balance accuracy and efficiency."
   ],
-  "impact": "For practitioners, this can improve compute efficiency while preserving or improving model quality on difficult inputs. It also offers a simple, principled way to make LoRA-based MoE models more dynamic and cost-aware.",
+  "impact": "For AI/ML practitioners, CARE offers a way to make LoRA-based expert routing more compute-efficient without treating every token the same. It can improve resource allocation in adaptation-heavy models by focusing capacity where it is most needed.",
   "visual_elements": [
-    "A token flow diagram showing confident tokens routed to fewer experts and uncertain tokens to more experts.",
-    "A side-by-side comparison of fixed-k routing vs confidence-adaptive routing.",
-    "A router probability plot illustrating peaked vs flat distributions as confidence signals.",
-    "An efficiency tradeoff chart showing compute saved versus performance maintained."
+    "Side-by-side comparison of fixed top-k routing vs confidence-adaptive routing",
+    "Router output distribution plot showing peaked vs flat confidence levels",
+    "Token flow diagram illustrating easy tokens getting fewer experts and hard tokens getting more",
+    "Efficiency-accuracy tradeoff chart highlighting better compute use"
   ],
   "hashtags": [
     "#MixtureOfExperts",
     "#LoRA",
-    "#Routing",
     "#EfficientAI",
+    "#ModelAdaptation",
     "#MachineLearning"
   ],
   "paper_id": "2026-07-28-arxiv-spend_experts_where_you_are_unsure_confidence_adaptive_routing_for_mixture_of_ex",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.26052v1"
     }
   ],
-  "generated_at": "2026-07-29T08:20:12.646202",
+  "generated_at": "2026-07-30T08:07:39.993958",
   "generator": "openai"
 }
