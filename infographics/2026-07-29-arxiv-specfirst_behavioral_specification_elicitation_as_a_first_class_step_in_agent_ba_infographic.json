@@ -1,24 +1,24 @@
 {
-  "key_insight": "SpecFirst argues that building software from scratch is not just a coding problem, but a specification-discovery problem first. By separating behavioral specification elicitation from code synthesis, agent-based systems can better handle tasks where documentation is incomplete and the executable is the only reliable oracle.",
-  "problem_solved": "The paper addresses the difficulty LLM agents face when asked to create a program from scratch using only natural-language documentation and an execute-only binary. Current approaches mix reading docs, exploring behavior, and synthesizing code in one pass, which leads to poor performance on benchmarks like ProgramBench.",
+  "key_insight": "SpecFirst argues that program synthesis from scratch becomes much more feasible when behavioral specification elicitation is treated as a separate, first-class step instead of being mixed into code generation. The core finding is that agents need to actively probe and formalize program behavior before attempting synthesis.",
+  "problem_solved": "The paper addresses the difficulty of building software from scratch with LLM-based agents when only natural-language docs and an execute-only binary are available. In this setting, existing agents struggle because they must read documentation, explore behavior, and synthesize code all at once, leading to severe performance drops.",
   "method": [
-    "Treat behavioral specification elicitation as a first-class step before synthesis.",
-    "Use agentic exploration of the binary to infer how the target program behaves beyond what the documentation states.",
-    "Convert discovered behavior into a clearer spec that guides downstream code generation from scratch."
+    "Separate the workflow into explicit phases: specification elicitation, behavioral exploration, and code synthesis.",
+    "Use the execute-only binary as a behavioral oracle to discover how the target program behaves in practice.",
+    "Turn the discovered behaviors into a clearer spec that guides downstream synthesis from scratch."
   ],
-  "impact": "For AI/ML practitioners, this reframes program synthesis as a multi-stage process and suggests a more reliable path for building agents that can recreate software without source code. It may improve benchmark performance and make agent workflows more robust in real-world reverse-engineering or reimplementation settings.",
+  "impact": "For AI/ML practitioners, this reframes agentic software engineering as a specification-first problem rather than a pure code-generation problem. It suggests a practical path to improving success on hard from-scratch benchmarks and building more reliable coding agents.",
   "visual_elements": [
-    "Two-stage pipeline diagram: documentation + binary exploration -> behavioral spec -> code synthesis",
-    "Benchmark bar chart showing current model success rates vs. the proposed approach",
-    "Icon set for docs, binary/executable, agent explorer, and generated code",
-    "Failure-to-success flow illustration highlighting why one-pass synthesis breaks down"
+    "A 3-step pipeline diagram: docs -> behavioral probing -> synthesis.",
+    "A before/after comparison showing monolithic agent workflow versus SpecFirst workflow.",
+    "An icon-based view of the binary as a behavioral oracle, with inputs and observed outputs.",
+    "A benchmark result chart highlighting the sub-1% baseline gap and improved performance under spec-first decomposition."
   ],
   "hashtags": [
     "#LLMAgents",
     "#ProgramSynthesis",
-    "#AIResearch",
     "#SoftwareEngineeringAI",
-    "#Benchmarking"
+    "#BehavioralSpecification",
+    "#AIResearch"
   ],
   "paper_id": "2026-07-29-arxiv-specfirst_behavioral_specification_elicitation_as_a_first_class_step_in_agent_ba",
   "paper_title": "SpecFirst: Behavioral Specification Elicitation as a First-Class Step in Agent-Based Program Synthesis from Scratch",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.27167v1"
     }
   ],
-  "generated_at": "2026-07-30T08:07:01.780891",
+  "generated_at": "2026-07-31T08:34:01.117759",
   "generator": "openai"
 }
