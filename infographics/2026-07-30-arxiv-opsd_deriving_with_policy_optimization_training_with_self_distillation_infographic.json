@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper shows that vanilla on-policy self-distillation (OPSD) is just one special case of a broader policy-optimization framework with a tunable KL weight β. By exposing β as a controllable parameter, the method makes OPSD less brittle and easier to stabilize in practice.",
-  "problem_solved": "It addresses the practical instability and heavy engineering burden of making on-policy self-distillation work reliably for reasoning language models.",
+  "key_insight": "The paper shows that vanilla on-policy self-distillation (OPSD) is just the β=1 case of a broader policy-optimization framework. By exposing β as a tunable KL-penalty weight, the method turns a brittle training recipe into a controllable one.",
+  "problem_solved": "It addresses the instability and heavy engineering burden of making OPSD work reliably for reasoning language models.",
   "method": [
-    "Reformulate OPSD as policy optimization with a KL penalty to a reference model, where β controls the strength of anchoring.",
-    "Treat β as a tunable hyperparameter instead of fixing it implicitly at 1, allowing better control over exploration vs. stability.",
-    "Train with self-distillation while using the policy-optimization view to reduce brittleness and improve reliability."
+    "Reformulate OPSD as policy optimization with a KL regularization term that anchors the student to a reference policy.",
+    "Generalize the objective with a β parameter, where β controls the strength of the KL penalty instead of fixing it implicitly at 1.",
+    "Use this equivalence to derive a more flexible training setup that can be tuned for stability and performance."
   ],
-  "impact": "For AI/ML practitioners, this provides a cleaner conceptual framework and a practical knob for stabilizing self-distillation-based training. It can reduce trial-and-error engineering and make reasoning-model improvement more reproducible.",
+  "impact": "For practitioners, this provides a cleaner way to understand and tune self-distillation training. It can reduce trial-and-error engineering and make reasoning-model improvement more reliable.",
   "visual_elements": [
-    "A schematic showing OPSD as the β=1 point within a wider policy-optimization family",
-    "A slider or scale illustrating how changing β affects KL anchoring and model drift",
-    "A before/after diagram comparing brittle OPSD training vs. stabilized β-OPSD training",
-    "An icon-based flowchart: reference model → student update → self-distillation loop"
+    "A side-by-side equation graphic showing vanilla OPSD vs. β-OPSD",
+    "A slider icon or scale illustrating β controlling the KL penalty",
+    "A workflow diagram: reference policy → student updates → self-distillation loop",
+    "A stability chart comparing brittle training vs. controlled optimization"
   ],
   "hashtags": [
-    "#LLMTraining",
+    "#AIResearch",
+    "#MachineLearning",
     "#SelfDistillation",
-    "#PolicyOptimization",
     "#ReasoningModels",
-    "#MachineLearning"
+    "#PolicyOptimization"
   ],
   "paper_id": "2026-07-30-arxiv-opsd_deriving_with_policy_optimization_training_with_self_distillation",
   "paper_title": "$β$-OPSD: Deriving with Policy Optimization, Training with Self-Distillation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.28582v1"
     }
   ],
-  "generated_at": "2026-07-31T08:33:20.915649",
+  "generated_at": "2026-08-01T08:02:54.780994",
   "generator": "openai"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "ReToken adds a single learnable token that acts like a retrieval query, helping vision-language models focus on the most relevant visual tokens instead of all distractors. This improves retrieval and reasoning under long visual context with little extra training data.",
-  "problem_solved": "Vision-language models struggle when images or videos contain many distracting tokens, and processing everything is too expensive for GPU memory. The paper addresses how to efficiently retrieve only query-relevant visual information from a large visual cache.",
+  "key_insight": "ReToken shows that a single learned token can act as a retrieval query to pick only the most relevant visual tokens from a large cached context. This improves vision-language performance on long visual inputs while avoiding the cost of processing everything at once.",
+  "problem_solved": "The paper addresses the difficulty of scaling vision-language models to long visual contexts with many distractors, where accuracy drops and GPU memory makes full-context processing impractical.",
   "method": [
     "Train one learnable embedding as an explicit retrieval target.",
-    "Use the token to select a sparse subset of relevant visual tokens from a pre-filled visual KV cache.",
-    "Train on a small image-QA dataset and evaluate across image and video benchmarks."
+    "Use the token to select a sparse set of query-relevant visual tokens from a pre-filled visual KV cache.",
+    "Train on a small image-QA dataset and apply the method to image and video retrieval settings."
   ],
-  "impact": "ReToken offers a simple, memory-efficient way to improve long-context visual retrieval without redesigning the whole model. For practitioners, this means better accuracy on cluttered images and videos with minimal added compute and data.",
+  "impact": "For practitioners, ReToken offers a simple and efficient way to handle long visual contexts without major architectural changes. It can improve retrieval quality and reduce memory/computation costs for multimodal systems.",
   "visual_elements": [
-    "Before/after diagram showing dense token processing vs sparse ReToken retrieval",
-    "Visual KV cache schematic with highlighted selected tokens",
-    "Performance chart across increasing distractor counts",
-    "Icon of a single query token pulling relevant patches/frames"
+    "Pipeline diagram showing visual input, KV cache, ReToken query token, and sparse token selection",
+    "Before/after comparison chart of full-context processing vs. ReToken retrieval",
+    "Attention heatmap highlighting selected relevant visual tokens among distractors",
+    "Performance bar chart across image and video benchmarks"
   ],
   "hashtags": [
     "#VisionLanguageModels",
     "#VisualRetrieval",
     "#EfficientAI",
     "#MultimodalAI",
-    "#MachineLearning"
+    "#RetrievalAugmented"
   ],
   "paper_id": "2026-07-30-arxiv-retoken_one_token_to_improve_vision_language_models_for_visual_retrieval",
   "paper_title": "ReToken: One Token to Improve Vision-Language Models for Visual Retrieval",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.28627v1"
     }
   ],
-  "generated_at": "2026-07-31T08:33:50.015675",
+  "generated_at": "2026-08-01T08:03:21.107578",
   "generator": "openai"
 }

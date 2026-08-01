@@ -1,22 +1,22 @@
 {
-  "key_insight": "Visual Attribution Distillation (VAD) separates true visual evidence from mixed correction signals in multimodal on-policy distillation. This lets the student learn from what the teacher can actually see, instead of also inheriting linguistic priors or teacher-specific artifacts.",
-  "problem_solved": "The paper addresses a core OPD challenge: next-token corrections are \"source-mixed,\" meaning they blend visual information with language priors and teacher behavior. The goal is to identify which corrections are genuinely supported by visual evidence for target reconstruction.",
+  "key_insight": "Visual Attribution Distillation (VAD) focuses distillation on corrections that are actually supported by visual evidence, rather than blindly copying all teacher-token corrections. This makes multimodal on-policy distillation more faithful and less contaminated by language priors or teacher-specific noise.",
+  "problem_solved": "Standard multimodal on-policy distillation mixes together visual signals, linguistic priors, and teacher quirks in its next-token corrections. The paper addresses the challenge of identifying which student corrections truly come from the image, so distillation targets the right evidence instead of just the strongest signals.",
   "method": [
-    "Uses counterfactual target reconstruction to estimate whether a correction is attributable to visual evidence.",
-    "Focuses on attribution, not just correction magnitude, to distinguish visual signals from non-visual confounds.",
-    "Applies this attribution to guide distillation so the student receives cleaner, more faithful supervision."
+    "Uses counterfactual target reconstruction to estimate whether a token correction is supported by visual evidence.",
+    "Separates visually grounded corrections from source-mixed teacher signals before applying distillation.",
+    "Reweights supervision so the student learns more from evidence-backed visual targets and less from non-visual artifacts."
   ],
-  "impact": "For practitioners, VAD offers a more reliable way to transfer visual knowledge in multimodal models, improving supervision quality in settings where teacher outputs are noisy or biased. This can lead to better student performance and more interpretable distillation.",
+  "impact": "For practitioners, VAD can improve the quality of multimodal student models by making distillation more precise and interpretable. This is especially useful when training systems that must learn from teacher guidance without absorbing spurious language-only patterns.",
   "visual_elements": [
-    "Pipeline diagram showing teacher, student, and attribution module",
-    "Counterfactual comparison graphic highlighting visual vs. non-visual corrections",
-    "Heatmap or token-level attribution visualization over an example response",
-    "Before/after illustration of source-mixed supervision versus VAD-filtered supervision"
+    "A pipeline diagram showing teacher outputs, counterfactual reconstruction, and filtered visual targets.",
+    "A side-by-side comparison of standard OPD vs VAD with mixed vs evidence-based corrections.",
+    "An attribution heatmap over image regions highlighting which tokens are visually supported.",
+    "An icon-based breakdown of visual evidence, linguistic prior, and teacher effect."
   ],
   "hashtags": [
     "#MultimodalAI",
     "#KnowledgeDistillation",
-    "#VisualAttribution",
+    "#VisualReasoning",
     "#MachineLearning",
     "#AIResearch"
   ],
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2607.28590v1"
     }
   ],
-  "generated_at": "2026-07-31T08:33:24.089711",
+  "generated_at": "2026-08-01T08:02:57.554579",
   "generator": "openai"
 }
