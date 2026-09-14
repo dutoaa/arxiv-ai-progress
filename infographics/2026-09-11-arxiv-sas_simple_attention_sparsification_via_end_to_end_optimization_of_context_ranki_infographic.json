@@ -1,0 +1,36 @@
+{
+  "key_insight": "SAS makes attention sparsification trainable end-to-end by optimizing how context units are ranked, instead of relying on a separate selector trained from dense attention distillation. This lets the model learn sparse attention patterns more directly while preserving language modeling performance.",
+  "problem_solved": "It addresses the high quadratic cost of Transformer attention during post-training sparsification, where existing methods often use hard Top-K selection that blocks gradients and forces indirect training through dense attention targets.",
+  "method": [
+    "Use a lightweight selector to score context units for each query.",
+    "Optimize the ranking of context units end-to-end so selection is guided by the language modeling loss.",
+    "Replace or reduce reliance on layer-wise dense-attention distillation, enabling sparse attention learning with better gradient flow."
+  ],
+  "impact": "For practitioners, this can lower inference and memory costs when deploying large Transformers without heavily sacrificing accuracy. It also offers a cleaner training recipe for learning sparse attention patterns in post-training settings.",
+  "visual_elements": [
+    "Before/after diagram comparing dense attention vs. sparse Top-K attention",
+    "Pipeline graphic showing selector -> ranking -> sparse selection -> language model loss",
+    "Gradient flow illustration highlighting blocked gradients in prior methods versus end-to-end optimization in SAS",
+    "Bar chart of compute/memory savings versus model quality"
+  ],
+  "hashtags": [
+    "#AttentionSparsification",
+    "#Transformers",
+    "#EfficientAI",
+    "#ModelCompression",
+    "#DeepLearning"
+  ],
+  "paper_id": "2026-09-11-arxiv-sas_simple_attention_sparsification_via_end_to_end_optimization_of_context_ranki",
+  "paper_title": "SAS: Simple Attention Sparsification via End-to-End Optimization of Context Ranking",
+  "paper_category": "Model",
+  "paper_date": "2026-09-11",
+  "paper_authors": "Zhiwei Li, Lei Zhu, Hao Gu, Xiang Hu, Yan Wang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2609.13141v1"
+    }
+  ],
+  "generated_at": "2026-09-14T11:16:49.726064",
+  "generator": "openai"
+}
