@@ -1,0 +1,36 @@
+{
+  "key_insight": "Compressing each weight matrix optimally on its own is not enough for good LLM compression. This paper shows that low-rank compression should be optimized across three levels—matrix, block, and whole model—because approximation errors interact through Transformer nonlinearities.",
+  "problem_solved": "The paper addresses the gap between per-matrix SVD truncation optimality and end-to-end model quality. Independently compressing matrices can look optimal locally but still produce compounded error and accuracy loss in the full Transformer.",
+  "method": [
+    "Whiten each matrix and apply truncated SVD as the first-level (L1) compression step.",
+    "Perform block-level joint optimization (L2) to account for interactions among compressed matrices inside a Transformer block.",
+    "Extend optimization to the full model (L3) so the final compression objective reflects end-to-end performance rather than isolated matrix error."
+  ],
+  "impact": "This provides a more reliable recipe for low-rank LLM compression, especially when preserving downstream accuracy matters more than local reconstruction error. For practitioners, it suggests better compression results with fewer surprises when deploying smaller, faster models.",
+  "visual_elements": [
+    "A three-tier pyramid showing L1 matrix, L2 block, and L3 model optimization.",
+    "A side-by-side comparison of per-matrix SVD vs. joint optimization error propagation through a Transformer block.",
+    "A flowchart showing compression decisions moving from matrix-level to model-level.",
+    "Icons for matrices, Transformer blocks, and a full LLM to illustrate the hierarchy."
+  ],
+  "hashtags": [
+    "#LLMCompression",
+    "#LowRankApproximation",
+    "#SVD",
+    "#TransformerModels",
+    "#ModelOptimization"
+  ],
+  "paper_id": "2026-09-14-arxiv-per_matrix_optimality_is_not_enough_three_level_optimization_for_low_rank_llm_co",
+  "paper_title": "Per-Matrix Optimality Is Not Enough: Three-Level Optimization for Low-Rank LLM Compression",
+  "paper_category": "Model",
+  "paper_date": "2026-09-14",
+  "paper_authors": "Huicheng Zhang, Xiyao Feng, Ze-Tong Li, Chengkai Zhu, Xiao Shi",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2609.15838v1"
+    }
+  ],
+  "generated_at": "2026-09-15T10:50:08.409005",
+  "generator": "openai"
+}

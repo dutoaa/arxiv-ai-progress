@@ -1,23 +1,23 @@
 {
-  "key_insight": "This paper shows that in Mixture-of-Experts reinforcement learning, expert routing is not just an internal implementation detail—it can be actively explored to create more diverse rollouts and improve learning. In other words, changing which experts are selected can help the model discover better training signals.",
-  "problem_solved": "Prior MoE-RL methods mainly focused on stabilizing optimization and improving efficiency, while treating expert selection as fixed. This paper addresses the missed opportunity of using routing itself as a controllable source of rollout diversity in RL.",
+  "key_insight": "This paper argues that MoE routing is not just an implementation detail—it can be actively explored during reinforcement learning to increase rollout diversity and improve learning. By perturbing expert selection, the model can generate more varied sparse computation paths and potentially better post-training outcomes.",
+  "problem_solved": "Existing RL methods for Mixture-of-Experts models mainly optimize stability and efficiency while keeping expert routing fixed. This work addresses the missed opportunity of using expert selection itself as a controllable source of diversity during RL training.",
   "method": [
-    "Empirically analyze how perturbing expert routing changes rollout behavior and output distributions.",
-    "Treat expert selection as an exploration dimension during reinforcement learning rather than a fixed sparse computation path.",
-    "Leverage expert-space exploration to increase diversity in sampled trajectories and potentially improve post-training outcomes."
+    "Analyze how expert routing affects output diversity in MoE reinforcement learning.",
+    "Introduce expert-space exploration by perturbing routing decisions to sample different sparse expert paths.",
+    "Use the resulting routing diversity to enrich rollouts and improve RL training signal quality."
   ],
-  "impact": "For AI/ML practitioners, this suggests a new lever for improving MoE RL beyond loss design and optimizer tuning. It provides a practical direction for making sparse models explore more effectively during post-training, which may lead to better performance and more robust policy learning.",
+  "impact": "For AI/ML practitioners, this suggests a new lever for improving MoE post-training beyond optimizer tweaks and stability tricks. It could help produce stronger, more diverse policies with little added architectural complexity.",
   "visual_elements": [
-    "A MoE routing diagram showing token-to-expert paths before and after perturbation.",
-    "A side-by-side comparison chart of rollout diversity with fixed routing vs. expert-space exploration.",
-    "An infographic flow showing: input tokens -> router -> experts -> diverse trajectories -> RL updates.",
-    "An icon-based summary of 'fixed routing' versus 'explored routing' with arrows illustrating diversity."
+    "A pipeline diagram showing RL training with MoE routing and perturbation points.",
+    "A comparison graphic of fixed routing vs expert-space exploration.",
+    "A sparse expert-map illustration highlighting different expert paths for the same prompt.",
+    "A rollout diversity chart showing broader trajectory coverage after routing perturbation."
   ],
   "hashtags": [
     "#MixtureOfExperts",
     "#ReinforcementLearning",
+    "#LargeLanguageModels",
     "#LLMTraining",
-    "#ModelOptimization",
     "#AIResearch"
   ],
   "paper_id": "2026-09-11-arxiv-expert_space_exploration_in_moe_reinforcement_learning",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.13058v1"
     }
   ],
-  "generated_at": "2026-09-14T11:16:34.845893",
+  "generated_at": "2026-09-15T10:50:45.926419",
   "generator": "openai"
 }

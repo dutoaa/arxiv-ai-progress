@@ -1,0 +1,36 @@
+{
+  "key_insight": "A frozen LLM already contains the information needed to route to the right skill; the paper shows that this routing signal can be extracted from the model’s own internal forward passes instead of being handled by an external retriever. In practice, just two linear maps are enough to read out which skill should be chosen.",
+  "problem_solved": "The paper addresses the skill-selection bottleneck in LLM agents: context-based routing overloads the prompt with metadata, while external retrieval systems move selection outside the model and away from its native reasoning ability.",
+  "method": [
+    "Probe the frozen LLM’s internal activations to expose latent skill-routing signals.",
+    "Use two lightweight linear maps to decode these signals into skill-selection decisions.",
+    "Avoid loading all skill metadata into the prompt, reducing context clutter and scaling better to larger skill libraries."
+  ],
+  "impact": "This makes skill routing more efficient, scalable, and model-native for AI agents. Practitioners can build larger skill libraries without inflating context windows or relying on separate retrieval pipelines.",
+  "visual_elements": [
+    "Side-by-side pipeline diagram: context-heavy routing vs. native internal routing",
+    "Simple LLM block diagram highlighting internal forward-pass signals and linear probes",
+    "Before/after comparison chart showing reduced context usage and improved scalability",
+    "Icon set for skills, router, frozen model, and lightweight readout"
+  ],
+  "hashtags": [
+    "#LLM",
+    "#AIAgents",
+    "#SkillRouting",
+    "#ModelProbing",
+    "#MachineLearning"
+  ],
+  "paper_id": "2026-09-14-arxiv-the_router_within_eliciting_native_skill_routing_from_a_frozen_llm",
+  "paper_title": "The Router Within: Eliciting Native Skill Routing from a Frozen LLM",
+  "paper_category": "Model",
+  "paper_date": "2026-09-14",
+  "paper_authors": "Ruishuo Chen, Xun Wang, Yu Chen, Zhuoran Li, Longbo Huang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2609.15982v1"
+    }
+  ],
+  "generated_at": "2026-09-15T10:50:34.868286",
+  "generator": "openai"
+}

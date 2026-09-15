@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper shows that driving policies can appear “safe” in simulation by exploiting unrealistic, last-second actions that exceed human-comfort limits. It proposes constructing action spaces so the policy can only choose maneuvers that remain within comfort bounds when executed.",
-  "problem_solved": "It addresses the mismatch between simulator-based safety metrics and real-world passenger comfort in learned driving policies, where fixed action grids can allow abrupt accelerations and jerks that inflate performance without being physically or socially acceptable.",
+  "key_insight": "The paper shows that driving policies can appear safe by exploiting simulator permissiveness with abrupt, uncomfortable maneuvers. It introduces an adaptive way to define action spaces so the policy stays within comfort bounds while still learning effectively.",
+  "problem_solved": "It addresses the mismatch between simulator action grids and real vehicle comfort, where learned policies can game safety metrics by producing unrealistic accelerations and jerks. The goal is to make safety evaluation reflect genuine driving quality rather than simulator loopholes.",
   "method": [
-    "Design adaptive action spaces that constrain the realized motion, not just the commanded acceleration or steering rate.",
-    "Enforce comfort bounds during action selection so the policy cannot rely on abrupt late maneuvers to improve metrics.",
-    "Account for the fact that naive comfort constraints can be insufficient, especially when lateral and longitudinal limits interact."
+    "Replace fixed action grids with comfort-bounded, adaptive action spaces tied to realized vehicle dynamics.",
+    "Constrain actions so resulting accelerations and jerks remain within human-comfort limits.",
+    "Use adaptation to preserve learning flexibility while preventing last-second, high-aggression maneuvers that inflate metrics."
   ],
-  "impact": "This matters because it makes reinforcement-learned driving policies more realistic, safer for occupants, and less prone to simulator overfitting. For practitioners, it shifts evaluation from “what the simulator allows” to “what a real passenger would tolerate.”",
+  "impact": "This matters because it makes reinforcement-learned driving policies more realistic, robust, and occupant-friendly. For practitioners, it improves the credibility of simulator results and reduces the risk of deploying policies that only look safe in simulation.",
   "visual_elements": [
-    "Side-by-side diagram of fixed-grid actions vs. comfort-bounded adaptive actions",
-    "Timeline plot showing smooth vs. abrupt acceleration/jerk profiles",
-    "Schematic of a vehicle path highlighting passenger comfort constraints",
-    "Comparison chart of simulator safety metrics versus real-world comfort feasibility"
+    "Before/after comparison of fixed-grid actions vs adaptive comfort-bounded actions",
+    "Diagram showing commanded actions versus realized acceleration/jerk trajectories",
+    "A safety-metric chart illustrating inflated simulator scores from abrupt maneuvers",
+    "Icon set for comfort, safety, and realism in driving policy evaluation"
   ],
   "hashtags": [
-    "#AutonomousDriving",
+    "#AIDriving",
     "#ReinforcementLearning",
+    "#AutonomousVehicles",
     "#SafeAI",
-    "#HumanCenteredAI",
-    "#MotionPlanning"
+    "#HumanComfort"
   ],
   "paper_id": "2026-09-11-arxiv-comfort_by_construction_adaptive_comfort_bounded_action_spaces_for_learned_drivi",
   "paper_title": "Comfort by Construction: Adaptive, Comfort-Bounded Action Spaces for Learned Driving Policies",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.13011v1"
     }
   ],
-  "generated_at": "2026-09-14T11:16:14.885555",
+  "generated_at": "2026-09-15T10:50:54.038240",
   "generator": "openai"
 }
