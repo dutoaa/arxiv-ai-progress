@@ -1,23 +1,24 @@
 {
-  "key_insight": "Pretraining on a large CFD dataset helps most when the target problem is close to the source distribution. This paper shows that distribution shifts from geometry changes and added physics can reduce pretraining gains, and quantifies how much each shift component matters.",
-  "problem_solved": "The paper addresses the open question of why and when pretrained neural PDE surrogates transfer well to new CFD settings, especially when airfoil geometry and turbulence/transition modeling change between source and target data.",
+  "key_insight": "Pretraining on a large source PDE dataset can significantly improve data efficiency when adapting to a new geometry, but the gain depends on what kind of distribution shift is present. The paper shows that changes in geometry and changes in modeled physics do not help or hurt pretraining in the same way.",
+  "problem_solved": "The paper addresses a key uncertainty in neural PDE surrogates: which components of distribution shift—such as geometry changes versus physics/model changes—determine how much benefit pretraining provides during fine-tuning.",
   "method": [
-    "Pretrain a neural PDE surrogate on 254,909 RANS simulations from one airfoil family.",
-    "Fine-tune the model on a new airfoil family under two target regimes: same Spalart-Allmaras (SA) modeling and SA plus e^N transition modeling.",
-    "Compare performance under matched freestream ranges to isolate the effect of distribution shift on transfer learning gains."
+    "Pretrained a neural PDE surrogate on 254,909 RANS simulations from one airfoil family.",
+    "Fine-tuned the model on a different airfoil family under two target settings with matched freestream ranges: one with the same Spalart-Allmaras (SA) turbulence model and one with SA plus e^N transition modeling.",
+    "Compared pretrained vs. non-pretrained adaptation to isolate how geometry shift and physics shift affect data efficiency.",
+    "Evaluated performance at a fixed training budget (N=1000) to measure the practical value of pretraining."
   ],
-  "impact": "For AI/ML practitioners building physics surrogates, the results clarify when pretraining is worth the effort and when mismatch in geometry or physics can limit transfer. This can guide data collection, model reuse, and fine-tuning strategy in CFD and other scientific ML settings.",
+  "impact": "For AI/ML practitioners building surrogate models for CFD and scientific computing, this study clarifies when pretraining is most valuable and when its benefits may be limited by distribution shift. It can help guide data collection, transfer learning strategy, and model deployment across new engineering conditions.",
   "visual_elements": [
-    "Pipeline diagram showing pretraining on source airfoils and fine-tuning on target airfoils.",
-    "Side-by-side comparison of the two target settings: SA vs. SA + e^N transition.",
-    "Performance chart illustrating transfer gains under different distribution shifts.",
-    "Icon set for geometry shift, physics shift, and data efficiency."
+    "Two-stage pipeline diagram: source pretraining on one airfoil family → fine-tuning on a new family",
+    "Side-by-side comparison panels for the two target settings: SA vs. SA + e^N transition",
+    "Bar chart showing data efficiency or error reduction with and without pretraining at N=1000",
+    "Icon-based summary of shift types: geometry shift, physics shift, freestream-matched conditions"
   ],
   "hashtags": [
-    "#AIforScience",
-    "#PhysicsInformedML",
+    "#AIPDE",
     "#CFD",
     "#TransferLearning",
+    "#ScientificMachineLearning",
     "#NeuralSurrogates"
   ],
   "paper_id": "2026-09-17-arxiv-how_does_distribution_shift_shape_pretraining_gains_in_neural_pde_surrogates",
@@ -31,6 +32,6 @@
       "url": "https://arxiv.org/pdf/2609.20814v1"
     }
   ],
-  "generated_at": "2026-09-18T10:14:39.059726",
+  "generated_at": "2026-09-19T09:56:32.129579",
   "generator": "openai"
 }

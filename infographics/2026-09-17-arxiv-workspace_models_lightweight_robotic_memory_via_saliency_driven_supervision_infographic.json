@@ -1,24 +1,24 @@
 {
-  "key_insight": "Workspace Models shift expensive vision-language model (VLM) reasoning out of the robot’s online control loop and into training, learning a lightweight memory that focuses only on task-salient events. This makes long-horizon manipulation more efficient and less vulnerable to noise from full-history conditioning.",
-  "problem_solved": "Robotic policies often need memory of past events, but feeding full histories into the policy can introduce spurious correlations and hurt performance. Existing memory methods can also be costly because they rely on VLM queries during inference.",
+  "key_insight": "The paper shows that robots can learn a lightweight, task-relevant memory during training using saliency-guided supervision, instead of repeatedly running expensive VLM queries at inference time. This makes long-horizon manipulation more practical by keeping only the information that matters for the task.",
+  "problem_solved": "Robotic policies often need memory of past events to succeed on long manipulation tasks, but using full histories can introduce noise and spurious correlations. Existing memory methods may also be too expensive because they rely on VLM calls during execution.",
   "method": [
-    "Use computationally intensive VLM queries during training to identify which past observations/actions are truly salient for the task.",
-    "Train a lightweight workspace memory model that stores compressed, task-relevant information instead of raw full histories.",
-    "At inference time, rely on the learned memory to support long-term manipulation without expensive online VLM calls."
+    "Use computationally expensive VLM queries during training to identify which past events are task-salient.",
+    "Train a compact workspace memory model to store only the most relevant historical information.",
+    "Deploy the learned memory at test time so the robot can condition on concise, meaningful state instead of full history or repeated VLM inference."
   ],
-  "impact": "For AI/ML practitioners, this offers a practical path to scalable robot memory: better long-horizon behavior with lower latency and compute. It is especially useful for deployment settings where online VLM use is too slow or expensive.",
+  "impact": "For AI/ML practitioners, this offers a more efficient way to add memory to robotic policies without the runtime cost of large vision-language models. It can improve robustness on long-horizon tasks while reducing latency and deployment complexity.",
   "visual_elements": [
-    "Side-by-side pipeline diagram: full-history policy vs. Workspace Models memory",
-    "Train-time vs. test-time compute split illustration showing VLM used only during training",
-    "Memory compression graphic highlighting saliency-selected events in a timeline",
-    "Icon set for robot arm, VLM cloud, and lightweight memory buffer"
+    "Pipeline diagram: full history -> saliency filtering -> compact workspace memory -> robot action",
+    "Comparison chart: inference cost and performance for full-history, VLM-in-loop, and proposed method",
+    "Memory timeline highlighting salient events versus irrelevant observations",
+    "Icon set showing robot, VLM, highlighted objects, and lightweight memory module"
   ],
   "hashtags": [
     "#Robotics",
     "#MachineLearning",
     "#VisionLanguageModels",
-    "#RobotMemory",
-    "#AIResearch"
+    "#LongHorizonPlanning",
+    "#EfficientAI"
   ],
   "paper_id": "2026-09-17-arxiv-workspace_models_lightweight_robotic_memory_via_saliency_driven_supervision",
   "paper_title": "Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.20820v1"
     }
   ],
-  "generated_at": "2026-09-18T10:14:50.387910",
+  "generated_at": "2026-09-19T09:56:41.671809",
   "generator": "openai"
 }
