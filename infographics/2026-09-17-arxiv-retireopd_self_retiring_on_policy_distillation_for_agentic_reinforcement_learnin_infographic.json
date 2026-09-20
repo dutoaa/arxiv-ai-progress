@@ -1,23 +1,23 @@
 {
-  "key_insight": "In agentic reinforcement learning, a privileged self-teacher is not always helpful, and its value changes across training stages. RetireOPD proposes to use self-on-policy distillation only when it is actually beneficial, then retire it when it becomes unreliable or unnecessary.",
-  "problem_solved": "The paper addresses the mismatch between sparse trajectory-level RL rewards and the need for dense token-level supervision in multi-turn agents, while also tackling the instability of self-teachers in agentic tasks.",
+  "key_insight": "RetireOPD shows that in agentic reinforcement learning, a privileged self-teacher is not always trustworthy, and its guidance is only useful at certain stages of training. The paper’s key idea is to make on-policy distillation self-retiring: use teacher supervision when it helps, then stop relying on it when it becomes less beneficial.",
+  "problem_solved": "The paper addresses the challenge of turning sparse trajectory-level RL rewards into dense token-level supervision for multi-turn agents, without being harmed by unreliable teacher signals or overusing guidance at the wrong training stage.",
   "method": [
-    "Use self on-policy distillation (OPD) to convert a trajectory-level reward signal into dense token-level supervision for a student agent.",
-    "Rely on a self-teacher with privileged task skills, but monitor when its guidance is trustworthy and when it degrades learning.",
-    "Introduce a self-retiring strategy that disables teacher supervision at stages where it no longer helps, making distillation stage-aware."
+    "Train a self-teacher with privileged task information to provide dense on-policy token-level supervision.",
+    "Monitor when teacher guidance is helpful versus harmful across training stages.",
+    "Automatically retire or reduce teacher distillation when the student has learned enough or when supervision becomes unreliable."
   ],
-  "impact": "This work helps practitioners train more reliable multi-turn agents by avoiding overreliance on flawed teacher guidance. It suggests that distillation should be adaptive, not always-on, improving stability and efficiency in agentic RL.",
+  "impact": "This makes RL training for agents more stable and efficient by avoiding blind reliance on a teacher. Practitioners can get better learning signals for long-horizon, multi-turn tasks while reducing noise and wasted supervision.",
   "visual_elements": [
-    "Pipeline diagram showing trajectory reward feeding into a self-teacher and then dense token-level supervision to the student",
-    "Stage timeline illustrating when teacher supervision helps versus when it should retire",
-    "Side-by-side comparison of standard OPD vs RetireOPD",
-    "Icon set for reward signal, teacher, student, and retirement/stop marker"
+    "A two-stage training timeline showing 'guided distillation' transitioning to 'retired supervision'.",
+    "A comparison diagram of sparse trajectory reward vs dense token-level teacher signals.",
+    "A reliability curve showing teacher usefulness changing over training stages.",
+    "Icons for teacher, student, reward, and retirement/stop to illustrate the self-retiring mechanism."
   ],
   "hashtags": [
     "#ReinforcementLearning",
     "#AgenticAI",
-    "#Distillation",
-    "#LLMAgents",
+    "#KnowledgeDistillation",
+    "#RLHF",
     "#MachineLearning"
   ],
   "paper_id": "2026-09-17-arxiv-retireopd_self_retiring_on_policy_distillation_for_agentic_reinforcement_learnin",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.20784v1"
     }
   ],
-  "generated_at": "2026-09-19T09:56:21.066708",
+  "generated_at": "2026-09-20T10:16:49.307053",
   "generator": "openai"
 }

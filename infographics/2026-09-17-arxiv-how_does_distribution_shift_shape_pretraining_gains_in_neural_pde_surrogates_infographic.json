@@ -1,25 +1,24 @@
 {
-  "key_insight": "Pretraining on a large source PDE dataset can significantly improve data efficiency when adapting to a new geometry, but the gain depends on what kind of distribution shift is present. The paper shows that changes in geometry and changes in modeled physics do not help or hurt pretraining in the same way.",
-  "problem_solved": "The paper addresses a key uncertainty in neural PDE surrogates: which components of distribution shift—such as geometry changes versus physics/model changes—determine how much benefit pretraining provides during fine-tuning.",
+  "key_insight": "Pretraining on a large CFD dataset can significantly reduce data needs when transferring neural PDE surrogates to a new geometry, but the benefit depends on the type of distribution shift. The paper shows that matching the freestream range is not enough—changes in underlying modeled physics can alter how much pretraining helps.",
+  "problem_solved": "The paper addresses how to predict and improve pretraining gains for neural PDE surrogates when moving from one airflow/airfoil distribution to another, especially when geometry changes and the target physics may differ.",
   "method": [
-    "Pretrained a neural PDE surrogate on 254,909 RANS simulations from one airfoil family.",
-    "Fine-tuned the model on a different airfoil family under two target settings with matched freestream ranges: one with the same Spalart-Allmaras (SA) turbulence model and one with SA plus e^N transition modeling.",
-    "Compared pretrained vs. non-pretrained adaptation to isolate how geometry shift and physics shift affect data efficiency.",
-    "Evaluated performance at a fixed training budget (N=1000) to measure the practical value of pretraining."
+    "Pretrain a neural PDE surrogate on 254,909 RANS simulations from one airfoil family.",
+    "Fine-tune the pretrained model on a different airfoil family under two target settings: same Spalart-Allmaras (SA) turbulence modeling and SA plus e^N transition modeling.",
+    "Compare performance at limited data budgets to isolate how different components of distribution shift affect transfer benefits."
   ],
-  "impact": "For AI/ML practitioners building surrogate models for CFD and scientific computing, this study clarifies when pretraining is most valuable and when its benefits may be limited by distribution shift. It can help guide data collection, transfer learning strategy, and model deployment across new engineering conditions.",
+  "impact": "For AI/ML practitioners, this provides evidence that transfer learning for scientific surrogates is sensitive to both geometry and physics mismatch. It helps guide when pretraining is likely to reduce CFD data requirements and when domain shifts may weaken its advantage.",
   "visual_elements": [
-    "Two-stage pipeline diagram: source pretraining on one airfoil family → fine-tuning on a new family",
-    "Side-by-side comparison panels for the two target settings: SA vs. SA + e^N transition",
-    "Bar chart showing data efficiency or error reduction with and without pretraining at N=1000",
-    "Icon-based summary of shift types: geometry shift, physics shift, freestream-matched conditions"
+    "Pipeline diagram showing pretraining on source airfoils and fine-tuning on target airfoils",
+    "Side-by-side comparison of the two target settings: SA vs SA + e^N transition",
+    "Bar chart or line plot of error versus number of target samples, highlighting gains from pretraining",
+    "Icon-based summary of distribution shift components: geometry, freestream conditions, and modeled physics"
   ],
   "hashtags": [
-    "#AIPDE",
+    "#AIforScience",
+    "#PhysicsInformedML",
+    "#NeuralPDE",
     "#CFD",
-    "#TransferLearning",
-    "#ScientificMachineLearning",
-    "#NeuralSurrogates"
+    "#TransferLearning"
   ],
   "paper_id": "2026-09-17-arxiv-how_does_distribution_shift_shape_pretraining_gains_in_neural_pde_surrogates",
   "paper_title": "How Does Distribution Shift Shape Pretraining Gains in Neural PDE Surrogates?",
@@ -32,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.20814v1"
     }
   ],
-  "generated_at": "2026-09-19T09:56:32.129579",
+  "generated_at": "2026-09-20T10:17:03.585175",
   "generator": "openai"
 }
