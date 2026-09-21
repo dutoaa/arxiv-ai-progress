@@ -1,24 +1,24 @@
 {
-  "key_insight": "PosteriorBench argues that evaluating generative inverse solvers by a single best reconstruction is not enough. The paper shifts the focus from point estimates to posterior matching, so methods are judged on whether they capture the full set of plausible solutions and their uncertainty.",
-  "problem_solved": "Current benchmarks for inverse problems often reward methods that produce one plausible output, even when the true problem is ambiguous. This can hide failures such as mode collapse, overconfident predictions, and poor uncertainty calibration in ill-posed scientific inverse settings.",
+  "key_insight": "PosteriorBench shifts evaluation of generative inverse solvers from \"did it produce a good-looking sample?\" to \"does it match the full posterior distribution?\". This matters because in ill-posed inverse problems, a single accurate reconstruction can still hide mode collapse, overconfidence, or missed solution modes.",
+  "problem_solved": "The paper addresses the weakness of existing evaluation protocols for generative inverse problems: they mostly measure point-estimate quality and fail to assess whether a model captures the true uncertainty and multi-modality of the posterior.",
   "method": [
-    "Proposes a benchmark framework centered on posterior matching rather than only reconstruction accuracy.",
-    "Evaluates whether generated solutions reflect the full posterior distribution over possible answers for a given observation.",
-    "Exposes errors that point-metric evaluations miss, including missing modes and miscalibrated uncertainty."
+    "Introduces PosteriorBench, a benchmark focused on posterior matching rather than only reconstruction accuracy.",
+    "Evaluates whether generative inverse solvers reproduce the distribution of valid solutions under sparse or noisy observations.",
+    "Highlights failure modes such as mode collapse, overconfident uncertainty estimates, and averaging across plausible solutions."
   ],
-  "impact": "For AI/ML practitioners, this provides a more realistic way to compare generative inverse solvers in scientific applications. It encourages building models that are not only accurate, but also probabilistically faithful and reliable under ambiguity.",
+  "impact": "For AI/ML practitioners, this provides a more reliable way to judge inverse solvers in science and engineering settings where uncertainty matters. It encourages building models that are not only accurate, but also calibrated and distributionally faithful.",
   "visual_elements": [
-    "Side-by-side comparison of point-estimate evaluation vs posterior-matching evaluation",
-    "Diagram showing one observation mapping to multiple valid inverse solutions",
-    "Distribution plots highlighting mode collapse and uncertainty miscalibration",
-    "Benchmark scorecard with metrics for reconstruction quality and posterior fidelity"
+    "Side-by-side comparison of point estimate evaluation vs posterior matching evaluation",
+    "Posterior distribution plot showing multiple valid solution modes",
+    "Pipeline diagram of an inverse problem: observation -> generative solver -> candidate reconstructions",
+    "Failure-mode icons for mode collapse, overconfidence, and averaging"
   ],
   "hashtags": [
-    "#AIResearch",
+    "#AI",
+    "#MachineLearning",
     "#GenerativeModels",
     "#InverseProblems",
-    "#UncertaintyEstimation",
-    "#MachineLearning"
+    "#UncertaintyQuantification"
   ],
   "paper_id": "2026-09-17-arxiv-posteriorbench_from_point_estimates_to_posterior_matching_in_evaluating_generati",
   "paper_title": "PosteriorBench: From Point Estimates to Posterior Matching in Evaluating Generative Inverse Solvers",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.20794v1"
     }
   ],
-  "generated_at": "2026-09-20T10:16:52.454191",
+  "generated_at": "2026-09-21T11:26:16.045030",
   "generator": "openai"
 }
