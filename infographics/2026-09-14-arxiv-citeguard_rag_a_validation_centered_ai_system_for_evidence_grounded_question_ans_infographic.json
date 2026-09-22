@@ -1,24 +1,24 @@
 {
-  "key_insight": "CiteGuard-RAG shows that good retrieval is not enough for trustworthy QA: answers also need runtime validation to ensure every claim is grounded in cited evidence. By combining retrieval, citation constraints, and sentence-level checks, the system can produce more reliable answers and refuse unsupported ones.",
-  "problem_solved": "Retrieval-augmented generation often returns fluent answers that are not fully supported by evidence, have invalid citations, or should have been refused. This paper addresses the gap between \"finding relevant sources\" and \"producing citation-valid, grounded answers.\"",
+  "key_insight": "CiteGuard-RAG shows that getting evidence back is not enough—AI answers also need runtime validation to stay grounded, cite correctly, and refuse when support is weak. The paper combines retrieval, citation constraints, and grounding checks to make RAG more trustworthy.",
+  "problem_solved": "It addresses the gap between evidence retrieval and reliable answering: RAG systems may still produce unsupported, uncited, or overconfident responses even when relevant documents are found.",
   "method": [
-    "Uses hybrid semantic-lexical retrieval to collect relevant evidence.",
-    "Generates answers under citation constraints so claims must align with sources.",
-    "Performs sentence-level grounding validation at runtime and uses single-pass regeneration when validation fails."
+    "Uses hybrid semantic + lexical retrieval to improve evidence search quality.",
+    "Generates answers under citation constraints so claims are tied to source evidence.",
+    "Applies sentence-level grounding validation at runtime and triggers single-pass regeneration when support is insufficient."
   ],
-  "impact": "For AI/ML practitioners, this improves the trustworthiness of RAG systems by reducing unsupported claims and citation errors. It is especially useful in high-stakes settings where factual accuracy, traceability, and appropriate refusal matter.",
+  "impact": "This matters for practitioners building enterprise, legal, medical, or research assistants where citation accuracy and refusal behavior are critical. It offers a practical framework for making RAG outputs more auditable and trustworthy.",
   "visual_elements": [
-    "Pipeline diagram showing retrieval -> generation -> validation -> regeneration/refusal.",
-    "Side-by-side example of grounded vs. ungrounded answer with highlighted citations.",
-    "Validation checklist icon set for sentence-level support, citation match, and refusal triggers.",
-    "Flowchart showing how hybrid semantic-lexical retrieval combines two evidence signals."
+    "Pipeline diagram showing retrieval -> citation-constrained generation -> grounding validation -> regeneration/refusal",
+    "Side-by-side example of grounded vs. ungrounded answers with citations highlighted",
+    "Validation checkpoint icons showing pass/fail at the sentence level",
+    "Flowchart of decision paths: answer, regenerate, or refuse"
   ],
   "hashtags": [
     "#RAG",
     "#AIEvaluation",
     "#GroundedAI",
-    "#Citations",
-    "#TrustworthyAI"
+    "#LLMTrustworthiness",
+    "#AIResearch"
   ],
   "paper_id": "2026-09-14-arxiv-citeguard_rag_a_validation_centered_ai_system_for_evidence_grounded_question_ans",
   "paper_title": "CiteGuard-RAG: A Validation-Centered AI System for Evidence-Grounded Question Answering",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.15830v1"
     }
   ],
-  "generated_at": "2026-09-20T10:17:26.265205",
+  "generated_at": "2026-09-22T10:34:55.669686",
   "generator": "openai"
 }
