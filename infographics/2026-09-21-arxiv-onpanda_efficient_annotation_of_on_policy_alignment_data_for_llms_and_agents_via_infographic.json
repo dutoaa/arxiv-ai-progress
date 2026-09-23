@@ -1,25 +1,24 @@
 {
-  "key_insight": "onPanda makes alignment annotation faster and more practical by letting annotators correct model outputs at the token level instead of rewriting whole responses. It turns human feedback into a stepwise, interactive correction loop that can be used for both LLMs and agent trajectories.",
-  "problem_solved": "The paper addresses the high cost and inefficiency of collecting on-policy alignment data, where annotators often need to edit long model responses or agent behaviors from scratch. This makes it difficult to scale high-quality supervision for alignment and trajectory correction.",
+  "key_insight": "onPanda speeds up alignment-data annotation by letting humans correct model outputs at the token level instead of rewriting whole responses. This makes it easier to create on-policy training data for LLMs and agents while preserving the model’s generation flow.",
+  "problem_solved": "Annotating alignment data for LLMs and agent trajectories is slow and inefficient when annotators must edit full responses or trajectories. The paper addresses the need for a more precise, faster way to correct model outputs during generation.",
   "method": [
-    "Annotators inspect a generated response and identify the first token that is inappropriate or incorrect.",
-    "They correct that token either by selecting from model-proposed candidate tokens or by free-form typing.",
-    "The system truncates the rest of the response after the corrected position and resumes generation from the new prefix, enabling iterative correction.",
-    "This workflow supports efficient annotation for both language model outputs and agent trajectories."
+    "Annotators read a generated response and identify the first inappropriate token.",
+    "They correct that token either by selecting from candidate tokens or by free-form text entry.",
+    "The system truncates text after the corrected position and resumes generation from the edited prefix, enabling iterative on-policy correction."
   ],
-  "impact": "For practitioners, onPanda can reduce annotation time and make alignment data collection more scalable and precise. This can improve the quality of training data for aligned LLMs and agents without requiring fully manual rewrites.",
+  "impact": "This matters because it lowers the cost and time of producing high-quality alignment data for training and evaluating LLMs and agents. Practitioners can more efficiently build datasets that better reflect real model behavior during generation.",
   "visual_elements": [
-    "A before-and-after response editing flow showing token-level correction and regeneration",
-    "A step-by-step pipeline diagram: detect error -> correct token -> truncate -> continue generation",
-    "An interface mockup of the annotator UI with highlighted tokens and candidate token choices",
-    "An efficiency comparison chart showing token-level correction vs full-response editing"
+    "A before-and-after flow showing full-response editing vs. token-level correction",
+    "A step-by-step pipeline diagram of locate → correct → truncate → regenerate",
+    "An interactive UI mockup highlighting the first incorrect token in a generated response",
+    "An icon-based comparison of candidate-token selection versus free-form editing"
   ],
   "hashtags": [
     "#LLMAlignment",
-    "#HumanInTheLoopAI",
-    "#DataAnnotation",
+    "#AIAnnotation",
+    "#TokenLevelCorrection",
     "#AgentTraining",
-    "#NLP"
+    "#HumanInTheLoopAI"
   ],
   "paper_id": "2026-09-21-arxiv-onpanda_efficient_annotation_of_on_policy_alignment_data_for_llms_and_agents_via",
   "paper_title": "onPanda: Efficient Annotation of On-Policy Alignment Data for LLMs and Agents via Token-Level Correction",
@@ -32,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.24983v1"
     }
   ],
-  "generated_at": "2026-09-22T10:34:10.814538",
+  "generated_at": "2026-09-23T10:28:37.053511",
   "generator": "openai"
 }
