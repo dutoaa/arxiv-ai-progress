@@ -1,0 +1,36 @@
+{
+  "key_insight": "Latent-flow world models can look stable during training but still fail at the core task of motion: the manipulated object does not move as intended. The paper shows this is mainly a supervision problem, and that adding decode-based rollout signals can restore meaningful motion without sacrificing stability.",
+  "problem_solved": "It addresses the silent failure of frozen latent-flow world models that lose motion fidelity in manipulation tasks, where latent-only training either keeps objects still or produces unrealistic teleport-like movement.",
+  "method": [
+    "Diagnose the failure mode by showing that anchor-sparse, latent-only supervision does not specify where motion should occur along the prediction horizon.",
+    "Compare latent-only retraining with decode-augmented rollouts to identify why motion quality degrades.",
+    "Restore motion by strengthening the training signal with decoder-aware supervision that ties latent predictions to visible object movement."
+  ],
+  "impact": "For AI/ML practitioners, this work clarifies that good latent representations alone are not enough—training signals must explicitly preserve motion. It offers a practical path to build world models that remain cheap and stable while being useful for manipulation.",
+  "visual_elements": [
+    "Before/after comparison of a frozen latent-flow model vs. a restored motion model",
+    "Timeline diagram showing anchor-sparse supervision across the prediction horizon",
+    "Flowchart of the failure cause: latent-only loss -> stillness/teleportation -> motion loss",
+    "Small animation-style illustration of manipulated objects staying frozen, then moving correctly"
+  ],
+  "hashtags": [
+    "#WorldModels",
+    "#LatentDynamics",
+    "#RobotLearning",
+    "#MachineLearning",
+    "#AIREsearch"
+  ],
+  "paper_id": "2026-09-23-arxiv-frozen_flows_forget_diagnosing_and_restoring_lost_motion_in_a_latent_flow_world",
+  "paper_title": "Frozen Flows Forget: Diagnosing and Restoring Lost Motion in a Latent-flow World Model",
+  "paper_category": "Model",
+  "paper_date": "2026-09-23",
+  "paper_authors": "Xiwen Chen, Rigaudiere Z. Li, Zhiruo Zhou, Xiaojun Zhu, Houde Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2609.28414v1"
+    }
+  ],
+  "generated_at": "2026-09-24T10:44:23.427789",
+  "generator": "openai"
+}

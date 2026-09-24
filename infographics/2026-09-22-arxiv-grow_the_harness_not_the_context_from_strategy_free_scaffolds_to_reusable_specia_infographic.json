@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper argues that agents should stop re-deciding the same control logic in every task and instead grow that logic into reusable code. This lets the LLM focus on semantic reasoning while the harness handles repeated execution strategy.",
-  "problem_solved": "It addresses the inefficiency of LLM agents that repeatedly reconstruct the same control decisions inside each task context, which wastes context, compute, and reliability across streams of related tasks.",
+  "key_insight": "The paper argues that LLM agents should not keep re-solving the same control logic inside every task prompt. Instead, recurring decisions can be learned once as reusable code in the agent harness, leaving the model to focus on task-specific reasoning.",
+  "problem_solved": "Standard LLM agent setups repeatedly reconstruct control flow, planning, and recovery behavior within each task context. This is inefficient, brittle, and wastes context on strategy rather than on the actual task.",
   "method": [
-    "Start from a strategy-free scaffold that exposes failure points instead of hard-coded policies.",
-    "Use task feedback to learn recurring control behavior as executable harness code.",
-    "Reserve LLM calls for task-specific reasoning, while reusable harness components handle repeated orchestration decisions."
+    "Introduces \"Growing Harness,\" a failure-guided training paradigm that learns the agent's executable harness from a strategy-free scaffold.",
+    "Uses task feedback to identify recurring control decisions and convert them into reusable logic outside the LLM context.",
+    "Keeps LLM calls focused on semantic reasoning for the current task while the harness handles repeated orchestration and recovery."
   ],
-  "impact": "For AI/ML practitioners, this offers a way to build more efficient, scalable agents that reuse learned control strategies across tasks. It can reduce context bloat, improve consistency, and lower the cost of agent deployment over long task streams.",
+  "impact": "For AI/ML practitioners, this can reduce prompt clutter, improve agent efficiency, and make multi-task systems more reusable and maintainable. It points toward agents that improve by growing their code-level control structure rather than by expanding context windows.",
   "visual_elements": [
-    "Before/after diagram showing 'manual control in context' vs 'growing reusable harness'",
-    "Workflow graphic of scaffold -> task failure -> harness update -> reusable specialist agent",
-    "Split-box illustration separating 'LLM semantic reasoning' from 'code-based control logic'",
-    "Loop icon showing iterative feedback-driven harness growth across tasks"
+    "Before/after flow diagram: strategy packed into context vs. reusable harness code",
+    "Pipeline diagram showing task feedback feeding into harness growth",
+    "Split visualization of roles: harness handles control, LLM handles reasoning",
+    "Icon set for tasks, failures, code blocks, and reusable modules"
   ],
   "hashtags": [
     "#LLMAgents",
     "#AgenticAI",
-    "#ModelTraining",
+    "#PromptEngineering",
     "#AIResearch",
-    "#ReusableAgents"
+    "#MachineLearning"
   ],
   "paper_id": "2026-09-22-arxiv-grow_the_harness_not_the_context_from_strategy_free_scaffolds_to_reusable_specia",
   "paper_title": "Grow the Harness, Not the Context: From Strategy-Free Scaffolds to Reusable Specialist Agents",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.26760v1"
     }
   ],
-  "generated_at": "2026-09-23T10:27:58.420583",
+  "generated_at": "2026-09-24T10:45:05.286189",
   "generator": "openai"
 }

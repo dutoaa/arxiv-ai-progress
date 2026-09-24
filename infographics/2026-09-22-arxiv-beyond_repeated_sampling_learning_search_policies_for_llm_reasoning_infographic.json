@@ -1,23 +1,23 @@
 {
-  "key_insight": "The paper argues that better reasoning with LLMs comes from learning how to search, not just sampling more. Instead of producing many near-duplicate answers, it steers exploration through semantic concepts, hints, or structured intermediate ideas.",
-  "problem_solved": "It addresses the inefficiency of naive repeated sampling for LLM reasoning, where extra test-time compute is spent generating many similar solutions with limited diversity and weak gains in correctness.",
+  "key_insight": "The paper argues that test-time reasoning should not rely on blind repeated sampling, which often produces near-duplicate answers. Instead, it learns a search policy that explores the solution space at a semantic level, generating more diverse and useful reasoning paths.",
+  "problem_solved": "It addresses the inefficiency of naive repeated sampling for LLM reasoning, where extra compute mostly creates similar outputs rather than genuinely different candidate solutions.",
   "method": [
-    "Learn a search policy that guides test-time exploration beyond token-level decoding noise.",
-    "Sample or propose higher-level semantic elements such as concepts, hints, or intermediate stubs to diversify reasoning paths.",
-    "Use these guided search trajectories to increase the chance of finding genuinely distinct and correct solutions."
+    "Learn a search policy that guides exploration beyond local decoding noise.",
+    "Sample higher-level semantic elements such as concepts, hints, or strategy cues before generating full solutions.",
+    "Use these learned exploratory signals to produce more diverse reasoning trajectories during test-time inference."
   ],
-  "impact": "For AI practitioners, this suggests a more compute-efficient way to improve reasoning performance without simply scaling the number of sampled outputs. It could lead to stronger test-time inference strategies for difficult tasks where diverse reasoning paths matter.",
+  "impact": "This could make reasoning with LLMs more compute-efficient by turning extra inference budget into meaningful exploration rather than redundancy. For practitioners, it offers a path toward stronger performance on hard tasks without simply increasing the number of samples.",
   "visual_elements": [
-    "Side-by-side diagram comparing repeated sampling vs semantic search",
-    "Flowchart showing how concepts/hints are sampled before final reasoning",
-    "Diversity chart illustrating near-duplicate outputs versus distinct solution paths",
-    "Icon set for compute, exploration, semantics, and correctness"
+    "Side-by-side flow diagram: repeated sampling vs semantic search policy",
+    "Diversity chart showing near-duplicate outputs from naive sampling versus varied trajectories from the learned policy",
+    "Pipeline illustration of concept/hint sampling leading to full reasoning generation",
+    "Icon set for compute, diversity, and correctness to show the tradeoff"
   ],
   "hashtags": [
     "#LLMReasoning",
     "#TestTimeCompute",
-    "#AIResearch",
     "#SearchPolicies",
+    "#AIResearch",
     "#MachineLearning"
   ],
   "paper_id": "2026-09-22-arxiv-beyond_repeated_sampling_learning_search_policies_for_llm_reasoning",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.26704v1"
     }
   ],
-  "generated_at": "2026-09-23T10:27:37.572400",
+  "generated_at": "2026-09-24T10:45:09.102826",
   "generator": "openai"
 }
