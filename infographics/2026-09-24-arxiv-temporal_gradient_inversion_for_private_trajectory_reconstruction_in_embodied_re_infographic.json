@@ -1,0 +1,36 @@
+{
+  "key_insight": "This paper shows that privacy leakage from distributed embodied reinforcement learning is not limited to single time steps: temporal patterns in transmitted gradients can reveal entire private observation-action trajectories. The proposed TRACE attack reconstructs sequences autoregressively from per-step policy gradients.",
+  "problem_solved": "It addresses the risk that even when raw sensor data stays on-device, policy gradients shared with a server can still leak sensitive trajectory information over time in embodied RL settings.",
+  "method": [
+    "Introduces TRACE (Temporal Reconstruction Attack on Consecutive Encodings), an amortized temporal gradient-inversion attack.",
+    "Reconstructs private observation-action sequences autoregressively from per-step policy gradients rather than treating each step independently.",
+    "Exploits temporal dependencies in embodied RL trajectories to amplify reconstruction accuracy beyond single-frame gradient attacks."
+  ],
+  "impact": "For AI/ML practitioners, this means privacy assumptions in federated or distributed embodied RL may be overly optimistic. Systems that only hide raw observations but still share gradients may still expose sensitive user or robot trajectories.",
+  "visual_elements": [
+    "Timeline showing consecutive observation-action steps linked to shared gradients",
+    "Before/after diagram comparing raw private trajectory vs reconstructed trajectory",
+    "Pipeline graphic of distributed embodied RL: device → gradients → server → TRACE reconstruction",
+    "Threat model icon set highlighting on-device data, transmitted gradients, and privacy leakage"
+  ],
+  "hashtags": [
+    "#ReinforcementLearning",
+    "#PrivacyPreservingAI",
+    "#GradientInversion",
+    "#FederatedLearning",
+    "#EmbodiedAI"
+  ],
+  "paper_id": "2026-09-24-arxiv-temporal_gradient_inversion_for_private_trajectory_reconstruction_in_embodied_re",
+  "paper_title": "Temporal Gradient Inversion for Private Trajectory Reconstruction in Embodied Reinforcement Learning",
+  "paper_category": "Model",
+  "paper_date": "2026-09-24",
+  "paper_authors": "Sudip Bhujel, Shanghao Shi, Ruiquan Huang, Ning Zhang, Yang Xiao",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2609.30258v1"
+    }
+  ],
+  "generated_at": "2026-09-25T10:49:00.977158",
+  "generator": "openai"
+}

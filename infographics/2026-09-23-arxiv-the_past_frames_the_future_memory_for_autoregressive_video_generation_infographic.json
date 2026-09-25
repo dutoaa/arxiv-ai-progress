@@ -1,24 +1,24 @@
 {
-  "key_insight": "Autoregressive video generators struggle to preserve important details over long rollouts because their usable memory is limited. This paper focuses on how to carry forward the most useful past information so future frames stay consistent and coherent.",
-  "problem_solved": "The paper addresses the memory bottleneck in long-horizon autoregressive video generation: as sequences grow, models cannot keep all past context due to fixed context windows, storage limits, and compute constraints, which leads to losing identities, objects, and scene continuity.",
+  "key_insight": "The paper argues that long-horizon autoregressive video generation fails when models cannot remember important past events under limited context and compute. It proposes treating memory as a core design element so generated videos can stay consistent over time.",
+  "problem_solved": "Autoregressive video models must generate extended sequences with fixed context windows and limited storage/computation, which causes them to forget crucial historical details like object identities, scene state, and temporal continuity.",
   "method": [
-    "Introduces a memory mechanism for autoregressive video generation that selectively preserves and reuses important historical information.",
-    "Targets the retention of critical long-term details such as entity identities, scene structure, and temporal consistency under bounded context constraints.",
-    "Designs the generation process to make better use of past frames without requiring unbounded attention or full-sequence storage."
+    "Analyze memory limitations in autoregressive video rollout under bounded context and resource constraints.",
+    "Introduce a memory-aware generation framework to preserve key historical information across long sequences.",
+    "Use stored past frames or summaries to improve consistency, identity preservation, and long-term temporal coherence."
   ],
-  "impact": "For AI/ML practitioners, this improves the practicality of long video generation by making outputs more stable and temporally consistent. It is especially relevant for world models, interactive agents, and any application that needs extended visual continuity.",
+  "impact": "This matters for practitioners building long-video generators, interactive simulators, and world models because it helps reduce drift and inconsistency over time. Better memory handling can make generated videos more realistic, stable, and usable for downstream applications.",
   "visual_elements": [
-    "A timeline showing frame-by-frame generation with a shrinking memory window and retained key memories highlighted.",
-    "A comparison diagram of standard autoregressive generation vs. memory-augmented generation.",
-    "An icon-based flow chart showing input frames, memory selection, and future frame prediction.",
-    "A before/after visualization illustrating identity drift versus preserved consistency across long sequences."
+    "A timeline showing how information is lost across long autoregressive rollouts",
+    "A comparison diagram of short context vs. memory-augmented generation",
+    "An icon-based flowchart of frame generation, memory storage, and retrieval",
+    "Before/after visual examples highlighting identity and scene consistency"
   ],
   "hashtags": [
     "#AIVideoGeneration",
     "#AutoregressiveModels",
-    "#LongContext",
+    "#MachineLearning",
     "#WorldModels",
-    "#MachineLearning"
+    "#GenerativeAI"
   ],
   "paper_id": "2026-09-23-arxiv-the_past_frames_the_future_memory_for_autoregressive_video_generation",
   "paper_title": "The Past Frames the Future: Memory for Autoregressive Video Generation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.28466v1"
     }
   ],
-  "generated_at": "2026-09-24T10:44:45.932088",
+  "generated_at": "2026-09-25T10:49:07.845033",
   "generator": "openai"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Latent-flow world models can look stable during training but still fail at the core task of motion: the manipulated object does not move as intended. The paper shows this is mainly a supervision problem, and that adding decode-based rollout signals can restore meaningful motion without sacrificing stability.",
-  "problem_solved": "It addresses the silent failure of frozen latent-flow world models that lose motion fidelity in manipulation tasks, where latent-only training either keeps objects still or produces unrealistic teleport-like movement.",
+  "key_insight": "Latent-flow world models can train stably, but still lose the ability to move manipulated objects because the supervision is too sparse to teach when motion should happen. The paper shows the issue is not the latent representation itself, but the training signal—and that adding decode-based rollout supervision can restore meaningful motion.",
+  "problem_solved": "This paper addresses the failure of latent world models to preserve controllable motion during manipulation tasks. Specifically, it explains why pretrained flows become nearly static, and why retraining with latent-only losses often produces unnatural, teleport-like changes instead of smooth movement.",
   "method": [
-    "Diagnose the failure mode by showing that anchor-sparse, latent-only supervision does not specify where motion should occur along the prediction horizon.",
-    "Compare latent-only retraining with decode-augmented rollouts to identify why motion quality degrades.",
-    "Restore motion by strengthening the training signal with decoder-aware supervision that ties latent predictions to visible object movement."
+    "Diagnose the root cause of motion collapse in latent-flow world models by analyzing the training supervision.",
+    "Show that anchor-sparse, latent-only losses do not specify where along the rollout horizon changes should occur.",
+    "Restore motion by augmenting training with decode-based rollout supervision that ties latent predictions back to observable frame-level dynamics."
   ],
-  "impact": "For AI/ML practitioners, this work clarifies that good latent representations alone are not enough—training signals must explicitly preserve motion. It offers a practical path to build world models that remain cheap and stable while being useful for manipulation.",
+  "impact": "This work helps practitioners build world models that remain cheap and stable without sacrificing motion fidelity. It is especially relevant for robotics, simulation, and video prediction systems where accurate object dynamics are essential for control and manipulation.",
   "visual_elements": [
-    "Before/after comparison of a frozen latent-flow model vs. a restored motion model",
-    "Timeline diagram showing anchor-sparse supervision across the prediction horizon",
-    "Flowchart of the failure cause: latent-only loss -> stillness/teleportation -> motion loss",
-    "Small animation-style illustration of manipulated objects staying frozen, then moving correctly"
+    "Side-by-side comparison: frozen motion vs teleport-like motion vs restored motion",
+    "A timeline rollout diagram showing where supervision is missing along the prediction horizon",
+    "Pipeline schematic of latent-flow world model with and without decode-augmented loss",
+    "Icon set for 'stable training', 'motion loss', and 'restored dynamics'"
   ],
   "hashtags": [
     "#WorldModels",
     "#LatentDynamics",
-    "#RobotLearning",
     "#MachineLearning",
-    "#AIREsearch"
+    "#DeepLearning",
+    "#AIResearch"
   ],
   "paper_id": "2026-09-23-arxiv-frozen_flows_forget_diagnosing_and_restoring_lost_motion_in_a_latent_flow_world",
   "paper_title": "Frozen Flows Forget: Diagnosing and Restoring Lost Motion in a Latent-flow World Model",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.28414v1"
     }
   ],
-  "generated_at": "2026-09-24T10:44:23.427789",
+  "generated_at": "2026-09-25T10:49:14.354010",
   "generator": "openai"
 }
