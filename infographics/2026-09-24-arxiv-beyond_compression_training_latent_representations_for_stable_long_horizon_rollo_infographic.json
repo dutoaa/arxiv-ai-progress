@@ -1,23 +1,23 @@
 {
-  "key_insight": "The paper argues that long-horizon instability in latent surrogate solvers is not caused by using a latent space itself, but by how that latent space is trained and optimized. By learning latent representations that are stable under rollout, the model can preserve accuracy over much longer simulations.",
-  "problem_solved": "It addresses error accumulation in neural surrogate solvers for time-dependent physical systems, where autoregressive predictions drift and become unreliable during long rollouts.",
+  "key_insight": "The paper argues that unstable long-horizon predictions in latent surrogate solvers are not caused by compression itself, but by how the latent representation is trained for rollout stability. By training latent spaces with stability in mind, the model can maintain accurate predictions over much longer autoregressive simulations.",
+  "problem_solved": "Latent neural surrogate solvers often perform well for short-step prediction but quickly drift and accumulate errors during long rollout simulations, making them unreliable for time-dependent physical systems.",
   "method": [
-    "Train latent representations specifically for rollout stability, not just reconstruction or compression.",
-    "Use latent dynamics that remain consistent over many time steps, reducing compounding prediction errors.",
-    "Evaluate the learned representation in long-horizon surrogate simulation settings to verify stability and predictive fidelity."
+    "Train latent representations specifically to support stable multi-step/autoregressive rollout, rather than only optimizing reconstruction or one-step accuracy.",
+    "Analyze where instability originates and show that the latent space can remain effective when the training objective matches long-horizon simulation needs.",
+    "Use latent dynamics modeling to evolve compressed states while preserving predictive fidelity over extended time horizons."
   ],
-  "impact": "This matters for practitioners building physics-informed AI and surrogate simulators because it can make fast models usable for longer, more realistic simulations. It shifts the focus from simply compressing data to designing latent spaces that support stable prediction over time.",
+  "impact": "This work gives ML practitioners a clearer path to building neural surrogate solvers that stay accurate during long simulations, which is critical for scientific computing and real-time physical modeling. It shifts the focus from simply compressing data to designing latent spaces that are rollout-stable and deployment-ready.",
   "visual_elements": [
-    "A pipeline diagram showing full-resolution fields compressed into a latent space and rolled out over time.",
-    "A side-by-side plot comparing unstable latent rollout vs stable latent rollout with error growth curves.",
-    "An icon-based schematic of compression, dynamics, and reconstruction stages.",
-    "A timeline visualization showing short-horizon accuracy versus long-horizon drift."
+    "Before/after rollout trajectory plot showing error growth in standard latent models versus stable latent-trained models",
+    "Pipeline diagram of full-resolution fields mapped into latent space, evolved by the surrogate, then decoded back",
+    "Side-by-side comparison of short-horizon accuracy vs long-horizon stability",
+    "Icon-based summary showing compression, dynamics, and stability feedback loop"
   ],
   "hashtags": [
-    "#AIResearch",
-    "#NeuralSurrogates",
+    "#MachineLearning",
+    "#ScientificAI",
     "#LatentDynamics",
-    "#ScientificML",
+    "#SurrogateModels",
     "#PhysicsInformedAI"
   ],
   "paper_id": "2026-09-24-arxiv-beyond_compression_training_latent_representations_for_stable_long_horizon_rollo",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.30198v1"
     }
   ],
-  "generated_at": "2026-09-25T10:48:31.881268",
+  "generated_at": "2026-09-26T10:29:46.563560",
   "generator": "openai"
 }

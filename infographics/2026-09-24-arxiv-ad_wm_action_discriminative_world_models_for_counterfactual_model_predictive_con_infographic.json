@@ -1,24 +1,24 @@
 {
-  "key_insight": "AD-WM makes world models better at choosing actions, not just predicting next states. It learns a joint embedding that can tell candidate actions apart from the same starting state, which is exactly what counterfactual MPC needs.",
-  "problem_solved": "Standard latent world models are optimized for factual next-step prediction, so they may look accurate while still failing to distinguish which action is best. This paper addresses the mismatch between prediction training and action comparison in model predictive control.",
+  "key_insight": "AD-WM improves model predictive control by making the world model distinguish between candidate actions, not just predict what actually happened. This helps the planner compare counterfactual futures more reliably from the same starting state.",
+  "problem_solved": "Standard latent world models are trained mainly on factual transitions, so they can look accurate while still failing to separate different action choices during planning. This paper addresses the mismatch between low prediction error and poor counterfactual action discrimination in MPC.",
   "method": [
-    "Uses a joint-embedding world model designed for action discrimination in counterfactual settings.",
+    "Uses an action-discriminative joint-embedding world model for counterfactual planning.",
     "Combines residual latent dynamics with predictor-level action-recovery regularization.",
-    "Leverages inverse dynamics and normalized representation learning to better separate alternative actions from the same state."
+    "Leverages inverse dynamics and a normalized representation objective to better separate alternative actions from the same state."
   ],
-  "impact": "For practitioners, this means better planning reliability in settings where multiple actions must be compared from one state. It can improve MPC performance without relying solely on lower prediction error as the training objective.",
+  "impact": "For AI/ML practitioners, this can make MPC more decision-aware and improve action selection in control tasks. It is especially useful when planning requires comparing several plausible actions rather than predicting only the most likely next state.",
   "visual_elements": [
-    "Side-by-side diagram showing factual prediction vs counterfactual action comparison.",
-    "Pipeline graphic of state -> action -> latent transition -> predicted reward/outcome.",
-    "Embedding space illustration highlighting separation between candidate actions.",
-    "Icon-based flowchart showing residual dynamics, inverse dynamics, and action recovery regularization."
+    "Side-by-side pipeline showing factual prediction vs. counterfactual action comparison.",
+    "Latent state diagram with multiple action branches from one starting state.",
+    "Loss function block diagram highlighting residual dynamics, inverse dynamics, and normalization.",
+    "Before/after chart comparing action discrimination or planning quality."
   ],
   "hashtags": [
     "#WorldModels",
     "#ModelPredictiveControl",
     "#ReinforcementLearning",
-    "#DeepLearning",
-    "#AIResearch"
+    "#CounterfactualPlanning",
+    "#MachineLearning"
   ],
   "paper_id": "2026-09-24-arxiv-ad_wm_action_discriminative_world_models_for_counterfactual_model_predictive_con",
   "paper_title": "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Control",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.30264v1"
     }
   ],
-  "generated_at": "2026-09-25T10:49:02.968228",
+  "generated_at": "2026-09-26T10:30:25.433190",
   "generator": "openai"
 }

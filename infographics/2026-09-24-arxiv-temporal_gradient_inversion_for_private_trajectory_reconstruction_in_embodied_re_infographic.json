@@ -1,24 +1,24 @@
 {
-  "key_insight": "This paper shows that privacy leakage from distributed embodied reinforcement learning is not limited to single time steps: temporal patterns in transmitted gradients can reveal entire private observation-action trajectories. The proposed TRACE attack reconstructs sequences autoregressively from per-step policy gradients.",
-  "problem_solved": "It addresses the risk that even when raw sensor data stays on-device, policy gradients shared with a server can still leak sensitive trajectory information over time in embodied RL settings.",
+  "key_insight": "The paper shows that even when embodied RL systems keep raw sensor data on-device, the sequence of transmitted policy gradients can leak the full private trajectory. TRACE exploits temporal dependencies to reconstruct consecutive observation-action data more effectively than single-step attacks.",
+  "problem_solved": "It addresses the privacy risk in distributed embodied reinforcement learning, where sharing per-step gradients can unintentionally reveal sensitive time-series trajectories from agents operating in the real world.",
   "method": [
     "Introduces TRACE (Temporal Reconstruction Attack on Consecutive Encodings), an amortized temporal gradient-inversion attack.",
-    "Reconstructs private observation-action sequences autoregressively from per-step policy gradients rather than treating each step independently.",
-    "Exploits temporal dependencies in embodied RL trajectories to amplify reconstruction accuracy beyond single-frame gradient attacks."
+    "Uses autoregressive reconstruction to recover observation-action sequences step by step from per-step policy gradients.",
+    "Exploits temporal structure across consecutive encodings, rather than treating each gradient update independently."
   ],
-  "impact": "For AI/ML practitioners, this means privacy assumptions in federated or distributed embodied RL may be overly optimistic. Systems that only hide raw observations but still share gradients may still expose sensitive user or robot trajectories.",
+  "impact": "For practitioners, this is a warning that gradient sharing alone does not guarantee privacy in sequential decision-making settings. It highlights the need for stronger defenses when training embodied RL agents in domains like robotics, navigation, and human-interactive systems.",
   "visual_elements": [
-    "Timeline showing consecutive observation-action steps linked to shared gradients",
-    "Before/after diagram comparing raw private trajectory vs reconstructed trajectory",
-    "Pipeline graphic of distributed embodied RL: device → gradients → server → TRACE reconstruction",
-    "Threat model icon set highlighting on-device data, transmitted gradients, and privacy leakage"
+    "Pipeline diagram: private trajectory on device -> gradients sent to server -> TRACE reconstruction output",
+    "Timeline visualization showing consecutive observations/actions and how temporal leakage accumulates",
+    "Side-by-side comparison of single-frame inversion vs temporal reconstruction attack",
+    "Icon set for privacy risk, gradients, agent trajectory, and autoregressive decoding"
   ],
   "hashtags": [
+    "#MachineLearning",
     "#ReinforcementLearning",
-    "#PrivacyPreservingAI",
+    "#Privacy",
     "#GradientInversion",
-    "#FederatedLearning",
-    "#EmbodiedAI"
+    "#AIResearch"
   ],
   "paper_id": "2026-09-24-arxiv-temporal_gradient_inversion_for_private_trajectory_reconstruction_in_embodied_re",
   "paper_title": "Temporal Gradient Inversion for Private Trajectory Reconstruction in Embodied Reinforcement Learning",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.30258v1"
     }
   ],
-  "generated_at": "2026-09-25T10:49:00.977158",
+  "generated_at": "2026-09-26T10:30:22.707931",
   "generator": "openai"
 }
