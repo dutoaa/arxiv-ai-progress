@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper argues that unstable long-horizon predictions in latent surrogate solvers are not caused by compression itself, but by how the latent representation is trained for rollout stability. By training latent spaces with stability in mind, the model can maintain accurate predictions over much longer autoregressive simulations.",
-  "problem_solved": "Latent neural surrogate solvers often perform well for short-step prediction but quickly drift and accumulate errors during long rollout simulations, making them unreliable for time-dependent physical systems.",
+  "key_insight": "The paper argues that long-horizon instability in latent neural surrogate solvers is not caused by using a latent space itself, but by how the latent representation is trained for rollout. By training latent dynamics to remain stable over many steps, the models can preserve speed while becoming much more reliable for long simulations.",
+  "problem_solved": "Latent surrogate models often perform well for short predictions but quickly drift during long autoregressive rollouts, making them unreliable for time-dependent physical simulations. This work addresses the challenge of maintaining accuracy and stability over extended prediction horizons.",
   "method": [
-    "Train latent representations specifically to support stable multi-step/autoregressive rollout, rather than only optimizing reconstruction or one-step accuracy.",
-    "Analyze where instability originates and show that the latent space can remain effective when the training objective matches long-horizon simulation needs.",
-    "Use latent dynamics modeling to evolve compressed states while preserving predictive fidelity over extended time horizons."
+    "Learn latent representations specifically optimized for stable multi-step rollout, rather than only for compression or reconstruction.",
+    "Train the latent dynamics model to reduce error accumulation over long autoregressive trajectories.",
+    "Separate the benefits of compact representation from the instability caused by insufficient rollout-aware training."
   ],
-  "impact": "This work gives ML practitioners a clearer path to building neural surrogate solvers that stay accurate during long simulations, which is critical for scientific computing and real-time physical modeling. It shifts the focus from simply compressing data to designing latent spaces that are rollout-stable and deployment-ready.",
+  "impact": "For AI/ML practitioners, this suggests that better latent-space training objectives can make neural surrogate solvers far more useful in scientific computing. It improves the practical deployment of fast simulation models where long-term predictive stability is critical.",
   "visual_elements": [
-    "Before/after rollout trajectory plot showing error growth in standard latent models versus stable latent-trained models",
-    "Pipeline diagram of full-resolution fields mapped into latent space, evolved by the surrogate, then decoded back",
-    "Side-by-side comparison of short-horizon accuracy vs long-horizon stability",
-    "Icon-based summary showing compression, dynamics, and stability feedback loop"
+    "Side-by-side diagram showing short-horizon vs long-horizon rollout behavior in latent space",
+    "Pipeline graphic of full-state simulation -> encoder -> latent dynamics -> decoder",
+    "Error growth chart comparing unstable and stable latent training across rollout steps",
+    "Icon set highlighting speed, compression, stability, and physical simulation"
   ],
   "hashtags": [
     "#MachineLearning",
-    "#ScientificAI",
+    "#ScientificML",
+    "#NeuralSurrogates",
     "#LatentDynamics",
-    "#SurrogateModels",
-    "#PhysicsInformedAI"
+    "#AIforScience"
   ],
   "paper_id": "2026-09-24-arxiv-beyond_compression_training_latent_representations_for_stable_long_horizon_rollo",
   "paper_title": "Beyond Compression: Training Latent Representations for Stable Long-Horizon Rollout in Neural Surrogate Solvers",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.30198v1"
     }
   ],
-  "generated_at": "2026-09-26T10:29:46.563560",
+  "generated_at": "2026-09-27T11:01:27.767235",
   "generator": "openai"
 }

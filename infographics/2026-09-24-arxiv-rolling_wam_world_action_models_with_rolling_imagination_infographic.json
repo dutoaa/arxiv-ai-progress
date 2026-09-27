@@ -1,24 +1,24 @@
 {
-  "key_insight": "Rolling-WAM speeds up robot replanning by spreading expensive joint video-action denoising across multiple cycles instead of doing it all at once. This keeps predictions and actions updated more quickly, improving closed-loop responsiveness.",
-  "problem_solved": "Standard World Action Models must fully denoise future video and action plans at every replanning step, which adds latency and slows down real-time robotic control.",
+  "key_insight": "Rolling-WAM speeds up robotic replanning by spreading expensive video-action denoising across multiple cycles instead of doing it all at once. This keeps predictions and actions updating more smoothly in closed loop, improving responsiveness.",
+  "problem_solved": "Traditional World Action Models (WAMs) require joint video-action denoising at every replanning step, which adds latency and slows down action updates for robot control.",
   "method": [
-    "Maintains a sliding window of video-action chunks with staggered noise levels across successive replanning cycles.",
-    "Performs partial denoising at each step so the model incrementally refines predictions and actions over time.",
-    "Reduces per-cycle computation latency while preserving the joint video-action forecasting structure needed for manipulation."
+    "Uses a sliding window of video-action chunks rather than regenerating the full sequence every cycle.",
+    "Assigns different chunks to staggered noise levels so denoising is distributed over successive replanning steps.",
+    "Maintains rolling imagination: each new step refines the next chunk while preserving continuity in predicted future visuals and actions."
   ],
-  "impact": "For AI/ML practitioners working on robotics and planning, this offers a more responsive way to use generative world models in closed-loop control. It can improve real-time decision-making where low latency is critical.",
+  "impact": "For AI/ML practitioners, this offers a more efficient way to run generative world models in real-time robotic manipulation. It can improve closed-loop control responsiveness without sacrificing the coupling between action planning and future prediction.",
   "visual_elements": [
-    "A pipeline diagram comparing standard WAM denoising vs. Rolling-WAM over multiple replanning cycles",
-    "A sliding window illustration showing chunks at different noise levels",
-    "A latency comparison chart highlighting faster action updates",
-    "An icon-based loop diagram for perception, prediction, and control"
+    "A timeline showing rolling replanning cycles with staggered denoising stages",
+    "A sliding-window diagram of video-action chunks across time",
+    "A side-by-side comparison of standard WAM vs. Rolling-WAM latency",
+    "Icons for robot arm, future frame prediction, and action update loop"
   ],
   "hashtags": [
+    "#RoboticsAI",
     "#WorldModels",
-    "#Robotics",
-    "#ImitationLearning",
-    "#GenerativeAI",
-    "#ReinforcementLearning"
+    "#ReinforcementLearning",
+    "#RobotManipulation",
+    "#EfficientInference"
   ],
   "paper_id": "2026-09-24-arxiv-rolling_wam_world_action_models_with_rolling_imagination",
   "paper_title": "Rolling-WAM: World Action Models with Rolling Imagination",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.30247v1"
     }
   ],
-  "generated_at": "2026-09-26T10:30:17.490408",
+  "generated_at": "2026-09-27T11:01:49.714576",
   "generator": "openai"
 }
