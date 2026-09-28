@@ -1,0 +1,40 @@
+{
+  "key_insight": "EAServe extends disaggregated serving from the usual two-stage text-only pipeline to the three-stage Encode-Prefill-Decode pipeline needed by multimodal LLMs. It shows that treating Encode as a first-class serving stage enables better resource allocation and more efficient MLLM inference.",
+  "problem_solved": "This paper addresses the serving bottleneck created by multimodal inputs such as images, video, and audio, which require an extra Encode stage before language generation. Existing text-only disaggregated systems do not handle this third stage well, leading to inefficient GPU usage and poor scheduling for MLLMs.",
+  "method": [
+    "Introduces an encode-aware disaggregated serving design for multimodal LLMs.",
+    "Separates Encode, Prefill, and Decode onto appropriate GPU pools to improve allocation and throughput.",
+    "Co-optimizes scheduling across multimodal workloads so that the added Encode stage does not become a system bottleneck."
+  ],
+  "impact": "For AI/ML practitioners, this makes multimodal serving more scalable and practical by improving GPU utilization and reducing latency overheads. It provides a systems approach that can help deploy MLLMs more efficiently in real applications.",
+  "visual_elements": [
+    "A three-stage pipeline diagram showing Encode -> Prefill -> Decode",
+    "A side-by-side comparison of text-only disaggregated serving vs. EAServe for MLLMs",
+    "A GPU pool allocation graphic highlighting how each stage maps to different resources",
+    "A throughput/latency chart showing performance gains from encode-aware scheduling"
+  ],
+  "hashtags": [
+    "#MultimodalLLM",
+    "#LLMServing",
+    "#GPUOptimization",
+    "#AIInfrastructure",
+    "#MachineLearningSystems"
+  ],
+  "paper_id": "2026-09-25-arxiv-easerve_encode_aware_disaggregated_serving_for_multimodal_large_language_models",
+  "paper_title": "EAServe: Encode-Aware Disaggregated Serving for Multimodal Large Language Models",
+  "paper_category": "Model",
+  "paper_date": "2026-09-25",
+  "paper_authors": "Kunxiong Zhu, Zhihao Shu, Hangyu Zheng, Minghai Qin, Miao Yin",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2609.31551v1"
+    },
+    {
+      "title": "DOI",
+      "url": "https://doi.org/10.1145/3838684.3846886"
+    }
+  ],
+  "generated_at": "2026-09-28T12:20:54.038789",
+  "generator": "openai"
+}
