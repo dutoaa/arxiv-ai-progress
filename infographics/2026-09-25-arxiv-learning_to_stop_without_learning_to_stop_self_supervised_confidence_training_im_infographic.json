@@ -1,24 +1,24 @@
 {
-  "key_insight": "You can make reasoning models stop earlier without directly training them to be short. Self-supervised confidence signals are enough to improve reasoning efficiency while preserving strong reasoning performance.",
-  "problem_solved": "Reasoning models often produce unnecessarily long chains of thought, increasing latency and compute cost. This paper addresses how to reduce inference-time reasoning length without relying on explicit early-stopping rules or length-penalized training.",
+  "key_insight": "This paper shows that models can learn to reason more efficiently by learning confidence signals, without explicitly being trained to stop early. A self-supervised confidence objective can produce substantial reductions in reasoning length while preserving performance.",
+  "problem_solved": "Reasoning models often generate unnecessarily long chains of thought, which increases latency and compute cost at inference time. Prior solutions usually rely on explicit early-stopping rules or training with length penalties, both of which can be brittle or require direct supervision of when to stop.",
   "method": [
-    "Train the model with self-supervised confidence supervision, using confidence as the signal for when reasoning is sufficient.",
-    "Avoid explicit length penalties or direct 'learn to stop' objectives; instead, teach the model to estimate when it already knows the answer.",
-    "Use the confidence-trained model to terminate reasoning earlier, improving efficiency while maintaining accuracy."
+    "Train a confidence predictor using a self-supervised procedure rather than direct stop labels.",
+    "Use confidence as a proxy signal for deciding when further reasoning is unlikely to help.",
+    "Improve inference efficiency without explicitly optimizing for shorter traces or adding length-based reinforcement rewards."
   ],
-  "impact": "For AI/ML practitioners, this offers a simpler path to faster and cheaper reasoning systems. It can lower token usage and latency without requiring manual stopping heuristics or heavily modifying the reasoning objective.",
+  "impact": "For AI/ML practitioners, this offers a practical path to cheaper and faster reasoning models without sacrificing accuracy. It suggests that better uncertainty/confidence modeling can be leveraged as an efficiency tool, not just a calibration metric.",
   "visual_elements": [
-    "Before/after comparison of long reasoning traces vs. shorter confidence-guided traces",
-    "Flow diagram showing self-supervised confidence training leading to earlier stopping",
-    "Chart of accuracy vs. reasoning length or compute cost",
-    "Icon set for compute, confidence, stop signal, and reasoning path"
+    "Pipeline diagram showing self-supervised confidence training feeding into reasoning models",
+    "Before/after comparison of long reasoning traces vs shortened traces",
+    "Bar chart of compute or token usage versus task accuracy",
+    "Icon set illustrating confidence, stopping, and efficiency gains"
   ],
   "hashtags": [
-    "#AI",
-    "#MachineLearning",
+    "#AIResearch",
     "#ReasoningModels",
-    "#Efficiency",
-    "#SelfSupervisedLearning"
+    "#SelfSupervisedLearning",
+    "#ModelEfficiency",
+    "#MachineLearning"
   ],
   "paper_id": "2026-09-25-arxiv-learning_to_stop_without_learning_to_stop_self_supervised_confidence_training_im",
   "paper_title": "Learning to Stop without Learning to Stop: Self-Supervised Confidence Training Improves Reasoning Efficiency",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.31619v1"
     }
   ],
-  "generated_at": "2026-09-28T12:21:17.473547",
+  "generated_at": "2026-09-29T11:48:38.450023",
   "generator": "openai"
 }

@@ -1,24 +1,24 @@
 {
-  "key_insight": "Trust Guided Decision Transformer (TGDT) improves long-horizon Decision Transformer rollouts by using the model’s own next-state prediction error as a trust signal. This helps identify when the context has drifted out of distribution and choose a more reliable context before applying value guidance.",
-  "problem_solved": "Decision Transformers can degrade during long rollouts because their conditioning context drifts away from the training distribution, making guidance increasingly unreliable.",
+  "key_insight": "The paper shows that a Decision Transformer can detect when its context becomes unreliable by watching its own next-state prediction error. It uses this signal to choose the most trustworthy recent context before applying guidance, making long rollouts more stable.",
+  "problem_solved": "Decision Transformers often degrade during long rollouts because their conditioning context drifts away from the training distribution. This paper addresses how to identify and correct for that context drift during decision-making.",
   "method": [
-    "Measure next-state prediction error during rollout as an online proxy for context reliability.",
-    "Select among recent context suffixes before applying value guidance, preferring the most trustworthy context.",
-    "Use the trust signal to reduce compounding drift and stabilize long-horizon decision-making."
+    "Measure the model's next-state prediction error during rollout as a proxy for trust in the current context.",
+    "Evaluate multiple recent context suffixes at each step and select the one with the lowest error / highest trust.",
+    "Apply value guidance only after choosing the most reliable context, improving robustness over long horizons."
   ],
-  "impact": "For AI/ML practitioners, this offers a practical way to make sequence-model-based control more robust over long horizons. It can improve rollout stability without requiring a separate trust estimator or major changes to the underlying Decision Transformer pipeline.",
+  "impact": "TGDT helps practitioners use Decision Transformers more reliably in long-horizon tasks where context drift can cause poor actions. It provides a practical way to stabilize rollout behavior without changing the core transformer architecture.",
   "visual_elements": [
-    "A rollout timeline showing prediction error increasing over time and signaling drift.",
-    "A pipeline diagram comparing standard Decision Transformer vs. TGDT with trust-based context selection.",
-    "A small chart of multiple recent context suffixes ranked by trust score.",
-    "An icon-based illustration of 'reliable context' vs. 'drifted context' before value guidance."
+    "A rollout timeline showing prediction error increasing over time and signaling context drift.",
+    "A comparison diagram of standard Decision Transformer vs. Trust Guided Decision Transformer.",
+    "A context-suffix selection flowchart with trust scoring and selection arrows.",
+    "A simple plot of performance on long rollouts before and after trust-guided selection."
   ],
   "hashtags": [
     "#DecisionTransformer",
     "#ReinforcementLearning",
-    "#AIResearch",
-    "#RobustAI",
-    "#MachineLearning"
+    "#TrustGuidedLearning",
+    "#LongHorizonPlanning",
+    "#AIResearch"
   ],
   "paper_id": "2026-09-25-arxiv-trust_guided_decision_transformer",
   "paper_title": "Trust Guided Decision Transformer",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.31586v1"
     }
   ],
-  "generated_at": "2026-09-28T12:21:08.934675",
+  "generated_at": "2026-09-29T11:48:40.812141",
   "generator": "openai"
 }

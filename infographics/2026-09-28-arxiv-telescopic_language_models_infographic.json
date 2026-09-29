@@ -1,0 +1,36 @@
+{
+  "key_insight": "Telescopic Language Models turn one trained Transformer into a continuum of usable model sizes, so a single artifact can serve many compute budgets without separate training runs. The model learns nested capacities by supervising random prefix slices plus a full-capacity anchor.",
+  "problem_solved": "Deploying language models across different latency, memory, and cost budgets usually requires training or compressing separate models for each target size. This paper addresses the inefficiency of maintaining many distinct models for different serving constraints.",
+  "method": [
+    "Train a nested-capacity Transformer where smaller prefixes of the model can function as valid submodels.",
+    "Use stochastic prefix supervision: at each step, randomly sample one truncated prefix of the capacity axis and train it on the full next-token target.",
+    "Include a full-capacity pass as an anchor so the largest model remains fully optimized while smaller prefixes inherit usable performance."
+  ],
+  "impact": "For practitioners, this can simplify deployment by reducing the need for multiple model variants and separate compression pipelines. It offers a flexible way to trade off quality versus compute at inference time using one trained checkpoint.",
+  "visual_elements": [
+    "A nested Transformer diagram showing full model and progressively smaller prefixes",
+    "A training flow graphic illustrating random prefix sampling plus full-capacity anchor",
+    "A compute-vs-quality curve showing multiple budget points served by one model",
+    "An icon-based deployment panel showing low, medium, and high resource serving options"
+  ],
+  "hashtags": [
+    "#LLM",
+    "#ModelCompression",
+    "#EfficientInference",
+    "#Transformer",
+    "#AIResearch"
+  ],
+  "paper_id": "2026-09-28-arxiv-telescopic_language_models",
+  "paper_title": "Telescopic Language Models",
+  "paper_category": "Model",
+  "paper_date": "2026-09-28",
+  "paper_authors": "Zhilin Guo, Boqiao Zhang, Hakan Aktas, Kyle Fogarty, Nursena Koprucu Aslan",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2609.35769v1"
+    }
+  ],
+  "generated_at": "2026-09-29T11:48:18.966807",
+  "generator": "openai"
+}
