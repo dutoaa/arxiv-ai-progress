@@ -1,24 +1,24 @@
 {
-  "key_insight": "Telescopic Language Models turn one trained Transformer into a continuum of usable model sizes, so a single artifact can serve many compute budgets without separate training runs. The model learns nested capacities by supervising random prefix slices plus a full-capacity anchor.",
-  "problem_solved": "Deploying language models across different latency, memory, and cost budgets usually requires training or compressing separate models for each target size. This paper addresses the inefficiency of maintaining many distinct models for different serving constraints.",
+  "key_insight": "Telescopic Language Models train a single Transformer to serve as a whole continuum of compute budgets, rather than requiring a separate model or compression run for each one. The result is a nested-capacity model that can be deployed at multiple sizes from the same trained artifact.",
+  "problem_solved": "Deployment often requires different language model sizes for different latency, memory, or cost budgets, but traditional approaches need separate training or distillation for each target point. This paper addresses the inefficiency of maintaining many single-budget models.",
   "method": [
-    "Train a nested-capacity Transformer where smaller prefixes of the model can function as valid submodels.",
-    "Use stochastic prefix supervision: at each step, randomly sample one truncated prefix of the capacity axis and train it on the full next-token target.",
-    "Include a full-capacity pass as an anchor so the largest model remains fully optimized while smaller prefixes inherit usable performance."
+    "Train a nested-capacity Transformer using stochastic prefix supervision, where one randomly chosen truncated prefix is trained each step.",
+    "Include a full-capacity anchor pass alongside the truncated prefix so the largest model remains well supervised.",
+    "Optimize the model so every prefix along the capacity axis can act as a valid language model with next-token prediction."
   ],
-  "impact": "For practitioners, this can simplify deployment by reducing the need for multiple model variants and separate compression pipelines. It offers a flexible way to trade off quality versus compute at inference time using one trained checkpoint.",
+  "impact": "For practitioners, this can simplify deployment by replacing many model variants with one adaptable model that spans multiple compute budgets. It may reduce training overhead, storage, and operational complexity while improving flexibility at inference time.",
   "visual_elements": [
-    "A nested Transformer diagram showing full model and progressively smaller prefixes",
-    "A training flow graphic illustrating random prefix sampling plus full-capacity anchor",
-    "A compute-vs-quality curve showing multiple budget points served by one model",
-    "An icon-based deployment panel showing low, medium, and high resource serving options"
+    "A horizontal \"capacity axis\" showing nested model prefixes from small to full size",
+    "A training loop diagram with one random prefix plus one full-capacity anchor pass",
+    "A deployment chart mapping different budgets to different prefix lengths",
+    "An icon set for compute, memory, latency, and model scalability"
   ],
   "hashtags": [
-    "#LLM",
+    "#AI",
+    "#LanguageModels",
+    "#EfficientML",
     "#ModelCompression",
-    "#EfficientInference",
-    "#Transformer",
-    "#AIResearch"
+    "#NeuralNetworks"
   ],
   "paper_id": "2026-09-28-arxiv-telescopic_language_models",
   "paper_title": "Telescopic Language Models",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.35769v1"
     }
   ],
-  "generated_at": "2026-09-29T11:48:18.966807",
+  "generated_at": "2026-09-30T11:34:57.357844",
   "generator": "openai"
 }

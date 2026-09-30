@@ -1,24 +1,24 @@
 {
-  "key_insight": "KV-streams makes context compaction efficient for long-horizon agentic LLM training by avoiding repeated full prefills of the prompt. It offers a plug-and-play way to keep GPU memory bounded while improving throughput.",
-  "problem_solved": "Agentic reinforcement learning systems need to store and reuse very long interaction traces, which quickly exhaust GPU memory. Existing compaction methods reduce memory use but often slow training because they repeatedly prefill the model context.",
+  "key_insight": "KV-streams proposes a plug-and-play way to compact long agent traces without repeatedly re-prefilling the entire LLM context. This keeps memory use stable while making trainable compaction much more efficient for agentic reinforcement learning.",
+  "problem_solved": "Agentic LLMs need to maintain very long interaction traces, which quickly exhaust GPU memory. Existing context-compaction methods reduce memory use, but they often require repeated full-context prefilling, which slows training and hurts throughput.",
   "method": [
-    "Introduces KV-streams, a plug-and-play compaction strategy for agentic LLM training.",
-    "Reuses and streams key-value context information instead of repeatedly recomputing full prompt prefills.",
-    "Keeps GPU memory roughly constant for a given trace while reducing the compute overhead of compaction."
+    "Introduce KV-streams as a compacting mechanism that reuses and streams key/value cache information efficiently.",
+    "Design the method to be plug-and-play, so it can integrate with existing agentic RL and LLM training pipelines with minimal changes.",
+    "Avoid repeated full-context prefilling during compaction, reducing compute overhead while preserving long-horizon context handling."
   ],
-  "impact": "This approach can make long-horizon agent training more practical and scalable without sacrificing memory efficiency. For practitioners, it promises faster training loops and easier deployment of agents that must reason over long trajectories.",
+  "impact": "This matters because it makes long-context agent training more practical on real hardware budgets. For practitioners, it can improve throughput, lower training cost, and enable longer-horizon agentic workflows without constant memory scaling.",
   "visual_elements": [
-    "Before/after pipeline diagram comparing repeated prefilling vs. KV-streams",
-    "Memory usage chart showing constant GPU memory across increasing trace length",
-    "Throughput bar chart comparing training speed of compaction methods",
-    "Icon set showing context trace, GPU memory, KV cache, and streaming"
+    "Pipeline diagram showing long trace -> compaction -> KV-streams -> continued training",
+    "Memory usage chart comparing standard compaction vs KV-streams",
+    "Speed/throughput bar chart highlighting reduced prefilling overhead",
+    "Simple icon sequence for GPU memory, KV cache, and agent trajectory"
   ],
   "hashtags": [
-    "#AgenticAI",
+    "#LLM",
     "#ReinforcementLearning",
-    "#LLMTraining",
-    "#GPUMemory",
-    "#AIDSystems"
+    "#AgenticAI",
+    "#GPUmemory",
+    "#AIInfra"
   ],
   "paper_id": "2026-09-28-arxiv-kv_streams_for_efficient_compaction_in_agentic_reinforcement_learning",
   "paper_title": "KV-streams for Efficient Compaction in Agentic Reinforcement Learning",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.35750v1"
     }
   ],
-  "generated_at": "2026-09-29T11:47:59.257292",
+  "generated_at": "2026-09-30T11:35:04.176681",
   "generator": "openai"
 }

@@ -1,0 +1,36 @@
+{
+  "key_insight": "Quantization errors in recurrent states are not equally harmful: their impact depends on when they occur and where in the state they land. STEPQuant shows that preserving the most error-sensitive parts of long-lived memory can avoid major accuracy loss while still reducing memory use.",
+  "problem_solved": "The paper addresses the memory bottleneck of linear-attention models with recurrent states during concurrent serving. Naively quantizing these persistent states to low precision often causes large accuracy degradation because errors accumulate across repeated state updates.",
+  "method": [
+    "Analyzes quantization error through two lenses: temporal persistence and spatial sensitivity within the recurrent state.",
+    "Identifies which state components and decoding steps are most vulnerable to error propagation.",
+    "Applies selective, error-aware state quantization to reduce memory usage while minimizing accuracy loss."
+  ],
+  "impact": "This makes low-precision recurrent-state serving more practical for real-world deployment, especially under high concurrency. Practitioners can lower memory cost without blindly sacrificing model quality.",
+  "visual_elements": [
+    "A timeline showing error accumulation across decoding steps",
+    "A state heatmap highlighting error-sensitive regions",
+    "Before/after memory footprint comparison for full-precision vs quantized states",
+    "A pipeline diagram of linear attention with recurrent state quantization"
+  ],
+  "hashtags": [
+    "#AIResearch",
+    "#ModelCompression",
+    "#Quantization",
+    "#LinearAttention",
+    "#EfficientInference"
+  ],
+  "paper_id": "2026-09-29-arxiv-stepquant_when_and_where_errors_matter_in_delta_rule_recurrent_state_quantizatio",
+  "paper_title": "STEPQuant: When and Where Errors Matter in Delta-Rule Recurrent State Quantization",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-09-29",
+  "paper_authors": "Bingchen Yao, Haobo Xu, Haokun Lin, Yichen Wu, Ziyu Guo",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2609.38169v1"
+    }
+  ],
+  "generated_at": "2026-09-30T11:34:27.379039",
+  "generator": "openai"
+}

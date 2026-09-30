@@ -1,0 +1,36 @@
+{
+  "key_insight": "LeapQuant makes linear-attention models faster by quantizing their recurrent state more accurately, reducing inference overhead without the usual quality drop. The core idea is to preserve the information that matters most during repeated state reads and updates.",
+  "problem_solved": "The paper addresses the inference bottleneck in linear-attention LLMs like GDN and KDA, where the fixed-size recurrent state must be read and updated at every step. Naive quantization reduces memory and compute cost, but often causes accuracy loss that grows over long contexts.",
+  "method": [
+    "Design a quantization method tailored to recurrent state updates in linear attention models.",
+    "Reduce state precision while controlling error accumulation across repeated read/write operations.",
+    "Preserve model quality by improving quantization accuracy for long-context inference rather than applying standard post-training quantization directly."
+  ],
+  "impact": "For AI practitioners, LeapQuant offers a practical way to lower latency and memory use in long-context LLMs without sacrificing much accuracy. This can make linear-attention models more deployable on constrained hardware and more efficient at scale.",
+  "visual_elements": [
+    "A pipeline diagram showing recurrent state read/update cycles in linear attention.",
+    "A before-vs-after chart comparing inference cost and accuracy with standard quantization vs. LeapQuant.",
+    "An illustration of fixed-size state compression over a long token sequence.",
+    "An icon-based comparison of memory, latency, and quality trade-offs."
+  ],
+  "hashtags": [
+    "#LinearAttention",
+    "#LLMOptimization",
+    "#Quantization",
+    "#EfficientInference",
+    "#AIHardware"
+  ],
+  "paper_id": "2026-09-29-arxiv-leapquant_efficient_linear_attention_with_accurate_recurrent_state_quantization",
+  "paper_title": "LeapQuant: Efficient Linear Attention with Accurate Recurrent State Quantization",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-09-29",
+  "paper_authors": "Yi Pan, Haocheng Xi, Kan Zhu, Xingyang Li, Yibo Wu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2609.38166v1"
+    }
+  ],
+  "generated_at": "2026-09-30T11:34:24.655929",
+  "generator": "openai"
+}
