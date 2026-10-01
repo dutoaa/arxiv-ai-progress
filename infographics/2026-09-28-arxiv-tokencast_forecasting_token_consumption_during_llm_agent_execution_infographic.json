@@ -1,17 +1,17 @@
 {
-  "key_insight": "Token consumption in LLM agents is highly variable and cannot be reliably estimated from the start of a task. TokenCast addresses this by forecasting usage as execution unfolds, making predictions that can be updated step by step.",
-  "problem_solved": "LLM agents often consume very different numbers of tokens across repeated runs of the same task, due to changing tool feedback, branching decisions, and growing context. This makes budgeting, scheduling, and cost control difficult before and during execution.",
+  "key_insight": "Token usage in LLM agents is highly variable and cannot be reliably estimated upfront because each tool call and new observation changes the future context size. TokenCast tackles this by forecasting consumption as the run unfolds, enabling adaptive prediction instead of a single static estimate.",
+  "problem_solved": "This paper addresses the difficulty of predicting total token consumption for LLM agent tasks before or during execution. Traditional fixed-cost estimates fail because agent trajectories diverge across runs and context growth makes later calls increasingly expensive.",
   "method": [
-    "Learns a composable forecasting model for token usage during agent execution.",
-    "Updates predictions incrementally as new observations, tool outputs, and intermediate results arrive.",
-    "Accounts for context growth and decision-dependent execution paths to estimate total future token consumption."
+    "Learns a composable cost model that estimates token use across an agent's multi-step execution.",
+    "Updates predictions dynamically as intermediate results, tool feedback, and context expansion accumulate.",
+    "Models token consumption as a run-time forecasting problem rather than a one-shot prediction."
   ],
-  "impact": "This helps practitioners better estimate cost, manage latency, and plan infrastructure for agentic LLM systems. It also enables more reliable monitoring and resource allocation for long-running or tool-using AI workflows.",
+  "impact": "For AI/ML practitioners, this helps with budgeting, latency planning, and infrastructure sizing for agentic systems. More accurate token forecasts can reduce cost overruns and improve deployment reliability for LLM workflows.",
   "visual_elements": [
-    "Flow diagram of an LLM agent loop with token usage increasing at each step",
-    "Line chart showing predicted vs. actual token consumption over time",
-    "Split comparison of low-token and high-token runs for the same task",
-    "Icon set for tools, context growth, forecasting, and budgeting"
+    "A step-by-step agent workflow diagram showing context growth over time",
+    "A line chart comparing predicted vs. actual token consumption across runs",
+    "A side-by-side illustration of static estimation vs. dynamic forecasting",
+    "Icons for tools, feedback loops, and token stacks to show cost accumulation"
   ],
   "hashtags": [
     "#LLMAgents",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.35760v1"
     }
   ],
-  "generated_at": "2026-09-30T11:35:00.026799",
+  "generated_at": "2026-10-01T12:03:46.522459",
   "generator": "openai"
 }
