@@ -1,0 +1,36 @@
+{
+  "key_insight": "TACO proposes a memory-efficient optimizer for LLM fine-tuning that aims to preserve AdamW-like behavior while dramatically reducing optimizer-state overhead. The core idea is to use ternary, absolute-max, column-wise one-sparse updates to make full-parameter fine-tuning fit better on modern GPUs.",
+  "problem_solved": "Full-parameter LLM fine-tuning is often limited by the large memory footprint of optimizer states, which can prevent larger models from fitting on available GPUs. Existing memory-saving methods either compress state, drop first-order gradients, or change the update geometry in ways that can hurt fine-tuning quality.",
+  "method": [
+    "Uses ternary update values to reduce optimizer-state complexity.",
+    "Applies absolute-max, column-wise one-sparse updates to lower memory usage while keeping updates efficient.",
+    "Targets AdamW-style fine-tuning behavior more closely than matrix-update approaches like Muon."
+  ],
+  "impact": "This matters because it can enable larger-model fine-tuning on the same hardware, reducing memory bottlenecks and infrastructure cost. Practitioners may get a more practical optimizer that balances efficiency with strong fine-tuning performance.",
+  "visual_elements": [
+    "Side-by-side memory comparison of AdamW vs. Muon vs. TACO",
+    "Diagram of ternary one-sparse column-wise updates",
+    "GPU memory budget chart showing model size fit limits",
+    "Workflow icon showing full-parameter fine-tuning pipeline"
+  ],
+  "hashtags": [
+    "#LLM",
+    "#FineTuning",
+    "#Optimizers",
+    "#EfficientAI",
+    "#MachineLearning"
+  ],
+  "paper_id": "2026-10-01-arxiv-taco_ternary_absolute_max_column_wise_one_sparse_optimizer_for_llm_fine_tuning",
+  "paper_title": "TACO: Ternary Absolute-max Column-wise One-sparse Optimizer for LLM Fine-Tuning",
+  "paper_category": "Model",
+  "paper_date": "2026-10-01",
+  "paper_authors": "Jichao Jiang, Cristian McGee, El Houcine Bergou, Hanqin Cai, Aritra Dutta",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2610.02199v1"
+    }
+  ],
+  "generated_at": "2026-10-02T11:34:33.547641",
+  "generator": "openai"
+}

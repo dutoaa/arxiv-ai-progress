@@ -1,24 +1,24 @@
 {
-  "key_insight": "This paper shows that LLMs trained with reinforcement learning from verifiable rewards can still be surprisingly sensitive to prompt wording that should not change the answer. By identifying and suppressing high-drift token choices during decoding, the method improves reasoning accuracy.",
-  "problem_solved": "It addresses the instability of RLVR-trained language models when task-irrelevant prompt features change, even though the underlying problem and correct answer stay the same.",
+  "key_insight": "Large language models trained with reinforcement learning can still be distracted by irrelevant prompt changes, but measuring and suppressing the most unstable token choices during decoding can improve reasoning accuracy. The paper shows that semifactual interventions expose where this sensitivity comes from and how to reduce it.",
+  "problem_solved": "This paper addresses the brittleness of RLVR-trained LLMs, which may change their predictions when prompts are altered in ways that do not affect the underlying task or correct answer.",
   "method": [
-    "Create semifactual prompt interventions that preserve the task and answer while changing surface wording.",
-    "Measure token-level sensitivity to identify which prompt tokens cause the largest prediction drift.",
-    "Suppress high-drift token candidates during decoding to reduce sensitivity and improve reasoning accuracy."
+    "Apply semifactual prompt interventions that keep the core problem and answer unchanged while modifying irrelevant prompt features.",
+    "Measure token-level sensitivity to identify which candidate tokens exhibit the largest drift under these interventions.",
+    "Suppress high-drift token candidates during decoding to steer the model toward more stable reasoning outputs."
   ],
-  "impact": "For AI/ML practitioners, this provides a practical way to make reasoning models more robust to harmless prompt variations. It can improve reliability in evaluation and deployment settings where prompts are not perfectly standardized.",
+  "impact": "For AI/ML practitioners, this offers a practical way to diagnose and reduce prompt sensitivity in reasoning models. It can improve robustness and accuracy without changing the task itself or retraining the full model.",
   "visual_elements": [
-    "Before/after diagram showing original prompt vs semifactual prompt with same answer",
-    "Token heatmap highlighting high-drift versus low-drift prompt tokens",
-    "Accuracy bar chart comparing baseline decoding and credit-augmented decoding",
-    "Pipeline infographic: prompt intervention -> drift analysis -> suppressed decoding -> improved reasoning"
+    "Before-and-after flow diagram showing prompt intervention and improved decoding",
+    "Token sensitivity heatmap highlighting high-drift positions",
+    "Side-by-side comparison of model outputs with and without suppression",
+    "Simple pipeline icon set: prompt change -> sensitivity analysis -> constrained decoding"
   ],
   "hashtags": [
-    "#LLMReasoning",
     "#ReinforcementLearning",
-    "#RLVR",
-    "#PromptRobustness",
-    "#AIResearch"
+    "#LargeLanguageModels",
+    "#RobustAI",
+    "#ReasoningModels",
+    "#MachineLearningResearch"
   ],
   "paper_id": "2026-09-30-arxiv-semifactual_credit_augmented_policy_optimization",
   "paper_title": "Semifactual Credit-Augmented Policy Optimization",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2609.40360v1"
     }
   ],
-  "generated_at": "2026-10-01T12:03:02.292290",
+  "generated_at": "2026-10-02T11:34:57.242714",
   "generator": "openai"
 }
