@@ -1,23 +1,23 @@
 {
-  "key_insight": "This paper introduces a hierarchical continuous diffusion language model that aims to preserve token-to-token dependencies during parallel decoding, rather than treating each decoded token as independent. The core idea is to combine the global consistency benefits of continuous diffusion with a structured hierarchy that better captures local and global relationships in generated text.",
-  "problem_solved": "The paper addresses a key limitation of diffusion-based language models: parallel decoding often samples each token independently from its marginal distribution, which breaks statistical dependencies among tokens decoded together. This makes it harder to maintain coherent multi-token structure and satisfy global constraints in generation.",
+  "key_insight": "This paper introduces a hierarchical continuous diffusion language model that aims to preserve token dependencies during parallel decoding. By combining shared continuous-state denoising with hierarchical structure, it seeks to improve global consistency beyond standard discrete diffusion methods.",
+  "problem_solved": "It addresses the bottleneck in diffusion-based language generation where tokens decoded in parallel are sampled independently, which breaks dependencies and can hurt coherence and constraint satisfaction.",
   "method": [
-    "Use a continuous diffusion framework instead of purely discrete token sampling to denoise a shared latent text representation.",
-    "Introduce a hierarchical decoding strategy so the model can represent dependencies at multiple levels, improving coordination among tokens generated in parallel.",
-    "Leverage the hierarchy to support bidirectional reasoning and more globally consistent text generation than flat parallel decoding."
+    "Use a continuous diffusion formulation to denoise a shared latent state rather than independently sampling tokens.",
+    "Introduce a hierarchical structure so the model can capture both coarse global context and finer token-level details.",
+    "Preserve statistical dependencies among jointly decoded tokens to improve bidirectional reasoning and global constraint handling."
   ],
-  "impact": "For AI/ML practitioners, this could improve generation quality in tasks where coherence, constraint satisfaction, and multi-token consistency matter, such as structured text, planning, and reasoning-heavy outputs. It also offers a promising alternative to autoregressive decoding when parallel generation speed and global control are important.",
+  "impact": "This matters because it offers a path toward more coherent, globally consistent text generation without relying on purely autoregressive decoding. For practitioners, it could improve tasks like constrained generation, editing, and reasoning-heavy language modeling.",
   "visual_elements": [
-    "A side-by-side diagram comparing autoregressive decoding, discrete diffusion, and hierarchical continuous diffusion.",
-    "A hierarchy tree or layered block diagram showing coarse-to-fine generation levels.",
-    "An icon-based flowchart of the denoising process from noisy latent state to final text.",
-    "A dependency graph illustrating how independent token sampling breaks relationships versus the proposed method preserving them."
+    "Side-by-side comparison of autoregressive, discrete diffusion, and hierarchical continuous diffusion decoding",
+    "Diagram showing a shared continuous latent state branching into hierarchical token groups",
+    "Flowchart illustrating how dependencies are preserved during parallel denoising",
+    "Icon set for bidirectional reasoning, constraint satisfaction, and coherence"
   ],
   "hashtags": [
     "#DiffusionModels",
-    "#NLP",
-    "#GenerativeAI",
     "#LanguageModels",
+    "#GenerativeAI",
+    "#NLP",
     "#MachineLearning"
   ],
   "paper_id": "2026-10-01-arxiv-hierarchical_continuous_diffusion_language_models",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.02193v1"
     }
   ],
-  "generated_at": "2026-10-02T11:34:25.706010",
+  "generated_at": "2026-10-03T10:48:58.965596",
   "generator": "openai"
 }
