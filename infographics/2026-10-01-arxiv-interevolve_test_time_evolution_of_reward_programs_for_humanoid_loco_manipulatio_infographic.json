@@ -1,24 +1,24 @@
 {
-  "key_insight": "A broad humanoid controller can often solve new loco-manipulation tasks without retraining if its existing skills are exposed through a richer planning-to-control interface. By letting the system improve from its own attempts at test time, the paper shows that latent competence can be repurposed and retained for contact-rich, multi-stage behaviors.",
-  "problem_solved": "The paper addresses how to make humanoid robots perform new loco-manipulation tasks that they were never explicitly trained for, without expensive retraining or task-specific redesign.",
+  "key_insight": "A humanoid controller can often solve new tasks by reusing skills it already has, if those skills are exposed through a planning-to-control interface expressive enough to represent contact-rich, multi-stage behaviors. The paper shows that the robot can improve at test time by evolving its own reward programs, without retraining the policy.",
+  "problem_solved": "This paper tackles the challenge of making humanoid robots handle unseen loco-manipulation tasks at test time—tasks they were never explicitly trained for—while avoiding costly retraining and preserving learned improvements.",
   "method": [
-    "Use test-time evolution to adapt behavior from the robot's own rollouts rather than offline retraining.",
-    "Represent tasks through reward programs that connect high-level planning with low-level control in a way that can express contact-rich, multi-stage interactions.",
-    "Iteratively refine the reward/programming signal so the controller reuses existing skills and retains useful improvements across attempts."
+    "Use test-time evolution to adapt reward programs rather than retraining the controller.",
+    "Let the robot attempt the task, evaluate its own behavior, and iteratively improve the reward specification based on those attempts.",
+    "Exploit a broad pre-trained controller and an expressive interface between planning and control to unlock existing capabilities for contact-rich, multi-stage interaction."
   ],
-  "impact": "For AI/ML practitioners, this suggests a path to more scalable robot adaptation: robots can tackle new tasks at deployment time using pre-existing capabilities instead of requiring full retraining. It also points to a practical way to bridge planning and control for complex humanoid manipulation.",
+  "impact": "This approach offers a practical path for deploying humanoid robots in new environments and tasks with less data, less retraining, and faster adaptation. For practitioners, it suggests a way to turn general-purpose controllers into task-specific performers at test time.",
   "visual_elements": [
-    "Before/after workflow diagram showing a trained controller adapting at test time",
-    "Pipeline graphic linking planning, reward program evolution, and low-level control",
-    "Robotic humanoid illustration with highlighted contact points and multi-stage task steps",
-    "Improvement curve chart showing performance increasing over repeated attempts"
+    "Before/after pipeline diagram showing a frozen controller vs. test-time reward evolution",
+    "Loop diagram of try -> evaluate -> update reward program -> improve behavior",
+    "Humanoid task sequence illustration for contact-rich loco-manipulation",
+    "Simple interface graphic connecting high-level planning to low-level control"
   ],
   "hashtags": [
-    "#Robotics",
-    "#HumanoidAI",
+    "#HumanoidRobotics",
     "#ReinforcementLearning",
     "#TestTimeAdaptation",
-    "#RobotManipulation"
+    "#RobotLearning",
+    "#AIResearch"
   ],
   "paper_id": "2026-10-01-arxiv-interevolve_test_time_evolution_of_reward_programs_for_humanoid_loco_manipulatio",
   "paper_title": "InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.02196v1"
     }
   ],
-  "generated_at": "2026-10-03T10:49:06.556705",
+  "generated_at": "2026-10-04T11:30:45.957255",
   "generator": "openai"
 }

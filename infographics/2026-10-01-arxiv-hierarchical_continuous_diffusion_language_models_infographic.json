@@ -1,23 +1,23 @@
 {
-  "key_insight": "This paper introduces a hierarchical continuous diffusion language model that aims to preserve token dependencies during parallel decoding. By combining shared continuous-state denoising with hierarchical structure, it seeks to improve global consistency beyond standard discrete diffusion methods.",
-  "problem_solved": "It addresses the bottleneck in diffusion-based language generation where tokens decoded in parallel are sampled independently, which breaks dependencies and can hurt coherence and constraint satisfaction.",
+  "key_insight": "Hierarchical Continuous Diffusion Language Models aim to preserve the global coordination benefits of continuous diffusion while reducing the bottleneck of independent parallel token sampling. The core idea is to introduce a hierarchical structure so denoising can model richer dependencies among tokens generated together.",
+  "problem_solved": "The paper addresses a major weakness in diffusion-based language generation: parallel decoding often samples each token independently, which breaks dependencies and hurts coherent, globally consistent outputs. It also targets the limitation that standard continuous diffusion denoisers only observe a shared latent state, limiting token-level coordination.",
   "method": [
-    "Use a continuous diffusion formulation to denoise a shared latent state rather than independently sampling tokens.",
-    "Introduce a hierarchical structure so the model can capture both coarse global context and finer token-level details.",
-    "Preserve statistical dependencies among jointly decoded tokens to improve bidirectional reasoning and global constraint handling."
+    "Use a continuous diffusion framework for language generation instead of purely discrete token-wise sampling.",
+    "Introduce a hierarchical denoising structure to better capture dependencies among tokens decoded in parallel.",
+    "Improve global constraint satisfaction and bidirectional reasoning by allowing the model to coordinate tokens through shared intermediate representations."
   ],
-  "impact": "This matters because it offers a path toward more coherent, globally consistent text generation without relying on purely autoregressive decoding. For practitioners, it could improve tasks like constrained generation, editing, and reasoning-heavy language modeling.",
+  "impact": "For practitioners, this could mean more coherent generations and better handling of tasks that require global planning, constraint satisfaction, or bidirectional reasoning. It is especially relevant for applications where parallel decoding efficiency is important but independence assumptions are too restrictive.",
   "visual_elements": [
-    "Side-by-side comparison of autoregressive, discrete diffusion, and hierarchical continuous diffusion decoding",
-    "Diagram showing a shared continuous latent state branching into hierarchical token groups",
-    "Flowchart illustrating how dependencies are preserved during parallel denoising",
-    "Icon set for bidirectional reasoning, constraint satisfaction, and coherence"
+    "Side-by-side diagram comparing autoregressive, discrete diffusion, and hierarchical continuous diffusion decoding",
+    "Flowchart showing hierarchical denoising stages from noisy latent state to final text",
+    "Icon set illustrating token dependency, global constraint satisfaction, and bidirectional reasoning",
+    "Simple schematic highlighting where independent parallel sampling breaks dependencies versus where hierarchy preserves them"
   ],
   "hashtags": [
     "#DiffusionModels",
+    "#NLP",
     "#LanguageModels",
     "#GenerativeAI",
-    "#NLP",
     "#MachineLearning"
   ],
   "paper_id": "2026-10-01-arxiv-hierarchical_continuous_diffusion_language_models",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.02193v1"
     }
   ],
-  "generated_at": "2026-10-03T10:48:58.965596",
+  "generated_at": "2026-10-04T11:30:42.580337",
   "generator": "openai"
 }
