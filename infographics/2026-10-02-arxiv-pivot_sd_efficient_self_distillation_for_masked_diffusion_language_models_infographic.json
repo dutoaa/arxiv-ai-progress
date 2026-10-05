@@ -1,0 +1,36 @@
+{
+  "key_insight": "Pivot-SD introduces an efficient self-distillation strategy for masked diffusion language models that focuses training on the most informative denoising decisions. By leveraging the model’s own uncertainty reduction during generation, it better assigns credit to the tokens that matter most for reasoning and response quality.",
+  "problem_solved": "Masked diffusion language models are hard to post-train because a few early denoising commitments can strongly determine the rest of the sequence, but standard training recipes usually ignore this token-level credit-assignment signal. This paper addresses the mismatch between where the model makes important decisions and where training supervision is applied.",
+  "method": [
+    "Uses self-distillation to train the masked diffusion model from its own denoising behavior.",
+    "Selects or emphasizes training targets based on pivot points where token commitments most reduce uncertainty over remaining masked positions.",
+    "Avoids relying only on final-text supervision or coarse whole-trajectory rewards, making post-training more aligned with the model’s actual decision process."
+  ],
+  "impact": "For practitioners, this can make diffusion-based language models easier to post-train and more effective on reasoning-oriented tasks. It also offers a more efficient way to improve parallel generation models without requiring heavy external reward design.",
+  "visual_elements": [
+    "A denoising timeline showing masked tokens gradually committed into final text, with highlighted pivot steps.",
+    "A credit-assignment diagram comparing standard final-text supervision vs. pivot-focused self-distillation.",
+    "A before/after chart of uncertainty reduction across denoising steps.",
+    "An icon-based pipeline: mask -> denoise -> pivot selection -> self-distillation -> improved output quality."
+  ],
+  "hashtags": [
+    "#DiffusionModels",
+    "#LLM",
+    "#SelfDistillation",
+    "#ReasoningAI",
+    "#MachineLearning"
+  ],
+  "paper_id": "2026-10-02-arxiv-pivot_sd_efficient_self_distillation_for_masked_diffusion_language_models",
+  "paper_title": "Pivot-SD: Efficient Self-Distillation for Masked Diffusion Language Models",
+  "paper_category": "Model",
+  "paper_date": "2026-10-02",
+  "paper_authors": "Seo Hyun Kim, Sunwoo Hong, Younwoo Choi, Chen-Hao Chao, Se-Young Yun",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2610.03665v1"
+    }
+  ],
+  "generated_at": "2026-10-05T13:00:24.434580",
+  "generator": "openai"
+}
