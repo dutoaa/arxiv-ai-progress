@@ -1,0 +1,37 @@
+{
+  "key_insight": "The paper argues that looped language models should be treated as fixed-point systems: once recurrent states get close to a stable point, the exact trajectory used to reach them matters much less. This unlocks cheaper training, decoding, distillation, and RL without major accuracy loss.",
+  "problem_solved": "Looped models are computationally expensive because every extra recurrence increases cost in training, decoding, prefill, and reinforcement learning. The paper addresses how to reduce this overhead by exploiting near-fixed-point behavior.",
+  "method": [
+    "Use truncated backpropagation during training when recurrent states are close to convergence.",
+    "Apply terminal KV sharing at decoding time to reuse final key-value states with minimal accuracy loss.",
+    "Distill a student model that leverages fixed-point behavior to speed up prefill up to 1.79x.",
+    "Compute RL gradients from saved rollout states instead of full backpropagation through the rollout, achieving about 2x speedup."
+  ],
+  "impact": "This makes looped and recurrent LLMs far more practical by reducing compute cost across the full lifecycle of a model. Practitioners can gain faster training and inference while preserving most of the performance benefits of recurrence.",
+  "visual_elements": [
+    "A looped model diagram showing states moving toward a fixed point.",
+    "A before-vs-after cost chart for training, decoding, prefill, and RL.",
+    "A pipeline graphic comparing full backpropagation versus truncated/saved-state gradients.",
+    "An icon-based summary of the four optimizations: train, decode, distill, RL."
+  ],
+  "hashtags": [
+    "#AIResearch",
+    "#LLM",
+    "#FixedPointModels",
+    "#EfficientInference",
+    "#MachineLearning"
+  ],
+  "paper_id": "2026-10-05-arxiv-towards_looped_models_done_right_part_ii_rethinking_at_fixed_points",
+  "paper_title": "Towards Looped Models Done Right, Part II: Rethinking at Fixed Points",
+  "paper_category": "Model",
+  "paper_date": "2026-10-05",
+  "paper_authors": "Benhao Huang, Chufan Shi, Junlin Chen, Shicheng Wen, Zhengzhong Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2610.06833v1"
+    }
+  ],
+  "generated_at": "2026-10-06T12:25:03.632182",
+  "generator": "openai"
+}
