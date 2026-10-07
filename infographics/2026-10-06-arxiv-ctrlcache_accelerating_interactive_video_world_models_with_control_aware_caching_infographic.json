@@ -1,0 +1,36 @@
+{
+  "key_insight": "CtrlCache speeds up interactive video world models by making caching aware of user control changes, so the model can reuse work when it is safe and recompute when controls shift. This reduces expensive denoising steps while preserving responsiveness to user input.",
+  "problem_solved": "The paper addresses the high inference cost of chunk-wise autoregressive video generation in interactive world models, where each chunk requires multiple denoising iterations. Existing caching methods reduce computation but often ignore control transitions, which can hurt fidelity when user instructions change.",
+  "method": [
+    "Monitors both denoising dynamics and control changes to decide when cached features or outputs can be reused.",
+    "Introduces a control-aware caching policy for training-free acceleration of chunk-based video generation.",
+    "Balances efficiency and responsiveness by recomputing only when control transitions indicate that reuse would be unsafe."
+  ],
+  "impact": "For practitioners, this offers a practical way to cut inference latency and compute cost in interactive video generation without retraining the model. It is especially useful for real-time creative tools, simulation systems, and any application where user control must remain faithful under tight runtime budgets.",
+  "visual_elements": [
+    "A pipeline diagram showing chunk-wise video generation with cache reuse points.",
+    "A side-by-side comparison of baseline caching vs control-aware caching decisions across control changes.",
+    "A timeline chart illustrating denoising iterations saved per chunk.",
+    "Icons representing user controls, cached frames, recomputation, and speed/latency reduction."
+  ],
+  "hashtags": [
+    "#AIGeneration",
+    "#VideoWorldModels",
+    "#ModelCaching",
+    "#InteractiveAI",
+    "#EfficientInference"
+  ],
+  "paper_id": "2026-10-06-arxiv-ctrlcache_accelerating_interactive_video_world_models_with_control_aware_caching",
+  "paper_title": "CtrlCache: Accelerating Interactive Video World Models with Control-Aware Caching",
+  "paper_category": "Model",
+  "paper_date": "2026-10-06",
+  "paper_authors": "Shangye Song, Dong Gong, Hong Jia, Yun Sing Koh, Xinyu Zhang",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2610.08777v1"
+    }
+  ],
+  "generated_at": "2026-10-07T12:17:52.493219",
+  "generator": "openai"
+}
