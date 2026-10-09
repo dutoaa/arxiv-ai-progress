@@ -1,0 +1,36 @@
+{
+  "key_insight": "This paper reframes 4-bit AdamW optimizer-state quantization in \"rounding space\"—the space where quantizers choose between neighboring levels—to better control how quantization errors affect training. The key result is that minimizing state error alone is not enough; the rounding behavior and local structure of the quantization cell matter for stable adaptive updates.",
+  "problem_solved": "It addresses the challenge of compressing AdamW optimizer states into 4 bits without letting quantization noise accumulate through the momentum and second-moment recurrences, which can distort future parameter updates.",
+  "method": [
+    "Redesigns optimizer-state quantization around the quantizer’s rounding decision space instead of only the reconstructed state values.",
+    "Uses a local analysis of the second-moment quantization cell near zero to characterize how errors propagate through AdamW.",
+    "Derives guidance for 4-bit state quantization that better preserves the adaptive dynamics of AdamW during training."
+  ],
+  "impact": "For practitioners, this can make optimizer-state compression more reliable, lowering memory/storage costs while reducing the risk of degraded training quality. It is especially relevant for large models where optimizer state is a major bottleneck.",
+  "visual_elements": [
+    "A diagram of AdamW state updates showing where quantization is inserted in the recurrence.",
+    "A side-by-side comparison of standard value-space quantization vs. rounding-space quantization.",
+    "An illustration of a 4-bit quantization cell near zero with adjacent reconstruction levels highlighted.",
+    "A small chart showing memory savings versus training stability/accuracy across quantization methods."
+  ],
+  "hashtags": [
+    "#AdamW",
+    "#Quantization",
+    "#4BitTraining",
+    "#EfficientML",
+    "#OptimizerCompression"
+  ],
+  "paper_id": "2026-10-08-arxiv-rounding_in_preconditioner_space_redesigning_4_bit_adamw_optimizer_state_quantiz",
+  "paper_title": "Rounding in Preconditioner Space: Redesigning 4-bit AdamW Optimizer-State Quantization",
+  "paper_category": "Model",
+  "paper_date": "2026-10-08",
+  "paper_authors": "Hanyang Li, Shao Tang, Daniel Thomas Braithwaite, Gregory Dexter, Leonardo Neves",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2610.12444v1"
+    }
+  ],
+  "generated_at": "2026-10-09T12:16:33.654823",
+  "generator": "openai"
+}

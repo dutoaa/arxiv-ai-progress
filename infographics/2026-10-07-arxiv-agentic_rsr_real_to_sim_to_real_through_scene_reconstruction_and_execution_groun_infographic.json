@@ -1,23 +1,22 @@
 {
-  "key_insight": "Agentic RSR connects scene reconstruction, policy learning, and real-robot execution in one task-driven loop. The key idea is to build simulations that preserve what matters for manipulation and to train policies on observations that the real robot can actually use.",
-  "problem_solved": "Traditional real-to-sim pipelines often reconstruct scenes without considering whether the resulting simulation supports the target task, while policy learning is often done separately from reconstruction. This paper addresses the gap between accurate scene reconstruction and execution-grounded robot control.",
+  "key_insight": "Agentic RSR unifies scene reconstruction, policy learning, and real-robot execution in one real-to-sim-to-real loop, so the simulated environment stays grounded in what the robot can actually see and do. The core idea is to reconstruct a task-relevant workspace from video and use that same task to train and validate robot policies.",
+  "problem_solved": "Traditional real-to-sim workflows often separate scene reconstruction from policy design, which can create a mismatch between simulated scenes and real robot observations. This paper addresses the challenge of building simulations that preserve task-relevant interactions while training policies that remain executable on the real robot.",
   "method": [
-    "Start with a workspace video, a task description, and a known robot model.",
-    "Reconstruct the scene in simulation with an emphasis on task-relevant objects, interactions, and geometry.",
-    "Develop and evaluate policies in the reconstructed simulation using observations aligned with what the real robot will perceive.",
-    "Execute the learned policy on the physical robot, closing the real-to-sim-to-real loop through the same manipulation task."
+    "Use a workspace video, task description, and known robot model as inputs to reconstruct the scene in simulation.",
+    "Link scene reconstruction and policy development through the same manipulation task, instead of treating them as separate steps.",
+    "Ground policy learning in observations and execution constraints available to the real robot, then transfer the resulting policy back to physical execution."
   ],
-  "impact": "This matters because it makes simulated training more transferable to real robots by aligning reconstruction, perception, and control around the same task. For practitioners, it can reduce sim-to-real mismatch and improve the reliability of robot policies deployed in the real world.",
+  "impact": "This matters because it reduces the sim-to-real gap in manipulation tasks by making the simulator more faithful to real robot perception and interaction. For practitioners, it offers a more practical pipeline for building deployable policies with less manual scene engineering and fewer transfer failures.",
   "visual_elements": [
-    "A three-stage pipeline diagram: real video -> reconstructed simulation -> robot execution",
-    "A side-by-side comparison showing task-relevant vs. irrelevant scene details in reconstruction",
-    "An icon-based workflow linking camera/video, simulator, policy, and robot arm",
-    "A success/failure chart illustrating improved transfer from simulation to real execution"
+    "A real-to-sim-to-real pipeline diagram showing video input, reconstruction, simulation training, and robot execution.",
+    "Side-by-side comparison of real workspace vs reconstructed simulation scene with highlighted task-relevant objects.",
+    "A loop diagram showing how the same task connects reconstruction, policy learning, and execution.",
+    "Icons for camera/video input, 3D scene model, robot arm, and policy network."
   ],
   "hashtags": [
     "#Robotics",
     "#Sim2Real",
-    "#SceneReconstruction",
+    "#ImitationLearning",
     "#RobotLearning",
     "#AIResearch"
   ],
@@ -32,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.10479v1"
     }
   ],
-  "generated_at": "2026-10-08T12:27:44.328237",
+  "generated_at": "2026-10-09T12:17:28.110414",
   "generator": "openai"
 }
