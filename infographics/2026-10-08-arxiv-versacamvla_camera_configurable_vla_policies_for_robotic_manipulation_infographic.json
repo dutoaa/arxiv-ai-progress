@@ -1,24 +1,24 @@
 {
-  "key_insight": "VersaCamVLA makes robotic VLA policies work with changing camera setups by learning a camera-agnostic scene representation. This lets a single policy handle different numbers, poses, and placements of cameras more robustly.",
-  "problem_solved": "Most VLA robotic manipulation models are trained with fixed camera configurations, so they break when cameras are added, removed, or moved at deployment. This paper addresses the brittleness of camera-dependent policies.",
+  "key_insight": "VersaCamVLA makes robotic VLA policies robust to changing camera setups by separating how camera views are represented from how actions are learned. This lets a single policy work across different numbers, poses, and arrangements of cameras without retraining from scratch.",
+  "problem_solved": "Most VLA models assume a fixed set of cameras during training, so they can break when the number of cameras or their positions change at deployment. This paper addresses the brittleness of robot manipulation policies under variable camera configurations.",
   "method": [
-    "Learns a unified scene-token interface that converts an arbitrary set of posed RGB views into a shared representation.",
-    "Decouples camera-set encoding from action prediction so the policy is less tied to a specific sensor layout.",
-    "Supports variable camera count and pose at inference time while preserving manipulation performance."
+    "Learns a unified scene-token interface that converts an arbitrary set of posed RGB camera views into a shared representation.",
+    "Decouples camera-set representation from action prediction so the policy can generalize across camera counts and poses.",
+    "Uses the camera-configurable framework to support flexible deployment in manipulation tasks without requiring a fixed training-time camera layout."
   ],
-  "impact": "For practitioners, this means robotic policies can be deployed across different labs, robots, and setups without retraining for every camera arrangement. It improves robustness, flexibility, and real-world usability of VLA systems.",
+  "impact": "For practitioners, this reduces the engineering burden of matching training and deployment camera setups, making robotic policies easier to reuse across labs, robots, and environments. It also improves the practical robustness of VLA systems for real-world manipulation.",
   "visual_elements": [
-    "Before/after diagram showing a fixed-camera policy vs. VersaCamVLA handling variable camera setups",
-    "Pipeline graphic from multiple camera images to scene tokens to action outputs",
-    "Camera icons arranged in different counts and poses around a robot arm",
-    "Performance chart comparing robustness under camera changes"
+    "Before/after diagram showing a fixed-camera VLA failing versus VersaCamVLA handling variable camera counts",
+    "Pipeline graphic: multiple RGB cameras -> scene-token interface -> action policy",
+    "Layout comparison panel with different camera poses and counts feeding the same model",
+    "Icon set for cameras, scene tokens, and robot actions to illustrate the decoupled design"
   ],
   "hashtags": [
     "#Robotics",
     "#VisionLanguageAction",
-    "#ComputerVision",
-    "#MachineLearning",
-    "#EmbodiedAI"
+    "#RobotManipulation",
+    "#MultimodalAI",
+    "#MachineLearning"
   ],
   "paper_id": "2026-10-08-arxiv-versacamvla_camera_configurable_vla_policies_for_robotic_manipulation",
   "paper_title": "VersaCamVLA: Camera-Configurable VLA Policies for Robotic Manipulation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.12451v1"
     }
   ],
-  "generated_at": "2026-10-09T12:16:41.901253",
+  "generated_at": "2026-10-10T11:34:33.049921",
   "generator": "openai"
 }

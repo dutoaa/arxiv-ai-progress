@@ -1,22 +1,22 @@
 {
-  "key_insight": "This paper argues that the “reasoning tokens” produced by large language models may not faithfully reveal how the model actually solves a task. Instead, they can be viewed as a surface-level trace of an internal state over tokens, motivating better ways to study what the model is truly doing.",
-  "problem_solved": "It addresses the gap between a model’s visible chain-of-thought reasoning and its actual computation, helping researchers understand whether reasoning transcripts are explanations, approximations, or something else entirely.",
+  "key_insight": "Reasoning tokens in large language models may function more like an internal state than a transparent record of the model’s actual thought process. The paper argues that we should study these tokens as part of the model’s computation, not assume the transcript reveals how the answer was produced.",
+  "problem_solved": "It addresses the mismatch between what LLMs write during chain-of-thought reasoning and how they may actually compute answers. This matters because current interpretations can over-trust reasoning transcripts as explanations.",
   "method": [
-    "Frame reasoning tokens as observations of an underlying token-wise internal state rather than direct evidence of the model’s decision process.",
-    "Propose ways to investigate how internal states evolve across generated reasoning steps and how they relate to final outputs.",
-    "Use this perspective to guide analysis of when reasoning text aligns with, diverges from, or misrepresents model behavior."
+    "Frame reasoning tokens as latent state variables that influence model behavior over time.",
+    "Propose ways to probe the relationship between emitted reasoning text and the model’s hidden decision process.",
+    "Outline research directions for measuring when reasoning tokens are faithful, useful, or merely post-hoc rationalizations."
   ],
-  "impact": "For AI practitioners, this perspective helps avoid over-trusting chain-of-thought as a transparent explanation of model behavior. It supports more rigorous interpretability, debugging, and evaluation of reasoning systems.",
+  "impact": "For AI/ML practitioners, this paper shifts how we evaluate and trust chain-of-thought outputs. It encourages better debugging, interpretability, and safety analysis by treating reasoning text as a signal to investigate rather than a guaranteed explanation.",
   "visual_elements": [
-    "A two-layer diagram showing visible reasoning tokens above hidden internal state over time.",
-    "A comparison graphic of 'reasoning transcript' vs 'actual decision path'.",
-    "A token-by-token timeline illustrating state changes across a reasoning process.",
-    "An icon-based flow from prompt → latent state → reasoning tokens → final answer."
+    "A split diagram showing 'reasoning transcript' versus 'actual internal computation'.",
+    "A token timeline illustrating how reasoning tokens evolve into the final answer.",
+    "An icon-based comparison of 'faithful reasoning' and 'post-hoc rationalization'.",
+    "A simple pipeline graphic: prompt -> reasoning tokens -> hidden state -> answer."
   ],
   "hashtags": [
     "#LLM",
-    "#AIReasoning",
-    "#Interpretability",
+    "#ChainOfThought",
+    "#AIInterpretability",
     "#MachineLearning",
     "#GenerativeAI"
   ],
@@ -35,6 +35,6 @@
       "url": "https://doi.org/10.1038/s42256-026-01303-y"
     }
   ],
-  "generated_at": "2026-10-09T12:17:16.157766",
+  "generated_at": "2026-10-10T11:35:07.250901",
   "generator": "openai"
 }

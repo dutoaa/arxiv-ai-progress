@@ -1,24 +1,24 @@
 {
-  "key_insight": "DreamTrue makes robot video prediction more action-faithful by conditioning on rendered action trajectories and correcting model bias with counterfactual post-training. This helps the world model stay physically plausible while better matching what the robot actually does across different embodiments.",
-  "problem_solved": "The paper addresses two core issues in robot world models: imperfect calibration that causes poor action following, and dataset bias toward successful interactions that makes models overpredict success and underrepresent failures.",
+  "key_insight": "DreamTrue makes robot video prediction more action-faithful by conditioning on rendered action trajectories in image space and correcting for dataset/calibration issues. It also reduces the usual bias toward only successful outcomes by using counterfactual post-training.",
+  "problem_solved": "The paper tackles two major problems in robot world models: imprecise camera/robot calibration that weakens action following, and datasets that overrepresent successful interactions, causing overly optimistic predictions.",
   "method": [
-    "Render robot action trajectories into image-space conditions so the model can more accurately follow actions across different robot bodies.",
-    "Apply offline geometric calibration to reduce the effect of misalignment and improve cross-embodiment consistency.",
-    "Use counterfactual post-training to expose the model to unsuccessful or alternative outcomes, improving realism and reducing success bias."
+    "Render robot action trajectories into image-space conditions so the model can better track intended motion across different embodiments.",
+    "Apply offline geometric calibration to improve alignment between actions, views, and predicted motion.",
+    "Use counterfactual post-training to expose the model to alternative outcomes, improving robustness and realism beyond only successful demonstrations."
   ],
-  "impact": "For AI/ML practitioners, this improves the reliability of learned robot world models for planning, simulation, and policy training. It is especially useful when working with diverse robot datasets that contain noisy calibration or limited failure examples.",
+  "impact": "This helps practitioners build robot world models that are more reliable for planning, simulation, and policy learning. Better action-faithful predictions can improve transfer across robots and reduce failure from misleadingly idealized video forecasts.",
   "visual_elements": [
-    "Before/after comparison of predicted robot motion with and without action-faithful conditioning",
-    "Pipeline diagram showing trajectory rendering, geometric calibration, and counterfactual post-training",
-    "Multi-view robot scene illustration highlighting cross-embodiment generalization",
-    "Success-vs-failure outcome chart showing reduced bias after post-training"
+    "Before/after comparison of predicted robot videos: standard model vs DreamTrue.",
+    "Pipeline diagram showing multi-view inputs, action trajectory rendering, geometric calibration, and counterfactual post-training.",
+    "Cross-embodiment illustration with the same action mapped onto different robot forms.",
+    "Chart showing improved action following and more realistic prediction diversity, including failed interactions."
   ],
   "hashtags": [
     "#RobotLearning",
     "#WorldModels",
-    "#ActionPrediction",
+    "#ComputerVision",
     "#RoboticsAI",
-    "#MachineLearning"
+    "#MultimodalAI"
   ],
   "paper_id": "2026-10-08-arxiv-dreamtrue_action_faithful_robot_world_model_with_counterfactual_post_training",
   "paper_title": "DreamTrue: Action-Faithful Robot World Model with Counterfactual Post-Training",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.12468v1"
     }
   ],
-  "generated_at": "2026-10-09T12:17:09.665886",
+  "generated_at": "2026-10-10T11:35:01.194333",
   "generator": "openai"
 }

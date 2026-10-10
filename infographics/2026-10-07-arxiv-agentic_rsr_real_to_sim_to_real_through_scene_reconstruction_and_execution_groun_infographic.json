@@ -1,24 +1,25 @@
 {
-  "key_insight": "Agentic RSR unifies scene reconstruction, policy learning, and real-robot execution in one real-to-sim-to-real loop, so the simulated environment stays grounded in what the robot can actually see and do. The core idea is to reconstruct a task-relevant workspace from video and use that same task to train and validate robot policies.",
-  "problem_solved": "Traditional real-to-sim workflows often separate scene reconstruction from policy design, which can create a mismatch between simulated scenes and real robot observations. This paper addresses the challenge of building simulations that preserve task-relevant interactions while training policies that remain executable on the real robot.",
+  "key_insight": "Agentic RSR closes the gap between reconstruction and control by using the same task to drive scene modeling, policy learning, and real-robot execution. The result is a real-to-sim-to-real pipeline that aims to produce simulations that are both visually faithful and robot-useful.",
+  "problem_solved": "The paper addresses the common disconnect between reconstructing a workspace in simulation and training policies that can actually work on the real robot. Standard pipelines often ignore whether the reconstructed scene preserves task-relevant interactions and whether the policy uses observations available at deployment.",
   "method": [
-    "Use a workspace video, task description, and known robot model as inputs to reconstruct the scene in simulation.",
-    "Link scene reconstruction and policy development through the same manipulation task, instead of treating them as separate steps.",
-    "Ground policy learning in observations and execution constraints available to the real robot, then transfer the resulting policy back to physical execution."
+    "Start from a workspace video, a task description, and a known robot model.",
+    "Reconstruct the scene with task-relevant geometry and interaction cues so the simulation supports the target manipulation task.",
+    "Develop execution-grounded robot policies that rely on observations the real robot can access.",
+    "Link simulation and real execution through the same task, enabling iterative real-to-sim-to-real refinement."
   ],
-  "impact": "This matters because it reduces the sim-to-real gap in manipulation tasks by making the simulator more faithful to real robot perception and interaction. For practitioners, it offers a more practical pipeline for building deployable policies with less manual scene engineering and fewer transfer failures.",
+  "impact": "For AI/ML practitioners, this framework offers a more practical path from data collection to deployable robot behavior. It can reduce sim-to-real mismatch and make embodied policies easier to evaluate, debug, and transfer to real systems.",
   "visual_elements": [
-    "A real-to-sim-to-real pipeline diagram showing video input, reconstruction, simulation training, and robot execution.",
-    "Side-by-side comparison of real workspace vs reconstructed simulation scene with highlighted task-relevant objects.",
-    "A loop diagram showing how the same task connects reconstruction, policy learning, and execution.",
-    "Icons for camera/video input, 3D scene model, robot arm, and policy network."
+    "A left-to-right pipeline diagram: real workspace video -> reconstructed simulation -> robot policy -> real robot execution.",
+    "A split-view comparison showing task-relevant vs. irrelevant scene reconstruction details.",
+    "An icon-based loop illustrating the real-to-sim-to-real feedback cycle.",
+    "A small overlay of robot observations vs. simulator observations to highlight execution grounding."
   ],
   "hashtags": [
-    "#Robotics",
-    "#Sim2Real",
-    "#ImitationLearning",
     "#RobotLearning",
-    "#AIResearch"
+    "#Sim2Real",
+    "#EmbodiedAI",
+    "#SceneReconstruction",
+    "#Manipulation"
   ],
   "paper_id": "2026-10-07-arxiv-agentic_rsr_real_to_sim_to_real_through_scene_reconstruction_and_execution_groun",
   "paper_title": "Agentic RSR: Real-to-Sim-to-Real through Scene Reconstruction and Execution-Grounded Robot Policies",
@@ -31,6 +32,6 @@
       "url": "https://arxiv.org/pdf/2610.10479v1"
     }
   ],
-  "generated_at": "2026-10-09T12:17:28.110414",
+  "generated_at": "2026-10-10T11:35:19.625279",
   "generator": "openai"
 }
