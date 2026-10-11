@@ -1,24 +1,25 @@
 {
-  "key_insight": "WorldGuide turns video world modeling into a goal-directed, closed-loop process: it doesn’t just predict what might happen next, it adapts each next action based on what it has already generated. This makes long-horizon procedural task execution more reliable than open-loop video generation.",
-  "problem_solved": "The paper addresses the gap between generating plausible video trajectories and actually completing multi-step tasks. Existing methods struggle to decide the next action from the generated state, execute it, and detect task completion without relying on external executors or indirect checks.",
+  "key_insight": "WorldGuide turns video generation into a closed-loop, goal-directed process: it does not just predict the next frame sequence, it decides the next action from the current generated state, executes it, and checks whether the task is finished. This makes long-horizon procedural task execution more adaptive and reliable than open-loop video generation.",
+  "problem_solved": "The paper addresses the gap between plausible video synthesis and actual task completion in long-horizon procedural workflows. Existing open-loop models cannot react to their own outputs, while many closed-loop methods depend on pretrained executors or indirect verification rather than a unified goal-directed world model.",
   "method": [
-    "Generate a video-based world model that represents the evolving state of the environment.",
-    "Use the generated state to choose the next action, then execute it in a closed loop.",
-    "Continuously verify progress and determine when the procedural task is complete."
+    "Build a video world model that conditions generation on the current generated state and task goal.",
+    "Use a closed-loop cycle of action selection, execution, and completion checking to adapt to outcomes.",
+    "Support procedural tasks where each next step depends on what the model has already generated.",
+    "Reduce reliance on external executors or weak proxy signals for verifying progress."
   ],
-  "impact": "This is useful for AI/ML practitioners building agents that must act over long horizons in changing environments. It moves video generation from passive prediction toward actionable task execution, which is important for robotics, planning, and interactive AI systems.",
+  "impact": "For AI/ML practitioners, this offers a more practical framework for agentic video generation and procedural planning, especially when tasks require feedback-aware execution over long horizons. It can improve robustness in simulation, robotics-like settings, and interactive content generation.",
   "visual_elements": [
-    "A loop diagram showing observe → decide → act → verify → repeat",
-    "A side-by-side comparison of open-loop vs closed-loop video generation",
-    "An icon-based pipeline for state, action, execution, and completion check",
-    "A timeline showing task steps with generated frames at each stage"
+    "A left-to-right loop diagram showing Goal -> Action Selection -> Video Generation -> State Check -> Next Action/Stop",
+    "A comparison panel of open-loop vs closed-loop video generation",
+    "An example task timeline illustrating progressive steps toward completion",
+    "Icons for goal, action, generated frame sequence, and completion flag"
   ],
   "hashtags": [
     "#WorldModels",
     "#VideoGeneration",
-    "#AIAgents",
-    "#ProceduralTaskExecution",
-    "#ClosedLoopAI"
+    "#ClosedLoopAI",
+    "#ProceduralTasks",
+    "#AgenticAI"
   ],
   "paper_id": "2026-10-08-arxiv-worldguide_goal_directed_video_world_model_for_procedural_task_execution",
   "paper_title": "WorldGuide: Goal-Directed Video World Model for Procedural Task Execution",
@@ -31,6 +32,6 @@
       "url": "https://arxiv.org/pdf/2610.12459v1"
     }
   ],
-  "generated_at": "2026-10-10T11:34:45.989401",
+  "generated_at": "2026-10-11T11:48:21.132584",
   "generator": "openai"
 }

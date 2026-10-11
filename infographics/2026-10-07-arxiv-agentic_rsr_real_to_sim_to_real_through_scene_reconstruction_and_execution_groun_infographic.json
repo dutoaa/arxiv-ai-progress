@@ -1,25 +1,24 @@
 {
-  "key_insight": "Agentic RSR closes the gap between reconstruction and control by using the same task to drive scene modeling, policy learning, and real-robot execution. The result is a real-to-sim-to-real pipeline that aims to produce simulations that are both visually faithful and robot-useful.",
-  "problem_solved": "The paper addresses the common disconnect between reconstructing a workspace in simulation and training policies that can actually work on the real robot. Standard pipelines often ignore whether the reconstructed scene preserves task-relevant interactions and whether the policy uses observations available at deployment.",
+  "key_insight": "Agentic RSR connects scene reconstruction and robot policy learning into one loop, so the simulated workspace matches the real task and the learned policy can act using real-robot observations. In simple terms: it tries to make the sim look and behave like the real world in a task-aware way.",
+  "problem_solved": "Most real-to-sim-to-real pipelines treat environment reconstruction and policy training separately, which can cause a mismatch between what is simulated and what the robot can actually perceive and do. This paper addresses the challenge of building task-relevant simulations and execution-grounded policies from the same real-world manipulation data.",
   "method": [
-    "Start from a workspace video, a task description, and a known robot model.",
-    "Reconstruct the scene with task-relevant geometry and interaction cues so the simulation supports the target manipulation task.",
-    "Develop execution-grounded robot policies that rely on observations the real robot can access.",
-    "Link simulation and real execution through the same task, enabling iterative real-to-sim-to-real refinement."
+    "Use a workspace video, task description, and known robot model to reconstruct a task-relevant simulation of the real scene.",
+    "Develop robot policies in simulation that are grounded in the observations and actions available to the physical robot.",
+    "Link reconstruction, policy learning, and real-robot execution through the same manipulation task to reduce sim-to-real gap."
   ],
-  "impact": "For AI/ML practitioners, this framework offers a more practical path from data collection to deployable robot behavior. It can reduce sim-to-real mismatch and make embodied policies easier to evaluate, debug, and transfer to real systems.",
+  "impact": "This matters for AI/ML practitioners because it provides a more unified pathway from real-world data to deployable robot behavior. It can improve transfer reliability in manipulation tasks by aligning what is simulated, learned, and executed.",
   "visual_elements": [
-    "A left-to-right pipeline diagram: real workspace video -> reconstructed simulation -> robot policy -> real robot execution.",
-    "A split-view comparison showing task-relevant vs. irrelevant scene reconstruction details.",
-    "An icon-based loop illustrating the real-to-sim-to-real feedback cycle.",
-    "A small overlay of robot observations vs. simulator observations to highlight execution grounding."
+    "Pipeline diagram: real workspace video -> scene reconstruction -> simulation -> policy learning -> robot execution",
+    "Side-by-side comparison of real scene vs reconstructed scene vs robot execution",
+    "Task grounding icons showing video, language task prompt, robot model, and action loop",
+    "Flowchart highlighting the shared task loop that ties reconstruction and control together"
   ],
   "hashtags": [
-    "#RobotLearning",
+    "#RoboticsAI",
     "#Sim2Real",
-    "#EmbodiedAI",
     "#SceneReconstruction",
-    "#Manipulation"
+    "#RobotLearning",
+    "#ArtificialIntelligence"
   ],
   "paper_id": "2026-10-07-arxiv-agentic_rsr_real_to_sim_to_real_through_scene_reconstruction_and_execution_groun",
   "paper_title": "Agentic RSR: Real-to-Sim-to-Real through Scene Reconstruction and Execution-Grounded Robot Policies",
@@ -32,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.10479v1"
     }
   ],
-  "generated_at": "2026-10-10T11:35:19.625279",
+  "generated_at": "2026-10-11T11:48:47.985952",
   "generator": "openai"
 }

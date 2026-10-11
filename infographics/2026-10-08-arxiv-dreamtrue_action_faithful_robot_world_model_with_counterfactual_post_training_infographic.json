@@ -1,24 +1,25 @@
 {
-  "key_insight": "DreamTrue makes robot video prediction more action-faithful by conditioning on rendered action trajectories in image space and correcting for dataset/calibration issues. It also reduces the usual bias toward only successful outcomes by using counterfactual post-training.",
-  "problem_solved": "The paper tackles two major problems in robot world models: imprecise camera/robot calibration that weakens action following, and datasets that overrepresent successful interactions, causing overly optimistic predictions.",
+  "key_insight": "DreamTrue makes robot world models follow actions more faithfully by turning action trajectories into image-space guidance and correcting calibration issues offline. It also learns from counterfactual post-training so predictions remain physically plausible even for failed or unusual interactions.",
+  "problem_solved": "Existing robot video prediction models often struggle with inaccurate action following due to poor calibration across embodiments, and they tend to over-predict successful outcomes because training data contains too few failed interactions.",
   "method": [
-    "Render robot action trajectories into image-space conditions so the model can better track intended motion across different embodiments.",
-    "Apply offline geometric calibration to improve alignment between actions, views, and predicted motion.",
-    "Use counterfactual post-training to expose the model to alternative outcomes, improving robustness and realism beyond only successful demonstrations."
+    "Render action trajectories into image-space conditions so the model can better align predicted motion with commanded actions across different robot embodiments.",
+    "Apply offline geometric calibration to reduce calibration errors and improve action-faithful prediction.",
+    "Use counterfactual post-training to expose the model to alternative, failure-like outcomes, improving robustness and physical realism.",
+    "Train a multi-view, cross-embodiment robot world model for video prediction that is both action-faithful and physically plausible."
   ],
-  "impact": "This helps practitioners build robot world models that are more reliable for planning, simulation, and policy learning. Better action-faithful predictions can improve transfer across robots and reduce failure from misleadingly idealized video forecasts.",
+  "impact": "This work can improve robot planning, simulation, and policy learning by making predicted future scenes more trustworthy. For practitioners, it means better model-based robotics systems that generalize across robots and handle failures more realistically.",
   "visual_elements": [
-    "Before/after comparison of predicted robot videos: standard model vs DreamTrue.",
-    "Pipeline diagram showing multi-view inputs, action trajectory rendering, geometric calibration, and counterfactual post-training.",
-    "Cross-embodiment illustration with the same action mapped onto different robot forms.",
-    "Chart showing improved action following and more realistic prediction diversity, including failed interactions."
+    "Pipeline diagram showing action trajectory -> image-space conditioning -> world model prediction",
+    "Before/after comparison of calibrated vs. uncalibrated action following",
+    "Counterfactual examples showing successful vs. failed interaction outcomes",
+    "Multi-view robot scene illustration highlighting cross-embodiment generalization"
   ],
   "hashtags": [
     "#RobotLearning",
     "#WorldModels",
-    "#ComputerVision",
-    "#RoboticsAI",
-    "#MultimodalAI"
+    "#AIPerception",
+    "#ModelBasedRL",
+    "#RoboticsAI"
   ],
   "paper_id": "2026-10-08-arxiv-dreamtrue_action_faithful_robot_world_model_with_counterfactual_post_training",
   "paper_title": "DreamTrue: Action-Faithful Robot World Model with Counterfactual Post-Training",
@@ -31,6 +32,6 @@
       "url": "https://arxiv.org/pdf/2610.12468v1"
     }
   ],
-  "generated_at": "2026-10-10T11:35:01.194333",
+  "generated_at": "2026-10-11T11:48:33.440333",
   "generator": "openai"
 }

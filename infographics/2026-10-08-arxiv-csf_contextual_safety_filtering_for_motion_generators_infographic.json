@@ -1,23 +1,23 @@
 {
-  "key_insight": "The paper introduces Contextual Safety Filtering (CSF), a training-free way to make motion generation safer by interpreting safety rules in the context of the scene. Instead of judging an action in isolation, CSF checks whether the same motion could be safe or unsafe depending on what surrounds the agent.",
-  "problem_solved": "Text-conditioned motion generators can produce the right motion mechanically, but they often ignore scene-dependent meaning and safety. Existing safeguards focus on the prompt, require labeled data, or rely on rigid geometric rules, so they miss cases where context changes whether an action is appropriate.",
+  "key_insight": "Contextual Safety Filtering (CSF) adds scene awareness to motion generators, so the same movement can be judged differently depending on what is nearby or who is present. It filters unsafe motions without retraining the generator by grounding safety rules in the current context.",
+  "problem_solved": "Text-conditioned motion generators can produce motions that are technically correct but unsafe in a specific scene, because they do not understand context-dependent meaning. Existing safety methods rely on prompts, labeled motion data, or fixed geometry rules, and they do not directly model how the surrounding scene changes safety.",
   "method": [
-    "Grounds natural-language safety rules in scene context rather than prompt-only intent.",
-    "Applies a training-free filtering step to motion outputs from text-conditioned generators.",
-    "Uses context-aware reasoning to distinguish safe from unsafe motion even when the same action has different meanings in different scenes."
+    "Uses a training-free filtering stage rather than retraining the motion generator.",
+    "Grounds natural-language safety rules in the current scene context to decide whether a generated motion is safe.",
+    "Filters motion outputs based on contextual interpretation, not just the action text or generic spatial constraints."
   ],
-  "impact": "CSF gives practitioners a practical safety layer that can be added without retraining motion models or collecting new labeled datasets. This is especially useful for human-robot interaction, character animation, and embodied AI systems operating in varied environments.",
+  "impact": "For practitioners, CSF offers a practical way to add safety checks to motion generation systems without expensive reannotation or model retraining. This is especially useful for interactive or real-world applications where the same motion may be safe in one scene and unsafe in another.",
   "visual_elements": [
-    "A split-scene comparison showing the same motion as safe in one context and unsafe in another.",
-    "A pipeline diagram: text prompt + scene context -> CSF filter -> accepted/rejected motion.",
-    "An icon-based safety checklist mapping natural-language rules to motion outputs.",
-    "A before/after illustration showing unsafe motion generation versus context-filtered motion."
+    "Pipeline diagram showing text prompt, scene context, motion generator, and CSF safety filter.",
+    "Side-by-side examples of the same motion being safe or unsafe depending on nearby objects/people.",
+    "Icon-based comparison of prompt-only, geometry-based, labeled-data, and contextual safety methods.",
+    "Decision flow chart illustrating how natural-language rules are applied to generated motions."
   ],
   "hashtags": [
     "#AIsafety",
     "#MotionGeneration",
-    "#EmbodiedAI",
     "#ContextAwareAI",
+    "#HumanMotion",
     "#MachineLearning"
   ],
   "paper_id": "2026-10-08-arxiv-csf_contextual_safety_filtering_for_motion_generators",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.12467v1"
     }
   ],
-  "generated_at": "2026-10-10T11:34:58.278904",
+  "generated_at": "2026-10-11T11:48:30.826608",
   "generator": "openai"
 }
