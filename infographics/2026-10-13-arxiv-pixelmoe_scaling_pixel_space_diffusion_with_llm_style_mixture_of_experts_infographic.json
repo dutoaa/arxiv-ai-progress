@@ -1,24 +1,24 @@
 {
-  "key_insight": "Pixel-space diffusion models can scale effectively with LLM-style Mixture-of-Experts (MoE), breaking the usual tradeoff between model size and active compute. PixelMoE shows that sparse expert routing can boost capacity without making every token/image patch expensive to process.",
-  "problem_solved": "The paper addresses the difficulty of scaling pixel-space diffusion models efficiently. Traditional dense scaling increases compute for every part of the model, making it hard to grow capacity without a large cost in training and inference.",
+  "key_insight": "PixelMoE shows that LLM-style Mixture-of-Experts can work effectively in pixel-space diffusion, letting these models scale capacity without making every inference step fully dense. In simple terms: you can make image diffusion bigger and stronger while only activating part of the model at a time.",
+  "problem_solved": "The paper tackles the scaling bottleneck of pixel-space diffusion models, where increasing model capacity usually also increases active computation. This makes dense scaling expensive and limits efficiency compared with sparse expert-based designs.",
   "method": [
-    "Transfers standard LLM-style Mixture-of-Experts architecture into pixel-space diffusion models.",
-    "Uses sparse expert activation so only a subset of experts is used per input, increasing total model capacity without proportional compute growth.",
-    "Introduces PixelMoE as a scalable design for modeling raw images directly, avoiding dependence on learned tokenizers."
+    "Adapt standard LLM-style Mixture-of-Experts layers to pixel-space diffusion models.",
+    "Route image tokens/features to a subset of experts so only part of the network is active per step.",
+    "Build PixelMoE as a sparse, scalable diffusion architecture for raw-pixel generation."
   ],
-  "impact": "For practitioners, PixelMoE offers a path to build larger, more expressive image diffusion models while keeping compute more manageable. This could improve image generation quality and efficiency, especially for large-scale training setups.",
+  "impact": "This matters because it offers a practical path to larger, more capable image diffusion models without proportional compute growth. For practitioners, it means better efficiency and a new architecture option for scaling high-quality pixel-level generative models.",
   "visual_elements": [
-    "Side-by-side comparison of dense diffusion vs. MoE diffusion showing compute usage",
-    "Diagram of routing tokens/patches to different experts",
-    "Infographic of 'capacity vs. active compute' tradeoff",
-    "Pipeline illustration from raw pixels to diffusion output"
+    "A side-by-side dense vs MoE diffusion architecture diagram",
+    "A routing illustration showing tokens sent to different experts",
+    "A compute vs quality scaling chart comparing dense and sparse models",
+    "An icon-based pipeline from raw pixels to generated image"
   ],
   "hashtags": [
     "#DiffusionModels",
     "#MixtureOfExperts",
-    "#ComputerVision",
     "#GenerativeAI",
-    "#MachineLearning"
+    "#ComputerVision",
+    "#ModelScaling"
   ],
   "paper_id": "2026-10-13-arxiv-pixelmoe_scaling_pixel_space_diffusion_with_llm_style_mixture_of_experts",
   "paper_title": "PixelMoE: Scaling Pixel-Space Diffusion with LLM-Style Mixture-of-Experts",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.18857v1"
     }
   ],
-  "generated_at": "2026-10-14T10:50:33.052951",
+  "generated_at": "2026-10-15T10:33:47.402566",
   "generator": "openai"
 }

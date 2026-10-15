@@ -1,0 +1,36 @@
+{
+  "key_insight": "The paper finds that standard on-policy distillation breaks when the student makes mistakes because the teacher can recognize errors but still fails to recover from them. CriticOPD fixes this by adding critique-based supervision, restoring the teacher’s ability to guide the student back to correct solutions.",
+  "problem_solved": "It addresses the unreliability of supervision in on-policy distillation when training on the student’s own rollouts. The core challenge is that a teacher may not be recoverable from incorrect prefixes, which weakens training signal and harms learning.",
+  "method": [
+    "Use the student’s own generated rollouts as training trajectories, as in on-policy distillation.",
+    "Have the teacher explicitly critique incorrect rollouts instead of only following them token by token.",
+    "Convert critiques into supervision signals that help the teacher recover to the correct answer path, improving training stability and correctness."
+  ],
+  "impact": "This makes on-policy distillation more reliable on hard or error-prone trajectories, which can improve student learning from imperfect self-generated data. For practitioners, it offers a practical way to get stronger supervision without needing perfectly correct rollouts.",
+  "visual_elements": [
+    "Side-by-side flow diagram: standard OPD vs. CriticOPD",
+    "Error path illustration showing a student mistake and teacher recovery via critique",
+    "Pipeline graphic with student rollout, critique, and corrected supervision steps",
+    "Simple comparison chart of recovery success on correct vs. incorrect prefixes"
+  ],
+  "hashtags": [
+    "#AI",
+    "#MachineLearning",
+    "#Distillation",
+    "#LLM",
+    "#Research"
+  ],
+  "paper_id": "2026-10-14-arxiv-recovering_reliable_supervision_via_critique_guided_on_policy_distillation",
+  "paper_title": "Recovering Reliable Supervision via Critique-Guided On-Policy Distillation",
+  "paper_category": "Model",
+  "paper_date": "2026-10-14",
+  "paper_authors": "Kaixiang Zhao, Tianrun Yu, Shangzhe Li, Yuxiao Yang, Amanda Hughes",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2610.20572v1"
+    }
+  ],
+  "generated_at": "2026-10-15T10:33:04.476713",
+  "generator": "openai"
+}
