@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper shows that token merging in diffusion models should not rely only on text-aligned foreground regions; diffusion dynamics can reveal which tokens are actually important to preserve. By using the model’s own generation behavior, it aims to merge more safely while keeping image quality high.",
-  "problem_solved": "It addresses the challenge of speeding up diffusion-based image generation with token merging without harming important visual details. The core issue is deciding which tokens are redundant and which should be kept, especially when background objects matter too.",
+  "key_insight": "The paper shows that token merging in diffusion models should be guided by diffusion dynamics, not just text relevance. This lets the model preserve both prompt-aligned foreground details and important background objects while still reducing computation.",
+  "problem_solved": "It addresses the challenge of deciding which image tokens can be merged safely during diffusion sampling without hurting generation quality, especially when existing text-based criteria fail to protect semantically important background content.",
   "method": [
-    "Analyze diffusion dynamics to estimate token importance beyond simple prompt-text alignment.",
-    "Identify tokens that can be merged safely while preserving tokens that contribute to meaningful structures, including background content.",
-    "Use a training-free strategy to accelerate generation with minimal degradation in output quality."
+    "Analyze diffusion dynamics to estimate which tokens are more likely to remain important across denoising steps.",
+    "Use this token importance signal to decide which tokens to preserve and which to merge during generation.",
+    "Improve efficiency while reducing visual degradation compared with methods that only preserve prompt-aligned foreground regions."
   ],
-  "impact": "This helps practitioners reduce compute cost and latency in diffusion image generation while maintaining visual fidelity. It is especially useful for deploying faster generative systems without retraining large models.",
+  "impact": "This approach can make diffusion-based image generation faster and cheaper without sacrificing output quality. For practitioners, it offers a more reliable way to accelerate inference while maintaining both foreground fidelity and background coherence.",
   "visual_elements": [
-    "Token map highlighting mergeable vs. preserved tokens",
-    "Side-by-side comparison of baseline token merging and diffusion-dynamics-guided merging",
-    "Flow diagram showing diffusion steps and token importance scoring",
-    "Speed-vs-quality chart demonstrating efficiency gains"
+    "A diffusion-step timeline showing token importance changing over time",
+    "Side-by-side comparison of text-relevance merging vs diffusion-dynamics merging",
+    "Color-coded image token map highlighting preserved and merged regions",
+    "A speed-quality tradeoff chart showing efficiency gains with minimal degradation"
   ],
   "hashtags": [
     "#DiffusionModels",
     "#TokenMerging",
-    "#AIEfficiency",
     "#ImageGeneration",
-    "#MachineLearning"
+    "#EfficientAI",
+    "#DeepLearning"
   ],
   "paper_id": "2026-10-15-arxiv-which_tokens_to_merge_diffusion_dynamics_for_efficient_image_generation",
   "paper_title": "Which Tokens to Merge? Diffusion Dynamics for Efficient Image Generation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.22370v1"
     }
   ],
-  "generated_at": "2026-10-16T10:20:24.186030",
+  "generated_at": "2026-10-17T09:53:25.072170",
   "generator": "openai"
 }
