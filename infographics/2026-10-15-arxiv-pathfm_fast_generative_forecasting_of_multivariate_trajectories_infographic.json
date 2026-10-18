@@ -1,17 +1,17 @@
 {
-  "key_insight": "PathFM goes beyond predicting separate future values and instead learns full multivariate trajectory dependence, making forecasts useful for quantities that depend on the whole path, like peaks, totals, and timing. It uses flow matching to generate realistic future paths quickly.",
-  "problem_solved": "Most forecasting foundation models only predict marginal quantiles, which hides how future time points depend on each other. This paper addresses the need to model full trajectory structure for downstream tasks where the shape of the forecast path matters.",
+  "key_insight": "PathFM moves beyond predicting separate future values and instead models whole future trajectories, capturing how points in time depend on each other. This makes forecasting more useful for tasks where the shape of the future path matters, not just its marginal uncertainty.",
+  "problem_solved": "Most time-series foundation models forecast marginal quantiles, which do not specify the dependence structure across future time steps. As a result, they can miss trajectory-level properties like cumulative demand, peak timing, and event sequencing.",
   "method": [
-    "Introduces PathFM, a trajectory-based forecasting model for multivariate time series.",
-    "Uses flow matching to generate future paths directly, capturing dependence across time and variables.",
-    "Aims to produce fast generative forecasts rather than only marginal prediction intervals."
+    "Uses a trajectory-based forecasting framework rather than independent marginal predictions.",
+    "Applies flow matching to generate multivariate future paths efficiently.",
+    "Learns the joint structure of trajectories so downstream quantities depending on the full path are better represented."
   ],
-  "impact": "For practitioners, PathFM can improve forecasts for decisions that depend on the entire future path, not just point estimates. This is especially useful in energy, demand planning, operations, and any setting where peak values, cumulative effects, or event timing matter.",
+  "impact": "For practitioners, PathFM offers forecasts that are more actionable when decisions depend on the full future trajectory, such as inventory planning, grid management, and risk analysis. It closes an important gap between standard probabilistic forecasting and real-world path-dependent decision-making.",
   "visual_elements": [
-    "Side-by-side diagram comparing marginal quantile forecasts vs full trajectory generation",
-    "Flow matching pipeline showing history input to generated future paths",
-    "Example multivariate time-series plot with several plausible forecast trajectories",
-    "Icons for peak load, cumulative demand, and event timing to highlight downstream use cases"
+    "Side-by-side comparison of marginal forecasts vs. full trajectory forecasts",
+    "A flow-matching pipeline diagram showing input history to generated future path",
+    "Example plot of multivariate time series with highlighted cumulative/peak metrics",
+    "Icon set for demand, energy load, and event timing applications"
   ],
   "hashtags": [
     "#TimeSeriesForecasting",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.22358v1"
     }
   ],
-  "generated_at": "2026-10-17T09:53:17.566886",
+  "generated_at": "2026-10-18T10:05:25.767875",
   "generator": "openai"
 }

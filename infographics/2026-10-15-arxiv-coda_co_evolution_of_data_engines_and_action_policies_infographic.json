@@ -1,24 +1,24 @@
 {
-  "key_insight": "CoDA turns robot training into a feedback loop: the simulator learns which environments are actually useful, while the policy learns from the failures those environments expose. By co-evolving both sides through shared memory, it focuses training on weaknesses rather than just generating physically valid scenes.",
-  "problem_solved": "The paper addresses the gap between physically valid simulated environments and environments that are truly useful for training robot policies. It targets the challenge of finding scenarios that reveal policy failures and provide the right supervision to help the policy improve.",
+  "key_insight": "CoDA makes robot training smarter by letting the simulation environment and the policy learn from each other. Instead of generating any physically valid scene, it finds the environments and supervision that specifically fix the policy’s weak points.",
+  "problem_solved": "The paper addresses the gap between physically valid simulated environments and truly useful training environments. In robot learning, the hard part is identifying which environments expose policy failures and what feedback helps the policy improve.",
   "method": [
-    "Builds a co-evolution loop between a simulation data engine and an action policy.",
-    "Uses a shared heterogeneous memory to store environment construction details, policy failures, and learning progress.",
-    "Compiles validated diagnostics from failures to guide future environment generation and training supervision."
+    "Uses a co-evolution framework where a simulation data engine and an action policy improve together over time.",
+    "Shares a heterogeneous memory that stores environment constructions, policy failures, and learning progress.",
+    "Uses validated diagnostics from memory to guide the generation of more useful environments and supervision signals."
   ],
-  "impact": "For AI/ML practitioners, CoDA offers a more targeted way to generate training data for embodied agents, reducing wasted simulation effort on uninformative environments. This can improve sample efficiency and accelerate robust robot policy learning.",
+  "impact": "For AI/ML practitioners, CoDA offers a more targeted way to generate training data for robotics and embodied AI. This can improve sample efficiency, reduce wasted simulation, and produce policies that learn from the failures that matter most.",
   "visual_elements": [
-    "Two-loop feedback diagram showing data engine and policy co-evolving",
-    "Shared memory box with three labeled streams: environment construction, failures, learning progress",
-    "Before/after comparison of physically valid vs. training-useful environments",
-    "Icon set for simulation, robot policy, failure signals, and improvement arrows"
+    "A loop diagram showing co-evolution between the data engine and action policy",
+    "A memory bank graphic with three labeled compartments: environments, failures, learning progress",
+    "Before/after comparison of physically valid vs. training-useful simulated environments",
+    "An arrowed pipeline from failure diagnosis to environment generation to policy improvement"
   ],
   "hashtags": [
     "#RobotLearning",
-    "#Simulation",
+    "#Sim2Real",
     "#ReinforcementLearning",
     "#EmbodiedAI",
-    "#AIGeneratedData"
+    "#AIML"
   ],
   "paper_id": "2026-10-15-arxiv-coda_co_evolution_of_data_engines_and_action_policies",
   "paper_title": "CoDA: Co-Evolution of Data Engines and Action Policies",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.22362v1"
     }
   ],
-  "generated_at": "2026-10-17T09:53:19.456472",
+  "generated_at": "2026-10-18T10:05:27.456831",
   "generator": "openai"
 }
