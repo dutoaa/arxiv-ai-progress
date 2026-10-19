@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper finds that the main bottleneck in object-goal navigation is not exploration, but goal grounding: fine-tuned vision-language navigation policies often fail to recognize when the target object is already visible or how close it is. StopWatch is designed to fix this missing perception-and-localization ability.",
-  "problem_solved": "It addresses low success rates in object-goal navigation by diagnosing and improving the ability of pretrained VLM-based navigation agents to ground the target object in the current scene.",
+  "key_insight": "The paper finds that the main bottleneck in object-goal navigation is not exploration, but goal grounding: agents often fail to recognize when the target is already visible or how close it is. The proposed StopWatch approach targets this missing capability directly, rather than only improving navigation behavior.",
+  "problem_solved": "It addresses the low success rate of VLM-based object-goal navigation policies by diagnosing and fixing their inability to ground the goal in the current observation, especially for in-view detection and distance estimation.",
   "method": [
-    "Diagnose failure modes of fine-tuned VLM navigation policies and identify goal grounding as the dominant weakness.",
-    "Introduce a method, StopWatch, that helps the agent detect when the goal object is already in view and estimate its relative distance.",
-    "Use this grounding signal to improve decision-making during navigation, reducing unnecessary exploration and missed goal detections."
+    "Diagnose navigation failures to identify goal grounding as the dominant weakness in fine-tuned VLM policies.",
+    "Introduce a method called StopWatch that focuses the policy on recognizing whether the goal is already visible and estimating proximity.",
+    "Use this grounding-aware capability to improve decision-making during navigation instead of relying on exploration alone."
   ],
-  "impact": "For practitioners, this paper shows that better navigation performance may come less from more exploration and more from stronger goal perception. It offers a clear direction for improving embodied AI systems by adding explicit grounding capabilities to VLM-based policies.",
+  "impact": "For AI/ML practitioners, this work shows that stronger pretrained models still need explicit grounding skills for embodied tasks. It suggests that improving perception of goal presence and distance can unlock larger gains than simply scaling navigation policies.",
   "visual_elements": [
-    "Before/after pipeline showing a navigation agent failing to notice a visible object vs. successfully grounding it with StopWatch",
-    "Failure-mode chart highlighting exploration vs. goal grounding errors",
-    "Scene diagram with the target object in view and a distance estimate overlay",
-    "Simple architecture schematic of a VLM-based navigation policy with the StopWatch grounding module"
+    "Before-and-after pipeline diagram showing standard VLM navigation vs. goal-grounding-aware StopWatch",
+    "Failure-mode chart highlighting 'goal already in view' and 'distance misestimation' as key errors",
+    "Navigation scene illustration with a visible target and an agent missing it",
+    "Bar chart comparing success rates across baseline and StopWatch-style methods"
   ],
   "hashtags": [
-    "#AIAgent",
-    "#EmbodiedAI",
+    "#AINavigation",
     "#ObjectGoalNavigation",
     "#VisionLanguageModels",
-    "#RobotLearning"
+    "#EmbodiedAI",
+    "#GoalGrounding"
   ],
   "paper_id": "2026-10-16-arxiv-stopwatch_goal_grounding_for_object_goal_navigation",
   "paper_title": "StopWatch: Goal Grounding for Object-goal Navigation",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.23841v1"
     }
   ],
-  "generated_at": "2026-10-19T11:33:27.920138",
+  "generated_at": "2026-10-19T22:04:26.896115",
   "generator": "openai"
 }

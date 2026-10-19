@@ -1,24 +1,24 @@
 {
-  "key_insight": "ENFR introduces a way to estimate Bayesian model evidence from simulations using evidence networks and flow-matched references, making model comparison and goodness-of-fit testing much more practical. It turns a traditionally expensive inference quantity into an amortized, learned prediction task.",
-  "problem_solved": "The paper tackles the difficulty of computing model evidence, \\(\\mathcal{Z} = p(x | \\mathcal{M})\\), which is essential for model selection, misspecification testing, and goodness-of-fit assessment but is often intractable even when likelihoods are available—especially in simulation-based settings.",
+  "key_insight": "ENFR makes Bayesian model evidence easier to estimate by learning an amortized, simulation-based surrogate that can be reused across many inference tasks. It turns a traditionally expensive quantity into a practical tool for model comparison, misspecification testing, and goodness-of-fit assessment.",
+  "problem_solved": "The paper addresses the difficulty of computing model evidence, \\(\\mathcal{Z} = p(x \\mid \\mathcal{M})\\), which is often intractable even when the likelihood is available. This limits reliable Bayesian model selection and diagnostic testing in both likelihood-based and simulation-based settings.",
   "method": [
-    "Builds evidence networks that learn to approximate evidence directly from data and simulated examples.",
-    "Uses flow-matched references to construct a tractable learning target for amortized simulation-based model inference.",
-    "Enables evidence estimation without repeatedly running expensive inference procedures for each new dataset."
+    "Builds Evidence Networks that learn to estimate model evidence directly from data.",
+    "Uses flow-matched references to support amortized inference, enabling efficient reuse across datasets or simulations.",
+    "Targets simulation-based model inference, where exact likelihoods are unavailable or expensive to evaluate."
   ],
-  "impact": "For AI/ML practitioners, this provides a faster and more scalable way to compare models and assess fit when exact evidence calculations are too costly or impossible. It is especially useful in simulation-based inference workflows where repeated evidence estimation is a bottleneck.",
+  "impact": "For AI/ML practitioners, this provides a more practical way to compare models and detect misspecification without relying on fragile hand-crafted discrepancy statistics. It can improve reliability in scientific ML, Bayesian workflows, and simulation-based inference pipelines.",
   "visual_elements": [
-    "Pipeline diagram: data and simulations flowing into an evidence network, outputting estimated evidence",
-    "Side-by-side comparison: traditional evidence computation vs ENFR amortized estimation",
-    "Bayesian model selection flowchart showing evidence used for model comparison and misspecification testing",
-    "Icon set for simulations, neural networks, likelihood/evidence, and model selection"
+    "A pipeline diagram showing data \\u2192 Evidence Network \\u2192 estimated evidence \\u2192 model selection/testing",
+    "A side-by-side comparison of standard discrepancy metrics vs. evidence-based inference",
+    "An icon-based illustration of simulation, flow matching, and amortization",
+    "A bar chart or scorecard showing evidence estimates across candidate models"
   ],
   "hashtags": [
     "#BayesianInference",
     "#SimulationBasedInference",
     "#ModelSelection",
-    "#MachineLearning",
-    "#ScientificAI"
+    "#ScientificML",
+    "#MachineLearningResearch"
   ],
   "paper_id": "2026-10-16-arxiv-enfr_evidence_networks_with_flow_matched_references_for_amortized_simulation_bas",
   "paper_title": "ENFR: Evidence Networks with Flow-Matched References for Amortized Simulation-Based Model Inference",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.23825v1"
     }
   ],
-  "generated_at": "2026-10-19T11:33:15.026107",
+  "generated_at": "2026-10-19T22:04:09.374221",
   "generator": "openai"
 }

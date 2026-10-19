@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper shows that memory retention should be personalized at the fact level, because different users reuse information in different ways. By learning from delayed feedback about what facts are actually retrieved later, the system can make smarter memory-gating decisions than one-size-fits-all policies.",
-  "problem_solved": "It addresses the challenge of deciding which facts to keep in a limited long-term memory bank for language-model agents. Existing shared gating policies do not adapt to user-specific patterns of future reuse, so valuable facts may be discarded while less useful ones are retained.",
+  "key_insight": "The paper shows that memory should not be gated with a one-size-fits-all policy: facts are more useful when gating is personalized to each user’s future retrieval behavior. It turns delayed, one-sided feedback into training labels for deciding which memories to keep.",
+  "problem_solved": "Long-term memory systems in language-model agents have limited storage, so they must decide which extracted facts to retain. Existing gating methods are usually shared across users and miss individual patterns of what gets reused later.",
   "method": [
     "Proposes a retrieval-based labeling strategy that marks each fact by whether it is later retrieved and used in responses.",
-    "Formulates memory gating as a personalized prediction problem based on delayed one-sided feedback.",
-    "Learns fact-level gating policies that better match individual users' future memory needs."
+    "Learns a personalized memory-gating policy at the fact level, rather than using a universal gate for all users.",
+    "Uses delayed one-sided feedback from future interactions to supervise memory selection."
   ],
-  "impact": "This matters because better memory gating improves personalization, efficiency, and long-term usefulness in LLM agents with limited memory. Practitioners can retain more relevant information while reducing unnecessary memory growth.",
+  "impact": "This helps AI agents store more useful memories for each user, improving personalization while keeping memory banks efficient. For practitioners, it offers a practical way to reduce wasted memory storage and improve long-term conversational quality.",
   "visual_elements": [
-    "Flow diagram of fact extraction -> delayed retrieval -> labeling -> gating decision",
-    "Side-by-side comparison of shared gating vs personalized gating",
-    "Timeline showing a fact being stored, later retrieved, and used in a response",
-    "Icon set for memory bank, user profile, retrieved fact, and keep/discard decision"
+    "Pipeline diagram showing fact extraction → delayed retrieval feedback → personalized gating decision",
+    "Comparison chart of shared gating vs personalized gating",
+    "Memory bank icon with keep/drop decisions for individual facts",
+    "Timeline graphic showing when a fact is stored, retrieved, and later used"
   ],
   "hashtags": [
-    "#AIResearch",
-    "#MemoryGating",
+    "#AIMemory",
     "#Personalization",
     "#LLMAgents",
-    "#MachineLearning"
+    "#MachineLearning",
+    "#NLP"
   ],
   "paper_id": "2026-10-16-arxiv-learning_personalized_memory_gating_from_delayed_one_sided_feedback",
   "paper_title": "Learning Personalized Memory Gating from Delayed One-Sided Feedback",
@@ -31,6 +31,6 @@
       "url": "https://arxiv.org/pdf/2610.23812v1"
     }
   ],
-  "generated_at": "2026-10-19T11:33:12.722911",
+  "generated_at": "2026-10-19T22:04:06.416649",
   "generator": "openai"
 }
