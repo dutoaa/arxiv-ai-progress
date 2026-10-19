@@ -1,25 +1,28 @@
 {
-  "key_insight": "The paper finds that the main bottleneck in object-goal navigation is not exploration, but goal grounding: agents often fail to recognize when the target is already visible or how close it is. The proposed StopWatch approach targets this missing capability directly, rather than only improving navigation behavior.",
-  "problem_solved": "It addresses the low success rate of VLM-based object-goal navigation policies by diagnosing and fixing their inability to ground the goal in the current observation, especially for in-view detection and distance estimation.",
+  "key_insight": "The paper identifies goal grounding—not exploration—as the main weakness of navigation policies built from pretrained vision-language models. These policies often miss a target already in view or misjudge its distance.",
+  "problem_solved": "Object-goal navigation policies can explore effectively yet still fail to reach a requested object because they do not reliably recognize and locate it in their current view.",
   "method": [
-    "Diagnose navigation failures to identify goal grounding as the dominant weakness in fine-tuned VLM policies.",
-    "Introduce a method called StopWatch that focuses the policy on recognizing whether the goal is already visible and estimating proximity.",
-    "Use this grounding-aware capability to improve decision-making during navigation instead of relying on exploration alone."
+    "Diagnose failures in navigation policies fine-tuned from pretrained vision-language models.",
+    "Focus on two goal-grounding capabilities: noticing visible target objects and estimating their distance.",
+    "The supplied abstract is truncated before the proposed StopWatch mechanism is described, so implementation details cannot be summarized reliably."
   ],
-  "impact": "For AI/ML practitioners, this work shows that stronger pretrained models still need explicit grounding skills for embodied tasks. It suggests that improving perception of goal presence and distance can unlock larger gains than simply scaling navigation policies.",
+  "impact": "The findings suggest that practitioners should evaluate target recognition and distance estimation separately from exploration. Improving these capabilities may offer a more focused route to better navigation success.",
   "visual_elements": [
-    "Before-and-after pipeline diagram showing standard VLM navigation vs. goal-grounding-aware StopWatch",
-    "Failure-mode chart highlighting 'goal already in view' and 'distance misestimation' as key errors",
-    "Navigation scene illustration with a visible target and an agent missing it",
-    "Bar chart comparing success rates across baseline and StopWatch-style methods"
+    "Split-panel scene: a robot explores successfully but overlooks the requested object already in view.",
+    "Navigation pipeline highlighting goal recognition and distance estimation as bottlenecks.",
+    "Robot-camera view with a target bounding box and a robot-to-object distance marker.",
+    "Conceptual comparison of exploration failures versus goal-grounding failures, without invented numerical results."
   ],
   "hashtags": [
-    "#AINavigation",
     "#ObjectGoalNavigation",
     "#VisionLanguageModels",
     "#EmbodiedAI",
-    "#GoalGrounding"
+    "#GoalGrounding",
+    "#RobotNavigation"
   ],
+  "model": "gpt-6.1-sol",
+  "service_tier": "ultrafast",
+  "generator": "openai",
   "paper_id": "2026-10-16-arxiv-stopwatch_goal_grounding_for_object_goal_navigation",
   "paper_title": "StopWatch: Goal Grounding for Object-goal Navigation",
   "paper_category": "Model",
@@ -31,6 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.23841v1"
     }
   ],
-  "generated_at": "2026-10-19T22:04:26.896115",
-  "generator": "openai"
+  "generated_at": "2026-10-19T22:17:03.007869"
 }

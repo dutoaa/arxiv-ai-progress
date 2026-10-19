@@ -1,25 +1,28 @@
 {
-  "key_insight": "PPMem gives video world models a compact, persistent 3D memory using plane primitives, so generated scenes can retain structure over time instead of treating each frame independently. This helps the model remember and reuse dominant scene elements like walls, floors, and facades with very few parameters.",
-  "problem_solved": "The paper addresses the lack of durable 3D memory in scalable video world models, which makes long-horizon generation and scene consistency difficult. It aims to store and update scene geometry efficiently while generating videos of indoor and outdoor environments.",
+  "key_insight": "PPMem gives a video world model persistent 3D memory using compact, oriented planes. Each plane uses just 7 parameters to represent major scene structures such as walls, floors, and facades.",
+  "problem_solved": "Video world models need to remember previously generated environments as they explore, rather than relying only on transient video context.",
   "method": [
-    "Represents persistent scene memory with plane primitives, where each primitive uses only 7 parameters.",
-    "Integrates this planar memory into a video diffusion transformer to condition generation on accumulated 3D structure.",
-    "Uses the memory to capture dominant scene surfaces and maintain spatial consistency across extended video generation."
+    "Use plane primitives as persistent 3D memory for the generated environment.",
+    "Represent dominant indoor and outdoor structures with a compact set of oriented planes, each described by 7 parameters.",
+    "Augment a video diffusion transformer with this memory approach; the supplied abstract is truncated before further architectural details."
   ],
-  "impact": "For practitioners, this offers a more efficient way to build video world models that are structurally consistent and scalable. It can improve long-term scene coherence, reduce redundant representation costs, and support more realistic environment generation and exploration.",
+  "impact": "Compact geometric memory offers a promising way to support persistent environments in video generation. The supplied excerpt does not include results establishing improvements in consistency, efficiency, or scale.",
   "visual_elements": [
-    "A before/after diagram comparing frame-only generation vs. persistent planar memory",
-    "A 3D scene illustration showing planes representing walls, floors, and facades",
-    "A pipeline graphic showing video diffusion transformer + plane memory module",
-    "A small parameter-efficiency chart highlighting 7 parameters per plane primitive"
+    "Scene-to-planes illustration showing walls, floors, and facades simplified into colored planar surfaces.",
+    "Conceptual diagram connecting a video diffusion transformer to persistent 3D plane memory.",
+    "Camera trajectory revisiting previously generated structures, illustrating the intended role of memory.",
+    "Plane primitive icon labeled “7 parameters per plane.”"
   ],
   "hashtags": [
-    "#WorldModels",
-    "#VideoGeneration",
-    "#3DMemory",
-    "#DiffusionModels",
-    "#AIResearch"
+    "#VideoWorldModels",
+    "#PersistentMemory",
+    "#3DSceneRepresentation",
+    "#VideoDiffusion",
+    "#GenerativeAI"
   ],
+  "model": "gpt-6.1-sol",
+  "service_tier": "ultrafast",
+  "generator": "openai",
   "paper_id": "2026-10-16-arxiv-persistent_planar_memory_for_video_world_models",
   "paper_title": "Persistent Planar Memory for Video World Models",
   "paper_category": "Model",
@@ -31,6 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.23795v1"
     }
   ],
-  "generated_at": "2026-10-19T22:04:57.684818",
-  "generator": "openai"
+  "generated_at": "2026-10-19T22:17:40.317755"
 }
