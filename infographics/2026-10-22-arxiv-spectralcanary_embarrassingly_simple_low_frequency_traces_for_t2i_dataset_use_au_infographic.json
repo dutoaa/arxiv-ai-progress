@@ -1,24 +1,24 @@
 {
-  "key_insight": "SpectralCanary proposes planting shared low-frequency traces in an image collection so its use in text-to-image fine-tuning can later be audited through generated outputs. The supplied abstract is truncated, so specific implementation details and performance claims are unavailable.",
-  "problem_solved": "A text-to-image model can learn a collection’s visual characteristics without reproducing individual training images, making dataset-use verification difficult.",
+  "key_insight": "SpectralCanary proposes simple, low-frequency traces for checking whether a text-to-image model was fine-tuned on a particular image collection. The goal is to detect shared dataset signals in generated images, without requiring the model to reproduce training examples.",
+  "problem_solved": "Models can absorb a collection's visual characteristics without copying individual images, making dataset use difficult to verify. Existing proactive auditing approaches face trade-offs among verifiability, image fidelity, robustness, and deployment practicality.",
   "method": [
-    "Embed a shared low-frequency signal in an image collection before release, as indicated by the paper’s title.",
-    "Generate images from a suspect text-to-image model and check for evidence of the planted signal.",
-    "Use signal detection to assess possible dataset use rather than relying on exact image reproduction."
+    "Plant a shared signal in an image collection before releasing it.",
+    "Use low-frequency traces as the dataset marker, as indicated by the paper's title.",
+    "Inspect a suspect model's generated outputs for evidence of that signal; the supplied abstract is truncated and does not specify implementation details or evaluation results."
   ],
-  "impact": "This approach could help dataset owners audit whether their collections were used for model fine-tuning. Its practical value depends on signal detectability, image fidelity, and robustness, which cannot be assessed from the provided excerpt.",
+  "impact": "This approach could help dataset owners and practitioners audit fine-tuning data use beyond exact-image matching. Its practical effectiveness and trade-offs cannot be assessed from the supplied excerpt.",
   "visual_elements": [
-    "Pipeline diagram: image collection → planted trace → model fine-tuning → generated outputs → audit.",
-    "Frequency-spectrum illustration highlighting the low-frequency region where the trace is placed.",
-    "Conceptual comparison of original and signal-bearing images, paired with magnified frequency views.",
-    "Audit dashboard showing the detection concept, without implying unreported accuracy."
+    "Pipeline diagram: marked dataset → model fine-tuning → generated images → signal detection.",
+    "Conceptual frequency-spectrum graphic highlighting a low-frequency marker.",
+    "Side-by-side illustration of exact-image matching versus shared-signal detection.",
+    "Four-part trade-off graphic: verifiability, fidelity, robustness, and deployability, without unsupported performance scores."
   ],
   "hashtags": [
     "#SpectralCanary",
     "#DatasetAuditing",
     "#TextToImage",
-    "#AIProvenance",
-    "#GenerativeAI"
+    "#GenerativeAI",
+    "#AIAccountability"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.31659v1"
     }
   ],
-  "generated_at": "2026-10-23T10:42:14.676110"
+  "generated_at": "2026-10-24T09:59:07.924246"
 }
