@@ -1,17 +1,17 @@
 {
-  "key_insight": "Gate3DGen selectively cleans up real-world images before single-image 3D generation, while leaving clean inputs unchanged. It works with existing 3D generators without retraining them.",
-  "problem_solved": "3D generators that perform well on curated images can struggle with uneven lighting, blur, and occlusions. Pre-processing must address these defects without removing visual cues needed to reconstruct 3D objects.",
+  "key_insight": "Gate3DGen selectively cleans up real-world images before they reach a 3D generator, while leaving clean inputs unchanged. It improves input preparation without retraining the downstream generator.",
+  "problem_solved": "Single-image 3D generators perform well on curated images but struggle with uneven lighting, blur, and occlusions. Pre-processing must address these degradations without removing visual cues needed to reconstruct 3D objects.",
   "method": [
-    "Use a degradation-aware router to decide whether an input needs purification.",
-    "Selectively purify degraded images while preserving cues important for 3D generation; bypass clean inputs.",
-    "Pass the resulting image to an existing 3D generator without retraining that generator."
+    "Use a degradation-aware router to decide whether an input needs purification or should bypass processing.",
+    "Selectively purify degraded inputs while preserving visual information needed for 3D generation.",
+    "Pass the resulting image to an existing 3D generator without retraining it."
   ],
-  "impact": "This approach aims to make existing 3D generation pipelines more useful for everyday photos without costly generator retraining. The supplied abstract is truncated and provides no quantitative results.",
+  "impact": "This approach offers practitioners a way to adapt existing 3D-generation pipelines to less-controlled images while avoiding unnecessary changes to clean inputs. The supplied abstract is truncated and does not provide quantitative results.",
   "visual_elements": [
-    "Pipeline diagram: input image → degradation-aware router → bypass or purification → 3D generator.",
-    "Degradation icons illustrating uneven illumination, blur, and occlusion.",
-    "Split-path illustration showing clean images passed through unchanged and degraded images selectively processed.",
-    "Object-cue diagram highlighting the visual information purification must preserve for 3D reconstruction."
+    "Pipeline diagram: input image → degradation-aware router → bypass or purification → existing 3D generator.",
+    "Image examples illustrating uneven lighting, blur, and occlusion.",
+    "Split-path graphic showing clean inputs preserved and degraded inputs selectively processed.",
+    "Object-cue illustration highlighting details that purification should retain for 3D reconstruction."
   ],
   "hashtags": [
     "#Gate3DGen",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.31649v1"
     }
   ],
-  "generated_at": "2026-10-24T09:58:58.461373"
+  "generated_at": "2026-10-25T10:22:42.190255"
 }

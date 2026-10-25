@@ -1,22 +1,21 @@
 {
-  "key_insight": "OmniRay aims to reconstruct 3D scenes from a single image without assuming a pinhole camera. Its central idea is to represent camera geometry with composite ray fields that reflect both overall projection and finer variations.",
-  "problem_solved": "Monocular reconstruction models built around pinhole cameras can distort geometry in fisheye and panoramic images. Existing camera-aware approaches use a single fixed basis to represent camera geometry at different levels of detail.",
+  "key_insight": "A single camera representation can struggle to capture both a lens’s overall projection and its subtle variations. OmniRay proposes composite ray fields to represent this structure hierarchically for camera-agnostic monocular 3D reconstruction.",
+  "problem_solved": "Monocular 3D models that assume pinhole cameras can distort geometry from fisheye and panoramic images. Existing camera-aware models use a single fixed basis to represent both global camera geometry and finer variations.",
   "method": [
-    "Represent camera geometry through per-pixel viewing rays rather than a fixed pinhole model.",
-    "Treat camera geometry as hierarchical, motivating composite ray fields instead of one fixed basis.",
-    "Target camera-agnostic monocular 3D reconstruction; the supplied abstract is truncated before implementation and evaluation details."
+    "Represent camera geometry with per-pixel viewing rays rather than assuming a pinhole projection.",
+    "Use composite ray fields to model the hierarchy between overall camera projection and finer geometric variations. Detailed implementation is not available in the truncated abstract."
   ],
-  "impact": "This approach could make single-image 3D reconstruction more useful across cameras with different lens projections, especially wide-angle systems. Performance improvements cannot be assessed from the supplied excerpt.",
+  "impact": "The approach aims to make single-image 3D reconstruction more adaptable to different lens types, especially wide-angle imagery. The supplied excerpt does not include quantitative results.",
   "visual_elements": [
-    "Side-by-side pinhole, fisheye, and panoramic images with viewing-ray overlays.",
-    "A hierarchy diagram showing overall camera projection and finer ray-field variations.",
-    "A pipeline diagram: single image → composite ray field → reconstructed 3D scene.",
-    "A conceptual comparison illustrating distortion from a mismatched camera assumption."
+    "Pinhole, fisheye, and panoramic images shown side by side to illustrate different projections.",
+    "A ray-field diagram showing viewing directions associated with image pixels.",
+    "A conceptual hierarchy separating overall camera projection from fine-scale variations.",
+    "A pipeline diagram: single image → composite ray field → reconstructed 3D geometry."
   ],
   "hashtags": [
     "#OmniRay",
+    "#Monocular3D",
     "#3DReconstruction",
-    "#MonocularVision",
     "#CameraGeometry",
     "#ComputerVision"
   ],
@@ -34,5 +33,5 @@
       "url": "https://arxiv.org/pdf/2610.31645v1"
     }
   ],
-  "generated_at": "2026-10-24T09:58:55.688629"
+  "generated_at": "2026-10-25T10:22:39.830493"
 }

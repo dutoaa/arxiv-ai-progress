@@ -1,17 +1,17 @@
 {
-  "key_insight": "Strong text-to-image generation may not require language pretraining. Halcyon learns from image–text pairs entirely from scratch, with its 0.52B model outperforming LlamaGen-XL/8 using 18.2× less pretraining compute.",
-  "problem_solved": "Modern text-to-image systems typically depend on internet-scale language pretraining. This work tests whether that costly prerequisite is necessary for strong image generation.",
+  "key_insight": "Halcyon shows that strong text-to-image generation does not require a language-pretrained model. Trained from scratch, Halcyon-0.52B outperforms LlamaGen-XL/8 while using 18.2× less pretraining compute.",
+  "problem_solved": "Modern text-to-image systems rely on internet-scale language pretraining. This paper tests whether that costly prerequisite is necessary for strong image generation.",
   "method": [
     "Introduce Halcyon, a family of early-fusion multimodal autoregressive models.",
-    "Pretrain entirely from scratch on GPIC, a dataset of 100 million image–text pairs.",
-    "Compare generation quality and pretraining compute against existing text-to-image models."
+    "Pretrain entirely from scratch on GPIC, a dataset of 100 million image-text pairs.",
+    "Compare generation quality and pretraining compute: Halcyon-0.52B achieves 48.0 gFD versus LlamaGen-XL/8's 63.3, where lower is better."
   ],
-  "impact": "The results suggest a path to competitive text-to-image models without separately pretrained language components. For practitioners, this could simplify training pipelines and reduce pretraining compute requirements.",
+  "impact": "The results point to a more compute-efficient route to text-to-image modeling without a separately language-pretrained backbone. Practitioners may be able to simplify training pipelines while maintaining strong generation quality.",
   "visual_elements": [
-    "Pipeline diagram: 100M image–text pairs → Halcyon trained from scratch → generated images.",
-    "Quality bar chart: Halcyon-0.52B at 48.0 gFD versus LlamaGen-XL/8 at 63.3 gFD, labeled 'lower is better'.",
-    "Compute comparison badge highlighting '18.2× less pretraining compute' for Halcyon-0.52B.",
-    "Architecture sketch contrasting a pretrained-language-component pipeline with Halcyon's early-fusion approach."
+    "Pipeline diagram: 100M image-text pairs → from-scratch Halcyon training → generated images.",
+    "Architecture sketch showing text and image information fused early in an autoregressive model.",
+    "Bar chart comparing gFD: Halcyon-0.52B at 48.0 versus LlamaGen-XL/8 at 63.3, labeled 'lower is better.'",
+    "Compute-efficiency callout: '18.2× less pretraining compute' alongside 'No language pretraining.'"
   ],
   "hashtags": [
     "#TextToImage",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.26863v1"
     }
   ],
-  "generated_at": "2026-10-22T10:51:00.229694"
+  "generated_at": "2026-10-25T10:23:24.383047"
 }
