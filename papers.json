@@ -1,5 +1,859 @@
 [
   {
+    "id": "2026-10-27-arxiv-multi_state_linear_attention_with_generalized_second_order_routing",
+    "date": "2026-10-27",
+    "title": "Multi-State Linear Attention with Generalized Second-Order Routing",
+    "authors": "Hee Seung Hwang, Sanghyuk Chun, Xindi Wu, Olga Russakovsky, Zhiwei Deng",
+    "abstract": "Self-attention plays a key role in long-sequence modeling, but its quadratic time complexity fundamentally limits the scaling of Large Language Models. Recently, Multi-State Linear Attention (MSLA) mechanisms have been proposed to make sequence modeling more efficient by splitting the context into segments and compressing each in its own memory state. MSLA aggregates the information extracted from each memory state using only the mean alignment between a query and each segment's keys, ignoring h",
+    "category": "Hardware/Infra",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "hardware_infra"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37645v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-multi_state_linear_attention_with_generalized_second_order_routing.yaml",
+    "infographic": {
+      "key_insight": "The paper proposes generalized second-order routing for Multi-State Linear Attention, aiming to route queries using richer information than average query–key alignment alone.",
+      "problem_solved": "Standard self-attention has quadratic time complexity, limiting long-context scaling. Existing Multi-State Linear Attention compresses context into separate memories but routes between them using only mean alignment, potentially overlooking useful matching information.",
+      "method": [
+        "Split the input sequence into segments and compress each segment into its own memory state.",
+        "Introduce generalized second-order routing to move beyond mean-only query–segment alignment.",
+        "Aggregate information from the segment memories; detailed routing equations are unavailable in the truncated abstract."
+      ],
+      "impact": "The approach targets more effective memory selection for efficient long-context models. Its practical speed, memory, and quality gains cannot be verified from the supplied excerpt.",
+      "visual_elements": [
+        "Sequence-to-memory diagram: token segments compressed into separate memory blocks.",
+        "Routing comparison: mean-only alignment versus richer second-order alignment.",
+        "Query-to-memory flow diagram with weighted connections and a combined output.",
+        "Conceptual scaling chart contrasting quadratic self-attention with linear attention, without implying measured results."
+      ],
+      "hashtags": [
+        "#LinearAttention",
+        "#LongContext",
+        "#EfficientAI",
+        "#LargeLanguageModels",
+        "#AttentionMechanisms"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-multi_state_linear_attention_with_generalized_second_order_routing",
+      "paper_title": "Multi-State Linear Attention with Generalized Second-Order Routing",
+      "paper_category": "Hardware/Infra",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Hee Seung Hwang, Sanghyuk Chun, Xindi Wu, Olga Russakovsky, Zhiwei Deng",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37645v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:45.545784"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-heads_of_security_learned_attention_gates_improve_prompt_injection_robustness",
+    "date": "2026-10-27",
+    "title": "Heads of Security: Learned Attention Gates Improve Prompt Injection Robustness",
+    "authors": "Igor Shilov, Xiaoxue Yang, Alexander Panfilov, Evgenii Kortukov, Matthieu Meeus",
+    "abstract": "We introduce Heads of Security (HoS), a prompt injection defense that enforces instruction-data separation via a small set of learned per-head attention gates. HoS learns how each head should redistribute attention between trusted and untrusted tokens, enabling models to reason over untrusted content without following injected instructions. We evaluate HoS on Llama-3.3-70B-Instruct and GPT-OSS-20B. We compare it against SecAlign++, a state-of-the-art finetuning-based defense, and ASIDE, a defens",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37657v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-heads_of_security_learned_attention_gates_improve_prompt_injection_robustness.yaml",
+    "infographic": {
+      "key_insight": "Heads of Security (HoS) uses a small set of learned attention gates to help AI models distinguish trusted instructions from untrusted content. The goal is to let models analyze potentially malicious text without obeying instructions hidden inside it.",
+      "problem_solved": "Prompt injection occurs when instructions embedded in untrusted material attempt to override a model’s legitimate task. HoS targets the challenge of preserving useful access to that material while keeping it separate from authoritative instructions.",
+      "method": [
+        "Learn per-head attention gates that control how attention is distributed between trusted and untrusted tokens.",
+        "Use these gates to enforce instruction–data separation while allowing reasoning over untrusted content.",
+        "Evaluate on Llama-3.3-70B-Instruct and GPT-OSS-20B, with comparisons against defenses including SecAlign++ and ASIDE."
+      ],
+      "impact": "HoS offers practitioners an attention-level approach to prompt-injection defense for systems that process external content. The supplied abstract is truncated, so quantitative robustness gains and trade-offs cannot be assessed here.",
+      "visual_elements": [
+        "Trust-boundary diagram separating legitimate instructions from external content containing an injected command.",
+        "Attention-head schematic showing learned gates regulating attention between trusted and untrusted tokens.",
+        "Before-and-after attention heatmaps illustrating the intended redistribution of attention.",
+        "Evaluation overview showing the two tested models and comparison defenses, without unsupported performance values."
+      ],
+      "hashtags": [
+        "#PromptInjection",
+        "#AISecurity",
+        "#AttentionMechanisms",
+        "#LLMRobustness",
+        "#TrustworthyAI"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-heads_of_security_learned_attention_gates_improve_prompt_injection_robustness",
+      "paper_title": "Heads of Security: Learned Attention Gates Improve Prompt Injection Robustness",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Igor Shilov, Xiaoxue Yang, Alexander Panfilov, Evgenii Kortukov, Matthieu Meeus",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37657v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:56.176095"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-envsched_environment_aware_scheduling_for_rollout_efficient_agent_reinforcement",
+    "date": "2026-10-27",
+    "title": "EnvSched: Environment-Aware Scheduling for Rollout-Efficient Agent Reinforcement Learning",
+    "authors": "Sihan Yang, Weichen Bai, Ruichuan An, Yiming Cheng, Zhiyuan Feng",
+    "abstract": "As executable environments for language agents scale, generating and verifying their rollouts becomes increasingly expensive. Under finite rollout budgets, this raises an important question: can data management at the environment level make agentic reinforcement learning (RL) more efficient by organizing, evaluating, and scheduling task instances together with the environments that determine their tools, states, transitions, and verification? To address this question, we introduce EnvSched (Envi",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37609v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-envsched_environment_aware_scheduling_for_rollout_efficient_agent_reinforcement.yaml",
+    "infographic": {
+      "key_insight": "EnvSched proposes making agent reinforcement learning more rollout-efficient by managing and scheduling tasks together with their executable environments, rather than treating task instances in isolation.",
+      "problem_solved": "Generating and verifying language-agent rollouts becomes costly as executable environments scale. With a limited rollout budget, practitioners need better ways to allocate resources across tasks and the environments that define their tools, states, transitions, and verification.",
+      "method": [
+        "Use environment-aware scheduling to guide rollout allocation during agent reinforcement learning.",
+        "Organize and evaluate task instances alongside their associated executable environments.",
+        "Note: The supplied abstract is truncated, so specific scheduling algorithms and experimental results are unavailable."
+      ],
+      "impact": "Environment-level data management could help practitioners use limited rollout budgets more effectively. The provided excerpt does not establish measured efficiency gains.",
+      "visual_elements": [
+        "Task–environment map linking task instances to tools, states, transitions, and verification.",
+        "Pipeline diagram: environment-aware organization → evaluation → scheduling → rollouts.",
+        "Rollout-budget graphic illustrating allocation across multiple environments.",
+        "Cost icons highlighting rollout generation and verification."
+      ],
+      "hashtags": [
+        "#EnvSched",
+        "#ReinforcementLearning",
+        "#LanguageAgents",
+        "#EnvironmentAwareScheduling",
+        "#RolloutEfficiency"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-envsched_environment_aware_scheduling_for_rollout_efficient_agent_reinforcement",
+      "paper_title": "EnvSched: Environment-Aware Scheduling for Rollout-Efficient Agent Reinforcement Learning",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Sihan Yang, Weichen Bai, Ruichuan An, Yiming Cheng, Zhiyuan Feng",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37609v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:27.669173"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-scaling_laws_for_tool_use_agents_via_controllable_environment_synthesis",
+    "date": "2026-10-27",
+    "title": "Scaling Laws for Tool-Use Agents via Controllable Environment Synthesis",
+    "authors": "Andrew Szot, Samira Abnar, Omar Attia, Abbas Kazerouni, Michael Kirchhof",
+    "abstract": "We explore how to build performant large language model (LLM) tool-use agents that complete complex, multi-step tasks. Specifically, we study how data composition in synthetically generated tool-use environments affects the training of such agents. To do so, we propose the SynthAPI pipeline, which explicitly controls the diversity of generated environments along the axes of tools, tasks, and the databases on which the tools operate. By systematically varying SynthAPI's generation controls in 458",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37648v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-scaling_laws_for_tool_use_agents_via_controllable_environment_synthesis.yaml",
+    "infographic": {
+      "key_insight": "SynthAPI makes synthetic tool-use training environments controllable across tools, tasks, and databases. This enables systematic study of how training-data composition affects LLM agents on complex, multi-step tasks; the provided abstract is truncated before reporting findings.",
+      "problem_solved": "How should synthetic tool-use training data be composed to build more capable LLM agents, and which kinds of environment diversity matter?",
+      "method": [
+        "Generate synthetic tool-use environments with the SynthAPI pipeline.",
+        "Explicitly control diversity across three axes: available tools, task types, and underlying databases.",
+        "Systematically vary these controls to study their effects on agent training."
+      ],
+      "impact": "This approach could help practitioners design synthetic training data more deliberately for tool-use agents. Specific scaling laws and performance gains cannot be established from the provided excerpt.",
+      "visual_elements": [
+        "Three control sliders labeled Tools, Tasks, and Databases feeding into SynthAPI.",
+        "Pipeline diagram: environment synthesis → training data → LLM agent → multi-step task execution.",
+        "Experiment grid illustrating combinations of tool, task, and database diversity.",
+        "Agent workflow showing a sequence of tool calls interacting with a database."
+      ],
+      "hashtags": [
+        "#LLMAgents",
+        "#ToolUse",
+        "#SyntheticData",
+        "#ScalingLaws",
+        "#AIResearch"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-scaling_laws_for_tool_use_agents_via_controllable_environment_synthesis",
+      "paper_title": "Scaling Laws for Tool-Use Agents via Controllable Environment Synthesis",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Andrew Szot, Samira Abnar, Omar Attia, Abbas Kazerouni, Michael Kirchhof",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37648v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:48.292535"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-videolvr_latent_visual_reasoning_over_grounded_video_evidence",
+    "date": "2026-10-27",
+    "title": "VideoLVR: Latent Visual Reasoning over Grounded Video Evidence",
+    "authors": "Shilong Li, Xingyuan Bu, Hao Shi, Yun Xing, Weixin Feng",
+    "abstract": "Chain-of-thought reasoning has substantially advanced video understanding in multimodal large language models (MLLMs). However, language-based reasoning traces do not provide a reliable mechanism for models to revisit relevant visual evidence, leading to visual forgetting and impairing their ability to reason over video content. Existing approaches maintain visual grounding during reasoning in two main ways: they either refer to evidence using textual coordinates, which specify symbolic location",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37613v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-videolvr_latent_visual_reasoning_over_grounded_video_evidence.yaml",
+    "infographic": {
+      "key_insight": "Video reasoning can lose touch with what actually appears on screen when it relies only on written reasoning steps. VideoLVR proposes latent visual reasoning grounded in video evidence to address this disconnect.",
+      "problem_solved": "Language-based reasoning traces do not reliably let multimodal models revisit relevant visual evidence, causing visual forgetting and weakening reasoning about video content.",
+      "method": [
+        "Explore latent visual reasoning grounded in video evidence, as indicated by the paper’s title.",
+        "Address limitations of language-only reasoning and symbolic references to visual evidence.",
+        "Implementation details and evaluation results are not available in the provided, truncated abstract."
+      ],
+      "impact": "For practitioners, the key takeaway is that stronger video reasoning requires maintaining access to visual evidence—not just generating longer explanations. The excerpt does not establish measured performance gains.",
+      "visual_elements": [
+        "Side-by-side schematic: text-only reasoning losing visual context versus evidence-grounded reasoning.",
+        "Video timeline with highlighted frames representing relevant evidence.",
+        "Conceptual loop linking video evidence, latent reasoning, and an answer.",
+        "Fading-frame icon illustrating visual forgetting."
+      ],
+      "hashtags": [
+        "#VideoLVR",
+        "#VideoUnderstanding",
+        "#MultimodalAI",
+        "#VisualReasoning",
+        "#GroundedAI"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-videolvr_latent_visual_reasoning_over_grounded_video_evidence",
+      "paper_title": "VideoLVR: Latent Visual Reasoning over Grounded Video Evidence",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Shilong Li, Xingyuan Bu, Hao Shi, Yun Xing, Weixin Feng",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37613v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:31.106619"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-know_then_draw_a_new_learning_paradigm_for_visual_generation",
+    "date": "2026-10-27",
+    "title": "Know, then Draw: A New Learning Paradigm for Visual Generation",
+    "authors": "Yucheng Mao, Chongjian Ge, Zhuowen Tu, Hao Tan, Hanwen Jiang",
+    "abstract": "Visual generation requires both high-level semantic knowledge and fine-grained pixel details. We propose a learning paradigm that assigns these roles to autoregressive pretraining for knowledge acquisition and diffusion post-training for high-fidelity rendering. Within this framework, we study the objective, representation, and scaling of knowledge acquisition and rendering. Controlled comparisons identify autoregression as the stronger pretraining objective for downstream rendering, improving b",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37626v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-know_then_draw_a_new_learning_paradigm_for_visual_generation.yaml",
+    "infographic": {
+      "key_insight": "Teach an AI what to draw before teaching it how to render. This paper separates visual generation into autoregressive pretraining for semantic knowledge and diffusion post-training for fine-grained image detail.",
+      "problem_solved": "Visual generation needs both high-level understanding and precise pixel rendering. The paper investigates how to train for these complementary capabilities and which pretraining objective best supports later rendering.",
+      "method": [
+        "Use autoregressive pretraining to acquire high-level semantic knowledge.",
+        "Apply diffusion post-training to learn high-fidelity rendering.",
+        "Study training objectives, representations, and scaling; controlled comparisons favor autoregression as the pretraining objective for downstream rendering."
+      ],
+      "impact": "The approach offers practitioners a training strategy that assigns semantic learning and image rendering to different stages. The provided abstract is truncated, so specific performance gains and evaluation details are unavailable.",
+      "visual_elements": [
+        "Two-stage pipeline: autoregressive knowledge acquisition → diffusion rendering → generated image.",
+        "Paired icons: a brain for semantic understanding and a paintbrush for pixel-level detail.",
+        "Concept-to-image illustration contrasting high-level scene structure with fine-grained texture.",
+        "Comparison schematic showing alternative pretraining objectives feeding into the same rendering stage."
+      ],
+      "hashtags": [
+        "#VisualGeneration",
+        "#AutoregressiveModels",
+        "#DiffusionModels",
+        "#GenerativeAI",
+        "#RepresentationLearning"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-know_then_draw_a_new_learning_paradigm_for_visual_generation",
+      "paper_title": "Know, then Draw: A New Learning Paradigm for Visual Generation",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Yucheng Mao, Chongjian Ge, Zhuowen Tu, Hao Tan, Hanwen Jiang",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37626v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:37.098556"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-perceiving_and_predicting_dynamic_sports_spatiotemporal_intelligence_in_vision_m",
+    "date": "2026-10-27",
+    "title": "Perceiving and Predicting Dynamic Sports: Spatiotemporal Intelligence in Vision Models for Egocentric Tennis Video",
+    "authors": "Tudor Braicu, Joseph DelPreto, Jared Boyer, Mónika Farsang, Maximilian Stölzle",
+    "abstract": "Agile robots require spatiotemporal intelligence to interpret scenes, reason about interactions, and anticipate future events. Yet it remains unclear how well foundation vision models support these capabilities, particularly from a moving egocentric camera, which is a natural view for robots. To investigate this, we collect an annotated tennis dataset and train a suite of vision models on spatiotemporal tasks. Our dataset contains egocentric video synchronized with five allocentric videos, estim",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37619v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-perceiving_and_predicting_dynamic_sports_spatiotemporal_intelligence_in_vision_m.yaml",
+    "infographic": {
+      "key_insight": "Egocentric tennis video provides a dynamic test of whether vision models can understand motion, track interactions, and anticipate what happens next. The paper introduces an annotated, synchronized multi-view dataset and trains vision models to investigate these abilities.",
+      "problem_solved": "How can we assess vision models’ spatiotemporal intelligence under the fast motion and shifting viewpoint of a robot-like, first-person camera?",
+      "method": [
+        "Collect annotated tennis footage with an egocentric camera synchronized to five external cameras.",
+        "Train a suite of vision models on tasks involving spatial and temporal understanding.",
+        "Use dynamic sports scenes to investigate perception, interaction reasoning, and future-event anticipation."
+      ],
+      "impact": "This approach could help practitioners assess vision models for agile robotics, where understanding changing scenes and anticipating events are essential. The provided abstract is truncated, so specific performance findings are unavailable.",
+      "visual_elements": [
+        "Court diagram showing one egocentric viewpoint and five synchronized external cameras.",
+        "Aligned video strips illustrating the same tennis moment from multiple views.",
+        "Frame sequence with a solid observed ball trajectory and a dashed anticipated trajectory.",
+        "Three-icon task panel: perceive the scene, reason about interactions, anticipate events."
+      ],
+      "hashtags": [
+        "#EgocentricVision",
+        "#SpatiotemporalAI",
+        "#VisionModels",
+        "#RobotPerception",
+        "#SportsAnalytics"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-perceiving_and_predicting_dynamic_sports_spatiotemporal_intelligence_in_vision_m",
+      "paper_title": "Perceiving and Predicting Dynamic Sports: Spatiotemporal Intelligence in Vision Models for Egocentric Tennis Video",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Tudor Braicu, Joseph DelPreto, Jared Boyer, Mónika Farsang, Maximilian Stölzle",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37619v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:34.157780"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-gepa_curator_curated_learning_for_self_improving_agents",
+    "date": "2026-10-27",
+    "title": "GEPA-Curator: Curated Learning for Self Improving Agents",
+    "authors": "Zack Yu, Nicholas Lee, Minjae Lee, Lakshya Agarwal, Luca Manolache",
+    "abstract": "Large Language Models (LLMs) are increasingly used in multi-turn agentic workloads that require sustained interaction with complex environments. Existing reflective prompt optimizers such as GEPA learn from failed rollouts, but agentic failures can also come from prompt weaknesses, harness limitations, stochastic execution, or noisy judges. We argue that such failures may not provide useful learning signal, and may even be harmful; and thus it is essential to curate which tasks are provided to t",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37651v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-gepa_curator_curated_learning_for_self_improving_agents.yaml",
+    "infographic": {
+      "key_insight": "Not every agent failure is a useful lesson. GEPA-Curator argues that self-improving agents should learn from curated tasks rather than treating all failed runs as equally informative.",
+      "problem_solved": "Reflective prompt optimization can mistake harness limitations, random execution failures, or unreliable judging for prompt weaknesses, creating misleading or harmful learning signals.",
+      "method": [
+        "Build on reflective prompt optimization approaches such as GEPA, which use failed agent runs to guide improvements.",
+        "Curate the tasks used for learning to prioritize useful feedback over potentially misleading failures.",
+        "The provided abstract is truncated, so the exact curation procedure and evaluation results are not available."
+      ],
+      "impact": "For practitioners, this highlights the importance of feedback quality—not just collecting more failures—when improving agents. Curated learning could reduce misguided prompt updates, although the provided excerpt does not establish measured gains.",
+      "visual_elements": [
+        "A failure-source diagram: prompt weakness, harness limitation, execution randomness, and judge noise.",
+        "A filtering funnel showing failed runs becoming a curated learning set.",
+        "A side-by-side workflow: learn from every failure versus curate before updating.",
+        "An improvement loop connecting agent execution, feedback curation, and prompt revision."
+      ],
+      "hashtags": [
+        "#GEPACurator",
+        "#AIAgents",
+        "#SelfImprovingAI",
+        "#PromptOptimization",
+        "#FeedbackQuality"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-gepa_curator_curated_learning_for_self_improving_agents",
+      "paper_title": "GEPA-Curator: Curated Learning for Self Improving Agents",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Zack Yu, Nicholas Lee, Minjae Lee, Lakshya Agarwal, Luca Manolache",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37651v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:50.618277"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-pushing_dexterity_and_safety_for_in_hand_object_pose_reaching_that_works_remarka",
+    "date": "2026-10-27",
+    "title": "Pushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well",
+    "authors": "Ian Chuang, Hiya Shah, Vamsi Chilamkur, Iman Soltani, Claire Tomlin",
+    "abstract": "Dexterous manipulation with multi-fingered hands is the next frontier of robotics, yet learned hand skills remain limited to simple grasps or basic repeated motions, such as rotating an object. As robots attempt more demanding in-hand maneuvers, safety, such as not dropping the object, becomes critical, yet it is rarely measured. We study in-hand object pose reaching, a task that demands diverse and difficult grasps: moving an object to almost any position and orientation within reach of the fin",
+    "category": "Evaluation",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "evaluation"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37652v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-pushing_dexterity_and_safety_for_in_hand_object_pose_reaching_that_works_remarka.yaml",
+    "infographic": {
+      "key_insight": "The paper studies how a multi-fingered robotic hand can move a held object toward diverse target positions and orientations while keeping it secure. It highlights that dexterity should be evaluated alongside safety, including whether the robot drops the object.",
+      "problem_solved": "Learned robotic hand skills often focus on simple grasps or repetitive motions. More demanding in-hand repositioning requires varied grasps, yet safety during these maneuvers is rarely measured.",
+      "method": [
+        "Study in-hand object pose reaching: moving a held object toward target positions and orientations within the hand’s reach.",
+        "Consider demanding maneuvers that require diverse, difficult grasps rather than only repetitive object rotation.",
+        "Examine safety alongside dexterity; the provided abstract is truncated and does not specify the algorithm, evaluation protocol, or results."
+      ],
+      "impact": "For robotics and embodied AI practitioners, the work emphasizes evaluating both manipulation capability and object retention. This framing can help distinguish impressive motion demonstrations from reliably safe hand skills.",
+      "visual_elements": [
+        "Robotic hand holding an object, with arrows showing target translation and rotation.",
+        "Side-by-side illustration of repetitive rotation versus diverse pose-reaching maneuvers.",
+        "Safety icons contrasting secure object retention with an object drop.",
+        "Conceptual evaluation dashboard pairing pose-reaching success with drop frequency, without numerical claims."
+      ],
+      "hashtags": [
+        "#DexterousManipulation",
+        "#RobotLearning",
+        "#RoboticsSafety",
+        "#EmbodiedAI",
+        "#RoboticsEvaluation"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-pushing_dexterity_and_safety_for_in_hand_object_pose_reaching_that_works_remarka",
+      "paper_title": "Pushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well",
+      "paper_category": "Evaluation",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Ian Chuang, Hiya Shah, Vamsi Chilamkur, Iman Soltani, Claire Tomlin",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37652v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:53.683844"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-can_discrete_tokens_serve_as_semantically_lossless_representations_of_visual_sig",
+    "date": "2026-10-27",
+    "title": "Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals?",
+    "authors": "Jialv Zou, Xiaotong Li, Zhengrong Yue, Xu Huang, Yaxin Luo",
+    "abstract": "Discrete visual tokens represent vision in a discrete form analogous to language, offering a native interface for multimodal modeling under a shared next-token prediction objective. However, quantization error is widely assumed to cause unavoidable semantic loss, fundamentally limiting the semantic fidelity of discrete visual tokens and positioning continuous visual representations as an intrinsic upper bound. Using multimodal understanding as a proxy for semantic fidelity, we revisit this assum",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37662v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-can_discrete_tokens_serve_as_semantically_lossless_representations_of_visual_sig.yaml",
+    "infographic": {
+      "key_insight": "The paper questions whether converting images into discrete tokens must lose semantic meaning—and whether continuous representations necessarily set the upper limit. The provided abstract is truncated, so its final findings cannot be confirmed.",
+      "problem_solved": "Investigates the assumption that quantization error inevitably reduces the semantic fidelity of discrete visual tokens, limiting their use in multimodal AI.",
+      "method": [
+        "Use multimodal understanding performance as a proxy for how well visual meaning is preserved.",
+        "Revisit the presumed semantic limitations of discrete visual tokens relative to continuous representations.",
+        "Examine discrete tokens as a visual interface compatible with a shared next-token prediction objective; experimental details are unavailable in the excerpt."
+      ],
+      "impact": "If discrete tokens can preserve visual meaning, practitioners could build more unified vision-language models around next-token prediction without an inherent semantic penalty. This potential benefit is not established by the available excerpt.",
+      "visual_elements": [
+        "Split-path diagram: image → discrete tokens versus image → continuous representations.",
+        "Concept graphic distinguishing quantization error from loss of semantic meaning.",
+        "Evaluation schematic: visual representation → multimodal understanding task → semantic-fidelity proxy.",
+        "Unified token-stream illustration combining image tokens and text tokens."
+      ],
+      "hashtags": [
+        "#VisualTokenization",
+        "#MultimodalAI",
+        "#RepresentationLearning",
+        "#VisionLanguageModels",
+        "#DiscreteTokens"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-can_discrete_tokens_serve_as_semantically_lossless_representations_of_visual_sig",
+      "paper_title": "Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals?",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Jialv Zou, Xiaotong Li, Zhengrong Yue, Xu Huang, Yaxin Luo",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37662v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:58.736992"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-metacognitive_decoding_efficient_inference_for_diffusion_language_agents",
+    "date": "2026-10-27",
+    "title": "Metacognitive Decoding: Efficient Inference for Diffusion Language Agents",
+    "authors": "Mingyu Zhao, Shuhang Lin, Ligong Han, Xiaojing Yu, Zhenting Wang",
+    "abstract": "Diffusion language models offer a promising path to efficient agents through parallel token generation. However, efficient interaction requires adapting both where computation is spent and how much text is generated. We introduce a metacognitive controller that guides diffusion generation according to the needs of the current response and the agent's interaction with the environment. It learns when to finalize tokens and how far generation should extend, reducing overall computation within respo",
+    "category": "Evaluation",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "evaluation"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37642v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-metacognitive_decoding_efficient_inference_for_diffusion_language_agents.yaml",
+    "infographic": {
+      "key_insight": "A metacognitive controller helps diffusion language agents decide when tokens are ready and how long a response should be. This aims to reduce unnecessary computation while adapting generation to the current task and environment.",
+      "problem_solved": "Parallel token generation alone does not guarantee efficient agent interaction: models must also decide where to spend computation and when to stop generating.",
+      "method": [
+        "Guide diffusion generation with a learned metacognitive controller.",
+        "Adapt token finalization to avoid spending further computation on tokens that are ready.",
+        "Adjust generation length according to response needs and interaction with the environment."
+      ],
+      "impact": "The approach could make diffusion-based agents more computationally efficient by adapting both token processing and response length. The provided abstract is truncated and does not include quantitative results.",
+      "visual_elements": [
+        "Control-loop diagram linking the environment, metacognitive controller, and diffusion generator.",
+        "Token-grid illustration showing tokens being finalized at different stages.",
+        "Adaptive-length diagram contrasting shorter and longer responses for different task needs.",
+        "Compute-allocation heatmap illustrating where generation effort is concentrated."
+      ],
+      "hashtags": [
+        "#DiffusionLanguageModels",
+        "#EfficientInference",
+        "#AIAgents",
+        "#Metacognition",
+        "#AdaptiveComputation"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-metacognitive_decoding_efficient_inference_for_diffusion_language_agents",
+      "paper_title": "Metacognitive Decoding: Efficient Inference for Diffusion Language Agents",
+      "paper_category": "Evaluation",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Mingyu Zhao, Shuhang Lin, Ligong Han, Xiaojing Yu, Zhenting Wang",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37642v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:42.187462"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-thinkworld_world_imagination_reinforces_chain_of_dynamics_reasoning",
+    "date": "2026-10-27",
+    "title": "ThinkWorld: World Imagination Reinforces Chain-of-Dynamics Reasoning",
+    "authors": "Chaehyun Kim, Chi-Pin Huang, Jisoo Kim, Min-Hung Chen, Yu-Chiang Frank Wang",
+    "abstract": "Vision-Language-Action (VLA) models have made substantial progress in robotic manipulation, but their generalization remains constrained by the diversity and coverage of action-labeled robot demonstrations. Human videos provide much broader behavioral and environmental experience, while learning from them faces a fundamental trade-off between scalable data and explicit action grounding. We introduce ThinkWorld, a VLA learning framework that grounds action reasoning in world dynamics and strength",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37666v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-thinkworld_world_imagination_reinforces_chain_of_dynamics_reasoning.yaml",
+    "infographic": {
+      "key_insight": "ThinkWorld connects robot action reasoning with world dynamics: understanding how actions change the world could help robots generalize beyond their training demonstrations. It aims to combine the breadth of human video experience with action-grounded robot learning.",
+      "problem_solved": "Vision-Language-Action models depend on action-labeled robot demonstrations with limited diversity. Human videos offer broader experience, but linking observed behavior to executable robot actions remains difficult.",
+      "method": [
+        "Introduce a Vision-Language-Action learning framework that grounds action reasoning in world dynamics.",
+        "Use world imagination to reinforce chain-of-dynamics reasoning, as described by the paper's title.",
+        "Address the trade-off between scalable human video learning and explicit action grounding; implementation details are unavailable in the truncated abstract."
+      ],
+      "impact": "The approach could help practitioners develop robot policies that transfer to more varied tasks and environments. The provided excerpt does not include experimental results, so performance gains cannot be assessed.",
+      "visual_elements": [
+        "Two input streams—diverse human videos and action-labeled robot demonstrations—feeding into ThinkWorld.",
+        "A state → action → imagined next state diagram illustrating world-dynamics reasoning.",
+        "A comparison graphic showing broad video coverage versus explicit robot-action labels.",
+        "A robot-task illustration showing intended transfer from familiar demonstrations to new environments."
+      ],
+      "hashtags": [
+        "#ThinkWorld",
+        "#VisionLanguageAction",
+        "#RobotLearning",
+        "#WorldModels",
+        "#EmbodiedAI"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-thinkworld_world_imagination_reinforces_chain_of_dynamics_reasoning",
+      "paper_title": "ThinkWorld: World Imagination Reinforces Chain-of-Dynamics Reasoning",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Chaehyun Kim, Chi-Pin Huang, Jisoo Kim, Min-Hung Chen, Yu-Chiang Frank Wang",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37666v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:50:01.266983"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-repurposing_video_diffusion_transformers_for_cross_view_temporal_object_correspo",
+    "date": "2026-10-27",
+    "title": "Repurposing Video Diffusion Transformers for Cross-View Temporal Object Correspondence",
+    "authors": "Siyoon Jin, Dahyun Chung, Honggyu An, Sangbeom Lim, Wonjin Nam",
+    "abstract": "Cross-view object correspondence identifies the same object across views. However, existing methods often rely on frame-wise matching or sequential tracking, which can propagate correspondence errors under appearance changes or occlusions. Therefore, we introduce cross-view temporal object correspondence, which requires preserving object identity across both views and time from a query mask. To address this, we propose XTrack, a unified framework which repurposes a pretrained video DiT with sema",
+    "category": "Model",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "model"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37633v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-repurposing_video_diffusion_transformers_for_cross_view_temporal_object_correspo.yaml",
+    "infographic": {
+      "key_insight": "XTrack repurposes a pretrained video diffusion transformer to identify the same object across camera views and over time, starting from a query mask. It treats cross-view and temporal identity preservation as one unified task.",
+      "problem_solved": "Frame-by-frame matching and sequential tracking can accumulate identity errors when objects change appearance or become occluded. Cross-view temporal object correspondence aims to preserve object identity across both views and time.",
+      "method": [
+        "Define a correspondence task that starts with a query object mask and seeks the same object across views and time.",
+        "Introduce XTrack, a unified framework built by repurposing a pretrained video diffusion transformer.",
+        "Further architectural and training details are unavailable because the supplied abstract is truncated."
+      ],
+      "impact": "This approach suggests a way to reuse pretrained video generation models for object correspondence in multi-camera video analysis. The supplied excerpt does not include results, so accuracy and robustness gains cannot be assessed.",
+      "visual_elements": [
+        "A two-camera timeline showing the same object highlighted with a consistent color across frames.",
+        "A pipeline diagram: query mask → pretrained video diffusion transformer / XTrack → cross-view temporal correspondences.",
+        "An occlusion sequence illustrating the challenge of preserving identity when an object disappears and reappears.",
+        "A conceptual comparison of frame-wise matching, sequential tracking, and unified cross-view temporal correspondence."
+      ],
+      "hashtags": [
+        "#VideoDiffusion",
+        "#ObjectCorrespondence",
+        "#MultiViewVision",
+        "#ObjectTracking",
+        "#ComputerVision"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-repurposing_video_diffusion_transformers_for_cross_view_temporal_object_correspo",
+      "paper_title": "Repurposing Video Diffusion Transformers for Cross-View Temporal Object Correspondence",
+      "paper_category": "Model",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Siyoon Jin, Dahyun Chung, Honggyu An, Sangbeom Lim, Wonjin Nam",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37633v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:39.740647"
+    }
+  },
+  {
+    "id": "2026-10-27-arxiv-moi_bench_a_benchmark_for_image_generation_and_editing_on_mobile_devices",
+    "date": "2026-10-27",
+    "title": "MoI-Bench: A Benchmark for Image Generation and Editing on Mobile Devices",
+    "authors": "Kailai Feng, Haoxiang Rao, Yuxiang Wei, Bo Chen, Junsong Li",
+    "abstract": "Developing on-device image models requires considering practical user needs, task types and device resource constraints. However, existing benchmarks provide limited guidance on identifying capability gaps between on-device models and server-side models. We introduce MoI-Bench, a benchmark grounded in mobile user needs, comprising 64 subtasks and 1150 samples. It defines 16 operations, such as removal and replacement, and eight visual target categories covering content such as portraits and text",
+    "category": "Evaluation",
+    "source": "arxiv",
+    "score": 100,
+    "tags": [
+      "ai",
+      "research",
+      "arxiv",
+      "evaluation"
+    ],
+    "links": [
+      {
+        "title": "PDF",
+        "url": "https://arxiv.org/pdf/2610.37599v1"
+      }
+    ],
+    "source_file": "papers/weekly/2026-W43/2026-10-27-arxiv-moi_bench_a_benchmark_for_image_generation_and_editing_on_mobile_devices.yaml",
+    "infographic": {
+      "key_insight": "MoI-Bench evaluates image generation and editing through the lens of mobile users’ needs. Its 64 subtasks and 1,150 samples provide a structured way to identify capability gaps between on-device and server-side models.",
+      "problem_solved": "Existing benchmarks offer limited guidance for evaluating mobile image models against practical user needs, diverse tasks, and device resource constraints.",
+      "method": [
+        "Ground the benchmark in mobile user needs for image generation and editing.",
+        "Define 16 operations, including removal and replacement, and eight visual target categories, including portraits and text.",
+        "Organize evaluation into 64 subtasks with 1,150 samples to help reveal model capability gaps."
+      ],
+      "impact": "AI/ML practitioners can use MoI-Bench to identify weaknesses in mobile image models and prioritize improvements. It provides a user-centered framework for assessing progress toward practical on-device image tools.",
+      "visual_elements": [
+        "Smartphone-versus-cloud diagram illustrating on-device and server-side model comparison.",
+        "Benchmark overview with prominent counts: 16 operations, eight target categories, 64 subtasks, and 1,150 samples.",
+        "Before-and-after image pairs illustrating removal and replacement tasks.",
+        "Operation-by-target-category grid showing the benchmark’s evaluation structure."
+      ],
+      "hashtags": [
+        "#MoIBench",
+        "#OnDeviceAI",
+        "#ImageGeneration",
+        "#ImageEditing",
+        "#AIEvaluation"
+      ],
+      "model": "gpt-6.1-sol",
+      "service_tier": "ultrafast",
+      "generator": "openai",
+      "paper_id": "2026-10-27-arxiv-moi_bench_a_benchmark_for_image_generation_and_editing_on_mobile_devices",
+      "paper_title": "MoI-Bench: A Benchmark for Image Generation and Editing on Mobile Devices",
+      "paper_category": "Evaluation",
+      "paper_date": "2026-10-27",
+      "paper_authors": "Kailai Feng, Haoxiang Rao, Yuxiang Wei, Bo Chen, Junsong Li",
+      "paper_links": [
+        {
+          "title": "PDF",
+          "url": "https://arxiv.org/pdf/2610.37599v1"
+        }
+      ],
+      "generated_at": "2026-10-28T11:49:25.588563"
+    }
+  },
+  {
     "id": "2026-10-26-arxiv-fl4n_feed_forward_latent_model_for_4d_novel_view_synthesis",
     "date": "2026-10-26",
     "title": "FL4N: Feed-forward Latent Model for 4D Novel View Synthesis",
@@ -22,19 +876,19 @@
     ],
     "source_file": "papers/weekly/2026-W43/2026-10-26-arxiv-fl4n_feed_forward_latent_model_for_4d_novel_view_synthesis.yaml",
     "infographic": {
-      "key_insight": "FL4N represents dynamic 3D scenes in a unified latent space rather than with explicit 4D primitives. The paper introduces this as the first feed-forward latent model for generating views across both camera positions and time.",
-      "problem_solved": "Reconstructing a moving scene from monocular input requires understanding both 3D structure and motion. Existing feed-forward methods based on explicit 4D Gaussians can produce temporal inconsistencies and severe rendering artifacts.",
+      "key_insight": "FL4N represents dynamic 3D scenes in a unified latent space rather than with explicit 4D primitives. The paper presents it as the first feed-forward latent model for synthesizing views across both camera positions and time.",
+      "problem_solved": "Rendering a dynamic scene from new viewpoints and timestamps requires understanding both 3D structure and motion. Existing monocular feed-forward methods often use explicit 4D Gaussians, which can produce temporal inconsistencies and severe rendering artifacts.",
       "method": [
         "Use a feed-forward model for 4D novel view synthesis from monocular input.",
-        "Encode a 4D scene prior into a unified latent representation instead of explicit 4D primitives.",
-        "Use the latent scene representation to support rendering across viewpoints and timestamps; further architectural details are unavailable in the provided abstract excerpt."
+        "Encode a 4D scene prior in a unified latent representation instead of explicit 4D primitives.",
+        "Support rendering across viewpoints and timestamps; further architectural details are unavailable in the truncated abstract."
       ],
-      "impact": "FL4N offers practitioners an alternative to explicit Gaussian-based representations for dynamic-scene rendering, targeting more coherent results across time. The provided excerpt does not include quantitative results or verified performance gains.",
+      "impact": "FL4N offers an alternative to explicit Gaussian-based representations for dynamic-scene rendering. It targets temporal consistency and rendering quality, although the provided abstract includes no quantitative results.",
       "visual_elements": [
-        "Pipeline diagram: monocular input → unified 4D latent representation → views at different positions and times.",
-        "Representation comparison: explicit 4D Gaussian primitives versus a unified latent scene.",
-        "Camera-by-time grid illustrating novel viewpoints and timestamps.",
-        "Paired icons highlighting the two challenges: 3D structure and temporal dynamics."
+        "Pipeline diagram: monocular input → unified 4D latent representation → novel views at different times.",
+        "Viewpoint-by-time grid illustrating the two dimensions of 4D novel view synthesis.",
+        "Conceptual comparison of explicit 4D Gaussian primitives and a unified latent scene representation.",
+        "Timeline of rendered frames highlighting temporal consistency as a key goal."
       ],
       "hashtags": [
         "#FL4N",
@@ -57,7 +911,7 @@
           "url": "https://arxiv.org/pdf/2610.35854v1"
         }
       ],
-      "generated_at": "2026-10-27T11:15:45.272514"
+      "generated_at": "2026-10-28T11:50:08.657614"
     }
   },
   {
@@ -83,25 +937,25 @@
     ],
     "source_file": "papers/weekly/2026-W43/2026-10-26-arxiv-vibevideobench_evaluating_multimodal_agents_on_code_driven_video_generation.yaml",
     "infographic": {
-      "key_insight": "VibeVideoBench evaluates multimodal agents that generate videos by writing code to render frames and synthesize sound. It targets precise, rule-following content that visually impressive diffusion video models still struggle to produce reliably.",
-      "problem_solved": "Video generation needs more than visual realism: formulas must be exact, charts correct, game rules consistent, and narration synchronized with on-screen events. This benchmark assesses agents on these code-driven video creation challenges.",
+      "key_insight": "VibeVideoBench evaluates AI agents that create videos by writing code to render frames and synthesize sound. It shifts the focus from visual appeal alone toward precise, rule-consistent, and synchronized video content.",
+      "problem_solved": "Diffusion video models struggle to reliably display exact formulas, correct charts, consistent game rules, and narration synchronized with on-screen events. This benchmark targets evaluation of an alternative: code-driven video generation.",
       "method": [
         "Introduce 239 self-contained video-generation tasks in English and Chinese.",
-        "Cover 12 task categories, including data stories and music-driven content.",
-        "Evaluate multimodal agents on generating videos through code-based frame rendering and sound synthesis."
+        "Cover 12 task categories to assess a range of code-driven video-generation capabilities.",
+        "Evaluate multimodal agents tasked with writing code that renders video frames and synthesizes audio."
       ],
-      "impact": "The benchmark gives practitioners a structured way to assess code-driven video generation beyond visual appeal. It focuses attention on capabilities important for educational, analytical, and rule-based video applications.",
+      "impact": "The benchmark gives practitioners a structured way to assess agents for precision-sensitive video creation. The supplied abstract excerpt does not report performance results, so it does not establish that these agents outperform diffusion models.",
       "visual_elements": [
-        "Pipeline diagram: task instructions → multimodal agent → rendering and audio code → video.",
-        "Benchmark snapshot highlighting 239 tasks, 12 categories, and 2 languages.",
-        "Precision icons representing exact formulas, correct charts, consistent game rules, and synchronized narration.",
-        "Side-by-side concept illustration contrasting visual realism with content correctness."
+        "Pipeline diagram: task prompt → multimodal agent → rendering and audio code → generated video.",
+        "Benchmark overview with badges for 239 tasks, 12 categories, and English/Chinese coverage.",
+        "Precision icons representing formulas, charts, game rules, and synchronized narration.",
+        "Audio–video timeline illustrating alignment between narration and on-screen events."
       ],
       "hashtags": [
         "#VibeVideoBench",
         "#MultimodalAI",
         "#VideoGeneration",
-        "#AIAgents",
+        "#CodeGeneration",
         "#AIBenchmarks"
       ],
       "model": "gpt-6.1-sol",
@@ -118,7 +972,7 @@
           "url": "https://arxiv.org/pdf/2610.35864v1"
         }
       ],
-      "generated_at": "2026-10-27T11:15:49.439447"
+      "generated_at": "2026-10-28T11:50:11.062344"
     }
   },
   {
@@ -144,24 +998,24 @@
     ],
     "source_file": "papers/weekly/2026-W43/2026-10-26-arxiv-learning_force_reactive_humanoid_loco_manipulation.yaml",
     "infographic": {
-      "key_insight": "FLORE aims to teach humanoids to coordinate contact forces with hand and whole-body motion, rather than relying on movement trajectories alone. It captures demonstrations without requiring a robot during data collection.",
-      "problem_solved": "Everyday physical tasks require coordinated force control across both hands and the body—information that motion-only demonstrations cannot fully capture.",
+      "key_insight": "FLORE aims to teach humanoids to coordinate contact forces with hand and whole-body motion, rather than relying on motion trajectories alone. It uses human demonstrations recorded without a robot.",
+      "problem_solved": "Everyday physical tasks require controlling both movement and contact force across two hands and the body—requirements that kinematic trajectories alone cannot capture.",
       "method": [
-        "Record hand motion and contact forces and torques using two force-sensing UMI-style handheld grippers.",
-        "Capture body motion simultaneously with wearable trackers.",
-        "Use these demonstrations within FLORE to learn force-reactive humanoid loco-manipulation; the supplied abstract is truncated and does not describe the remaining learning pipeline."
+        "Introduce FLORE, a framework for learning force-reactive humanoid locomotion and manipulation.",
+        "Collect hand motion and contact forces and torques using two force-sensing UMI-style handheld grippers.",
+        "Record body motion with wearable trackers to capture coordinated hand–body demonstrations."
       ],
-      "impact": "Combining force measurements with motion demonstrations could support humanoid learning for contact-rich tasks. Robot-free data collection offers a practical route to gathering demonstrations, although the provided excerpt reports no evaluation results.",
+      "impact": "For robotics practitioners, FLORE highlights a way to collect demonstrations that capture physical interaction as well as movement. The provided abstract is truncated, so its training details and evaluation results cannot be assessed.",
       "visual_elements": [
-        "Demonstration setup showing two instrumented handheld grippers and wearable body trackers.",
-        "Humanoid silhouette with arrows illustrating coordinated hand forces and whole-body motion.",
-        "Side-by-side comparison of motion-only trajectories and trajectories enriched with force and torque signals.",
-        "Pipeline diagram: robot-free demonstrations → motion and contact data → force-reactive humanoid behavior."
+        "Human demonstrator with two force-sensing grippers and wearable body trackers.",
+        "Data-flow diagram: hand motion + contact forces and torques + body motion → FLORE → humanoid control.",
+        "Humanoid silhouette with force arrows at both hands and motion arrows across the body.",
+        "Side-by-side conceptual comparison of trajectory-only control and force-aware whole-body coordination."
       ],
       "hashtags": [
         "#HumanoidRobotics",
-        "#ForceControl",
         "#RobotLearning",
+        "#ForceControl",
         "#LocoManipulation",
         "#LearningFromDemonstration"
       ],
@@ -179,7 +1033,7 @@
           "url": "https://arxiv.org/pdf/2610.35862v1"
         }
       ],
-      "generated_at": "2026-10-27T11:15:47.442684"
+      "generated_at": "2026-10-28T11:50:13.137143"
     }
   },
   {
@@ -205,19 +1059,19 @@
     ],
     "source_file": "papers/weekly/2026-W43/2026-10-26-arxiv-pretraining_knows_what_simulation_teaches_how_compositional_generalization_in_a.yaml",
     "infographic": {
-      "key_insight": "Zero-real Agent Policy (ZAP) separates robot intelligence into understanding what to do and learning how to move. It builds on pretrained vision-language knowledge, then uses simulated tasks to teach robot control through a simple tool interface.",
-      "problem_solved": "Bridging the gap between interpreting task instructions in a visual scene and executing the robot movements needed to complete them, with compositional generalization as the central goal.",
+      "key_insight": "Zero-real Agent Policy (ZAP) separates robot intelligence into understanding what to do and learning how to move. It combines pretrained vision-language knowledge with simulation-based training to turn task understanding into robot control.",
+      "problem_solved": "Robot policies must connect language and visual scene understanding to effective physical actions, including when familiar task elements appear in new combinations.",
       "method": [
         "Use a pretrained 27B-parameter vision-language model to bootstrap world understanding and reasoning.",
-        "Connect the model to robot controls through a simple tool harness.",
-        "Apply supervised fine-tuning and Group Relative Policy Optimization (GRPO) on simple simulated tasks to teach movement."
+        "Apply supervised fine-tuning and GRPO on simple simulated tasks to teach robot movement.",
+        "Connect the model to robot control through a simple tool harness."
       ],
-      "impact": "ZAP offers practitioners a recipe for combining pretrained semantic knowledge with simulation-based control learning. The abstract does not report quantitative results, so its generalization performance and real-world reliability remain unquantified here.",
+      "impact": "ZAP offers practitioners a recipe for combining pretrained understanding with simulation-trained control rather than learning both from scratch. The abstract does not report quantitative results, so the extent of compositional generalization remains unspecified here.",
       "visual_elements": [
-        "Two-part diagram: pretraining supplies 'what'; simulation teaches 'how'.",
-        "Training pipeline: pretrained model → supervised fine-tuning → GRPO → robot policy.",
+        "Split diagram: pretrained model supplies 'what'; simulation training supplies 'how'.",
+        "Training pipeline: vision-language model → supervised fine-tuning → GRPO → robot policy.",
         "Control-loop illustration: scene and instruction → model → tool harness → robot action.",
-        "Compositional-task grid showing familiar objects, instructions, and actions recombined into new tasks."
+        "Compositional task grid showing familiar objects, instructions, and actions recombined into new tasks."
       ],
       "hashtags": [
         "#RobotLearning",
@@ -240,7 +1094,7 @@
           "url": "https://arxiv.org/pdf/2610.35817v1"
         }
       ],
-      "generated_at": "2026-10-27T11:15:26.583979"
+      "generated_at": "2026-10-28T11:50:15.244837"
     }
   },
   {
@@ -1001,26 +1855,26 @@
     ],
     "source_file": "papers/weekly/2026-W42/2026-10-23-nature-guidelines_for_evaluating_structure_based_methods_for_protein_ligand_binding_pre.yaml",
     "infographic": {
-      "key_insight": "Reliable protein–ligand binding prediction depends on trustworthy evaluation, not just strong benchmark scores. This paper advocates transparent data, code and experimental procedures to make comparisons fair and reproducible.",
-      "problem_solved": "Data leakage, biased benchmarks and unclear evaluation procedures can inflate apparent performance and undermine comparisons between structure-based scoring methods.",
+      "key_insight": "Trustworthy protein–ligand binding predictions require trustworthy evaluation. These guidelines emphasize transparent data, code and experimental procedures, with safeguards against data leakage and bias.",
+      "problem_solved": "Data leakage, biased benchmarks and opaque evaluation procedures can inflate reported performance and undermine fair comparisons between structure-based scoring methods.",
       "method": [
-        "Advocate transparent reporting and sharing of data, code and experimental procedures.",
-        "Discuss good evaluation practices to prevent data leakage and reduce bias.",
-        "Promote fair, reproducible and meaningful comparisons across scoring methods."
+        "Make evaluation data, code and experimental procedures transparent to support reproducibility.",
+        "Apply safeguards against data leakage and bias when designing benchmarks and evaluations.",
+        "Use fair, consistent evaluation practices to compare protein–ligand scoring methods meaningfully."
       ],
-      "impact": "For AI/ML practitioners, these guidelines support more credible performance claims and better-informed model selection. They help distinguish genuine predictive ability from advantages caused by flawed evaluation.",
+      "impact": "For AI/ML practitioners, these practices help distinguish genuine predictive progress from evaluation artifacts. More reliable comparisons support better-informed model selection for protein–ligand binding prediction.",
       "visual_elements": [
-        "Protein–ligand interaction diagram illustrating the prediction task.",
-        "Train/test split diagram showing how data leakage can compromise evaluation.",
-        "Transparency checklist with data, code and experimental-procedure icons.",
-        "Side-by-side evaluation workflows contrasting biased and fair comparisons."
+        "Protein–ligand binding illustration showing a ligand fitting into a protein pocket.",
+        "Train/test split diagram highlighting potential data leakage pathways.",
+        "Checklist with icons for transparent data, accessible code and documented procedures.",
+        "Side-by-side evaluation pipelines contrasting biased benchmarking with fair, reproducible comparison."
       ],
       "hashtags": [
         "#ProteinLigandBinding",
+        "#MachineLearning",
         "#ModelEvaluation",
-        "#DataLeakage",
-        "#ReproducibleAI",
-        "#DrugDiscovery"
+        "#ReproducibleResearch",
+        "#DataLeakage"
       ],
       "model": "gpt-6.1-sol",
       "service_tier": "ultrafast",
@@ -1040,7 +1894,7 @@
           "url": "https://doi.org/10.1038/s42256-026-01331-8"
         }
       ],
-      "generated_at": "2026-10-27T11:15:55.803225"
+      "generated_at": "2026-10-28T11:50:03.421148"
     }
   },
   {
@@ -1558,26 +2412,26 @@
     ],
     "source_file": "papers/weekly/2026-W42/2026-10-23-nature-efficient_equivariant_framework_for_universal_charge_density_prediction.yaml",
     "infographic": {
-      "key_insight": "EdenGNN-Uni predicts how electronic charge is distributed in materials across the periodic table. It is reported to be more than 10× faster than some existing methods while supporting accurate electronic structure calculations.",
-      "problem_solved": "Predicting charge density efficiently across diverse elements and materials is challenging, limiting the speed and scalability of electronic structure calculations.",
+      "key_insight": "EdenGNN-Uni predicts electronic charge density for materials across the periodic table. It is reported to be more than 10 times faster than some existing methods while supporting accurate electronic structure calculations.",
+      "problem_solved": "Predicting how electrons are distributed in materials can be computationally expensive, and building a single model that works across diverse chemical elements is challenging.",
       "method": [
-        "Introduces EdenGNN-Uni, a universal charge density prediction model covering the periodic table.",
-        "Uses an equivariant framework to respect the geometric symmetries of atomic structures.",
-        "Targets efficient, accurate charge density prediction for materials calculations."
+        "Introduces EdenGNN-Uni, a universal charge density prediction model designed for coverage across the periodic table.",
+        "Uses an equivariant framework to respect how physical predictions should transform when atomic structures are rotated.",
+        "Targets efficient, accurate charge density prediction to support electronic structure calculations."
       ],
-      "impact": "For AI/ML practitioners, this work highlights how symmetry-aware models can accelerate scientific prediction across diverse chemical systems. Faster charge density estimation could enable larger-scale materials screening and simulation.",
+      "impact": "For AI/ML practitioners in materials science, EdenGNN-Uni offers a route toward faster electronic structure workflows with broad chemical coverage. Its reported speed advantage could help scale computational materials screening.",
       "visual_elements": [
-        "Atomic structure → EdenGNN-Uni → charge density cloud pipeline.",
-        "Periodic table graphic illustrating broad elemental coverage.",
-        "Rotation diagram showing how predicted charge density follows a rotated atomic structure.",
-        "Speed comparison callout: reported >10× faster than some existing methods."
+        "Pipeline diagram: atomic structure → EdenGNN-Uni → three-dimensional charge density map.",
+        "Periodic table graphic illustrating the model’s intended chemical coverage.",
+        "Rotation diagram showing an atomic structure and its charge density rotating consistently.",
+        "Speed comparison callout: reported >10× speedup over some existing methods, without implying a universal advantage."
       ],
       "hashtags": [
-        "#EdenGNNUni",
+        "#AIForScience",
+        "#MaterialsInformatics",
         "#EquivariantAI",
         "#ChargeDensity",
-        "#MaterialsInformatics",
-        "#AIForScience"
+        "#ElectronicStructure"
       ],
       "model": "gpt-6.1-sol",
       "service_tier": "ultrafast",
@@ -1597,7 +2451,7 @@
           "url": "https://doi.org/10.1038/s42256-026-01326-5"
         }
       ],
-      "generated_at": "2026-10-27T11:15:57.885643"
+      "generated_at": "2026-10-28T11:50:06.138038"
     }
   },
   {
