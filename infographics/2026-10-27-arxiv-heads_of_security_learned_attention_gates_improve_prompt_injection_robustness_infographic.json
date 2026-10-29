@@ -1,24 +1,24 @@
 {
-  "key_insight": "Heads of Security (HoS) uses a small set of learned attention gates to help AI models distinguish trusted instructions from untrusted content. The goal is to let models analyze potentially malicious text without obeying instructions hidden inside it.",
-  "problem_solved": "Prompt injection occurs when instructions embedded in untrusted material attempt to override a model’s legitimate task. HoS targets the challenge of preserving useful access to that material while keeping it separate from authoritative instructions.",
+  "key_insight": "Heads of Security (HoS) uses a small set of learned attention gates to help AI models distinguish trusted instructions from untrusted content. The goal is to let models analyze external text without obeying malicious instructions hidden inside it.",
+  "problem_solved": "Prompt injection can cause AI models to treat instructions embedded in untrusted content as authoritative, undermining the intended task.",
   "method": [
-    "Learn per-head attention gates that control how attention is distributed between trusted and untrusted tokens.",
-    "Use these gates to enforce instruction–data separation while allowing reasoning over untrusted content.",
-    "Evaluate on Llama-3.3-70B-Instruct and GPT-OSS-20B, with comparisons against defenses including SecAlign++ and ASIDE."
+    "Learn per-head attention gates that redistribute attention between trusted and untrusted tokens.",
+    "Use these gates to enforce instruction–data separation while preserving access to untrusted information.",
+    "Evaluate on Llama-3.3-70B-Instruct and GPT-OSS-20B, with comparisons to defenses including SecAlign++ and ASIDE."
   ],
-  "impact": "HoS offers practitioners an attention-level approach to prompt-injection defense for systems that process external content. The supplied abstract is truncated, so quantitative robustness gains and trade-offs cannot be assessed here.",
+  "impact": "HoS offers practitioners an attention-level approach to prompt injection defense for models that process external content. The provided abstract is truncated, so comparative performance and practical trade-offs cannot be assessed.",
   "visual_elements": [
-    "Trust-boundary diagram separating legitimate instructions from external content containing an injected command.",
-    "Attention-head schematic showing learned gates regulating attention between trusted and untrusted tokens.",
+    "Trust-boundary diagram separating user instructions from external content containing an injected command.",
+    "Attention-head schematic showing learned gates controlling attention between trusted and untrusted tokens.",
     "Before-and-after attention heatmaps illustrating the intended redistribution of attention.",
-    "Evaluation overview showing the two tested models and comparison defenses, without unsupported performance values."
+    "Evaluation overview listing the two tested models and comparison defenses, without unreported performance figures."
   ],
   "hashtags": [
     "#PromptInjection",
     "#AISecurity",
     "#AttentionMechanisms",
     "#LLMRobustness",
-    "#TrustworthyAI"
+    "#HeadsOfSecurity"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.37657v1"
     }
   ],
-  "generated_at": "2026-10-28T11:49:56.176095"
+  "generated_at": "2026-10-29T11:57:48.262998"
 }
