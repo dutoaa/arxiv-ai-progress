@@ -1,16 +1,16 @@
 {
-  "key_insight": "TextSeal2 embeds a detectable watermark in LLM-generated text without changing the model’s output distribution. Its watermark survives speculative decoding—even when rejected draft tokens are replaced—without changing the acceptance rate.",
-  "problem_solved": "Watermarking must remain detectable without sacrificing output diversity or disrupting fast generation. Speculative decoding adds a challenge: replacement tokens must retain the watermark signal.",
+  "key_insight": "TextSeal2 embeds detectable watermarks in LLM-generated text without changing the model’s output distribution. Its watermark survives speculative decoding, including replacement tokens, while preserving output diversity and adding no measurable inference latency.",
+  "problem_solved": "LLM watermarking must remain detectable without biasing generated text or undermining fast inference. Speculative decoding adds a challenge: tokens replacing rejected drafts must retain the watermark without changing the draft acceptance rate.",
   "method": [
-    "Uses copula mixing and memoryless races as its core watermarking approach, as indicated by the paper’s title.",
-    "Keeps replacement tokens watermarked under the same keys when speculative drafts are rejected, while preserving the acceptance rate.",
-    "Preserves output diversity and reports no measurable added inference latency. The supplied abstract is truncated, so detailed algorithmic steps are unavailable."
+    "Uses copula mixing and memoryless races as the core watermarking approach.",
+    "Keeps replacement tokens watermarked with the same keys during speculative decoding, while leaving the acceptance rate unchanged.",
+    "Builds on TextSeal’s diversity-preserving Gumbel-max scheme, addressing limitations of its coin-flip routing between two keys."
   ],
-  "impact": "For AI/ML practitioners, TextSeal2 offers a way to mark generated text while retaining speculative-decoding speedups and output diversity. The reported lack of measurable inference overhead makes it promising for production serving.",
+  "impact": "TextSeal2 could help practitioners identify AI-generated text while retaining normal output diversity and speculative-decoding efficiency. The supplied abstract reports no measurable added inference latency, but is truncated before providing full methodological and evaluation details.",
   "visual_elements": [
-    "Speculative-decoding flowchart showing accepted drafts and watermarked replacements after rejection.",
-    "Side-by-side token-distribution illustration emphasizing unchanged generation probabilities.",
-    "Conceptual diagram linking copula mixing and memoryless races to watermark generation.",
+    "Speculative-decoding flowchart showing accepted drafts and watermarked replacement tokens.",
+    "Side-by-side output-distribution graphic illustrating distortion-free watermarking.",
+    "Conceptual comparison of TextSeal’s two-key coin flip with TextSeal2’s copula mixing.",
     "Three-icon strip highlighting preserved diversity, unchanged acceptance rate, and no measurable added latency."
   ],
   "hashtags": [
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.40613v1"
     }
   ],
-  "generated_at": "2026-10-30T11:51:29.486031"
+  "generated_at": "2026-10-31T11:24:54.777447"
 }

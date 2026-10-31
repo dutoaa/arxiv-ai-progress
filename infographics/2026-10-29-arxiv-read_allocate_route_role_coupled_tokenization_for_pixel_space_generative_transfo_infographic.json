@@ -1,23 +1,23 @@
 {
-  "key_insight": "Fine image detail does not necessarily require more global communication. SpecSlot separates globally shared image structure from locally modeled detail to reduce the attention burden of pixel-space generation.",
-  "problem_solved": "Using one token per image patch makes finer-detail generation require more tokens, driving up the cost of global attention.",
+  "key_insight": "Fine image detail does not need every image token to communicate globally. SpecSlot separates globally coordinated image structure from locally modeled detail, aiming to increase detail without expanding costly global attention.",
+  "problem_solved": "Pixel-space generative Transformers typically assign one token to each image patch. Capturing finer detail requires more tokens, making global attention increasingly expensive.",
   "method": [
-    "Introduce SpecSlot, a pixel-space rectified-flow Transformer.",
-    "Use global exchange for low-frequency structure, such as broad shapes and layout.",
-    "Model high-frequency detail locally, aiming to decouple output detail from global token-sequence length."
+    "Introduce SpecSlot, a pixel-space Transformer trained with rectified flow.",
+    "Use global information exchange for low-frequency structure, such as overall layout and broad shapes.",
+    "Model high-frequency detail locally to decouple output detail from global communication demands."
   ],
-  "impact": "This approach could make detailed pixel-space image generation more computationally efficient. The supplied abstract is truncated and provides no quantitative results, so performance gains cannot be verified here.",
+  "impact": "This approach could make detailed pixel-space image generation more computationally efficient. The provided abstract is truncated, so performance gains and implementation details cannot be verified.",
   "visual_elements": [
-    "Split image showing low-frequency shapes versus high-frequency edges and textures.",
-    "Side-by-side diagrams contrasting global attention over all patches with global structure exchange plus local detail modeling.",
-    "Conceptual cost diagram showing how adding globally attended tokens increases attention expense.",
-    "Global-network and local-magnifier icons to distinguish structure sharing from detail refinement."
+    "Split image showing low-frequency structure beside high-frequency textures and edges.",
+    "Side-by-side attention diagrams: dense global patch connections versus global structure exchange with local detail connections.",
+    "Conceptual pipeline: pixel input → global structure modeling + local detail modeling → generated image.",
+    "Token-grid illustration showing how finer patches increase the burden of conventional global attention."
   ],
   "hashtags": [
-    "#SpecSlot",
     "#GenerativeAI",
     "#VisionTransformers",
-    "#EfficientAttention",
+    "#ImageGeneration",
+    "#EfficientAI",
     "#RectifiedFlow"
   ],
   "model": "gpt-6.1-sol",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.40647v1"
     }
   ],
-  "generated_at": "2026-10-30T11:51:46.732360"
+  "generated_at": "2026-10-31T11:25:10.558373"
 }

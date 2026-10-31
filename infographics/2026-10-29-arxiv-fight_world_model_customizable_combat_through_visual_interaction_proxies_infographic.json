@@ -1,24 +1,24 @@
 {
-  "key_insight": "Fight World Model separates combat rules from video generation: an executable engine decides what happens, while video rendering depicts the results. This aims to make AI-generated combat consistent with game state rather than merely visually plausible.",
-  "problem_solved": "Existing video world models struggle to maintain persistent combat state and align visible events, such as hit reactions, with rule-based outcomes, such as health changes.",
+  "key_insight": "Fight World Model separates combat rules from video generation: an executable engine decides what happens, while a rendering system visualizes it. This makes rule-consistent gameplay—not just plausible-looking combat—the foundation of the world model.",
+  "problem_solved": "Video world models can produce convincing fights but struggle to maintain persistent game state and keep hit reactions and health updates consistent with executable rules.",
   "method": [
     "Use an executable engine to maintain game state and resolve combat interactions.",
-    "Deterministically encode engine-resolved outcomes to guide visual generation.",
-    "Separate rule execution from video rendering to support programmable, extensible gameplay."
+    "Encode resolved outcomes with a deterministic compiler, using visual interaction proxies to connect combat execution with rendering.",
+    "Separate gameplay logic from visual generation to support programmable rules and extensible mechanics."
   ],
-  "impact": "This architecture offers practitioners a way to pair generative visuals with explicit gameplay logic, potentially improving control and consistency. The supplied abstract is incomplete and does not provide evaluation results.",
+  "impact": "For AI/ML practitioners, this offers a design pattern for combining explicit simulation logic with generative visuals. It targets customizable interactive worlds where gameplay consistency matters as much as visual realism.",
   "visual_elements": [
-    "Pipeline diagram: combat inputs → executable engine → deterministic compiler → video rendering.",
-    "Synchronized panels showing a landed hit, its hit reaction, and the corresponding health update.",
-    "Comparison sketch: visually plausible combat versus combat constrained by explicit game rules.",
-    "State-and-rules dashboard illustrating persistent health values and customizable combat mechanics."
+    "Pipeline diagram: player input → combat engine → deterministic compiler → visual rendering.",
+    "Paired combat frames showing a hit alongside the corresponding health-state update.",
+    "Split-layer illustration distinguishing authoritative game state from generated visuals.",
+    "Rule-editing panel illustrating customizable combat mechanics."
   ],
   "hashtags": [
-    "#FightWorldModel",
     "#WorldModels",
     "#GenerativeAI",
     "#GameAI",
-    "#VideoGeneration"
+    "#VideoGeneration",
+    "#InteractiveAI"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.40607v1"
     }
   ],
-  "generated_at": "2026-10-30T11:51:26.887445"
+  "generated_at": "2026-10-31T11:24:52.137812"
 }

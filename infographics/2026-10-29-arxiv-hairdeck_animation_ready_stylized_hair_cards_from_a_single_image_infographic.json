@@ -1,23 +1,23 @@
 {
-  "key_insight": "HairDeck treats a stylized hairstyle as an unordered set of hair cards rather than a long sequence of control points. This matches how artists construct card-based hair for games and avatars.",
-  "problem_solved": "Generating stylized hair cards from a single image, rather than realistic strands or a fused mesh, while preserving the separate ribbon-like elements used in animation workflows.",
+  "key_insight": "HairDeck treats a stylized hairstyle as an unordered set of hair cards rather than a long sequence of control points. This matches how artists construct card-based hair and targets animation-ready reconstruction from a single image.",
+  "problem_solved": "Existing image-based approaches generate realistic hair or fused meshes rather than the separate ribbon-like cards used for stylized game characters and avatars. The prior stylized hair-card generator, CHARM, relies on long autoregressive control-point sequences.",
   "method": [
     "Use a single image as input to generate a stylized, card-based hairstyle.",
-    "Represent the hairstyle as an unordered set of artist-defined primitives.",
-    "Generate the hairstyle as a set, instead of decoding control points autoregressively as CHARM does."
+    "Represent the hairstyle as an unordered set of artist-defined hair-card primitives instead of a sequential list of control points.",
+    "Target separate card geometry suitable for spring-bone animation; the provided abstract does not detail the architecture or training procedure."
   ],
-  "impact": "The approach targets hair assets that fit game and avatar workflows, where individual cards are animated with spring bones. The supplied abstract is incomplete, so performance gains and animation-readiness details cannot be assessed.",
+  "impact": "HairDeck proposes a representation aligned with game and avatar production workflows, potentially reducing manual hair-card authoring. The supplied abstract does not report quantitative results or runtime comparisons.",
   "visual_elements": [
-    "Pipeline diagram: single character image → HairDeck → stylized hair-card asset.",
-    "Representation comparison: realistic strands, fused mesh, and separate ribbon-like hair cards.",
-    "Sequence-versus-set diagram contrasting CHARM’s ordered control points with HairDeck’s unordered primitives.",
-    "Close-up of a hair card with an illustrative spring-bone chain."
+    "Pipeline diagram: single character image → HairDeck → separated hair cards → animated hairstyle.",
+    "Representation comparison: CHARM’s ordered control-point sequence versus HairDeck’s unordered card set.",
+    "Exploded hairstyle view with each ribbon-like card shown in a different color.",
+    "Spring-bone illustration showing how individual hair cards bend during character motion."
   ],
   "hashtags": [
     "#HairDeck",
-    "#3DGeneration",
     "#StylizedHair",
     "#HairCards",
+    "#SingleImage3D",
     "#CharacterAnimation"
   ],
   "model": "gpt-6.1-sol",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.40599v1"
     }
   ],
-  "generated_at": "2026-10-30T11:51:23.813189"
+  "generated_at": "2026-10-31T11:24:49.656023"
 }
