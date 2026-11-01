@@ -1,17 +1,17 @@
 {
-  "key_insight": "Reported gains from randomly perturbing language-model weights may not require discovering hidden task-specific experts. Keeping the model frozen and adding random biases to its output logits can match or exceed full-weight perturbations in the reported comparisons.",
-  "problem_solved": "Tests whether improvements attributed to dense neighborhoods of experts in weight space actually require that geometric explanation—or can arise from simpler changes to model outputs.",
+  "key_insight": "Reported gains from randomly perturbing pretrained language models may not require discovering hidden task-specific experts in weight space. Keeping the model frozen and adding a random bias to its output logits can match or exceed full-weight perturbations.",
+  "problem_solved": "Tests whether the gains attributed to the Neural Thickets hypothesis actually require its proposed weight-space explanation, or can arise from simpler changes to model outputs.",
   "method": [
-    "Reproduce the gains reported for random Gaussian perturbations of pretrained language-model weights.",
-    "Restrict perturbations to a single decoder block and assess how much of the improvement remains.",
-    "Compare weight perturbations with random output-logit biases while keeping all model weights frozen."
+    "Reproduce the reported improvements from random Gaussian weight perturbations.",
+    "Restrict perturbations to a single decoder block and measure how much improvement remains.",
+    "Compare against a fully frozen model with a random bias added to its output logits."
   ],
-  "impact": "Practitioners should test simple output-level baselines before attributing performance gains to hidden experts in weight space. The findings suggest that useful gains may be possible without modifying model weights.",
+  "impact": "The findings challenge a geometric explanation for the reported gains and highlight a simpler baseline practitioners should test before modifying model weights. Output-level interventions may deliver comparable improvements without weight perturbations.",
   "visual_elements": [
-    "Three-path diagram contrasting full-weight perturbation, single-block perturbation, and frozen-model logit bias.",
-    "Qualitative comparison chart highlighting substantial gains from one-block perturbation and competitive performance from logit bias, without inventing numerical values.",
-    "Frozen-model icon feeding into an adjustable output-logit layer.",
-    "Hypothesis-versus-evidence panel contrasting nearby weight-space experts with a simpler output-level alternative."
+    "Three-path diagram comparing full-weight perturbation, single-block perturbation, and frozen-model logit bias.",
+    "Transformer schematic highlighting all decoder blocks, one decoder block, or only the output logits.",
+    "Qualitative comparison chart showing that single-block perturbation recovers much of the gain and logit bias can match or exceed full-weight perturbation.",
+    "Hypothesis-versus-evidence panel contrasting hidden weight-space experts with the frozen-model result."
   ],
   "hashtags": [
     "#NeuralThickets",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.40649v1"
     }
   ],
-  "generated_at": "2026-10-31T11:25:12.948212"
+  "generated_at": "2026-11-01T12:18:31.001693"
 }
