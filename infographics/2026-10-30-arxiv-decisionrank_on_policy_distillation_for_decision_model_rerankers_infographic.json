@@ -1,0 +1,38 @@
+{
+  "key_insight": "DecisionRank aims to transfer a generative language model’s ranking knowledge into a decision model that scores candidates directly, avoiding autoregressive decoding. Its central idea is item-space on-policy distillation, bridging the gap between ranked document sequences and first-token scores.",
+  "problem_solved": "The teacher expresses preferences as an ordered sequence of document IDs, while the student ranks documents using scores at the first-token position. These different output formats make knowledge transfer challenging.",
+  "method": [
+    "Use a generative language model’s ranked document-ID sequences as the source of ranking knowledge.",
+    "Apply item-space on-policy distillation to connect sequence-based teacher preferences with the student’s scoring formulation.",
+    "Train a decision-model reranker to order documents directly from first-token scores rather than generate a ranking autoregressively."
+  ],
+  "impact": "This approach targets lower-latency reranking while retaining ranking knowledge from generative language models. The supplied abstract is truncated and provides no benchmark results, so accuracy and speed gains cannot be quantified.",
+  "visual_elements": [
+    "Teacher–student diagram: generative ranked list → item-space distillation → decision-model scores.",
+    "Output comparison: ordered document IDs versus a document-score bar chart.",
+    "Inference flow comparison: sequential token decoding versus direct scoring and sorting.",
+    "Document cards showing how candidate scores determine the final ranking."
+  ],
+  "hashtags": [
+    "#DecisionRank",
+    "#KnowledgeDistillation",
+    "#Reranking",
+    "#InformationRetrieval",
+    "#EfficientAI"
+  ],
+  "model": "gpt-6.1-sol",
+  "service_tier": "ultrafast",
+  "generator": "openai",
+  "paper_id": "2026-10-30-arxiv-decisionrank_on_policy_distillation_for_decision_model_rerankers",
+  "paper_title": "DecisionRank: On-Policy Distillation for Decision-Model Rerankers",
+  "paper_category": "Model",
+  "paper_date": "2026-10-30",
+  "paper_authors": "Yanran Wu, Dian Yu, Chongyang Bai, Jieyi Zhang, Rui Liu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2610.42128v1"
+    }
+  ],
+  "generated_at": "2026-11-02T14:11:00.372270"
+}
