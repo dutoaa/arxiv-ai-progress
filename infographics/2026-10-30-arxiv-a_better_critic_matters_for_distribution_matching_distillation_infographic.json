@@ -1,21 +1,21 @@
 {
-  "key_insight": "A stronger teacher does not automatically produce a better distilled model: the critic must also be capable enough to provide reliable guidance. Experiments show that increasing teacher size while keeping a small critic fixed can hurt student quality and destabilize training.",
+  "key_insight": "A stronger teacher does not automatically produce a better distilled model: the critic must be capable enough to provide reliable guidance. Experiments suggest that pairing a larger teacher with a fixed, small critic can worsen student quality and destabilize training.",
   "problem_solved": "Distribution Matching Distillation relies on an online critic to estimate the student distribution's score. An inadequate critic can make the training signal unreliable, limiting the benefits of a stronger teacher.",
   "method": [
-    "Train a few-step student using the difference between the teacher's score and the critic's estimate of the student distribution's score.",
-    "Run controlled experiments across seven SiT model sizes on ImageNet to examine teacher–critic capacity balance.",
-    "Investigate critic capacity and information needs; the provided abstract is truncated before the information-side findings."
+    "Study DMD, which trains a few-step student using the difference between the teacher's score and the critic's estimate of the student's score.",
+    "Run controlled ImageNet experiments across seven SiT model sizes to examine critic capacity.",
+    "Investigate the capacity and information a critic needs for reliable guidance; the provided abstract is truncated before the information-side findings."
   ],
-  "impact": "Practitioners should consider critic capacity alongside teacher size when designing distillation systems. Scaling the teacher alone can waste compute and reduce student quality.",
+  "impact": "Practitioners should consider critic capacity alongside teacher size rather than assuming teacher scaling alone improves distillation. A weak critic can undermine output quality and training stability.",
   "visual_elements": [
     "Teacher–critic–student diagram showing how the score difference guides student training.",
-    "Teacher-size × critic-size grid illustrating the capacity combinations studied.",
-    "Warning graphic: larger teacher + fixed small critic can lead to worse student quality.",
-    "Few-step generation icon highlighting the distilled student's efficiency goal."
+    "Capacity comparison: a large teacher paired with a small critic versus a capacity-balanced pairing.",
+    "Qualitative chart illustrating the reported risk of declining student quality as teacher size increases with a fixed small critic.",
+    "Seven-model SiT size ladder highlighting the scope of the ImageNet experiments."
   ],
   "hashtags": [
     "#DistributionMatching",
-    "#ModelDistillation",
+    "#KnowledgeDistillation",
     "#DiffusionModels",
     "#GenerativeAI",
     "#EfficientAI"
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2610.42135v1"
     }
   ],
-  "generated_at": "2026-11-02T14:11:02.986233"
+  "generated_at": "2026-11-03T13:15:22.173081"
 }
