@@ -1,24 +1,24 @@
 {
-  "key_insight": "An optimizer that learns faster during pretraining does not necessarily produce better results after fine-tuning. With enough pretraining data, AdamW overtakes Muon in downstream performance.",
-  "problem_solved": "Tests whether Muon's advantage in reducing pretraining loss translates into better downstream performance after fine-tuning.",
+  "key_insight": "Better pretraining performance does not necessarily mean better results after fine-tuning. Beyond a sufficiently large pretraining data budget, AdamW outperforms Muon on downstream performance, despite Muon's advantage in reducing pretraining loss.",
+  "problem_solved": "Determines whether Muon's pretraining advantage over AdamW carries over to downstream fine-tuning, and how that comparison changes with pretraining data scale and model size.",
   "method": [
-    "Compare downstream fine-tuning outcomes for models pretrained with Muon versus AdamW.",
-    "Vary pretraining data budgets to identify when the performance ranking reverses.",
+    "Compare Muon and AdamW in pretraining and subsequent fine-tuning.",
+    "Vary pretraining data budgets to identify when the downstream performance ranking reverses.",
     "Examine how model size affects the optimizer comparison."
   ],
-  "impact": "Practitioners should evaluate optimizers using post-fine-tuning performance, not pretraining loss alone. Optimizer choice may depend on the pretraining data budget and model size.",
+  "impact": "Practitioners should evaluate optimizer choices using post-fine-tuning performance, not pretraining loss alone. AdamW may be the better choice at larger pretraining data budgets.",
   "visual_elements": [
-    "Conceptual crossover chart: downstream performance versus pretraining data budget, with AdamW overtaking Muon.",
-    "Two-stage pipeline: pretraining optimizer choice → fine-tuning → downstream evaluation.",
-    "Side-by-side panels contrasting Muon's pretraining-loss advantage with AdamW's fine-tuning advantage at larger data budgets.",
-    "Model-size icons highlighting scale as another variable in optimizer selection."
+    "Crossover chart: downstream performance versus pretraining data budget, with Muon and AdamW curves.",
+    "Two-stage pipeline: pretraining → fine-tuning, highlighting that optimizer rankings can change.",
+    "Small-multiple charts comparing the optimizer gap across model sizes.",
+    "Contrasting metric cards: pretraining loss advantage versus downstream performance advantage."
   ],
   "hashtags": [
+    "#LLM",
+    "#Optimization",
     "#Muon",
     "#AdamW",
-    "#LLMTraining",
-    "#FineTuning",
-    "#ScalingLaws"
+    "#FineTuning"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.03633v1"
     }
   ],
-  "generated_at": "2026-11-03T13:14:55.299503"
+  "generated_at": "2026-11-04T13:28:50.202493"
 }
