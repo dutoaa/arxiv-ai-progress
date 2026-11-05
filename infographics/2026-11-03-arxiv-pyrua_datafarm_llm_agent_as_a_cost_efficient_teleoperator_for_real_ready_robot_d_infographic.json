@@ -1,24 +1,24 @@
 {
-  "key_insight": "PyRUA-DataFarm explores using an LLM coding agent to replace repeated human teleoperation when creating robot demonstrations. Given a data request and one calibration episode, the agent rebuilds the task in simulation to generate additional data.",
-  "problem_solved": "Robot demonstrations consume both operator and robot time, and collecting data for each new task often means starting over.",
+  "key_insight": "PyRUA-DataFarm proposes using an LLM coding agent to take over parts of robot demonstration collection. Given a data request and one calibration episode, the agent builds a simulated task with an expert controller and a success checker.",
+  "problem_solved": "Robot teleoperation consumes both operator and robot time, and collecting demonstrations for each new task often requires starting from scratch.",
   "method": [
-    "Provide the agent with a data request and one robot calibration episode from the target scene.",
-    "Have the agent write a simulated scene, an expert controller, and a success judge.",
+    "Provide the agent with a task-specific data request and one robot calibration episode from the target scene.",
+    "Have the agent write the simulated scene, an expert controller, and a success judge.",
     "Use the simulator to supply exact actions; the provided abstract is truncated before explaining the video model's role."
   ],
-  "impact": "The approach could reduce the human effort and robot time needed to expand demonstration datasets. The supplied excerpt does not establish cost savings or real-world performance.",
+  "impact": "This approach could reduce repeated human teleoperation and make robot training data easier to generate across tasks. The provided excerpt does not establish cost savings or real-world performance.",
   "visual_elements": [
-    "Pipeline: data request + calibration episode → coding agent → simulated task → demonstration data.",
-    "Three-part diagram showing the agent-built scene, expert controller, and success judge.",
-    "Side-by-side illustration of repeated human teleoperation versus agent-driven simulation.",
-    "Robot-to-simulation graphic showing how one target-scene episode anchors task reconstruction."
+    "Workflow: data request + calibration episode → coding agent → simulated task → demonstrations.",
+    "Three-module diagram showing the generated scene, expert controller, and success judge.",
+    "Side-by-side illustration of human teleoperation versus agent-driven simulation.",
+    "Robot-time and operator-time icons highlighting the collection costs the method targets."
   ],
   "hashtags": [
     "#RobotLearning",
     "#LLMAgents",
-    "#SyntheticData",
     "#Teleoperation",
-    "#SimToReal"
+    "#SyntheticData",
+    "#Sim2Real"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.05320v1"
     }
   ],
-  "generated_at": "2026-11-04T13:28:12.747776"
+  "generated_at": "2026-11-05T13:43:04.025241"
 }
