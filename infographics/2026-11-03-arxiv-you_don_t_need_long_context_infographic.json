@@ -1,22 +1,22 @@
 {
-  "key_insight": "Long tasks do not necessarily require long model contexts. Frequent context compaction preserves little-to-no-loss task accuracy across a broad range of long-input and long-horizon tasks while keeping contexts short.",
-  "problem_solved": "As context grows, generating later tokens becomes more expensive—up to 7× costlier than earlier tokens on frontier open-weight models. The paper investigates whether models can avoid this overhead without sacrificing task performance.",
+  "key_insight": "Long tasks do not necessarily require long contexts. Frequent context compaction lets frontier language models maintain short contexts with little to no loss in task accuracy across the tasks studied.",
+  "problem_solved": "As context grows, generating later tokens becomes more expensive—up to 7× in the frontier open-weight models studied—making long-input and long-horizon workflows costly.",
   "method": [
-    "Frequently compact accumulated context to maintain a shorter working context.",
-    "Evaluate task accuracy across a broad range of long-input and long-horizon tasks.",
-    "Test long-horizon software engineering with at most one action per context, finding that performance does not collapse."
+    "Frequently compact accumulated context to keep the model's active context short.",
+    "Evaluate accuracy across a broad range of long-input and long-horizon tasks.",
+    "Test long-horizon software engineering with at most one action per context to assess performance under aggressive context limits."
   ],
-  "impact": "Context compaction offers practitioners a way to reduce growing inference costs without necessarily compromising accuracy. The findings suggest that effective context management can matter more than retaining an entire interaction history.",
+  "impact": "Practitioners may be able to reduce inference costs by managing context rather than continually expanding it. The findings suggest that large active contexts are not always necessary, even for extended software engineering workflows.",
   "visual_elements": [
-    "Token-cost chart highlighting the reported disparity of up to 7× between earlier and later tokens.",
-    "Before-and-after diagram showing a growing interaction history compacted into a short working context.",
-    "Conceptual accuracy comparison showing similar performance with long versus frequently compacted contexts.",
-    "Software-engineering workflow illustrating one action per context across a long task."
+    "Token-cost chart highlighting that later tokens can cost up to 7× more than earlier tokens.",
+    "Workflow diagram: growing context → compaction → short context → next action.",
+    "Accuracy comparison between long-context and frequently compacted workflows, using reported results.",
+    "Software engineering timeline showing one action per context across a long task."
   ],
   "hashtags": [
     "#ContextCompaction",
-    "#LLMInference",
-    "#EfficientAI",
+    "#LLMEfficiency",
+    "#InferenceOptimization",
     "#LongHorizonTasks",
     "#AIAgents"
   ],
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.05306v1"
     }
   ],
-  "generated_at": "2026-11-05T13:42:59.720615"
+  "generated_at": "2026-11-07T12:05:57.648706"
 }

@@ -1,17 +1,17 @@
 {
-  "key_insight": "A world model can learn what stays the same while missing the changes needed to control an environment. The paper identifies this failure as “static collapse”: representations retain episode-specific static content but suppress manipulation-relevant changes.",
-  "problem_solved": "Distributional regularization alone does not guarantee control-relevant representations in JEPA-style world models. Static features can remain diverse across episodes and predictable over time, allowing important state changes to be overlooked.",
+  "key_insight": "A world model can learn what stays the same while missing what actions change. The paper identifies this failure as “static collapse”: representations retain episode-specific static content but suppress state changes needed for control.",
+  "problem_solved": "Distributional regularization alone does not guarantee control-relevant representations. Static scene information can be both temporally predictable and diverse across episodes, allowing a model to overlook manipulation dynamics.",
   "method": [
     "Study JEPA-style models that predict action-conditioned latent dynamics without reconstructing observations.",
-    "Identify static collapse by distinguishing preserved static content from suppressed manipulation-relevant changes.",
-    "The title proposes motion-guided contrastive regularization; the supplied abstract is truncated and does not specify its implementation or results."
+    "Identify static collapse as a failure mode distinct from losing all representational diversity.",
+    "The title proposes motion-guided contrastive regularization; the truncated abstract does not provide its implementation or experimental details."
   ],
-  "impact": "For practitioners, predictable and diverse latent features are not necessarily useful for control. Evaluating whether representations capture action-relevant changes is important when developing world models.",
+  "impact": "For practitioners, diverse latent representations are not enough: they must also capture action-relevant changes. This motivates evaluating sensitivity to motion and state changes, rather than relying only on distributional regularization.",
   "visual_elements": [
-    "Two-frame manipulation scene: unchanged background highlighted separately from the moving object.",
-    "Split latent-space diagram contrasting static-content encoding with control-relevant state encoding.",
-    "Pipeline diagram: observation and action → latent dynamics prediction, with no image reconstruction.",
-    "Warning icon labeled “Predictable ≠ useful for control.”"
+    "Two-frame scene: unchanged background highlighted alongside an object moved by an action.",
+    "Side-by-side latent diagrams contrasting static collapse with motion-sensitive representations.",
+    "Pipeline showing observation encoding, action input, and latent-state prediction.",
+    "Conceptual balance graphic: representation diversity versus control-relevant information."
   ],
   "hashtags": [
     "#WorldModels",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.06901v1"
     }
   ],
-  "generated_at": "2026-11-05T13:42:33.903000"
+  "generated_at": "2026-11-07T12:05:50.632714"
 }

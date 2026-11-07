@@ -1,24 +1,24 @@
 {
-  "key_insight": "The paper models an adversary’s behavior as a hidden regime that can persist or switch over time. This supports predicting the next action while accounting for which action arguments are currently feasible.",
-  "problem_solved": "A defender needs a probability distribution over an attacker’s next action using only information available beforehand, despite changing behavioral regimes and state-dependent action choices.",
+  "key_insight": "Predicting an adversary’s next move requires tracking both its current behavioral regime and which actions are feasible. This paper proposes a hidden Markov model to represent regimes that persist but can switch during an episode.",
+  "problem_solved": "Estimate a probability distribution over an attacker’s next action using only information available beforehand, while accounting for changing behavioral regimes and state-dependent action arguments.",
   "method": [
     "Represent the attacker’s active behavioral regime as the latent state of a hidden Markov model.",
-    "Use regime-conditioned action probabilities to connect hidden behavior with observable actions.",
-    "Account for actions composed of an operation and arguments whose feasible values change with the current state; the supplied abstract is truncated before the full formulation."
+    "Model regime persistence and transitions within an episode.",
+    "Use a regime-conditioned action distribution for actions composed of an operation and state-dependent arguments; the supplied abstract is truncated before further details."
   ],
-  "impact": "The approach offers a framework for online adversary prediction that captures both behavioral persistence and changing action constraints. The supplied excerpt does not include experimental results, so performance gains cannot be assessed.",
+  "impact": "The approach could help practitioners build defensive systems that anticipate changing adversary behavior rather than assume a fixed strategy. The supplied abstract does not include experimental results, so performance gains cannot be assessed.",
   "visual_elements": [
-    "Hidden-state timeline showing persistent regimes and occasional switches.",
-    "Hidden Markov model diagram linking latent regimes to observed attacker actions.",
-    "Action breakdown showing an operation paired with currently feasible arguments.",
-    "Illustrative next-action probability chart based only on information available before the action."
+    "Hidden-state timeline showing persistent attacker regimes and occasional switches.",
+    "Hidden Markov model diagram linking latent regimes to observed actions.",
+    "Action schematic splitting a move into an operation and currently feasible arguments.",
+    "Conceptual next-action probability chart illustrating a defender’s forecast."
   ],
   "hashtags": [
     "#HiddenMarkovModels",
     "#AdversaryModeling",
     "#OnlinePrediction",
     "#ProbabilisticModeling",
-    "#MachineLearning"
+    "#AIDefense"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.08445v1"
     }
   ],
-  "generated_at": "2026-11-06T13:26:29.602425"
+  "generated_at": "2026-11-07T12:05:26.110552"
 }

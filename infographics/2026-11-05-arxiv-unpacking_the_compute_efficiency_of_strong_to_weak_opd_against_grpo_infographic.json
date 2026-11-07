@@ -1,17 +1,17 @@
 {
-  "key_insight": "This paper tests whether a strong teacher’s token-by-token feedback helps a smaller model reach a target accuracy with less training compute than reinforcement learning. The provided abstract is truncated, so it does not establish which approach wins or under what conditions.",
-  "problem_solved": "Determine whether on-policy distillation’s dense supervision translates into real compute savings over Group Relative Policy Optimization (GRPO), rather than simply faster progress per training step.",
+  "key_insight": "This paper investigates whether dense, token-by-token teacher guidance helps a smaller model reach a target accuracy with less training compute than GRPO reinforcement learning. The supplied abstract is truncated, so it does not establish which approach wins.",
+  "problem_solved": "Determine whether on-policy distillation offers a genuine compute-efficiency advantage over GRPO, and how that comparison changes with task difficulty, model size, domain, and optimization choices.",
   "method": [
-    "Compare vanilla reverse-KL on-policy distillation, using student-generated rollouts and a frozen teacher’s per-token supervision, against GRPO.",
-    "Vary task difficulty, student and teacher sizes, domains, and optimization choices.",
-    "Measure held-out accuracy against training FLOPs to assess compute efficiency."
+    "Compare vanilla reverse-KL on-policy distillation with Group Relative Policy Optimization (GRPO).",
+    "Train the distillation student on its own generated rollouts, using per-token supervision from a frozen teacher.",
+    "Measure held-out accuracy against training FLOPs across task difficulties, student–teacher sizes, domains, and optimization settings."
   ],
-  "impact": "The comparison can help practitioners evaluate whether teacher-guided distillation or reinforcement learning better fits a limited training budget. Specific recommendations require the paper’s full results.",
+  "impact": "The comparison helps practitioners evaluate teacher-guided distillation versus reinforcement learning under a training-compute budget. Specific recommendations require the full results, which are absent from the provided excerpt.",
   "visual_elements": [
-    "Side-by-side training diagrams: student rollouts with frozen-teacher feedback versus GRPO updates.",
-    "Accuracy-versus-training-FLOPs plot template, populated only with verified paper results.",
-    "Experiment matrix showing task difficulty, model sizes, domains, and optimization choices.",
-    "Target-accuracy checkpoint graphic illustrating compute needed to reach the same performance."
+    "Side-by-side training pipelines: student rollouts with frozen-teacher token guidance versus GRPO reinforcement learning.",
+    "Accuracy-versus-training-FLOPs chart template, with a target-accuracy line and no invented results.",
+    "Experiment matrix showing task difficulty, student size, teacher size, domain, and optimization choices.",
+    "Token-level guidance illustration highlighting the dense supervision supplied by the teacher."
   ],
   "hashtags": [
     "#OnPolicyDistillation",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.08453v1"
     }
   ],
-  "generated_at": "2026-11-06T13:26:36.145018"
+  "generated_at": "2026-11-07T12:05:32.706359"
 }
