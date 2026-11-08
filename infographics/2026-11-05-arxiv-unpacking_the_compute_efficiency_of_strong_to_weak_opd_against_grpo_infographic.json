@@ -1,17 +1,17 @@
 {
-  "key_insight": "This paper investigates whether dense, token-by-token teacher guidance helps a smaller model reach a target accuracy with less training compute than GRPO reinforcement learning. The supplied abstract is truncated, so it does not establish which approach wins.",
-  "problem_solved": "Determine whether on-policy distillation offers a genuine compute-efficiency advantage over GRPO, and how that comparison changes with task difficulty, model size, domain, and optimization choices.",
+  "key_insight": "This paper tests whether dense, token-by-token guidance from a stronger teacher helps a smaller model reach a target accuracy with less training compute than GRPO reinforcement learning. The supplied abstract is truncated, so it does not establish which method wins.",
+  "problem_solved": "Practitioners need compute-aware evidence to choose between teacher-guided on-policy distillation and reinforcement learning, rather than comparing accuracy alone.",
   "method": [
-    "Compare vanilla reverse-KL on-policy distillation with Group Relative Policy Optimization (GRPO).",
-    "Train the distillation student on its own generated rollouts, using per-token supervision from a frozen teacher.",
-    "Measure held-out accuracy against training FLOPs across task difficulties, student–teacher sizes, domains, and optimization settings."
+    "Compare vanilla reverse-KL on-policy distillation, using student-generated rollouts and a frozen teacher's per-token supervision, against Group Relative Policy Optimization (GRPO).",
+    "Measure held-out accuracy against training FLOPs to assess the compute required to reach a target accuracy.",
+    "Vary task difficulty, student and teacher sizes, domain, and optimization choices."
   ],
-  "impact": "The comparison helps practitioners evaluate teacher-guided distillation versus reinforcement learning under a training-compute budget. Specific recommendations require the full results, which are absent from the provided excerpt.",
+  "impact": "The comparison provides a framework for evaluating when teacher supervision is worth its computational cost. Specific efficiency gains and practical recommendations cannot be confirmed from the incomplete abstract.",
   "visual_elements": [
-    "Side-by-side training pipelines: student rollouts with frozen-teacher token guidance versus GRPO reinforcement learning.",
-    "Accuracy-versus-training-FLOPs chart template, with a target-accuracy line and no invented results.",
-    "Experiment matrix showing task difficulty, student size, teacher size, domain, and optimization choices.",
-    "Token-level guidance illustration highlighting the dense supervision supplied by the teacher."
+    "Side-by-side training diagrams: student rollouts with frozen-teacher token supervision versus GRPO reinforcement learning.",
+    "Accuracy-versus-training-FLOPs chart template, with a target-accuracy line marking the comparison point; populate only with reported results.",
+    "Experiment grid showing task difficulty, model sizes, domains, and optimization settings.",
+    "Token-level illustration highlighting the dense supervision provided by the teacher."
   ],
   "hashtags": [
     "#OnPolicyDistillation",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.08453v1"
     }
   ],
-  "generated_at": "2026-11-07T12:05:32.706359"
+  "generated_at": "2026-11-08T12:26:13.353884"
 }
