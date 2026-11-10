@@ -1,24 +1,23 @@
 {
-  "key_insight": "A benchmark can test a different skill from the real-world problem that motivated its data. In UCR’s PigAirwayPressure dataset, recordings collected to study hemorrhage detection instead ask classifiers to identify which of 52 pigs produced a trace.",
-  "problem_solved": "The paper examines whether tasks in the widely used UCR Time Series Classification Archive reflect the practical problems that time-series classifiers are intended to solve.",
+  "key_insight": "A benchmark can measure the wrong skill: PigAirwayPressure asks classifiers to identify which of 52 pigs produced a recording, although the original experiment investigated hemorrhage detection. The paper questions whether standard time-series benchmarks reflect the problems practitioners actually need to solve.",
+  "problem_solved": "Addresses the risk of treating performance on the UCR Time Series Classification Archive as evidence of real-world usefulness without examining what its classification labels represent.",
   "method": [
-    "Examine the relationship between benchmark classification tasks and the original purpose of their data.",
-    "Contrast clinically motivated hemorrhage detection with the 52-class pig-identification task in PigAirwayPressure.",
-    "Use this mismatch to question what success on standard time-series benchmarks actually demonstrates."
+    "Examines the alignment between benchmark classification tasks and the scientific goals behind their source data.",
+    "Uses PigAirwayPressure to illustrate the contrast between identifying individual animals and detecting a critical physiological condition."
   ],
-  "impact": "High benchmark accuracy may not establish usefulness for the application that motivated data collection. Practitioners should check what dataset labels measure before treating leaderboard gains as evidence of real-world progress.",
+  "impact": "Practitioners should check what benchmark labels actually measure before interpreting model rankings as practical progress. Strong subject-identification performance does not establish effectiveness at detecting hemorrhage.",
   "visual_elements": [
-    "Split-panel illustration: “Detect hemorrhage” versus “Identify one of 52 pigs.”",
-    "Airway-pressure trace branching toward a medical-alert icon and an animal-ID tag.",
-    "Pipeline diagram: original experiment → benchmark labels → evaluated capability.",
-    "Checklist graphic: “What was collected? What is predicted? What does accuracy prove?”"
+    "Split-panel diagram: original goal—detect hemorrhage; benchmark task—identify one of 52 pigs.",
+    "Airway-pressure trace branching toward a medical-alert icon and an animal-ID icon.",
+    "Alignment checklist connecting source experiment, benchmark labels, and intended deployment.",
+    "Benchmark trophy beside a clinical target, with a question mark between them."
   ],
   "hashtags": [
     "#TimeSeriesClassification",
-    "#Benchmarking",
-    "#MLEvaluation",
-    "#DatasetValidity",
-    "#UCRArchive"
+    "#BenchmarkEvaluation",
+    "#UCRArchive",
+    "#DatasetAlignment",
+    "#MachineLearning"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +33,5 @@
       "url": "https://arxiv.org/pdf/2611.09843v1"
     }
   ],
-  "generated_at": "2026-11-09T14:40:54.212934"
+  "generated_at": "2026-11-10T14:01:42.832439"
 }
