@@ -1,0 +1,38 @@
+{
+  "key_insight": "Diffusion language models need to know when revision will help—not just which tokens look uncertain. Sudoku experiments show that hidden states reveal errors missed by token confidence, while revising an isolated error often repeats it if the surrounding context stays fixed.",
+  "problem_solved": "Remasking lets diffusion language models revise generated text, but unreliable error detection and unchanged context can prevent meaningful corrections.",
+  "method": [
+    "Use Sudoku to diagnose how token confidence and hidden states reveal generation errors.",
+    "Test isolated-error remasking, finding that fixed surrounding context often causes the same error to recur.",
+    "Introduce DiVR, a verifier that predicts whether a partially generated sequence will reach a correct answer; the provided abstract is truncated before training details and results."
+  ],
+  "impact": "The findings suggest that effective revision needs signals beyond token confidence and attention to surrounding context. For practitioners, DiVR offers a direction for assessing whether a generation is on track, though the excerpt does not establish performance gains.",
+  "visual_elements": [
+    "Sudoku grid showing an incorrect cell recurring after isolated remasking.",
+    "Side-by-side illustration of token confidence missing an error and hidden states containing error information.",
+    "Workflow diagram: partial generation → DiVR verifier → predicted likelihood of a correct final answer.",
+    "Context diagram highlighting how surrounding tokens can constrain a regenerated token."
+  ],
+  "hashtags": [
+    "#DiffusionLanguageModels",
+    "#LanguageModels",
+    "#AIReasoning",
+    "#ErrorCorrection",
+    "#MachineLearning"
+  ],
+  "model": "gpt-6.1-sol",
+  "service_tier": "ultrafast",
+  "generator": "openai",
+  "paper_id": "2026-11-12-arxiv-learning_when_diffusion_language_models_should_regenerate",
+  "paper_title": "Learning When Diffusion Language Models Should Regenerate",
+  "paper_category": "Model",
+  "paper_date": "2026-11-12",
+  "paper_authors": "Minhae Oh, Jeonghye Kim, Jinwoo Koo, Yeongoon Kim, Jimin Seo",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2611.17320v1"
+    }
+  ],
+  "generated_at": "2026-11-13T13:37:57.319726"
+}
