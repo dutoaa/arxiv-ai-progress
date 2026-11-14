@@ -1,23 +1,23 @@
 {
-  "key_insight": "Metal Sandbox combines isolated file access with native macOS execution to support concurrent AI agents writing Apple Metal GPU kernels. Its command-level scheduling approach targets GPU idle time between model requests, development commands, and kernel execution.",
-  "problem_solved": "GPU-coding agents need native Apple Silicon tools, but their stop-and-start workflows leave accelerators idle. Running concurrent sessions also requires separating each agent’s file access.",
+  "key_insight": "Metal Sandbox combines isolated file access and native macOS command execution to support concurrent AI agents developing Apple Metal kernels. It targets GPU idle time that occurs while agents wait for model responses or run development commands.",
+  "problem_solved": "GPU coding agents need native Apple Silicon tools, but their workflows alternate between GPU work and non-GPU tasks. Supporting multiple agents therefore requires both execution isolation and coordination of shared GPU access.",
   "method": [
-    "Restrict file access per instance to separate concurrent agent workspaces.",
-    "Execute development commands natively on macOS for Apple Metal kernel workflows.",
-    "Introduce command-level scheduling to coordinate concurrent sessions; the supplied abstract is truncated before implementation details."
+    "Restrict each agent instance’s file access to isolate concurrent development sessions.",
+    "Execute development commands natively on macOS to support Apple Metal tooling.",
+    "Coordinate work at the command level; the provided abstract is truncated before scheduling details or evaluation results."
   ],
-  "impact": "This infrastructure could help practitioners train and evaluate Metal-kernel-generating models while making better use of local Apple Silicon GPUs. The provided excerpt does not include measured performance gains.",
+  "impact": "This infrastructure could help practitioners train and evaluate Metal kernel-generating agents while making better use of local Apple Silicon GPUs. The provided excerpt does not establish measured performance gains.",
   "visual_elements": [
-    "Architecture diagram showing isolated agent workspaces connected to native macOS tools and a shared GPU.",
-    "Session timelines distinguishing model requests, development commands, GPU execution, and idle periods.",
-    "Scheduling diagram illustrating how GPU work from concurrent sessions could fill idle gaps.",
-    "Shield, terminal, and GPU icons representing isolation, native execution, and accelerator use."
+    "Architecture diagram: isolated agent workspaces connected to native macOS tools and a shared Apple Silicon GPU.",
+    "Workflow timeline: model requests, development commands, and GPU execution across concurrent agents.",
+    "Conceptual scheduling diagram: interleave agents’ GPU tasks to fill otherwise idle periods.",
+    "Icons for restricted file access, terminal execution, and GPU coordination."
   ],
   "hashtags": [
     "#AppleSilicon",
-    "#MetalGPU",
-    "#AIAgents",
+    "#Metal",
     "#GPUComputing",
+    "#AIAgents",
     "#MLInfrastructure"
   ],
   "model": "gpt-6.1-sol",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.17294v1"
     }
   ],
-  "generated_at": "2026-11-13T13:37:44.817212"
+  "generated_at": "2026-11-14T12:42:22.665699"
 }
