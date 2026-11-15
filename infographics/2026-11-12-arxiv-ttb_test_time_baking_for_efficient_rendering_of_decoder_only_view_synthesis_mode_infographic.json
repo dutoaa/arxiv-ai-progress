@@ -1,17 +1,17 @@
 {
-  "key_insight": "Test-Time Baking (TTB) compresses global scene information from cross-view attention into a lightweight MLP. This aims to make novel-view rendering fast while preserving high visual quality.",
-  "problem_solved": "Decoder-only Large View Synthesis Models achieve high-quality rendering without explicit 3D reconstruction, but their attention and KV-cache mechanisms incur computational costs. Existing Test-Time Training layers reduce computation at the expense of rendering quality.",
+  "key_insight": "Test-Time Baking (TTB) compresses global scene information from cross-view attention into a lightweight MLP. This aims to make novel-view rendering faster while preserving high visual quality.",
+  "problem_solved": "Decoder-only Large View Synthesis Models deliver high-quality novel views without reconstructing explicit 3D geometry, but their attention and KV-cache impose computational costs. Existing Test-Time Training layers reduce computation at the expense of quality.",
   "method": [
-    "Use global scene information captured by cross-view attention in a decoder-only view synthesis model.",
-    "Learn to bake that information into a lightweight multilayer perceptron at test time.",
-    "Use the baked representation for efficient novel-view decoding; further implementation details are not available in the provided abstract excerpt."
+    "Use cross-view attention to capture global scene information from input views.",
+    "At test time, learn to bake that information into a lightweight multilayer perceptron (MLP).",
+    "Use the baked scene information for efficient, high-fidelity novel-view decoding."
   ],
-  "impact": "TTB targets a better speed–quality trade-off for neural novel-view rendering, potentially making high-fidelity view synthesis more practical. The provided excerpt does not include quantitative results.",
+  "impact": "TTB offers a route toward more efficient view synthesis without the quality compromise associated with Test-Time Training layers. The provided abstract is incomplete and includes no quantitative results.",
   "visual_elements": [
-    "Pipeline diagram: input views → cross-view attention → test-time baking → lightweight MLP → novel view.",
-    "Before-and-after schematic contrasting KV-cache-based decoding with baked-MLP decoding.",
-    "Conceptual speed–quality chart showing the trade-off TTB aims to improve, without invented measurements.",
-    "Camera icons surrounding a scene to illustrate input viewpoints and a newly rendered viewpoint."
+    "Pipeline diagram: input views → cross-view attention → scene information baked into an MLP → novel views.",
+    "Trade-off diagram contrasting KV-cache-based synthesis, Test-Time Training, and TTB, without numerical performance claims.",
+    "Concept illustration showing information from multiple camera views compressed into a small neural network.",
+    "Camera-orbit graphic illustrating novel-view generation without explicit 3D geometry reconstruction."
   ],
   "hashtags": [
     "#TestTimeBaking",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.17331v1"
     }
   ],
-  "generated_at": "2026-11-14T12:42:38.940687"
+  "generated_at": "2026-11-15T13:09:15.262382"
 }

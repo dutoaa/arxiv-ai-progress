@@ -1,24 +1,24 @@
 {
-  "key_insight": "Diffusion language models need to know when regeneration will actually help—not just which tokens look uncertain. Sudoku experiments suggest that hidden states reveal errors missed by token confidence, while revising an isolated error often repeats it if the surrounding context stays fixed.",
-  "problem_solved": "Remasking lets diffusion language models revise generated text, but token confidence can be an unreliable guide, and unchanged surrounding context can prevent successful correction.",
+  "key_insight": "Diffusion language models need to know when revision will help—not just which tokens look uncertain. Sudoku experiments show that hidden states reveal errors that token confidence can miss, while regenerating an isolated error often repeats it if its context stays unchanged.",
+  "problem_solved": "Remasking lets diffusion language models revise generated text, but identifying useful correction opportunities is difficult: confidence can overlook errors, and unchanged surrounding context can reinforce mistakes.",
   "method": [
-    "Diagnose error detection and remasking behavior on Sudoku tasks.",
-    "Examine error signals in hidden states and test whether isolated remasking corrects mistakes.",
-    "Introduce DiVR, a verifier that predicts whether a partially generated sequence will reach a correct answer; the provided abstract ends before its training details."
+    "Diagnose error signals and remasking behavior using Sudoku.",
+    "Compare error information in hidden states with token confidence, and examine whether isolated regeneration corrects mistakes.",
+    "Introduce DiVR, a verifier that predicts whether a partially generated sequence will reach a correct answer. The provided abstract is truncated, so training and deployment details are unavailable."
   ],
-  "impact": "The findings point practitioners toward hidden-state verification rather than token confidence alone when designing regeneration policies. They also highlight the need to consider surrounding context when attempting corrections.",
+  "impact": "The findings suggest that effective regeneration needs richer signals than token confidence and attention to surrounding context. For practitioners, DiVR offers a direction toward verifier-guided revision, though the excerpt provides no quantitative performance results.",
   "visual_elements": [
-    "Sudoku grid showing an incorrect cell recurring after isolated remasking.",
-    "Side-by-side schematic contrasting token confidence with hidden-state error signals.",
-    "Flowchart: partially generated sequence → DiVR → predicted likelihood of reaching a correct answer.",
-    "Context diagram showing how neighboring tokens can constrain a regenerated token."
+    "Sudoku grid highlighting an incorrect entry that repeats after isolated remasking.",
+    "Side-by-side illustration of token confidence missing an error and hidden-state signals revealing it.",
+    "Pipeline diagram: partially generated sequence → DiVR → predicted likelihood of a correct final answer.",
+    "Context diagram showing how fixed neighboring tokens can reinforce a regenerated mistake."
   ],
   "hashtags": [
     "#DiffusionLanguageModels",
+    "#VerifierGuidedGeneration",
+    "#IterativeRefinement",
     "#LanguageModels",
-    "#AIReasoning",
-    "#ModelVerification",
-    "#IterativeRefinement"
+    "#AIResearch"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.17320v1"
     }
   ],
-  "generated_at": "2026-11-14T12:42:31.990464"
+  "generated_at": "2026-11-15T13:09:07.918106"
 }

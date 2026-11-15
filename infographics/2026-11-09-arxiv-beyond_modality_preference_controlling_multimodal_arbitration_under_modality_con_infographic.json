@@ -1,17 +1,17 @@
 {
-  "key_insight": "A small set of attention heads helps determine whether a multimodal AI follows visual or textual evidence when the two disagree. These “arbitration heads” offer a potential control point for steering that choice at inference time.",
-  "problem_solved": "Multimodal models can favor text or images even when the preferred modality is less reliable for the task, producing unreliable answers under conflicting inputs.",
+  "key_insight": "A small set of attention heads helps determine whether a multimodal AI follows images or text when they disagree. These “arbitration heads” offer a targeted way to influence which evidence the model uses.",
+  "problem_solved": "Multimodal large language models can favor the wrong source of information when visual and textual inputs conflict, making their answers unreliable.",
   "method": [
-    "Study model predictions when visual and textual inputs provide conflicting evidence.",
+    "Study how models choose between visual and textual evidence under conflicting inputs.",
     "Identify attention heads that causally influence whether predictions follow images or text.",
-    "Use these arbitration heads as the basis for lightweight inference-time control; the supplied abstract is truncated before implementation details."
+    "Use these heads as targets for inference-time control; the provided abstract is truncated before the full control method is described."
   ],
-  "impact": "The findings suggest a targeted way to steer how multimodal models resolve contradictory evidence, rather than accepting their default modality preference. This could support more dependable applications, although performance results are not available in the supplied excerpt.",
+  "impact": "This work points toward more controllable multimodal systems that can prioritize appropriate evidence when inputs disagree. The supplied excerpt does not include results, so performance gains cannot be assessed.",
   "visual_elements": [
-    "Conflict diagram: an image and a text statement give different answers to the same question.",
-    "Attention-head schematic highlighting the small set of arbitration heads.",
-    "Control dial labeled “Follow visual evidence” and “Follow textual evidence.”",
-    "Decision flow showing conflicting inputs, arbitration heads, and the selected answer."
+    "An image–text conflict example with contradictory labels feeding into one model.",
+    "A model schematic highlighting a small set of arbitration heads.",
+    "A visual-versus-textual evidence dial illustrating inference-time control.",
+    "A flowchart linking conflicting inputs, arbitration heads, and the model’s final choice."
   ],
   "hashtags": [
     "#MultimodalAI",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.12883v1"
     }
   ],
-  "generated_at": "2026-11-14T12:42:53.080606"
+  "generated_at": "2026-11-15T13:09:29.217419"
 }

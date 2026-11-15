@@ -1,16 +1,17 @@
 {
-  "key_insight": "PixVid proposes lifting a pretrained latent video diffusion model into pixel space. The goal is to overcome compression-related limits on resolution, frame-level control, and interactive generation.",
-  "problem_solved": "Latent video models compress both space and time: doubling spatial resolution quadruples token count, controls affect groups of frames rather than individual frames, and responses must wait for multi-frame blocks.",
+  "key_insight": "PixVid proposes lifting a pretrained latent video diffusion model into pixel space. The goal is to overcome compression-related limits on resolution scaling, frame-level control, and interactive generation.",
+  "problem_solved": "Spatial and temporal VAE compression constrains video generation: doubling resolution quadruples token count, conditioning operates on frame groups rather than individual frames, and responses must wait for an entire multi-frame block.",
   "method": [
-    "Start from a pretrained latent video generation model rather than building a pixel-space model from scratch.",
-    "Lift the model into pixel space to address limitations imposed by spatial and temporal latent compression; implementation details are unavailable in the truncated abstract."
+    "Start from a pretrained latent video diffusion model rather than building a pixel-space generator from scratch.",
+    "Lift the model into pixel space to address limitations imposed by spatially and temporally compressed video representations.",
+    "The supplied abstract is truncated; implementation details and experimental results are unavailable."
   ],
-  "impact": "The approach could enable finer frame-by-frame control and more responsive video generation while reusing pretrained models. The supplied excerpt does not establish measured gains in quality, efficiency, or latency.",
+  "impact": "If effective, this approach could enable more precise frame-level control and more responsive video generation while reusing pretrained models. The supplied excerpt does not establish measured gains.",
   "visual_elements": [
-    "Before-and-after diagram: compressed latent video blocks → PixVid → pixel-space video.",
-    "Timeline contrasting group-of-frames conditioning with the goal of individual-frame control.",
-    "Resolution graphic showing that doubling width and height produces four times as many tokens in the described setup.",
-    "Interaction diagram illustrating the delay caused by waiting for a multi-frame block."
+    "Before-and-after pipeline: compressed latent video generation versus PixVid's proposed pixel-space approach.",
+    "Resolution diagram showing how doubling width and height produces four times as many tokens in the described baseline.",
+    "Timeline contrasting grouped-frame conditioning with the goal of individual-frame control.",
+    "Latency illustration showing the wait imposed by multi-frame block generation."
   ],
   "hashtags": [
     "#PixVid",
@@ -33,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.17336v1"
     }
   ],
-  "generated_at": "2026-11-14T12:42:43.987005"
+  "generated_at": "2026-11-15T13:09:20.366416"
 }
