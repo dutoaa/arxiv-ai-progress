@@ -1,0 +1,37 @@
+{
+  "key_insight": "Low-bit training does not have to produce different answers on different hardware. CertiSum leverages the observation that FP32 accumulation of MXFP4 products is often already exact to make training bitwise identical across runs, parallelism layouts, and GPU vendors.",
+  "problem_solved": "Identical MXFP4 inputs can produce different results depending on how computation is distributed or which GPU vendor is used, complicating debugging, training audits, and agreement between training and inference engines.",
+  "method": [
+    "Exploits exact FP32 accumulation of MXFP4 products where applicable.",
+    "Targets bitwise invariance across repeated runs, parallelism layouts, and GPU vendors; the supplied abstract is truncated and does not detail the remaining mechanisms."
+  ],
+  "impact": "Bitwise reproducibility can make low-precision training easier to debug and audit. It can also reduce numerical discrepancies when moving between hardware platforms or training and inference systems.",
+  "visual_elements": [
+    "Before-and-after diagram: divergent MXFP4 results versus identical CertiSum outputs.",
+    "Computation pipeline showing 4-bit MXFP4 products feeding FP32 accumulation.",
+    "Multiple GPU vendors and parallelism layouts converging on one identical output bitstring.",
+    "Icons for debugging, auditability, and training–inference consistency."
+  ],
+  "hashtags": [
+    "#CertiSum",
+    "#MXFP4",
+    "#ReproducibleAI",
+    "#LowPrecisionTraining",
+    "#AIInfrastructure"
+  ],
+  "model": "gpt-6.1-sol",
+  "service_tier": "ultrafast",
+  "generator": "openai",
+  "paper_id": "2026-11-16-arxiv-certisum_bitwise_identical_mxfp4_training_across_platforms_and_parallelism_layou",
+  "paper_title": "CertiSum: Bitwise-Identical MXFP4 Training Across Platforms and Parallelism Layouts",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-11-16",
+  "paper_authors": "Steve Rhyner, Yubo Gao, Stefan de Lasa, Sankeerth Durvasula, Nandita Vijaykumar",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2611.21584v1"
+    }
+  ],
+  "generated_at": "2026-11-17T15:08:58.538404"
+}

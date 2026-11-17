@@ -1,24 +1,24 @@
 {
-  "key_insight": "MMFlash investigates faster speculative decoding for vision-language models by examining how much each generated token depends on visual input. It introduces a KL-divergence metric to measure that dependence; the provided abstract is truncated before the main findings.",
-  "problem_solved": "Diffusion-based speculative decoding has primarily focused on text-only tasks, leaving unclear how visual information affects token drafting and verification in multimodal generation.",
+  "key_insight": "MMFlash studies faster speculative decoding for vision-language models, focusing on how much generated tokens depend on visual input. It introduces a token-level metric to quantify that dependence.",
+  "problem_solved": "Diffusion-based drafting can propose whole token blocks efficiently, but existing work mainly addresses text-only tasks, leaving image-conditioned generation underexplored.",
   "method": [
-    "Study multimodal speculative decoding, where a lightweight drafter proposes tokens for parallel verification by a target vision-language model.",
-    "Build on the diffusion-drafting setting exemplified by DFlash, which proposes an entire token block in one forward pass.",
-    "Measure token-level visual dependence using KL divergence between next-token distributions with and without visual input."
+    "Study multimodal speculative decoding, where a lightweight drafter proposes tokens for parallel verification by a target model.",
+    "Measure token-level visual dependence using KL divergence between next-token distributions with and without visual input.",
+    "Investigate this setting in the context of diffusion drafters, which propose an entire token block in one forward pass."
   ],
-  "impact": "This work could help practitioners understand when visual context matters for efficient token drafting. Specific MMFlash design details and measured speedups are not available in the provided excerpt.",
+  "impact": "Understanding visual dependence could help practitioners design faster drafting strategies for vision-language models. The supplied abstract is truncated, so MMFlash’s full design, findings, and speedups cannot be confirmed.",
   "visual_elements": [
-    "Pipeline diagram: image and text input → draft token block → parallel target-model verification.",
-    "Side-by-side next-token distributions with and without an image, highlighting the KL-divergence comparison.",
+    "Pipeline diagram: image and prompt → draft token block → target-model verification.",
+    "Paired next-token distributions with and without an image, highlighting their KL divergence.",
     "Conceptual token heatmap showing low versus high visual dependence.",
-    "Comparison panel contrasting text-only drafting with multimodal drafting."
+    "Side-by-side schematic of sequential token generation and single-pass block drafting."
   ],
   "hashtags": [
     "#MMFlash",
     "#SpeculativeDecoding",
     "#VisionLanguageModels",
-    "#MultimodalAI",
-    "#EfficientAI"
+    "#EfficientAI",
+    "#MultimodalAI"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.18482v1"
     }
   ],
-  "generated_at": "2026-11-16T14:18:39.980543"
+  "generated_at": "2026-11-17T15:09:33.930433"
 }

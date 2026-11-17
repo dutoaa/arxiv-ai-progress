@@ -1,17 +1,17 @@
 {
-  "key_insight": "Successive screenshots repeat much of the same visual content, suggesting that visual indexing need not start from scratch for every frame. StreamEmbed targets real-time screenshot retrieval by exploiting this redundancy.",
-  "problem_solved": "Screen history must be encoded and indexed as screenshots arrive. OCR-based indexing loses visual information, while full visual encoding takes over two seconds, creating a bottleneck for live searchable memory.",
+  "key_insight": "Successive screenshots repeat much of the same visual content, suggesting that real-time visual indexing need not encode every frame from scratch. StreamEmbed targets this redundancy to make screen history searchable.",
+  "problem_solved": "Screen history must be indexed as screenshots arrive. OCR is fast but misses visual information, while full visual encoding takes over two seconds, creating a bottleneck for real-time retrieval.",
   "method": [
-    "Treat screenshot history as an incoming stream rather than a static, offline collection.",
+    "Treat incoming screenshots as a continuous indexing stream rather than a static, offline collection.",
     "Exploit repeated pixels within and across screenshots to reduce redundant visual computation.",
-    "Support real-time visual indexing for screenshot retrieval; the provided abstract is truncated and does not specify the implementation or measured results."
+    "The provided abstract is truncated; the specific reuse mechanism and retrieval pipeline are not described."
   ],
-  "impact": "Efficient visual indexing could make screen history a practical searchable memory for people and AI agents, retaining information that OCR alone misses. The excerpt does not establish achieved latency or retrieval quality.",
+  "impact": "Efficient visual indexing could give people and AI agents searchable screen memory without relying solely on text. The excerpt motivates lower processing latency but provides no measured speedup or retrieval results.",
   "visual_elements": [
-    "Timeline of consecutive screenshots with unchanged regions shaded and changed regions highlighted.",
-    "Trade-off diagram contrasting fast, text-focused OCR with slower, richer visual encoding.",
-    "Conceptual pipeline: incoming screenshots → redundancy-aware encoding → searchable visual index.",
-    "Stopwatch callout showing the stated baseline: over two seconds for visual encoding."
+    "Screenshot timeline with unchanged regions shaded and changed regions highlighted.",
+    "Pipeline diagram: incoming screenshots → visual encoding → searchable index → retrieval.",
+    "Comparison cards: OCR indexing—fast but text-limited; full visual encoding—visually rich but over two seconds.",
+    "Conceptual diagram contrasting full-frame recomputation with reuse of repeated visual content."
   ],
   "hashtags": [
     "#StreamEmbed",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.18516v1"
     }
   ],
-  "generated_at": "2026-11-16T14:18:45.531720"
+  "generated_at": "2026-11-17T15:09:36.058336"
 }

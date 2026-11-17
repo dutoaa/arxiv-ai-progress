@@ -1,24 +1,24 @@
 {
-  "key_insight": "Distilled generators can retain as much overall internal variation as their teachers while concentrating it into far fewer directions. This suggests that diversity collapse reflects less varied internal representations—not simply less activation variance.",
-  "problem_solved": "Distilling diffusion models enables faster, few-step generation, but outputs from different random seeds can become strikingly similar. The paper investigates the internal cause of this loss of diversity.",
+  "key_insight": "Fast, distilled generators can retain as much internal activation variation as their teachers while concentrating it into far fewer directions. This suggests diversity collapse is about how variation is distributed, not simply how much remains.",
+  "problem_solved": "Few-step diffusion students generate images and videos faster, but different random seeds can produce nearly identical outputs. The paper investigates the internal cause of this loss of diversity.",
   "method": [
-    "Probe internal activations in distilled student generators and compare them with their teacher models.",
-    "Measure total activation variance and examine how it is distributed across representation directions.",
-    "Identify concentrated variation as a potential explanation for diversity collapse; the provided abstract is truncated and does not specify the restoration technique."
+    "Probe internal activations in distilled student models and compare them with their teachers.",
+    "Compare total activation variance with how broadly that variance spreads across representational directions.",
+    "Identify concentrated activation variation as a signature of diversity collapse; the provided abstract is truncated before any restoration procedure is described."
   ],
-  "impact": "For practitioners, total activation variance alone may be a misleading measure of generative diversity. Examining how variation is distributed could help diagnose diversity loss in fast image and video generators.",
+  "impact": "The finding gives practitioners a diagnostic lens for diversity loss that total activation variance alone may miss. It could help guide efforts to preserve output variety without sacrificing the speed of distilled generators.",
   "visual_elements": [
-    "Teacher-versus-student output grids showing varied samples versus similar samples across random seeds.",
-    "Conceptual variance spectrum: teacher variation spread across many directions, student variation concentrated in a few.",
-    "Activation-space sketch contrasting a broad cloud with a narrow, elongated cloud.",
-    "Distillation pipeline linking fewer sampling steps to faster generation and reduced output diversity."
+    "Teacher-versus-student output grids showing variation across random seeds.",
+    "A speed–diversity trade-off diagram contrasting full diffusion sampling with few-step generation.",
+    "Equal-sized variance clouds: one spread across many directions, the other compressed into a narrow subspace.",
+    "An activation-probing pipeline connecting teacher and student representations to a diversity diagnosis."
   ],
   "hashtags": [
     "#DiffusionModels",
     "#ModelDistillation",
     "#GenerativeAI",
     "#RepresentationLearning",
-    "#GenerativeDiversity"
+    "#DiversityCollapse"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.18550v1"
     }
   ],
-  "generated_at": "2026-11-16T14:18:55.087048"
+  "generated_at": "2026-11-17T15:09:26.669560"
 }
