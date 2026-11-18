@@ -1,16 +1,16 @@
 {
-  "key_insight": "Low-bit training does not have to produce different answers on different hardware. CertiSum leverages the observation that FP32 accumulation of MXFP4 products is often already exact to make training bitwise identical across runs, parallelism layouts, and GPU vendors.",
-  "problem_solved": "Identical MXFP4 inputs can produce different results depending on how computation is distributed or which GPU vendor is used, complicating debugging, training audits, and agreement between training and inference engines.",
+  "key_insight": "MXFP4 training does not have to produce different bits on different hardware or parallelism layouts. CertiSum’s key observation is that native FP32 accumulation of MXFP4 products is often already exact.",
+  "problem_solved": "Identical MXFP4 inputs can yield different results across runs, GPU vendors, and parallelism layouts, complicating debugging, training audits, and agreement between training and inference engines.",
   "method": [
-    "Exploits exact FP32 accumulation of MXFP4 products where applicable.",
-    "Targets bitwise invariance across repeated runs, parallelism layouts, and GPU vendors; the supplied abstract is truncated and does not detail the remaining mechanisms."
+    "Exploit the observation that FP32 accumulation of MXFP4 products is often exact.",
+    "Build on this property to make MXFP4 training bitwise invariant across execution settings; the supplied abstract is truncated before the detailed mechanism."
   ],
-  "impact": "Bitwise reproducibility can make low-precision training easier to debug and audit. It can also reduce numerical discrepancies when moving between hardware platforms or training and inference systems.",
+  "impact": "Bitwise reproducibility could make low-precision training easier to debug, audit, and move between platforms. It could also help eliminate numerical discrepancies between training and inference engines.",
   "visual_elements": [
-    "Before-and-after diagram: divergent MXFP4 results versus identical CertiSum outputs.",
-    "Computation pipeline showing 4-bit MXFP4 products feeding FP32 accumulation.",
-    "Multiple GPU vendors and parallelism layouts converging on one identical output bitstring.",
-    "Icons for debugging, auditability, and training–inference consistency."
+    "Before-and-after diagram: identical inputs produce divergent outputs without CertiSum and matching bit patterns with it.",
+    "Arithmetic pipeline: MXFP4 operands → products → FP32 accumulation, highlighting exact summation.",
+    "Comparison grid spanning GPU vendors and parallelism layouts, with identical output bit patterns as the target.",
+    "Icons linking reproducibility to debugging, auditing, and training–inference consistency."
   ],
   "hashtags": [
     "#CertiSum",
@@ -33,5 +33,5 @@
       "url": "https://arxiv.org/pdf/2611.21584v1"
     }
   ],
-  "generated_at": "2026-11-17T15:08:58.538404"
+  "generated_at": "2026-11-18T14:48:04.942211"
 }
