@@ -1,0 +1,38 @@
+{
+  "key_insight": "Cap-and-Track adapts LLM inference dispatch to changing serving capacity instead of relying on a fixed request rate. Backend refusals act as feedback about how much work the system can currently admit.",
+  "problem_solved": "Fixed dispatch rates become outdated as GPU fleets resize, shared provider capacity fluctuates, and request sizes vary. Unknown output lengths make inference demand difficult to predict at admission time.",
+  "method": [
+    "Use backend refusal signals to track the current admission ceiling and adjust dispatch accordingly.",
+    "Hold excess work in durable priority queues rather than immediately sending it to constrained backends.",
+    "Support asynchronous inference across provider capacity and internal GPUs; Meta implements the design in its traffic shaper for post and live-video understanding."
+  ],
+  "impact": "For AI/ML practitioners, the design offers a way to align asynchronous inference traffic with fluctuating capacity while preserving queued work and its priorities. The supplied abstract is truncated and provides no quantitative performance results.",
+  "visual_elements": [
+    "Flow diagram: incoming requests → durable priority queues → adaptive dispatcher → provider pools and internal GPUs.",
+    "Feedback loop showing backend refusals informing dispatch adjustments.",
+    "Conceptual time-series chart contrasting a stale fixed dispatch rate with dispatch that follows shifting capacity.",
+    "Variable-length request icons illustrating why request count alone does not predict inference demand."
+  ],
+  "hashtags": [
+    "#LLMInference",
+    "#AIInfrastructure",
+    "#AdaptiveDispatch",
+    "#GPUCapacity",
+    "#QueueManagement"
+  ],
+  "model": "gpt-6.1-sol",
+  "service_tier": "ultrafast",
+  "generator": "openai",
+  "paper_id": "2026-11-18-arxiv-cap_and_track_optimizing_llm_inference_request_dispatch_across_shifting_capacity",
+  "paper_title": "Cap-and-Track: Optimizing LLM Inference Request Dispatch Across Shifting Capacity",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-11-18",
+  "paper_authors": "Benjamin Novotny, Doug Szeto, Chang Wang, Shicheng Chen, George Zhihua Yuan",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2611.24891v1"
+    }
+  ],
+  "generated_at": "2026-11-19T14:54:26.364848"
+}
