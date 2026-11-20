@@ -1,24 +1,24 @@
 {
-  "key_insight": "Accurate PDE predictions do not guarantee accurate responses to small input changes. TangentPDE targets both by using sparse finite-difference supervision to teach neural operators how solutions vary locally.",
-  "problem_solved": "Training primarily on state reconstruction constrains predictions at observed inputs but can leave local sensitivity poorly characterized.",
+  "key_insight": "Accurate PDE predictions do not guarantee accurate responses to small input changes. TangentPDE adds sparse finite-difference supervision to help neural operators learn these local responses.",
+  "problem_solved": "Training mainly on state reconstruction constrains predictions at observed inputs but can leave a neural operator’s sensitivity to nearby perturbations poorly learned.",
   "method": [
-    "Use finite differences to approximate directional derivatives of the PDE solution operator.",
-    "Construct task-relevant, finite-step perturbations to characterize local input–output responses.",
-    "Use sparse supervision of these responses to guide learning beyond state prediction alone."
+    "Approximate directional derivatives using finite differences between perturbed inputs.",
+    "Use sparse finite-difference supervision to constrain local operator responses.",
+    "Focus on task-relevant perturbation directions alongside accurate state prediction."
   ],
-  "impact": "Learning local responses could make neural PDE operators more useful for sensitivity analysis and optimization, where how predictions change matters as much as their values. The provided abstract excerpt does not report quantitative results.",
+  "impact": "Learning local responses could make neural PDE operators more useful in sensitivity-aware tasks, such as optimization and control. The supplied abstract is incomplete, so experimental gains and application results cannot be assessed.",
   "visual_elements": [
-    "Side-by-side curves: two models match an observed solution but respond differently to nearby inputs.",
-    "Perturbation diagram: input → small directional change → corresponding solution change.",
-    "Finite-difference illustration: two nearby evaluations approximate a directional derivative.",
-    "Training schematic contrasting state-only supervision with state-plus-local-response supervision."
+    "Side-by-side illustration: matching a state value versus matching both the value and local slope.",
+    "Perturbation diagram showing an input, a nearby input, and the corresponding change in PDE output.",
+    "Training schematic linking state prediction and finite-difference supervision to a neural operator.",
+    "Conceptual response curves showing how models with similar state predictions can have different local sensitivities."
   ],
   "hashtags": [
     "#TangentPDE",
     "#NeuralOperators",
     "#ScientificMachineLearning",
-    "#PDEs",
-    "#SensitivityAnalysis"
+    "#PDELearning",
+    "#FiniteDifferences"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.24873v1"
     }
   ],
-  "generated_at": "2026-11-19T14:54:19.243107"
+  "generated_at": "2026-11-20T14:35:45.669239"
 }
