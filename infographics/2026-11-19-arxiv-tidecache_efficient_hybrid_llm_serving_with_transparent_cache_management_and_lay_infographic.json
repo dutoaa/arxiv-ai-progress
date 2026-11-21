@@ -1,22 +1,22 @@
 {
-  "key_insight": "TideCache aims to make hybrid LLM serving more memory-efficient by dynamically sharing GPU memory across different cache types and managing cache residency between GPU and host memory.",
-  "problem_solved": "Hybrid language models combine global-attention layers with bounded-state layers, creating different cache requirements that change with context length and concurrent requests. Serving systems must allocate limited GPU memory efficiently across these competing demands.",
+  "key_insight": "TideCache aims to make hybrid language models more efficient to serve by dynamically sharing GPU memory across different cache types and managing cache placement between GPU and host memory.",
+  "problem_solved": "Hybrid models combine global-attention and bounded-state layers with different cache requirements. As context length and concurrent requests change, fixed memory allocations can waste scarce GPU capacity.",
   "method": [
-    "Target CPU–GPU superchips to coordinate cache storage across GPU and host memory.",
+    "Target CPU–GPU superchips to manage heterogeneous caches across GPU and host memory.",
     "Use a Transparent Cache Pool to redistribute physical memory pages among cache components while preserving fixed virtual addresses.",
-    "Incorporate layer-wise streaming, as indicated by the title; the supplied abstract is truncated and does not describe its implementation or the remaining components."
+    "Incorporate layer-wise streaming, as indicated by the title; the truncated abstract does not describe its implementation or all three system components."
   ],
-  "impact": "More adaptable cache management could help practitioners use GPU memory more efficiently when serving hybrid LLMs under changing workloads. The supplied excerpt does not include performance measurements.",
+  "impact": "More adaptive cache management could help practitioners use GPU memory more effectively when serving hybrid models under changing workloads. The provided excerpt does not include measured performance gains.",
   "visual_elements": [
     "Hybrid-model diagram contrasting global-attention caches with bounded-state caches.",
-    "Shared GPU memory pool showing physical pages reassigned among cache components behind fixed virtual addresses.",
-    "CPU–GPU diagram illustrating cache residency and layer-wise streaming.",
-    "Conceptual workload chart showing cache demand changing with context length and concurrent requests."
+    "Shared GPU memory pool showing pages reassigned between cache types behind stable virtual addresses.",
+    "CPU–GPU diagram with arrows illustrating cache movement and layer-wise streaming.",
+    "Conceptual chart showing cache demand changing with context length and concurrent requests."
   ],
   "hashtags": [
     "#TideCache",
     "#LLMServing",
-    "#HybridLLMs",
+    "#HybridModels",
     "#GPUMemory",
     "#CacheManagement"
   ],
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.26619v1"
     }
   ],
-  "generated_at": "2026-11-20T14:35:25.469001"
+  "generated_at": "2026-11-21T13:53:47.409243"
 }
