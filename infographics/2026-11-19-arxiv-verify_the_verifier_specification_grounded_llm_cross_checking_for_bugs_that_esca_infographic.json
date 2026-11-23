@@ -1,20 +1,20 @@
 {
-  "key_insight": "Passing a UVM regression does not guarantee that a chip design meets its specification. Verify the Verifier uses an LLM to cross-check passing simulation traces against the specification, looking for bugs that conventional scoreboards miss.",
-  "problem_solved": "UVM scoreboards check agreement with a reference model, which can leave specification violations undetected even when every test passes. The paper calls these hidden bugs 'scoreboard escapes.'",
+  "key_insight": "A passing hardware verification test does not guarantee that a design meets its specification. Verify the Verifier uses an LLM to cross-check passing execution traces against the specification, looking for bugs that conventional scoreboards miss.",
+  "problem_solved": "UVM scoreboards check agreement with a reference model, but incomplete checks or shared mistakes can allow specification violations—called scoreboard escapes—to survive otherwise successful regressions.",
   "method": [
-    "Use an LLM-based Anomaly Cross-Checker to examine traces from passing UVM regressions.",
-    "Ground the cross-checking in the design specification rather than relying only on scoreboard results.",
-    "Evaluate using 564 inserted bugs across four OpenTitan IPs; the provided abstract mentions 68 candidates but is truncated before reporting complete results."
+    "Analyze traces from passing UVM regressions with an LLM-based Anomaly Cross-Checker.",
+    "Ground the cross-check in the design specification to identify violations beyond existing scoreboard checks.",
+    "Study 564 inserted bugs across four OpenTitan IPs; the provided abstract mentions 68 candidates but is truncated before reporting complete results."
   ],
-  "impact": "The framework illustrates how specification-grounded LLMs can complement conventional hardware verification by checking its blind spots. The supplied abstract does not establish final detection performance.",
+  "impact": "For AI/ML practitioners building verification tools, this illustrates how specification-grounded LLMs can complement established automated checks. The approach targets hardware verification blind spots rather than treating a passing regression as proof of correctness.",
   "visual_elements": [
-    "Split diagram: 'Scoreboard agreement' versus 'Specification compliance,' showing why a passing test can still hide a bug.",
-    "Workflow: specification + passing simulation traces → LLM Anomaly Cross-Checker → potential violations.",
-    "Chip icon with a magnifying glass highlighting bugs that escape a green 'PASS' indicator.",
-    "Evaluation snapshot: 4 OpenTitan IPs and 564 inserted bugs, with a note that complete results are unavailable in the excerpt."
+    "Split-path diagram: execution traces pass the UVM scoreboard but undergo an additional specification-grounded LLM check.",
+    "Three-part comparison: design behavior, reference-model expectations, and specification requirements.",
+    "Magnifying-glass icon highlighting a hidden specification violation beneath a green test-pass badge.",
+    "Evaluation snapshot showing 564 inserted bugs across four OpenTitan IPs, with a note that the supplied results are incomplete."
   ],
   "hashtags": [
-    "#LLM",
+    "#LLMVerification",
     "#HardwareVerification",
     "#UVM",
     "#OpenTitan",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.26588v1"
     }
   ],
-  "generated_at": "2026-11-21T13:53:30.894397"
+  "generated_at": "2026-11-23T16:50:17.696392"
 }

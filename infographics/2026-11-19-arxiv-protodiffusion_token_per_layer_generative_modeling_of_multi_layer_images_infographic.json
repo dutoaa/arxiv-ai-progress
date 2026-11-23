@@ -1,22 +1,22 @@
 {
-  "key_insight": "ProtoDiffusion represents a layered graphic design using one shared spatial prototype and one compact vector per layer, rather than a separate spatial grid for every layer. This offers a more compact foundation for generating multi-layer images.",
-  "problem_solved": "Existing layered-image models allocate full-canvas or region-sized latent grids to individual layers, making representation size grow with their cumulative spatial extent.",
+  "key_insight": "ProtoDiffusion represents a layered graphic design using one shared spatial prototype and one vector per layer, rather than a separate spatial grid for every layer. This provides a more compact foundation for generating editable, multi-layer images.",
+  "problem_solved": "Existing layered-image models allocate a full-canvas or region-sized latent grid to each layer, causing representation size to grow with the layers’ cumulative spatial extent.",
   "method": [
-    "Use ProtoVAE, a multi-layer variational autoencoder, to encode a design into a shared spatial prototype and one candidate vector per layer.",
-    "Build a latent-diffusion framework on this representation to model multi-layer images.",
-    "Represent ordered RGBA layers, whose separation supports selection, movement, and reuse."
+    "Use ProtoVAE, a multi-layer variational autoencoder, to encode a design into a shared spatial prototype.",
+    "Represent each layer with a single candidate vector instead of its own spatial latent grid.",
+    "Build a latent-diffusion generative framework on this representation."
   ],
-  "impact": "For practitioners building graphic-design tools, this approach could reduce per-layer representation overhead while retaining separately editable layers. The provided abstract is truncated, so quantitative efficiency gains and generation quality cannot be assessed.",
+  "impact": "The approach could make layered-image generation more representation-efficient while supporting workflows that depend on selecting, moving, and reusing individual layers. The supplied abstract is truncated, so quantitative performance and efficiency gains cannot be assessed.",
   "visual_elements": [
-    "Exploded stack of RGBA layers showing how they form a finished design.",
-    "Side-by-side comparison: a spatial latent grid per layer versus one shared prototype plus compact layer vectors.",
-    "Pipeline diagram: layered design → ProtoVAE encoding → latent diffusion → generated layered design.",
-    "Selection, movement, and reuse icons illustrating the value of separate layers."
+    "An exploded stack of RGBA layers illustrating an editable graphic design.",
+    "A side-by-side comparison: per-layer spatial grids versus one shared prototype plus layer vectors.",
+    "A pipeline diagram connecting layered input, ProtoVAE representation, and latent diffusion.",
+    "A conceptual scaling diagram showing repeated spatial grids versus added layer vectors, clearly labeled as illustrative rather than measured."
   ],
   "hashtags": [
     "#ProtoDiffusion",
-    "#LatentDiffusion",
     "#GenerativeAI",
+    "#LatentDiffusion",
     "#LayeredImages",
     "#GraphicDesignAI"
   ],
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.26586v1"
     }
   ],
-  "generated_at": "2026-11-21T13:53:28.628271"
+  "generated_at": "2026-11-23T16:50:19.596874"
 }

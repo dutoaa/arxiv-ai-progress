@@ -1,0 +1,38 @@
+{
+  "key_insight": "Compressing a streaming geometry transformer's KV memory is not just a precision trade-off: different cache locations have different geometric sensitivity, and retrieval errors can disrupt downstream geometry predictions.",
+  "problem_solved": "Historical key-value caches preserve cross-view geometric information but grow during long-sequence inference. Low-bit compression must reduce this memory burden without undermining geometric consistency.",
+  "method": [
+    "Systematically characterize KV quantization across precision choices and cache locations.",
+    "Identify two linked challenges: Nonuniform Geometric Sensitivity and Cache-Geometry Mismatch.",
+    "Target geometry-aligned low-bit KV caching; the provided abstract is truncated and does not specify the full implementation."
+  ],
+  "impact": "This work highlights why KV compression for visual geometry should account for geometric sensitivity rather than memory savings alone. It could help practitioners design more memory-efficient long-sequence inference, though the excerpt provides no quantitative results.",
+  "visual_elements": [
+    "Streaming frames feeding a growing KV cache, contrasted with a compact low-bit cache.",
+    "Heatmap showing quantization sensitivity across cache locations and precision levels.",
+    "Error-propagation diagram: perturbed retrieval → changed geometry-head inputs → downstream geometry errors.",
+    "Two warning icons labeling Nonuniform Geometric Sensitivity and Cache-Geometry Mismatch."
+  ],
+  "hashtags": [
+    "#QuantStream3D",
+    "#KVCache",
+    "#Quantization",
+    "#3DVision",
+    "#EfficientAI"
+  ],
+  "model": "gpt-6.1-sol",
+  "service_tier": "ultrafast",
+  "generator": "openai",
+  "paper_id": "2026-11-20-arxiv-quantstream3d_geometry_aligned_low_bit_kv_cache_quantization_for_streaming_visua",
+  "paper_title": "QuantStream3D: Geometry-Aligned Low-Bit KV Cache Quantization for Streaming Visual Geometry Transformers",
+  "paper_category": "Hardware/Infra",
+  "paper_date": "2026-11-20",
+  "paper_authors": "Zunhai Su, Keyu Fan, Ruishan Guo, Zhongzhu Zhou, Jingzehua Xu",
+  "paper_links": [
+    {
+      "title": "PDF",
+      "url": "https://arxiv.org/pdf/2611.27901v1"
+    }
+  ],
+  "generated_at": "2026-11-23T16:49:52.577892"
+}
