@@ -1,17 +1,17 @@
 {
-  "key_insight": "Compressing a streaming geometry transformer's KV memory is not just a precision trade-off: different cache locations have different geometric sensitivity, and retrieval errors can disrupt downstream geometry predictions.",
-  "problem_solved": "Historical key-value caches preserve cross-view geometric information but grow during long-sequence inference. Low-bit compression must reduce this memory burden without undermining geometric consistency.",
+  "key_insight": "Compressing a streaming geometry transformer's KV cache is not just a memory problem: different cache locations tolerate different levels of quantization, and compression errors can disrupt geometric predictions. QuantStream3D frames low-bit caching around preserving this geometric memory.",
+  "problem_solved": "Historical key-value states help streaming models connect geometry across views, but their growing memory footprint limits long-sequence inference. Quantizing these states can distort retrieval and affect downstream geometry estimation.",
   "method": [
-    "Systematically characterize KV quantization across precision choices and cache locations.",
-    "Identify two linked challenges: Nonuniform Geometric Sensitivity and Cache-Geometry Mismatch.",
-    "Target geometry-aligned low-bit KV caching; the provided abstract is truncated and does not specify the full implementation."
+    "Systematically characterize KV-cache quantization in streaming visual geometry transformers.",
+    "Identify nonuniform geometric sensitivity across precision choices and cache locations.",
+    "Examine cache-geometry mismatch: perturbed retrieval changes geometry-head inputs, motivating geometry-aligned low-bit caching. The supplied abstract is truncated, so implementation details are unavailable."
   ],
-  "impact": "This work highlights why KV compression for visual geometry should account for geometric sensitivity rather than memory savings alone. It could help practitioners design more memory-efficient long-sequence inference, though the excerpt provides no quantitative results.",
+  "impact": "This work highlights why low-bit cache compression for geometry models should account for downstream geometric accuracy, not just memory savings. It could guide more memory-efficient long-sequence inference, although the supplied excerpt provides no quantitative results.",
   "visual_elements": [
-    "Streaming frames feeding a growing KV cache, contrasted with a compact low-bit cache.",
-    "Heatmap showing quantization sensitivity across cache locations and precision levels.",
-    "Error-propagation diagram: perturbed retrieval → changed geometry-head inputs → downstream geometry errors.",
-    "Two warning icons labeling Nonuniform Geometric Sensitivity and Cache-Geometry Mismatch."
+    "Streaming frame timeline showing historical KV-cache growth.",
+    "Cache heatmap illustrating differing sensitivity across locations and bit widths.",
+    "Error-flow diagram: quantized cache → altered retrieval → changed geometry-head inputs.",
+    "Conceptual balance graphic contrasting cache memory savings with geometric fidelity."
   ],
   "hashtags": [
     "#QuantStream3D",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.27901v1"
     }
   ],
-  "generated_at": "2026-11-23T16:49:52.577892"
+  "generated_at": "2026-11-24T16:42:28.884099"
 }
