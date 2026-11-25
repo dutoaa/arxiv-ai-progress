@@ -1,24 +1,24 @@
 {
-  "key_insight": "CTLink connects written radiology findings to their locations in 3D chest CT scans. It uses text prompts to segment the abnormalities described in a report.",
-  "problem_solved": "Radiology reports describe abnormalities in words but typically do not mark them on the scan, making it difficult to match each finding to the corresponding anatomy.",
+  "key_insight": "CTLink connects written chest CT findings to their locations in a 3D scan. It uses text prompts to segment the abnormalities described in radiology reports.",
+  "problem_solved": "Radiology reports describe abnormalities without marking them on the scan, leaving readers to determine which image regions correspond to each finding.",
   "method": [
-    "Use report finding text as a prompt for a 3D chest CT segmentation model.",
-    "Train on 4,123 noncontrast chest CT scans with 9,547 segmented report findings.",
-    "Include ReXGroundingCTv2, a newly annotated dataset containing 1,134 scans and 1,895 findings."
+    "Use report finding text as a prompt for 3D segmentation of the corresponding abnormality.",
+    "Train on 4,123 noncontrast chest CT scans containing 9,547 segmented report findings.",
+    "Include ReXGroundingCTv2, a newly annotated dataset of 1,134 scans and 1,895 findings."
   ],
-  "impact": "CTLink offers a way to ground clinical language in volumetric medical images, supporting more interpretable report-to-image interfaces. The supplied abstract is truncated, so performance and clinical validation cannot be assessed.",
+  "impact": "CTLink offers a way to ground clinical language in volumetric medical images, potentially supporting interactive scan review and report-linked visualization. The provided abstract excerpt does not include performance results.",
   "visual_elements": [
-    "Pipeline: report finding → text-prompted CTLink model → highlighted region in a 3D CT scan.",
-    "Paired view of a report sentence and its corresponding segmentation overlay.",
-    "Dataset cards showing 4,123 scans and 9,547 segmented findings, with a separate ReXGroundingCTv2 annotation card.",
-    "Chest CT slice stack illustrating how a segmented finding extends across three dimensions."
+    "Workflow diagram: report finding → CTLink → highlighted region in a 3D chest CT.",
+    "Side-by-side report excerpt and CT slices with matching color-coded segmentation overlays.",
+    "Training-data graphic showing 4,123 scans and 9,547 segmented findings.",
+    "Dataset spotlight card for ReXGroundingCTv2: 1,134 scans and 1,895 findings."
   ],
   "hashtags": [
     "#MedicalAI",
-    "#CTSegmentation",
+    "#ChestCT",
+    "#ImageSegmentation",
     "#VisionLanguageModels",
-    "#RadiologyAI",
-    "#CTLink"
+    "#Radiology"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.31222v1"
     }
   ],
-  "generated_at": "2026-11-24T16:42:08.404471"
+  "generated_at": "2026-11-25T16:27:07.116572"
 }

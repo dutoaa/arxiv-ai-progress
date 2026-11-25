@@ -1,24 +1,24 @@
 {
-  "key_insight": "In autonomous-driving VLA models, the components most important for reasoning are not necessarily those most important for predicting vehicle trajectories. Pruning therefore needs to account for both tasks rather than assuming they rely on the same structures.",
-  "problem_solved": "Chain-of-thought driving models require substantial memory and computation. The paper studies how to prune their structures while preserving scene understanding and trajectory prediction.",
+  "key_insight": "An autonomous-driving model’s reasoning and trajectory prediction do not value the same internal components equally. Pruning should account for both objectives rather than assume that preserving one also preserves the other.",
+  "problem_solved": "Reasoning vision-language-action models require substantial memory and computation. Reducing their size must preserve both scene understanding and driving trajectory prediction.",
   "method": [
-    "Study structured pruning in the Alpamayo-1.5-10B autonomous-driving model.",
-    "Analyze Taylor importance scores for model structures under reasoning and trajectory objectives.",
-    "Compare task-specific importance to identify differences relevant to pruning decisions."
+    "Study structured pruning in Alpamayo-1.5-10B, a reasoning vision-language-action model.",
+    "Analyze Taylor importance scores to estimate which vision-language model structures matter for reasoning versus trajectory prediction.",
+    "Compare the two objectives’ importance patterns to identify differing preservation priorities."
   ],
-  "impact": "The findings suggest that compression criteria should reflect both reasoning and action requirements. The supplied abstract is truncated, so specific pruning results and efficiency gains cannot be confirmed.",
+  "impact": "For practitioners compressing driving models, the findings motivate evaluating reasoning and action quality separately. The supplied abstract is truncated, so specific pruning results and efficiency gains cannot be confirmed.",
   "visual_elements": [
-    "Pipeline diagram: road scene → visual-language reasoning → predicted driving trajectory.",
-    "Paired heatmaps showing different structural importance scores for reasoning and trajectory prediction.",
-    "Pruning schematic highlighting structures important to reasoning, action, or both.",
-    "Trade-off illustration linking model size and computation with preservation of both tasks, without unsupported numerical claims."
+    "Pipeline diagram: road scene → visual understanding → chain-of-thought reasoning → predicted trajectory.",
+    "Paired importance heatmaps showing how reasoning and trajectory objectives prioritize model structures differently.",
+    "Pruning schematic showing model structures removed or retained according to objective-specific importance.",
+    "Balance icon illustrating the need to preserve both scene understanding and trajectory prediction."
   ],
   "hashtags": [
     "#AutonomousDriving",
     "#VisionLanguageAction",
     "#ModelPruning",
     "#EfficientAI",
-    "#AIReasoning"
+    "#ModelEvaluation"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.31240v1"
     }
   ],
-  "generated_at": "2026-11-24T16:42:19.636001"
+  "generated_at": "2026-11-25T16:27:09.596265"
 }
