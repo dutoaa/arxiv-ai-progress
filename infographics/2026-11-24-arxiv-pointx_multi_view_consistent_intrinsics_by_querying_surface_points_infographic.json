@@ -1,17 +1,17 @@
 {
-  "key_insight": "PointX predicts intrinsic scene properties at 3D surface points rather than separately for each image pixel. This ties the decomposition to the physical surface, helping keep predictions consistent across viewpoints.",
-  "problem_solved": "Recovering material properties, surface normals, and illumination from images is ambiguous. Pixel-based methods can assign conflicting properties to the same surface point when it appears in different views.",
+  "key_insight": "PointX predicts scene properties at 3D surface points rather than independently at image pixels. This makes the decomposition consistent when the same surface is seen from different viewpoints.",
+  "problem_solved": "Recovering material properties, surface normals, and lighting from images is ambiguous. Pixel-based methods can assign conflicting properties to the same physical point across views.",
   "method": [
-    "Use a multi-view transformer to encode a set of unposed images.",
-    "Query 3D surface points with a feed-forward model to predict intrinsic properties.",
-    "Represent intrinsics at the surface-point level instead of producing independent per-view pixel decompositions."
+    "Encode multiple unposed images using a multi-view transformer.",
+    "Use a feed-forward model to predict intrinsic properties per 3D surface point rather than per pixel.",
+    "Represent appearance through albedo, roughness, metallicity, surface normals, and irradiance."
   ],
-  "impact": "Point-based prediction offers a route to more coherent multi-view scene understanding, potentially benefiting inverse rendering and material estimation. The supplied abstract is truncated, so performance gains and evaluation results cannot be assessed.",
+  "impact": "Point-based prediction offers a way to obtain coherent scene properties across views, potentially benefiting material estimation, relighting, and 3D content workflows. The supplied abstract is truncated and provides no quantitative results.",
   "visual_elements": [
-    "Multiple camera views converging on one shared 3D surface point.",
-    "Pipeline diagram: unposed images → multi-view transformer → surface-point queries → intrinsic properties.",
-    "Conceptual comparison of conflicting per-view pixel predictions versus a shared point-level prediction.",
-    "Property icons for albedo, roughness, metallicity, surface normal, and irradiance."
+    "Several camera views linked to one shared point on a 3D surface.",
+    "Side-by-side illustration: conflicting per-pixel predictions versus a shared per-point prediction.",
+    "Pipeline diagram: unposed images → multi-view transformer → queried surface-point properties.",
+    "Property cards showing albedo, roughness, metallicity, normals, and irradiance."
   ],
   "hashtags": [
     "#PointX",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.33157v1"
     }
   ],
-  "generated_at": "2026-11-25T16:26:53.588117"
+  "generated_at": "2026-11-26T16:00:56.884483"
 }

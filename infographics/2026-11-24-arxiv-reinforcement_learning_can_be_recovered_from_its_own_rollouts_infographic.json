@@ -1,23 +1,23 @@
 {
-  "key_insight": "RL-generated rollouts may preserve knowledge usually thought to reside only in trained model weights. The paper explores recovering RL capabilities from these archived outputs, though the provided abstract is truncated before the findings.",
-  "problem_solved": "RL pipelines typically discard rollouts after each update. This work asks whether those archives can instead become reusable training resources—and why simply replaying the original RL algorithm may fail.",
+  "key_insight": "The paper’s central claim is that capabilities gained through reinforcement learning can be recovered from saved model rollouts—not just preserved in trained model weights. However, simply replaying the original RL training on archived rollouts is not enough.",
+  "problem_solved": "RL workflows typically discard generated rollouts after updates, leaving valuable training data unused. The paper investigates whether those archives retain enough information to recover the capabilities learned during RL.",
   "method": [
-    "Archive model-generated rollouts produced during RL post-training.",
-    "Investigate how much learned capability can be recovered by training on those archived rollouts.",
-    "Test replaying the original RL algorithm on archived rather than fresh rollouts; the excerpt indicates a failure but omits its details and the proposed remedy."
+    "Study archived model-generated rollouts as a source of knowledge acquired during RL post-training.",
+    "Test replaying the original RL algorithm on saved rollouts instead of generating fresh ones.",
+    "Investigate recovery beyond naive replay; the truncated abstract does not provide the proposed procedure or quantitative results."
   ],
-  "impact": "Recovering capabilities from saved rollouts could make expensive RL-generated data reusable and reduce repeated generation costs. The supplied excerpt does not establish the achieved recovery rate or compute savings.",
+  "impact": "Recovering capabilities from saved rollouts could make RL training data reusable and reduce dependence on fresh generation. The supplied excerpt does not establish the achievable compute savings or recovery performance.",
   "visual_elements": [
-    "Pipeline diagram: RL training produces both updated model weights and an archive of rollouts.",
-    "Side-by-side workflows: fresh rollout generation versus archived rollout reuse.",
-    "Question-mark arrow from archived rollouts to a recovered model, highlighting the central research question.",
-    "Warning icon beside naive replay, indicating that straightforward reuse encounters a failure."
+    "Pipeline: model → generated rollouts → RL updates → improved model.",
+    "Branching diagram contrasting discarded rollouts with archived, reusable rollouts.",
+    "Comparison schematic: naive replay versus capability recovery, with the latter’s mechanism marked as unspecified.",
+    "Paired icons representing knowledge stored in model weights and in rollout archives."
   ],
   "hashtags": [
     "#ReinforcementLearning",
     "#PostTraining",
-    "#RolloutReuse",
-    "#OfflineRL",
+    "#ModelRollouts",
+    "#DataReuse",
     "#MachineLearning"
   ],
   "model": "gpt-6.1-sol",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.33102v1"
     }
   ],
-  "generated_at": "2026-11-25T16:26:27.397817"
+  "generated_at": "2026-11-26T16:01:02.492964"
 }
