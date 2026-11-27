@@ -1,24 +1,24 @@
 {
-  "key_insight": "LuxAvatar combines an animatable 3D head representation with a neural shader to animate and relight a single portrait in real time. Separating geometry and reflectance from shading aims to preserve 3D control while capturing complex facial lighting.",
-  "problem_solved": "Creating head avatars from one image that remain consistent across viewpoints, facial motion, and lighting changes—without sacrificing real-time performance.",
+  "key_insight": "LuxAvatar separates a head avatar’s 3D structure and surface properties from its lighting appearance. This lets a single portrait drive an animatable, relightable avatar using a 3D Gaussian proxy and a neural shader.",
+  "problem_solved": "Creating real-time head avatars from one portrait while maintaining controllable 3D motion, consistent appearance across viewpoints, and realistic responses to changing lighting.",
   "method": [
     "Build an animatable 3D intrinsic Gaussian proxy that separates canonical geometry from reflectance attributes.",
-    "Deform and rasterize the Gaussians into physically based rendering (PBR) buffers consistent with viewpoint and motion.",
-    "Condition a causal autoregressive neural shader on these buffers to synthesize the final appearance."
+    "Deform and rapidly rasterize the Gaussians into physically based rendering (PBR) buffers that remain consistent across views and motion.",
+    "Condition a causal autoregressive neural shader on these buffers to model complex facial light transport."
   ],
-  "impact": "The approach could support interactive digital humans, virtual production, and telepresence with controllable lighting from minimal input. The supplied abstract is truncated, so quantitative performance and evaluation results are not available.",
+  "impact": "The approach targets interactive avatars that can be animated and relit without rebuilding their appearance for each scene. It offers practitioners a hybrid design combining explicit 3D control with learned shading; the supplied abstract excerpt does not include quantitative results.",
   "visual_elements": [
-    "Pipeline diagram: single portrait → 3D Gaussian proxy → PBR buffers → neural shader → animated avatar.",
+    "Pipeline: single portrait → 3D Gaussian proxy → PBR buffers → neural shader → rendered avatar.",
     "Layered head illustration separating geometry, reflectance, and final shading.",
-    "Relighting grid showing the same avatar under different light directions and colors.",
-    "View-and-expression sequence illustrating consistent appearance during head turns and facial motion."
+    "Same avatar under several lighting directions to demonstrate relighting.",
+    "Grid of viewpoints and facial poses illustrating intended view and motion consistency."
   ],
   "hashtags": [
     "#LuxAvatar",
     "#NeuralRendering",
     "#GaussianSplatting",
-    "#DigitalHumans",
-    "#Relighting"
+    "#DigitalAvatars",
+    "#InverseRendering"
   ],
   "model": "gpt-6.1-sol",
   "service_tier": "ultrafast",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.34940v1"
     }
   ],
-  "generated_at": "2026-11-26T16:00:31.176943"
+  "generated_at": "2026-11-27T15:49:28.530429"
 }

@@ -1,21 +1,21 @@
 {
-  "key_insight": "Mixture-of-Loops Transformer (MoLT) treats attention keys and values as reusable memory across depths and loops. This lets repeated Transformer computations selectively access earlier information rather than relying only on the connection between adjacent loops.",
-  "problem_solved": "Looped Transformers increase expressivity by repeatedly applying shared layers, but this adds computational cost. The paper explores what information should pass between loops to improve the expressivity–efficiency trade-off.",
+  "key_insight": "Mixture-of-Loops Transformer (MoLT) treats attention keys and values as reusable memory across model depths and repeated loops. This lets the model selectively reuse earlier information rather than relying only on what adjacent loops pass forward.",
+  "problem_solved": "Looped Transformers gain expressive power by repeatedly applying shared layers, but this repetition comes with efficiency costs. The paper rethinks how information moves between loops to improve that trade-off.",
   "method": [
-    "Reuse shared Transformer layers across multiple loops.",
-    "Introduce Mixture-of-Loops Attention (MoLA), which uses keys and values as memory for selective reuse across depths and loops.",
+    "Introduce Mixture-of-Loops Attention (MoLA), which uses attention keys and values as memory.",
+    "Selectively reuse this memory across depths and loops.",
     "Include a loop-residual variant, MoLT-R, that retains the residual stream; further details are unavailable in the truncated abstract."
   ],
-  "impact": "MoLT offers a design direction for making repeated Transformer computation more useful through selective memory reuse. The supplied abstract does not include results, so efficiency gains and practical benefits cannot be quantified.",
+  "impact": "MoLT offers a design direction for making shared-layer Transformers more expressive without simply adding distinct layers. The provided abstract does not include results, so practical efficiency gains remain unverified here.",
   "visual_elements": [
-    "An unrolled loop diagram showing the same Transformer layers reused across iterations.",
-    "A key–value memory bank with selective connections to attention at different depths and loops.",
-    "A side-by-side schematic contrasting adjacent-loop information flow with MoLA's cross-loop memory access.",
-    "A residual-stream bypass illustrating the stated MoLT-R design."
+    "Loop diagram showing a shared Transformer block applied repeatedly.",
+    "Memory-bank illustration showing keys and values reused across depths and loops.",
+    "Side-by-side information-flow diagrams comparing conventional loop connections with MoLA.",
+    "Conceptual expressivity–efficiency trade-off graphic, clearly labeled as illustrative rather than measured."
   ],
   "hashtags": [
     "#MixtureOfLoops",
-    "#LoopedTransformers",
+    "#Transformers",
     "#AttentionMechanism",
     "#EfficientAI",
     "#DeepLearning"
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.34923v1"
     }
   ],
-  "generated_at": "2026-11-26T16:00:12.910048"
+  "generated_at": "2026-11-27T15:49:13.466312"
 }

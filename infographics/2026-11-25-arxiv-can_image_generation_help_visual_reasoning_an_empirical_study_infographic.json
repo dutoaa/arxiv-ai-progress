@@ -1,17 +1,17 @@
 {
-  "key_insight": "Generating extra images does not reliably help AI answer visual questions. Across 13 vision-language model–generator pairs, helper images reduced average accuracy by 3.7 percentage points, with declines on nine of ten tasks.",
-  "problem_solved": "The study tests whether multimodal AI can improve visual reasoning by generating and consulting a helper image rather than relying only on the original image.",
+  "key_insight": "Generating an extra image to help answer a visual question can hurt rather than help. Across 13 vision-language model–generator pairs, this approach reduced mean accuracy by 3.7 percentage points, with declines on nine of ten tasks.",
+  "problem_solved": "The study tests whether image generation provides a useful visual reasoning aid, rather than assuming that an additional generated image improves understanding.",
   "method": [
-    "Have a model describe the helper image it needs to answer a visual question.",
-    "Generate that helper, then answer using both the original and generated images.",
-    "Compare accuracy with and without generation across 13 model–generator pairs and ten tasks, including the unified models BAGEL and Janus-Pro-7B."
+    "Ask a model to describe a helper image it needs to answer a visual question.",
+    "Generate the helper image, then answer using both the original and generated images.",
+    "Compare accuracy with and without generated helpers across 13 model–generator pairs and ten tasks, including evaluations of unified models BAGEL and Janus-Pro-7B."
   ],
-  "impact": "Practitioners should not assume image generation improves visual reasoning: it can reduce accuracy. Evaluate generated-image workflows against a no-generation baseline before adopting them.",
+  "impact": "Practitioners should validate generated visual aids before adding them to reasoning pipelines: more visual input does not necessarily improve accuracy. BAGEL and Janus-Pro-7B each lost accuracy on eight tasks, reinforcing the need for task-specific evaluation.",
   "visual_elements": [
-    "Workflow diagram: original image + question → helper description → generated image → answer using both images.",
+    "Pipeline diagram: visual question → helper-image description → image generation → answer using both images.",
     "Headline metric card: −3.7 percentage points in mean accuracy.",
-    "Task-outcome graphic highlighting accuracy declines on nine of ten tasks.",
-    "Model comparison cards showing BAGEL and Janus-Pro-7B each losing accuracy on eight tasks."
+    "Ten-task icon grid highlighting nine tasks with accuracy declines.",
+    "Paired model cards showing BAGEL and Janus-Pro-7B each declining on eight tasks."
   ],
   "hashtags": [
     "#VisualReasoning",
@@ -34,5 +34,5 @@
       "url": "https://arxiv.org/pdf/2611.34935v1"
     }
   ],
-  "generated_at": "2026-11-26T16:00:28.545975"
+  "generated_at": "2026-11-27T15:49:26.091042"
 }
